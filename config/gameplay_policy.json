@@ -1,9 +1,17 @@
 {
   "schema_version": 1,
-  "policy_id": "PLAYER_RULES_20261016_V1",
+  "policy_id": "PLAYER_RULES_20261016_V2",
   "source": "PLAYER_EXPLICIT_INSTRUCTIONS",
   "game": "NBA2K22",
   "initial_season": "2021-2022",
+  "phase_triggers": {
+    "data_capture": "PLAYER_EXPLICIT_TRIGGER",
+    "gm_decision": "PLAYER_EXPLICIT_SEPARATE_TRIGGER",
+    "game_execution": "PLAYER_EXPLICIT_SEPARATE_TRIGGER_WITH_SPECIFIC_APPROVAL",
+    "automatic_phase_transition": false,
+    "data_job_runs_gm": false,
+    "execution_job_recaptures_or_publishes": "ONLY_IF_PLAYER_REQUESTS_IN_SAME_TASK"
+  },
   "roles": {
     "codex": ["initialize_sources", "player_triggered_capture", "verify", "calculate", "publish", "execute_specific_player_approved_changes"],
     "web_gpt": ["read_verified_data", "gm_decisions", "team_building", "winning_plans", "worldline_proposals"],

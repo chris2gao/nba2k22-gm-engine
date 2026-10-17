@@ -18,7 +18,7 @@ class LeagueModifier:
     @staticmethod
     def _reject_legacy_player_edit():
         raise PermissionError(
-            "Generic player edits are disabled by PLAYER_RULES_20261016_V1. "
+            "Generic player edits are disabled by the current player policy. "
             "An approved trade does not authorize ability changes. Historical-gravity "
             "edits need a separate controlled executor; MC growth remains deferred."
         )

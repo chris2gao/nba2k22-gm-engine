@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Unified, fail-closed monthly workflow: capture -> audit -> DB-only GM."""
+"""Player-triggered data-only workflow: backup -> capture -> audit -> stop."""
 import argparse
 import os
 import sqlite3
@@ -7,15 +7,13 @@ from datetime import datetime, timezone
 
 from auto_pipeline_ingest import run_automated_ingestion
 from audit_sampling import run_ai_sampling_audit
-from gm_engine import GMEngine
 from save_context import resolve_context
-from snapshot_integrity import write_json_atomic
 
 
-def _write_report(path: str, manifest: dict, audit: dict, proposals: dict) -> None:
+def _write_report(path: str, manifest: dict, audit: dict) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     lines = [
-        f"# NBA 2K22 GM 月度数据与决策报告：{manifest['snapshot_id']}",
+        f"# NBA 2K22 数据采集报告：{manifest['snapshot_id']}",
         "",
         f"- 存档 ID：`{manifest['save_id']}`",
         f"- 入库时间 (UTC)：`{manifest['timestamp']}`",
@@ -26,30 +24,19 @@ def _write_report(path: str, manifest: dict, audit: dict, proposals: dict) -> No
         "- 教练球队归属：未验证，因此本次未将制服组数据当作正式教练映射。",
         "- 战绩/比赛统计：仅使用内存未观测字段的 NULL 值，不以工资或 POE 推导战绩。",
         "",
-        "## GM 候选建议",
+        "## 阶段交付",
         "",
-        f"- 超过静态奢侈税线球队数：{proposals['financial_landscape']['luxury_tax_teams_count']}",
-        f"- 工资总额低于静态工资帽的代理球队数：{proposals['financial_landscape']['below_cap_proxy_teams_count']}",
-        f"- 建议状态：`{proposals['execution_policy']}`",
+        "- 状态：`DATA_READY_AWAITING_PLAYER`。本次只完成数据采集与审计。",
+        "- GM 决策：未启动；由玩家另行找到 GM 模型并明确触发。",
+        "- 游戏执行：未启动；须由玩家批准具体方案并另行交给执行窗口。",
         "",
     ]
-    trades = proposals.get("proposed_trades", [])
-    if trades:
-        lines.extend(["### 交易候选", ""])
-        for deal in trades:
-            lines.extend([
-                f"- `{deal['status']}`：{deal['team_a']['abbr']} → {deal['team_b']['abbr']}，候选球员 {deal['team_a']['assets_offered'][0]['player_name']}。",
-                f"  CBA 核验：未通过/未完成（`{deal['cba_validation']['rule']}`）；不可直接执行。",
-            ])
-    else:
-        lines.extend(["本批次没有基于当前可验证字段生成交易候选。", ""])
     lines.extend([
         "",
         "## 可复核产物",
         "",
         f"- 入库清单：`{os.path.basename(manifest['artifacts']['manifest_json'])}`",
         f"- 抽样审计：`{os.path.basename(audit['artifact_path'])}`",
-        f"- GM 建议 JSON：`{os.path.basename(proposals['artifact_path'])}`",
         "",
     ])
     temp_path = path + ".tmp"
@@ -106,31 +93,24 @@ def run_cycle(
     audit_file = os.path.join(context["snapshots_dir"], f"ai_sampling_audit_{snapshot_id}.json")
     audit["artifact_path"] = audit_file
 
-    engine = GMEngine(
-        db_path=db_path,
-        snapshots_dir=context["snapshots_dir"],
-        player_pool_db_path=context["player_pool_db_path"],
-    )
-    proposals = engine.generate_gm_proposals(snapshot_id)
-    proposals["artifact_path"] = os.path.join(
-        context["snapshots_dir"], f"gm_decision_manifest_{snapshot_id}.json"
-    )
-    report_file = os.path.join(context["evaluations_dir"], f"GM_REPORT_{snapshot_id}.md")
-    _write_report(report_file, manifest, audit, proposals)
-    print(f"[+] 月度数据闭环完成。审计凭证: {audit_file}")
-    print(f"[+] 数据库驱动 GM 建议: {proposals['artifact_path']}")
+    report_file = os.path.join(context["snapshots_dir"], f"DATA_REPORT_{snapshot_id}.md")
+    _write_report(report_file, manifest, audit)
+    print(f"[+] 数据采集与审计完成。审计凭证: {audit_file}")
+    print("[+] DATA_READY_AWAITING_PLAYER：GM 决策和游戏执行均待玩家分别触发。")
     print(f"[+] 报告: {report_file}")
     return {
         "snapshot_id": snapshot_id,
         "manifest": manifest,
         "audit": audit,
-        "proposals": proposals,
+        "stage_status": "DATA_READY_AWAITING_PLAYER",
+        "gm_decision_started": False,
+        "game_execution_started": False,
         "report_file": report_file,
     }
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="采集真实数据、完成脚本抽检、输出数据库驱动 GM 建议")
+    parser = argparse.ArgumentParser(description="仅采集真实数据和完成脚本审计；不启动 GM 决策或游戏执行")
     parser.add_argument("--season", type=int, default=2022)
     parser.add_argument("--month", type=int, default=1)
     parser.add_argument("--name", type=str, default="NOV")

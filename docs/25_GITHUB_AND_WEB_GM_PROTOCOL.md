@@ -50,6 +50,8 @@ published/saves/<career_id>/batches/<batch_id>/
 
 ## 网页 GM 每次的必读协议
 
+只有玩家明确触发 GM 后才开始决策；发布新批次本身不启动模型、不生成建议、不进入本地执行。玩家批准方案后另行交给文档 28 的执行窗口；执行后完整重采集/发布也须在本次明确要求或另行触发。
+
 先读取 `web_gm/START_HERE.md` 和 `GM_INSTRUCTIONS.md`。将玩家这次提供的发布回执作为预期版本：核对 career_id、游戏日期、batch_id、commit SHA；从该固定 commit 获取 latest/manifest，并且所有后续文件都读取同一 commit 与 batch。搜索结果中的旧快照不能自动当作最新。
 
 若连接不能按版本读到预期文件，必须说明当前读到的版本或无法读取，停止用旧数据冒充最新。数据导出成功、GitHub 上传成功、用户网页 GPT 连接读取成功是三个分别验收的环节；前两者不能代替第三者。

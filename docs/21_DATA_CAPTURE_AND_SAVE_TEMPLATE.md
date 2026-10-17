@@ -60,7 +60,7 @@ python src/run_monthly_cycle.py --save-id <id> --season 2022 --month 1 --name NO
 - `audit_sampling.py` 是确定性 Python 校验器，不调用大模型。它使用批次摘要派生固定随机种子，复核球队、球员与 staff 原始结构样本，检查全批 NULL 策略、30 队 ID、球员池锚点、SQLite quick_check 和外键。审计文件名仍叫 `ai_sampling_audit_*.json` 是历史兼容名，不表示 AI 参与。
 - 审计凭证包含当前入库清单摘要、数据库行摘要和球员池摘要，并记录实际 UTC 审计时间。入库清单或源文件改变后，旧凭证失效。
 - `gm_engine.py` 在每次决策前重新计算摘要并检查凭证；数据库变化、球员池变化、不同存档凭证或任一失败校验都会关闭闸门。
-- GM 以 SQLite 只读连接消费已审核数据并输出 `PROPOSED` 类建议，不写游戏内存。当前 `gm_engine.py` 是 Python 启发式候选生成器，尚未接入外部大模型。当前数据没有 cap holds、roster charges、例外和完整交易账本，因此交易只能是待 CBA 复核候选，不会标成“合法”；也不生成数据库中不存在的选秀权。
+- GM 由玩家在数据交付后另行触发，仅读取已审核事实并输出 `PROPOSED` 建议，不写游戏内存。`gm_engine.py` 的旧 Python 启发式候选生成器不再由采集/初始化调用；其只读审计闸门继续服务于数据校验。当前数据没有 cap holds、roster charges、例外和完整交易账本，因此不能认证交易合法，也不生成数据库中不存在的选秀权。数据与执行新窗口入口见文档 27/28。
 
 ## 当前赛季范围
 

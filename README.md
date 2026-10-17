@@ -15,14 +15,15 @@
 
 ## 一、当前运行数据闭环
 
-当前月度入口以可复核的数据采集为主。每次运行先校准当前游戏进程的地址，再由只读 Python 脚本抓取和清理来源数据，执行确定性脚本审计，最后由 GM 从已绑定摘要的 SQLite 快照提出建议。所有数值计算使用 Python/SQLite；建议不会自动写回游戏内存。
+数据初始化/更新、GM 决策和游戏执行由玩家分别触发。数据窗口先校准当前游戏进程地址，再由只读 Python 脚本抓取、清理、入库、审计、计算及按要求发布，交付后停止。玩家另行让 GM 读取该批次并开始决策；具体方案经玩家批准并带到执行窗口后才处理游戏执行。所有数值计算使用 Python/SQLite，阶段之间不自动衔接。
 
 ```
 [NBA 2K22 当前进程]
        │ 每次重验 PID、模块与签名锚点；缓存失效时扫描可读内存
        ▼
-[按存档隔离的数据源] ──► [确定性抽样审计 + 数据摘要] ──► [数据库驱动 GM 候选建议]
-      SQLite/JSON                    PASS 才开闸                    玩家批准后执行
+[按存档隔离的数据源] ──► [确定性抽样审计 + 数据摘要] ──► [数据交付，停止]
+      SQLite/JSON                    PASS 才开闸
+玩家另行触发 GM → 形成方案，停止 → 玩家批准并另行触发执行
 ```
 
 独立修改器和历史选秀注入模块仍在代码库中；它们属于单独功能，不能把月度采集和 GM 建议流程描述为已自动执行热写回。
@@ -124,7 +125,7 @@ e:\games\NBA 2K22\Antigravity_GM_Engine/
     ├── monthly_pipeline.py             # 已停用的旧内存写入决策脚本
     ├── season_rules.py                 # 从新局模板加载并校验赛季规则
     ├── verify_system_integrity.py      # 只检查源码和内存 SQLite schema，不打开游戏或正式数据库
-    └── run_monthly_cycle.py            # 备份→抓取→审计→数据库 GM 建议的统一入口
+    └── run_monthly_cycle.py            # 数据专用：备份→抓取→审计→报告，等待玩家
 ```
 
 ---
@@ -132,6 +133,8 @@ e:\games\NBA 2K22\Antigravity_GM_Engine/
 ## 三、项目规范文档导航
 
 当前执行规则由 [22_DATA_SOURCE_AND_DECISION_GOVERNANCE.md](docs/22_DATA_SOURCE_AND_DECISION_GOVERNANCE.md) 统领；新局和月度流程细节见文档 18 与 21。文档 16 和 19 是历史/未来方案，不代表现行自动化能力。
+
+**新窗口只需从这里开始：** [27 数据初始化与更新](docs/27_DATA_WINDOW_RUNBOOK.md)；[28 已批准方案执行](docs/28_EXECUTION_WINDOW_RUNBOOK.md)。两份文档均含可复制的任务提示词。
 
 * 📖 **[01_SAVE_READING_GUIDE.md](file:///e:/games/NBA%202K22/Antigravity_GM_Engine/docs/01_SAVE_READING_GUIDE.md)**
   详细阐述了读取任意存档（MC/终极联盟）的 5 阶段执行顺序，解释了为什么必须进入存档后读取，以及如何以零性能损耗提取数据。

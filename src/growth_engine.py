@@ -71,7 +71,7 @@ class GrowthEngine:
     def __init__(self, db_path: str):
         raise PermissionError(
             "Legacy automatic growth and fictional staff market are disabled by "
-            "PLAYER_RULES_20261016_V1. Natural development belongs to the game; "
+            "the current player policy. Natural development belongs to the game; "
             "historical-gravity edits need a separately implemented, specifically approved executor."
         )
         self.db_path = db_path

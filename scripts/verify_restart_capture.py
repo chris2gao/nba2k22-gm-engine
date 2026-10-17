@@ -90,8 +90,11 @@ def main():
                 and file_sha256(str(manifest_path)) == audit["manifest_binding"]["manifest_sha256"]
                 and snapshot_digest(connection, snapshot) == audit["database_digest_sha256"]
                 and file_sha256(str(pool_path)) == audit["player_pool_sha256"])
-            if index:
-                gm = load(directory / f"gm_decision_manifest_{snapshot}.json")
+            # Historical captures may include a separately generated GM artifact.
+            # A data-only restart verification must not require GM decisions.
+            legacy_gm_path = directory / f"gm_decision_manifest_{snapshot}.json"
+            if index and legacy_gm_path.is_file():
+                gm = load(legacy_gm_path)
                 checks[f"batch_{index}_gm_uses_audited_snapshot"] = (
                     gm["snapshot_id"] == snapshot
                     and gm["audit_prerequisite"]["verdict"] == "PASS_VERIFIED"

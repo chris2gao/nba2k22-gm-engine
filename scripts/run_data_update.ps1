@@ -68,6 +68,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'GitHub sync failed; local audited data remains available.' }
     }
     Write-Output "[PASS] Player-triggered data update complete: $SaveId / $GameDate / $snapshot"
+    Write-Output 'DATA_READY_AWAITING_PLAYER: GM decisions and game execution require separate player triggers.'
 } finally {
     if ($transcriptStarted) { Stop-Transcript | Out-Null }
     if ($acquired) { $mutex.ReleaseMutex() }
