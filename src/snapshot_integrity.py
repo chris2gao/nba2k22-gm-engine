@@ -18,6 +18,7 @@ SNAPSHOT_TABLES = (
     "market_trade_offers",
     "market_free_agents",
 )
+EXTENSION_TABLES = ('player_source_details', 'staff_source_details', 'team_source_stats', 'draft_asset_observations')
 
 
 def _json_value(value: Any):
@@ -28,7 +29,7 @@ def _json_value(value: Any):
 
 def snapshot_row_counts(conn: sqlite3.Connection, snapshot_id: str) -> Dict[str, int]:
     counts = {}
-    for table in SNAPSHOT_TABLES:
+    for table in SNAPSHOT_TABLES + EXTENSION_TABLES:
         exists = conn.execute(
             "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)
         ).fetchone()
@@ -77,7 +78,11 @@ def snapshot_digest(conn: sqlite3.Connection, snapshot_id: str) -> str:
             ).encode("utf-8"))
             digest.update(b"\n")
 
-    for table in SNAPSHOT_TABLES:
+    # Preserve hashes of older captures with no extension records.
+    extension_tables = tuple(table for table in EXTENSION_TABLES if conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone()
+        and conn.execute(f'SELECT 1 FROM {table} WHERE snapshot_id=? LIMIT 1', (snapshot_id,)).fetchone())
+    for table in SNAPSHOT_TABLES + extension_tables:
         exists = conn.execute(
             "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)
         ).fetchone()

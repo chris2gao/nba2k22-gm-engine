@@ -115,13 +115,34 @@ def export_snapshot(save_id, snapshot_id):
         identities = {row["team_id"]: public_row(row) for row in league.execute("SELECT team_id, abbreviation,city,name FROM teams")}
         players = [public_row(row, {"id", "snapshot_id", "player_id"}) for row in league.execute(
             "SELECT * FROM player_monthly_stats WHERE snapshot_id=? ORDER BY team_id, player_name, face_id", (snapshot_id,))]
+        extended = source_manifest.get('quality_metrics', {}).get('source_extension_profile') == 1
+        if extended:
+            details = {(row['team_id'], row['player_name'], row['face_id']): row for row in league.execute(
+                'SELECT * FROM player_source_details WHERE snapshot_id=?', (snapshot_id,))}
+            for player in players:
+                row = details[(player['team_id'], player['player_name'], player['face_id'])]
+                detail = json.loads(row['details_json'])
+                player.update(birth_date=detail['birth_date'], age=detail['age'], age_as_of=detail['age_as_of'],
+                              pool_slot=row['pool_slot'], source_details=detail,
+                              attributes={key: value['value'] for key, value in detail['attributes'].items()},
+                              potential=detail['attributes']['potential']['value'],
+                              contract_salary_schedule=[detail['contract'][f'contract_year_{i}']['value'] for i in range(1, 7)],
+                              full_cba_ledger_verified=False)
         staff = [{"staff_slot": row["staff_slot"], "first_name": row["first_name"], "last_name": row["last_name"],
                   "observed_candidate_team_id": row["raw_team_id"], "team_id": None,
                   "team_mapping_status": row["team_mapping_status"]} for row in league.execute(
             "SELECT * FROM staff_pool_observations WHERE snapshot_id=? ORDER BY staff_slot", (snapshot_id,))]
+        if extended:
+            staff = [json.loads(row['details_json']) for row in league.execute(
+                'SELECT details_json FROM staff_source_details WHERE snapshot_id=? ORDER BY staff_slot', (snapshot_id,))]
+            staff = [row for row in staff if row['first_name'] or row['last_name']]
+        draft_assets = [public_row(row, {'snapshot_id'}) for row in league.execute(
+            'SELECT * FROM draft_asset_observations WHERE snapshot_id=? ORDER BY asset_slot', (snapshot_id,))] if extended else []
         models = []
         for row in pool.execute("SELECT * FROM player_pool ORDER BY slot_id"):
             model = public_row(row)
+            if model.get('source_details_json'):
+                model['source_details'] = json.loads(model.pop('source_details_json'))
             model["model_category"] = "HISTORICAL_ROOKIE" if is_historical_rookie(row["raw_struct"]) else "OTHER_UNCLASSIFIED"
             models.append(model)
         counts = {"teams": len(teams), "active_players": len(players), "staff_observations": len(staff),
@@ -151,7 +172,16 @@ def export_snapshot(save_id, snapshot_id):
             for team in teams:
                 write(bundle / "teams" / f"{team['team_abbr']}.json", {"identity": identities[team["team_id"]], "state": team,
                       "roster": [row for row in players if row["team_id"] == team["team_id"]]})
-            write(bundle / "staff.json", {"ownership_verified": False, "complete_global_employee_pool_verified": False, "records": staff})
+            write(bundle / "staff.json", {"ownership_verified": extended, "complete_global_employee_pool_verified": extended,
+                  "scope": "All named entries in the live roster staff descriptor; 8 reciprocal roles per NBA team" if extended else "Legacy partial pool",
+                  "records": staff})
+            if extended:
+                write(bundle / 'draft_assets.json', {'ownership_verified': False, 'metadata_verified': False,
+                      'note': 'Candidate owner pointers only. Year, round and protection are unverified; excluded from trade assets.',
+                      'records': draft_assets})
+                write(bundle / 'season_totals.json', {'method': 'LIVE_MEMORY_TOTALS_NOT_MONTHLY_OR_GAME_LOGS',
+                      'teams': [{'team_id': row['team_id'], 'totals': json.loads(row['totals_json'])} for row in league.execute(
+                          'SELECT * FROM team_source_stats WHERE snapshot_id=? ORDER BY team_id', (snapshot_id,))]})
             write(bundle / "source_coverage.json", source_catalog)
             write(bundle / "data_update.json", {"save_id": save_id, "snapshot_id": snapshot_id,
                   "data_updated_at": data_updated_at, "game_date": context.get("game_date")})
@@ -182,8 +212,9 @@ def export_snapshot(save_id, snapshot_id):
                 f"Data updated at (UTC): {data_updated_at}\n\n"
                 f"Purpose: {context['purpose']}; event: {context.get('event')}; game date source: {context.get('game_date_provenance')}.\n\n"
                 f"Audited {len(audit['checks'])}/{len(audit['checks'])}; {len(teams)} teams; {len(players)} active players; {len(models)} player models.\n\n"
-                "Read manifest.json, source_coverage.json, calculations.json, then only the teams needed. Null means unavailable, never zero.\n\n"
-                "Game results, monthly box scores, injuries, full CBA ledger and staff ownership are unavailable. Financial differences are proxies.\n"
+                "Read manifest.json, source_coverage.json, calculations.json, then only the teams needed. Null means unavailable, never zero.\n\n" +
+                ("Team W/L and season totals, player season totals where a current stats index exists, 55 attributes, DOB, six salary years and reciprocal staff ownership are observed. OVR, exact current age without a confirmed date, schedule/game logs, monthly box scores, injuries, full CBA ledger and decoded draft-right metadata remain unavailable. Financial differences are proxies.\n" if extended else
+                 "Game results, monthly box scores, injuries, full CBA ledger and staff ownership are unavailable. Financial differences are proxies.\n") +
                 "Historical/real-world scenarios are separate from observed game facts. All decisions remain proposals requiring player approval.\n",
                 encoding="utf-8")
             backups = temporary / "databases"

@@ -50,6 +50,33 @@ CREATE TABLE IF NOT EXISTS staff_pool_observations (
     FOREIGN KEY(snapshot_id) REFERENCES monthly_snapshots(snapshot_id)
 );
 
+-- Extended sources are snapshot-scoped. Old captures receive no backfilled facts.
+CREATE TABLE IF NOT EXISTS player_source_details (
+    snapshot_id TEXT NOT NULL, team_id INTEGER NOT NULL, roster_slot INTEGER NOT NULL,
+    pool_slot INTEGER, player_name TEXT NOT NULL, face_id INTEGER NOT NULL,
+    birth_date TEXT, age INTEGER, details_json TEXT NOT NULL, raw_struct BLOB NOT NULL,
+    PRIMARY KEY(snapshot_id,team_id,roster_slot),
+    FOREIGN KEY(snapshot_id) REFERENCES monthly_snapshots(snapshot_id)
+);
+CREATE TABLE IF NOT EXISTS staff_source_details (
+    snapshot_id TEXT NOT NULL, staff_slot INTEGER NOT NULL, team_id INTEGER,
+    role TEXT, team_mapping_status TEXT NOT NULL, details_json TEXT NOT NULL, raw_struct BLOB NOT NULL,
+    PRIMARY KEY(snapshot_id,staff_slot),
+    FOREIGN KEY(snapshot_id) REFERENCES monthly_snapshots(snapshot_id)
+);
+CREATE TABLE IF NOT EXISTS team_source_stats (
+    snapshot_id TEXT NOT NULL, team_id INTEGER NOT NULL, stats_index INTEGER NOT NULL,
+    totals_json TEXT NOT NULL, raw_struct BLOB NOT NULL,
+    PRIMARY KEY(snapshot_id,team_id)
+);
+CREATE TABLE IF NOT EXISTS draft_asset_observations (
+    snapshot_id TEXT NOT NULL, asset_slot INTEGER NOT NULL,
+    current_owner_team_id INTEGER, original_owner_team_id INTEGER,
+    draft_year INTEGER, draft_round INTEGER, protection TEXT,
+    mapping_status TEXT NOT NULL, raw_struct BLOB NOT NULL,
+    PRIMARY KEY(snapshot_id,asset_slot)
+);
+
 -- Legacy staff rows captured through an unverified slot-to-team mapping are
 -- preserved here without a team foreign key, then removed from coaches.
 CREATE TABLE IF NOT EXISTS coach_mapping_quarantine (

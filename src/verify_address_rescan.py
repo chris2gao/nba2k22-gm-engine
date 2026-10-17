@@ -50,7 +50,10 @@ def main():
                 calibrator = AddressCalibrator(mem)
                 report = calibrator.run_full_calibration()
                 new_pool = int(report["player_pool"]["base_addr"], 16)
-                stride, slots = 0x4F0, 3320
+                from source_extensions import roster_directory
+                directory = roster_directory(mem, new_pool)
+                stride, slots = 0x4F0, directory['players']['count'] + 1
+                result['directory_counts'] = {key: value['count'] for key, value in directory.items()}
                 left = mem.read_bytes(cached_pool, stride * slots)
                 right = mem.read_bytes(new_pool, stride * slots)
                 if left is None or right is None:

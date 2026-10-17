@@ -21,8 +21,10 @@ def _write_report(path: str, manifest: dict, audit: dict) -> None:
         f"- 数据摘要：`{audit['database_digest_sha256']}`",
         f"- 球队：{manifest['ingested_counts']['teams']} 支；现役球员：{manifest['ingested_counts']['active_players']} 人；"
         f"制服组原始结构：{manifest['ingested_counts']['staff_pool_observations']} 条",
-        "- 教练球队归属：未验证，因此本次未将制服组数据当作正式教练映射。",
-        "- 战绩/比赛统计：仅使用内存未观测字段的 NULL 值，不以工资或 POE 推导战绩。",
+        ("- 制服组：完整目录槽位采集，在职员工归属使用双向角色指针。" if manifest.get('quality_metrics', {}).get('source_extension_profile') else
+         "- 制服组归属：未验证。"),
+        ("- 战绩/比赛统计：当前赛季累计数据来自统计表；场均数据由 Python 计算，月度/逐场明细未观测。" if manifest.get('quality_metrics', {}).get('source_extension_profile') else
+         "- 战绩/比赛统计：未观测，保持 NULL。"),
         "",
         "## 阶段交付",
         "",

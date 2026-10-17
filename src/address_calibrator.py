@@ -111,45 +111,23 @@ class AddressCalibrator:
         验证 30 支核心球队地址。
         返回: (is_healthy, pacers_base_addr, validated_teams_dict)
         """
-        cached_pacers = self._cached_hex("teams", "pacers_base", 0)
-        
-        # 1. 快速探活 (Fast-Path Check < 1ms)
-        if cached_pacers > 0:
-            name = self.mem.read_utf16_string_safe(cached_pacers + config.TEAM_OFFSETS["TEAM_NAME"], 20)
-            abb = self.mem.read_utf16_string_safe(cached_pacers + config.TEAM_OFFSETS["ABB"], 10)
-            if name == "Pacers" and abb == "IND":
-                # 校验步长展开能否完整匹配 30 队
-                teams = self._extract_teams_from_pacers(cached_pacers)
-                if set(teams) == config.CORE_TEAM_IDS:
-                    return True, cached_pacers, teams
-
-        # 2. 快速探活失败，启动特征码扫描校准 (Calibration Mode)
-        print("[!] 球队内存地址未命中或游戏已重启，启动特征扫描自适应校准...")
-        pacers_pattern = "Pacers".encode('utf-16le')
-        ind_abb = "IND".encode('utf-16le')
-
-        # 扩大扫描范围覆盖全部常见 64 位堆区间
-        candidates = self.mem.scan_pattern(pacers_pattern, 0x7FF000000000, 0x7FFF00000000)
-        new_pacers_base = None
-
-        for cand in candidates:
-            base = cand - config.TEAM_OFFSETS["TEAM_NAME"]
-            abb_bytes = self.mem.read_bytes(base + config.TEAM_OFFSETS["ABB"], 6)
-            if abb_bytes == ind_abb:
-                teams = self._extract_teams_from_pacers(base)
-                if set(teams) == config.CORE_TEAM_IDS:
-                    new_pacers_base = base
-                    break
-
-        if not new_pacers_base:
-            raise RuntimeError("【校准失败】未能在当前内存中定位到现役 30 队结构体数组，请确认游戏是否进入存档！")
-
-        print(f"[+] 球队结构体数组校准成功！新基准地址 (Pacers): {hex(new_pacers_base)}")
-        self.runtime_map["teams"]["pacers_base"] = hex(new_pacers_base)
-        self.runtime_map["pid"] = self.mem.pid
-        self.runtime_map["module_base"] = hex(self.mem.base_address)
+        from source_extensions import roster_directory
+        pool_ok, root = self.check_and_calibrate_player_pool()
+        if not pool_ok:
+            raise RuntimeError('Cannot resolve teams without a validated roster directory')
+        roster_directory(self.mem, root)
+        first = self.mem.require_uint64(root + 0x90)
+        count = self.mem.require_uint64(root + 0x88)
+        end = self.mem.require_uint64(root + 0xa0)
+        if not 30 <= count <= 1000 or first + count * config.TEAM_STRUCT_STRIDE != end:
+            raise RuntimeError('Invalid team array descriptor')
+        teams = self._extract_teams_from_pacers(first)
+        if set(teams) != config.CORE_TEAM_IDS:
+            raise RuntimeError('Roster directory does not contain exactly the 30 NBA identities')
+        pacers_base = teams[20]['address']
+        self.runtime_map['teams']['pacers_base'] = hex(pacers_base)
         self._save_runtime_map(self.runtime_map)
-        return True, new_pacers_base, teams
+        return True, pacers_base, teams
 
     def _extract_teams_from_pacers(self, pacers_base: int) -> Dict[int, Dict]:
         teams = {}
@@ -209,8 +187,10 @@ class AddressCalibrator:
 
             try:
                 face_id = self.mem.require_uint16(player_addr + 0x6C)
-                team_id = self.mem.require_uint8(player_addr + config.PLAYER_OFFSETS["CURRENT_TEAM"])
-                salary = self.mem.require_uint32(player_addr + config.PLAYER_OFFSETS["SALARY_YEAR_1"])
+                team_pointer = self.mem.require_uint64(player_addr + config.PLAYER_OFFSETS['CURRENT_TEAM'])
+                known_teams = self._extract_teams_from_pacers(self._cached_hex('teams', 'pacers_base', 0)) if team_pointer else {}
+                team_id = next((tid for tid, team in known_teams.items() if team['address'] == team_pointer), None)
+                salary = self.mem.require_uint32(player_addr + config.PLAYER_OFFSETS["SALARY_YEAR_1"]) & 0x7fffffff
                 contract_raw = self.mem.require_uint8(player_addr + config.PLAYER_OFFSETS["CONTRACT_YEARS_LEFT"])
                 ratings = {
                     "three_point_rating": config.raw_to_rating(self.mem.require_uint8(player_addr + config.PLAYER_OFFSETS["ATTR_THREE_POINT"])),
@@ -249,6 +229,14 @@ class AddressCalibrator:
         """
         cached_pool = self._cached_hex("player_pool", "base_addr", 0x7FF4E6DFB2E8)
         stride = self._cached_hex("player_pool", "stride", 0x4F0)
+        from source_extensions import roster_directory
+
+        def valid_directory(root):
+            try:
+                roster_directory(self.mem, root)
+                return True
+            except (OSError, RuntimeError, ValueError):
+                return False
 
         # 1. 快速双锚点验证 (Fast-Path Check < 1ms)
         slot_700 = cached_pool + 700 * stride
@@ -260,7 +248,7 @@ class AddressCalibrator:
         h_last = self.mem.read_utf16_string_safe(slot_1003, 20)
         h_cf = self.mem.read_uint16_safe(slot_1003 + 0x6C)
 
-        if j_last == "Jordan" and j_first == "Michael" and cf_id == 1759 and h_last == "Olajuwon" and h_cf == 952:
+        if j_last == "Jordan" and j_first == "Michael" and cf_id == 1759 and h_last == "Olajuwon" and h_cf == 952 and valid_directory(cached_pool):
             return True, cached_pool
 
         # 2. 若不匹配，启动特征码扫描定位历史球员池
@@ -268,6 +256,7 @@ class AddressCalibrator:
         jordan_pattern = "Jordan".encode('utf-16le')
         matches = self.mem.scan_pattern(jordan_pattern, 0x7FF000000000, 0x7FFF00000000)
         new_pool_base = None
+        validated_candidates = set()
 
         for match in matches:
             # 假定该 match 是 slot i 的 last_name (偏移 0)
@@ -281,9 +270,13 @@ class AddressCalibrator:
                 h_slot = potential_base + 1003 * stride
                 h_last = self.mem.read_utf16_string_safe(h_slot, 20)
                 h_cf = self.mem.read_uint16_safe(h_slot + 0x6C)
-                if h_last == "Olajuwon" and h_cf == 952:
-                    new_pool_base = potential_base
-                    break
+                if h_last == "Olajuwon" and h_cf == 952 and valid_directory(potential_base):
+                    validated_candidates.add(potential_base)
+
+        if len(validated_candidates) > 1:
+            raise RuntimeError('Multiple valid roster directories; cannot choose an active save from names alone')
+        if validated_candidates:
+            new_pool_base = validated_candidates.pop()
 
         if not new_pool_base:
             print("[WARN] 未能重新定位全量球员池基址，保持现有基址。")
@@ -303,67 +296,21 @@ class AddressCalibrator:
         通过 Slot 0 (Doc Rivers) 与 Slot 18 (Rick Carlisle) 进行双锚点毫秒级验证。
         返回: (is_healthy, base_addr, valid_staff_count)
         """
-        cached_staff = self._cached_hex("staff_pool", "base_addr", 0x7FF4E2815F88)
-        stride = self._cached_hex("staff_pool", "stride", 0x160)
-
-        # 1. 快速探活
-        doc_fn = self.mem.read_utf16_string_safe(cached_staff, 20)
-        doc_ln = self.mem.read_utf16_string_safe(cached_staff + 40, 20)
-
-        carl_addr = cached_staff + 18 * stride
-        carl_fn = self.mem.read_utf16_string_safe(carl_addr, 20)
-        carl_ln = self.mem.read_utf16_string_safe(carl_addr + 40, 20)
-
-        if (
-            doc_fn and doc_ln and carl_fn and carl_ln
-            and "Doc" in doc_fn and "Rivers" in doc_ln
-            and "Rick" in carl_fn and "Carlisle" in carl_ln
-        ):
-            # 统计有效教练数
-            count = 0
-            for i in range(120):
-                name = self.mem.read_utf16_string_safe(cached_staff + i * stride, 20)
-                if name is None or not name:
-                    break
-                count += 1
-            return count >= config.TEAM_MAX_COUNT, cached_staff, count
-
-        # 2. 特征扫描校准
-        print("[!] 教练池地址偏移，启动 Rick Carlisle 特征扫描定位教练池基址...")
-        carl_pattern = "Carlisle".encode('utf-16le')
-        matches = self.mem.scan_pattern(carl_pattern, 0x7FF000000000, 0x7FFF00000000)
-        new_staff_base = None
-
-        for match in matches:
-            # In staff struct: fn is at match-40, ln is at match
-            f_name = self.mem.read_utf16_string_safe(match - 40, 20)
-            if f_name and "Rick" in f_name:
-                cand_base = (match - 40) - 18 * stride
-                doc_cand = self.mem.read_utf16_string_safe(cand_base, 20)
-                if doc_cand and "Doc" in doc_cand:
-                    new_staff_base = cand_base
-                    break
-
-        if not new_staff_base:
-            print("[WARN] 未能重新定位全量教练池基址。")
-            return False, cached_staff, 0
-
-        # 统计数量
-        count = 0
-        for i in range(120):
-            name = self.mem.read_utf16_string_safe(new_staff_base + i * stride, 20)
-            if name is None or not name:
-                break
-            count += 1
-
-        print(f"[+] 教练池基址校准成功！新基准地址: {hex(new_staff_base)} (共 {count} 名教练/制服组)")
-        self.runtime_map["staff_pool"] = {
-            "base_addr": hex(new_staff_base),
-            "stride": hex(stride),
-            "count": count
-        }
+        from source_extensions import roster_directory
+        ok, root = self.check_and_calibrate_player_pool()
+        if not ok:
+            return False, 0, 0
+        table = roster_directory(self.mem, root)['staff']
+        base, count = table['address'] + 0x30, table['count']
+        expected = ((0, 'Doc', 'Rivers'), (18, 'Rick', 'Carlisle'))
+        for slot, first, last in expected:
+            address = base + slot * 0x160
+            if (self.mem.read_utf16_string_safe(address, 20) != first or
+                    self.mem.read_utf16_string_safe(address + 40, 20) != last):
+                return False, base, count
+        self.runtime_map['staff_pool'] = {'base_addr': hex(base), 'stride': hex(0x160), 'count': count}
         self._save_runtime_map(self.runtime_map)
-        return count >= config.TEAM_MAX_COUNT, new_staff_base, count
+        return True, base, count
 
     # -------------------------------------------------------------------------
     # 完整自检与一键校准报告
@@ -383,6 +330,14 @@ class AddressCalibrator:
         player_ok, active_player = self.check_and_calibrate_active_player()
         pool_ok, pool_base = self.check_and_calibrate_player_pool()
         staff_ok, staff_base, staff_count = self.check_and_calibrate_staff_pool()
+        directory_counts = None
+        if pool_ok:
+            from source_extensions import roster_directory
+            directory = roster_directory(self.mem, pool_base)
+            directory_counts = {key: value['count'] for key, value in directory.items()}
+            if directory['staff']['address'] + 0x30 != staff_base:
+                staff_ok = False
+            staff_count = directory['staff']['count']
 
         t1 = time.time()
         status = "HEALTHY" if (teams_ok and player_ok and pool_ok and staff_ok) else "PARTIAL_WARNING"
@@ -395,6 +350,7 @@ class AddressCalibrator:
             "module_base": hex(self.mem.base_address),
             "previous_pid": self.previous_pid,
             "process_changed": self.process_changed,
+            "directory_counts": directory_counts,
             "teams": {
                 "valid": teams_ok,
                 "count": len(teams),
@@ -431,7 +387,7 @@ class AddressCalibrator:
         print(f"    - 30 支核心球队: {'有效锁定 (' + str(len(teams)) + '队)' if teams_ok else '异常'}")
         print(f"    - 焦点球员指针: {'锁定 (' + active_player['full_name'] + ')' if player_ok else '未定位'}")
         print(f"    - 全量历史球员池: {'锁定 (Slot 700 Jordan & Slot 1003 Olajuwon 双核验通过)' if pool_ok else '异常'}")
-        print(f"    - 全量教练制服组: {'锁定 (' + str(staff_count) + '名制服组成员，Doc Rivers & Rick Carlisle 验证通过)' if staff_ok else '异常'}")
+        print(f"    - 制服组目录: {'锁定 (' + str(staff_count) + '个槽位，Doc Rivers & Rick Carlisle 验证通过)' if staff_ok else '异常'}")
         print(f"[*] 校准结果已落盘至: {MAP_FILE}\n")
         return report
 

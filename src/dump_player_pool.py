@@ -16,6 +16,9 @@ from typing import Dict, List, Optional, Tuple
 sys.path.append(os.path.dirname(__file__))
 from memory import GameMemory
 from address_calibrator import AddressCalibrator
+from source_extensions import roster_directory, player_details
+import config
+import json
 from historical_rookies import (
     HISTORICAL_ROOKIE_TAG_MASK,
     HISTORICAL_ROOKIE_TAG_OFFSET,
@@ -56,7 +59,7 @@ def init_player_pool_schema(conn: sqlite3.Connection):
 
 def dump_all_players_to_db(
     mem: Optional[GameMemory] = None,
-    total_slots: int = TOTAL_SLOTS,
+    total_slots: Optional[int] = None,
     db_path: str = DB_PATH,
 ) -> int:
     """
@@ -70,6 +73,11 @@ def dump_all_players_to_db(
     stride = PLAYER_POOL_STRIDE
     if not pool_ok or base_addr == 0:
         raise RuntimeError("【校准熔断】历史球员池物理基址未通过校准，终止抓取以保护现有数据库！")
+    directory = roster_directory(mem, base_addr)
+    descriptor_slots = directory['players']['count'] + 1  # Retain legacy root-relative model slot IDs.
+    if total_slots is not None and total_slots != descriptor_slots:
+        raise ValueError('Explicit slot limit differs from the complete live roster descriptor')
+    total_slots = descriptor_slots
 
     print(f"[*] 成功挂接 NBA2K22 进程 (PID: {mem.pid})")
     print(f"[*] 球员池基址已通过校准锁定: {hex(base_addr)} (步长: {hex(stride)}, 总槽位: {total_slots})")
@@ -160,12 +168,11 @@ def dump_all_players_to_db(
         # 位置
         raw_pos = struct.unpack_from("<B", raw_struct, 0xF9)[0]
         pos_idx = raw_pos & 0x07
-        pos_name = POS_NAMES.get(pos_idx, "SF")
+        pos_name = POS_NAMES.get(pos_idx)
 
         # 潜力字段真实化处理：杜绝 80 默认常数！
-        raw_pot = struct.unpack_from("<B", raw_struct, 0xEB)[0]
-        # 若在 50~99 合理区间则采信，否则显式记为 NULL，同时保留 raw_potential
-        verified_pot = raw_pot if (50 <= raw_pot <= 99) else None
+        raw_pot = raw_struct[0x441]
+        verified_pot = config.raw_to_rating(raw_pot)
 
         # Inspect the source type byte for batch validation. The full raw
         # structure is retained, so the same classification can be recomputed.
@@ -230,6 +237,11 @@ def dump_all_players_to_db(
         cursor.execute("ALTER TABLE staging_player_pool RENAME TO player_pool")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_draft_year_pick ON player_pool(draft_year, draft_round, draft_pick)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_full_name ON player_pool(full_name)")
+        cursor.execute('ALTER TABLE player_pool ADD COLUMN source_details_json TEXT')
+        for row in players_to_insert:
+            details = player_details(row[-1])
+            cursor.execute('UPDATE player_pool SET source_details_json=? WHERE slot_id=?',
+                           (json.dumps(details, sort_keys=True), row[0]))
         conn.commit()
     except Exception:
         conn.rollback()
@@ -243,7 +255,7 @@ def dump_all_players_to_db(
     print(f"    - 选秀年份跨度: {min(draft_years_found) if draft_years_found else 'N/A'} ~ {max(draft_years_found) if draft_years_found else 'N/A'} 年")
     print(f"    - 乔丹/大梦锚点断言: 100% 确认通过")
     print(f"    - 历史新秀类型码 7: {historical_rookie_count} 人 (字段 0x{HISTORICAL_ROOKIE_TAG_OFFSET:X}, 掩码 0x{HISTORICAL_ROOKIE_TAG_MASK:02X})")
-    print(f"    - 80 默认常数填充: 已彻底清除 (保留 raw_potential，未知记为 NULL)")
+    print(f"    - 潜力: 读取 0x441 原始值后确定性解码；不使用旧 0xEB 猜测值")
     print(f"    - 数据库落盘: {db_path}")
     return valid_count
 

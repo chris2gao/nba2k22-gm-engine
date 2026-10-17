@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)][ValidatePattern('^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$')][string]$SaveId,
-    [Parameter(Mandatory)][ValidatePattern('^\d{4}-\d{2}-\d{2}$')][string]$GameDate,
+    [ValidatePattern('^\d{4}-\d{2}-\d{2}$')][string]$GameDate,
+    [switch]$GameDateUnknown,
     [ValidateRange(2000,2100)][int]$Season = 2022,
     [ValidateRange(1,12)][int]$Month = 1,
     [ValidateSet('checkpoint','monthly_close','season_start','post_transaction','staff_change','roster_import','draft_pre','draft_post')][string]$Event = 'checkpoint',
@@ -13,10 +14,14 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
-[DateTime]::ParseExact($GameDate, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture) | Out-Null
+if ($GameDate -and $GameDateUnknown) { throw 'Choose GameDate or explicit GameDateUnknown.' }
+if (-not $GameDate -and -not $GameDateUnknown) { throw 'Provide GameDate or player-authorized GameDateUnknown.' }
+if ($GameDate) { [DateTime]::ParseExact($GameDate, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture) | Out-Null }
+if ($GameDateUnknown -and $GamesOnDateComplete) { throw 'GamesOnDateComplete requires an exact date.' }
 if ($NewWindow) {
     $scriptLiteral = "'" + $PSCommandPath.Replace("'", "''") + "'"
-    $command = "& $scriptLiteral -SaveId '$SaveId' -GameDate '$GameDate' -Season $Season -Month $Month -Event '$Event' -Name '$Name'"
+    $dateArgument = if ($GameDateUnknown) { '-GameDateUnknown' } else { "-GameDate '$GameDate'" }
+    $command = "& $scriptLiteral -SaveId '$SaveId' $dateArgument -Season $Season -Month $Month -Event '$Event' -Name '$Name'"
     if ($GamesOnDateComplete) { $command += ' -GamesOnDateComplete' }
     if ($Validation) { $command += ' -Validation' }
     if ($Publish) { $command += ' -Publish' }
@@ -45,8 +50,8 @@ try {
     $context = [ordered]@{
         schema_version = 1
         career_id = $SaveId
-        game_date = $GameDate
-        game_date_provenance = 'USER_CONFIRMED'
+        game_date = $(if ($GameDateUnknown) { $null } else { $GameDate })
+        game_date_provenance = $(if ($GameDateUnknown) { 'PLAYER_AUTHORIZED_CURRENT_DATE_UNKNOWN' } else { 'USER_CONFIRMED' })
         trigger = 'PLAYER_INITIATED'
         event = $Event
         purpose = $(if ($Validation) { 'validation' } else { 'production' })
@@ -65,7 +70,8 @@ try {
         & python 'scripts/publish_web_snapshot.py' --save-id $SaveId
         if ($LASTEXITCODE -ne 0) { throw 'GitHub sync failed; local audited data remains available.' }
     }
-    Write-Output "[PASS] Player-triggered data update complete: $SaveId / $GameDate / $snapshot"
+    $displayGameDate = if ($GameDateUnknown) { 'GAME_DATE_UNKNOWN' } else { $GameDate }
+    Write-Output "[PASS] Player-triggered data update complete: $SaveId / $displayGameDate / $snapshot"
     Write-Output 'DATA_READY_AWAITING_PLAYER: GM decisions and game execution require separate player triggers.'
 } finally {
     if ($transcriptStarted) { Stop-Transcript | Out-Null }

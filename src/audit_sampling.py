@@ -147,8 +147,13 @@ def run_ai_sampling_audit(
             (snapshot_id,),
         ).fetchone()[0]
         checks["team_observed_fields_complete"] = team_presence == config.TEAM_MAX_COUNT
+        extended = manifest.get('quality_metrics', {}).get('source_extension_profile') == 1
+        team_new = ('total_games', 'total_wins', 'total_losses', 'win_pct', 'ppg', 'opp_ppg', 'fg_pct', 'three_pt_pct', 'ft_pct', 'rpg', 'apg', 'tov_pg')
+        player_new = ('games_played', 'minutes_per_game', 'ppg', 'rpg', 'apg', 'spg', 'bpg', 'tov_pg', 'fg_pct', 'three_pt_pct', 'ft_pct')
+        team_unknown = tuple(c for c in TEAM_UNOBSERVED_COLUMNS if not extended or c not in team_new)
+        player_unknown = tuple(c for c in PLAYER_UNOBSERVED_COLUMNS if not extended or c not in player_new)
         team_nulls = conn.execute(
-            f"SELECT count(*) FROM team_monthly_stats WHERE snapshot_id=? AND NOT ({_all_null_clause(TEAM_UNOBSERVED_COLUMNS)})",
+            f"SELECT count(*) FROM team_monthly_stats WHERE snapshot_id=? AND NOT ({_all_null_clause(team_unknown)})",
             (snapshot_id,),
         ).fetchone()[0]
         checks["unobserved_team_stats_are_null"] = team_nulls == 0
@@ -160,7 +165,7 @@ def run_ai_sampling_audit(
         player_rows = counts["player_monthly_stats"]
         checks["player_observed_fields_complete"] = player_presence == player_rows and player_rows > 0
         player_nulls = conn.execute(
-            f"SELECT count(*) FROM player_monthly_stats WHERE snapshot_id=? AND NOT ({_all_null_clause(PLAYER_UNOBSERVED_COLUMNS)})",
+            f"SELECT count(*) FROM player_monthly_stats WHERE snapshot_id=? AND NOT ({_all_null_clause(player_unknown)})",
             (snapshot_id,),
         ).fetchone()[0]
         checks["unobserved_player_stats_are_null"] = player_nulls == 0
@@ -170,8 +175,9 @@ def run_ai_sampling_audit(
             "FROM staff_pool_observations WHERE snapshot_id=? ORDER BY staff_slot",
             (snapshot_id,),
         ).fetchall()
-        checks["staff_team_mapping_not_promoted"] = all(
-            row["team_mapping_status"] in ("UNVERIFIED_CANDIDATE_TEAM_ID", "UNMAPPED_RAW_TEAM_ID")
+        allowed_staff_status = ('VERIFIED_RECIPROCAL_TEAM_ROLE', 'UNMAPPED_NOT_ASSUMED_FREE_AGENT') if extended else ('UNVERIFIED_CANDIDATE_TEAM_ID', 'UNMAPPED_RAW_TEAM_ID')
+        checks["staff_team_mapping_uses_supported_evidence"] = all(
+            row["team_mapping_status"] in allowed_staff_status
             for row in staff_rows
         ) and counts["staff_pool_observations"] > 0
 
@@ -292,7 +298,7 @@ def run_ai_sampling_audit(
                 "pass_accuracy_rating": config.raw_to_rating(mem.require_uint8(p_addr + config.PLAYER_OFFSETS["ATTR_PASS_ACCURACY"])),
                 "speed_rating": config.raw_to_rating(mem.require_uint8(p_addr + config.PLAYER_OFFSETS["ATTR_SPEED"])),
                 "perimeter_defense_rating": config.raw_to_rating(mem.require_uint8(p_addr + config.PLAYER_OFFSETS["ATTR_PERIMETER_DEF"])),
-                "salary_current_year": mem.require_uint32(p_addr + config.PLAYER_OFFSETS["SALARY_YEAR_1"]),
+                "salary_current_year": mem.require_uint32(p_addr + config.PLAYER_OFFSETS["SALARY_YEAR_1"]) & 0x7fffffff,
                 "contract_years_left": config.extract_contract_years(mem.require_uint8(p_addr + config.PLAYER_OFFSETS["CONTRACT_YEARS_LEFT"])),
                 "face_id": mem.require_uint16(p_addr + config.PLAYER_OFFSETS["FACE_ID"]),
             }
@@ -328,7 +334,7 @@ def run_ai_sampling_audit(
                 continue
             live_values = {
                 "position": POS_NAMES.get(mem.require_uint8(found_addr + config.PLAYER_OFFSETS["POSITION"]) & 0x07),
-                "salary_current_year": mem.require_uint32(found_addr + config.PLAYER_OFFSETS["SALARY_YEAR_1"]),
+                "salary_current_year": mem.require_uint32(found_addr + config.PLAYER_OFFSETS["SALARY_YEAR_1"]) & 0x7fffffff,
                 "contract_years_left": config.extract_contract_years(mem.require_uint8(found_addr + config.PLAYER_OFFSETS["CONTRACT_YEARS_LEFT"])),
                 "three_point_rating": config.raw_to_rating(mem.require_uint8(found_addr + config.PLAYER_OFFSETS["ATTR_THREE_POINT"])),
                 "pass_accuracy_rating": config.raw_to_rating(mem.require_uint8(found_addr + config.PLAYER_OFFSETS["ATTR_PASS_ACCURACY"])),
@@ -363,6 +369,9 @@ def run_ai_sampling_audit(
             staff_cross_check_pass = staff_cross_check_pass and matches
             staff_audit.append({"staff_slot": slot, "first_name": row["first_name"], "last_name": row["last_name"], "raw_bytes_match": matches})
         checks["sampled_staff_bytes_match_live_memory"] = staff_cross_check_pass and len(staff_audit) == len(staff_samples)
+        if extended:
+            from audit_source_extensions import audit_extensions
+            checks.update(audit_extensions(conn, mem, calib_report, live_teams, snapshot_id))
     finally:
         if mem is not None:
             mem.close()

@@ -16,6 +16,7 @@ def decode_context(notes):
         raise ValueError("Invalid capture purpose")
     if context.get("game_date"):
         date.fromisoformat(context["game_date"])
-    if context["purpose"] == "production" and (not context.get("game_date") or context.get("game_date_provenance") != "USER_CONFIRMED"):
+    explicit_current_unknown = context.get('game_date') is None and context.get('game_date_provenance') == 'PLAYER_AUTHORIZED_CURRENT_DATE_UNKNOWN'
+    if context["purpose"] == "production" and not explicit_current_unknown and (not context.get("game_date") or context.get("game_date_provenance") != "USER_CONFIRMED"):
         raise ValueError("Production context requires a player-confirmed game date")
     return context

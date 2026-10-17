@@ -96,8 +96,8 @@ PLAYER_OFFSETS = {
     "LAST_NAME": 0x0,               # 姓 (UTF-16LE, 40字节)
     "FIRST_NAME": 0x28,             # 名 (UTF-16LE, 40字节)
     "FACE_ID": 0x6C,                # 面补 ID (Cyberface ID, uint16)
-    "CURRENT_TEAM": 0x60,           # 当前所属球队原始字节 (位域/球队编码需按来源结构确认)
-    "CONTRACT_TEAM": 0xA8,          # 合同所属球队 ID (uint8)
+    "CURRENT_TEAM": 0x60,           # uint64 pointer to current team; resolve using this capture's team map
+    "CONTRACT_TEAM": 0xA8,          # uint64 pointer to contract team, not a byte ID
     "POSITION": 0xF9,               # 位置 (3 bits: 0=PG, 1=SG, 2=SF, 3=PF, 4=C)
     "SIGNATURE_ID": 0xE8,           # 赛场被动专属动画包 ID (uint32)
     "AUDIO_SIG_ID": 0xEC,           # 专属音效 ID (uint32)
