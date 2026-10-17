@@ -1,8 +1,9 @@
 {
   "repository": "chris2gao/nba2k22-gm-engine",
-  "visibility_required": "private",
+  "visibility_required": "public",
+  "visibility_authorization": "PLAYER_EXPLICITLY_APPROVED_PUBLIC_GAME_DATABASE_AND_JSON",
   "branch": "main",
   "data_path": "published",
-  "archive_policy": "verified SQLite backups as private GitHub Release assets; raw live files never staged",
+  "archive_policy": "verified SQLite backups as public GitHub Release assets with explicit player authorization; raw live files never staged",
   "web_reader_status": "NOT_YET_VERIFIED_IN_USER_CHATGPT_WEB"
 }

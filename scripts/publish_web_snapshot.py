@@ -45,8 +45,12 @@ def main():
     config = json.loads((ROOT / "config/github_sync.json").read_text(encoding="utf-8"))
     repository, branch = config["repository"], config["branch"]
     remote = json.loads(command(["gh", "repo", "view", repository, "--json", "nameWithOwner,isPrivate,url"]).stdout)
-    if remote["nameWithOwner"].casefold() != repository.casefold() or not remote["isPrivate"]:
-        raise RuntimeError("Destination is not the configured private repository")
+    required_visibility = config.get('visibility_required', 'private')
+    if required_visibility not in ('private', 'public'):
+        raise RuntimeError('Invalid configured repository visibility')
+    actual_visibility = 'private' if remote['isPrivate'] else 'public'
+    if remote["nameWithOwner"].casefold() != repository.casefold() or actual_visibility != required_visibility:
+        raise RuntimeError("Destination does not match the configured repository and visibility")
     origin = command(["git", "remote", "get-url", "origin"]).stdout.strip().removesuffix(".git")
     if origin not in (f"git@github.com:{repository}", f"https://github.com/{repository}"):
         raise RuntimeError("Git origin does not match the configured repository")
@@ -104,7 +108,7 @@ def main():
     commit_data(f"data: record upload time for {manifest['batch_id']}")
     command(["git", "push", "origin", f"HEAD:{branch}"])
     commit = command(["git", "rev-parse", "HEAD"]).stdout.strip()
-    receipt = {"repository": repository, "visibility": "private", "commit": commit, "batch_id": manifest["batch_id"],
+    receipt = {"repository": repository, "visibility": actual_visibility, "commit": commit, "batch_id": manifest["batch_id"],
                "game_date": manifest["context"].get("game_date"), "data_updated_at": manifest["data_updated_at"],
                "uploaded_at": uploaded_at, "upload_status": "UPLOADED", "sync_mode": "TIMESTAMP_ONLY",
                "latest_url": f"https://github.com/{repository}/blob/{branch}/{pointer_path}",

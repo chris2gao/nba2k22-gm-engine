@@ -13,7 +13,7 @@
 
 当前分工与玩法见 [26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md](docs/26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)：Codex 本地处理数据并上传，网页 GPT 担任 GM，玩家审批后带回本地执行。起始 2021–2022，历史选秀 1984–2020 顺序轮回；正常属性成长交给游戏，历史重力逐项批准，MC 成长故事暂缓。旧自动觉醒/体系加点已停用。
 
-**私有完整项目：** [chris2gao/nba2k22-gm-engine](https://github.com/chris2gao/nba2k22-gm-engine)。**完整数据库备份：** 对应 [GitHub Releases](https://github.com/chris2gao/nba2k22-gm-engine/releases) 中的 ZIP（联盟与球员池 SQLite）；网页阅读入口为 `web_gm/START_HERE.md` 和 `published/index.json`。数据库作为 Release 附件发布，不在 Git 文件历史中反复覆盖二进制文件。
+**完整项目（玩家已授权公开）：** [chris2gao/nba2k22-gm-engine](https://github.com/chris2gao/nba2k22-gm-engine)。**完整数据库备份：** 对应 [GitHub Releases](https://github.com/chris2gao/nba2k22-gm-engine/releases) 中的 ZIP（联盟与球员池 SQLite）；网页阅读入口为 `web_gm/START_HERE.md` 和 `published/index.json`。数据库作为 Release 附件发布，不在 Git 文件历史中反复覆盖二进制文件。
 
 ---
 
@@ -189,7 +189,7 @@ e:\games\NBA 2K22\Antigravity_GM_Engine/
 * 📖 **[24_DATA_SOURCE_REGISTRY_AND_PLAYER_TRIGGERS.md](docs/24_DATA_SOURCE_REGISTRY_AND_PLAYER_TRIGGERS.md)**
   玩家主动触发的数据更新、完整来源清单、当前缺口与独立数据窗口。
 * 📖 **[25_GITHUB_AND_WEB_GM_PROTOCOL.md](docs/25_GITHUB_AND_WEB_GM_PROTOCOL.md)**
-  私有仓库、审计数据库归档、网页阅读包、固定版本读取与 GM 审批协议。
+  GitHub 仓库、审计数据库归档、网页阅读包、固定版本读取与 GM 审批协议。
 
 ---
 
@@ -217,7 +217,7 @@ python src/bootstrap_new_game.py --save-id my_career_01
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\run_data_update.ps1 -SaveId mc_haliburton_2021 -GameDate 2021-11-20 -Season 2022 -Month 1 -Event checkpoint -Name NOV20_CHECKPOINT -GamesOnDateComplete -Publish -NewWindow
 ```
 
-玩家主动触发后，任务在独立终端完成 UAC 提权、只读采集、隔离数据库入库、审计、Python 计算/差异、网页 JSON 导出及独立复核；`-Publish` 将通过验证的阅读包和数据库 ZIP 同步到配置的私有 GitHub 仓库，省略则保留本地。`-NewWindow` 为单独的无模型数据窗口。每次替换 GameDate、Event 与 Name；示例为玩家确认的 11 月 20 日日终，非月末。当前工资规则只支持 2021-2022。游戏写入与正式球队决策变更仍须玩家批准。
+玩家主动触发后，任务在独立终端完成 UAC 提权、只读采集、隔离数据库入库、审计、Python 计算/差异、网页 JSON 导出及独立复核；`-Publish` 将通过验证的阅读包和数据库 ZIP 同步到配置的 GitHub 仓库，省略则保留本地。当前玩家已授权公开仓库及本次数据发布。`-NewWindow` 为单独的无模型数据窗口。每次替换 GameDate、Event 与 Name；示例为玩家确认的 11 月 20 日日终，非月末。当前工资规则只支持 2021-2022。游戏写入与正式球队决策变更仍须玩家批准。
 
 底层只读权限检查仍可使用 `scripts/run_admin_data_capture.ps1 -CalibrationOnly`。`run_data_update.ps1` 不按现实日历或游戏重启自动运行。
 

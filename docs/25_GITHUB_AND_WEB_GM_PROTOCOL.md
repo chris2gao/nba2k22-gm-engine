@@ -1,8 +1,8 @@
-# 私有 GitHub 数据发布与网页 GM
+# GitHub 数据发布与网页 GM
 
 **同步规则已按玩家要求简化，见 [29_SIMPLE_DATABASE_SYNC.md](29_SIMPLE_DATABASE_SYNC.md)。** 网页只比较数据更新时间和上传时间，日常导出/发布不执行 JSON 哈希、全字段或下载比较。
 
-目标仓库：`chris2gao/nba2k22-gm-engine`，要求 private。仓库保存项目代码、清洁模板、规范和小型 JSON 阅读文件；审计通过的 SQLite 备份打包为私有 GitHub Release 附件。当前 live 文件、运行时地址缓存、诊断日志、临时文件和凭据文件不进入 Git。
+目标仓库：`chris2gao/nba2k22-gm-engine`。玩家于 2026-10-17 明确授权保持 public，并上传本次游戏数据库和 JSON；`config/github_sync.json` 记录可见性配置。仓库保存项目代码、清洁模板、规范和小型 JSON 阅读文件；审计通过的 SQLite 备份打包为公开 GitHub Release 附件。当前 live 文件、运行时地址缓存、诊断日志、临时文件和凭据文件不进入 Git。
 
 分工以 [文档 26](26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md) 为准：网页连接授权/读取测试由玩家完成；Codex 验收本地来源、项目上传与远端数据库内容，不继续代测网页账号。网页 GM 先读取当前规则 commit 下的文档 26 和 `config/gameplay_policy.json`，再读取固定数据 commit 的批次；分别记录规则版本与事实版本，避免旧数据 commit 附带的旧提示词覆盖新规则。
 
@@ -46,7 +46,7 @@ published/saves/<career_id>/batches/<batch_id>/
 
 旧 `scripts/verify_web_export.py` 等详细比对工具不再进入日常流程。NULL 继续原样导出，财务差额仍只是静态工资规则代理，不是完整 CBA 可用空间。
 
-`scripts/publish_web_snapshot.py` 保留私有仓库、正确分支和不混入其他文件的发布限制。脚本正常提交推送 JSON，上传对应 SQLite ZIP 到私有 Release，成功后填写 uploaded_at 并再次提交入口，然后输出回执；不回读比较远端 JSON，不重新下载归档。命令失败就报错，不输出整体成功。
+`scripts/publish_web_snapshot.py` 检查目标仓库与配置的可见性、正确分支和不混入其他文件的发布限制。脚本正常提交推送 JSON，上传对应 SQLite ZIP 到玩家已授权的公开 Release，成功后填写 uploaded_at 并再次提交入口，然后输出包含实际可见性的回执；不回读比较远端 JSON，不重新下载归档。命令失败就报错，不输出整体成功。
 
 发布脚本不修改凭据，不 force push，不执行网页模型提交的脚本或游戏决策。源代码版本更新与数据更新独立提交。
 
