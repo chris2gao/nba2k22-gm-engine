@@ -195,6 +195,14 @@ e:\games\NBA 2K22\Antigravity_GM_Engine/
 
 ## 四、快速上手使用说明 (Quick Start)
 
+### 一次性任务窗口与常驻基线
+
+- [数据采集基线完整提示词](docs/32_DATA_CAPTURE_BASELINE_PROMPT.md)：关键词、内存/数据库入口、采集范围与结束边界。
+- [迭代开发基线完整提示词](docs/33_DEVELOPMENT_BASELINE_PROMPT.md)：架构、开发流程、验证边界与文档维护。
+- [两类基线共用当前状态](docs/34_BASELINE_CURRENT_STATE.md)：已实现功能、关键词映射、缺口和单来源更新待办。
+
+玩家先建立两个只读初始化的基线对话，再另开一次性任务窗口；每个任务从文件读取最新版。当前脚本仍是全量更新，单来源独立生产更新尚未实现，不能仅凭提示词声称已支持。
+
 ### 1. 环境准备
 * 支持 Windows 10 / 11 64 位操作系统；
  * Python 3.10+ 与 `pywin32`（`win32process`、`win32api`、`win32con`）；SQLite 使用 Python 标准库。
