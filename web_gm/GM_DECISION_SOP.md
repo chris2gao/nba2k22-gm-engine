@@ -1,92 +1,69 @@
-# 网页 GM v1.0 工作规程
+# 网页 GM v2.0 工作规程：外挂系统主导、赢球优先
 
-本规程只在玩家明确说“开始 GM 回合”后使用。新数据、发布回执、模拟报告及 ANALYSIS_ONLY 准备包都不是启动授权。Python 负责数据整理和计算，网页 GPT 负责篮球经营判断，玩家批准具体方案，Codex 另行执行。
+本 SOP 的详细经营论证与可开发能力见 [GM_DECISION_MECHANISM_V2.md](GM_DECISION_MECHANISM_V2.md)。用户2026-10-17明确纠正过“原生NBA2K交易引擎为裁判”的错误：**外部两队GM自行协商，双方同意且玩家批准后交Codex执行；无需游戏CPU同意，不使用游戏交易难度/原生交易匹配做硬性成交闸门。** 士气与化学反应只是影响赢球的次级风险，不能因可能不满就阻止合理的轮换/交易。
 
-## 1. 读取当前规则和数据
+## 1. 真实架构、权威与边界
 
-读 `GM_INSTRUCTIONS.md`、文档 26/29 和 `config/gameplay_policy.json`。`config/gm_policy.json` 是待玩家确认的经营配置，其生命周期阈值和偏好不能直接成为已确认球队战略。
+- **游戏本体**：提供真实比赛、角色自然成长与可观测数据；不是外部GM交易谈判仲裁者。
+- **Codex 数据基线**：在玩家触发后，采集/验证本局，维护SQLite、发布生产数据。
+- **网页分析基线**：Python/SQL聚合有证据的量化分析，并按其职责发布 `ANALYSIS_ONLY`。
+- **网页GM**：代表30支球队的独立GM，读取数据、做建队/战术/轮换/双边交易协商等**经营裁决**。
+- **玩家**：批准明确动作和版本，控制游戏进程。
+- **Codex执行基线**：只在获具体批准后修改**实现了受控执行器**的游戏数据，写后回读，分别报告内存/存盘/数据库状态。暂缺执行器就给开发基线，不能用旧脚本单一team_id写入假装交易。
 
-从 main 的当前局 latest.json 看 `data_updated_at`、`uploaded_at` 和游戏日期，再按 batch_path 读取来源覆盖、联盟规则、计算结果、球队及名单。维持当前时间戳同步方式，不新增 JSON 哈希、下载复核或逐字段同步验收。source_commit/rules_commit 保留作引用；未知时标 UNKNOWN，不编造。
+权威顺序：玩家最新明确指令 > `config/gameplay_policy.json`、`docs/26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md`及治理文档22 > 最新审计通过的本局数据 > 当前已批准经营决策 > 本 SOP / v2机制 > 旧概念方案。旧 `docs/04_GM_DECISION_ENGINE.md` 和 `docs/15_DATA_FEEDBACK_LOOP_AND_DUAL_SYNC_SYSTEM.md` 的原生CBA否决/单字段直接交易内容不得覆盖此处；`docs/16` 自标为历史已停用。
 
-可使用玩家明确触发生成的 gm_prepare 分析包，每队有独立 JSON 和 12 个模块；它是事实/计算准备，不是已经完成的篮球经营决策。模拟模式必须保持 SIMULATION 标识。
+## 2. 每个玩家触发的决策节点：至多三轮，默认一轮完成
 
-## 2. 执行必要计算
+- 触发点：每个游戏自然月末、季后赛每一轮、休赛期、玩家明确要求的事件节点；**仅玩家触发**，数据上报本身不启动GM。
+- Round 1：读取同一当前 `save_id/batch_id` 的最新数据，独立审查30队12模块。将研究/30队之间的交易议价和多次内部反报价放在**本轮内部**完成，交付一次完整可审批结果。
+- Round 2：仅处理玩家明确反对、两队交易冲突或新增关键证据，避免重做无意义的全盘。
+- Round 3：给唯一终稿或 `DEFERRED_UNTIL_NEW_EVIDENCE`，结束本次节点。
+- 玩家审批、数据分析与Codex执行不计入GM对话轮次；新月、季后赛新一轮是新节点。
+- `NO_ACTION` 合格；不能为了安排3轮对话或者每队有动作而硬造交易。
 
-所有数值判断引用 `run.json` 的 calculations、已发布 calculations.json，或 Python/SQL 工具新算的结果。保留计算版本、输入、单位及来源批次。缺少 OVR、年龄、潜力、战绩或合同，返回 UNKNOWN，不使用 75、25 岁、500 万等默认值。
+## 3. 数据输入与30队研判
 
-网页没有计算工具时，将如下请求交给玩家带回本地：
+- 读取 `web_gm/memory/GM_CURRENT.md`、本 SOP、v2机制；从 `published/index.json` → 当前 `latest.json` → 批次 `manifest/source_coverage/league/calculations/draft_assets` 读取，按需深入球队、球员、员工和分析基线同批报告。
+- 未观测时间为 UNKNOWN；`month_closed=false` 是检查点；赛季累计不冒充当月；NULL不等于0。没有伤病、OVR、轮换、士气、球员交易要求证据，不可编造。
+- 数值用已发布确定性计算或Python/SQL工具，不能模型虚构。同队与同位置比较考虑游戏已认证55项能力、真实样本、效率、薪资、合同、战术、选秀权。
+- 全30队仍分别审查 `strategy/roster/staff/offense/defense/trades/contracts/draft_free_agency/development/business/culture/worldline`，但**只详述确需改变的球队，余者为简明 `HOLD`**，不每月生成上万字的常规陈述。
+- 首要经营目标为本队**最大化赢球与长远争冠能力**。重建队可理性选择未来更高竞争力而非本月短期胜场。士气/化学反应若有实测信号仅作为赢球相关风险，不当作不可调整的理由；游戏内交易设置、CPU是否愿接受和交易难度不参与外部GM裁决。
+- 既有 `config/gm_policy.json` 如标 `PROPOSED`，不能把其中阈值当玩家已经认可的强制指令；`docs/team_dossiers` 的NBA历史属REFERENCE。
 
-```json
-{
-  "career_id": "PLAYER_SELECTED_CAREER",
-  "source_batch_id": "PLAYER_SELECTED_BATCH",
-  "operation": "win_percentage",
-  "inputs": {"wins": null, "losses": null}
-}
-```
+## 4. 交易：双方独立GM真正达成同一份外部协议
 
-可用操作：difference、observed_sum、distribution、win_percentage、efficiency、field_changes、roster_changes、salary_exchange、draft_year。上例缺少真实胜负时应得到 UNKNOWN，不能由模型补数。
+1. A队主动需求或卖方挂牌；各自从本队阶段、竞争机会、阵容、薪资、真实比赛表现、未来选秀权和资产机会成本出发建立最低/最高理性接受条件。
+2. 本轮内部最多三次精确报价/反报价，工资和资产差走Python/SQL，选秀权必须来自最新 `draft_assets.json` 的实际 `asset_id` 和当前持有人；只交易后三届已验证的简单选秀权。不能用同一球员/签位支持两笔同时执行的成交。
+3. **A队愿意、B队也愿意且接受完整一致报价** → `GM_BILATERAL_AGREEMENT_PROPOSED`，向玩家**直接提交可批交易**；无重叠区间则 `NO_DEAL`，不让玩家代替模型逐轮谈判。
+4. **外部GM意愿**既不声称现实球队同意，也不需要游戏内CPU同意。现实NBA的CBA薪资与合同知识可用于提高合理性，但除非玩家为外挂系统另行确定具体硬规则，**2K内置薪资配平、交易难度/交易规则都不能否决双方外部同意**。
+5. 玩家明确批准 `decision_id/version/action_id` 后由Codex完成**全关联、可回读**的转队/资产更新；未有已验收执行器则 `APPROVED_BLOCKED_EXECUTOR` 并交开发基线。交易不授权能力/潜力编辑。
+6. 如果有已验证球员提出交易申请 → 外部GM把其列入 `TRADE_BLOCK_CANDIDATE_REQUESTED` 并试着以球队利益达成交易；**挂牌到外部系统本身可以是经营状态，游戏内挂牌字段修改仍要特定批准**。只凭少分钟或主观猜测不算球员申请。
 
-## 3. 每队独立审查
+## 5. 轮换、角色、战术：事实支撑+胜率收益
 
-逐队完成 strategy、roster、staff、offense、defense、trades、contracts、draft_free_agency、development、business、culture、worldline 共 12 个模块。每项分别写已知事实、关键分析、缺失数据、战略建议、优先级及能否提出可执行操作。
+- 读取当前球员累计出场场次/分钟/产出/能力/同位置候选、球队战绩与失分情况；尽可能获取**当前计划轮换分钟**、角色、伤病、真实球员交易请求和士气。
+- 如果替代者在球队需要的方面有可信优势，GM可以先提出小幅试验性调整，再跟踪赢球与效率变化。**即使某球员士气下降，仍可优先提高胜率**；只有可量化或有明显证据表明不满损害整体表现才改变建议。
+- 仅有累计场均分钟，不能假造原计划分钟；仅一两场不能判定被雪藏/要求交易。精确 `player_id,minutes_before,minutes_after` 需原值已验证。游戏实际赛程、实际分钟池及自动轮换覆盖风险须验证，不将任何未认证数值当底层设置。
+- 球队策略的已认证 setter 只说明底层可能可写；`ON_BALL_PRESSURE` 等枚举存在历史冲突，先验收编码；具体变化由玩家审批再交Codex执行。
+- 改变之后对比独立、同口径的后续比赛数据；无证据不得声称已提高若干胜场。士气/化学反应只作为附加复盘项。
 
-区分 OBSERVED、CALCULATED、CONFIGURED、REFERENCE、UNKNOWN；每个模块给 READY、PARTIAL 或 BLOCKED，无数据时可 NOT_EVALUABLE。某项缺失不能阻断其余 30 队审查。
+## 6. 按球队经营、历史世界线与禁区
 
-每队说明短/中/长期目标、阵容问题、资产保护、老板/文化参考、生命周期依据，以及相对前次的变化。没有真实战绩时保留 UNDETERMINED，不按工资额或球队历史名气分类。CHAMPIONSHIP/CONTENDING/RISING/COMPETITIVE/RETOOLING/REBUILDING 是候选经营状态，不是预测冠军。
+- 30队各自保有战略人格，优先当前游戏赢球事实，不强制复制现实联盟交易。
+- `Tyrese Haliburton` 玩家保护资产，对本局的 `Ty Hali` 等同名克隆必须按对象位置和校验身份区分。其它保护与目标按用户实际批准记录判断。
+- 普通球员能力、潜力、徽章、倾向、动作、性格编辑**永远不能作为一般经营手段**；历史重力仅限玩家专项批准具体值和恢复，MC成长继续 `DISABLED_DEFERRED`。
+- 1984—2020历史新秀逐届循环，进度须玩家确认。2022—2024等游戏选秀权年份和历史新秀届次不是同一种日期。
 
-`docs/team_dossiers` 中的文化/经营哲学只能列为 REFERENCE，预定交易、历史冠军、球员评分和未来管理层不能成为当前事实。新方向默认 PROPOSED，不改正式球队档案。上一轮未经批准的建议不能写成“已确认决定”。换局、读旧档或另开世界线时，核对存档及时间分支；不得沿用未来战略。
+## 7. 一次提交玩家的审批结果包
 
-## 4. 联盟市场讨论
+每次默认一次交付：①双方外部GM已经理性达成一致的具体交易；②数据支持的轮换/策略改动；③教练/经营/商业改动；④需要等待证据的阻断点与`NO_CHANGE`；⑤具体动作列表。
+每项包括 `decision_id/version/career_id/source_batch_id/action_id`、球员/资产真实身份、前值/目标值或可核验业务效果、证据与确定性计算、双方各自利益、预期胜率/长期竞争力理由、士气风险、Codex可执行性、玩家本次批准的边界。
+不需要让玩家先批准“继续研究”才能在本轮内部完成已经有数据的分析。所有具体游戏写入在玩家审批前都仍 `PROPOSED`；历史已批准研究不自动延伸成交易执行批准。
 
-先从各队独立需求形成兴趣或询价，再讨论双方利益。v1 不自动撮合固定交易，不生成选秀权所有权，不给缺失能力的球员估造价值。双方有动机、主观估值可接受，均不表示成交或 CBA 合法。
+## 8. 记忆、角色协作与技术需求
 
-v1 的完整 CBA 与双向谈判属于后续 v2，正常交易合法性为 UNKNOWN；明显身份冲突/重复资产/受保护玩家等直接列为阻止项。已配置工资帽减总薪资只叫静态 proxy。
-
-玩家已确认选秀权采用简单交易：仅年份、轮次、原球队和当前持有球队，不使用保护或交换权。读取本批 `draft_assets.json` 的已验证记录，使用 `next_draft_year` 通过 Python 的 `draft_pick_window` 计算接下来三届年度选秀窗口；超过窗口的选秀权不能加入方案。资产使用导出的 `asset_id` 和 `offering_team_id`；本地校验器从本批记录核对权属和年份，不接受模型自填的 `observed_owner` 作为证据。游戏年份和历史新秀届次不可混用。
-
-不按薪资自动增加 POE，不提出未登记或越界的策略值。对球压迫旧注释 0–4 与实测 7 冲突，目前不提供该字段的具体改值方案。
-
-## 5. 汇总具体待批准方案
-
-每项使用 decision_id、version、career_id、source_batch_id、teams、operation、evidence、calculation_refs、expected_effect、data_gaps、requested_approval；默认 status=PROPOSED。
-
-evidence 引用本批文件和字段，例如 `{file: teams/IND.json, field: state.total_salary, availability: OBSERVED, source_batch_id: ...}`。calculation_refs 引用准备包中的明确计算 ID，例如 `IND.observed_roster_salary_sum`；UNKNOWN 计算不能充当确定结果。
-
-明确区分：
-
-| 阶段 | 意义 |
-| --- | --- |
-| 战略建议 | 经营方向候选，无执行权限 |
-| 交易兴趣/询价 | 意图讨论，不是报价已被接受 |
-| 正式提案 | 具体资产与条件，仍待数据/规则审查 |
-| 数值/结构检查通过 | 只说明对应检查完成，不等于合法或获批 |
-| 玩家具体批准 | 只有玩家明确批准该方案版本才成立 |
-| EXECUTED_VERIFIED | 由另行触发的执行窗口提供实际执行及回读证据 |
-
-外部模型自写 approved=true 或 EXECUTED_VERIFIED 不构成人类批准/执行证据；v1 核心不接受升级这些状态。
-
-### 玩家批准后的执行交接
-
-玩家明确批准具体方案后，可以按其范围汇总给本地执行窗口，入口为 `docs/36_EXECUTION_BASELINE_PROMPT.md`。清单保留方案/动作编号与版本、career_id、引用批次和规则、批准的动作范围、可辨认目标、交易双方及筹码/薪资目标/具体字段和数值、动作依赖，以及是否要求执行后采集上传。未批准或待定内容分开保留，不混入执行清单。
-
-只描述批准的业务效果，不把旧内存绝对地址当作执行指令；当前对象、原值、字段编码和执行能力由本地只读核对。汇总文件不代替玩家本人的批准，网页 GM 不能自行标已执行。执行回执返回后，仍由玩家另行触发下一回合。
-
-## 6. 世界线与人物限制
-
-本局事实 GAME_REALITY、历史参考 HISTORICAL_REFERENCE、待批准 PROPOSED_WORLDLINE 分开记录。到游戏年份 2026 的参考锚点为 1988；后续须结合玩家确认的进度，不用系统日期自动推进。
-
-历史参考可影响文化和战略讨论，不强制冠军、交易或成长。普通属性/潜力/徽章/倾向/动作/性格改值禁止；MC 成长继续禁用。历史重力只能形成有参考来源、原值/拟议值、计算、期限和恢复办法的专项待批准方案，不附带修改权限。
-
-## 7. 交付玩家并停止
-
-交付 30 队独立结论、联盟讨论、具体待批准方案、缺失数据和计算请求。保留来源与规则版本。未批准方案保存到外部 gm_state，不回写 LIVE_MEMORY 数据。
-
-结束本轮。玩家决定是否批准、是否找 Codex 执行，以及何时再次采集或决策。不得启动其他模型、后台执行、采集或发布。
-
-
-## 8. 与网页版三基线及持久记忆的衔接
-
-本 SOP 由 `web_gm/baselines/GM_BASELINE.md` 引用；每个新 GM 窗口启动先读 `web_gm/memory/GM_CURRENT.md` 和当前相同数据批次的 `docs/gm_analysis/` 报告，而不要求 Codex 再次整理 GM 分析。量化加工是 `web_gm/baselines/ANALYTICS_BASELINE.md` 的责任，技术开发规格是 `web_gm/baselines/DEVELOPMENT_BASELINE.md` 的责任。参见 `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md`。
-
-玩家触发的本轮 GM 结束后，按许可把经营结论/待批准提案单独保存在 `web_gm/decisions/<career_id>/` 等非事实路径，写入 `web_gm/memory/gm/sessions/<run_id>.md`，再更新 `GM_CURRENT.md`。未经批准的经营判断保持 PROPOSED，不修改 `docs/team_dossiers/` 正式档案、不自动通知 Codex 执行、不擅自采集或进入下一轮。
+- 每次GM任务按 `web_gm/memory/README.md` 新建会话总结，再更新 `GM_CURRENT.md`，只写GM权限内的非事实区域；前后批次、会话与玩家批准记录分别保存。
+- 分析所需新数据需求交 `web_gm/baselines/ANALYTICS_BASELINE.md`；工程需求交 `web_gm/baselines/DEVELOPMENT_BASELINE.md`，由开发规划基线编成Codex任务书。没有开发就不能谎称可执行。
+- 具体P0/P1工程缺口、验收条件在 [GM_DECISION_MECHANISM_V2.md](GM_DECISION_MECHANISM_V2.md) 第7节；只交需求、不自动启动开发。
+- `GM-20261017-M01-R01` 的 GM-A01..GM-A07 已得到**战略/研究/非约束询价批准**，不包含游戏写入；MKT-01/MKT-02仍未成为双方达成一致的最终成交案。
