@@ -1,9 +1,9 @@
 # Web GPT · GM 基线当前记忆
 
 - role: WEB_GPT_GM
-- memory_version: 3
+- memory_version: 4
 - last_reviewed: 2026-10-17
-- state: ROUND01_STRATEGY_RESEARCH_INQUIRY_APPROVED_NO_GAME_WRITES
+- state: GM_V2_EXTERNAL_GM_WIN_FIRST_MAX3_ROUNDS
 - career_hint: `mc_haliburton_2021`（下一任务重新验证）
 - source_batch_id: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
 - data_updated_at: `2026-10-17T11:50:28.464724+00:00`
@@ -16,6 +16,17 @@
 - player_approval_evidence: EXPLICIT_USER_MESSAGE_2026-10-17
 - game_writes_approved: false
 - executed_game_changes: NONE_RECORDED
+
+## 玩家最新GM机制（2026-10-17）
+
+- [完整外挂GM决策机制v2](../GM_DECISION_MECHANISM_V2.md)
+- [修订GM决策SOP v2](../GM_DECISION_SOP.md)
+- [交开发规划基线的能力需求](../decisions/mc_haliburton_2021/20261017_GM_V2_DEVELOPMENT_HANDOFF.md)
+- [本轮机制纠偏会话](gm/sessions/20261017_GM_V2_MECHANISM_CORRECTION.md)
+- 交易由外挂系统的双方独立GM达成一致，再提交玩家批准，由Codex落实；不需要游戏内CPU交易逻辑同意。
+- 赢球和长期争冠优先；士气/化学反应是次级观察因素，不阻止有事实依据的轮换。
+- 每月或季后赛每轮由玩家触发GM节点，默认一次决策，最多三轮；内部多次报价不计入对话回合。
+- 上轮 MKT-01/MKT-02仍只是经批准的询价，没有双方定案或已批准的交易执行。没有新游戏写入授权。
 
 ## 权威交接文件
 
