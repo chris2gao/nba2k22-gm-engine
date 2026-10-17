@@ -30,9 +30,9 @@
 
 - [三基线索引](../../../baselines/README.md)
 - [协作协议](../../../../docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md)
-- [GM 最新记忆](../../../GM_CURRENT.md)
-- [开发最新记忆](../../../DEVELOPMENT_CURRENT.md)
-- [分析最新记忆](../../../ANALYTICS_CURRENT.md)
+- [GM 最新记忆](../../GM_CURRENT.md)
+- [开发最新记忆](../../DEVELOPMENT_CURRENT.md)
+- [分析最新记忆](../../ANALYTICS_CURRENT.md)
 - [此前分析报告](../../../../docs/gm_analysis/2021-2022_SIMPLE_PICKS_V1_ANALYSIS_ONLY.md)
 
 ## 未解决/下一轮需求
