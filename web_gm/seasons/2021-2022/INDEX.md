@@ -8,7 +8,7 @@
 - current_progress_hint: `2021-11`（来自既有历史玩家进度，不是本批实测日期）
 - index_created_real_date: `2026-10-17`
 - policy: `PLAYER_RULES_20261017_V3` + `WEB_GM_DECISION_MECHANISM_V2`
-- execution_state: `NO_GAME_WRITES_APPROVED_OR_EXECUTED_IN_W01_OR_W02`; W02新交易提案仍未获批准
+- execution_state: `TWO_PLAYER_APPROVED_TRADES_PENDING_CERTIFIED_EXECUTOR`; 本赛季本批未有任何写入或存盘回执
 
 ## 本赛季 GM 决策节点时间线（整季沿用同一 GM 聊天）
 
@@ -25,6 +25,21 @@
 4. [玩家审批回执](../../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)：7项仅限战略、研究和非约束询价。对于是否已执行以独立执行回执为准。
 5. [GM v2 机制](../../GM_DECISION_MECHANISM_V2.md)：外部双边谈判、胜率优先、士气次级、每次最多3回合。
 6. [最新 GM_CURRENT](../../memory/GM_CURRENT.md)：只作快速入口，窗口历史以此处文件为准。
+
+## 最新玩家批准与能力路线更新（2026-10-17）
+
+**两笔双边模拟GM已达成共识的交易，均已得到玩家明确批准，但没有游戏执行回执：**
+
+1. `GM-W02-A01`：CHI 接收 DET Jerami Grant；DET 接收 CHI Coby White、Derrick Jones Jr. 和 CHI 持有的 2022 POR 原始首轮 `draft_pick:2022:1:28`。玩家明确批准，`APPROVED_BLOCKED_EXECUTOR`。
+2. `GM-W02-R02-A01`：DAL 接收 HOU David Nwaba；HOU 接收 DAL Sterling Brown、DAL 持有的2022与2024本队原始次轮 `draft_pick:2022:2:17`、`draft_pick:2024:2:17`。玩家明确批准，`APPROVED_BLOCKED_EXECUTOR`。
+
+**执行职责：** 用户带上述动作清单给 Codex 的 `docs/36_EXECUTION_BASELINE_PROMPT.md` 执行窗口；球员归属、合同关联、选秀权转让必须完整业务回读并在存盘与数据库状态上分别报告。文档34第8节在本次查询时尚未验收完整交易执行器；批准不等于允许裸指针单字段交易，也不等于游戏已成交。W01/W02的原始提案及当时审批状态是历史归档，不能覆盖本段更新。
+
+**攻防开发恢复：** 玩家收回“取消教练攻防设置开发”的指令；Codex可继续研发球队自身攻防与针对各队的攻防配置。开发完成后玩家提供实机可操作机制，GM才做具体调参方案；当前不能认定已验收或已授权写入。
+
+**国王剧情变化：** 玩家确认MC Tyrese Haliburton已申请交易，将在后续游戏日换队；当前是尚未完成的剧情事件，绝不能当作本批已观察到的换队。
+
+**30队工作标准：** 每个新的真实月度/季后赛游戏数据批次都要求30支球队作出经营动作或有据可查的HOLD；不能只列观察点。本次W02 R02内容与W01/W02 R01复用同一批次，不是真实的新月份。
 
 ## W02 后最新待处理事项（W01历史记录不变）
 
