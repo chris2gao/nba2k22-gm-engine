@@ -1,5 +1,8 @@
 # DEV-20261017-TACTICS | NBA2K22 PC 教练战术对模拟比赛的影响：开发价值评估 V1
 
+> **2026-10-17 流程变更提醒：本页早期建议的Codex开发前大规模A/B模拟效果实验已被玩家最新指令取代。当前有效研发/验收流程以 [DEV-20261017-05 V2](../development_tasks/DEV_20261017_05_COACHING_MEMORY_DISCOVERY_V1.md) 为准：确认内存技术可行后直接开发，玩家运行一个游戏月后通过最新赛季累计比赛数据差值评估效果。旧测试方法保留为历史思路，不作为Codex的当前必做事项。**
+
+
 - 状态：ASSESSMENT_ONLY / RECOMMEND_P0_EXPERIMENT / NO_EXECUTION_APPROVAL
 - 日期：2026-10-17
 - 负责人：Web GPT DEVELOPMENT
