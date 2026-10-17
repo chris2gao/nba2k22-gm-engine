@@ -7,13 +7,13 @@
 建立执行基线时发送：
 
 ```text
-请读取并遵守 E:\games\NBA 2K22\Antigravity_GM_Engine\docs\35_EXECUTION_BASELINE_PROMPT.md，初始化批准方案执行基线。熟悉现有内存定位、修改接口、批准规则和执行能力表。只建立上下文并报告就绪，等待我的具体批准方案，不连接游戏或执行修改。
+请读取并遵守 E:\games\NBA 2K22\Antigravity_GM_Engine\docs\36_EXECUTION_BASELINE_PROMPT.md，初始化批准方案执行基线。熟悉现有内存定位、修改接口、批准规则和执行能力表。只建立上下文并报告就绪，等待我的具体批准方案，不连接游戏或执行修改。
 ```
 
 以后从此基线开一次性任务窗口，发送：
 
 ```text
-这是执行任务，先读取 docs/35_EXECUTION_BASELINE_PROMPT.md 的最新版。
+这是执行任务，先读取 docs/36_EXECUTION_BASELINE_PROMPT.md 的最新版。
 当前存档：【save_id】；游戏时间/所处界面：【当前情况】。
 下面是网页 GM 汇总的具体方案，我已批准执行其中【全部动作或明确动作编号】：
 【粘贴方案及版本、球员/球队、交易筹码、合同金额或目标字段和值】

@@ -199,7 +199,7 @@ e:\games\NBA 2K22\Antigravity_GM_Engine/
 
 - [数据采集基线完整提示词](docs/32_DATA_CAPTURE_BASELINE_PROMPT.md)：关键词、内存/数据库入口、采集范围与结束边界。
 - [迭代开发基线完整提示词](docs/33_DEVELOPMENT_BASELINE_PROMPT.md)：架构、开发流程、验证边界与文档维护。
-- [批准方案执行基线完整提示词](docs/35_EXECUTION_BASELINE_PROMPT.md)：玩家批准清单、实时对象/原值、写入与回读、失败/重复执行处理。
+- [批准方案执行基线完整提示词](docs/36_EXECUTION_BASELINE_PROMPT.md)：玩家批准清单、实时对象/原值、写入与回读、失败/重复执行处理。
 - [三类基线共用当前状态](docs/34_BASELINE_CURRENT_STATE.md)：已实现功能、关键词映射、来源缺口与执行能力表。
 
 玩家可分别建立采集、开发、执行三个只读初始化的基线对话，再另开一次性任务窗口；每个任务从文件读取最新版。当前脚本仍是全量更新，单来源独立生产更新尚未实现；执行也只使用实际已验收且获具体批准的能力，不能凭提示词声称任意修改已支持。
