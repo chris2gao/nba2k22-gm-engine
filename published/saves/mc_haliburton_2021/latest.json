@@ -1,12 +1,11 @@
 {
   "save_id": "mc_haliburton_2021",
-  "batch_id": "2021-2022_M01_NOV20_CHECKPOINT_955517168f0c_dc9d5e96_TS2",
-  "batch_path": "saves/mc_haliburton_2021/batches/2021-2022_M01_NOV20_CHECKPOINT_955517168f0c_dc9d5e96_TS2",
-  "data_updated_at": "2026-10-17T06:18:51+00:00",
-  "uploaded_at": "2026-10-17T07:07:02.428078+00:00",
-  "upload_status": "UPLOADED",
+  "batch_id": "2021-2022_M01_SOURCE_EXTENSIONS_V2_01c47b62b302_fbde28d7_TS2",
+  "batch_path": "saves/mc_haliburton_2021/batches/2021-2022_M01_SOURCE_EXTENSIONS_V2_01c47b62b302_fbde28d7_TS2",
+  "data_updated_at": "2026-10-17T11:26:40.607988+00:00",
+  "uploaded_at": null,
+  "upload_status": "PENDING_UPLOAD",
   "sync_mode": "TIMESTAMP_ONLY",
-  "game_date": "2021-11-20",
-  "purpose": "production",
-  "archive_url": "https://github.com/chris2gao/nba2k22-gm-engine/releases/download/data-2021-2022_M01_NOV20_CHECKPOINT_955517168f0c_dc9d5e96_TS2/2021-2022_M01_NOV20_CHECKPOINT_955517168f0c_dc9d5e96_TS2.zip"
+  "game_date": null,
+  "purpose": "production"
 }
