@@ -4,6 +4,16 @@
   "trigger_mode": "PLAYER_INITIATED_ONLY",
   "game_calendar_detection": "NOT_OBSERVED_USER_DATE_OR_EXPLICIT_CURRENT_DATE_UNKNOWN",
   "career_identity_detection": "NOT_IMPLEMENTED_EXPLICIT_SAVE_ID_REQUIRED",
+  "offseason_development": {
+    "task": "DEV_20261017_04",
+    "status": "P0_PARTIAL_REAL_GAME_NOT_VERIFIED",
+    "research_entry": "scripts/offseason_research.py",
+    "research_scope": "Explicit archived field inventory only; no live capture, expiry certification or game writes.",
+    "production_source": "NOT_IMPLEMENTED",
+    "contract_transition_semantics": "NOT_VERIFIED",
+    "native_ai_signing_control": "NOT_VERIFIED",
+    "review": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md"
+  },
   "player_confirmed_scope": {
     "contract_requirement": "CURRENT_ROSTER_PLAYER_SALARIES_ONLY",
     "contract_scope_confirmed_at": "2026-10-17",

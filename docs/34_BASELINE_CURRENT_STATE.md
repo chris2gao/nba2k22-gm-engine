@@ -1,6 +1,6 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
-状态版本：v2，2026-10-17。数据功能证据提交：`2d16a7d`；对应已发布入口提交：`875adb4`；执行接口本轮按 `c136a8d` 的源码核对，未进行实机写入验收。这些是本状态页的证据，不能作为以后任务的固定 HEAD 或固定数据版本。
+状态版本：v3，2026-10-17。数据功能证据提交：`2d16a7d`；对应已发布入口提交：`875adb4`；执行接口按 `c136a8d` 的源码核对，未实机写入验收。新增DEV-20261017-04 P0源码/归档调查，未通过休赛期实机准入。这些证据不是以后任务的固定HEAD或固定数据版本。
 
 **范围提示（2026-10-17）：** 本页专供 Codex 的文档 32（数据采集基线）、33（本地开发基线）和 36（批准方案执行基线）共同引用。网页版 GPT 的三份新基线位于 `web_gm/baselines/`，由 `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md` 规定：Web GPT ANALYTICS 负责 GM 数据加工与报告 GitHub 回写，Web GPT GM 负责经营决策，Web GPT DEVELOPMENT 负责规划和给 Codex 任务书；这些都不会替代 Codex 本地数据更新、工程开发及具体批准后的执行职责。
 
@@ -31,6 +31,7 @@
 | 同一有效批次重新发布 | 已实现 | `scripts/publish_web_snapshot.py --save-id ...`；不重新采集/改采集时间 |
 | SQLite 备份 ZIP 与 JSON 自动导出 | 已实现 | `src/export_web_gm.py`；JSON 在 Git，ZIP 在 Release |
 | 网页 GM 本地分析/计算/提案接口 | GM v1 已交付 | `src/gm_core/`、三个 GM CLI；无正式决策自动启动和执行权 |
+| 休赛期自由球员系统 | P0部分研究，未实机认证 | `scripts/offseason_research.py`仅清点指定历史归档字段；见[P0报告](development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)，无休赛期生产来源或签约执行器 |
 | 通用交易写回、历史新秀槽位注入、历史重力执行 | 尚未完整验收 | 执行窗口先核对实际实现；不要使用旧伪代码试写正式局 |
 | 模型自动派发、多模型谈判、v3 完整经营史 | 未完整实现 | 协议/边界预留不是生产功能 |
 
