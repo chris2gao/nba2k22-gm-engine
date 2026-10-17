@@ -9,7 +9,7 @@ from datetime import datetime
 import re
 
 
-VERSION = "offseason_planner_v1_unverified"
+VERSION = "offseason_planner_v1_1_unverified"
 MONEY_MAX = (1 << 31) - 1
 PATHS = ("CAP_SPACE", "VERIFIED_BIRD", "VERIFIED_EARLY_BIRD", "VERIFIED_NON_BIRD",
          "VERIFIED_EXCEPTION", "VERIFIED_MINIMUM")
@@ -229,9 +229,14 @@ def _make_offer(c, team, rules):
     amount = integer(amount, "first year salary", 1)
     years = integer(request.get("years", 1), "offer years", 1, 6)
     raises = integer(request.get("annual_raise_bps", 0), "offer raise bps", 0, 10000)
-    salaries = [integer(amount + amount * raises * i // 10000, "salary schedule", 1) for i in range(years)]
+    # Round the permitted annual increment down once. Rounding each cumulative
+    # target independently could make a later year-to-year increment round up
+    # beyond the exact first-year-based limit checked by _legal.
+    annual_increment = amount * raises // 10000
+    salaries = [integer(amount + annual_increment * i, "salary schedule", 1) for i in range(years)]
     return {"candidate_id": c["candidate_id"], "team_id": team["team_id"],
             "salaries": salaries, "total_salary": sum(salaries), "pricing": pricing,
+            "annual_raise_dollars": annual_increment,
             "role_score": integer(request.get("role_score", 0), "role score", 0, 100),
             "strategy_score": integer(request.get("strategy_score", 0), "strategy score", 0, 100),
             "strategy_source": team.get("strategy", {}).get("source", "CONFIGURED_NEUTRAL_BASELINE"),
@@ -404,13 +409,19 @@ def plan(data):
         if not viable:
             proposal["unsigned"].append({"candidate_id": cid, "status": "UNSIGNED", "reason": "NO_LEGAL_OFFER_IN_SIMULATION"})
             continue
-        winner = matching or min(viable, key=lambda o: _rank(o, c, metadata["scoring"]))
+        preferred = min(viable, key=lambda o: _rank(o, c, metadata["scoring"]))
+        # Matching substitutes the selected outside contract only. It must not
+        # replace a home contract the player already prefers (which may have
+        # better terms than the home team's final matching counter).
+        match_applied = matching is not None and preferred["team_id"] != c.get("previous_team_id")
+        winner = matching if match_applied else preferred
         tid = winner["team_id"]
         _reserve(winner, c, teams[tid], ledgers[tid])
         proposal["allocations"].append(dict(winner,
             action_id=f"sign_{cid}", verified_player_identity=deepcopy(c["verified_player_identity"]),
             previous_team_id=c.get("previous_team_id"),
-            selection="RFA_CONFIRMED_MATCH_SIMULATED" if matching else "DETERMINISTIC_PLAYER_CHOICE",
+            selection="RFA_CONFIRMED_MATCH_SIMULATED" if match_applied else "DETERMINISTIC_PLAYER_CHOICE",
+            matched_external_team_id=preferred["team_id"] if match_applied else None,
             score=-_rank(winner, c, metadata["scoring"])[0],
             calculation_ref=f"{frozen['offseason_run_id']}.{cid}.integer_allocation",
             candidate_state_version=frozen["game_state_version"]))

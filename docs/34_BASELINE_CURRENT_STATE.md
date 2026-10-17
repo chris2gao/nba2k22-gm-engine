@@ -31,7 +31,7 @@
 | 同一有效批次重新发布 | 已实现 | `scripts/publish_web_snapshot.py --save-id ...`；不重新采集/改采集时间 |
 | SQLite 备份 ZIP 与 JSON 自动导出 | 已实现 | `src/export_web_gm.py`；JSON 在 Git，ZIP 在 Release |
 | 网页 GM 本地分析/计算/提案接口 | GM v1 已交付 | `src/gm_core/`、三个 GM CLI；无正式决策自动启动和执行权 |
-| 休赛期自由球员系统 | P0部分研究；P1合成模拟源码未运行/未测试 | `scripts/offseason_research.py`清点历史字段，`scripts/offseason_plan.py`/`offseason_validate.py`为合成来源离线竞价/回放入口；见[P0](development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)/[P1](development_reviews/DEV_20261017_04_OFFSEASON_FA_P1_IMPLEMENTATION.md)。无真实休赛期来源、签约执行器或跨季验收 |
+| 休赛期自由球员系统 | P0部分研究；P1合成模拟源码未运行/未测试，规划器v1_1静态修正涨幅取整与RFA选择顺序 | `scripts/offseason_research.py`清点历史字段，`scripts/offseason_plan.py`/`offseason_validate.py`为合成来源离线竞价/回放入口；见[P0](development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)/[P1](development_reviews/DEV_20261017_04_OFFSEASON_FA_P1_IMPLEMENTATION.md)。无真实休赛期来源、签约执行器或跨季验收 |
 | 通用交易写回、历史新秀槽位注入、历史重力执行 | 尚未完整验收 | 执行窗口先核对实际实现；不要使用旧伪代码试写正式局 |
 | 模型自动派发、多模型谈判、v3 完整经营史 | 未完整实现 | 协议/边界预留不是生产功能 |
 
