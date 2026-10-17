@@ -7,6 +7,8 @@
   "offseason_development": {
     "task": "DEV_20261017_04",
     "status": "P0_PARTIAL_REAL_GAME_NOT_VERIFIED",
+    "offline_planner": "scripts/offseason_plan.py",
+    "offline_planner_status": "SYNTHETIC_SOURCE_ONLY_NOT_RUN_NOT_TESTED",
     "research_entry": "scripts/offseason_research.py",
     "research_scope": "Explicit archived field inventory only; no live capture, expiry certification or game writes.",
     "production_source": "NOT_IMPLEMENTED",
