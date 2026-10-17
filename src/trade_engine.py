@@ -20,9 +20,6 @@ import sqlite3
 from typing import Dict, List, Tuple, Optional
 
 sys.path.append(os.path.dirname(__file__))
-from memory import GameMemory
-from scanner import LeagueScanner
-import config
 
 # ==============================================================================
 # 1. 选秀权资产基准估值字典 (Draft Pick Valuation Matrix)
@@ -70,6 +67,7 @@ LIFECYCLE_MULTIPLIERS = {
 
 class DynamicTradeEngine:
     def __init__(self, db_path: Optional[str] = None):
+        raise RuntimeError("Legacy trade generator is disabled for production GM; use gm_core published-data analysis. No database was opened.")
         self.project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.db_path = db_path or os.path.join(self.project_dir, "database", "league_state.sqlite")
         self._init_extended_tables()
@@ -120,11 +118,10 @@ class DynamicTradeEngine:
         """
         计算单个球员的客观综合价值点数 (0 ~ 10,000 点)
         """
-        ovr = player.get("ovr", 75)
-        age = player.get("age", 25)
-        pot = player.get("potential", ovr)
-        salary = player.get("salary", 5_000_000)
-        years_left = player.get("years_left", 2)
+        required = ("ovr", "age", "potential", "salary", "years_left")
+        if any(player.get(key) is None for key in required):
+            raise ValueError("UNKNOWN: observed OVR, age, potential, salary and years_left are required; no default values")
+        ovr, age, pot, salary, years_left = (player[key] for key in required)
         
         # 1. 即战力基础分 (按 OVR 指数级拉升)
         if ovr >= 95:
@@ -185,8 +182,8 @@ class DynamicTradeEngine:
         # 1. 球员部分
         for p in players:
             base_val = self.calculate_player_base_value(p)
-            age = p.get("age", 25)
-            years = p.get("years_left", 2)
+            age = p["age"]
+            years = p["years_left"]
             
             # 依生命周期拆解加权
             if age <= 23:
@@ -204,7 +201,9 @@ class DynamicTradeEngine:
             
         # 2. 选秀权部分
         for pick_tier in picks:
-            base_pick_val = PICK_TIER_VALUES.get(pick_tier, 2000)
+            if pick_tier not in PICK_TIER_VALUES:
+                raise ValueError("UNKNOWN: no default draft-pick valuation")
+            base_pick_val = PICK_TIER_VALUES[pick_tier]
             weighted_pick_val = int(base_pick_val * mults["pick_mult"])
             total_score += weighted_pick_val
             

@@ -25,4 +25,5 @@ __pycache__/
 *.tmp
 *.capture
 _exports/
+gm_state/careers/
 # Audited, sanitized JSON exports under published/ are explicitly versioned.

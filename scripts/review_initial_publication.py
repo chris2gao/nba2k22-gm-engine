@@ -14,8 +14,8 @@ def git(*arguments):
 
 def main():
     files = git("diff", "--cached", "--name-only", "-z").decode().strip("\0").split("\0")
-    allowed_roots = {"src", "scripts", "config", "docs", "web_gm", "published"}
-    allowed_files = {"README.md", "AGENTS.md", ".gitignore", ".gitattributes", "requirements.txt", "database/schema.sql", "database/templates/save_template.json"}
+    allowed_roots = {"src", "scripts", "config", "docs", "web_gm", "published", "tests"}
+    allowed_files = {"README.md", "AGENTS.md", ".gitignore", ".gitattributes", "requirements.txt", "database/schema.sql", "database/templates/save_template.json", "gm_state/README.md"}
     suspicious, sizes = [], {}
     credential_patterns = [rb"github_pat_[A-Za-z0-9_]{25,}", rb"gh[pousr]_[A-Za-z0-9]{25,}", rb"sk-(?:proj-)?[A-Za-z0-9_-]{30,}", rb"-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----"]
     for name in files:

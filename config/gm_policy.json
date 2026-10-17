@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "policy_id": "GM_OPERATING_DRAFT_V1",
+  "configuration_status": "PROPOSED_PENDING_PLAYER_CONFIRMATION",
+  "analysis_only": true,
+  "automatic_decisions": false,
+  "automatic_execution": false,
+  "valuation_model": "DEFERRED_V2_NO_DEFAULT_PLAYER_VALUES",
+  "lifecycles": ["CHAMPIONSHIP", "CONTENDING", "RISING", "COMPETITIVE", "RETOOLING", "REBUILDING", "UNDETERMINED"],
+  "lifecycle_candidate_thresholds": {
+    "minimum_games": 10,
+    "contending_win_percentage": 0.6,
+    "competitive_win_percentage": 0.45,
+    "rebuilding_win_percentage": 0.35
+  },
+  "protected_player_names": ["Tyrese Haliburton"],
+  "tactical_enums": {
+    "poe_off_pace": {"values": [0, 1, 2, 3, 4, 5], "status": "DOCUMENTED_ENUM_PENDING_EXECUTOR_VALIDATION"},
+    "poe_fastbreak": {"values": [0, 1, 2, 3, 4, 5], "status": "DOCUMENTED_ENUM_PENDING_EXECUTOR_VALIDATION"},
+    "poe_pnr_def": {"values": [0, 1, 2, 3, 4, 5, 6], "status": "DOCUMENTED_ENUM_PENDING_EXECUTOR_VALIDATION"},
+    "poe_on_ball": {"values": [], "status": "UNVERIFIED_ENUM_CONFLICT_OBSERVED_7_VS_LEGACY_0_TO_4"}
+  },
+  "extensions": {
+    "v2": ["asset_ownership", "bilateral_negotiation", "cba_and_game_rules", "multi_model_handoff"],
+    "v3": ["confirmed_history", "draft_progress", "dual_worldlines", "season_effect_review"],
+    "status": "INTERFACES_ONLY_PLAYER_INSTRUCTION_REQUIRED"
+  }
+}

@@ -7,6 +7,8 @@
 
 > **以可复核的 NBA 2K22 实测数据驱动外部 GM 建议；任何游戏或决策规则写入都由玩家批准。**
 
+**GM v1.0 开发入口：** [开发与验收](docs/30_GM_V1_DEVELOPMENT_AND_ACCEPTANCE.md)、[网页 GM 工作规程](web_gm/GM_DECISION_SOP.md)。`src/gm_core/` 只做离线事实准备、确定性计算和提案协议；v2/v3 预留接口，数据同步流程保持不变。
+
 **当前同步已简化为时间方式：** 自动导出 JSON 和数据库 ZIP，上传后在 latest.json 显示 `data_updated_at` 与 `uploaded_at`。网页 GM 只看更新时间判断新旧，不做 JSON 额外检查。见 [29_SIMPLE_DATABASE_SYNC.md](docs/29_SIMPLE_DATABASE_SYNC.md)。
 
 当前分工与玩法见 [26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md](docs/26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)：Codex 本地处理数据并上传，网页 GPT 担任 GM，玩家审批后带回本地执行。起始 2021–2022，历史选秀 1984–2020 顺序轮回；正常属性成长交给游戏，历史重力逐项批准，MC 成长故事暂缓。旧自动觉醒/体系加点已停用。

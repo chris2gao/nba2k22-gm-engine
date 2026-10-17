@@ -1,5 +1,7 @@
 # NBA2K22 GM project instructions
 
+- GM v1 offline development uses src/gm_core and scripts/gm_prepare.py, gm_calculate.py, gm_validate_proposal.py. Read docs/30_GM_V1_DEVELOPMENT_AND_ACCEPTANCE.md and web_gm/GM_DECISION_SOP.md. Never import game-memory/write modules into gm_core, run a formal GM round during development, approve proposals from model-provided fields, alter formal team dossiers, or change the accepted timestamp synchronization pipeline. gm_policy.json is a proposed operating configuration awaiting player confirmation. Development simulations go under _exports; no automatic capture, model dispatch, publication, or execution.
+
 - GitHub synchronization uses timestamps only at the player's request: data_updated_at and uploaded_at in latest.json. Do not run JSON hash/field checks, verify_web_export.py, test_web_export_guards.py, or download-and-compare checks during routine export/publication. Source memory calibration and capture auditing remain in place. Read docs/29_SIMPLE_DATABASE_SYNC.md for the current sync contract; it supersedes older hash-based JSON handoff instructions.
 
 - Data initialization/update, GM decisions, and game execution are three separate player-triggered tasks. Never start a later stage because an earlier stage finished. Data jobs end after the requested capture/audit/calculation/publication; they must not call generate_gm_proposals. New data windows read docs/27_DATA_WINDOW_RUNBOOK.md; approved execution windows read docs/28_EXECUTION_WINDOW_RUNBOOK.md.

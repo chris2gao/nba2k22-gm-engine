@@ -1,0 +1,132 @@
+"""Proposal semantics, not a player approval or an execution interface."""
+from .data_reader import identifier, safe_child, load_json
+from .tactics import check_field
+from .trades import constraints
+from .coverage import SOURCE_FIELDS, state_value, player_value
+
+OPERATIONS = ("STRATEGY", "TRADE_INTEREST", "TRADE_PROPOSAL", "TACTIC_CHANGE",
+              "STAFF_CHANGE", "CONTRACT_CHANGE", "BUSINESS_CHANGE", "DRAFT_PLAN",
+              "HISTORICAL_GRAVITY", "PLAYER_EDIT", "MC_GROWTH")
+
+
+def approval_claim(value):
+    if isinstance(value, dict):
+        return any((key in ("approved", "player_approved", "executed", "write_authority") and item is not False and item is not None)
+                   or approval_claim(item) for key, item in value.items())
+    if isinstance(value, list):
+        return any(approval_claim(item) for item in value)
+    return False
+
+
+def evidence_value(data, entry):
+    relative = entry["file"]
+    if not relative.endswith(".json"):
+        raise ValueError("Evidence must reference a published JSON file")
+    value = load_json(safe_child(data.batch_directory, relative))
+    for part in entry["field"].split("."):
+        value = value[int(part)] if isinstance(value, list) else value[part]
+    return value
+
+
+def validate_proposal(proposal, data, calculation_ids=()):
+    required = {"decision_id": str, "version": int, "career_id": str, "source_batch_id": str,
+                "teams": list, "operation": str, "evidence": list, "calculation_refs": list,
+                "expected_effect": str, "data_gaps": list, "requested_approval": list}
+    errors, missing = [], []
+    for name, kind in required.items():
+        if type(proposal.get(name)) is not kind:
+            errors.append(f"REQUIRED_{name}")
+    if errors:
+        return {"valid": False, "errors": errors, "readiness": "BLOCKED", "execution_authorized": False}
+    try:
+        identifier(proposal["decision_id"])
+    except ValueError:
+        errors.append("INVALID_DECISION_ID")
+    if proposal["version"] < 1:
+        errors.append("INVALID_VERSION")
+    if proposal["career_id"] != data.source.career_id or proposal["source_batch_id"] != data.source.batch_id:
+        errors.append("STALE_OR_WRONG_SOURCE")
+    if proposal.get("status", "PROPOSED") != "PROPOSED" or approval_claim(proposal):
+        errors.append("EXTERNAL_APPROVAL_OR_EXECUTION_CLAIM_REJECTED")
+    if not proposal["teams"] or any(type(team) is not str or team not in data.teams for team in proposal["teams"]):
+        errors.append("UNKNOWN_TEAM")
+        return {"valid": False, "errors": errors, "readiness": "BLOCKED", "execution_authorized": False}
+    operation = proposal["operation"]
+    if operation not in OPERATIONS:
+        errors.append("UNKNOWN_OPERATION")
+    if operation in ("PLAYER_EDIT", "MC_GROWTH"):
+        errors.append("PLAYER_EDIT_FORBIDDEN_OR_MC_DEFERRED")
+    if proposal.get("changes") and operation not in ("TACTIC_CHANGE", "BUSINESS_CHANGE", "HISTORICAL_GRAVITY"):
+        errors.append("CHANGES_NOT_ALLOWED_FOR_THIS_OPERATION")
+    if not proposal["evidence"]:
+        errors.append("EVIDENCE_REQUIRED")
+    for entry in proposal["evidence"]:
+        try:
+            if not isinstance(entry, dict) or entry.get("source_batch_id") != data.source.batch_id:
+                raise ValueError("Wrong evidence source")
+            value = evidence_value(data, entry)
+            if value is None and entry.get("availability") in ("OBSERVED", "CALCULATED"):
+                errors.append("UNKNOWN_FIELD_CLAIMED_AS_FACT")
+            if entry.get("availability") == "OBSERVED" and entry["file"].startswith("teams/"):
+                abbreviation = entry["file"].split("/")[-1].removesuffix(".json")
+                team = data.teams[abbreviation]
+                parts = entry["field"].split(".")
+                if parts[0] == "state" and len(parts) == 2:
+                    source_id = next((source for source, keys in SOURCE_FIELDS.values() if parts[1] in keys), "team_state")
+                    if state_value(data, team, parts[1], source_id) is None:
+                        errors.append("UNOBSERVED_SOURCE_CLAIMED_AS_FACT")
+                if parts[0] == "roster" and len(parts) == 3:
+                    if player_value(data, team["roster"][int(parts[1])], parts[2]) is None:
+                        errors.append("UNOBSERVED_SOURCE_CLAIMED_AS_FACT")
+            if entry.get("availability") == "OBSERVED" and entry["file"] == "league.json" and entry["field"].startswith("rules."):
+                errors.append("CONFIGURED_RULE_CLAIMED_AS_OBSERVED")
+        except (ValueError, KeyError, IndexError, TypeError, OSError):
+            errors.append("INVALID_EVIDENCE_REFERENCE")
+    if any(type(ref) is not str or ref not in calculation_ids for ref in proposal["calculation_refs"]):
+        errors.append("UNKNOWN_CALCULATION_REFERENCE")
+    elif proposal["calculation_refs"]:
+        if not isinstance(calculation_ids, dict) or any(
+            not isinstance(calculation_ids[ref], dict) or calculation_ids[ref].get("availability") != "CALCULATED"
+            or calculation_ids[ref].get("value") is None for ref in proposal["calculation_refs"]
+        ):
+            errors.append("CALCULATION_INPUT_UNAVAILABLE")
+    if not proposal["requested_approval"]:
+        errors.append("SPECIFIC_APPROVAL_CONTENT_REQUIRED")
+    if operation == "TACTIC_CHANGE":
+        for change in proposal.get("changes", []):
+            if not isinstance(change, dict) or not check_field(data.gm_policy, change.get("field"), change.get("value"))["valid"]:
+                errors.append("INVALID_OR_UNVERIFIED_TACTICAL_ENUM")
+        if not proposal.get("changes"):
+            errors.append("SPECIFIC_CHANGES_REQUIRED")
+    if operation == "BUSINESS_CHANGE":
+        allowed = {"ticket_courtside", "ticket_lower", "ticket_upper"}
+        from .calculations import number
+        if not proposal.get("changes") or any(
+            not isinstance(change, dict) or change.get("field") not in allowed
+            or not number(change.get("value")) or change["value"] < 0 for change in proposal["changes"]
+        ):
+            errors.append("UNKNOWN_BUSINESS_FIELD_OR_INVALID_VALUE")
+        missing.append("价格响应、玩家具体批准及当前执行器验收")
+    trade = None
+    if operation == "TRADE_PROPOSAL":
+        assets = proposal.get("assets", [])
+        if not assets or not all(isinstance(item, dict) for item in assets) or len(set(proposal["teams"])) < 2:
+            errors.append("TRADE_ASSETS_AND_TWO_TEAMS_REQUIRED")
+        else:
+            trade = constraints(data, assets)
+            errors += trade["errors"]
+            missing += trade["missing_data"]
+        if proposal.get("legality", "UNKNOWN") == "LEGAL":
+            errors.append("V1_CANNOT_CERTIFY_TRADE_LEGALITY")
+        if not proposal["calculation_refs"]:
+            errors.append("TRADE_CALCULATIONS_REQUIRED")
+    if operation == "HISTORICAL_GRAVITY":
+        if not proposal.get("reference_sources") or not proposal.get("changes") or not proposal["calculation_refs"]:
+            errors.append("HISTORICAL_REFERENCE_CHANGES_AND_CALCULATIONS_REQUIRED")
+        missing.append("专项玩家批准与受控属性执行器验收")
+    return {"valid": not errors, "errors": sorted(set(errors)), "readiness": "BLOCKED" if errors else
+            ("PARTIAL" if proposal["data_gaps"] or missing else "READY"),
+            "missing_data": proposal["data_gaps"] + missing, "proposal_status": "PROPOSED",
+            "legality": trade["legality"] if trade else "UNKNOWN",
+            "execution_authorized": False, "player_approval": "NOT_GRANTED",
+            "meaning": "Structure only; no approval, no game write and no CBA certification"}

@@ -374,22 +374,10 @@ class GMEngine:
                 }
                 trade_proposals.append(trade_item)
 
-        # 4. 生成 30 队战术 POE 纠偏与轮换建议清单 (PROPOSED)
+        # Legacy heuristic tactics are retired. Observed on-ball 7 conflicts
+        # with the old documented 0..4 enum; do not invent increases up to 12.
+        # Player-triggered web GM uses gm_core.tactics and an explicit enum.
         tactical_proposals = []
-        for t in teams:
-            pace_curr = t["poe_off_pace"]
-            onball_curr = t["poe_on_ball"]
-            # 针对性建议
-            if t["total_salary"] >= luxury_tax_line and onball_curr < 8:
-                suggested_onball = min(12, onball_curr + 2)
-                tactical_proposals.append({
-                    "team_abbr": t["team_abbr"],
-                    "action": "INCREASE_DEFENSIVE_PRESSURE",
-                    "current_on_ball": onball_curr,
-                    "proposed_on_ball": suggested_onball,
-                    "reason": "争冠豪强必须强化常规时间对球压迫，降低对手轻松投射比例",
-                    "status": "PROPOSED_PENDING_APPROVAL"
-                })
 
         result = {
             "snapshot_id": snapshot_id,
