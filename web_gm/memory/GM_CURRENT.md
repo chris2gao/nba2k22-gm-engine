@@ -1,7 +1,7 @@
 # Web GPT · GM 基线当前记忆
 
 - role: `WEB_GPT_GM`
-- memory_version: 8
+- memory_version: 9
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-17`
 - current_game_season: `2021-2022`
@@ -13,10 +13,10 @@
 - last_snapshot_batch: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
 - last_snapshot_data_updated_at: `2026-10-17T11:50:28.464724+00:00`
 - last_gm_decision_id: `GM-20261017-W02-R01 v1`（新方案PROPOSED，非玩家批准）
-- approved_actions: W01 `GM-A01..GM-A07`（限战略/研究）；W02 `GM-W02-A01` 和 `GM-W02-R02-A01` 两笔交易均获得玩家批准，待执行器验收
-- current_game_change_decision: `W02_A01_GRANT_APPROVED_PENDING_EXECUTOR`; `W02_R02_A01_NWABA_APPROVED_PENDING_EXECUTOR`; `W02_A02_TURNER_NO_DEAL`；只可交执行窗口完成前置验证，禁止网页GM自动执行
+- approved_actions: W01 `GM-A01..GM-A07`（限战略/研究）；W02 `GM-W02-A01`、`GM-W02-R02-A01` 玩家批准且于2026-10-17报告已在游戏中成功落地
+- current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`；最新采集尚未同步，不能把历史批次当交易后状态
 - game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
-- gm_game_write_executed: false
+- gm_game_write_executed: `PLAYER_REPORTED_COMPLETED_2026-10-17`（两笔；待下次新发布批次核对球员和选秀权，未在网页端执行）
 
 ## 2026-10-17 玩家新指令：两个交易均已批准、攻防开发恢复
 
@@ -26,6 +26,14 @@
 - **攻防系统开发已恢复**：以玩家最新口头指令为准，允许 Codex/开发规划基线继续开发球队自身攻防、针对特定对手的攻防设置。GM 仅在玩家提供并经验证的接口能力后使用，不自行设具体枚举、不默认AI不会覆盖。
 - **MC 哈利伯顿申请交易**：玩家确认该剧情即将导致转队，尚未发生；Sacramento 下一轮准备应对核心离队，不能把未来剧情当作已执行变更。
 - 本次只针对当前赛季同批次W02的后续审批和技术交接，不新增已发生的比赛场次。后续每次真实游戏月份应依据最新同口径数据，30队都做明确经营裁决（HOLD亦需理由），而不仅列出观察问题。
+
+## 2026-10-17 新进展：玩家确认两笔交易已在游戏落地（最新状态，优先于历史节点描述）
+
+- **执行反馈（玩家权威陈述）**：`GM-W02-A01` 公牛/活塞 Jerami Grant 交易与 `GM-W02-R02-A01` 独行侠/火箭 David Nwaba 交易，均已成功完成游戏修改。此处登记 `PLAYER_REPORTED_EXECUTED`，不再标记“待执行”，不要求重复执行或再次批准。旧W02提案内 `PROPOSED` 属原审议时历史状态。
+- **尚待下次数据发布复核**：`published/saves/mc_haliburton_2021/latest.json` 在本次检查仍指向交易前批次 `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`，不能拿旧球员归属质疑玩家已完成的执行。等玩家**主动触发** Codex 数据源更新、GitHub 新批次上传后再核对双方新阵容、合同归属和三枚选秀权。游戏执行已完成与数据同步待更新分别记载。
+- **新功能进度（玩家报告）**：Codex已完善自动化交易、自由球员签约、模拟休赛期签约球员的脚本机制。前述 `docs/34_BASELINE_CURRENT_STATE.md` 第8节为旧版能力索引，不可继续简单断言“交易执行器仍没有”；但具体CLI、批准入口、适用范围、成功回读、签约资金/土豪线规则仍需下次获取最新文档/验收说明，不能自行臆造调用方式。
+- **玩家固定同步节奏**：下一次 GM 月度或阶段经营前，玩家先主动触发数据源更新与发布；Web GM每次开始决策先读 `published/index.json`、职业存档 `latest.json` 和新批次，重新对齐W01/W02历史数据，不自动采集、不自动推定交易后的战绩。随后30队逐队独立经营并提出新提案。
+- **攻防功能**：沿用玩家最新指令继续开发，尚需玩家届时提供具体已验收接口；正常比赛AI按游戏本体运行。不额外修改球员能力。MC哈利伯顿剧情转队仍须通过未来游戏结果验证。
 
 ## 必读入口：按赛季、游戏窗口和回合形成的决策链
 
