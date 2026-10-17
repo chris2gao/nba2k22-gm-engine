@@ -83,3 +83,10 @@ evidence 引用本批文件和字段，例如 `{file: teams/IND.json, field: sta
 交付 30 队独立结论、联盟讨论、具体待批准方案、缺失数据和计算请求。保留来源与规则版本。未批准方案保存到外部 gm_state，不回写 LIVE_MEMORY 数据。
 
 结束本轮。玩家决定是否批准、是否找 Codex 执行，以及何时再次采集或决策。不得启动其他模型、后台执行、采集或发布。
+
+
+## 8. 与网页版三基线及持久记忆的衔接
+
+本 SOP 由 `web_gm/baselines/GM_BASELINE.md` 引用；每个新 GM 窗口启动先读 `web_gm/memory/GM_CURRENT.md` 和当前相同数据批次的 `docs/gm_analysis/` 报告，而不要求 Codex 再次整理 GM 分析。量化加工是 `web_gm/baselines/ANALYTICS_BASELINE.md` 的责任，技术开发规格是 `web_gm/baselines/DEVELOPMENT_BASELINE.md` 的责任。参见 `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md`。
+
+玩家触发的本轮 GM 结束后，按许可把经营结论/待批准提案单独保存在 `web_gm/decisions/<career_id>/` 等非事实路径，写入 `web_gm/memory/gm/sessions/<run_id>.md`，再更新 `GM_CURRENT.md`。未经批准的经营判断保持 PROPOSED，不修改 `docs/team_dossiers/` 正式档案、不自动通知 Codex 执行、不擅自采集或进入下一轮。
