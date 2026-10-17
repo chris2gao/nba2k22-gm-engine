@@ -8,7 +8,7 @@
 
 1. `AGENTS.md`、本 `web_gm/baselines/GM_BASELINE.md`；
 2. `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md`（协作规则）；`web_gm/memory/GM_CURRENT.md`（最近 GM 记忆索引）；
-3. `web_gm/GM_INSTRUCTIONS.md`、`web_gm/GM_DECISION_SOP.md`；
+3. `web_gm/GM_INSTRUCTIONS.md`、`web_gm/GM_DECISION_SOP.md`、`web_gm/GM_DECISION_MECHANISM_V2.md`；
 4. `config/gameplay_policy.json` 和 `config/gm_policy.json`（后者若标记 PROPOSED 就不能当已批准规则）。
 
 回复「已就绪、实际读到的版本、当前允许能力/未决事项」，然后**停止**。不要自动读完整 30 队大 JSON，不要运行 GM、生成交易、进行采集、提交 GitHub 或修改游戏。基线聊天保持轻量，不记录每一次具体任务长日志。此文档的例子不授予任何动作权限。
@@ -38,7 +38,7 @@
 
 1. 锁定职业存档、batch、规则版本、data_updated_at、游戏日期及上一已确认经营状态。
 2. 结合量化分析与球队阵容实际表现，作出逐队战略结论，解释短中长期目标、阻碍和不交易的理由。
-3. 需要跨队交易时建立双方独立利益、明确资产 ID、年份窗口、拒绝/反报价可能和冲突资产账本；现阶段没有完整 CBA/游戏执行认证时只能 `UNKNOWN`，**不能**宣称交易合法或执行。
+3. 需要跨队交易时建立双方独立利益、明确资产 ID、年份窗口、拒绝/反报价可能和冲突资产账本；现阶段没有完整 CBA/游戏执行认证时只能 `UNKNOWN`，**不能**宣称交易已执行。外部GM双方达成一致是正式方案形成条件，NBA2K22的内部交易AI不是外部协商的否决方；具体游戏变更仍须玩家批准与执行端验收。
 4. 输出联盟级优先事项、逐队建队方向、具体需要玩家批准的提案。每项提案必须具有 `decision_id`、版本、career/batch、证据字段、Python 计算引用、涉及球队和真实交易筹码、预期后果、已知风险和批准范围。默认 `PROPOSED`；模型文本 `approved=true` 无效。
 5. **仅按玩家授予的写文档范围**把本轮总结和提案报告放到 GitHub 的非事实区域，如 `web_gm/decisions/<career_id>/<run_id>_PROPOSED.md` 与本角色 `web_gm/memory/gm/sessions/<run_id>.md`；完成后更新 `web_gm/memory/GM_CURRENT.md`，链接数据来源、结果及下轮待办。
 6. 向玩家交付仓库链接、真实提交 SHA、批准事项，然后停止。玩家另行授权后把具体方案交给 Codex 执行；不能自己开始下一轮采集或游戏修改。
