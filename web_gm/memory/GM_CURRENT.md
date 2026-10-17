@@ -1,35 +1,49 @@
 # Web GPT · GM 基线当前记忆
 
 - role: WEB_GPT_GM
-- memory_version: 2
+- memory_version: 3
 - last_reviewed: 2026-10-17
-- state: FIRST_FORMAL_GM_ROUND_PROPOSED_PENDING_PLAYER_APPROVAL
-- career_hint: `mc_haliburton_2021`（下轮需重验）
+- state: ROUND01_STRATEGY_RESEARCH_INQUIRY_APPROVED_NO_GAME_WRITES
+- career_hint: `mc_haliburton_2021`（下一任务重新验证）
 - source_batch_id: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
 - data_updated_at: `2026-10-17T11:50:28.464724+00:00`
 - game_date: UNKNOWN
 - month_closed: false
 - last_decision_id: GM-20261017-M01-R01
-- player_approved_actions: NONE_RECORDED
+- decision_version: 1
+- player_approved_actions: `GM-A01,GM-A02,GM-A03,GM-A04,GM-A05,GM-A06,GM-A07`
+- player_approval_scope: STRATEGY_RESEARCH_NONBINDING_INQUIRY_ONLY
+- player_approval_evidence: EXPLICIT_USER_MESSAGE_2026-10-17
+- game_writes_approved: false
 - executed_game_changes: NONE_RECORDED
 
-## 当前有效的经营判断（待玩家批准）
+## 权威交接文件
 
-- [30队×12模块完整决策草案](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_PROPOSED.md)
-- [本轮会话总结](gm/sessions/20261017_M01_LEAGUE_GM_ROUND01.md)
-- [同批数据分析](../../docs/gm_analysis/2021-2022_SIMPLE_PICKS_V1_ANALYSIS_ONLY.md)
-- GM-A01..GM-A07 仅待审批战略、数据核验、战术可行性与世界线约束；MKT-01 CHI/DET与MKT-02 CHA/IND均为询价，CBA和执行能力未验收。
-- PHI/BKN/LAL/SAC为本轮争冠观察四强。保护国王玩家球员 Tyrese Haliburton（pool_slot=1235），不可与 Ty Hali（pool_slot=184）混淆。
-- UTA米切尔仅2场、Oni仅1场，不能强制推断伤病/轮换。球队现金异常、完整人员/轮换/伤病、OVR为本轮信息缺口。
+- [原始30队×12模块v1提案](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_PROPOSED.md)：保留首次提出时的 PROPOSED 历史状态，不视为当前审批索引。
+- [玩家逐项审批记录（当前有效）](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)
+- [机器可读审批 JSON](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.json)
+- [本次审批会话](gm/sessions/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)
+- [初次GM会话](gm/sessions/20261017_M01_LEAGUE_GM_ROUND01.md)
+- [同批量化分析](../../docs/gm_analysis/2021-2022_SIMPLE_PICKS_V1_ANALYSIS_ONLY.md)
 
-## 下次正式 GM 工作流
+## 已批准，但需正确理解状态
 
-1. 读取 `published/index.json` 和当前 `latest.json`，确认本轮批次是否已过期；若新批次已发布不能照搬旧事实。
-2. 读取玩家对GM-A01..GM-A07及两项市场询价的明确批准或反对；未记录批准默认为 PROPOSED。
-3. 如需新资产/交易计算，向数据分析基线发送 calculation_request，数字由确定性Python/SQL核验；技术缺口由开发基线交给Codex。
-4. 游戏执行只由玩家明确授权后交给Codex执行基线，不能自动修改属性、名单、合同、POE和选秀权。
-5. 完成本轮后仍保存非事实决策报告、sessions，再更新本索引；不覆盖 `published/`、不编辑正式球队档案。
+1. `GM-A01`：30队战略方向获批作为经营基线，不等于任何球队字段已写入。
+2. `GM-A02`：保护国王 Tyrese Haliburton、保留表现良好的争冠核心；SAC 的 Tyrese Haliburton (slot=1235) 与 Ty Hali (slot=184) 不得混淆。
+3. `GM-A03`：数据异常核验需求获批、尚未执行。UTA 米切尔仅2场、Oni仅1场；CLE/NOP/ORL/UTA cash存在约42.9亿异常值。
+4. `GM-A04`：GSW/UTA/DAL/CHI/IND 战术与轮换研究获批、尚未执行；没有数值 setter 授权。
+5. `GM-A05`：MKT-01（CHI/DET，Grant）和 MKT-02（CHA/IND，Turner）只批准非约束询价/研究；交易未被批准，CBA和执行能力仍 UNKNOWN/NOT_VALIDATED。
+6. `GM-A06`：制服组/伤病/轮换/门票/CBA信息补全需求获批，未启动采集和开发。
+7. `GM-A07`：保持普通球员能力编辑禁止、历史重力和历史新秀注入不执行；MC故事保持关闭。
 
-## 固定限制
+## 下一阶段优先级（需要玩家另行触发对应角色/任务）
 
-现代比赛实际结果优先；普通球员能力编辑禁止；历史重力具体方案需专项批准；MC成长关闭。1984–2020历史选秀循环的已完成次数需玩家明确确认；本批next_draft_year=2022，仅未来三届2022–2024简单选秀权可在方案中提出。
+- **P0 ANALYTICS / DATA**：核验 UTA 小样本原因可否观测、SAC 同名身份及 cash 异常；数据缺失保持 UNKNOWN，不改变 `published/` 事实。
+- **P1 GM**：研究 GSW/UTA/DAL/CHI/IND 的战术适配与合理轮换，提供新的可验证候选数值或数据需求，不自动写游戏。
+- **P1 GM + ANALYTICS**：研究两组非约束市场询价，更新双方动机和可能反报价，核实真实筹码、工资差及 CBA 缺口。
+- **P2 DEVELOPMENT**：制定 staff、伤病、轮换、票务时间窗与正式交易合法性/执行器的开发和验收规范；不要假定已有生产接口。
+- **新的 PLAYER APPROVAL GATE**：任何真正要执行的操作需新决策版本、真实对象/原值/目标/回读条件与明确批准后交 Codex。当前无游戏写入授权。
+
+## 固定约束
+
+当前最新生产批次及 game_date 每轮重新读取 `published/index.json` / `latest.json`；不沿用旧批次作为永恒事实。现实比赛表现优先。历史选秀1984–2020逐届循环，但当前实际进度需要玩家确认。简单选秀权仅当前后三届（本批2022–2024），按最新记载所有权核验。普通能力修改禁止，MC成长故事关闭。合同完整 CBA、精准伤病与轮换、OVR仍未观测；严格区分 OBSERVED/PROPOSED/PLAYER_APPROVED/EXECUTED。
