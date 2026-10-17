@@ -36,17 +36,18 @@
 - 顺序：P0休赛期安全节点及原生AI自动签约调研 → P1 30队只读候选池/报价/母队竞价 → P2安全签约执行器测试 → P3全闭环跨赛季实机验收。
 - 硬阻塞：没有经过验证的完整签约执行器/自由球员权属/原生AI控制。2021–22薪资规则不得代替以后年份；大名单工资帽差额非真实签约空间。正常球员能力编辑禁止；玩家每次具体签约需要独立批准。
 
-## 2026-10-17 教练战术对模拟比赛影响：评估完成，等待玩家决定P0实验
+## 2026-10-17 教练战术对模拟比赛影响：历史评估（赛前A/B建议已被V2规则覆盖）
 
 - 状态：`SIM_TACTICS_ASSESSMENT_ONLY`，不代表Code已开发或允许写入正式存档。
 - [评估报告](../../docs/development_reviews/DEV_20261017_COACH_TACTICS_SIMULATION_ASSESSMENT_V1.md)；[会话归档](development/sessions/20261017_coach_tactics_simulation_assessment_v1.md)，报告提交`b599e17`。
 - 结论：优先验证NBA2K22 PC普通快速模拟的Sim Points of Emphasis/教练体系与传统球队POE、战术手册是否分路生效；有效才提供GM season tactic proposals、玩家批准及Codex受控执行。不开发未经验证的实时模拟教练AI。
 - 技术风险：`StrategyManager.set_team_strategy`仅uint8/回读；`poe_on_ball`枚举冲突；还需真实UI字段↔内存映射、Sim效应对照、AI覆盖与存档持久性证据。次世代主机Conditional Coaching不能视为PC功能。
 
-## 当前交接：DEV-20261017-05 NBA2K22 PC教练战术内存定位调研
+## 当前交接：DEV-20261017-05 教练战术定位、条件开发、玩家月度验证 V2
 
-- 状态：`RESEARCH_SPEC_PUBLISHED_AWAITING_CODEX_MEMORY_DISCOVERY`；玩家授权开发前调研，不授权直接开始生产模块编码/正式存档战术写入。
-- [任务书](../../docs/development_tasks/DEV_20261017_05_COACHING_MEMORY_DISCOVERY_V1.md)；[规划归档](development/sessions/20261017_coaching_memory_discovery_spec_v1.md)；任务书提交`57afdbcfb80f61115157c00dd184af3e808bac80`。
-- 优先序：PC UI枚举台账→球队级Sim POE六项与得分优先项→Coaching Sliders/轮换/体系→Playbook与默认/对手防守→内存可逆证据+存档持久性→普通Sim/SimCast/实机对照→可行性报告。仅依实证进入下一步开发。
-- 当前代码`StrategyManager`的0xEB2..0xEBC是候选POE，不等于已确认Sim POE；`poe_on_ball`有枚举冲突；游戏下一代Conditional Coaching不可默认映射到PC。联盟级Simulation Sliders不得作为单队GM决策项。
-- 预期Codex报告：`docs/development_reviews/DEV_20261017_05_COACHING_MEMORY_DISCOVERY_REPORT.md`及字段矩阵；未找到的字段明确UNKNOWN/NOT_SUPPORTED，不自行猜测，不修改球员能力/倾向。
+- 状态：`MEMORY_DISCOVERY_THEN_IMPLEMENT / GAMEPLAY_TEST_DEFERRED_TO_PLAYER_MONTH_END`。玩家最新要求**Codex先定位内存、确认安全后直接开发；不要求Codex先跑20/100场对照模拟**。开发期只需合法枚举、对象身份、隔离存档读写/恢复/重启等最小技术安全检查。
+- [V2主任务书](../../docs/development_tasks/DEV_20261017_05_COACHING_MEMORY_DISCOVERY_V1.md)（原V1同路径覆盖更新）；[V2变更历史归档](development/sessions/20261017_coaching_month_end_validation_change_v2.md)。任务书最后更新提交`d5702d759a14285b76def883b7ff2306ff345b3a`。
+- 交付：Codex在确认部分字段可安全实现后，直接编写GM读取/提案及**受控**执行器，提交真实代码/必要技术验证/字段矩阵。技术实现完成时**不得声明模拟比赛效果得到证明**，效果标`SIM_EFFECT_PENDING_PLAYER_MONTH`。
+- 下一步游戏内测试归**玩家**：具体战术方案须独立审批并由执行端受控落地，玩家推进一个游戏月后分别触发比赛来源更新→Web GPT ANALYTICS分析→同赛季GM决策复核。游戏效果属于首月观察，不自动证明因果关系。
+- 月度计算仅在同存档同赛季同统计口径且游戏日期单调前进时：`ΔW`/`ΔL`/`ΔG`以及累计总量差计算本月指标，不能对赛季累计场均做直接相减；已知只有赛季累计，不假称逐场明细存在。
+- 持续保持游戏写入审批、不得改普通球员能力/潜力/倾向/徽章、不得偷改全联盟Simulation Sliders，也不得因开发完成自动开始采集、GM回合或正式存档执行。仍未知：比赛内CPU AI是否覆盖、普通快速模拟具体读取哪些战术字段，等实际反馈。
