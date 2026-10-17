@@ -4,6 +4,13 @@
   "trigger_mode": "PLAYER_INITIATED_ONLY",
   "game_calendar_detection": "NOT_OBSERVED_USER_DATE_OR_EXPLICIT_CURRENT_DATE_UNKNOWN",
   "career_identity_detection": "NOT_IMPLEMENTED_EXPLICIT_SAVE_ID_REQUIRED",
+  "player_confirmed_scope": {
+    "contract_requirement": "CURRENT_ROSTER_PLAYER_SALARIES_ONLY",
+    "contract_scope_confirmed_at": "2026-10-17",
+    "excluded_contract_work": ["guaranteed_amounts", "dead_cap", "exceptions", "cap_holds", "complete_real_world_CBA_ledger"],
+    "previously_observed_contract_clauses": "May remain as observations; not required for completion of the salary capture task.",
+    "age_requirement": "Prefer the in-game age field; date-derived age is not a substitute for observed in-game age. Unresolved fields may remain explicit gaps."
+  },
   "field_notes": {
     "team_monthly_stats.monthly_gate_revenue": "Direct offset value; the revenue aggregation window has not been independently established. The legacy column name does not prove it is monthly revenue.",
     "season_rules": "Configured and versioned rules, not observations of an in-game CBA ledger.",
@@ -11,7 +18,7 @@
     "player_age": "Observed birth date; exact age is calculated only with a player-confirmed game date. Unknown date leaves age NULL.",
     "season_statistics": "Current indexed season totals from roster descriptors; per-game and shooting percentages are deterministic Python calculations, not monthly observations.",
     "overall_rating": "NOT_OBSERVED. Player reported MC Haliburton displays locked 60 and Curry 96; these samples are discovery clues, not a complete memory data source.",
-    "contract_ledger": "Six 31-bit salary fields, options, contract type, duration and no-trade flags decoded. Guarantees, cap holds, exceptions and all CBA constraints are NOT_OBSERVED.",
+    "contract_ledger": "Player requirement is current-roster salaries only, already captured. Six 31-bit salary fields and previously decoded clauses remain available; guarantees, dead cap, exceptions, cap holds and a complete real-world CBA ledger are outside the current requested scope.",
     "staff_identity": "Capture-local staff slot and reciprocal team-role links; not a cross-save permanent ID.",
     "player_pool_identity": "Legacy model slot uses calibrated roster root as origin; slot zero is the roster directory. Read descriptor count plus root slot; never stop at a blank name."
   },
