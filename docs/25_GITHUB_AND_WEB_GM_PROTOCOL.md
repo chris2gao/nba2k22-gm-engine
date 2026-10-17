@@ -71,3 +71,10 @@ published/saves/<career_id>/batches/<batch_id>/
 ## 当前玩家确认的日期
 
 当前 career_id：`mc_haliburton_2021`。2021-2022 赛季，游戏日期 2021-11-20，当日比赛已结束，来源为玩家确认；这是检查点而非月末。当前捕获能力不包括逐场比赛结果，因此“当日比赛结束”的上下文不能被解释成已经获得全部比赛技术统计。
+
+
+## Web GPT 分析回写与三基线分工（2026-10-17）
+
+新版网页 GPT 有独立 GM / 开发规划 / 数据整理分析基线，见 `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md` 及 `web_gm/baselines/README.md`。**Web GPT ANALYTICS 是 GM 数据加工和将 ANALYSIS_ONLY 报告/JSON 回写 GitHub 的主要责任人**；可在自身 Python 运行环境执行从仓库获取的安全分析代码，真实执行路径须如实声明。Web GPT GM 在正式经营任务中消费这些分析并作出篮球决策；Web GPT DEVELOPMENT 出 Codex 工程任务书与独立验收。Codex 继续独立负责游戏来源采集、SQLite、自动原始 JSON/ZIP 发布和已批准的游戏执行，不需要替 Web GPT 每轮提交分析报告。
+
+分析文件位于 `docs/gm_analysis/`，不写 `published/`，不更改其 data_updated_at/uploaded_at、数据库 Release 或校验记录。分析应保存来源 batch、policy、工具与结果状态；含生命周期阈值的报告如经营配置待确认，则只能标候选。每次窗口结束按 `web_gm/memory/README.md` 保存本岗位任务总结并更新 CURRENT 索引。创建新会话/基线不会自动继承最新数据或启动任何阶段。
