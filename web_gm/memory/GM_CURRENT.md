@@ -1,60 +1,48 @@
 # Web GPT · GM 基线当前记忆
 
-- role: WEB_GPT_GM
-- memory_version: 4
-- last_reviewed: 2026-10-17
-- state: GM_V2_EXTERNAL_GM_WIN_FIRST_MAX3_ROUNDS
-- career_hint: `mc_haliburton_2021`（下一任务重新验证）
-- source_batch_id: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
-- data_updated_at: `2026-10-17T11:50:28.464724+00:00`
-- game_date: UNKNOWN
+- role: `WEB_GPT_GM`
+- memory_version: 5
+- updated_real_world: `2026-10-17`
+- current_game_season: `2021-2022`
+- current_career: `mc_haliburton_2021`
+- current_window: `GM-S2021-2022-W01` / `R01`（本轮归档；新的节点只由玩家启动）
+- last_game_month_hint: `2021-11`（原项目进度参考，**本批精确game_date UNKNOWN**）
+- last_game_date_exact: UNKNOWN
 - month_closed: false
-- last_decision_id: GM-20261017-M01-R01
-- decision_version: 1
-- player_approved_actions: `GM-A01,GM-A02,GM-A03,GM-A04,GM-A05,GM-A06,GM-A07`
-- player_approval_scope: STRATEGY_RESEARCH_NONBINDING_INQUIRY_ONLY
-- player_approval_evidence: EXPLICIT_USER_MESSAGE_2026-10-17
-- game_writes_approved: false
-- executed_game_changes: NONE_RECORDED
+- last_snapshot_batch: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
+- last_snapshot_data_updated_at: `2026-10-17T11:50:28.464724+00:00`
+- last_gm_decision_id: `GM-20261017-M01-R01 v1`
+- approved_actions: `GM-A01..GM-A07`（仅战略/研究/非约束询价）
+- current_game_change_decision: `DEFERRED_TO_NEXT_PLAYER_TRIGGERED_GM_WINDOW`
+- game_write_approved: false
+- gm_game_write_executed: false
 
-## 玩家最新GM机制（2026-10-17）
+## 必读入口：按赛季、游戏窗口和回合形成的决策链
 
-- [完整外挂GM决策机制v2](../GM_DECISION_MECHANISM_V2.md)
-- [修订GM决策SOP v2](../GM_DECISION_SOP.md)
-- [交开发规划基线的能力需求](../decisions/mc_haliburton_2021/20261017_GM_V2_DEVELOPMENT_HANDOFF.md)
-- [本轮机制纠偏会话](gm/sessions/20261017_GM_V2_MECHANISM_CORRECTION.md)
-- 交易由外挂系统的双方独立GM达成一致，再提交玩家批准，由Codex落实；不需要游戏内CPU交易逻辑同意。
-- 赢球和长期争冠优先；士气/化学反应是次级观察因素，不阻止有事实依据的轮换。
-- 每月或季后赛每轮由玩家触发GM节点，默认一次决策，最多三轮；内部多次报价不计入对话回合。
-- 上轮 MKT-01/MKT-02仍只是经批准的询价，没有双方定案或已批准的交易执行。没有新游戏写入授权。
+1. [2021–2022 赛季GM时间线总索引](../seasons/2021-2022/INDEX.md)
+2. [W01/R01归档：事实 → 战略 → 批准 → 未执行 → 下轮恢复](../seasons/2021-2022/windows/W01_GM_20261017/ROUND_R01_RECAP.md)
+3. [W01 30队冻结对比表](../seasons/2021-2022/windows/W01_GM_20261017/TEAM_BASELINE.json)
+4. [原30队12模块决策初案](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_PROPOSED.md)
+5. [7项玩家批准回执](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)
+6. [GM决策机制v2](../GM_DECISION_MECHANISM_V2.md)及[GM SOP v2](../GM_DECISION_SOP.md)
 
-## 权威交接文件
+## 本窗口发生了什么
 
-- [原始30队×12模块v1提案](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_PROPOSED.md)：保留首次提出时的 PROPOSED 历史状态，不视为当前审批索引。
-- [玩家逐项审批记录（当前有效）](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)
-- [机器可读审批 JSON](../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.json)
-- [本次审批会话](gm/sessions/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)
-- [初次GM会话](gm/sessions/20261017_M01_LEAGUE_GM_ROUND01.md)
-- [同批量化分析](../../docs/gm_analysis/2021-2022_SIMPLE_PICKS_V1_ANALYSIS_ONLY.md)
+- **实测基线**：PHI 16–3、BKN 14–5、LAL 15–5、SAC 14–5、GSW 9–9、UTA 5–13、DET 2–16；全部30队战绩/球队指标保存在窗口JSON；当前数据是赛季截至快照累计，不是本月独立数据。
+- **经营决定**：已对30队进行12模块战略审查；玩家批准GM-A01..GM-A07的方向/研究；保护玩家国王 Tyrese Haliburton (slot=1235)，不同于 Ty Hali (slot=184)。普通能力修改持续禁止。
+- **未执行市场讨论**：MKT-01 CHI/DET 格兰特；MKT-02 CHA/IND 特纳；**双方GM尚无正式一致协议**、玩家没有批准交易、游戏名单/选秀权未因此变化。
+- **机制修正**：外挂双方GM协商决定交易，而非游戏CPU；赢球优先，士气/化学反应次级；每个游戏节点最多3个GM回合，通常一次定案。
+- **最新停写指令**：Codex因额度暂不可执行，玩家决定本窗口**任何经营修改都不落地**，不自行转交Antigravity，等待下一月GM决策节点。旧提案没有执行权，也不能自动递延为新月应执行的动作。
+- **分工最新限制**：教练攻防系统可写范围、AI是否覆盖等由Codex先调研；**玩家将结果直接交开发规划基线处理**，GM无需参与开发调研/规划，只接收未来已验收的可用操作能力。此前[GM拟写的攻防开发需求](../seasons/2021-2022/DEV_REQUEST_COACHING_OPPONENT_GAMEPLANS.md)已标记历史草稿，不视作活动交接。
 
-## 已批准，但需正确理解状态
+## 下一次玩家启动GM节点时，必须这样恢复
 
-1. `GM-A01`：30队战略方向获批作为经营基线，不等于任何球队字段已写入。
-2. `GM-A02`：保护国王 Tyrese Haliburton、保留表现良好的争冠核心；SAC 的 Tyrese Haliburton (slot=1235) 与 Ty Hali (slot=184) 不得混淆。
-3. `GM-A03`：数据异常核验需求获批、尚未执行。UTA 米切尔仅2场、Oni仅1场；CLE/NOP/ORL/UTA cash存在约42.9亿异常值。
-4. `GM-A04`：GSW/UTA/DAL/CHI/IND 战术与轮换研究获批、尚未执行；没有数值 setter 授权。
-5. `GM-A05`：MKT-01（CHI/DET，Grant）和 MKT-02（CHA/IND，Turner）只批准非约束询价/研究；交易未被批准，CBA和执行能力仍 UNKNOWN/NOT_VALIDATED。
-6. `GM-A06`：制服组/伤病/轮换/门票/CBA信息补全需求获批，未启动采集和开发。
-7. `GM-A07`：保持普通球员能力编辑禁止、历史重力和历史新秀注入不执行；MC故事保持关闭。
+1. 从本季[时间线INDEX](../seasons/2021-2022/INDEX.md)找到上一窗口W01与30队冻结对比表；检查最新`published/index.json`和`latest.json`，锁定**新** `save_id/season/batch/data_updated_at/game_date`。
+2. 分析基线读取新数据后，GM对照30队前后累计战绩：同存档同赛季同口径才用`ΔW/ΔL`计算新期间战绩；不从两个赛季平均值直接相减声称月度场均贡献。排查读档回退、赛季切换、球员去留变化及已执行回执。
+3. 回看本轮保护核心战略是否经得住新的胜率、净胜分、球员样本、阵容变化；MKT-01/MKT-02如仍有意义须**重新开展外部双方GM议价**，不能直接视作已成交。
+4. 用下一窗口的**实际可用执行能力**决定战术/轮换提案，不研究技术本身，不推断数据缺口。士气/化学反应是赢球次级风险。
+5. 用户每个游戏月或季后赛轮次独立触发GM；新窗口建立 `web_gm/seasons/2021-2022/windows/Wxx_.../ROUND_Ryy_RECAP.md` + 新的30队基线，更新本季INDEX和本CURRENT，保留审批链。新赛季新开赛季目录与GM基线，不覆盖旧赛季。
 
-## 下一阶段优先级（需要玩家另行触发对应角色/任务）
+## 永久禁区和来源边界
 
-- **P0 ANALYTICS / DATA**：核验 UTA 小样本原因可否观测、SAC 同名身份及 cash 异常；数据缺失保持 UNKNOWN，不改变 `published/` 事实。
-- **P1 GM**：研究 GSW/UTA/DAL/CHI/IND 的战术适配与合理轮换，提供新的可验证候选数值或数据需求，不自动写游戏。
-- **P1 GM + ANALYTICS**：研究两组非约束市场询价，更新双方动机和可能反报价，核实真实筹码、工资差及 CBA 缺口。
-- **P2 DEVELOPMENT**：制定 staff、伤病、轮换、票务时间窗与正式交易合法性/执行器的开发和验收规范；不要假定已有生产接口。
-- **新的 PLAYER APPROVAL GATE**：任何真正要执行的操作需新决策版本、真实对象/原值/目标/回读条件与明确批准后交 Codex。当前无游戏写入授权。
-
-## 固定约束
-
-当前最新生产批次及 game_date 每轮重新读取 `published/index.json` / `latest.json`；不沿用旧批次作为永恒事实。现实比赛表现优先。历史选秀1984–2020逐届循环，但当前实际进度需要玩家确认。简单选秀权仅当前后三届（本批2022–2024），按最新记载所有权核验。普通能力修改禁止，MC成长故事关闭。合同完整 CBA、精准伤病与轮换、OVR仍未观测；严格区分 OBSERVED/PROPOSED/PLAYER_APPROVED/EXECUTED。
+一般球员能力、潜力、徽章、倾向、动作、性格不能靠外挂经营修改；历史重力须专项批准，MC成长仍关闭。1984–2020历史选秀循环的完成进度需要玩家确认。数据来源`NULL`不等于0，伤病/实际计划轮换/个体士气/交易请求未知则保持UNKNOWN；完整交易业务执行器尚需开发/验收。历史决策不是游戏实际发生的事实。
