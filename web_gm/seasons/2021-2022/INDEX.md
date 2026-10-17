@@ -3,19 +3,19 @@
 - season_id: `2021-2022`
 - career_id: `mc_haliburton_2021`
 - season_gm_baseline: `2021-2022`（一个游戏赛季一个派生 GM 决策聊天，赛季内各节点沿用同一聊天）
-- current_window: `GM-S2021-2022-W01`（最近已归档的节点编号，非强制单独聊天）
+- current_window: `GM-S2021-2022-W02`（本赛季同一聊天最新已归档决策节点，未发生新游戏月份确认）
 - last_confirmed_exact_game_date: `UNKNOWN`
 - current_progress_hint: `2021-11`（来自既有历史玩家进度，不是本批实测日期）
 - index_created_real_date: `2026-10-17`
 - policy: `PLAYER_RULES_20261017_V3` + `WEB_GM_DECISION_MECHANISM_V2`
-- execution_state: `NO_GAME_WRITES_APPROVED_OR_EXECUTED_IN_W01`
+- execution_state: `NO_GAME_WRITES_APPROVED_OR_EXECUTED_IN_W01_OR_W02`; W02新交易提案仍未获批准
 
 ## 本赛季 GM 决策节点时间线（整季沿用同一 GM 聊天）
 
 | 顺序 | 游戏时间范围 | 窗口 / 回合 | 基准数据 | 经营记录与最终状态 |
 | --- | --- | --- | --- | --- |
 | 01 | 2021年11月附近，**精确日 UNKNOWN**；没有确认月终 | `GM-S2021-2022-W01 / R01` | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2` | [本轮完整决策链](windows/W01_GM_20261017/ROUND_R01_RECAP.md) · 已批战略/研究/非约束询价，所有游戏修改暂缓 |
-| 02 | **尚未到达/未收到新发布数据** | `W02 / R01`（同赛季聊天的候选下一节点，待玩家触发） | UNKNOWN | 尚无决策；不强制新开聊天，不得提前写“12月”或预填结果 |
+| 02 | **与W01相同的未知日期检查点；没有新的发布批次，不是新月月结** | `GM-S2021-2022-W02 / R01`（同赛季聊天已触发的专题续议） | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（与W01完全相同） | [本次决策归档](windows/W02_GM_20261017/ROUND_R01_RECAP.md) · [30队同批基线](windows/W02_GM_20261017/TEAM_BASELINE.json) · CHI/DET格兰特具体交易仅PROPOSED；CHA/IND暂不成交；无写入 |
 
 ## 本赛季关键时点的权威事实与文件
 
@@ -26,6 +26,14 @@
 5. [GM v2 机制](../../GM_DECISION_MECHANISM_V2.md)：外部双边谈判、胜率优先、士气次级、每次最多3回合。
 6. [最新 GM_CURRENT](../../memory/GM_CURRENT.md)：只作快速入口，窗口历史以此处文件为准。
 
+## W02 后最新待处理事项（W01历史记录不变）
+
+- **最新节点 W02/R01 是同批专题续议，而非新的游戏日期/月度数据**；此时仍不得计算相对W01的新增战绩。
+- [W02正式待批准提案](../../decisions/mc_haliburton_2021/20261017_W02_SAME_SNAPSHOT_GM_PROPOSED.md)：`GM-W02-A01` CHI将Coby White + Derrick Jones Jr. + 持有的2022年POR首轮换DET Jerami Grant，外挂两队GM在此价格达成模拟经营层共识，**玩家尚未批准且交易执行器未验收，绝对未成交**。
+- `GM-W02-A02`：CHA/IND旧MKT-02按当前样本决定 `NO_DEAL`，不锁资产、不授权交易。
+- GSW防守、UTA米切尔缺席原因、DAL防守继续观察；SAC玩家哈利伯顿继续保护。W02无游戏写入、无新赛季事实。
+- 玩家如批准W02-A01，仍必须先由执行端重新核验最新存档与执行器；后续有新赛季批次时，GM需要重新估价，不能直接按本批交易。
+  
 ## 当前窗口里必须保留的判断
 
 - 76人16–3、篮网14–5、湖人15–5、国王14–5；保护现有强势核心，不照搬现实历史赛季交易。
