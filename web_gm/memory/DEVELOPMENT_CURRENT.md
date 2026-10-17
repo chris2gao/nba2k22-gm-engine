@@ -42,3 +42,11 @@
 - [评估报告](../../docs/development_reviews/DEV_20261017_COACH_TACTICS_SIMULATION_ASSESSMENT_V1.md)；[会话归档](development/sessions/20261017_coach_tactics_simulation_assessment_v1.md)，报告提交`b599e17`。
 - 结论：优先验证NBA2K22 PC普通快速模拟的Sim Points of Emphasis/教练体系与传统球队POE、战术手册是否分路生效；有效才提供GM season tactic proposals、玩家批准及Codex受控执行。不开发未经验证的实时模拟教练AI。
 - 技术风险：`StrategyManager.set_team_strategy`仅uint8/回读；`poe_on_ball`枚举冲突；还需真实UI字段↔内存映射、Sim效应对照、AI覆盖与存档持久性证据。次世代主机Conditional Coaching不能视为PC功能。
+
+## 当前交接：DEV-20261017-05 NBA2K22 PC教练战术内存定位调研
+
+- 状态：`RESEARCH_SPEC_PUBLISHED_AWAITING_CODEX_MEMORY_DISCOVERY`；玩家授权开发前调研，不授权直接开始生产模块编码/正式存档战术写入。
+- [任务书](../../docs/development_tasks/DEV_20261017_05_COACHING_MEMORY_DISCOVERY_V1.md)；[规划归档](development/sessions/20261017_coaching_memory_discovery_spec_v1.md)；任务书提交`57afdbcfb80f61115157c00dd184af3e808bac80`。
+- 优先序：PC UI枚举台账→球队级Sim POE六项与得分优先项→Coaching Sliders/轮换/体系→Playbook与默认/对手防守→内存可逆证据+存档持久性→普通Sim/SimCast/实机对照→可行性报告。仅依实证进入下一步开发。
+- 当前代码`StrategyManager`的0xEB2..0xEBC是候选POE，不等于已确认Sim POE；`poe_on_ball`有枚举冲突；游戏下一代Conditional Coaching不可默认映射到PC。联盟级Simulation Sliders不得作为单队GM决策项。
+- 预期Codex报告：`docs/development_reviews/DEV_20261017_05_COACHING_MEMORY_DISCOVERY_REPORT.md`及字段矩阵；未找到的字段明确UNKNOWN/NOT_SUPPORTED，不自行猜测，不修改球员能力/倾向。
