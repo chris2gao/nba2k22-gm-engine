@@ -7,6 +7,8 @@
 
 > **以可复核的 NBA 2K22 实测数据驱动外部 GM 建议；任何游戏或决策规则写入都由玩家批准。**
 
+**网页版 GPT 三基线（新增，角色隔离与跨窗口持久记忆）：** [入口及初始化提示词](web_gm/baselines/README.md) · [职责/数据闭环/记忆协议](docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md)。网页版 GPT 分为 **GM 决策 / 开发规划 / 数据整理分析** 三个独立基线，使用 GitHub 文档与 `web_gm/memory/` 跨新聊天交接。数据整理分析端在可用 Python 环境计算并将 `ANALYSIS_ONLY` 报告/JSON 回写 `docs/gm_analysis/`；Codex 仍负责游戏数据采集、源数据库和工程实现。Codex 自身的基线仍为文档 32、33、34，两者不能混用。
+
 **GM v1.0 开发入口：** [开发与验收](docs/30_GM_V1_DEVELOPMENT_AND_ACCEPTANCE.md)、[网页 GM 工作规程](web_gm/GM_DECISION_SOP.md)。`src/gm_core/` 只做离线事实准备、确定性计算和提案协议；v2/v3 预留接口，数据同步流程保持不变。
 
 **当前同步已简化为时间方式：** 自动导出 JSON 和数据库 ZIP，上传后在 latest.json 显示 `data_updated_at` 与 `uploaded_at`。网页 GM 只看更新时间判断新旧，不做 JSON 额外检查。见 [29_SIMPLE_DATABASE_SYNC.md](docs/29_SIMPLE_DATABASE_SYNC.md)。
