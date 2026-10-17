@@ -1,5 +1,7 @@
 # 私有 GitHub 数据发布与网页 GM
 
+**同步规则已按玩家要求简化，见 [29_SIMPLE_DATABASE_SYNC.md](29_SIMPLE_DATABASE_SYNC.md)。** 网页只比较数据更新时间和上传时间，日常导出/发布不执行 JSON 哈希、全字段或下载比较。
+
 目标仓库：`chris2gao/nba2k22-gm-engine`，要求 private。仓库保存项目代码、清洁模板、规范和小型 JSON 阅读文件；审计通过的 SQLite 备份打包为私有 GitHub Release 附件。当前 live 文件、运行时地址缓存、诊断日志、临时文件和凭据文件不进入 Git。
 
 分工以 [文档 26](26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md) 为准：网页连接授权/读取测试由玩家完成；Codex 验收本地来源、项目上传与远端数据库内容，不继续代测网页账号。网页 GM 先读取当前规则 commit 下的文档 26 和 `config/gameplay_policy.json`，再读取固定数据 commit 的批次；分别记录规则版本与事实版本，避免旧数据 commit 附带的旧提示词覆盖新规则。
@@ -36,15 +38,15 @@ published/saves/<career_id>/batches/<batch_id>/
   player_catalog/<选秀年>_<分片>.json
 ```
 
-每个阅读文件小于 900 KB。需要某队时只读取该队及交易对手；查历史新秀先查姓名/年份索引，再读对应分片，不将 3,319 个模型全部塞入对话。
+阅读文件按球队和选秀年份分片。需要某队时只读取该队及交易对手；查历史新秀先查姓名/年份索引，再读对应分片，不将全部模型塞入对话。
 
 ## 发布门槛
 
-`src/export_web_gm.py` 检查审计、SQLite 快照摘要、球员池文件哈希和玩家上下文。先构建完整不可变批次、校验文件哈希，再更新本地 latest。每个文件有 SHA-256 和字节数；Git 禁止对 published 文件转换换行，以保持远端字节与清单相同。
+`src/export_web_gm.py` 使用已完成采集审计的 SQLite 自动导出 JSON 和数据库 ZIP，记录 data_updated_at。新格式不生成 JSON 文件哈希，不逐文件或逐字段检查。数据库备份中的 data_sync_metadata 表和线上入口保存同一个数据更新时间。
 
-`scripts/verify_web_export.py` 独立逐项比较所有导出球队、阵容、员工观测、全局模型字段和历史新秀分类，重算 financial proxy，并打开 ZIP 中的 SQLite 验证备份。NULL 原样保留。这里的财务差额只是静态工资规则代理，不是完整 CBA 可用空间。
+旧 `scripts/verify_web_export.py` 等详细比对工具不再进入日常流程。NULL 继续原样导出，财务差额仍只是静态工资规则代理，不是完整 CBA 可用空间。
 
-`scripts/publish_web_snapshot.py` 要求配置仓库确实私有、origin/branch 正确、没有混入其他待提交文件，以正常提交和正常 push 发布 JSON，再上传对应 SQLite ZIP 到私有 Release。随后读取固定 commit 的远端 latest/manifest，并下载归档复核哈希，最后写本地 `_exports/receipts/` 回执。推送和创建 Release 是两步远端操作；只有两者验证成功才报告整体发布成功。
+`scripts/publish_web_snapshot.py` 保留私有仓库、正确分支和不混入其他文件的发布限制。脚本正常提交推送 JSON，上传对应 SQLite ZIP 到私有 Release，成功后填写 uploaded_at 并再次提交入口，然后输出回执；不回读比较远端 JSON，不重新下载归档。命令失败就报错，不输出整体成功。
 
 发布脚本不修改凭据，不 force push，不执行网页模型提交的脚本或游戏决策。源代码版本更新与数据更新独立提交。
 
@@ -52,9 +54,9 @@ published/saves/<career_id>/batches/<batch_id>/
 
 只有玩家明确触发 GM 后才开始决策；发布新批次本身不启动模型、不生成建议、不进入本地执行。玩家批准方案后另行交给文档 28 的执行窗口；执行后完整重采集/发布也须在本次明确要求或另行触发。
 
-先读取 `web_gm/START_HERE.md` 和 `GM_INSTRUCTIONS.md`。将玩家这次提供的发布回执作为预期版本：核对 career_id、游戏日期、batch_id、commit SHA；从该固定 commit 获取 latest/manifest，并且所有后续文件都读取同一 commit 与 batch。搜索结果中的旧快照不能自动当作最新。
+先读取 `web_gm/START_HERE.md` 和 `GM_INSTRUCTIONS.md`，再从 main 读取当前局 latest.json，看 data_updated_at 和 uploaded_at 是否比上次更新，或与玩家提供的时间一致。然后按 batch_path 读取所需文件即可；不做 JSON 检查，不要求网页逐项验收 commit、哈希或记录数量。
 
-若连接不能按版本读到预期文件，必须说明当前读到的版本或无法读取，停止用旧数据冒充最新。数据导出成功、GitHub 上传成功、用户网页 GPT 连接读取成功是三个分别验收的环节；前两者不能代替第三者。
+若连接读不到这次更新时间，说明尚未读取到新数据；不要用旧对话内容冒充已刷新。网页版连接测试由玩家处理。
 
 网页 GM 可基于已观测事实制定建队、角色、训练和策略建议；战绩、伤病或选秀权未知时明确写“未观测”。需要新数值时用 Python/数据分析工具基于已读取文件计算；没有执行工具时输出 calculation_request 交给本地计算，不能用模型心算替代。
 

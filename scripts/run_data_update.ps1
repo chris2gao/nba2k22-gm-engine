@@ -61,8 +61,6 @@ try {
     $snapshot = "{0}-{1}_M{2:D2}_{3}" -f ($Season - 1), $Season, $Month, $Name
     & python 'src/export_web_gm.py' --save-id $SaveId --snapshot $snapshot
     if ($LASTEXITCODE -ne 0) { throw 'Web export failed; publication stopped.' }
-    & python 'scripts/verify_web_export.py' --save-id $SaveId
-    if ($LASTEXITCODE -ne 0) { throw 'Independent export verification failed; publication stopped.' }
     if ($Publish) {
         & python 'scripts/publish_web_snapshot.py' --save-id $SaveId
         if ($LASTEXITCODE -ne 0) { throw 'GitHub sync failed; local audited data remains available.' }

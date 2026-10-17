@@ -1,5 +1,4 @@
 """Review staged filenames/bytes without displaying candidate credential values."""
-import hashlib
 import json
 from pathlib import Path
 import re
@@ -31,19 +30,8 @@ def main():
             suspicious.append(name)
     if suspicious:
         raise RuntimeError(f"Credential-shaped content detected; values withheld. Paths: {suspicious}")
-    index = json.loads(git("show", ":published/index.json"))
-    for career in index["careers"].values():
-        pointer = json.loads(git("show", ":published/" + career["latest"]))
-        manifest_bytes = git("show", ":published/" + pointer["batch_path"] + "/manifest.json")
-        if hashlib.sha256(manifest_bytes).hexdigest() != pointer["manifest_sha256"]:
-            raise RuntimeError("Git altered published manifest bytes")
-        manifest = json.loads(manifest_bytes)
-        for relative, metadata in manifest["files"].items():
-            content = git("show", ":published/" + pointer["batch_path"] + "/" + relative)
-            if len(content) != metadata["bytes"] or hashlib.sha256(content).hexdigest() != metadata["sha256"]:
-                raise RuntimeError(f"Git altered published data bytes: {relative}")
     print(json.dumps({"staged_files": len(files), "staged_bytes": sum(sizes.values()), "credential_pattern_matches": 0,
-                      "published_git_bytes_verified": True, "largest_file_bytes": max(sizes.values())}, indent=2))
+                      "json_verification": "DISABLED_TIMESTAMP_ONLY", "largest_file_bytes": max(sizes.values())}, indent=2))
 
 
 if __name__ == "__main__":

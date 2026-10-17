@@ -1,10 +1,9 @@
-"""Publish only a verified career reading bundle to the configured private repo.
+"""Publish a player-triggered data bundle; freshness is shown by timestamps.
 
 Normal pushes only. No force pushes, credentials, external decision execution,
 or unrelated staged/source changes are accepted by this data-only publisher.
 """
 import argparse
-import base64
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -14,8 +13,8 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
-from snapshot_integrity import file_sha256, write_json_atomic
-from verify_web_export import verify
+from snapshot_integrity import write_json_atomic
+from save_context import validate_save_id
 
 
 def command(args, check=True):
@@ -25,16 +24,24 @@ def command(args, check=True):
     return result
 
 
-def github_file(repository, path, commit):
-    response = command(["gh", "api", f"repos/{repository}/contents/{path}?ref={commit}"])
-    return base64.b64decode(json.loads(response.stdout)["content"])
+def commit_data(message):
+    changed = command(["git", "diff", "--cached", "--quiet"], check=False)
+    if changed.returncode == 1:
+        command(["git", "commit", "-m", message])
+    elif changed.returncode:
+        raise RuntimeError("Could not inspect staged data changes")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--save-id", required=True)
+    parser.add_argument("--save-id", type=validate_save_id, required=True)
     args = parser.parse_args()
-    manifest = verify(args.save_id)
+    pointer_path = f"published/saves/{args.save_id}/latest.json"
+    pointer = json.loads((ROOT / pointer_path).read_text(encoding="utf-8"))
+    directory = (ROOT / "published" / pointer["batch_path"]).resolve()
+    if not directory.is_relative_to((ROOT / "published/saves" / args.save_id).resolve()):
+        raise RuntimeError("Data path is outside the selected career")
+    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
     config = json.loads((ROOT / "config/github_sync.json").read_text(encoding="utf-8"))
     repository, branch = config["repository"], config["branch"]
     remote = json.loads(command(["gh", "repo", "view", repository, "--json", "nameWithOwner,isPrivate,url"]).stdout)
@@ -64,41 +71,43 @@ def main():
     if any(not allowed_path(path) for path in pending):
         raise RuntimeError("Another career or reading-protocol update is pending; refusing a mixed publication")
     command(["git", "add", "--", allowed[0].rstrip("/"), allowed[1]])
-    changed = command(["git", "diff", "--cached", "--quiet"], check=False)
-    if changed.returncode == 1:
-        command(["git", "commit", "-m", f"data: publish {manifest['batch_id']}"])
-    elif changed.returncode:
-        raise RuntimeError("Could not inspect staged data changes")
+    commit_data(f"data: publish {manifest['batch_id']}")
     command(["git", "push", "origin", f"HEAD:{branch}"])
     commit = command(["git", "rev-parse", "HEAD"]).stdout.strip()
     archive = ROOT / "_exports/archives" / manifest["archive"]["filename"]
     tag = manifest["archive"]["release_tag"]
-    release = command(["gh", "release", "view", tag, "--repo", repository, "--json", "url"], check=False)
+    release = command(["gh", "release", "view", tag, "--repo", repository, "--json", "url,assets"], check=False)
     if release.returncode:
         with tempfile.TemporaryDirectory(prefix="gm_release_notes_") as temporary:
             notes = Path(temporary) / "notes.md"
-            notes.write_text(f"Verified player-triggered capture for {manifest['save_id']} at game date {manifest['context'].get('game_date')}.\n\n"
-                             f"Snapshot: `{manifest['snapshot_id']}`\nCommit: `{commit}`\nArchive SHA-256: `{manifest['archive']['sha256']}`\n\n"
+            notes.write_text(f"Player-triggered capture for {manifest['save_id']} at game date {manifest['context'].get('game_date')}.\n\n"
+                             f"Snapshot: `{manifest['snapshot_id']}`\nData updated at (UTC): `{manifest['data_updated_at']}`\n\n"
                              "SQLite backups are for reproducibility. Web GMs read the small JSON files under published/. Unobserved fields remain null.\n", encoding="utf-8")
             command(["gh", "release", "create", tag, str(archive), "--repo", repository, "--target", commit,
-                     "--title", f"Verified data {manifest['context'].get('game_date')} / {manifest['batch_id']}", "--notes-file", str(notes)])
-    pointer_path = f"published/saves/{args.save_id}/latest.json"
-    pointer_bytes = github_file(repository, pointer_path, commit)
-    local_pointer = (ROOT / pointer_path).read_bytes()
-    if pointer_bytes != local_pointer:
-        raise RuntimeError("GitHub pointer differs from the local verified bytes")
-    pointer = json.loads(pointer_bytes)
-    remote_manifest = github_file(repository, "published/" + pointer["batch_path"] + "/manifest.json", commit)
-    import hashlib
-    if hashlib.sha256(remote_manifest).hexdigest() != pointer["manifest_sha256"]:
-        raise RuntimeError("GitHub manifest does not match the committed pointer")
-    with tempfile.TemporaryDirectory(prefix="gm_release_verify_") as temporary:
-        command(["gh", "release", "download", tag, "--repo", repository, "--pattern", archive.name, "--dir", temporary])
-        if file_sha256(str(Path(temporary) / archive.name)) != manifest["archive"]["sha256"]:
-            raise RuntimeError("Downloaded GitHub database archive hash mismatch")
+                     "--title", f"Data {manifest['context'].get('game_date')} / {manifest['batch_id']}", "--notes-file", str(notes)])
+    elif not any(asset["name"] == archive.name for asset in json.loads(release.stdout)["assets"]):
+        # Resume a release created before an interrupted attachment upload.
+        command(["gh", "release", "upload", tag, str(archive), "--repo", repository])
+    # Record success only after the database upload command has succeeded.
+    # No JSON hashes, field comparisons or download-and-compare step is run.
+    uploaded_at = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+    pointer.update({"data_updated_at": manifest["data_updated_at"], "uploaded_at": uploaded_at,
+                    "upload_status": "UPLOADED", "sync_mode": "TIMESTAMP_ONLY",
+                    "archive_url": f"https://github.com/{repository}/releases/download/{tag}/{archive.name}"})
+    write_json_atomic(str(ROOT / pointer_path), pointer)
+    index_path = ROOT / "published/index.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    index["careers"][args.save_id].update({"data_updated_at": manifest["data_updated_at"],
+                                         "uploaded_at": uploaded_at})
+    write_json_atomic(str(index_path), index)
+    command(["git", "add", "--", pointer_path, "published/index.json"])
+    commit_data(f"data: record upload time for {manifest['batch_id']}")
+    command(["git", "push", "origin", f"HEAD:{branch}"])
+    commit = command(["git", "rev-parse", "HEAD"]).stdout.strip()
     receipt = {"repository": repository, "visibility": "private", "commit": commit, "batch_id": manifest["batch_id"],
-               "game_date": manifest["context"].get("game_date"), "remote_pointer_and_manifest_verified": True,
-               "downloaded_database_archive_verified": True, "verified_at_utc": datetime.now(timezone.utc).isoformat(),
+               "game_date": manifest["context"].get("game_date"), "data_updated_at": manifest["data_updated_at"],
+               "uploaded_at": uploaded_at, "upload_status": "UPLOADED", "sync_mode": "TIMESTAMP_ONLY",
+               "latest_url": f"https://github.com/{repository}/blob/{branch}/{pointer_path}",
                "entry_url": f"https://github.com/{repository}/blob/{commit}/{pointer_path}",
                "release_url": f"https://github.com/{repository}/releases/tag/{tag}",
                "chatgpt_web_connection_verified": False}

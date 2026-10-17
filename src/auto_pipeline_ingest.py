@@ -22,6 +22,7 @@ from memory import GameMemory
 from address_calibrator import AddressCalibrator
 from strategy_manager import StrategyManager
 from dump_player_pool import dump_all_players_to_db
+from data_sync_metadata import stamp_database
 from save_context import resolve_context
 from snapshot_integrity import (
     file_sha256, sanitize_calibration_report, snapshot_digest,
@@ -479,6 +480,14 @@ def run_automated_ingestion(
         conn.rollback()
         conn.close()
         raise RuntimeError("制服组或球队阵容覆盖数量不一致，事务已回滚。")
+    data_updated_at = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+    stamp_database(conn, snapshot_id, context["save_id"], data_updated_at)
+    staged_pool = sqlite3.connect(player_pool_stage_path)
+    try:
+        stamp_database(staged_pool, snapshot_id, context["save_id"], data_updated_at)
+        staged_pool.commit()
+    finally:
+        staged_pool.close()
     conn.commit()
     conn.close()
     os.replace(player_pool_stage_path, player_pool_db_path)
@@ -499,6 +508,7 @@ def run_automated_ingestion(
         "month_name": month_name,
         "notes": notes,
         "ingest_timestamp": timestamp_iso,
+        "data_updated_at": data_updated_at,
         "save_id": context["save_id"],
         "snapshot_digest": snapshot_digest_value,
         "calibration_status": calib_report["status"],
@@ -534,6 +544,7 @@ def run_automated_ingestion(
     manifest = {
         "snapshot_id": snapshot_id,
         "timestamp": timestamp_iso,
+        "data_updated_at": data_updated_at,
         "save_id": context["save_id"],
         "status": "INGEST_SUCCESS",
         "season_rules": season_rules,

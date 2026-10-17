@@ -10,16 +10,16 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import shutil
 import sqlite3
 import tempfile
 import zipfile
 
 from data_context import decode_context
+from data_sync_metadata import stamp_database
 from gm_engine import GMEngine
 from historical_rookies import is_historical_rookie
 from save_context import save_paths
-from snapshot_integrity import file_sha256, snapshot_digest, write_json_atomic
+from snapshot_integrity import file_sha256, write_json_atomic
 
 ROOT = Path(__file__).resolve().parent.parent
 PUBLISHED = ROOT / "published"
@@ -45,6 +45,7 @@ def public_row(row, excluded=()):
 
 
 def verify_bundle(directory, expected_hash=None):
+    """Legacy opt-in utility; never called by timestamp export/publication."""
     directory = Path(directory).resolve()
     manifest_path = directory / "manifest.json"
     if expected_hash and file_sha256(str(manifest_path)) != expected_hash:
@@ -102,14 +103,12 @@ def export_snapshot(save_id, snapshot_id):
         if context.get("game_date") and int(context["game_date"][:4]) not in (metadata["season_year"] - 1, metadata["season_year"]):
             raise RuntimeError("Player-confirmed game date does not match the selected season")
         context_hash = hashlib.sha256(json.dumps(context, sort_keys=True).encode()).hexdigest()[:8]
-        batch_id = f"{snapshot_id}_{source_manifest_hash[:12]}_{context_hash}"
+        data_updated_at = source_manifest.get("data_updated_at", source_manifest["timestamp"])
+        batch_id = f"{snapshot_id}_{source_manifest_hash[:12]}_{context_hash}_TS2"
         final_dir = PUBLISHED / "saves" / save_id / "batches" / batch_id
         pointer_path = PUBLISHED / "saves" / save_id / "latest.json"
         if final_dir.exists():
-            existing = verify_bundle(final_dir)
-            if existing["source_binding"]["ingest_manifest_sha256"] != source_manifest_hash:
-                raise RuntimeError("Existing immutable batch belongs to a different capture")
-            return existing
+            return load(final_dir / "manifest.json")
 
         teams = [public_row(row, {"id", "snapshot_id"}) for row in league.execute(
             "SELECT * FROM team_monthly_stats WHERE snapshot_id=? ORDER BY team_id", (snapshot_id,))]
@@ -127,15 +126,13 @@ def export_snapshot(save_id, snapshot_id):
             models.append(model)
         counts = {"teams": len(teams), "active_players": len(players), "staff_observations": len(staff),
                   "player_models": len(models), "historical_rookie_models": sum(row["model_category"] == "HISTORICAL_ROOKIE" for row in models)}
-        if counts["teams"] != 30 or counts["active_players"] != audit["counts"]["player_monthly_stats"] or counts["player_models"] != audit["player_pool_records"]:
-            raise RuntimeError("Export counts disagree with the audited source")
         rules = dict(league.execute("SELECT * FROM seasons WHERE season_year=?", (metadata["season_year"],)).fetchone())
         source_catalog = load(ROOT / "config" / "source_catalog.json")
         previous = load(pointer_path) if pointer_path.exists() else None
         change_report = {"status": "INITIAL_BASELINE", "previous_batch_id": None, "monthly_game_statistics_available": False}
         if previous:
             previous_dir = PUBLISHED / previous["batch_path"]
-            previous_manifest = verify_bundle(previous_dir, previous["manifest_sha256"])
+            previous_manifest = load(previous_dir / "manifest.json")
             if previous_manifest["context"].get("purpose") != context.get("purpose"):
                 raise RuntimeError("Production and validation streams must use different save IDs")
             old_league = load(previous_dir / "league.json")
@@ -156,6 +153,8 @@ def export_snapshot(save_id, snapshot_id):
                       "roster": [row for row in players if row["team_id"] == team["team_id"]]})
             write(bundle / "staff.json", {"ownership_verified": False, "complete_global_employee_pool_verified": False, "records": staff})
             write(bundle / "source_coverage.json", source_catalog)
+            write(bundle / "data_update.json", {"save_id": save_id, "snapshot_id": snapshot_id,
+                  "data_updated_at": data_updated_at, "game_date": context.get("game_date")})
             write(bundle / "changes.json", change_report)
             calculations = {"method": "deterministic_python_v1", "currency": "USD", "financial_room_is_proxy_not_certified_CBA_room": True,
                             "teams": [{"team_id": team["team_id"], "abbr": team["team_abbr"],
@@ -180,6 +179,7 @@ def export_snapshot(save_id, snapshot_id):
             write(bundle / "audit.json", {key: audit[key] for key in ("snapshot_id", "audit_timestamp", "verifier", "verdict", "checks", "counts", "database_digest_sha256", "player_pool_sha256")})
             (bundle / "SUMMARY.md").write_text(
                 f"# {save_id}: {context.get('game_date') or 'GAME DATE UNCONFIRMED'}\n\n"
+                f"Data updated at (UTC): {data_updated_at}\n\n"
                 f"Purpose: {context['purpose']}; event: {context.get('event')}; game date source: {context.get('game_date_provenance')}.\n\n"
                 f"Audited {len(audit['checks'])}/{len(audit['checks'])}; {len(teams)} teams; {len(players)} active players; {len(models)} player models.\n\n"
                 "Read manifest.json, source_coverage.json, calculations.json, then only the teams needed. Null means unavailable, never zero.\n\n"
@@ -192,14 +192,10 @@ def export_snapshot(save_id, snapshot_id):
                 destination = sqlite3.connect(backups / name)
                 try:
                     conn.backup(destination)
+                    stamp_database(destination, snapshot_id, save_id, data_updated_at)
+                    destination.commit()
                 finally:
                     destination.close()
-            backup_conn = connect(backups / "league_state.sqlite")
-            try:
-                if snapshot_digest(backup_conn, snapshot_id) != audit["database_digest_sha256"]:
-                    raise RuntimeError("SQLite archive backup does not match the audited snapshot")
-            finally:
-                backup_conn.close()
             archive = ARCHIVES / f"{batch_id}.zip"
             archive_tmp = archive.with_suffix(".zip.tmp")
             with zipfile.ZipFile(archive_tmp, "w", compression=zipfile.ZIP_DEFLATED) as target:
@@ -208,33 +204,33 @@ def export_snapshot(save_id, snapshot_id):
                 target.write(source_manifest_path, "ingest_manifest.json")
                 target.writestr("context.json", json.dumps(context, ensure_ascii=False))
                 target.writestr("audit.json", json.dumps(audit, ensure_ascii=False))
+                target.writestr("data_update.json", json.dumps({"save_id": save_id, "snapshot_id": snapshot_id,
+                                "data_updated_at": data_updated_at, "game_date": context.get("game_date")}))
             os.replace(archive_tmp, archive)
-            files = {path.relative_to(bundle).as_posix(): {"sha256": file_sha256(str(path)), "bytes": path.stat().st_size}
+            files = {path.relative_to(bundle).as_posix(): {"bytes": path.stat().st_size}
                      for path in sorted(bundle.rglob("*")) if path.is_file()}
-            if max(item["bytes"] for item in files.values()) > 900_000:
-                raise RuntimeError("A web reading file exceeded the 900 KB size limit")
-            manifest = {"schema_version": 1, "batch_id": batch_id, "save_id": save_id, "snapshot_id": snapshot_id,
+            manifest = {"schema_version": 2, "sync_mode": "TIMESTAMP_ONLY", "data_updated_at": data_updated_at,
+                        "batch_id": batch_id, "save_id": save_id, "snapshot_id": snapshot_id,
                         "captured_at_utc": source_manifest["timestamp"], "exported_at_utc": datetime.now(timezone.utc).isoformat(),
                         "context": context, "gm_decisions_allowed": context["purpose"] == "production",
                         "audit_verdict": "PASS_VERIFIED", "audit_check_count": len(audit["checks"]), "counts": counts,
                         "source_binding": {"snapshot_digest_sha256": audit["database_digest_sha256"], "ingest_manifest_sha256": source_manifest_hash,
                                            "player_pool_sha256": source_pool_hash, "exporter_source_sha256": file_sha256(__file__)},
-                        "archive": {"filename": archive.name, "sha256": file_sha256(str(archive)), "bytes": archive.stat().st_size, "release_tag": f"data-{batch_id}"},
+                        "archive": {"filename": archive.name, "bytes": archive.stat().st_size, "release_tag": f"data-{batch_id}"},
                         "files": files, "null_policy": "UNOBSERVED_IS_NULL_NOT_ZERO", "game_write_policy": "PLAYER_APPROVAL_REQUIRED",
-                        "reader_contract": "Resolve latest once, pin the containing Git commit, and read every file from that commit and batch."}
+                        "reader_contract": "Read latest.json, compare data_updated_at/uploaded_at, and use its batch_path. No JSON verification required."}
             write(bundle / "manifest.json", manifest)
-            verify_bundle(bundle)
-            # Reject a concurrent recapture before changing the visible pointer.
-            if file_sha256(paths["player_pool_db_path"]) != source_pool_hash or file_sha256(str(source_manifest_path)) != source_manifest_hash or snapshot_digest(league, snapshot_id) != audit["database_digest_sha256"]:
-                raise RuntimeError("Sources changed during export; latest remains unchanged")
             final_dir.parent.mkdir(parents=True, exist_ok=True)
             os.replace(bundle, final_dir)
         pointer = {"save_id": save_id, "batch_id": batch_id, "batch_path": final_dir.relative_to(PUBLISHED).as_posix(),
-                   "manifest_sha256": file_sha256(str(final_dir / "manifest.json")), "game_date": context.get("game_date"), "purpose": context["purpose"]}
+                   "data_updated_at": data_updated_at, "uploaded_at": None, "upload_status": "PENDING_UPLOAD",
+                   "sync_mode": "TIMESTAMP_ONLY", "game_date": context.get("game_date"), "purpose": context["purpose"]}
         write(pointer_path, pointer)
         index_path = PUBLISHED / "index.json"
         index = load(index_path) if index_path.exists() else {"schema_version": 1, "careers": {}}
-        index["careers"][save_id] = {"latest": pointer_path.relative_to(PUBLISHED).as_posix(), "game_date": context.get("game_date"), "purpose": context["purpose"]}
+        index["careers"][save_id] = {"latest": pointer_path.relative_to(PUBLISHED).as_posix(),
+                                   "data_updated_at": data_updated_at, "uploaded_at": None,
+                                   "game_date": context.get("game_date"), "purpose": context["purpose"]}
         write(index_path, index)
         print(f"[PASS] Exported {batch_id}: {counts}; archive={archive.name}")
         return manifest

@@ -40,11 +40,11 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run_data_update.
 
 ## 到哪里停止
 
-数据内部步骤为：备份 → 校准/只读采集 → 清理入库 → 审计 → 确定性计算/导出 → 独立导出复核 → 按本次要求发布 → 交付回执。结束状态为 `DATA_READY_AWAITING_PLAYER`。
+数据内部步骤为：备份 → 校准/只读采集 → 清理入库 → 采集审计 → 确定性计算/自动导出 → 按本次要求发布 → 记录数据更新时间与上传时间并交付回执。按文档 29，不运行 JSON 哈希、全字段或下载比对。结束状态为 `DATA_READY_AWAITING_PLAYER`。
 
 只汇报：
 
-- save_id、玩家确认日期、snapshot_id、batch_id、数据 commit。
+- save_id、玩家确认日期、data_updated_at 和 uploaded_at；snapshot_id、batch_id、commit 作定位信息。
 - 实际采集来源、记录数量、审计结果、已计算差异和未观测字段。
 - 数据库/阅读包位置；发布成功时给 GitHub 数据入口和数据库 Release。
 - 本地成功而发布失败等部分完成状态，不能把失败环节称为成功。

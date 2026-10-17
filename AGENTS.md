@@ -1,5 +1,7 @@
 # NBA2K22 GM project instructions
 
+- GitHub synchronization uses timestamps only at the player's request: data_updated_at and uploaded_at in latest.json. Do not run JSON hash/field checks, verify_web_export.py, test_web_export_guards.py, or download-and-compare checks during routine export/publication. Source memory calibration and capture auditing remain in place. Read docs/29_SIMPLE_DATABASE_SYNC.md for the current sync contract; it supersedes older hash-based JSON handoff instructions.
+
 - Data initialization/update, GM decisions, and game execution are three separate player-triggered tasks. Never start a later stage because an earlier stage finished. Data jobs end after the requested capture/audit/calculation/publication; they must not call generate_gm_proposals. New data windows read docs/27_DATA_WINDOW_RUNBOOK.md; approved execution windows read docs/28_EXECUTION_WINDOW_RUNBOOK.md.
 
 - Read docs/22_DATA_SOURCE_AND_DECISION_GOVERNANCE.md for truth/approval rules; docs/24_DATA_SOURCE_REGISTRY_AND_PLAYER_TRIGGERS.md for data jobs; docs/25_GITHUB_AND_WEB_GM_PROTOCOL.md for web handoff. Avoid loading every historical design document for a data update.
