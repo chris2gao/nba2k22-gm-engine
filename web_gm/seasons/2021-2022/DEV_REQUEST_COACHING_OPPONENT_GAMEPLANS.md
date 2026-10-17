@@ -1,4 +1,6 @@
-# 2021–2022 赛季 · 教练与针对对手攻防配置开发需求
+# 2021–2022 赛季 · 教练与针对对手攻防配置历史需求记录
+
+> **最新玩家指令覆盖本草稿的开发交接建议：** GM 不参与攻防可写选项、AI覆盖行为的调研或开发规划。Codex 先研究游戏中究竟可改什么；玩家亲自将调研结果告诉开发规划基线，由该基线规划开发。此文件仅作为过往需求历史，不构成当前开发任务书或交接授权。
 
 - request_id: `DEV-GM-2021-2022-COACH-001`
 - project: NBA2K22 Antigravity 外挂 GM
@@ -9,7 +11,7 @@
 - generated_at_real_world: `2026-10-17`
 - decision_window_id: `GM-S2021-2022-W01`
 - related_decision_id: `GM-20261017-M01-R01 v1`
-- status: `DEV_REQUIREMENT_READY_FOR_DEVELOPMENT_BASELINE_PLANNING`
+- status: `HISTORICAL_NOT_ACTIVE_GM_DEVELOPMENT_HANDOFF`
 - author_role: `WEB_GPT_GM`
 - game_change_approval: `NONE`
 - codex_execution: `DEFERRED`
