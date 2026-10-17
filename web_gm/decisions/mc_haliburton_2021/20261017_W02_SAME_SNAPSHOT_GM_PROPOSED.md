@@ -10,7 +10,7 @@
 - data_updated_at: `2026-10-17T11:50:28.464724+00:00`
 - source_status: `SAME_AS_W01; NO_NEW_GAME_OBSERVATIONS; NOT_A_NEW_MONTH`
 - game_write_approved: `false`; game_execution_performed: `false`
-- source_data: [2021–2022发布批次](../../../../published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/manifest.json)
+- source_data: [2021–2022发布批次](../../../published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/manifest.json)
 - previous: [W01/R01归档](../../seasons/2021-2022/windows/W01_GM_20261017/ROUND_R01_RECAP.md) / [W01审批](20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)
 
 ## 口径与审查范围
