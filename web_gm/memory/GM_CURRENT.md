@@ -1,7 +1,7 @@
 # Web GPT · GM 基线当前记忆
 
 - role: `WEB_GPT_GM`
-- memory_version: 7
+- memory_version: 8
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-17`
 - current_game_season: `2021-2022`
@@ -13,10 +13,19 @@
 - last_snapshot_batch: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
 - last_snapshot_data_updated_at: `2026-10-17T11:50:28.464724+00:00`
 - last_gm_decision_id: `GM-20261017-W02-R01 v1`（新方案PROPOSED，非玩家批准）
-- approved_actions: W01 `GM-A01..GM-A07`（仅战略/研究/非约束询价）；W02暂无批准动作
-- current_game_change_decision: `W02_A01_GRANT_TRADE_PROPOSED_NOT_PLAYER_APPROVED`; `W02_A02_TURNER_TRADE_NO_DEAL`；全部游戏写入仍禁止自动执行
-- game_write_approved: false
+- approved_actions: W01 `GM-A01..GM-A07`（限战略/研究）；W02 `GM-W02-A01` 和 `GM-W02-R02-A01` 两笔交易均获得玩家批准，待执行器验收
+- current_game_change_decision: `W02_A01_GRANT_APPROVED_PENDING_EXECUTOR`; `W02_R02_A01_NWABA_APPROVED_PENDING_EXECUTOR`; `W02_A02_TURNER_NO_DEAL`；只可交执行窗口完成前置验证，禁止网页GM自动执行
+- game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
 - gm_game_write_executed: false
+
+## 2026-10-17 玩家新指令：两个交易均已批准、攻防开发恢复
+
+- `GM-W02-A01`: 公牛得到 Jerami Grant；活塞得到 Coby White、Derrick Jones Jr. 和 CHI 持有的 2022 POR 首轮（`draft_pick:2022:1:28`）。玩家明确批准；`APPROVED_BLOCKED_EXECUTOR`，尚无游戏写入或存盘/数据库回执。
+- `GM-W02-R02-A01`: 独行侠得到 David Nwaba；火箭得到 Sterling Brown、DAL 原始 2022 次轮（`draft_pick:2022:2:17`）和 DAL 原始 2024 次轮（`draft_pick:2024:2:17`）。玩家在同一聊天明确批准；`APPROVED_BLOCKED_EXECUTOR`，尚未执行。
+- 后续使用 `docs/36_EXECUTION_BASELINE_PROMPT.md`、`docs/28_EXECUTION_WINDOW_RUNBOOK.md` 与 `docs/34_BASELINE_CURRENT_STATE.md` 第8节，由玩家交 Codex 处理，执行端先只读核验；正式交易业务写回及选秀权转让执行器在本次审查的能力表中仍未完整验收。不要把批准误当成交。
+- **攻防系统开发已恢复**：以玩家最新口头指令为准，允许 Codex/开发规划基线继续开发球队自身攻防、针对特定对手的攻防设置。GM 仅在玩家提供并经验证的接口能力后使用，不自行设具体枚举、不默认AI不会覆盖。
+- **MC 哈利伯顿申请交易**：玩家确认该剧情即将导致转队，尚未发生；Sacramento 下一轮准备应对核心离队，不能把未来剧情当作已执行变更。
+- 本次只针对当前赛季同批次W02的后续审批和技术交接，不新增已发生的比赛场次。后续每次真实游戏月份应依据最新同口径数据，30队都做明确经营裁决（HOLD亦需理由），而不仅列出观察问题。
 
 ## 必读入口：按赛季、游戏窗口和回合形成的决策链
 
