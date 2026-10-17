@@ -1,12 +1,11 @@
 {
   "save_id": "mc_haliburton_2021",
-  "batch_id": "2021-2022_M01_SOURCE_EXTENSIONS_V2_01c47b62b302_fbde28d7_TS2",
-  "batch_path": "saves/mc_haliburton_2021/batches/2021-2022_M01_SOURCE_EXTENSIONS_V2_01c47b62b302_fbde28d7_TS2",
-  "data_updated_at": "2026-10-17T11:26:40.607988+00:00",
-  "uploaded_at": "2026-10-17T11:32:33.580754+00:00",
-  "upload_status": "UPLOADED",
+  "batch_id": "2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2",
+  "batch_path": "saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2",
+  "data_updated_at": "2026-10-17T11:50:28.464724+00:00",
+  "uploaded_at": null,
+  "upload_status": "PENDING_UPLOAD",
   "sync_mode": "TIMESTAMP_ONLY",
   "game_date": null,
-  "purpose": "production",
-  "archive_url": "https://github.com/chris2gao/nba2k22-gm-engine/releases/download/data-2021-2022_M01_SOURCE_EXTENSIONS_V2_01c47b62b302_fbde28d7_TS2/2021-2022_M01_SOURCE_EXTENSIONS_V2_01c47b62b302_fbde28d7_TS2.zip"
+  "purpose": "production"
 }
