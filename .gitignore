@@ -13,6 +13,11 @@ secrets*
 database/*.sqlite*
 database/*.json
 database/saves/
+database/backups/
+database/draft_classes/
+database/evaluations/
+database/snapshots/
+database/trade_reports/
 database/templates/*.sqlite*
 __pycache__/
 *.pyc
