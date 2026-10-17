@@ -8,7 +8,7 @@
 - current_progress_hint: `2021-11`（来自既有历史玩家进度，不是本批实测日期）
 - index_created_real_date: `2026-10-17`
 - policy: `PLAYER_RULES_20261017_V3` + `WEB_GM_DECISION_MECHANISM_V2`
-- execution_state: `TWO_PLAYER_APPROVED_TRADES_PENDING_CERTIFIED_EXECUTOR`; 本赛季本批未有任何写入或存盘回执
+- execution_state: `TWO_TRADES_PLAYER_REPORTED_EXECUTED; LATEST_DATA_PRE_TRANSACTION_PENDING_NEXT_PLAYER_TRIGGERED_SYNC`
 
 ## 本赛季 GM 决策节点时间线（整季沿用同一 GM 聊天）
 
@@ -25,6 +25,13 @@
 4. [玩家审批回执](../../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)：7项仅限战略、研究和非约束询价。对于是否已执行以独立执行回执为准。
 5. [GM v2 机制](../../GM_DECISION_MECHANISM_V2.md)：外部双边谈判、胜率优先、士气次级、每次最多3回合。
 6. [最新 GM_CURRENT](../../memory/GM_CURRENT.md)：只作快速入口，窗口历史以此处文件为准。
+
+## 2026-10-17 最新执行反馈与数据同步约定（此节覆盖下面的历史“待执行”表述）
+
+- 玩家明确确认两笔交易**已在游戏中成功落地**：`GM-W02-A01` CHI↔DET Jerami Grant，以及 `GM-W02-R02-A01` DAL↔HOU David Nwaba。标记 `PLAYER_REPORTED_EXECUTED`，不用再次交Codex执行，也无需重获交易批准。
+- **游戏已执行 ≠ 当前GitHub数据已刷新。** 本次读取的 `published/index.json` / `published/saves/mc_haliburton_2021/latest.json` 仍指向W01/W02相同旧批次 `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`，尚不能从线上快照独立核验交易后5名球员新归属及3枚选秀权。玩家下次决策前会**主动触发数据源更新与同步**；GM届时按新批次实测阵容、合同、选秀权、战绩开展30队经营。
+- 玩家报告：Codex已经完善自动化交易、自由球员签约、模拟休赛期签约球员脚本机制。后续 GM 可在确认对应最新已验收接口、游戏机制边界与具体审批后提出可执行方案；不凭此报告虚构CLI或认为各机制本赛季都曾运行。
+- 此次反馈不是新的游戏月度经营节点，W02旧方案和当时待执行描述保留为审计历史。恢复的球队攻防和针对对手设置开发仍须等待玩家提供验收能力说明；不把其视作已经上线。
 
 ## 最新玩家批准与能力路线更新（2026-10-17）
 
