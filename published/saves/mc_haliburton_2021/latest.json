@@ -1,8 +1,8 @@
 {
   "save_id": "mc_haliburton_2021",
-  "batch_id": "2021-2022_M01_NOV20_CHECKPOINT_9c0afc9d6f4b_dc9d5e96",
-  "batch_path": "saves/mc_haliburton_2021/batches/2021-2022_M01_NOV20_CHECKPOINT_9c0afc9d6f4b_dc9d5e96",
-  "manifest_sha256": "4f3436ad69185521051cf901759de080180f8442204af92f2296281c0833450d",
+  "batch_id": "2021-2022_M01_NOV20_CHECKPOINT_955517168f0c_dc9d5e96",
+  "batch_path": "saves/mc_haliburton_2021/batches/2021-2022_M01_NOV20_CHECKPOINT_955517168f0c_dc9d5e96",
+  "manifest_sha256": "8c0a820a694394968f9fe6e7d97017dd1b8c8b93e94deb80fc670d94586e4535",
   "game_date": "2021-11-20",
   "purpose": "production"
 }
