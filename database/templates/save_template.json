@@ -6,6 +6,7 @@
   "luxury_tax_threshold": 136606000,
   "first_apron": 143002000,
   "historical_draft_class_year": 1984,
+  "gameplay_policy_path": "config/gameplay_policy.json",
   "historical_rookie_classifier": {
     "source": "raw player-pool structure",
     "offset": "0x70",

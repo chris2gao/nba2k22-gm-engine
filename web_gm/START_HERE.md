@@ -2,7 +2,7 @@
 
 项目使用私有仓库，需要先给你的 ChatGPT GitHub 文件读取连接授予本仓库访问权限。不能读取时直接报告，不猜数据。
 
-1. 读 `web_gm/GM_INSTRUCTIONS.md`。
+1. 读当前项目版本的 `web_gm/GM_INSTRUCTIONS.md`、`docs/26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md` 与 `config/gameplay_policy.json`，记录规则 commit 和 policy_id；数据 commit 可以较早，不能因此继续执行已废止的旧规则。
 2. 读 `published/index.json`，选择玩家指定的 career_id；当前为 `mc_haliburton_2021`。
 3. 获取本次发布回执中的 commit SHA，用固定 commit 读取 `published/saves/mc_haliburton_2021/latest.json`。
 4. 核对预期 game_date/batch_id；再读其 batch_path 下的 manifest.json、SUMMARY.md、source_coverage.json、calculations.json。

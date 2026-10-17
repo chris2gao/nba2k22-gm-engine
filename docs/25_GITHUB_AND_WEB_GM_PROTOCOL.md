@@ -2,6 +2,8 @@
 
 目标仓库：`chris2gao/nba2k22-gm-engine`，要求 private。仓库保存项目代码、清洁模板、规范和小型 JSON 阅读文件；审计通过的 SQLite 备份打包为私有 GitHub Release 附件。当前 live 文件、运行时地址缓存、诊断日志、临时文件和凭据文件不进入 Git。
 
+分工以 [文档 26](26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md) 为准：网页连接授权/读取测试由玩家完成；Codex 验收本地来源、项目上传与远端数据库内容，不继续代测网页账号。网页 GM 先读取当前规则 commit 下的文档 26 和 `config/gameplay_policy.json`，再读取固定数据 commit 的批次；分别记录规则版本与事实版本，避免旧数据 commit 附带的旧提示词覆盖新规则。
+
 ## 三层产物
 
 1. 本地 SQLite：采集事实的主数据源。写入由确定性脚本完成，GM 不直接读取游戏内存。

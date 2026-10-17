@@ -69,6 +69,11 @@ TACTICAL_IMPRINTING_RULES = {
 
 class GrowthEngine:
     def __init__(self, db_path: str):
+        raise PermissionError(
+            "Legacy automatic growth and fictional staff market are disabled by "
+            "PLAYER_RULES_20261016_V1. Natural development belongs to the game; "
+            "historical-gravity edits need a separately implemented, specifically approved executor."
+        )
         self.db_path = db_path
         self._ensure_tables()
 
@@ -109,6 +114,7 @@ class GrowthEngine:
         """
         计算球员受所在球队战术体系熏陶的月度属性进化与异变
         """
+        raise PermissionError("Automatic player attribute growth is disabled; see docs/26.")
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         growth_events = []

@@ -1,6 +1,7 @@
 # NBA2K22 GM project instructions
 
 - Read docs/22_DATA_SOURCE_AND_DECISION_GOVERNANCE.md for truth/approval rules; docs/24_DATA_SOURCE_REGISTRY_AND_PLAYER_TRIGGERS.md for data jobs; docs/25_GITHUB_AND_WEB_GM_PROTOCOL.md for web handoff. Avoid loading every historical design document for a data update.
+- Read docs/26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md and config/gameplay_policy.json for current player rules: sequential 1984-2020 draft cycles; game-controlled natural development; no ordinary player edits; specifically approved historical gravity only; MC growth story deferred. Legacy automatic awakening/growth rules are superseded. Web access testing belongs to the player.
 - The player alone triggers data updates and supplies the game date and career ID. Game dates are player-confirmed context, not currently observed memory fields. No calendar scheduling or autonomous gameplay progression.
 - Use scripts/run_data_update.ps1 for a player-triggered update. The scripts perform calibration, capture, audit, computation, export and optional private publication without a model. Use a separate terminal with -NewWindow when requested.
 - Historical SQLite snapshots remain facts at their capture time; process pointers are runtime-only. Recalibrate each collection, fail closed on unreadable/invalid data, and never invent missing game statistics.

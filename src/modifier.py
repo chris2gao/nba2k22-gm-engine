@@ -15,6 +15,14 @@ class LeagueModifier:
     def __init__(self, mem: Optional[GameMemory] = None):
         self.mem = mem if mem else GameMemory()
 
+    @staticmethod
+    def _reject_legacy_player_edit():
+        raise PermissionError(
+            "Generic player edits are disabled by PLAYER_RULES_20261016_V1. "
+            "An approved trade does not authorize ability changes. Historical-gravity "
+            "edits need a separate controlled executor; MC growth remains deferred."
+        )
+
     def set_player_attribute(self, player_address: int, attr_name: str, rating_25_to_99: int) -> bool:
         """
         设置球员某项能力值 (自动换算为 2K 底层 0~255 原生值)
@@ -22,6 +30,7 @@ class LeagueModifier:
         :param attr_name: 属性名 (如 ATTR_THREE_POINT, ATTR_PASS_ACCURACY)
         :param rating_25_to_99: 游戏内评分 (25~99)
         """
+        self._reject_legacy_player_edit()
         offset = config.PLAYER_OFFSETS.get(attr_name)
         if offset is None:
             raise KeyError(f"未知的属性名称: {attr_name}")
@@ -31,6 +40,7 @@ class LeagueModifier:
 
     def set_player_tendency(self, player_address: int, tend_name: str, value_0_to_100: int) -> bool:
         """设置球员战术倾向 (0~100)"""
+        self._reject_legacy_player_edit()
         offset = config.PLAYER_OFFSETS.get(tend_name)
         if offset is None:
             raise KeyError(f"未知的倾向名称: {tend_name}")
@@ -42,6 +52,7 @@ class LeagueModifier:
         """
         为球员挂载球星赛场专属被动动画与音频 (如库里、利拉德、特雷杨)
         """
+        self._reject_legacy_player_edit()
         audio_id = audio_sig_id if audio_sig_id is not None else signature_id
         res1 = self.mem.write_uint32(player_address + config.PLAYER_OFFSETS["SIGNATURE_ID"], signature_id)
         res2 = self.mem.write_uint32(player_address + config.PLAYER_OFFSETS["AUDIO_SIG_ID"], audio_id)
@@ -49,6 +60,7 @@ class LeagueModifier:
 
     def set_player_personality(self, player_address: int, expressive: bool = True, friendly: bool = True, alpha_dog: bool = True) -> bool:
         """设置球员性格：开启极具表现力、友善、领头羊，并关闭内敛和悠闲"""
+        self._reject_legacy_player_edit()
         # 读取 0x4BB 开始的 10 字节性格位域
         cur_bytes = bytearray(self.mem.read_bytes(player_address + 0x4BB, 10))
         if len(cur_bytes) < 10:

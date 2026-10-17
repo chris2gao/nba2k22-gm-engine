@@ -7,6 +7,10 @@
 
 > **以可复核的 NBA 2K22 实测数据驱动外部 GM 建议；任何游戏或决策规则写入都由玩家批准。**
 
+当前分工与玩法见 [26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md](docs/26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)：Codex 本地处理数据并上传，网页 GPT 担任 GM，玩家审批后带回本地执行。起始 2021–2022，历史选秀 1984–2020 顺序轮回；正常属性成长交给游戏，历史重力逐项批准，MC 成长故事暂缓。旧自动觉醒/体系加点已停用。
+
+**私有完整项目：** [chris2gao/nba2k22-gm-engine](https://github.com/chris2gao/nba2k22-gm-engine)。**完整数据库备份：** 对应 [GitHub Releases](https://github.com/chris2gao/nba2k22-gm-engine/releases) 中的 ZIP（联盟与球员池 SQLite）；网页阅读入口为 `web_gm/START_HERE.md` 和 `published/index.json`。数据库作为 Release 附件发布，不在 Git 文件历史中反复覆盖二进制文件。
+
 ---
 
 ## 一、当前运行数据闭环
