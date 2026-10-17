@@ -3,7 +3,7 @@
 - role: WEB_GPT_DEVELOPMENT
 - memory_version: 1
 - last_reviewed: 2026-10-17
-- state: BASELINE_INITIALIZED_NO_ACTIVE_DEVELOPMENT_TASK
+- state: DEVELOPMENT_SPEC_PUBLISHED_AWAITING_CODEX
 - linked_codex_state: `docs/34_BASELINE_CURRENT_STATE.md`（**Codex 状态索引，不在此复制更新**）
 
 ## 已知工程事实
@@ -27,3 +27,11 @@
 
 - [2026-10-17 三份 Web GPT 专用基线及记忆协议建立](development/sessions/20261017_web_gpt_three_baselines_v1.md) — `COMPLETED`；Web GPT GM / DEVELOPMENT / ANALYTICS 三种基线现已放在 `web_gm/baselines/`，角色协议 `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md`，Codex 的 docs/32–34 保持独立。
 - 此次成果仅建立文档与项目职责，并未自动生成聊天窗口、启动 GM、运行采集或写入游戏。
+
+## 当前开发交接：DEV-20261017-04 休赛期自由球员签约（规划完成、代码待做）
+
+- 状态：`SPEC_PUBLISHED_AWAITING_CODEX_P0`。此项为研发任务书，不构成正式赛季签约许可。
+- 入口：[Codex 任务书](../../docs/development_tasks/DEV_20261017_04_OFFSEASON_FREE_AGENCY_V1.md)，[本次规划归档](development/sessions/20261017_offseason_free_agency_plan_v1.md)。
+- 任务书创建提交：`3ff1ff53e50084390092402462efa7e2600c8e3a`。
+- 顺序：P0休赛期安全节点及原生AI自动签约调研 → P1 30队只读候选池/报价/母队竞价 → P2安全签约执行器测试 → P3全闭环跨赛季实机验收。
+- 硬阻塞：没有经过验证的完整签约执行器/自由球员权属/原生AI控制。2021–22薪资规则不得代替以后年份；大名单工资帽差额非真实签约空间。正常球员能力编辑禁止；玩家每次具体签约需要独立批准。
