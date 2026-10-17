@@ -1,0 +1,23 @@
+# Credentials and local settings are never project artifacts.
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+credentials*
+secrets*
+.codex/
+.local/
+# Live data, process addresses, diagnostic dumps and database journals stay local.
+database/*.sqlite*
+database/*.json
+database/saves/
+database/templates/*.sqlite*
+__pycache__/
+*.pyc
+*.log
+*.tmp
+*.capture
+_exports/
+# Audited, sanitized JSON exports under published/ are explicitly versioned.

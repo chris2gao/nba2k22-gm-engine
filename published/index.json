@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "careers": {
+    "mc_haliburton_2021": {
+      "latest": "saves/mc_haliburton_2021/latest.json",
+      "game_date": "2021-11-20",
+      "purpose": "production"
+    }
+  }
+}
