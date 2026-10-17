@@ -13,6 +13,8 @@ def compare_context(data, previous):
     source = previous["source"]
     if previous["career_id"] != data.source.career_id:
         raise ValueError("Previous run belongs to another career")
+    if source.get('game_date') is None or data.source.game_date is None:
+        raise ValueError('Game date is unconfirmed; cannot establish game-time continuity with a previous run')
     if date.fromisoformat(source["game_date"]) > date.fromisoformat(data.source.game_date):
         raise ValueError("Previous run is in a future game date; select a branch after rollback")
     if timestamp(source["data_updated_at"]) > timestamp(data.source.data_updated_at):

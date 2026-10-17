@@ -6,6 +6,11 @@ CATEGORIES = ("GAME_REALITY", "HISTORICAL_REFERENCE", "PROPOSED_WORLDLINE")
 
 
 def reference_context(game_date, policy, completed_drafts=None):
+    if game_date is None:
+        return {'category': 'HISTORICAL_REFERENCE', 'availability': 'UNKNOWN',
+                'reference_mode': None, 'reference_year': None, 'progress_status': 'GAME_DATE_UNCONFIRMED',
+                'draft': draft_year(completed_drafts), 'game_results': None,
+                'attribute_write_authority': False, 'mc_growth': 'DISABLED_DEFERRED'}
     year = date.fromisoformat(game_date).year
     gravity = policy["historical_gravity"]
     transition = gravity["historical_reference_from_game_year"]

@@ -103,8 +103,8 @@
     },
     {
       "id": "draft_picks_assets_free_agency",
-      "status": "CANDIDATE_RAW_RECORDS",
-      "scope": "Descriptor-based 32-byte asset records and candidate current/original owner pointers captured. Year, round and protection awaiting independent verification; no legal trade asset certification.",
+      "status": "VERIFIED_SIMPLE_FUTURE_PICKS",
+      "scope": "Native NBA2K22 getter signatures verify current/original owner semantics; packed year/round and complete future draft coverage checked each capture. Only next three uncompleted annual drafts are tradeable under player rules. No protection or swap conditions; no automatic execution or full CBA certification. Legacy batches remain candidates.",
       "recommended_events": [
         "post_transaction",
         "draft_pre",

@@ -20,6 +20,7 @@ from gm_engine import GMEngine
 from historical_rookies import is_historical_rookie
 from save_context import save_paths
 from snapshot_integrity import file_sha256, write_json_atomic
+from draft_assets import VERIFIED, trade_window
 
 ROOT = Path(__file__).resolve().parent.parent
 PUBLISHED = ROOT / "published"
@@ -138,6 +139,13 @@ def export_snapshot(save_id, snapshot_id):
             staff = [row for row in staff if row['first_name'] or row['last_name']]
         draft_assets = [public_row(row, {'snapshot_id'}) for row in league.execute(
             'SELECT * FROM draft_asset_observations WHERE snapshot_id=? ORDER BY asset_slot', (snapshot_id,))] if extended else []
+        simple_draft_summary = source_manifest.get('quality_metrics', {}).get('simple_draft_assets')
+        if simple_draft_summary:
+            window = trade_window(simple_draft_summary['next_draft_year'])
+            draft_assets = [{k: v for k, v in row.items() if k != 'protection'} for row in draft_assets if row['mapping_status'] == VERIFIED]
+            for asset in draft_assets:
+                asset['asset_id'] = f"draft_pick:{asset['draft_year']}:{asset['draft_round']}:{asset['original_owner_team_id']}"
+                asset['within_three_year_trade_window'] = asset['draft_year'] in window
         models = []
         for row in pool.execute("SELECT * FROM player_pool ORDER BY slot_id"):
             model = public_row(row)
@@ -176,8 +184,11 @@ def export_snapshot(save_id, snapshot_id):
                   "scope": "All named entries in the live roster staff descriptor; 8 reciprocal roles per NBA team" if extended else "Legacy partial pool",
                   "records": staff})
             if extended:
-                write(bundle / 'draft_assets.json', {'ownership_verified': False, 'metadata_verified': False,
-                      'note': 'Candidate owner pointers only. Year, round and protection are unverified; excluded from trade assets.',
+                write(bundle / 'draft_assets.json', {'ownership_verified': bool(simple_draft_summary), 'metadata_verified': bool(simple_draft_summary),
+                      'next_draft_year': simple_draft_summary['next_draft_year'] if simple_draft_summary else None,
+                      'tradeable_draft_years': trade_window(simple_draft_summary['next_draft_year']) if simple_draft_summary else None,
+                      'protection_and_swaps': 'NOT_USED_BY_PLAYER_RULES',
+                      'note': 'Simple picks: current owner, original owner, year and round. Only next three drafts are tradeable. No game writes.' if simple_draft_summary else 'Legacy candidate records; ownership/year/round unverified.',
                       'records': draft_assets})
                 write(bundle / 'season_totals.json', {'method': 'LIVE_MEMORY_TOTALS_NOT_MONTHLY_OR_GAME_LOGS',
                       'teams': [{'team_id': row['team_id'], 'totals': json.loads(row['totals_json'])} for row in league.execute(

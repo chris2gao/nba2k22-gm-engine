@@ -112,3 +112,11 @@ def salary_exchange(outgoing, incoming):
     received = observed_sum(incoming)
     return {"sent": sent, "received": received,
             "payroll_change": difference(received["value"], sent["value"]), "cba_legality": "UNKNOWN"}
+
+
+def draft_pick_window(next_draft_year):
+    if type(next_draft_year) is not int or not 2000 <= next_draft_year <= 2100:
+        return result(reason='VERIFIED_NEXT_DRAFT_YEAR_REQUIRED', inputs=next_draft_year)
+    return result({'tradeable_draft_years': list(range(next_draft_year, next_draft_year + 3)),
+                   'protection_conditions': 'NOT_USED', 'swap_rights': 'NOT_USED'},
+                  inputs={'next_draft_year': next_draft_year, 'maximum_future_drafts': 3}, unit='draft_year')

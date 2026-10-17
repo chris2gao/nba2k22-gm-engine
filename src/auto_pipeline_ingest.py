@@ -28,6 +28,7 @@ from data_context import decode_context
 from source_extensions import (ensure_extension_schema, roster_directory, store_player,
                                staff_details, stats_record, team_statistics, player_statistics)
 import struct
+from draft_assets import capture_assets
 from snapshot_integrity import (
     file_sha256, sanitize_calibration_report, snapshot_digest,
     snapshot_row_counts, write_json_atomic,
@@ -490,16 +491,7 @@ def run_automated_ingestion(
         """, (snapshot_id, i, c_fn, c_ln, raw_team_id, mapping_status, raw_struct, None))
         ingested_staff_count += 1
 
-    assets = directory['draft_assets']
-    for asset_slot in range(assets['count']):
-        raw = mem.read_bytes(assets['address'] + asset_slot * assets['stride'], assets['stride'])
-        if raw is None:
-            raise RuntimeError('Unreadable draft asset slot')
-        owner = team_ids_by_pointer.get(struct.unpack_from('<Q', raw)[0])
-        original = team_ids_by_pointer.get(struct.unpack_from('<Q', raw, 8)[0])
-        cursor.execute('INSERT INTO draft_asset_observations VALUES (?,?,?,?,NULL,NULL,NULL,?,?)',
-                       (snapshot_id, asset_slot, owner, original,
-                        'CANDIDATE_OWNER_POINTERS_YEAR_ROUND_PROTECTION_UNVERIFIED', raw))
+    draft_summary = capture_assets(conn, snapshot_id, mem, directory, team_ids_by_pointer, season_year)
 
     # A league season has one win/loss and equal scored/conceded points per game.
     balances = cursor.execute("""SELECT sum(total_wins)-sum(total_losses)
@@ -624,6 +616,7 @@ def run_automated_ingestion(
             "unmapped_staff_slots": unmapped_staff_count,
             "staff_team_mapping_verified": True,
             "source_extension_profile": 1,
+            "simple_draft_assets": draft_summary,
             "directory_slot_counts": {key: value['count'] for key, value in directory.items()}
         },
         "batch_binding": {

@@ -24,7 +24,7 @@ def team_modules(data, team, completed_drafts=None):
         "contracts": finance.analyze_contracts(data, team),
         "draft_free_agency": module_result("draft_free_agency", {"draft_progress": calculations.draft_year(completed_drafts)},
             ["从历史新秀索引查询已验证模型；未观测选秀权和自由球员权利不作为拥有资产。"],
-            ["选秀权归属/保护/互换/自由球员签约权"] + ([] if completed_drafts is not None else ["已完成选秀次数"]),
+            ["选秀权归属及未来三年窗口/自由球员签约权"] + ([] if completed_drafts is not None else ["已完成选秀次数"]),
             ["已确认进度后再查对应新秀模型，缺额保留游戏生成球员。"]),
         "development": roster.analyze_development(data, team),
         "business": finance.analyze_business(data, team),

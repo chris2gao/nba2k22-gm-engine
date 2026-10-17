@@ -371,7 +371,8 @@ def run_ai_sampling_audit(
         checks["sampled_staff_bytes_match_live_memory"] = staff_cross_check_pass and len(staff_audit) == len(staff_samples)
         if extended:
             from audit_source_extensions import audit_extensions
-            checks.update(audit_extensions(conn, mem, calib_report, live_teams, snapshot_id))
+            checks.update(audit_extensions(conn, mem, calib_report, live_teams, snapshot_id,
+                          simple_draft_assets=bool(manifest.get('quality_metrics', {}).get('simple_draft_assets'))))
     finally:
         if mem is not None:
             mem.close()
@@ -442,7 +443,9 @@ def run_ai_sampling_audit(
         "active_player": active_player_audit,
         "sample_players": player_samples_audit,
         "sample_staff": staff_audit,
-        "staff_mapping_policy": "raw observations only; team ownership remains unverified",
+        "staff_mapping_policy": ("verified reciprocal NBA team-role links; other entries remain unmapped"
+                                 if manifest.get('quality_metrics', {}).get('staff_team_mapping_verified')
+                                 else "raw observations only; team ownership remains unverified"),
     }
     write_json_atomic(audit_file, audit_result)
     if not passed:

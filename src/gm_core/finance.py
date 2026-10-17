@@ -15,8 +15,8 @@ def analyze_contracts(data, team):
     values = metrics(data, team)
     return module_result("contracts", values,
         ["工资差额是静态代理，不能据此认证可用空间、交易合法性或球队建队动机。"],
-        ["完整保障/选项/例外/cap holds/名单占位工资/签约权"],
-        ["让网页 GM 结合阵容需求讨论合同期限；涉及操作时补齐对应合同账本。"])
+        ["大名单球员薪资"] if values['observed_roster_salary_sum']['availability'] == 'UNKNOWN' else [],
+        ["按玩家要求使用大名单薪资；不扩展保障金额、死钱或完整现实 CBA 账本。"])
 
 
 def analyze_business(data, team):

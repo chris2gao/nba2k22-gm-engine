@@ -7,9 +7,10 @@ import struct
 from source_extensions import (roster_directory, stats_record, staff_details, player_details,
                                team_statistics, player_statistics)
 from data_context import decode_context
+from draft_assets import read_assets, VERIFIED
 
 
-def audit_extensions(conn, mem, calibration, teams, snapshot_id):
+def audit_extensions(conn, mem, calibration, teams, snapshot_id, simple_draft_assets=False):
     root = int(calibration['player_pool']['base_addr'], 16)
     directory = roster_directory(mem, root)
     team_map = {t['address']: tid for tid, t in teams.items()}
@@ -60,5 +61,14 @@ def audit_extensions(conn, mem, calibration, teams, snapshot_id):
     checks['extended_player_birth_attributes_contracts_statistics_match_live'] = bool(players)
     assets = conn.execute('SELECT * FROM draft_asset_observations WHERE snapshot_id=? ORDER BY asset_slot', (snapshot_id,)).fetchall()
     checks['draft_asset_slots_match_descriptor'] = len(assets) == directory['draft_assets']['count']
-    checks['draft_asset_uncertain_metadata_remains_null'] = all(row['draft_year'] is None and row['draft_round'] is None and row['protection'] is None for row in assets)
+    if simple_draft_assets:
+        observed, _ = read_assets(mem, directory, team_map, season_year)
+        if len(observed) != len(assets):
+            raise RuntimeError('Draft asset count changed')
+        for stored, (slot, detail, raw) in zip(assets, observed):
+            if stored['asset_slot'] != slot or stored['raw_struct'] != raw or any(stored[k] != v for k, v in detail.items()):
+                raise RuntimeError(f'Draft asset changed or decoding differs: {slot}')
+        checks['simple_draft_year_round_and_ownership_match_live_memory'] = True
+    else:
+        checks['draft_asset_uncertain_metadata_remains_null'] = all(row['draft_year'] is None and row['draft_round'] is None and row['protection'] is None for row in assets)
     return checks

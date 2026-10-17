@@ -12,7 +12,7 @@ from gm_core.history import StateStore, write_json
 
 OPERATIONS = {name: getattr(calculations, name) for name in
               ("difference", "observed_sum", "distribution", "win_percentage", "efficiency",
-               "field_changes", "roster_changes", "draft_year", "salary_exchange")}
+               "field_changes", "roster_changes", "draft_year", "salary_exchange", "draft_pick_window")}
 
 
 def calculate(request):

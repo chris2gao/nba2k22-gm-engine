@@ -65,7 +65,8 @@ class DataReader:
             raise ValueError("Publication has not completed")
         if previous_data_updated_at and updated < timestamp(previous_data_updated_at):
             raise ValueError("Data predates the selected previous run; use a separate branch")
-        date.fromisoformat(pointer["game_date"])
+        if pointer["game_date"] is not None:
+            date.fromisoformat(pointer["game_date"])
         directory = safe_child(published / "saves" / career_id, Path(pointer["batch_path"]).relative_to(f"saves/{career_id}"))
         league = load_json(directory / "league.json")
         teams = {}
