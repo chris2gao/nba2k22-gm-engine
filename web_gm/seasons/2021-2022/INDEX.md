@@ -17,14 +17,27 @@
 | 01 | 2021年11月附近，**精确日 UNKNOWN**；没有确认月终 | `GM-S2021-2022-W01 / R01` | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2` | [本轮完整决策链](windows/W01_GM_20261017/ROUND_R01_RECAP.md) · 已批战略/研究/非约束询价，所有游戏修改暂缓 |
 | 02 | **与W01相同的未知日期检查点；没有新的发布批次，不是新月月结** | `GM-S2021-2022-W02 / R01`（同赛季聊天已触发的专题续议） | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（与W01完全相同） | [本次决策归档](windows/W02_GM_20261017/ROUND_R01_RECAP.md) · [30队同批基线](windows/W02_GM_20261017/TEAM_BASELINE.json) · CHI/DET格兰特具体交易仅PROPOSED；CHA/IND暂不成交；无写入 |
 
-| 03 | **2021-12-12 / M02 普通检查点，不是12月月结** | `GM-S2021-2022-W03 / R01`（同赛季聊天，本节点允许最多3轮GM审议） | `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2` | [R01归档](windows/W03_GM_20261018/ROUND_R01_RECAP.md) · [30队教练/交易提案](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md) · [机器可读GM意图](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_INTENT.json) · 12项教练意图/1项双边交易提案，**未获玩家批准，未游戏写入** |
+| 03 | **2021-12-12 / M02 普通检查点，不是12月月结** | `GM-S2021-2022-W03 / R01`（同赛季聊天，2026-10-18起采用V3至少五轮深度决策；本R01仅粗扫） | `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2` | [R01归档](windows/W03_GM_20261018/ROUND_R01_RECAP.md) · [30队教练/交易提案](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md) · [机器可读GM意图](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_INTENT.json) · 12项教练意图/1项双边交易提案，**未获玩家批准，未游戏写入** |
+
+## 2026-10-18 玩家确定的新W03决策流程（高于下方旧3轮记载）
+
+已批准的最新经营**流程规则**：[GM_MIN_FIVE_ROUNDS_V3](../../GM_DECISION_ROUNDS_V3.md)。旧“每节点最多3轮/一轮提交30队”不再适用。**本轮没有批准12项教练或CHA/SAS交易执行。**
+
+- `W03/R01`仅用于初步分诊，属于`PRELIMINARY_SCAN_SUPERSEDED_FOR_FINAL_DECISION`，不能计入30队正式深入诊断；此前12项教练+T01均需重新论证，不是最终双边同意。
+- `W03/R02`：组A 10队 PHI/MIL/WAS/CHI/CLE/BOS/LAC/MEM/ATL/MIA。
+- `W03/R03`：组B 10队 NOP/UTA/SAC/NYK/LAL/ORL/DAL/BKN/DEN/IND。
+- `W03/R04`：组C 10队 DET/TOR/HOU/OKC/SAS/PHX/MIN/POR/GSW/CHA。**各轮必须GitHub保存球队深度档案和真实source引用**，30队完全覆盖后写`ALL_30_TEAMS_SYNTHESIS`。
+- `W03/R05`：全联盟交叉审查、教练方案冲突控制、双方GM具体报价与谈判；不得因R01候选已存在就视作双方已同意。
+- `W03/R06`：唯一终稿、具体游戏修改列表、技术安全核验和Codex交接/批准包。仍需要玩家批准；教练必须由确定性离线工具生成真实批次/digest后再经玩家摘要批准。
+- 如果每轮10队做不好，GM可主动降为5队：W03/R02–R07六个深入研究轮，R08整体谈判、R09终稿。可继续延长，不提前退出。**每轮由玩家显式继续触发**，不自动推进游戏。
+- 用户应把本赛季V3分阶段记录理解为对旧决策**流程**的后续修订，而非宣布旧R01当时就已经完成了深度研究。
 
 ## 2026-10-18 W03/M02 最新正式状态（高优先级，覆盖下方W02历史时点文字）
 
 - **实际最新快照**：玩家已触发Codex发布正式M02，game_date=2021-12-12，月序M02普通检查点，`latest.json`指向`2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`，`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`、审计PASS。**下方“latest还是M01 / 两笔交易尚待刷新”是W02历史记录，已失效，不作为当前事实。**
 - **两笔先前获批交易当前名单可观察**：Jerami Grant在CHI、Coby White在DET；David Nwaba在DAL；执行动作来源仍按玩家已确认，不重新执行。
-- **本轮30队GM经营已触发R01并完成初步意见**：11队共12个教练篮球意图、19队教练HOLD；一项双方一致交易候选CHA↔SAS Poeltl vs P.J. Washington + 2024 NOP原始二轮，全部`PROPOSED_NOT_APPROVED`，原始详情和完整角色风险见[R01回顾](windows/W03_GM_20261018/ROUND_R01_RECAP.md)。
-- **回合使用规则**：玩家2026-10-18允许同节点多回合决策，延续既有每节点最多3轮上限。R01已归档，R02只在玩家继续/反馈时开启，R03有必要再开启。回合不是比赛时间推进；不能自动开始R02或写游戏。
+- **本轮30队GM经营已触发R01并完成**浅层**初步意见（尚不足以通过V3逐队深度质量门槛）**：11队共12个教练篮球意图、19队教练HOLD；一项双方一致交易候选CHA↔SAS Poeltl vs P.J. Washington + 2024 NOP原始二轮，全部`PROPOSED_NOT_APPROVED`，原始详情和完整角色风险见[R01回顾](windows/W03_GM_20261018/ROUND_R01_RECAP.md)。
+- **回合使用规则（新V3）**：本节点最少走完R02–R06的3轮每轮10队深入研究+2轮整合终稿；此处旧“3轮上限”已作废。R01只是历史总览，R02仍须由玩家继续触发；不自动开始新回合或写入游戏。
 - **教练原生批准闸门**：GM现在只发布已验证raw目标和篮球理由，**尚未生成离线完整native batch/摘要/digest**；任何“赞成方向”不可自动等同教练执行摘要批准。交易T01同样必须玩家逐项具体批准并由Codex只读预检后执行。
 - **球员数据特别注意**：个人累计出场/得分可跨球队。MC真实Tyrese Haliburton槽1235已在IND，个人27场58.41均分不等于在IND效力27场；重复模型Ty Hali槽184不是同一人物。训练由AI管理，精确分钟不强控。
 
@@ -34,7 +47,7 @@
 2. [W01 R01 决策链](windows/W01_GM_20261017/ROUND_R01_RECAP.md)：包括游戏时间/现实生成时间区分、战略结论、审批、暂停执行和下轮承接条件。
 3. [初次全联盟30队经营提案](../../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_PROPOSED.md)：历史原始 `PROPOSED` 版本，不覆盖旧文案。
 4. [玩家审批回执](../../decisions/mc_haliburton_2021/20261017_M01_LEAGUE_GM_ROUND01_APPROVAL.md)：7项仅限战略、研究和非约束询价。对于是否已执行以独立执行回执为准。
-5. [GM v2 机制](../../GM_DECISION_MECHANISM_V2.md)：外部双边谈判、胜率优先、士气次级、每次最多3回合。
+5. [GM v2 机制](../../GM_DECISION_MECHANISM_V2.md)：外部双边谈判、胜率优先、士气次级、最新V3每个全联盟GM节点最少5个实质回合；旧3回合上限已废止。
 6. [最新 GM_CURRENT](../../memory/GM_CURRENT.md)：只作快速入口，窗口历史以此处文件为准。
 
 ## 2026-10-17 最新执行反馈与数据同步约定（此节覆盖下面的历史“待执行”表述）
