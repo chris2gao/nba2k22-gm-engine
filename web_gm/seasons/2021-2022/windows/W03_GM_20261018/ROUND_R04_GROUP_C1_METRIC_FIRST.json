@@ -805,7 +805,148 @@
         "published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/season_totals.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/coaching/teams.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/draft_assets.json"
-      ]
+      ],
+      "source_roster_player_count": 15,
+      "assessed_roster_player_count": 15,
+      "roster_coverage_status": "EXACT_SOURCE_SLOT_NAME_SET_MATCH",
+      "goal_phase": "2021-22_CURRENT_SEASON_WIN_PROBABILITY_WITH_ASSET_COST",
+      "team_diagnosis": {
+        "observed_team_record": "5-19",
+        "incremental_game_totals": {
+          "games": 6,
+          "wins": 3,
+          "losses": 3,
+          "points_for_per_game": 115.17,
+          "points_against_per_game": 122.17,
+          "margin_per_game": -7,
+          "team_two_pct": 54.46,
+          "team_three_pct": 35.81,
+          "team_efg_pct": 54.17,
+          "opponent_two_pct": 60.32,
+          "opponent_three_pct": 42.13,
+          "opponent_efg_pct": 61.44,
+          "team_3pa": 215,
+          "opponent_3pa": 197,
+          "opponent_2pa": 310,
+          "team_fga": 551,
+          "opponent_fga": 507,
+          "turnovers_per_game": 14.5
+        },
+        "reasoned_basketball_problem": "对手新增6场两分60.32%（310次）、三分42.13%（197次），eFG61.44%，每场失122.17；本队eFG54.17%，净负7分，优先防守端而非盲目交易。"
+      },
+      "staff_assessment": {
+        "status": "STAFF_DEFERRED_BY_PLAYER",
+        "head_coach_observed": "Dwane Casey",
+        "do_not_claim_staff_pool_review": true
+      },
+      "coaching_assessment": {
+        "status": "PROPOSED_ONLY",
+        "exact_native_settings": {
+          "POEDefense": 14,
+          "POEDefense2": 17,
+          "POEDefense3": 20,
+          "POEOffense": 5,
+          "POEOffense2": 8,
+          "POEOffense3": 11,
+          "PreferredSystem": 1,
+          "ActiveSystem": 7,
+          "PlaybookID": 20,
+          "BenchDepth": 9,
+          "RunPlayTendency": 80,
+          "ZoneUsage": 20,
+          "BenchUtilization": 60,
+          "Tempo": 42,
+          "HelpDefense": 50,
+          "FreelanceType": 0,
+          "FreelanceType2": 5,
+          "FreelanceType3": 18,
+          "FreelanceType4": 28
+        },
+        "candidates": [
+          {
+            "action_id": "GM-W03-R04-DET-C01",
+            "scope": "COACH_DEFAULT",
+            "field": "POEDefense",
+            "before_raw": 14,
+            "target_raw": 13,
+            "native_label": "PROTECT_PAINT",
+            "basketball_reason": "对手在310次两分出手上命中60.32%，两分总量大于197次三分；针对球员突破与篮下完成，维持其他战术不变。",
+            "risk": "对手三分本已高达42.13%；保护禁区可能扩大外线空位，此举未必能净降低对手eFG。",
+            "approval": "NOT_APPROVED",
+            "technical_status": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL"
+          }
+        ]
+      },
+      "roster_use_assessment": {
+        "role_composition": "利用Cory Joseph(外防80)与Saddiq Bey(75)在后场/锋线承担更多防守对位，避免同时把Coby White(63)与Frank Jackson(62)视为防守阵容；只建议组合方向，不锁定分钟。",
+        "minutes_lock_forbidden": true,
+        "training_out_of_scope": true
+      },
+      "contract_and_draft_assets": {
+        "current_total_salary_observed": 74257657,
+        "tradeable_owned_picks": [
+          {
+            "asset_id": "draft_pick:2022:1:28",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 28,
+            "current_owner_team_id": 21
+          },
+          {
+            "asset_id": "draft_pick:2023:1:21",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 21,
+            "current_owner_team_id": 21
+          },
+          {
+            "asset_id": "draft_pick:2023:2:29",
+            "year": 2023,
+            "round": 2,
+            "original_owner_team_id": 29,
+            "current_owner_team_id": 21
+          },
+          {
+            "asset_id": "draft_pick:2024:1:21",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 21,
+            "current_owner_team_id": 21
+          },
+          {
+            "asset_id": "draft_pick:2024:2:13",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 13,
+            "current_owner_team_id": 21
+          }
+        ]
+      },
+      "monitoring_plan": {
+        "next_same_career_batch_only": true,
+        "measure": "下一新增区间对手两分命中率、三分命中率、eFG、失分及净胜分",
+        "no_claim_fixed_win_percent": true
+      },
+      "decision_dimensions": {
+        "D1_STAFF": "STAFF_DEFERRED_BY_PLAYER",
+        "D2_TACTICS": "PROPOSED_ONLY",
+        "D3_ROSTER_USE": "利用Cory Joseph(外防80)与Saddiq Bey(75)在后场/锋线承担更多防守对位，避免同时把Coby White(63)与Frank Jackson(62)视为防守阵容；只建议组合方向，不锁定分钟。",
+        "D4_MARKET": "后场Cade(外防75)、Coby White(63)及内线Stewart(内防70)的协防问题；保留Cade/Bey/Stewart作为年轻核心，交易若发生需R05两边报价；Coby/Grant交易已执行，不能重放。",
+        "D5_ASSETS_AND_DEVELOPMENT": "Payroll 74257657 observed; 5 certified trade-window picks; ordinary progression by game AI",
+        "D6_TEAM_IDENTITY_AND_MONITORING": "下一新增区间对手两分命中率、三分命中率、eFG、失分及净胜分"
+      },
+      "uncertainties": [
+        "NO_POSSESSION_SEMANTICS_VALIDATION",
+        "NO_GAME_BY_GAME_LOGS",
+        "NO_INJURY_OBSERVATION",
+        "SAME_TEAM_SLOT_ONLY_FOR_PLAYER_DIFF"
+      ],
+      "candidate_actions": [
+        "GM-W03-R04-DET-C01"
+      ],
+      "expected_direction_without_fabricated_win_pct": "下一新增区间对手两分命中率、三分命中率、eFG、失分及净胜分",
+      "approval_state": "PROPOSED_NOT_APPROVED",
+      "review_status": "COMPLETE_WITH_STAFF_DEFERRED"
     },
     {
       "abbr": "TOR",
@@ -1567,7 +1708,119 @@
         "published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/season_totals.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/coaching/teams.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/draft_assets.json"
-      ]
+      ],
+      "source_roster_player_count": 15,
+      "assessed_roster_player_count": 15,
+      "roster_coverage_status": "EXACT_SOURCE_SLOT_NAME_SET_MATCH",
+      "goal_phase": "2021-22_CURRENT_SEASON_WIN_PROBABILITY_WITH_ASSET_COST",
+      "team_diagnosis": {
+        "observed_team_record": "11-14",
+        "incremental_game_totals": {
+          "games": 6,
+          "wins": 4,
+          "losses": 2,
+          "points_for_per_game": 110.67,
+          "points_against_per_game": 110,
+          "margin_per_game": 0.67,
+          "team_two_pct": 52.4,
+          "team_three_pct": 36.94,
+          "team_efg_pct": 53.64,
+          "opponent_two_pct": 54.43,
+          "opponent_three_pct": 32.51,
+          "opponent_efg_pct": 52.26,
+          "team_3pa": 222,
+          "opponent_3pa": 203,
+          "opponent_2pa": 327,
+          "team_fga": 535,
+          "opponent_fga": 530,
+          "turnovers_per_game": 17.67
+        },
+        "reasoned_basketball_problem": "新增6场4–2，净胜0.67，防守对手eFG52.26%且三分32.51%，球队17.67次失误/场是可以复盘的最大显性进攻摩擦。"
+      },
+      "staff_assessment": {
+        "status": "STAFF_DEFERRED_BY_PLAYER",
+        "head_coach_observed": "Nick Nurse",
+        "do_not_claim_staff_pool_review": true
+      },
+      "coaching_assessment": {
+        "status": "COACHING_HOLD",
+        "exact_native_settings": {
+          "POEDefense": 14,
+          "POEDefense2": 17,
+          "POEDefense3": 20,
+          "POEOffense": 5,
+          "POEOffense2": 8,
+          "POEOffense3": 11,
+          "PreferredSystem": 0,
+          "ActiveSystem": 3,
+          "PlaybookID": 21,
+          "BenchDepth": 9,
+          "RunPlayTendency": 90,
+          "ZoneUsage": 5,
+          "BenchUtilization": 90,
+          "Tempo": 40,
+          "HelpDefense": 35,
+          "FreelanceType": 0,
+          "FreelanceType2": 5,
+          "FreelanceType3": 18,
+          "FreelanceType4": 28
+        },
+        "candidates": []
+      },
+      "roster_use_assessment": {
+        "role_composition": "VanVleet和Dragic组织分担；优先使用OG(外防87)、Siakam(79)、Barnes(75)防守体型优势。Scottie Barnes在该区间得分增量0，不等同受伤或能力下降，原因未观察。",
+        "minutes_lock_forbidden": true,
+        "training_out_of_scope": true
+      },
+      "contract_and_draft_assets": {
+        "current_total_salary_observed": 137154383,
+        "tradeable_owned_picks": [
+          {
+            "asset_id": "draft_pick:2022:1:22",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 22,
+            "current_owner_team_id": 22
+          },
+          {
+            "asset_id": "draft_pick:2023:1:22",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 22,
+            "current_owner_team_id": 22
+          },
+          {
+            "asset_id": "draft_pick:2024:1:22",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 22,
+            "current_owner_team_id": 22
+          }
+        ]
+      },
+      "monitoring_plan": {
+        "next_same_career_batch_only": true,
+        "measure": "失误/场、己方eFG、对手eFG和净胜分；如失误持续偏高再评估持球/战术节奏",
+        "no_claim_fixed_win_percent": true
+      },
+      "decision_dimensions": {
+        "D1_STAFF": "STAFF_DEFERRED_BY_PLAYER",
+        "D2_TACTICS": "COACHING_HOLD",
+        "D3_ROSTER_USE": "VanVleet和Dragic组织分担；优先使用OG(外防87)、Siakam(79)、Barnes(75)防守体型优势。Scottie Barnes在该区间得分增量0，不等同受伤或能力下降，原因未观察。",
+        "D4_MARKET": "VanVleet/Siakam/OG/Barnes均有保留理由，不能凭低于预期的总战绩立即拆队；Dragic到期合同可在R05比较有真实买方时的报价。",
+        "D5_ASSETS_AND_DEVELOPMENT": "Payroll 137154383 observed; 3 certified trade-window picks; ordinary progression by game AI",
+        "D6_TEAM_IDENTITY_AND_MONITORING": "失误/场、己方eFG、对手eFG和净胜分；如失误持续偏高再评估持球/战术节奏"
+      },
+      "uncertainties": [
+        "NO_POSSESSION_SEMANTICS_VALIDATION",
+        "NO_GAME_BY_GAME_LOGS",
+        "NO_INJURY_OBSERVATION",
+        "SAME_TEAM_SLOT_ONLY_FOR_PLAYER_DIFF"
+      ],
+      "candidate_actions": [],
+      "expected_direction_without_fabricated_win_pct": "HOLD then compare next genuine interval",
+      "approval_state": "PROPOSED_NOT_APPROVED",
+      "review_status": "COMPLETE_WITH_STAFF_DEFERRED"
     },
     {
       "abbr": "HOU",
@@ -2455,7 +2708,161 @@
         "published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/season_totals.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/coaching/teams.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/draft_assets.json"
-      ]
+      ],
+      "source_roster_player_count": 17,
+      "assessed_roster_player_count": 17,
+      "roster_coverage_status": "EXACT_SOURCE_SLOT_NAME_SET_MATCH",
+      "goal_phase": "2021-22_CURRENT_SEASON_WIN_PROBABILITY_WITH_ASSET_COST",
+      "team_diagnosis": {
+        "observed_team_record": "13-11",
+        "incremental_game_totals": {
+          "games": 6,
+          "wins": 5,
+          "losses": 1,
+          "points_for_per_game": 119.33,
+          "points_against_per_game": 115.33,
+          "margin_per_game": 4,
+          "team_two_pct": 56.53,
+          "team_three_pct": 38.6,
+          "team_efg_pct": 57.09,
+          "opponent_two_pct": 51.61,
+          "opponent_three_pct": 41.03,
+          "opponent_efg_pct": 55.03,
+          "team_3pa": 228,
+          "opponent_3pa": 195,
+          "opponent_2pa": 372,
+          "team_fga": 557,
+          "opponent_fga": 567,
+          "turnovers_per_game": 12.5
+        },
+        "reasoned_basketball_problem": "新增6场5–1，净胜4.00，本队eFG57.09%、失误12.5/场，对手三分41.03%是潜在风险但目前整体结果良好。"
+      },
+      "staff_assessment": {
+        "status": "STAFF_DEFERRED_BY_PLAYER",
+        "head_coach_observed": "Stephen Silas",
+        "do_not_claim_staff_pool_review": true
+      },
+      "coaching_assessment": {
+        "status": "COACHING_HOLD",
+        "exact_native_settings": {
+          "POEDefense": 14,
+          "POEDefense2": 17,
+          "POEDefense3": 20,
+          "POEOffense": 5,
+          "POEOffense2": 8,
+          "POEOffense3": 11,
+          "PreferredSystem": 6,
+          "ActiveSystem": 2,
+          "PlaybookID": 22,
+          "BenchDepth": 10,
+          "RunPlayTendency": 75,
+          "ZoneUsage": 3,
+          "BenchUtilization": 70,
+          "Tempo": 50,
+          "HelpDefense": 50,
+          "FreelanceType": 0,
+          "FreelanceType2": 5,
+          "FreelanceType3": 18,
+          "FreelanceType4": 28
+        },
+        "candidates": []
+      },
+      "roster_use_assessment": {
+        "role_composition": "Wall为当前经验组织选择，Green/Porter承担发展空间；Wood与Sengun在中锋上攻防组合价值需区别评估，已观察5–1时不急改挡拆或外线POE。",
+        "minutes_lock_forbidden": true,
+        "training_out_of_scope": true
+      },
+      "contract_and_draft_assets": {
+        "current_total_salary_observed": 125008699,
+        "tradeable_owned_picks": [
+          {
+            "asset_id": "draft_pick:2022:1:18",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 18,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2022:1:23",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 23,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2022:2:17",
+            "year": 2022,
+            "round": 2,
+            "original_owner_team_id": 17,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2023:1:18",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 18,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2023:1:1",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 1,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2024:1:18",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 18,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2024:2:23",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 23,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2024:2:17",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 17,
+            "current_owner_team_id": 23
+          },
+          {
+            "asset_id": "draft_pick:2024:2:29",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 29,
+            "current_owner_team_id": 23
+          }
+        ]
+      },
+      "monitoring_plan": {
+        "next_same_career_batch_only": true,
+        "measure": "对手三分41.03%是否延续、本队eFG与失误，若防守持续恶化再单独提出更改",
+        "no_claim_fixed_win_percent": true
+      },
+      "decision_dimensions": {
+        "D1_STAFF": "STAFF_DEFERRED_BY_PLAYER",
+        "D2_TACTICS": "COACHING_HOLD",
+        "D3_ROSTER_USE": "Wall为当前经验组织选择，Green/Porter承担发展空间；Wood与Sengun在中锋上攻防组合价值需区别评估，已观察5–1时不急改挡拆或外线POE。",
+        "D4_MARKET": "保留Jalen Green(19岁潜力94)和Sengun(19岁潜力81)发展机会；Wall、Wood、Gordon等可研究市场价值但不能将赢球阶段直接视作必须清仓。Nwaba已交易离队，Sterling Brown已入队。",
+        "D5_ASSETS_AND_DEVELOPMENT": "Payroll 125008699 observed; 9 certified trade-window picks; ordinary progression by game AI",
+        "D6_TEAM_IDENTITY_AND_MONITORING": "对手三分41.03%是否延续、本队eFG与失误，若防守持续恶化再单独提出更改"
+      },
+      "uncertainties": [
+        "NO_POSSESSION_SEMANTICS_VALIDATION",
+        "NO_GAME_BY_GAME_LOGS",
+        "NO_INJURY_OBSERVATION",
+        "SAME_TEAM_SLOT_ONLY_FOR_PLAYER_DIFF"
+      ],
+      "candidate_actions": [],
+      "expected_direction_without_fabricated_win_pct": "HOLD then compare next genuine interval",
+      "approval_state": "PROPOSED_NOT_APPROVED",
+      "review_status": "COMPLETE_WITH_STAFF_DEFERRED"
     },
     {
       "abbr": "OKC",
@@ -3364,7 +3771,225 @@
         "published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/season_totals.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/coaching/teams.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/draft_assets.json"
-      ]
+      ],
+      "source_roster_player_count": 16,
+      "assessed_roster_player_count": 16,
+      "roster_coverage_status": "EXACT_SOURCE_SLOT_NAME_SET_MATCH",
+      "goal_phase": "2021-22_CURRENT_SEASON_WIN_PROBABILITY_WITH_ASSET_COST",
+      "team_diagnosis": {
+        "observed_team_record": "6-18",
+        "incremental_game_totals": {
+          "games": 6,
+          "wins": 2,
+          "losses": 4,
+          "points_for_per_game": 119.83,
+          "points_against_per_game": 122.67,
+          "margin_per_game": -2.83,
+          "team_two_pct": 55.37,
+          "team_three_pct": 43.18,
+          "team_efg_pct": 59.3,
+          "opponent_two_pct": 59.13,
+          "opponent_three_pct": 35.75,
+          "opponent_efg_pct": 56.98,
+          "team_3pa": 220,
+          "opponent_3pa": 221,
+          "opponent_2pa": 345,
+          "team_fga": 527,
+          "opponent_fga": 566,
+          "turnovers_per_game": 14.83
+        },
+        "reasoned_basketball_problem": "新增6场2–4，本队eFG59.30%表现好，但对手两分59.13%，远高于其三分35.75%，每场失122.67，问题优先在禁区防守。"
+      },
+      "staff_assessment": {
+        "status": "STAFF_DEFERRED_BY_PLAYER",
+        "head_coach_observed": "Mark Daigneault",
+        "do_not_claim_staff_pool_review": true
+      },
+      "coaching_assessment": {
+        "status": "PROPOSED_ONLY",
+        "exact_native_settings": {
+          "POEDefense": 14,
+          "POEDefense2": 17,
+          "POEDefense3": 20,
+          "POEOffense": 5,
+          "POEOffense2": 8,
+          "POEOffense3": 11,
+          "PreferredSystem": 2,
+          "ActiveSystem": 0,
+          "PlaybookID": 25,
+          "BenchDepth": 9,
+          "RunPlayTendency": 85,
+          "ZoneUsage": 1,
+          "BenchUtilization": 55,
+          "Tempo": 90,
+          "HelpDefense": 50,
+          "FreelanceType": 0,
+          "FreelanceType2": 5,
+          "FreelanceType3": 18,
+          "FreelanceType4": 28
+        },
+        "candidates": [
+          {
+            "action_id": "GM-W03-R04-OKC-C01",
+            "scope": "COACH_DEFAULT",
+            "field": "POEDefense",
+            "before_raw": 14,
+            "target_raw": 13,
+            "native_label": "PROTECT_PAINT",
+            "basketball_reason": "对手两分59.13%而三分35.75%，单项先保护禁区；不动BALANCED体系，保留Gilgeous-Alexander/Dort/Giddey的现有创造。",
+            "risk": "更多收缩可能放空外围；Favors内防74、Roby62等阵容硬件不足，不能保证仅靠战术解决。",
+            "approval": "NOT_APPROVED",
+            "technical_status": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL"
+          }
+        ]
+      },
+      "roster_use_assessment": {
+        "role_composition": "优先用Dort(外防83)承接对手强持球后卫，Favors(盖帽85)承担护框，避免Giddey/Shai角色缺乏合理持球权；依AI决定分钟。",
+        "minutes_lock_forbidden": true,
+        "training_out_of_scope": true
+      },
+      "contract_and_draft_assets": {
+        "current_total_salary_observed": 50404787,
+        "tradeable_owned_picks": [
+          {
+            "asset_id": "draft_pick:2022:1:21",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 21,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2022:1:26",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 26,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2022:1:6",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 6,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2022:1:24",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 24,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2023:1:2",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 2,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2023:1:10",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 10,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2023:1:6",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 6,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2023:1:19",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 19,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2023:2:2",
+            "year": 2023,
+            "round": 2,
+            "original_owner_team_id": 2,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2023:2:10",
+            "year": 2023,
+            "round": 2,
+            "original_owner_team_id": 10,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2024:1:6",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 6,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2024:1:23",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 23,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2024:1:24",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 24,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2024:1:12",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 12,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2024:2:31",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 31,
+            "current_owner_team_id": 24
+          },
+          {
+            "asset_id": "draft_pick:2024:2:27",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 27,
+            "current_owner_team_id": 24
+          }
+        ]
+      },
+      "monitoring_plan": {
+        "next_same_career_batch_only": true,
+        "measure": "下期对手两分命中率、三分命中率、禁区防守得失与每场净胜",
+        "no_claim_fixed_win_percent": true
+      },
+      "decision_dimensions": {
+        "D1_STAFF": "STAFF_DEFERRED_BY_PLAYER",
+        "D2_TACTICS": "PROPOSED_ONLY",
+        "D3_ROSTER_USE": "优先用Dort(外防83)承接对手强持球后卫，Favors(盖帽85)承担护框，避免Giddey/Shai角色缺乏合理持球权；依AI决定分钟。",
+        "D4_MARKET": "核心SGA(潜力89)、Giddey(85)、Dort(外防83)保留；Favors等老将若报价合理可R05比较，但不能缺乏接替者时直接出售中锋。",
+        "D5_ASSETS_AND_DEVELOPMENT": "Payroll 50404787 observed; 16 certified trade-window picks; ordinary progression by game AI",
+        "D6_TEAM_IDENTITY_AND_MONITORING": "下期对手两分命中率、三分命中率、禁区防守得失与每场净胜"
+      },
+      "uncertainties": [
+        "NO_POSSESSION_SEMANTICS_VALIDATION",
+        "NO_GAME_BY_GAME_LOGS",
+        "NO_INJURY_OBSERVATION",
+        "SAME_TEAM_SLOT_ONLY_FOR_PLAYER_DIFF"
+      ],
+      "candidate_actions": [
+        "GM-W03-R04-OKC-C01"
+      ],
+      "expected_direction_without_fabricated_win_pct": "下期对手两分命中率、三分命中率、禁区防守得失与每场净胜",
+      "approval_state": "PROPOSED_NOT_APPROVED",
+      "review_status": "COMPLETE_WITH_STAFF_DEFERRED"
     },
     {
       "abbr": "SAS",
@@ -4173,7 +4798,162 @@
         "published/saves/mc_haliburton_2021/batches/2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2/season_totals.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/coaching/teams.json",
         "published/saves/mc_haliburton_2021/batches/2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2/draft_assets.json"
-      ]
+      ],
+      "source_roster_player_count": 15,
+      "assessed_roster_player_count": 15,
+      "roster_coverage_status": "EXACT_SOURCE_SLOT_NAME_SET_MATCH",
+      "goal_phase": "2021-22_CURRENT_SEASON_WIN_PROBABILITY_WITH_ASSET_COST",
+      "team_diagnosis": {
+        "observed_team_record": "10-14",
+        "incremental_game_totals": {
+          "games": 7,
+          "wins": 2,
+          "losses": 5,
+          "points_for_per_game": 102.57,
+          "points_against_per_game": 119.57,
+          "margin_per_game": -17,
+          "team_two_pct": 52.39,
+          "team_three_pct": 27.39,
+          "team_efg_pct": 49.51,
+          "opponent_two_pct": 55.56,
+          "opponent_three_pct": 39.1,
+          "opponent_efg_pct": 56.91,
+          "team_3pa": 157,
+          "opponent_3pa": 266,
+          "opponent_2pa": 342,
+          "team_fga": 617,
+          "opponent_fga": 608,
+          "turnovers_per_game": 15.86
+        },
+        "reasoned_basketball_problem": "新增7场2–5、场均净负17分，本队三分命中27.39%（157次）、整体eFG49.51%、仅得102.57分；对手eFG56.91%，攻守皆弱，先聚焦最显著进攻问题。"
+      },
+      "staff_assessment": {
+        "status": "STAFF_DEFERRED_BY_PLAYER",
+        "head_coach_observed": "Gregg Popovich",
+        "do_not_claim_staff_pool_review": true
+      },
+      "coaching_assessment": {
+        "status": "PROPOSED_ONLY",
+        "exact_native_settings": {
+          "POEDefense": 14,
+          "POEDefense2": 17,
+          "POEDefense3": 20,
+          "POEOffense": 5,
+          "POEOffense2": 8,
+          "POEOffense3": 11,
+          "PreferredSystem": 7,
+          "ActiveSystem": 7,
+          "PlaybookID": 23,
+          "BenchDepth": 10,
+          "RunPlayTendency": 95,
+          "ZoneUsage": 3,
+          "BenchUtilization": 95,
+          "Tempo": 70,
+          "HelpDefense": 50,
+          "FreelanceType": 0,
+          "FreelanceType2": 5,
+          "FreelanceType3": 18,
+          "FreelanceType4": 28
+        },
+        "candidates": [
+          {
+            "action_id": "GM-W03-R04-SAS-C01",
+            "scope": "COACH_DEFAULT",
+            "field": "POEOffense",
+            "before_raw": 5,
+            "target_raw": 4,
+            "native_label": "PICK_AND_ROLL_OFFENSE",
+            "basketball_reason": "弱三分27.39%不适合继续依赖外围投射；通过Murray(本季442分、115助攻)与Poeltl(内防81、盖帽87的掩护型中锋)构建更高质量挡拆机会。这里只是基于技能组合推断战术潜力，并无逐回合挡拆命中数据。",
+            "risk": "Poeltl几乎不拉开外线空间(三分45)，两分当前仅52.39%；改变进攻侧重点未必解决防守丢分与空间问题。",
+            "approval": "NOT_APPROVED",
+            "technical_status": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL"
+          }
+        ]
+      },
+      "roster_use_assessment": {
+        "role_composition": "Murray主组织、White二持球，McDermott三分84、Forbes86有定点威胁但Forbes当前区间得分增量0，不假设有效出场；Poeltl作掩护/防守支点，避免空泛要求‘提高投篮文化’。",
+        "minutes_lock_forbidden": true,
+        "training_out_of_scope": true
+      },
+      "contract_and_draft_assets": {
+        "current_total_salary_observed": 110096703,
+        "tradeable_owned_picks": [
+          {
+            "asset_id": "draft_pick:2022:1:25",
+            "year": 2022,
+            "round": 1,
+            "original_owner_team_id": 25,
+            "current_owner_team_id": 25
+          },
+          {
+            "asset_id": "draft_pick:2022:2:15",
+            "year": 2022,
+            "round": 2,
+            "original_owner_team_id": 15,
+            "current_owner_team_id": 25
+          },
+          {
+            "asset_id": "draft_pick:2022:2:3",
+            "year": 2022,
+            "round": 2,
+            "original_owner_team_id": 3,
+            "current_owner_team_id": 25
+          },
+          {
+            "asset_id": "draft_pick:2023:1:25",
+            "year": 2023,
+            "round": 1,
+            "original_owner_team_id": 25,
+            "current_owner_team_id": 25
+          },
+          {
+            "asset_id": "draft_pick:2023:2:25",
+            "year": 2023,
+            "round": 2,
+            "original_owner_team_id": 25,
+            "current_owner_team_id": 25
+          },
+          {
+            "asset_id": "draft_pick:2024:1:25",
+            "year": 2024,
+            "round": 1,
+            "original_owner_team_id": 25,
+            "current_owner_team_id": 25
+          },
+          {
+            "asset_id": "draft_pick:2024:2:25",
+            "year": 2024,
+            "round": 2,
+            "original_owner_team_id": 25,
+            "current_owner_team_id": 25
+          }
+        ]
+      },
+      "monitoring_plan": {
+        "next_same_career_batch_only": true,
+        "measure": "本队两分/三分/eFG、失误、总得分与场均净胜；若无改善检查是否需要市场引入真正投篮/终结",
+        "no_claim_fixed_win_percent": true
+      },
+      "decision_dimensions": {
+        "D1_STAFF": "STAFF_DEFERRED_BY_PLAYER",
+        "D2_TACTICS": "PROPOSED_ONLY",
+        "D3_ROSTER_USE": "Murray主组织、White二持球，McDermott三分84、Forbes86有定点威胁但Forbes当前区间得分增量0，不假设有效出场；Poeltl作掩护/防守支点，避免空泛要求‘提高投篮文化’。",
+        "D4_MARKET": "R01旧CHA/SAS Poeltl↔P.J. Washington+2024二轮仅是未批准候选。Poeltl在现有SAS内防81/盖帽87，出售会削弱现有护框；若未来R05真的谈判，必须计入这一成本及外线得分补偿。",
+        "D5_ASSETS_AND_DEVELOPMENT": "Payroll 110096703 observed; 7 certified trade-window picks; ordinary progression by game AI",
+        "D6_TEAM_IDENTITY_AND_MONITORING": "本队两分/三分/eFG、失误、总得分与场均净胜；若无改善检查是否需要市场引入真正投篮/终结"
+      },
+      "uncertainties": [
+        "NO_POSSESSION_SEMANTICS_VALIDATION",
+        "NO_GAME_BY_GAME_LOGS",
+        "NO_INJURY_OBSERVATION",
+        "SAME_TEAM_SLOT_ONLY_FOR_PLAYER_DIFF"
+      ],
+      "candidate_actions": [
+        "GM-W03-R04-SAS-C01"
+      ],
+      "expected_direction_without_fabricated_win_pct": "本队两分/三分/eFG、失误、总得分与场均净胜；若无改善检查是否需要市场引入真正投篮/终结",
+      "approval_state": "PROPOSED_NOT_APPROVED",
+      "review_status": "COMPLETE_WITH_STAFF_DEFERRED"
     }
   ],
   "validation": {
@@ -4184,6 +4964,8 @@
     "full_roster_identity_coverage": true,
     "coach_source_verified": true,
     "picks_source_verified": true,
-    "game_writes": false
+    "game_writes": false,
+    "six_dimensions_all_ten_fields_present": true,
+    "all_player_source_identity_set_consistent": true
   }
 }
