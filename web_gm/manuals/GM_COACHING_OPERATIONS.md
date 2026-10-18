@@ -99,7 +99,7 @@ GM先读取实际阵容和当前教练设置，自行选择人数、倾向与已
 
 四套 Freelance 用 `freelance_sets:[slot1,slot2,slot3,slot4]` 保留顺序，或只修改一个具名槽。数组与具名槽不能在同一动作中重复指定。原生 34 个名称/raw 映射已由当前进程 enum CRC 与同版本可执行文件标签配对，见本批 `field_dictionary.json` 和仓库 `config/coach_tactics_profile.json`；按原生字段编号保存第1至4槽的顺序，提供全部34种合法枚举；不以测试样本缩减选项。未直接查看本局比赛内四槽页面，不宣称该项UI验证或四套使用概率相同。
 
-五项 `SimPace/SimPress/SimHelpDef/SimOffReb/SimDefReb` 仅允许只读兼容，标 `GM_CONTROL_DISABLED`；任何 GM 目标均拒绝这些字段。逐球员对位、轮换、普通球员能力和全联盟模拟滑块不属于此接口。
+五项 `SimPace/SimPress/SimHelpDef/SimOffReb/SimDefReb` 仅允许只读兼容，标 `GM_CONTROL_DISABLED`；任何 GM 目标均拒绝这些字段。逐球员对位、逐人预设上场分钟、直接首发/角色调整、普通球员能力和全联盟模拟滑块不属于此接口；但BenchDepth和BenchUtilization可分别调轮换人数上限、替补利用倾向。
 
 ## 指定对手的整体防守
 
