@@ -62,3 +62,13 @@
 - Codex应先重新实测结构、修旧入口，再做可行模块的GM只读+提案和执行器、必要技术安全检查与Github交付；未完成战术作用验证时标`SIM_EFFECT_PENDING_PLAYER_MONTH`，不要求Codex事先模拟20/100场。
 - **玩家实效验收**：具体GM战术方案→玩家批准→Codex执行回执→玩家游戏正常推进一个月→玩家另行触发数据采集→Web GPT ANALYTICS用同存档同赛季累计值计算月度`ΔW/ΔL`及可观测统计差→GM评估。不得自动串联。
 - 证据边界：上面的新原生地址/位域依据玩家转交的Codex文本，当前Web GPT未取得实机源码/日志，因此属于`USER_RELAYED_CODEX_FINDINGS_NOT_INDEPENDENTLY_RETESTED`，不是已验收业务执行器。
+
+## 最新交接：DEV-20261017-07 GM教练系统30队批次/来源/双手册
+
+- 状态：`COACHING_CLOSED_LOOP_SPEC_PUBLISHED_AWAITING_CODEX`，**代码尚未开发、PR #1仍是六POE单队技术能力，未合并**。用户不再要求“快速模拟胜率效果验证”；教练机制完成以工程闭环为准。
+- [Codex最终完善任务书](../../docs/development_tasks/DEV_20261017_07_COACHING_GM_CLOSED_LOOP_V1.md)（首次提交`1aa5c2bacff2aaab80f4c7bb6c2b4c8c00f40d34`）；[本次范围归档](development/sessions/20261017_coaching_closed_loop_final_scope_v1.md)；既有[PR #1](https://github.com/chris2gao/nba2k22-gm-engine/pull/1)，已上传代码HEAD `5daeed8dc0001b5052dce1cfc97d6c22ee9317c3`。
+- 基础版必须：**六项默认POE正式读写 + 1–30队整批预验证/逻辑事务/失败条件恢复 + 用户触发常规采集自动包含COACHDATA战术来源入SQLite与GitHub发布JSON + 两份正式角色手册**（`web_gm/manuals/GM_COACHING_OPERATIONS.md`、`docs/40_COACHING_EXECUTION_RUNBOOK.md`）并更新GM/执行基线入口。所有内容必须有真实代码/接口/回归集成测试。
+- 主教练余18项：5Sim、2体系、1战术本（编码可用，未生产验收）；6教练滑块、4Freelance（只读）。玩家请求详细查看，**尚未批准统一转为可写**；单一对手Gameplan/18项具体防守/轮换保持只读。每字段独立认证后再提升production_enabled。
+- `src/gm_core/coverage.py`旧`team_state.poe_*`应明确脱钩，改以新增`coaching_tactics`来源让GM读新原生字段；仍从现有`published/index.json→latest.json→batch_path`，无后台触发，不造第二个同步入口。仅原数据采集有`-Publish`才真正推送GitHub。
+- 跨30队内存不存在硬件物理原子写；要求事前全部核验、批次批准、一致性验证、fsync预像日志、尽力条件rollback与`PARTIAL_UNRECOVERED`明确异常，绝不谎称所有失败能无损回滚。
+- 开发完成后需要GM/执行模型每次分别按玩家批准的具体提案/批次工作；绝不代替用户批准真实游戏的30队修改。不再因未跑一个游戏月或不知模拟作用而阻止教练系统工程验收。
