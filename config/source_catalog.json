@@ -50,6 +50,20 @@
       "execution_approval": "SPECIFIC_EXTERNAL_PLAYER_APPROVAL_AND_EDITOR_CLOSED_REQUIRED"
     }
   ],
+  "execution_interfaces": {
+    "approved_trade_executor": "scripts/execute_approved_trades.py",
+    "status": "OWNERSHIP_TRANSFER_V2_ENABLED_CHI_DET_PLAYER_ACCEPTED",
+    "roster_count_profile": "config/roster_association_profile.json",
+    "count_read_evidence": "Current NBA2K22 native code, installed NBA2K22 Tools, and all 30 team pointer/count relations. Reading is not complete write certification.",
+    "incident_repair": "scripts/repair_approved_roster_counts.py",
+    "incident_repair_scope": "Three evidenced CHI/DET count bytes only; no player/pick replay or finance writes.",
+    "review": "docs/37_APPROVED_TRADE_EXECUTOR.md",
+    "database_update_in_this_task": false,
+    "approved_signing_executor": "scripts/execute_approved_signing.py",
+    "signing_status": "SOURCE_ONLY_NOT_RUN_NOT_TESTED_EXECUTION_DISABLED",
+    "signing_review": "docs/38_APPROVED_SIGNING_EXECUTION.md",
+    "scope": "Execute GM-approved trades and signing results only; all business decisions remain external."
+  },
   "player_confirmed_scope": {
     "contract_requirement": "CURRENT_ROSTER_PLAYER_SALARIES_ONLY",
     "contract_scope_confirmed_at": "2026-10-17",

@@ -82,6 +82,7 @@
 - `src/draft_assets.py` 与 `config/draft_asset_profile.json`：选秀资产定位、身份、年份轮次与权属读取；当前不是选秀权转让执行器。
 - `src/strategy_manager.py`：旧 TEAM 策略 setter 已撤销并无条件拒绝，历史 poe_* 不作为教练事实；票价功能独立保留。
 - 教练单动作与 `scripts/coaching_batch.py` 默认纯离线 dry-run；按[批量执行规程40](40_COACHING_EXECUTION_RUNBOOK.md)的首次启用核对及连续示例操作；工程已交付PR而未合并部署、未跑首次真实生产采集发布，不追加实机验收。结合最新34核对实际部署及逐字段门槛。写前玩家须退出编辑页，`--coach-editor-closed`是操作者声明，脚本无自动UI检测。默认六POE沿用既有验证；DEV07分支新增指定对手整体防守 UI bulk 组及提交标记的实机写入/恢复证据，不提供单球员对位写入。本分支14项默认字段有实机写回证据，四Freelance依据原生完整枚举/布局和有序codec支持受控执行，加上玩家明确开放的原生Tempo共19项；不将其称为本局比赛内四槽UI已验收。BenchDepth由GM依据实际阵容选人数，不设9–10测试白名单。Tempo界面含义仍未知，按原生raw读写，参考其他教练实际数值，不伪称已验证的进攻节奏或百分比。按顺序调用脚本，共享进程锁只防误开两个窗口；源码未部署main，不越权执行。玩家仍须具体批准完整batch/action集合和digest，执行结束不自动采集。
+- `src/approved_trade_executor.py` / `scripts/execute_approved_trades.py`：受控v2交易/选秀权入口，使用 `examples/approved_trade_request.json`；名单计数修复后玩家确认公牛/活塞交易成功。支持范围、历史事故及防重放见[文档37](37_APPROVED_TRADE_EXECUTOR.md)。签约执行源码及模板见[文档38](38_APPROVED_SIGNING_EXECUTION.md)，尚未运行/测试，留到实际签约时验证。本地只执行GM已定案结果。
 - `src/bootstrap_new_game.py` / `src/slider_manager.py`：初始化设置有独立写入批准入口，不是执行单笔交易或单人编辑的通用工具。
 - `src/modifier.py`：旧通用人物属性接口主动拒绝执行，不能删除拒绝逻辑绕过规则；交易开关也不是交易执行器。
 - `src/trade_engine.py` / `src/growth_engine.py`：旧生产入口停用；其中保留的代码不是已认证执行路径。
@@ -102,7 +103,7 @@
 6. 把批准的效果转为明确计划：动作/目标、字段与单位、原始字节、预期字节、转换公式、关联结构、执行顺序、成功条件与恢复条件。所有计算用 Python/SQL。
 7. 检查同批依赖、重复操作、互相冲突的目标和历史执行回执。整个批次先做前置核对；存在不可执行的依赖时不先改其前置资产。
 
-计划文件可约定放在 `_exports/execution/<save_id>/<decision_id>_v<version>/`，保存 `plan.json`、`before.json`、`receipt.json` 等本地材料。**这是存放约定，当前没有自动生成/执行该目录的通用 CLI。** 不把含运行时指针、原始字节的执行包自动上传 GitHub。
+计划文件可约定放在 `_exports/execution/<save_id>/<decision_id>_v<version>/`，保存 `plan.json`、`before.json`、`receipt.json` 等本地材料。交易CLI按action_id生成计划/回执，支持范围以文档37为准；签约仍待技术验证。发生界面失败/崩溃时保留原始回读回执，另记事故与真实业务状态，不覆盖原证据。不把含运行时指针、原始字节的执行包自动上传GitHub。
 
 ### 7. 字段编码与写入范围
 
