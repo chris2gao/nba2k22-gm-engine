@@ -4,10 +4,20 @@
 - `owner: WEB_GPT_GM`
 - `rule_origin: PLAYER_20261018`
 - `status: GM_OPERATING_STANDARD`
-- **目标**：30支球队均以本局可观测的比赛胜率、攻防与人员条件为起点，形成符合本队“赢球哲学”和争冠时间线的理性选择，再独立由玩家批准执行。重建队以长期争冠概率为目标，不能简单把本月胜场作为全部目标。
+- **目标**：30支球队均以本局可观测的比赛胜率、攻防与人员条件为起点，根据真实比赛结果、独立的篮球原理和争冠时间线形成经营选择，再独立由玩家批准执行。重建队以长期争冠概率为目标，不能简单把本月胜场作为全部目标。
 - **完整经营轮次**：见 [GM_MIN_FIVE_ROUNDS_V3](../GM_DECISION_ROUNDS_V3.md)。本标准规定每支球队**要研究什么、依据哪些数据以及决策结果如何闭环**，不是要求一轮完成全联盟。
 - **数据权威**：玩家最新指令与治理限制 > 最新同批审计通过的本局源数据 > 通过合理计算得到的分析 > 本局经验假设 > NBA真实历史参考。数据分析模型的报告是证据提示，不是GM判决。
 - **严格权限**：调查、比较、提出候选不等于批准游戏写入；只有玩家批准动作与执行器受控验证才可能修改。训练与具体球员分钟交原生AI，普通能力/潜力/倾向/徽章不由GM改动。
+
+## 最新用户纠偏：决策价值优先，取消无证据文化标签、员工暂缓（2026-10-18）
+
+**优先级最高**：必须先从两批已验证的赛季累计得失分、2P/3P出手与命中、eFG、失误及已核验球员能力出发，确认球队要改善的可观测问题；再读取原生教练19项配置和18项对手OVERALL策略，提出最小的可执行raw字段调整、当前值、预期方向与反面风险。提案不需要先有统计因果胜率实验；玩家批准后的实际游戏观察是验证步骤。
+
+- **不要从眼下已有球员强行包装“球队文化/赢球哲学”**：若没有来自篮球理论、明确历史实践或已证实的建队约束，不建立空泛身份/哲学标签，也不要求每队撰写同一类文化宣言。原结构字段`D6_TEAM_IDENTITY_AND_MONITORING`兼容旧版，但只填*可量化比赛目标与复盘指标*；`winning_philosophy`在机器Schema中已改为非必填。
+- **员工/换帅业务评估本节点暂缓**：承认staff.json及完整player_pool.sqlite大文件需修复可靠读取路径；不能冒充已读或凭单个教练身份推员工性价比。继续用已可查询的每队roster JSON、真实比赛统计、教练当前值和合法draft_assets，正常研究交易/签约。本节点员工维度标`STAFF_DEFERRED_BY_PLAYER`，非漏项，不阻塞团队深度审议；技术访问修复安排完整GM决策结束之后。
+- **砍掉低价值分析**：纯赛季排行榜、给球员能力摘抄一遍却不影响决策的文本、队伍口号、重复叙述30队通用事实、无凭据预测赢球提升百分比、不必要的标准化员工岗位猜测。保留足够的源字段和机器球员档案用于可追溯，但人读报告只讲改变结论的证据/备选/代价。
+- 同赛季两次累计`season_totals.json`可直接相减得到可信**检查点间**新增进攻、防守投篮质量；进一步用`teams/<abbr>.json`逐人赛季累计差分核对人员。换队球员不得把跨队累计冒充新队贡献；`poss`未认证时不构造百回合净效率。
+- R03实例：DAL原先14→13禁区保护被对手三分42.65%的实际数据修正为14→15外围限制；NOP本队近期eFG58.14%取消原优先加强进攻的旧结论，改先修对手两分60.4%。这是“数据改变建议”，不是为了建议找理由。
 
 ## 0. 何谓真正的数据驱动：不是“战绩差→交易”
 
@@ -16,10 +26,10 @@
 ```text
 玩家启动某检查点 → 锁定存档/时间/最新可信批次
   → 逐球员与球队近期表现诊断
-  → 整体阵容、健康、合同、资产、工作人员与教练评估
-  → 构建本队竞争目标和赢球哲学
+  → 整体阵容、健康（已采集时）、合同、资产与已观察的教练战术评估
+  → 从净胜分/eFG/两三分和对手命中结构识别可观察的赢球障碍
   → 归因候选：缺人才 / 人才未用好 / 主教练或制服组错配 / 对手错配 / 样本不足
-  → 并列比较：HOLD、内部角色与轮换调整、教练战术、换帅/员工、交易/签约
+  → 并列比较：HOLD、内部角色与轮换调整、教练原生攻防设置、交易/签约；员工评估暂缓
   → 10队/5队逐轮留下深度结论；全联盟完成后再独立两轮双边协调+最终裁决
   → 生成批准清单（必要时由确定性程序生成真正原生执行批次/digest）
   → 玩家批准 → Codex独立只读预检、受控执行和回读
@@ -120,7 +130,7 @@
 
 1. **资产与时间线**：争冠核心年龄/合同持续期、未来三届签位、球员自然成长窗口、交易截止日、球队现金风险（已验证时才量化），确保每队并非“本场赢球而卖光未来”。
 2. **长期阵容健康与风险**：围绕稳定得分来源、伤病/疲劳可用性（如果已采集）与冠军轮次可行性评估，避免过度使用高负荷核心的短视策略；不做精确分钟锁定或训练管理。
-3. **球队文化和身份**：为每队形成`WINNING_PHILOSOPHY`（例如掩护后外线创造、顶级侧翼防守、深轮换、护框+转换），目标持续2–3批可校验，不因为短时战绩波动频繁推倒重来。文化不是虚构可写的“化学反应+N”。
+3. **比赛目标和策略连续性**：只写能用数据检验的目标（降低对手三分、提高篮下命中、减少失误等）；原生战术体系改变时应具备真正的篮球逻辑，不随单场结果摇摆。未经独立论证不编造所谓球队文化或长期哲学。
 4. **信号异常与决策审计**：区间净胜/胜负背离、跨队累计统计、球员模型重复、交易资产冲突、员工岗位缺失、薪资口径异常，都是`DECISION_RISK_FLAGS`。没有足够数据时允许`HOLD_FOR_EVIDENCE`，但应明确缺什么证据，不自动制造采集项目。
 
 ## 6. 球队统一决策合同：强制六个独立问题与一份闭环记录
@@ -129,18 +139,18 @@
 
 | 决策维度 | 不可省略的判断 | 可能输出状态 |
 | --- | --- | --- |
-| D1 `STAFF` | 现任主教练/其他员工是否适配球队赢球哲学？留任与更换的证据、替代对象、执行能力 | `STAFF_HOLD / STAFF_REVIEW / STAFF_CHANGE_RESEARCH_CANDIDATE` |
+| D1 `STAFF` | 本节点按玩家新指令暂缓员工分析，日后技术读取恢复再专项评估 | `STAFF_DEFERRED_BY_PLAYER` |
 | D2 `TACTICS` | 是否改变默认教练19项或关键对手18项？是否提高现有人员实际使用价值？ | `COACHING_HOLD / COACHING_PROPOSED` |
 | D3 `ROSTER_USE` | 当前球员分工、替补组合、AI轮换可否内部优化？还是硬性战力缺失？ | `LINEUP_HOLD / INTERNAL_ADJUSTMENT_INTENT` |
 | D4 `MARKET` | 留人/交易/签约何者更优？哪支球队愿意成为交易对手，报价资产是否真的存在？ | `MARKET_HOLD / MARKET_INTEREST_CANDIDATE / BILATERAL_TRADE_PROPOSED / SIGNING_RESEARCH` |
 | D5 `ASSETS_AND_DEVELOPMENT` | 合同窗口、未来资产、年轻人自然成长机会、主将风险是否支持本队赛季/长期目标？ | `ASSET_HOLD / LONG_TERM_BUILDING_PLAN / RISK_MITIGATION` |
-| D6 `TEAM_IDENTITY_AND_MONITORING` | 球队最核心的赢球哲学是什么？改变哪些可观测KPI后算决策正确？不确定性如何复盘？ | `PHILOSOPHY_HOLD / PHILOSOPHY_UPDATE / MONITOR_NEXT_PLAYER_TRIGGERED_BATCH` |
+| D6 `TEAM_IDENTITY_AND_MONITORING`（兼容旧键） | 具体改善哪项比赛指标？下次怎么判断效果？ | `MONITOR_NEXT_PLAYER_TRIGGERED_BATCH / NO_ACTION` |
 
-**强制决策记录字段**：`career_id`、`game_season`、`game_date`、`source_batch_id`、`analysis_batch_id`（如有）、`gm_node`、`round_id`、`team_id/abbr`、`goal_phase`、`winning_philosophy`、`player_assessments`（覆盖大名单）、`team_diagnosis`、`staff_assessment`、`coaching_assessment`、`roster_use`、`contract_and_draft_assets`、`decision_alternatives`、`decision_dimensions{D1..D6}`、`evidence_refs`、`uncertainties`、`candidate_actions`、`expected_direction_without_fabricated_win_pct`、`monitoring_plan`、`review_status`和`approval_state`。
+**强制决策记录字段**：`career_id`、`game_season`、`game_date`、`source_batch_id`、`analysis_batch_id`（如有）、`gm_node`、`round_id`、`team_id/abbr`、`goal_phase`、`decision_objective`、`player_assessments`（覆盖大名单）、`team_diagnosis`、`staff_assessment`、`coaching_assessment`、`roster_use`、`contract_and_draft_assets`、`decision_alternatives`、`decision_dimensions{D1..D6}`、`evidence_refs`、`uncertainties`、`candidate_actions`、`expected_direction_without_fabricated_win_pct`、`monitoring_plan`、`review_status`和`approval_state`。
 
 **程序覆盖闸门**：结构化档案应记录`source_roster_player_count/assessed_roster_player_count/roster_coverage_status`。完整深度轮通过**确定性比较**确认同批`teams/<abbr>.json`当前名单身份集合，与`player_assessments[]`独特来源身份集合完全一致；仅JSON Schema通过不能证明30队全员覆盖。任何漏评或身份无法确认必须标`INCOMPLETE_REWORK_REQUIRED`，不能计入本轮研究完成。
 
-**质量闸门**：缺主力球员详细能力或当前主教练身份的队伍标`REWORK_REQUIRED`；员工非主教练岗位身份若因GitHub大文件访问受限而未恢复，**仅在人员决策为`STAFF_HOLD`且逐项写明来源限制、绝不生成员工任免时允许完成篮球经营档案**；如要提出具体换帅/非主教练人事替换，必须先核实候选和目标员工身份，缺失则标`REWORK_REQUIRED`。，不能计入V3深度10/5队完成数；员工机制未知不意味着该队不能完成档案——可以写`STAFF_EFFECT_UNKNOWN / STAFF_HOLD`并完成其他五维度深入诊断，重点说明不可根据未知员工效应解雇。每一项变化必须可追踪到有证据的球队问题与当前球队胜利哲学，`HOLD`要给出成本收益比较。
+**质量闸门**：缺主力球员详细能力或当前主教练身份的队伍标`REWORK_REQUIRED`；员工目前被玩家明确延期，所以`STAFF_DEFERRED_BY_PLAYER`是有效决策状态，不会阻止以本队球员/比赛/战术深度为主的审查通过。真要执行换帅则必须另行读取员工身份与能力并检查受控执行器。每一项变化必须可追踪到有证据的比赛问题与当前实测表现，`HOLD`要给出成本收益比较。
 
 ## 7. 30队整合后如何真正决策与验收
 
