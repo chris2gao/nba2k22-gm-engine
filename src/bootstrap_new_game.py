@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Initialize or resume an isolated save and capture its M00 baseline.
 
-Game settings and 30-team POE/ticket values are only written when the player
+Game settings and 30-team ticket values are only written when the player
 explicitly supplies --approve-game-writes. Data capture remains read-only.
+Legacy TEAM POE templates are revoked and never applied, including with approval.
 """
 import os
 import sys
@@ -21,9 +22,9 @@ from save_context import create_or_open_save
 from season_rules import load_configured_season_rules
 import config
 
-# 30 支核心球队初始化战术 POE 与门票基准配置 (从 30 份团队档案提取)
+# 历史模板：仅最后三项票价仍使用；前六项旧战术数值已撤销，严禁应用或映射。
 TEAM_BOOTSTRAP_CONFIGS = {
-    # 缩写: (PACE, FASTBREAK, OFF_REB, DEF_REB, ON_BALL, PNR_DEF, COURTSIDE, LOWER, UPPER)
+    # 缩写: (六个已撤销历史值..., COURTSIDE, LOWER, UPPER)
     "PHI": (4, 3, 3, 5, 5, 1, 210.0, 87.6, 39.9),
     "MIL": (4, 4, 2, 5, 5, 1, 173.0, 93.6, 43.0),
     "WAS": (3, 3, 2, 4, 3, 1, 140.0, 65.0, 28.0),
@@ -58,6 +59,15 @@ TEAM_BOOTSTRAP_CONFIGS = {
 
 def _normalize_abbr(abbr: str) -> str:
     return {"GS": "GSW", "NY": "NYK", "NO": "NOP", "SA": "SAS"}.get(abbr, abbr)
+
+
+def apply_approved_ticket_templates(teams, manager):
+    """Preserve pricing; deliberately ignore the six revoked tactical values."""
+    for team_id, team in teams.items():
+        courtside, lower, upper = TEAM_BOOTSTRAP_CONFIGS[_normalize_abbr(team["abbreviation"])][-3:]
+        if not manager.set_ticket_pricing(team_id, courtside=courtside, lower=lower, upper=upper):
+            raise RuntimeError("Approved ticket template failed")
+    return len(teams)
 
 
 def bootstrap_new_game(
@@ -152,33 +162,17 @@ def bootstrap_new_game(
 
     # 4. Game-memory writes require an explicit player approval flag.
     if approve_game_writes:
-        print("\n[阶段 4/6] 正在应用已获批准的全局规则与 30 队 POE/门票模板...")
+        print("\n[阶段 4/6] 正在应用已获批准的全局规则与门票模板...")
+        print("[BLOCKED] LEGACY_TEAM_POE_OFFSETS_REVOKED；旧战术模板跳过，教练策略须另行提案批准。")
         if not sliders.lock_realistic_sliders(quarter_min=12, is_hof=True):
             raise RuntimeError("全局比赛设置写入或回读校验失败；停止初始化。")
         print("[+] 全局比赛设置已写入并回读核验。")
 
-        for tid, tinfo in teams.items():
-            abbr = _normalize_abbr(tinfo["abbreviation"])
-            pace, fastbreak, off_reb, def_reb, on_ball, pnr_def, courtside, lower, upper = TEAM_BOOTSTRAP_CONFIGS[abbr]
-            strategy_written = strat.set_team_strategy(
-                tid,
-                off_pace=pace,
-                fastbreak_focus=fastbreak,
-                off_rebound=off_reb,
-                def_rebound=def_reb,
-                on_ball_pressure=on_ball,
-                pick_and_roll_def=pnr_def
-            )
-            pricing_written = strat.set_ticket_pricing(
-                tid, courtside=courtside, lower=lower, upper=upper
-            )
-            if not strategy_written or not pricing_written:
-                raise RuntimeError(f"{abbr} 的 POE 或门票模板未写入；停止初始化。")
-            injected_count += 1
+        injected_count = apply_approved_ticket_templates(teams, strat)
 
         if injected_count != config.TEAM_MAX_COUNT:
-            raise RuntimeError(f"仅为 {injected_count}/30 支球队应用了模板策略，初始化失败。")
-        print(f"[+] 已获批准的 30 队 POE/门票设置已写入并回读核验 ({injected_count}/30)。")
+            raise RuntimeError(f"仅为 {injected_count}/30 支球队应用了门票模板，初始化失败。")
+        print(f"[+] 门票设置已写入并回读核验 ({injected_count}/30)；教练战术未设置。")
     else:
         print("\n[阶段 4/6] 未提供 --approve-game-writes；跳过所有游戏内存写入。")
 
@@ -239,7 +233,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--approve-game-writes",
         action="store_true",
-        help="显式批准本次将初始全局设置、30 队 POE 和门票模板写入游戏内存",
+        help="显式批准本次初始全局设置和门票模板；不包含已撤销的 POE 模板",
     )
     args = parser.parse_args()
     bootstrap_new_game(

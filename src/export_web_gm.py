@@ -106,6 +106,13 @@ def export_snapshot(save_id, snapshot_id):
         context_hash = hashlib.sha256(json.dumps(context, sort_keys=True).encode()).hexdigest()[:8]
         data_updated_at = source_manifest.get("data_updated_at", source_manifest["timestamp"])
         batch_id = f"{snapshot_id}_{source_manifest_hash[:12]}_{context_hash}_TS2"
+        coaching_files={}
+        if source_manifest.get('quality_metrics',{}).get('coaching_tactics',{}).get('profile')==1:
+            from coaching_source import load_coaching_source,coaching_public_files
+            source=load_coaching_source(league,snapshot_id,save_id,data_updated_at)
+            if source is None or not audit['checks'].get('coaching_30_teams_identity_defaults_and_verified_overall_match_live'):
+                raise RuntimeError('COACHING_SOURCE_CAPTURE_FAILED_OR_AUDIT_MISSING')
+            coaching_files=coaching_public_files(source,batch_id,data_updated_at)
         final_dir = PUBLISHED / "saves" / save_id / "batches" / batch_id
         pointer_path = PUBLISHED / "saves" / save_id / "latest.json"
         if final_dir.exists():
@@ -157,6 +164,13 @@ def export_snapshot(save_id, snapshot_id):
                   "player_models": len(models), "historical_rookie_models": sum(row["model_category"] == "HISTORICAL_ROOKIE" for row in models)}
         rules = dict(league.execute("SELECT * FROM seasons WHERE season_year=?", (metadata["season_year"],)).fetchone())
         source_catalog = load(ROOT / "config" / "source_catalog.json")
+        source_catalog['sources']=[s for s in source_catalog.get('sources',[]) if s['id']!='coaching_tactics']
+        source_catalog['sources'].append(dict(id='coaching_tactics',
+            status='VERIFIED_OBSERVED_SAME_BATCH' if coaching_files else 'NOT_OBSERVED_IN_THIS_BATCH',
+            data_updated_at=data_updated_at if coaching_files else None,
+            entrypoint='coaching/teams.json' if coaching_files else None,
+            dictionary='coaching/field_dictionary.json' if coaching_files else None,
+            sim_control='GM_CONTROL_DISABLED'))
         previous = load(pointer_path) if pointer_path.exists() else None
         change_report = {"status": "INITIAL_BASELINE", "previous_batch_id": None, "monthly_game_statistics_available": False}
         if previous:
@@ -194,6 +208,8 @@ def export_snapshot(save_id, snapshot_id):
                       'teams': [{'team_id': row['team_id'], 'totals': json.loads(row['totals_json'])} for row in league.execute(
                           'SELECT * FROM team_source_stats WHERE snapshot_id=? ORDER BY team_id', (snapshot_id,))]})
             write(bundle / "source_coverage.json", source_catalog)
+            for relative,payload in coaching_files.items():
+                write(bundle / relative,payload)
             write(bundle / "data_update.json", {"save_id": save_id, "snapshot_id": snapshot_id,
                   "data_updated_at": data_updated_at, "game_date": context.get("game_date")})
             write(bundle / "changes.json", change_report)

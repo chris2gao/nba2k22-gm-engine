@@ -1,3 +1,9 @@
+# 旧 TEAM POE 偏移已撤销，严禁执行
+
+2026-10-17：本文旧 `TEAM + 0xEB2` 等策略名称、数值范围和写入示例已撤销。
+这些字节不构成已认证教练战术，`StrategyManager.set_team_strategy` 无条件拒绝。
+历史正文仅作追溯；原票价功能独立保留。新接口见 [教练战术接口](39_COACHING_TACTICS.md)。
+
 # NBA 2K22 球队攻防策略、战术手册调优与主场商业运营全景指南 (Tactical Strategies & Business Operations)
 
 本文档系统阐述 Antigravity 外部 GM 引擎在 **“球队攻防策略 (POEs) 深度调优”**、**“战术手册与教练体系风格精准共振”** 以及 **“主场分级票价、特许商品物价与上座率商业运营”** 上的底层内存架构、控制工具与决策执行规范。

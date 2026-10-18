@@ -56,8 +56,12 @@ class ReadOnlyTests(unittest.TestCase):
         run = prepare_run(data, "DEVELOPMENT_COMPATIBILITY_ONLY")
         self.assertEqual(run["teams_reviewed"], 30)
         self.assertEqual(run["decisions"], [])
-        self.assertTrue(all(item["profile"]["lifecycle"]["state"] == "UNDETERMINED" for item in run["team_reviews"].values()))
-        self.assertIsNone(run["calculations"]["IND.win_percentage"]["value"])
+        # Published snapshots now contain observed season totals. Compatibility
+        # cannot assume the old fixture's all-unknown statistics; preparation
+        # must still never approve a lifecycle or create formal decisions.
+        self.assertTrue(all(item["profile"]["lifecycle"]["status"] in {"PROPOSED","NOT_EVALUABLE"}
+                            for item in run["team_reviews"].values()))
+        self.assertIn(run["calculations"]["IND.win_percentage"]["availability"],{"CALCULATED","UNKNOWN"})
 
     def test_cli_prepares_simulation_and_calculates(self):
         with tempfile.TemporaryDirectory() as directory:

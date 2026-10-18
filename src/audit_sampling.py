@@ -373,6 +373,9 @@ def run_ai_sampling_audit(
             from audit_source_extensions import audit_extensions
             checks.update(audit_extensions(conn, mem, calib_report, live_teams, snapshot_id,
                           simple_draft_assets=bool(manifest.get('quality_metrics', {}).get('simple_draft_assets'))))
+        if manifest.get('quality_metrics',{}).get('coaching_tactics',{}).get('profile')==1:
+            from coaching_source import audit_coaching_source
+            checks.update(audit_coaching_source(conn,mem,snapshot_id))
     finally:
         if mem is not None:
             mem.close()

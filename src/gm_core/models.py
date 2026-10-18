@@ -114,6 +114,7 @@ class PublishedData:
     staff: dict
     root: Any = field(repr=False)
     batch_directory: Any = field(repr=False)
+    coaching: dict = field(default_factory=dict)
 
 
 def module_result(name, facts, analysis, missing=(), suggestions=(), priority="REVIEW"):

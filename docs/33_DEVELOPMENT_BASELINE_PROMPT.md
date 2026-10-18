@@ -60,6 +60,7 @@
 | GitHub 发布 | `scripts/publish_web_snapshot.py`、`config/github_sync.json` | 数据专用提交、不夹带代码；SQLite ZIP 为 Release 附件；同步只看时间 |
 | GM v1 | `src/gm_core/`、三个 `scripts/gm_*.py`、`web_gm/GM_DECISION_SOP.md` | 只读事实和确定性计算；提案不代表批准；不自动运行正式 GM |
 | 休赛期专项开发 | `src/gm_core/offseason*.py`、`scripts/offseason_*.py`；实际能力与验证状态查文档34及其研究报告链接 | 游戏外竞价、独立批准、再验证合同/名单写回；实机机制先调研，模拟资格不升级为真实来源或执行权，不在月度采集中扩展完整CBA |
+| 教练战术 | `coach_locator/codec`、`coaching_reader/executor`、`coaching_batch.py`、文档39/40、DEV07 V2 | gm_core仅离线；旧TEAM writer撤销；整体防守按已认证 UI bulk 组处理，禁止单球员目标；逐字段验收才开放production。19默认字段、同会话来源与双手册交付见34，不把局部验证当整项完成 |
 
 不要因存在函数、表或预留模型就宣称生产路径已完成；独立底层函数也不等于独立采集、入库、审计和发布都可用。
 

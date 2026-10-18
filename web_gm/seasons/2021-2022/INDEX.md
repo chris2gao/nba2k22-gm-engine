@@ -3,19 +3,19 @@
 - season_id: `2021-2022`
 - career_id: `mc_haliburton_2021`
 - season_gm_baseline: `2021-2022`（一个游戏赛季一个派生 GM 决策聊天，赛季内各节点沿用同一聊天）
-- current_window: `GM-S2021-2022-W01`（最近已归档的节点编号，非强制单独聊天）
+- current_window: `GM-S2021-2022-W02`（本赛季同一聊天最新已归档决策节点，未发生新游戏月份确认）
 - last_confirmed_exact_game_date: `UNKNOWN`
 - current_progress_hint: `2021-11`（来自既有历史玩家进度，不是本批实测日期）
 - index_created_real_date: `2026-10-17`
 - policy: `PLAYER_RULES_20261017_V3` + `WEB_GM_DECISION_MECHANISM_V2`
-- execution_state: `NO_GAME_WRITES_APPROVED_OR_EXECUTED_IN_W01`
+- execution_state: `TWO_TRADES_PLAYER_REPORTED_EXECUTED; LATEST_DATA_PRE_TRANSACTION_PENDING_NEXT_PLAYER_TRIGGERED_SYNC`
 
 ## 本赛季 GM 决策节点时间线（整季沿用同一 GM 聊天）
 
 | 顺序 | 游戏时间范围 | 窗口 / 回合 | 基准数据 | 经营记录与最终状态 |
 | --- | --- | --- | --- | --- |
 | 01 | 2021年11月附近，**精确日 UNKNOWN**；没有确认月终 | `GM-S2021-2022-W01 / R01` | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2` | [本轮完整决策链](windows/W01_GM_20261017/ROUND_R01_RECAP.md) · 已批战略/研究/非约束询价，所有游戏修改暂缓 |
-| 02 | **尚未到达/未收到新发布数据** | `W02 / R01`（同赛季聊天的候选下一节点，待玩家触发） | UNKNOWN | 尚无决策；不强制新开聊天，不得提前写“12月”或预填结果 |
+| 02 | **与W01相同的未知日期检查点；没有新的发布批次，不是新月月结** | `GM-S2021-2022-W02 / R01`（同赛季聊天已触发的专题续议） | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（与W01完全相同） | [本次决策归档](windows/W02_GM_20261017/ROUND_R01_RECAP.md) · [30队同批基线](windows/W02_GM_20261017/TEAM_BASELINE.json) · CHI/DET格兰特具体交易仅PROPOSED；CHA/IND暂不成交；无写入 |
 
 ## 本赛季关键时点的权威事实与文件
 
@@ -26,6 +26,36 @@
 5. [GM v2 机制](../../GM_DECISION_MECHANISM_V2.md)：外部双边谈判、胜率优先、士气次级、每次最多3回合。
 6. [最新 GM_CURRENT](../../memory/GM_CURRENT.md)：只作快速入口，窗口历史以此处文件为准。
 
+## 2026-10-17 最新执行反馈与数据同步约定（此节覆盖下面的历史“待执行”表述）
+
+- 玩家明确确认两笔交易**已在游戏中成功落地**：`GM-W02-A01` CHI↔DET Jerami Grant，以及 `GM-W02-R02-A01` DAL↔HOU David Nwaba。标记 `PLAYER_REPORTED_EXECUTED`，不用再次交Codex执行，也无需重获交易批准。
+- **游戏已执行 ≠ 当前GitHub数据已刷新。** 本次读取的 `published/index.json` / `published/saves/mc_haliburton_2021/latest.json` 仍指向W01/W02相同旧批次 `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`，尚不能从线上快照独立核验交易后5名球员新归属及3枚选秀权。玩家下次决策前会**主动触发数据源更新与同步**；GM届时按新批次实测阵容、合同、选秀权、战绩开展30队经营。
+- 玩家报告：Codex已经完善自动化交易、自由球员签约、模拟休赛期签约球员脚本机制。后续 GM 可在确认对应最新已验收接口、游戏机制边界与具体审批后提出可执行方案；不凭此报告虚构CLI或认为各机制本赛季都曾运行。
+- 此次反馈不是新的游戏月度经营节点，W02旧方案和当时待执行描述保留为审计历史。恢复的球队攻防和针对对手设置开发仍须等待玩家提供验收能力说明；不把其视作已经上线。
+
+## 最新玩家批准与能力路线更新（2026-10-17）
+
+**两笔双边模拟GM已达成共识的交易，均已得到玩家明确批准，但没有游戏执行回执：**
+
+1. `GM-W02-A01`：CHI 接收 DET Jerami Grant；DET 接收 CHI Coby White、Derrick Jones Jr. 和 CHI 持有的 2022 POR 原始首轮 `draft_pick:2022:1:28`。玩家明确批准，`APPROVED_BLOCKED_EXECUTOR`。
+2. `GM-W02-R02-A01`：DAL 接收 HOU David Nwaba；HOU 接收 DAL Sterling Brown、DAL 持有的2022与2024本队原始次轮 `draft_pick:2022:2:17`、`draft_pick:2024:2:17`。玩家明确批准，`APPROVED_BLOCKED_EXECUTOR`。
+
+**执行职责：** 用户带上述动作清单给 Codex 的 `docs/36_EXECUTION_BASELINE_PROMPT.md` 执行窗口；球员归属、合同关联、选秀权转让必须完整业务回读并在存盘与数据库状态上分别报告。文档34第8节在本次查询时尚未验收完整交易执行器；批准不等于允许裸指针单字段交易，也不等于游戏已成交。W01/W02的原始提案及当时审批状态是历史归档，不能覆盖本段更新。
+
+**攻防开发恢复：** 玩家收回“取消教练攻防设置开发”的指令；Codex可继续研发球队自身攻防与针对各队的攻防配置。开发完成后玩家提供实机可操作机制，GM才做具体调参方案；当前不能认定已验收或已授权写入。
+
+**国王剧情变化：** 玩家确认MC Tyrese Haliburton已申请交易，将在后续游戏日换队；当前是尚未完成的剧情事件，绝不能当作本批已观察到的换队。
+
+**30队工作标准：** 每个新的真实月度/季后赛游戏数据批次都要求30支球队作出经营动作或有据可查的HOLD；不能只列观察点。本次W02 R02内容与W01/W02 R01复用同一批次，不是真实的新月份。
+
+## W02 后最新待处理事项（W01历史记录不变）
+
+- **最新节点 W02/R01 是同批专题续议，而非新的游戏日期/月度数据**；此时仍不得计算相对W01的新增战绩。
+- [W02正式待批准提案](../../decisions/mc_haliburton_2021/20261017_W02_SAME_SNAPSHOT_GM_PROPOSED.md)：`GM-W02-A01` CHI将Coby White + Derrick Jones Jr. + 持有的2022年POR首轮换DET Jerami Grant，外挂两队GM在此价格达成模拟经营层共识，**玩家尚未批准且交易执行器未验收，绝对未成交**。
+- `GM-W02-A02`：CHA/IND旧MKT-02按当前样本决定 `NO_DEAL`，不锁资产、不授权交易。
+- GSW防守、UTA米切尔缺席原因、DAL防守继续观察；SAC玩家哈利伯顿继续保护。W02无游戏写入、无新赛季事实。
+- 玩家如批准W02-A01，仍必须先由执行端重新核验最新存档与执行器；后续有新赛季批次时，GM需要重新估价，不能直接按本批交易。
+  
 ## 当前窗口里必须保留的判断
 
 - 76人16–3、篮网14–5、湖人15–5、国王14–5；保护现有强势核心，不照搬现实历史赛季交易。

@@ -29,6 +29,7 @@ from source_extensions import (ensure_extension_schema, roster_directory, store_
                                staff_details, stats_record, team_statistics, player_statistics)
 import struct
 from draft_assets import capture_assets
+from coaching_source import capture_coaching_source,store_coaching_source,ensure_coaching_schema
 from snapshot_integrity import (
     file_sha256, sanitize_calibration_report, snapshot_digest,
     snapshot_row_counts, write_json_atomic,
@@ -92,6 +93,7 @@ def migrate_database_schema(conn: sqlite3.Connection):
 
     quarantine_unverified_coaches(conn)
     ensure_extension_schema(conn)
+    ensure_coaching_schema(conn)
     conn.commit()
 
 
@@ -244,7 +246,7 @@ def run_automated_ingestion(
         merch_rev = mem.require_uint32(addr + 0xFDC)
         media_rev = mem.require_uint32(addr + 0xFE4)
 
-        # 实测 POE 战术策略
+        # 历史 TEAM 原始字节：LEGACY_UNVERIFIED，不再解释为教练 POE。
         off_pace = mem.require_uint8(addr + 0xEB2)
         fastbreak = mem.require_uint8(addr + 0xEB3)
         off_reb = mem.require_uint8(addr + 0xEB4)
@@ -493,6 +495,19 @@ def run_automated_ingestion(
 
     draft_summary = capture_assets(conn, snapshot_id, mem, directory, team_ids_by_pointer, season_year)
 
+    # Capture coaching in this exact ingestion and RO session, never append a later local snapshot.
+    try:
+        coaching = capture_coaching_source(mem,dict(career_id=context['save_id'],source_batch_id=snapshot_id,
+            game_season=f'{season_year-1}-{season_year}',game_date=game_context.get('game_date'),
+            policy_id='PLAYER_RULES_20261017_V3'),expected_root=pool_root,expected_teams=teams_dict,
+            allow_unknown_date=game_context.get('game_date') is None)
+        store_coaching_source(conn,snapshot_id,context['save_id'],coaching)
+    except Exception as exc:
+        conn.rollback()
+        conn.close()
+        mem.close()
+        raise RuntimeError('COACHING_SOURCE_CAPTURE_FAILED:'+str(exc)) from exc
+
     # A league season has one win/loss and equal scored/conceded points per game.
     balances = cursor.execute("""SELECT sum(total_wins)-sum(total_losses)
         FROM team_monthly_stats WHERE snapshot_id=?""", (snapshot_id,)).fetchone()[0]
@@ -531,6 +546,8 @@ def run_automated_ingestion(
         conn.close()
         raise RuntimeError("制服组或球队阵容覆盖数量不一致，事务已回滚。")
     data_updated_at = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+    cursor.execute('UPDATE coaching_source_captures SET data_updated_at=? WHERE snapshot_id=?',
+                   (data_updated_at,snapshot_id))
     stamp_database(conn, snapshot_id, context["save_id"], data_updated_at)
     staged_pool = sqlite3.connect(player_pool_stage_path)
     try:
@@ -617,6 +634,9 @@ def run_automated_ingestion(
             "staff_team_mapping_verified": True,
             "source_extension_profile": 1,
             "simple_draft_assets": draft_summary,
+            "coaching_tactics": {"profile":1,"status":"OBSERVED_SAME_INGESTION_RO_SESSION","teams":30,
+                "default_fields_per_team":19,"coaching_snapshot_id":coaching['snapshot_id'],
+                "observed_at":coaching['observed_at']},
             "directory_slot_counts": {key: value['count'] for key, value in directory.items()}
         },
         "batch_binding": {

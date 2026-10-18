@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-NBA 2K22 球队战术策略、战术手册与商业运营管理器 (Strategy & Business Manager)
-支持：
-1. 球队攻防策略与战术重点 (Points of Emphasis, POEs) 读写调优：
-   - 比赛节奏 (Pace)、快攻推进 (Fastbreak)、前板冲抢 (Off Rebound)
-   - 对球施压 (On-Ball Pressure)、无球盯防 (Off-Ball)、挡拆防守 (P&R Defense: Switch/Drop/Ice/Trap)
-2. 战术手册与教练体系联动 (Coach System & Playbook Alignment)
-3. 主场球票分级定价与特许商品运营 (Lower Bowl, Upper Bowl, Concessions, Fan Interest)
+NBA 2K22 历史 TEAM 字节只读兼容及球票管理器。
+旧 TEAM POE 语义与 setter 已撤销；教练战术使用 coaching_reader/executor。
 """
 import os
 import sys
@@ -19,17 +14,17 @@ from scanner import LeagueScanner
 import config
 
 # ==========================================
-# 攻防策略 (POEs) 偏移字典 (基于 Team 结构体)
+# 历史名称仅供旧字段兼容；以下字节为 LEGACY_UNVERIFIED，禁止按名称推断语义。
 # ==========================================
-STRATEGY_OFFSETS = {
-    "OFF_PACE": 0xEB2,              # 进攻节奏 (0: 慢速阵地, 3: 平衡, 5: 高速跑轰)
-    "FASTBREAK_FOCUS": 0xEB3,       # 快攻推进重点 (0: 稳扎稳打, 3: 寻找快攻, 5: 坚决快攻)
-    "OFF_REBOUND": 0xEB4,           # 前场篮板冲抢 (0: 快速回防, 3: 平衡, 5: 疯狂冲抢)
-    "DEF_REBOUND": 0xEB5,           # 防守篮板策略 (0: 抓板即推快攻, 3: 保底保护)
-    "ON_BALL_PRESSURE": 0xEB7,      # 对球施压 (0: 留空间放投, 1: 适度, 3: 贴身紧逼, 4: 窒息撕咬)
-    "OFF_BALL_PRESSURE": 0xEB8,     # 无球盯防 (0: 缩进油漆区, 1: 适度, 2: 紧贴阻绝传球 Deny)
-    "PICK_AND_ROLL_DEF": 0xEB9,     # 挡拆防守针对 (0: 自动, 1: 沉退 Drop, 2: 冰封 Ice, 3: 软延误 Soft, 4: 硬延误 Hard, 5: 夹击 Trap, 6: 无限换防 Switch)
-    "HELP_DEFENSE_LEVEL": 0xEBC,    # 弱侧协防轮转等级 (0: 单防不协防, 3: 标准轮转, 5: 极速补位协防)
+LEGACY_TEAM_RAW_OFFSETS = {
+    "OFF_PACE": 0xEB2,
+    "FASTBREAK_FOCUS": 0xEB3,
+    "OFF_REBOUND": 0xEB4,
+    "DEF_REBOUND": 0xEB5,
+    "ON_BALL_PRESSURE": 0xEB7,
+    "OFF_BALL_PRESSURE": 0xEB8,
+    "PICK_AND_ROLL_DEF": 0xEB9,
+    "HELP_DEFENSE_LEVEL": 0xEBC,
 }
 
 # ==========================================
@@ -59,11 +54,14 @@ class StrategyManager:
         self.teams = self.scanner.find_active_teams()
 
     def get_team_strategy(self, team_id: int) -> Optional[Dict]:
-        """读取指定球队当前攻防策略重点"""
+        """Compatibility observations only: these bytes are NOT coach tactics."""
         if team_id not in self.teams:
             return None
         base = self.teams[team_id]["address"]
+        STRATEGY_OFFSETS = LEGACY_TEAM_RAW_OFFSETS
         return {
+            "observation_status": "LEGACY_UNVERIFIED",
+            "tactical_semantics": "REVOKED_USE_COACHING_READER",
             "team_name": self.teams[team_id]["name"],
             "off_pace": self.mem.require_uint8(base + STRATEGY_OFFSETS["OFF_PACE"]),
             "fastbreak_focus": self.mem.require_uint8(base + STRATEGY_OFFSETS["FASTBREAK_FOCUS"]),
@@ -76,27 +74,8 @@ class StrategyManager:
         }
 
     def set_team_strategy(self, team_id: int, **kwargs) -> bool:
-        """设置指定球队攻防策略"""
-        if team_id not in self.teams:
-            return False
-        base = self.teams[team_id]["address"]
-        writes = []
-        for key, val in kwargs.items():
-            k_upper = key.upper()
-            if k_upper not in STRATEGY_OFFSETS:
-                raise ValueError(f"未知的球队策略字段: {key}")
-            value = int(val)
-            if not 0 <= value <= 255:
-                raise ValueError(f"策略字段 {key} 超出 uint8 范围: {value}")
-            writes.append((key, base + STRATEGY_OFFSETS[k_upper], value))
-        for key, address, value in writes:
-            if not self.mem.write_uint8(address, value):
-                raise OSError(f"写入球队 {team_id} 策略字段 {key} 失败")
-        for key, address, value in writes:
-            actual = self.mem.require_uint8(address)
-            if actual != value:
-                raise OSError(f"球队 {team_id} 策略字段 {key} 回读不符: 期望 {value}, 实际 {actual}")
-        return True
+        """Revoked before any target lookup, memory read or write."""
+        raise RuntimeError("LEGACY_TEAM_POE_OFFSETS_REVOKED: use an explicitly approved native coaching plan")
 
     def get_team_business(self, team_id: int) -> Optional[Dict]:
         """读取指定球队商业与票价参数"""

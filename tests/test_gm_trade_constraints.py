@@ -46,12 +46,14 @@ class TradeConstraintTests(unittest.TestCase):
             self.assertFalse(verdict["valid"])
             self.assertIn("V1_CANNOT_CERTIFY_TRADE_LEGALITY", verdict["errors"])
 
-    def test_invalid_tactics_and_unverified_on_ball_enum(self):
+    def test_legacy_team_tactics_are_revoked_regardless_of_old_enum(self):
         with tempfile.TemporaryDirectory() as directory:
             data = project(directory)
             self.assertFalse(check_field(data.gm_policy, "poe_pnr_def", 99)["valid"])
-            self.assertTrue(check_field(data.gm_policy, "poe_pnr_def", 6)["valid"])
+            self.assertFalse(check_field(data.gm_policy, "poe_pnr_def", 6)["valid"])
+            self.assertTrue(check_field(data.gm_policy, "POEOffense2", 7)["valid"])
+            self.assertFalse(check_field(data.gm_policy, "POEOffense2", 6)["valid"])
             self.assertFalse(check_field(data.gm_policy, "poe_on_ball", 12)["valid"])
             item = proposal(data)
             item.update(operation="TACTIC_CHANGE", changes=[{"field": "poe_on_ball", "value": 12}])
-            self.assertIn("INVALID_OR_UNVERIFIED_TACTICAL_ENUM", validate_proposal(item, data)["errors"])
+            self.assertIn("LEGACY_TACTICAL_CHANGE_CONTRACT_REVOKED", validate_proposal(item, data)["errors"])

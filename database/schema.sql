@@ -51,6 +51,14 @@ CREATE TABLE IF NOT EXISTS staff_pool_observations (
 );
 
 -- Extended sources are snapshot-scoped. Old captures receive no backfilled facts.
+CREATE TABLE IF NOT EXISTS coaching_source_captures (
+    snapshot_id TEXT PRIMARY KEY, save_id TEXT NOT NULL, observed_at TEXT NOT NULL,
+    data_updated_at TEXT, context_json TEXT NOT NULL, metadata_json TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS coaching_team_observations (
+    snapshot_id TEXT NOT NULL, team_id INTEGER NOT NULL, observation_json TEXT NOT NULL,
+    PRIMARY KEY(snapshot_id,team_id)
+);
 CREATE TABLE IF NOT EXISTS player_source_details (
     snapshot_id TEXT NOT NULL, team_id INTEGER NOT NULL, roster_slot INTEGER NOT NULL,
     pool_slot INTEGER, player_name TEXT NOT NULL, face_id INTEGER NOT NULL,
