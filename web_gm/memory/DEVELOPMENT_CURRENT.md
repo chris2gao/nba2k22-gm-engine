@@ -92,3 +92,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 当前唯一待做的教练来源数据任务：由玩家下次**明确触发完整全量采集及按需-Publish**；Codex报告最新source coverage必须为`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`、30队/19字段/29对手记录、SQLite、manifest/latest与GM源同批一致。任何失败只修该次真实阻断，不预开发单源采集，也不做比赛或反复保存重启验收。
 - GM决定→玩家批准→执行模型内存写入和回读→玩家自行游戏/保存；下一次只有**玩家触发全量更新**后，GM才能从新已发布批次读到修改后的教练值。执行回执不能直接覆盖SQLite原始观察，也不自动采集/发布。
 - 已同步最新`AGENTS.md`、Codex开发/数据基线32、33、状态34、数据runbook27、source registry24及GM教练手册的full-only规则。历史旧任务中的“单来源优先待办”作废。
+
+## 2026-10-18 DEV09：NBA2K22 PC 当前终极联盟CPU滑块页 + MC主宰/佳得乐研究
+
+- 已编写[DEV09三专项只读研发任务](../../docs/development_tasks/DEV_20261018_09_MC_MOVEMENT_TAKEOVER_GATORADE_RESEARCH_V1.md)；用户将其转交Codex：当前游戏位于终极联盟测试存档**CPU持球速度与持球加速度页面**，要优先就地只读记录画面原值及当前内存差分，找真正Movement字段，并核查MC/终极联盟底层共用但实际settings实例可能不同、HOF/CPU vs USER差异。
+- 玩家已排除PC帧率和整体运行环境问题；中锋低持球属性导致的局部整套运球/篮球落地动作过慢，目标是两项Min的全局调整可行性，不准写普通球员能力，不动Game Speed/HOF。旧`slider_manager.py`静态地址及“拟真一键写入”不可信/会动其它设置，禁止本次直接使用。
+- 另研究当前代MC**主宰类型**（须与充能/比赛激活分离）和Gatorade消耗品/每周锻炼额外体力槽/Gym Rat永久状态；先只读定位，服务端权益不可假造。**本次未批准任何游戏内存写入**；必要的GUI单值差分由玩家操作或在另行获准后于测试存档最小操作并恢复。
+- [本次开发归档](development/sessions/20261018_mc_movement_takeover_gatorade_research_handoff.md)。研究不自动触发正式全量采集、GM回合或任何正式局写入。
