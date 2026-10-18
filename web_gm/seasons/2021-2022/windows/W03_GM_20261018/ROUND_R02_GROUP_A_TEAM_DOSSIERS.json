@@ -6679,7 +6679,7 @@
       ],
       "candidate_actions": [
         {
-          "action_id": "GM-W03-R02-CLE-C21",
+          "action_id": "GM-W03-R02-CLE-C01",
           "domain": "COACHING",
           "status": "PROPOSED_ONLY",
           "scope": "COACH_DEFAULT",
@@ -7997,7 +7997,7 @@
       ],
       "candidate_actions": [
         {
-          "action_id": "GM-W03-R02-BOS-C21",
+          "action_id": "GM-W03-R02-BOS-C01",
           "domain": "COACHING",
           "status": "PROPOSED_ONLY",
           "scope": "COACH_DEFAULT",
@@ -9449,7 +9449,7 @@
       ],
       "candidate_actions": [
         {
-          "action_id": "GM-W03-R02-LAC-C21",
+          "action_id": "GM-W03-R02-LAC-C01",
           "domain": "COACHING",
           "status": "PROPOSED_ONLY",
           "scope": "COACH_DEFAULT",
@@ -12203,7 +12203,7 @@
       ],
       "candidate_actions": [
         {
-          "action_id": "GM-W03-R02-ATL-C21",
+          "action_id": "GM-W03-R02-ATL-C01",
           "domain": "COACHING",
           "status": "PROPOSED_ONLY",
           "scope": "COACH_DEFAULT",
@@ -13520,7 +13520,7 @@
       ],
       "candidate_actions": [
         {
-          "action_id": "GM-W03-R02-MIA-C21",
+          "action_id": "GM-W03-R02-MIA-C01",
           "domain": "COACHING",
           "status": "PROPOSED_ONLY",
           "scope": "COACH_DEFAULT",
