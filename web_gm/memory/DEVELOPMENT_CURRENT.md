@@ -1,9 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
 - role: WEB_GPT_DEVELOPMENT
-- memory_version: 3
-- last_reviewed: 2026-10-17
-- state: COACHING_V2_IMPLEMENTATION_AND_ISOLATED_ACCEPTANCE_IN_PROGRESS
+- memory_version: 4
+- last_reviewed: 2026-10-18
+- state: COACHING_CODE_MAIN_DEPLOYED_FULL_CAPTURE_FIRST_PRODUCTION_PENDING
 - linked_codex_state: `docs/34_BASELINE_CURRENT_STATE.md`（**Codex 状态索引，不在此复制更新**）
 
 DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状态。当前证据、字段门槛和剩余工作只读 [Codex 状态34](../../docs/34_BASELINE_CURRENT_STATE.md)与[集成报告](../../docs/development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)。已建立 [GM 操作手册](../manuals/GM_COACHING_OPERATIONS.md)及 [Codex 执行手册](../../docs/40_COACHING_EXECUTION_RUNBOOK.md)。当前19项默认字段接口已实现，Tempo按玩家明确选择开放原生raw并标明界面含义未知；PR #1已于2026-10-18通过玩家审查并合并main（2509b3b），本地已同步；真实生产采集和数据发布未运行，不能把代码部署当成数据发布成功。
@@ -19,7 +19,7 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 
 ## 待做（由玩家按需触发）
 
-- 维护 Web GPT 需求文档与 Codex 工程开发任务书：例如 GM v2 交易谈判、多模型交接、对话基线协议的后续自动化可行性、单来源生产更新。
+- 维护 Web GPT 需求文档与 Codex 工程开发任务书：例如 GM v2 交易谈判、多模型交接、对话基线协议的后续自动化可行性；**单来源生产更新已被玩家取消，不再开发**。
 - 新开发需求发生时先核对仓库当前代码、相关测试与 commit；不要根据之前工作总结宣称新功能已有生产能力。
 - 完成一次开发任务后保存 `development/sessions/<run_id>.md`，更新此索引并报告实际变更/交接文件/提交。
 
@@ -84,3 +84,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 用户当前PC UI报告六滑块可取1–100，但旧社区资料有0–100且BenchDepth具体单位存疑；Codex最小读/单项UI对照确定合法显示值→raw关系。可只读参考Kerr/Spoelstra/Popovich/Thibodeau等当前存档主教练值，不得捏造数值。
 - 另一必需模块：**指定对手页面的整体防守理念**（原生GAMEPLAN8byte、18项候选），与单个对手的独立覆盖相关，不能推成全局。当前逐项防守读取器带`matchup_id/defender_id`，须最小差分确认“整体/All”对应owner/条目和`IsInUse`/继承/取消；若无法确认只能BLOCKED，不能误写个人对位或声称完整实现。
 - V2闭环仍必须：30队全批预验证/受控写入/条件恢复＋玩家正常采集自动含战术源SQLite/JSON/GitHub发布＋GM/执行两本实用手册和基线接入。**不用快模拟比赛效果或大量无意义保存重启测试**，只做最小必要安全验证。游戏正式写入每批另需玩家批准。
+
+## 2026-10-18 最新决策：所有游戏新数据更新只走全量，教练源不另开开发分支
+
+- **这是最新范围裁定，优先于本文件中的历史规划段落**。用户已与Codex讨论并采纳全量刷新：脚本化完成、数据量不大，每次都更新所有已验证来源。正式数据更新唯一入口仍是`scripts/run_data_update.ps1`的`full_verified_v1`；不开发`COACHING_ONLY`、单来源/单队快照、跨不同来源日期组合发布、增量同步或独立教练latest。
+- [DEV08全量教练源首次生产启用规划](../../docs/development_tasks/DEV_20261018_08_COACHING_FULL_REFRESH_FIRST_PRODUCTION_V1.md)已写入main（首次提交`d0da3ea34ec8d2e4b07aab638d66e4647caf2db7`）。该计划**不是研发新特性**：SQLite`coaching_source_captures/coaching_team_observations`、同RO会话采集与审计、19默认字段、29个对手整体防守、JSON`coaching/`、GM按batch读取均已随DEV07进入main，首次真实生产采集/上传目前尚无证据。
+- 当前唯一待做的教练来源数据任务：由玩家下次**明确触发完整全量采集及按需-Publish**；Codex报告最新source coverage必须为`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`、30队/19字段/29对手记录、SQLite、manifest/latest与GM源同批一致。任何失败只修该次真实阻断，不预开发单源采集，也不做比赛或反复保存重启验收。
+- GM决定→玩家批准→执行模型内存写入和回读→玩家自行游戏/保存；下一次只有**玩家触发全量更新**后，GM才能从新已发布批次读到修改后的教练值。执行回执不能直接覆盖SQLite原始观察，也不自动采集/发布。
+- 已同步最新`AGENTS.md`、Codex开发/数据基线32、33、状态34、数据runbook27、source registry24及GM教练手册的full-only规则。历史旧任务中的“单来源优先待办”作废。
