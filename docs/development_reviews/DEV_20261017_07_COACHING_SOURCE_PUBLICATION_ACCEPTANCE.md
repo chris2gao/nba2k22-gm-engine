@@ -2,6 +2,8 @@
 
 状态：`IMPLEMENTED_OFFLINE_INTEGRATION_PASSED / REAL_PRODUCTION_RUN_NOT_PERFORMED`。未部署main，未运行真实全量采集，未调用数据发布器或新建Release，不能报告D项已完成真实生产验收。
 
+来源集成源码提交：`8473d7f9c1687135694443d39ddbd719f8fce2c3`。这是代码证据SHA，不是新的游戏数据批次或发布提交。
+
 ## 正常入口中的实现
 
 既有`run_data_update.ps1`调度不变。`auto_pipeline_ingest.py`在现有只读句柄、同一个名单目录与同一snapshot事务内捕获教练；不再打开另一只读会话后把较晚快照冒充同批。严格核对根目录、30个球队指针、当前主教练身份与阵容、19值/原生块和29对手集合。失败回滚并拒绝新批次。

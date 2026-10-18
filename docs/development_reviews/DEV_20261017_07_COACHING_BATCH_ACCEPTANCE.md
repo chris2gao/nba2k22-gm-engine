@@ -2,6 +2,8 @@
 
 状态：`BATCH_TECHNICAL_ACCEPTANCE_PASSED / OVERALL_GOAL_PARTIAL_BLOCKED`。正常正式批次仍逐字段受profile门槛约束、逐批需要玩家批准；工程测试授权不是正式游戏战术许可。
 
+实施源码提交：`8473d7f9c1687135694443d39ddbd719f8fce2c3`。逆序显式恢复的最后补充检查仍为17项批次测试通过，未再安排实机写入。
+
 ## 受控合同
 
 `COACHING_BATCH_CHANGE`绑定career/source_batch/game_season/game_date/policy/snapshot和batch_id/decision_id/version。1–30个参与球队可为HOLD、COACH_DEFAULT或VS_OPPONENT_DEFENSE，唯一键为team+scope+opponent。HOLD队不能同时改值，重复动作ID/作用域拒绝，JSON自填授权拒绝。
