@@ -27,6 +27,8 @@
 - 组C：DET、TOR、HOU、OKC、SAS、PHX、MIN、POR、GSW、CHA。
 - 若5队模式，每组按列顺序一分为二，完成A1/A2/B1/B2/C1/C2，随后另开全联盟整合轮与终稿轮。不可随机跳队、漏队或重复计为两次进度。
 
+**本轮判定标准升级（2026-10-18）**：每支球队的深度档案必须符合[GM_DATA_TO_DECISION_V1](manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)与[机器可读球队合同](schemas/GM_TEAM_DECISION_CONTRACT_V1.json)。先有全大名单的`player_assessments[]`和球队累计/增量事实，再有六独立维度`D1_STAFF/D2_TACTICS/D3_ROSTER_USE/D4_MARKET/D5_ASSETS_AND_DEVELOPMENT/D6_TEAM_IDENTITY_AND_MONITORING`、至少两种有证据的方案比较、经营目标、风险和下一批复盘指标。**没有主教练/其他员工效应证据时可以合规`STAFF_HOLD`，不能编造员工评级、训练加成或直接换人。** 历史线人物能力定制完全不在本轮GM目标内，只允许正常交易/签约/教练模拟时代逻辑。必要时降为每轮5队，不降研究深度。相关人物定制只在独立[开发规划专项](../docs/development_tasks/DEV_20261018_HISTORY_GRAVITY_GM_BOUNDARY_V1.md)中讨论，需另批。
+
 ## 二、深度研究轮“质量验收门槛”：真正决策，而不是数据分析模型的模板重复
 
 每队至少交付：
