@@ -1,5 +1,16 @@
 # Web GPT · GM 基线当前记忆
 
+## 2026-10-18 W03/R03：B组10队比赛数据驱动战术研判已完成
+
+**玩家最新强调**：不要从当前阵容拼凑无篮球理论根基的“赢球文化/哲学”，不要浪费时间重复套模板；**必须用比赛动态数据（尤其两批累计的真正增量投篮/攻防）和玩家实际阵容属性来调整教练原生字段，以实际胜场/可观测得失分为目标**。员工池大JSON与球员池SQLite的可靠读取问题必须解决，但**安排在这次30队决策及终稿完成之后**；此节点员工分析暂缓（`STAFF_DEFERRED_BY_PLAYER`），不阻塞对每队15人左右的现有可读名单、教练19项及交易的研究。已将此权威新规则同步[SOP](../GM_DECISION_SOP.md)、[经营标准](../manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)、[五轮制](../GM_DECISION_ROUNDS_V3.md)与[球队结构合同](../schemas/GM_TEAM_DECISION_CONTRACT_V1.json)；往后不再把空泛`winning_philosophy`当完成条件，使用`decision_objective`与可复盘KPI。
+
+- `last_completed_round=W03/R03`，`career_id=mc_haliburton_2021`，`game_date=2021-12-12`，`source_batch=2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`，区间M01→M02，来源未改变。
+- 已完成**组B10队、152条完整当前大名单记录**，附每队真实区间得失分、2P/3P/eFG与对手对应数据，以及旧同队同姓名同slot可核对的球员两批差分，转队对象标记不可归因。 [完整人读报告](../seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_GROUP_B_METRIC_FIRST_REPORT.md)、[B1机器数据](../seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_GROUP_B1_METRIC_FIRST.json)、[B2机器数据](../seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_GROUP_B2_METRIC_FIRST.json)、[R03完成回顾](../seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_RECAP.md)均已写入GitHub。
+- **战术5条（待R05/R06重新评估，绝未获执行批准）**：`GM-W03-R03-NOP-C01` `POEDefense14→13`，对手近期两分60.4%；`GM-W03-R03-UTA-C01` `POEOffense5→4`，自身近期eFG51.99%且Conley/Gobert适合挡拆；`GM-W03-R03-ORL-C01` `POEOffense5→1`，自身近期三分28.02%；`GM-W03-R03-DAL-C01` `POEDefense14→15`，对手三分42.65%；`GM-W03-R03-DEN-C01` `POEDefense14→15`，对手三分43.15%。SAC/NYK/LAL/BKN/IND`COACHING_HOLD`。本轮根据数据**推翻原R01 DAL优先护框和NOP优先修改进攻的旧判断**；UTA缩小为仅一个字段。
+- 目前**20/30队、309条本赛季当前大名单**已完成研究；[tracker](../seasons/2021-2022/windows/W03_GM_20261018/TEAM_REVIEW_TRACKER.json)现等待玩家继续`W03/R04`组C：DET/TOR/HOU/OKC/SAS/PHX/MIN/POR/GSW/CHA。R05进行联盟交易/战术冲突综合，R06唯一终稿并准备真正教练执行器包。
+- **安全状态**：员工暂未评估，全局球员池和staff.json未成功大文件打开的技术债未解决，不声称已遍历数据库；仅从每队源JSON得到所有当前阵容与球员能力。所有战术目前是篮球意图`PROPOSED_ONLY`，本轮未更改游戏、不批准Codex执行、不假造digest。玩家在后续具体批准之后委托执行模型写入，并亲自进入游戏观察是否有效。
+
+
 ## 2026-10-18 W03/R02：A组10队深度研究已完成（157球员，未执行）
 
 玩家在同一个M02决策节点明确继续执行V3五轮以上GM流程，且确认**已验收功能可以形成具体执行方案，不需要在执行前额外验证战术能提高胜率；由Codex执行、玩家实际入游戏观察和后续采集形成反馈**。此话不是批准任何具体教练/交易变更，旧审批和原生执行闸门继续适用。
@@ -54,18 +65,18 @@
 DEV07 V2 技术验收历史补充（首次正式生产来源现已由M02完成；本段其他旧时点描述仅保留作历史）：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
 
 - role: `WEB_GPT_GM`
-- memory_version: 20
+- memory_version: 21
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-18`
 - current_game_season: `2021-2022`
 - current_career: `mc_haliburton_2021`
-- current_window: `GM-S2021-2022-W03` / `R02`（A组10队157球员深度研究已完成；下次玩家触发R03组B，未批准）
+- current_window: `GM-S2021-2022-W03` / `R03`（组A+B合计20队309球员已完成；下次玩家触发R04组C，未批准）
 - last_game_month_hint: `2021-12 / M02`（2021-12-12玩家确认，非月结）
 - last_game_date_exact: `2021-12-12`（PLAYER_CONFIRMED）
 - month_closed: false
 - last_snapshot_batch: `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`
 - last_snapshot_data_updated_at: `2026-10-18T12:12:13.170996+00:00`
-- last_gm_decision_id: `GM-S2021-2022-W03/R02`（A组10队深度审议已归档；未形成全30队最终提案、未获玩家执行批准）
+- last_gm_decision_id: `GM-S2021-2022-W03/R03`（B组真实比赛数据战术决策归档；尚无全30队执行终稿和玩家授权）
 - approved_actions: W01 `GM-A01..GM-A07`（限战略/研究）；W02 `GM-W02-A01`、`GM-W02-R02-A01` 玩家批准且于2026-10-17报告已在游戏中成功落地
 - current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`; 两笔交易后的部分球员归属已在M02新快照观察；`W03_R01=PROPOSED_NOT_APPROVED`
 - game_write_approved: false (W03本轮无游戏写入批准；W02过去两笔交易曾获分别批准并已完成，不构成新权限)
