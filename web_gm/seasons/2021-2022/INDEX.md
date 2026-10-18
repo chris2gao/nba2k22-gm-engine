@@ -3,12 +3,12 @@
 - season_id: `2021-2022`
 - career_id: `mc_haliburton_2021`
 - season_gm_baseline: `2021-2022`（一个游戏赛季一个派生 GM 决策聊天，赛季内各节点沿用同一聊天）
-- current_window: `GM-S2021-2022-W02`（本赛季同一聊天最新已归档决策节点，未发生新游戏月份确认）
-- last_confirmed_exact_game_date: `UNKNOWN`
-- current_progress_hint: `2021-11`（来自既有历史玩家进度，不是本批实测日期）
+- current_window: `GM-S2021-2022-W03`（M02已启动R01经营、30队决策提案已归档，玩家未批准执行）
+- last_confirmed_exact_game_date: `2021-12-12`（PLAYER_CONFIRMED）
+- current_progress_hint: `2021-12 / M02`（官方发布检查点，month_closed=false）
 - index_created_real_date: `2026-10-17`
 - policy: `PLAYER_RULES_20261017_V3` + `WEB_GM_DECISION_MECHANISM_V2`
-- execution_state: `TWO_TRADES_PLAYER_REPORTED_EXECUTED; LATEST_DATA_PRE_TRANSACTION_PENDING_NEXT_PLAYER_TRIGGERED_SYNC`
+- execution_state: `M02_SOURCE_REFRESHED_AND_VERIFIED; W02_TRADES_OBSERVED_IN_ROSTER; W03_R01_PROPOSED_NOT_APPROVED; GAME_UNCHANGED_BY_W03`
 
 ## 本赛季 GM 决策节点时间线（整季沿用同一 GM 聊天）
 
@@ -16,6 +16,17 @@
 | --- | --- | --- | --- | --- |
 | 01 | 2021年11月附近，**精确日 UNKNOWN**；没有确认月终 | `GM-S2021-2022-W01 / R01` | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2` | [本轮完整决策链](windows/W01_GM_20261017/ROUND_R01_RECAP.md) · 已批战略/研究/非约束询价，所有游戏修改暂缓 |
 | 02 | **与W01相同的未知日期检查点；没有新的发布批次，不是新月月结** | `GM-S2021-2022-W02 / R01`（同赛季聊天已触发的专题续议） | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（与W01完全相同） | [本次决策归档](windows/W02_GM_20261017/ROUND_R01_RECAP.md) · [30队同批基线](windows/W02_GM_20261017/TEAM_BASELINE.json) · CHI/DET格兰特具体交易仅PROPOSED；CHA/IND暂不成交；无写入 |
+
+| 03 | **2021-12-12 / M02 普通检查点，不是12月月结** | `GM-S2021-2022-W03 / R01`（同赛季聊天，本节点允许最多3轮GM审议） | `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2` | [R01归档](windows/W03_GM_20261018/ROUND_R01_RECAP.md) · [30队教练/交易提案](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md) · [机器可读GM意图](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_INTENT.json) · 12项教练意图/1项双边交易提案，**未获玩家批准，未游戏写入** |
+
+## 2026-10-18 W03/M02 最新正式状态（高优先级，覆盖下方W02历史时点文字）
+
+- **实际最新快照**：玩家已触发Codex发布正式M02，game_date=2021-12-12，月序M02普通检查点，`latest.json`指向`2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`，`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`、审计PASS。**下方“latest还是M01 / 两笔交易尚待刷新”是W02历史记录，已失效，不作为当前事实。**
+- **两笔先前获批交易当前名单可观察**：Jerami Grant在CHI、Coby White在DET；David Nwaba在DAL；执行动作来源仍按玩家已确认，不重新执行。
+- **本轮30队GM经营已触发R01并完成初步意见**：11队共12个教练篮球意图、19队教练HOLD；一项双方一致交易候选CHA↔SAS Poeltl vs P.J. Washington + 2024 NOP原始二轮，全部`PROPOSED_NOT_APPROVED`，原始详情和完整角色风险见[R01回顾](windows/W03_GM_20261018/ROUND_R01_RECAP.md)。
+- **回合使用规则**：玩家2026-10-18允许同节点多回合决策，延续既有每节点最多3轮上限。R01已归档，R02只在玩家继续/反馈时开启，R03有必要再开启。回合不是比赛时间推进；不能自动开始R02或写游戏。
+- **教练原生批准闸门**：GM现在只发布已验证raw目标和篮球理由，**尚未生成离线完整native batch/摘要/digest**；任何“赞成方向”不可自动等同教练执行摘要批准。交易T01同样必须玩家逐项具体批准并由Codex只读预检后执行。
+- **球员数据特别注意**：个人累计出场/得分可跨球队。MC真实Tyrese Haliburton槽1235已在IND，个人27场58.41均分不等于在IND效力27场；重复模型Ty Hali槽184不是同一人物。训练由AI管理，精确分钟不强控。
 
 ## 本赛季关键时点的权威事实与文件
 
