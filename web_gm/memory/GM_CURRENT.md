@@ -1,20 +1,34 @@
 # Web GPT · GM 基线当前记忆
 
+## 2026-10-18 M02正式GM经营节点已形成W03/R01提案（未获玩家批准）
+
+当前正式生产源已由M01推进到**M02**：`2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`（`game_date=2021-12-12`，玩家确认，非游戏自动发现；`month_closed=false`；审计`PASS_VERIFIED`；`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`）。网页分析M02 V2已发布并可作为启发式输入；其中source_refs某些链接多了一层`published/`，而攻防诊断模板化，GM独立读取原始来源验证关键事实。
+
+正式GM W03/R01已有完整30队提案及教练/交易意图：
+- [正式30队经营提案](../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md)
+- [12项教练及1项交易结构化意图](../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_INTENT.json)
+- `decision_id=GM-20261018-W03-R01`、`version=1`，状态**PROPOSED_AWAITING_PLAYER_APPROVAL**，未批准、未生成可执行教练`batch_digest`、未发生游戏写入。
+- 战术意图12项：ATL（含针对GSW），DAL，MIA，UTA，ORL，TOR，OKC，DET，NOP，LAC，GSW，具体raw/风险以正式提案为准；其余球队有理由HOLD或交易讨论。唯一外部双边交易意图`GM-W03-T01`：CHA取得SAS的Jakob Poeltl；SAS取得CHA的P.J. Washington及CHA现持有的2024 NOP原始二轮`draft_pick:2024:2:11`。该签位在M02确实由CHA(id31)持有，双方各15条名单；**只是GM外部理性共识，不是玩家批准**。
+- 特别重要：MC的Tyrese Haliburton（`pool_slot=1235`）现位于IND，但个人赛季累计包括此前SAC经历，不能用其1577分除IND整季累计3208分解释“入队后贡献率”；另一`Ty Hali` slot184并非可合并永久身份。
+- 玩家同意将复杂节点分成多个GM审议回合。**优先复核已有R01，不重复提交或执行**；后续R02用于用户反馈、技术/交易核验及最终教练真实批次准备。GM最多三轮审议是默认SOP，若玩家另有明确安排遵照玩家指令。所有原生教练批次必须经确定性脚本生成，用户额外核实完整`action_ids`及`batch_digest`才授权。
+- 当前教练/交易申请均处于待审批阶段，严禁因发表GitHub提案自行改游戏。下一轮只在玩家继续本赛季GM谈判时触发。
+
+
 DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
 
 - role: `WEB_GPT_GM`
-- memory_version: 15
+- memory_version: 16
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
-- updated_real_world: `2026-10-17`
+- updated_real_world: `2026-10-18`
 - current_game_season: `2021-2022`
 - current_career: `mc_haliburton_2021`
-- current_window: `GM-S2021-2022-W02` / `R01`（最新已归档的同批次专题续议；同一赛季聊天继续待命）
+- current_window: `GM-S2021-2022-W03` / `R01`（M02正式提案已发布，尚未批准）
 - last_game_month_hint: `2021-11`（原项目进度参考，**本批精确game_date UNKNOWN**）
-- last_game_date_exact: UNKNOWN
+- last_game_date_exact: `2021-12-12`（PLAYER_CONFIRMED）
 - month_closed: false
-- last_snapshot_batch: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
-- last_snapshot_data_updated_at: `2026-10-17T11:50:28.464724+00:00`
-- last_gm_decision_id: `GM-20261017-W02-R01 v1`（新方案PROPOSED，非玩家批准）
+- last_snapshot_batch: `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`
+- last_snapshot_data_updated_at: `2026-10-18T12:12:13.170996+00:00`
+- last_gm_decision_id: `GM-20261018-W03-R01 v1`（新M02正式30队提案PROPOSED，非玩家批准）
 - approved_actions: W01 `GM-A01..GM-A07`（限战略/研究）；W02 `GM-W02-A01`、`GM-W02-R02-A01` 玩家批准且于2026-10-17报告已在游戏中成功落地
 - current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`；最新采集尚未同步，不能把历史批次当交易后状态
 - game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
