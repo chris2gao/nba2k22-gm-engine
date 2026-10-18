@@ -1,6 +1,6 @@
 {
   "task": "DEV-20261017-07",
-  "status": "PARTIAL_BLOCKED",
+  "status": "IMPLEMENTED_WITH_DECLARED_LIMITATIONS",
   "note": "Field-level capability only; no formal batch approval or main deployment implied.",
   "default_fields": [
     {
@@ -334,16 +334,76 @@
       "storage_bytes": 4,
       "start_bit": 9,
       "width": 8,
-      "writable": false,
-      "production_enabled": false,
-      "readiness": "LOCATED_READ_ONLY",
+      "writable": true,
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_NATIVE_RAW_UI_MEANING_UNCONFIRMED",
       "enum": null,
       "enum_rva": null,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
+      "memory_write_test": "NO_LIVE_TEMPO_WRITE_NATIVE_LAYOUT_AND_OFFLINE_MASK_CODEC_VERIFIED",
+      "ui_test": "UI_MAPPING_UNCONFIRMED_PLAYER_APPROVED_NATIVE_RAW_INTERFACE",
       "save_reload_test": "NOT_VERIFIED",
       "process_restart_test": "NOT_VERIFIED",
-      "gm_control_enabled": true
+      "gm_control_enabled": true,
+      "ui_label_zh": null,
+      "ui_unit": "UNKNOWN_NATIVE_RAW_INTEGER",
+      "semantic_status": "NATIVE_NAME_ONLY_UI_AND_GAMEPLAY_EFFECT_UNCONFIRMED",
+      "target_policy": "PLAYER_APPROVED_NATIVE_RAW_INTERFACE_NATIVE_INTEGER_FORMAT_ONLY",
+      "gm_guidance": "Native Tempo raw value only. UI meaning and gameplay effect are unconfirmed; do not label as the verified offensive tempo POE, SimPace, percentage, or lineup factor. Native storage bounds are not observed UI endpoints or recommended values.",
+      "observed_reference": {
+        "provenance": "PRIOR_READ_ONLY_OBSERVATION_SAME_ISOLATED_MYLEAGUE_SAVE",
+        "scope": "Eight sampled head coaches; not a new capture or formal save current facts",
+        "count": 8,
+        "observed_min": 40,
+        "observed_max": 95,
+        "coaches": [
+          {
+            "team": "PHI",
+            "coach": "Doc Rivers",
+            "raw": 80
+          },
+          {
+            "team": "LAC",
+            "coach": "Tyronn Lue",
+            "raw": 75
+          },
+          {
+            "team": "MIA",
+            "coach": "Erik Spoelstra",
+            "raw": 50
+          },
+          {
+            "team": "NY",
+            "coach": "Tom Thibodeau",
+            "raw": 55
+          },
+          {
+            "team": "IND",
+            "coach": "Rick Carlisle",
+            "raw": 60
+          },
+          {
+            "team": "TOR",
+            "coach": "Nick Nurse",
+            "raw": 40
+          },
+          {
+            "team": "SA",
+            "coach": "Gregg Popovich",
+            "raw": 70
+          },
+          {
+            "team": "GS",
+            "coach": "Steve Kerr",
+            "raw": 95
+          }
+        ],
+        "practical_scale": {
+          "min": 0,
+          "max": 100,
+          "status": "INFERRED_REFERENCE_NOT_VERIFIED_UI_ENDPOINTS"
+        },
+        "guidance": "Use observed coach values as practical references. Neither sample endpoints nor inferred scale is an execution whitelist."
+      }
     },
     {
       "field": "HelpDefense",

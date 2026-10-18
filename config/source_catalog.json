@@ -19,8 +19,22 @@
         "POEOffense3",
         "POEDefense",
         "POEDefense2",
-        "POEDefense3"
+        "POEDefense3",
+        "PreferredSystem",
+        "ActiveSystem",
+        "PlaybookID",
+        "BenchDepth",
+        "RunPlayTendency",
+        "ZoneUsage",
+        "BenchUtilization",
+        "Tempo",
+        "HelpDefense",
+        "FreelanceType",
+        "FreelanceType2",
+        "FreelanceType3",
+        "FreelanceType4"
       ],
+      "execution_field_notes": "Native Tempo raw read/write is player-approved; UI meaning is unconfirmed. Other coaches' observed values are practical references, not target whitelists. Execution capability is not deployment or approval of a concrete batch.",
       "execution_approval": "SPECIFIC_EXTERNAL_PLAYER_APPROVAL_AND_EDITOR_CLOSED_REQUIRED"
     }
   ],

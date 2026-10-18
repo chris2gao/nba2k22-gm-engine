@@ -181,6 +181,38 @@ class BatchTests(unittest.TestCase):
         self.assertEqual(observed,desired)
         self.run_batch(True)
         self.assertEqual(bytes(self.world.data),original)
+    def test_native_tempo_raw_bounds_masked_commit_and_restore_without_ui_claim(self):
+        from coach_codec import decode
+        field=self.profile['fields']['Tempo']
+        self.assertTrue(field['writable'] and field['production_enabled'])
+        self.assertEqual(field['ui_unit'],'UNKNOWN_NATIVE_RAW_INTEGER')
+        self.assertIsNone(field['ui_label_zh'])
+        self.assertNotIn('raw_range',field)
+        self.world.snapshot.update(environment='FORMAL_READ_ONLY',game_date='2021-10-19')
+        original=bytes(self.world.data)
+        start=0x1000+field['offset']
+        mask=((1 << field['width'])-1) << field['start_bit']
+        for value in (0,255):
+            with self.subTest(value=value):
+                self.batch=propose_batch(self.world.snapshot,[dict(team_id=20,targets={'Tempo':value},
+                    action_id='NATIVE_RAW',expected_effect='Synthetic native raw boundary only; UI and gameplay effect unknown')],
+                    'TEMPO_RAW_'+str(value),'D01',1,profile=self.profile)
+                self.assertEqual(self.run_batch()['status'],'COMMITTED_VERIFIED_IN_MEMORY')
+                self.assertEqual(decode(self.world.data[0x1000:0x1160],field),value)
+                before=int.from_bytes(original[start:start+4],'little')
+                after=int.from_bytes(self.world.data[start:start+4],'little')
+                self.assertEqual((before ^ after) & ~mask,0)
+                self.assertEqual(bytes(self.world.data[:start]),original[:start])
+                self.assertEqual(bytes(self.world.data[start+4:]),original[start+4:])
+                self.assertEqual(self.run_batch(True)['status'],'ROLLED_BACK_VERIFIED_IN_MEMORY')
+                self.assertEqual(bytes(self.world.data),original)
+        opens=len(self.world.opens)
+        for invalid in (-1,256,True,80.5):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                propose_batch(self.world.snapshot,[dict(team_id=20,targets={'Tempo':invalid},
+                    action_id='BAD_RAW',expected_effect='Invalid native integer format')],
+                    'BAD_TEMPO','D01',1,profile=self.profile)
+        self.assertEqual(len(self.world.opens),opens)
     def test_formal_pending_field_cannot_request_handle(self):
         self.world.snapshot['environment']='FORMAL_READ_ONLY'
         self.world.snapshot['game_date']='2021-10-19'

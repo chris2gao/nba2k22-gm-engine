@@ -1,6 +1,6 @@
 # DEV-20261017-07 批次执行验收
 
-状态：`BATCH_TECHNICAL_ACCEPTANCE_PASSED / OVERALL_GOAL_PARTIAL_BLOCKED`。正常正式批次仍逐字段受profile门槛约束、逐批需要玩家批准；工程测试授权不是正式游戏战术许可。
+状态：`BATCH_TECHNICAL_ACCEPTANCE_PASSED / DEFAULT_19_IMPLEMENTED`。正常正式批次仍逐字段受profile门槛约束、逐批需要玩家批准；工程测试授权不是正式游戏战术许可。Tempo按玩家明确选择作为界面含义未知的原生raw开放，不称作已验证的进攻节奏。
 
 实施源码提交：`8473d7f9c1687135694443d39ddbd719f8fce2c3`。逆序显式恢复的最后补充检查仍为17项批次测试通过，未再安排实机写入。
 
@@ -39,5 +39,7 @@
 新增 `test_coaching_execution_lock.py` 7项离线测试通过：两个入口/不同日志根/不同career标签零句柄拒绝；旧入口RW回调中阻止批次重入；正常终结释放；两种执行器部分写均保留；首写前身份失败释放；最终journal故障保留；另一个Python进程不能取得现有锁。原17项批次测试继续通过。没有再次连接或写入游戏。
 
 玩家随后明确撤销测试样本限制：BenchDepth按GM读取实际阵容后确定人数，不再限制9–10；新增离线合同覆盖7、11、12、15均可提案，负数/越出原生整数位宽/非整数仍拒绝。四Freelance按完整34种原生枚举、字段编号和有序codec提供受控接口；新增一笔假内存正式环境批次使用`[33,1,24,0]`，跨3个共享块写入/回读/恢复保持顺序和其他位。不是新的实机UI测试或玩法建议。批次测试现在19项通过，教练总计85项、GM40项通过。
+
+最终补充：19项默认接口均已开放。新增Tempo定向测试 `python -m unittest discover -s tests -p test_coaching_batch.py -k native_tempo -v` 单项通过，覆盖原生8位整数边界、非法类型/溢出拒绝、其他共享位和其他队不变、提交/条件恢复。没有运行实机写入或重跑全部既有测试；本局已读取的8位主帅raw40–95作为实用参考，不缩成执行白名单。
 
 使用[执行手册40](../40_COACHING_EXECUTION_RUNBOOK.md)中的同一snapshot/batch/state-root进行执行和恢复，不更换目录重复执行同一批次。软件事务不提供物理同时写或无条件跨重启回滚。崩溃锁、不完整日志和`PARTIAL_UNRECOVERED_MANUAL_REVIEW`由执行角色联合人工审查，不能删除日志强行重试。

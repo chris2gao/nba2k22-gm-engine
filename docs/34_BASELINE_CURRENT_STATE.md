@@ -1,8 +1,8 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
-DEV07 V2 正在 `codex/coaching-tactics-v1` 开发，尚未部署 main，整体任务未完成。权威范围见[最终规格 V2](development_tasks/DEV_20261017_07_COACHING_GM_CLOSED_LOOP_V2.md)，当前[字段矩阵](development_reviews/DEV_20261017_07_COACHING_FIELD_MATRIX.json)、[集成报告](development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)、[批次验收](development_reviews/DEV_20261017_07_COACHING_BATCH_ACCEPTANCE.md)、[来源验收](development_reviews/DEV_20261017_07_COACHING_SOURCE_PUBLICATION_ACCEPTANCE.md)。六项 POE 沿用已验证证据；五项数值设置经 PHI 小步程序写入、玩家确认、日志恢复，30 队已捕获块完全恢复，见[滑块证据](development_reviews/DEV_20261017_07_SLIDER_EVIDENCE.json)。BenchDepth是轮换人数上限，9→10只是测试样本，玩家明确要求去掉此人为白名单；GM依据实际阵容选人数，仅保留原生整数格式保护。四项已确认百分比倾向为0–100。Tempo raw80未对应当前UI，保持只读。四Freelance按完整原生枚举/布局和有序codec支持提案及受控执行，不宣称比赛内页面已实测；双体系/手册证据见下一段。五项 Sim 禁止 GM 控制。
+DEV07 V2 工程已在 `codex/coaching-tactics-v1` 实现并交付PR#1，尚未部署 main，也未运行真实生产采集或数据发布。玩家最终明确将原生Tempo按raw开放、界面含义未知；该项不再作为开发阻塞。权威范围见[最终规格 V2](development_tasks/DEV_20261017_07_COACHING_GM_CLOSED_LOOP_V2.md)，当前[字段矩阵](development_reviews/DEV_20261017_07_COACHING_FIELD_MATRIX.json)、[集成报告](development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)、[批次验收](development_reviews/DEV_20261017_07_COACHING_BATCH_ACCEPTANCE.md)、[来源验收](development_reviews/DEV_20261017_07_COACHING_SOURCE_PUBLICATION_ACCEPTANCE.md)。六项 POE 沿用已验证证据；五项数值设置经 PHI 小步程序写入、玩家确认、日志恢复，30 队已捕获块完全恢复，见[滑块证据](development_reviews/DEV_20261017_07_SLIDER_EVIDENCE.json)。BenchDepth是轮换人数上限，9→10只是测试样本，玩家明确要求去掉此人为白名单；GM依据实际阵容选人数，仅保留原生整数格式保护。四项已确认百分比倾向为0–100。玩家已明确开放原生Tempo读写，界面含义未知，不称作已验证的进攻节奏或百分比；同局8位主帅已观测raw40–95，作为选择目标的实用参考，不变成执行白名单。四Freelance按完整原生枚举/布局和有序codec支持提案及受控执行，不宣称比赛内页面已实测；双体系/手册证据见下一段。五项 Sim 禁止 GM 控制。
 
-双体系及命名手册已进一步在 PHI 与对手整体混合批次写入并恢复，14项默认字段有实机写回证据，另4项Freelance提供原生完整枚举的有序受控接口，共18项；玩家确认“主打内线→主打外线”和“76人→雄鹿手册”。PreferredSystem原生独立位域/回读通过，未单独查看其UI；玩家停止同类重复核对。Freelance不再因未做重复菜单测试而设执行白名单；Tempo仍待映射。见[混合证据](development_reviews/DEV_20261017_07_MIXED_BATCH_EVIDENCE.json)。
+双体系及命名手册已进一步在 PHI 与对手整体混合批次写入并恢复，14项默认字段有实机写回证据，另4项Freelance提供原生完整枚举的有序受控接口，加上玩家明确开放的原生Tempo共19项；玩家确认“主打内线→主打外线”和“76人→雄鹿手册”。PreferredSystem原生独立位域/回读通过，未单独查看其UI；玩家停止同类重复核对。Freelance不再因未做重复菜单测试而设执行白名单；Tempo原生raw接口已开放，界面映射未知。见[混合证据](development_reviews/DEV_20261017_07_MIXED_BATCH_EVIDENCE.json)。
 
 指定对手“整体防守”已证明是 UI 批量修改该对手全部有效 matchup 记录，非单独 All 槽；PHI→IND 14 条 PressureOnball 经 UI 差分、程序写入显示“间隔”、事务恢复，所有已捕获块恢复一致。退出编辑页观察到 IsInUse 0→1，不能解释为 0=禁用。见[原生整体证据](development_reviews/DEV_20261017_07_OVERALL_DEFENSE_EVIDENCE.json)。批量执行与同会话采集/SQLite/JSON 集成代码已加入本分支，离线85项教练/40项GM测试及4个CLI帮助入口通过，尚无本任务真实全量生产采集/发布验收。[GM手册](../web_gm/manuals/GM_COACHING_OPERATIONS.md)和[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)已建立并同步实际门槛，仍随剩余验收更新。以下 DEV06 记录保留历史含义。
 
@@ -39,7 +39,7 @@ DEV07 V2 正在 `codex/coaching-tactics-v1` 开发，尚未部署 main，整体�
 | 同一有效批次重新发布 | 已实现 | `scripts/publish_web_snapshot.py --save-id ...`；不重新采集/改采集时间 |
 | SQLite 备份 ZIP 与 JSON 自动导出 | 已实现 | `src/export_web_gm.py`；JSON 在 Git，ZIP 在 Release |
 | 网页 GM 本地分析/计算/提案接口 | GM v1 已交付 | `src/gm_core/`、三个 GM CLI；无正式决策自动启动和执行权 |
-| 教练战术与批次接口 | 本分支18项默认字段提供受控接口（14项有实机写回证据），指定对手整体已验收；Tempo仍有缺口 | `coaching_batch.py` 和原有三个 CLI；默认纯离线；SQLite/JSON 同批集成已实现但未部署 main、未跑实际生产全量/发布验收 |
+| 教练战术与批次接口 | 本分支19项默认字段提供受控接口（14项有实机写回证据），指定对手整体已验收；Tempo按玩家明确选择开放原生raw，界面含义未知 | `coaching_batch.py` 和原有三个 CLI；默认纯离线；SQLite/JSON 同批集成已实现但未部署 main、未跑实际生产全量/发布验收 |
 | 通用交易写回、历史新秀槽位注入、历史重力执行 | 尚未完整验收 | 执行窗口先核对实际实现；不要使用旧伪代码试写正式局 |
 | 模型自动派发、多模型谈判、v3 完整经营史 | 未完整实现 | 协议/边界预留不是生产功能 |
 
@@ -139,7 +139,7 @@ _exports/receipts/                          发布回执
 | 进程校准/原值读取 | `memory.py`、`address_calibrator.py` 已用于只读采集与审计 | 校准不证明当前 save_id 自动识别，也不证明写入权限/批准或业务写回已验收 |
 | 底层内存写入 | `GameMemory(read_only=False)`、`write_bytes` 与数值 writer 存在；默认实例只读 | 仅检查调用/写入字节数，不提供方案批准、身份白名单、交易事务或完整恢复；部分 writer 会掩码截断，调用前须校验 |
 | 历史 TEAM 策略 | `StrategyManager.set_team_strategy` 无条件拒绝；旧调用已清除 | `LEGACY_TEAM_POE_OFFSETS_REVOKED`；旧 poe_* 只保留原始观测，GM 不认作教练战术 |
-| 原生主教练战术 | 当前分支批次 CLI；19项 GM 默认字段和5项只读 Sim；六 POE、五项滑块有分项实机证据，整体防守有独立 UI bulk 证据 | 依最新 V2 profile/字段矩阵逐项准入；BenchDepth不设测试样本上限，由GM根据阵容选人数；四Freelance使用完整原生目录与有序接口，直接UI测试未做；Tempo仍有映射缺口。须 `--coach-editor-closed` 和具体独立批准；main尚未部署，不能拿分支能力越权执行 |
+| 原生主教练战术 | 当前分支批次 CLI；19项 GM 默认字段和5项只读 Sim；六 POE、五项滑块有分项实机证据，整体防守有独立 UI bulk 证据 | 依最新 V2 profile/字段矩阵逐项准入；BenchDepth不设测试样本上限，由GM根据阵容选人数；四Freelance使用完整原生目录与有序接口，直接UI测试未做；Tempo原生raw可写、界面含义未知；其他教练实际值作为实用参考，不强行映射UI。须 `--coach-editor-closed` 和具体独立批准；main尚未部署，不能拿分支能力越权执行 |
 | 对手 Gameplan、防守和轮换 | 独立 codec，只读/排序/离线预设；本次870条 IsInUse全0 | MATCHUP_EXECUTION_BLOCKED_NOT_ACTIVATED；禁止强行开启；防守/人物引用未开放写入 |
 | 球票定价 | `StrategyManager.set_ticket_pricing` 有有限非负检查与浮点回读 | 仍需本次批准、当前球队身份与只改批准字段；不等于通用经营执行器已验收 |
 | 新局全局设置/30 队票价模板 | `bootstrap_new_game.py --approve-game-writes` 有批准开关；调用 slider 与票价；旧战术跳过 | 不把票价成功说成战术已配置；不能借初始化入口应用单笔GM战术或顺带改全联盟 |

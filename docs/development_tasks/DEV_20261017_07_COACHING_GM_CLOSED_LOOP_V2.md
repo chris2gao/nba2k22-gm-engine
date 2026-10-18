@@ -2,10 +2,12 @@
 
 **2026-10-17 最新玩家指令；本规格优先于同任务V1、DEV05/DEV06中所有关于Sim字段为GM能力、18项“可选”、单对手防守“以后再做”与战绩测试的旧陈述。**
 
-- `status=V2_REQUIREMENTS_APPROVED_FOR_DEVELOPMENT / CODEX_PENDING / GAME_WRITES_NOT_APPROVED`
+- `status=V2_REQUIREMENTS_APPROVED_FOR_DEVELOPMENT / CODEX_IMPLEMENTED_ON_PR1 / FORMAL_GAME_WRITES_NOT_APPROVED`
 - `repo=chris2gao/nba2k22-gm-engine`，NBA2K22 Windows PC，MC存档中的终极联盟；工程基线是[PR #1](https://github.com/chris2gao/nba2k22-gm-engine/pull/1)、head `5daeed8dc0001b5052dce1cfc97d6c22ee9317c3`（开工前先校验最新PR HEAD）。
 - 玩家职责：每次自行触发采集/GM决策/批准具体战术/委派执行及推进游戏；Codex开发只写代码和隔离局最小安全校准，**不改正式存档**；GM对30支球队分别独立作经营决策。
 - **不需要模拟比赛或实际比赛胜率效果测试，也不需要为早已通过的六POE重复保存/重启测试**。此处的必要验收仅证明“目标对象正确、编码/允许值正确、写入可回读和恢复、批次不误写其它队、数据同步可信”。
+
+**玩家实施期间的后续修正优先：** 已确认四个百分比倾向为0–100，BenchDepth是人数且不得以9→10测试样本限制GM；四Freelance按完整原生目录与顺序接口开放，不重复菜单/保存重启验证。玩家最终明确开放原生Tempo读写、标注界面含义未确认，不称为已验证的进攻节奏；其他教练实际值用于推断实用参考而非强加样本白名单。下文Tempo的旧UI描述不再是开放门槛；19项及A–E工程范围不变，真实采集/发布仍须玩家另行触发，开发只交付现有PR而不自动合并。
 
 ## 1. 业务语义：三类对象，不能混淆
 
