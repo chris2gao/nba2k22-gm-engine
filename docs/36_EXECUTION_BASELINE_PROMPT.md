@@ -80,7 +80,8 @@
 - `src/address_calibrator.py`：每次校准 PID、模块、锚点和名单目录；失效重扫。读取与写入要指向同一份当前有效名单，不能混用镜像/缓存副本。
 - `src/source_extensions.py` 与 `config/memory_field_profile.json`：球员属性、薪资/合同位域、员工关联等读取语义。读取已验证不等于对应写入执行器已验收。
 - `src/draft_assets.py` 与 `config/draft_asset_profile.json`：选秀资产定位、身份、年份轮次与权属读取；当前不是选秀权转让执行器。
-- `src/strategy_manager.py`：部分球队策略/票价 setter 存在写后回读，但调用者仍须验证批准、当前球队和字段语义。uint8 的 0–255 范围不等于游戏支持该枚举。
+- `src/strategy_manager.py`：旧 TEAM 策略 setter 已撤销并无条件拒绝，历史 poe_* 不作为教练事实；票价功能独立保留。
+- `src/coaching_executor.py` 与三个 coaching CLI：新教练受控工程接口，默认纯离线 dry-run。当前全部 production_enabled=false，UI/保存/真实重启验收尚缺，不能对正式局写入。状态与合法枚举查文档34/39及逐字段矩阵；Gameplan IsInUse 不明时强制阻断。
 - `src/bootstrap_new_game.py` / `src/slider_manager.py`：初始化设置有独立写入批准入口，不是执行单笔交易或单人编辑的通用工具。
 - `src/modifier.py`：旧通用人物属性接口主动拒绝执行，不能删除拒绝逻辑绕过规则；交易开关也不是交易执行器。
 - `src/trade_engine.py` / `src/growth_engine.py`：旧生产入口停用；其中保留的代码不是已认证执行路径。

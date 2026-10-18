@@ -11,7 +11,7 @@ OPERATIONS = ("STRATEGY", "TRADE_INTEREST", "TRADE_PROPOSAL", "TACTIC_CHANGE",
 
 def approval_claim(value):
     if isinstance(value, dict):
-        return any((key in ("approved", "player_approved", "executed", "write_authority") and item is not False and item is not None)
+        return any((key in ("approved", "player_approved", "executed", "write_authority", "execution_authorized") and item is not False and item is not None)
                    or approval_claim(item) for key, item in value.items())
     if isinstance(value, list):
         return any(approval_claim(item) for item in value)
@@ -93,11 +93,23 @@ def validate_proposal(proposal, data, calculation_ids=()):
     if not proposal["requested_approval"]:
         errors.append("SPECIFIC_APPROVAL_CONTENT_REQUIRED")
     if operation == "TACTIC_CHANGE":
-        for change in proposal.get("changes", []):
-            if not isinstance(change, dict) or not check_field(data.gm_policy, change.get("field"), change.get("value"))["valid"]:
-                errors.append("INVALID_OR_UNVERIFIED_TACTICAL_ENUM")
-        if not proposal.get("changes"):
-            errors.append("SPECIFIC_CHANGES_REQUIRED")
+        from .coaching import validate_plan
+        plan,snapshot=proposal.get("coaching_plan"),proposal.get("coaching_snapshot")
+        if not isinstance(plan,dict) or not isinstance(snapshot,dict):
+            errors.append("VERIFIED_NATIVE_COACHING_PLAN_AND_SNAPSHOT_REQUIRED")
+        else:
+            result=validate_plan(plan,snapshot)
+            errors.extend(result["errors"])
+            if any(plan.get(k)!=proposal.get(k) for k in ("decision_id","version","career_id","source_batch_id")):
+                errors.append("COACHING_PLAN_CONTEXT_MISMATCH")
+            team_rows=[t for t in snapshot.get("teams",[]) if t.get("team_id")==plan.get("team_id")]
+            if len(team_rows)!=1 or proposal["teams"]!=[team_rows[0].get("abbreviation")]:
+                errors.append("COACHING_PLAN_TEAM_MISMATCH")
+            elif data.teams[proposal["teams"][0]].get("identity",{}).get("team_id")!=plan.get("team_id"):
+                errors.append("COACHING_PLAN_TEAM_ID_MISMATCH")
+            missing.extend(result["readiness"])
+        if proposal.get("changes"):
+            errors.append("LEGACY_TACTICAL_CHANGE_CONTRACT_REVOKED")
     if operation == "BUSINESS_CHANGE":
         allowed = {"ticket_courtside", "ticket_lower", "ticket_upper"}
         from .calculations import number

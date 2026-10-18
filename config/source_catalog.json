@@ -4,6 +4,17 @@
   "trigger_mode": "PLAYER_INITIATED_ONLY",
   "game_calendar_detection": "NOT_OBSERVED_USER_DATE_OR_EXPLICIT_CURRENT_DATE_UNKNOWN",
   "career_identity_detection": "NOT_IMPLEMENTED_EXPLICIT_SAVE_ID_REQUIRED",
+  "development_only_sources": [
+    {
+      "id": "coaching_tactics_local",
+      "status": "VERIFIED_READ_ONLY_DEVELOPMENT_SOURCE",
+      "entrypoint": "scripts/coaching_snapshot.py",
+      "profile": "config/coach_tactics_profile.json",
+      "production_capture_integration": false,
+      "production_execution_enabled": false,
+      "scope": "Native coach defaults, opponent gameplans, defense and rotation capture-local references. Does not refresh full_verified_v1 sources or timestamps."
+    }
+  ],
   "player_confirmed_scope": {
     "contract_requirement": "CURRENT_ROSTER_PLAYER_SALARIES_ONLY",
     "contract_scope_confirmed_at": "2026-10-17",
@@ -12,6 +23,8 @@
     "age_requirement": "Prefer the in-game age field; date-derived age is not a substitute for observed in-game age. Unresolved fields may remain explicit gaps."
   },
   "field_notes": {
+    "team_monthly_stats.poe_*": "LEGACY_UNVERIFIED raw TEAM bytes; tactical semantics revoked by DEV06. Never reuse these names as native COACHDATA POE or assign a new meaning to historical batches.",
+    "coaching_snapshot": "Independent local coaching-only JSON; not integrated into the production full_verified_v1 SQLite/export/publication source set. No production source timestamps are updated by this development CLI.",
     "team_monthly_stats.monthly_gate_revenue": "Direct offset value; the revenue aggregation window has not been independently established. The legacy column name does not prove it is monthly revenue.",
     "season_rules": "Configured and versioned rules, not observations of an in-game CBA ledger.",
     "monthly_snapshot": "A capture label is not evidence that game results for a month were acquired. Game date comes from the player's explicit trigger.",
@@ -51,7 +64,8 @@
     {
       "id": "team_state",
       "status": "VERIFIED_OBSERVED_FIELDS",
-      "scope": "30 core teams; finances, ticket values, chemistry, interest, eight POE fields",
+      "scope": "30 core teams; finances, ticket values, chemistry, interest. Historical poe_* bytes remain raw LEGACY_UNVERIFIED observations; coaching semantics revoked.",
+      "legacy_tactical_semantics": "LEGACY_UNVERIFIED_NOT_COACHING_FACTS",
       "current_capture": "every verified capture",
       "recommended_events": [
         "monthly_close",

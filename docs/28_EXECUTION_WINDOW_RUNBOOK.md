@@ -4,6 +4,8 @@
 
 常驻执行基线的完整提示词是 [36_EXECUTION_BASELINE_PROMPT.md](36_EXECUTION_BASELINE_PROMPT.md)，当前执行能力和未验收项目见 [34_BASELINE_CURRENT_STATE.md](34_BASELINE_CURRENT_STATE.md) 第 8 节。建立基线只读文件并等待，不连接游戏或执行历史批准方案。
 
+DEV06 教练接口见 [文档39](39_COACHING_TACTICS.md)：默认预演不连接进程；旧 TEAM 策略 writer 已撤销。当前所有正式教练字段禁用，只有两队 POEOffense 的内存事务证据，UI/保存/真实重启仍待验收。对手 Gameplan 仅只读/预设，不强制 IsInUse。不能把新 CLI 的存在写成已认证的正式战术执行能力。
+
 ## 最小阅读与输入
 
 先读本文件、`AGENTS.md`、文档 22 和 26；只在需要时查目标字段的实现和来源规范。不要加载所有球队历史档案。

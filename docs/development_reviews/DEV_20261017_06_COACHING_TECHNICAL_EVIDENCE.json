@@ -1,0 +1,50 @@
+{
+  "task_id": "DEV_20261017_06",
+  "native_evidence": {
+    "status": "VERIFIED_CURRENT_PROCESS_NATIVE_METADATA",
+    "evidence_version": "DEV_20261017_06_NATIVE_V1",
+    "coach_field_count": 142,
+    "defense_field_count": 18,
+    "module_timestamp": 1652287197,
+    "module_image_size": 115056640
+  },
+  "memory_verification": {
+    "status": "LIVE_MEMORY_WRITE_READBACK_AND_ROLLBACK_VERIFIED",
+    "all_30_coach_records_restored": true,
+    "loaded_playbook_contents_unchanged": true,
+    "results": [
+      {
+        "team_id": 20,
+        "abbreviation": "IND",
+        "field": "POEOffense",
+        "before": 5,
+        "target": 2,
+        "execution_status": "EXECUTED_VERIFIED",
+        "idempotent": true,
+        "writes": 1,
+        "ui_verified": false,
+        "save_reload_verified": false
+      },
+      {
+        "team_id": 29,
+        "abbreviation": "GS",
+        "field": "POEOffense",
+        "before": 5,
+        "target": 2,
+        "execution_status": "EXECUTED_VERIFIED",
+        "idempotent": true,
+        "writes": 1,
+        "ui_verified": false,
+        "save_reload_verified": false
+      }
+    ],
+    "persistence": "NOT_VERIFIED",
+    "effect_status": "SIM_EFFECT_PENDING_PLAYER_MONTH"
+  },
+  "production_enabled": false,
+  "blockers": [
+    "UI_CAPTURE_COMPONENT_TIMEOUT",
+    "SAVE_RELOAD_NOT_VERIFIED",
+    "ACTUAL_PROCESS_RESTART_NOT_VERIFIED"
+  ]
+}
