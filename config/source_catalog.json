@@ -11,7 +11,7 @@
       "entrypoint": "scripts/coaching_snapshot.py",
       "profile": "config/coach_tactics_profile.json",
       "production_capture_integration": false,
-      "development_capture_integration": "IMPLEMENTED_ON_DEV07_BRANCH_ACCEPTANCE_AND_DEPLOYMENT_PENDING",
+      "development_capture_integration": "IMPLEMENTED_ON_MAIN_REAL_PRODUCTION_RUN_PENDING",
       "scope": "Native coach defaults, opponent gameplans, defense and rotation capture-local references. Does not refresh full_verified_v1 sources or timestamps.",
       "production_execution_enabled_fields": [
         "POEOffense",
@@ -47,7 +47,7 @@
   },
   "field_notes": {
     "team_monthly_stats.poe_*": "LEGACY_UNVERIFIED raw TEAM bytes; tactical semantics revoked by DEV06. Never reuse these names as native COACHDATA POE or assign a new meaning to historical batches.",
-    "coaching_snapshot": "Independent engineering CLI does not refresh production source timestamps. DEV07 branch adds a separate same-RO-session ingestion/audit/SQLite/export hook; this is not deployed to main and full source/publication acceptance is pending.",
+    "coaching_snapshot": "Independent engineering CLI does not refresh production source timestamps. PR #1 merged the same-RO-session ingestion/audit/SQLite/export hook into main (2509b3b). The first player-triggered real production capture/publication has not run.",
     "team_monthly_stats.monthly_gate_revenue": "Direct offset value; the revenue aggregation window has not been independently established. The legacy column name does not prove it is monthly revenue.",
     "season_rules": "Configured and versioned rules, not observations of an in-game CBA ledger.",
     "monthly_snapshot": "A capture label is not evidence that game results for a month were acquired. Game date comes from the player's explicit trigger.",
@@ -61,14 +61,14 @@
   "sources": [
     {
       "id": "coaching_tactics",
-      "status": "DEV07_INTEGRATION_IMPLEMENTED_ACCEPTANCE_AND_MAIN_DEPLOYMENT_PENDING",
+      "status": "MAIN_DEPLOYED_REAL_PRODUCTION_RUN_PENDING",
       "scope": "Same capture-session 30 head coaches: 19 default fields; per-owner opponent overall bulk-defense observations. Five Sim fields are read-only GM_CONTROL_DISABLED. No individual matchup or rotation writer.",
-      "current_capture": "Hook in auto_pipeline_ingest.py on DEV07 branch; player-triggered full update only",
+      "current_capture": "Hook in auto_pipeline_ingest.py on main; player-triggered full update only",
       "tables": ["coaching_source_captures", "coaching_team_observations"],
       "export_files": ["coaching/teams.json", "coaching/field_dictionary.json", "coaching/opponents/index.json", "coaching/opponents/<TEAM>.json"],
       "audit": "Same RO source session and later same-process source audit; missing/ambiguous teams fail before new publication",
       "historical_batches": "No backfill; absent source remains NOT_OBSERVED_IN_THIS_BATCH",
-      "deployed_to_main": false,
+      "deployed_to_main": true,
       "recommended_events": ["player_requested_full_update", "post_approved_coaching_execution"]
     },
     {

@@ -81,7 +81,7 @@
 - `src/source_extensions.py` 与 `config/memory_field_profile.json`：球员属性、薪资/合同位域、员工关联等读取语义。读取已验证不等于对应写入执行器已验收。
 - `src/draft_assets.py` 与 `config/draft_asset_profile.json`：选秀资产定位、身份、年份轮次与权属读取；当前不是选秀权转让执行器。
 - `src/strategy_manager.py`：旧 TEAM 策略 setter 已撤销并无条件拒绝，历史 poe_* 不作为教练事实；票价功能独立保留。
-- 教练单动作与 `scripts/coaching_batch.py` 默认纯离线 dry-run；按[批量执行规程40](40_COACHING_EXECUTION_RUNBOOK.md)的首次启用核对及连续示例操作；工程已交付PR而未合并部署、未跑首次真实生产采集发布，不追加实机验收。结合最新34核对实际部署及逐字段门槛。写前玩家须退出编辑页，`--coach-editor-closed`是操作者声明，脚本无自动UI检测。默认六POE沿用既有验证；DEV07分支新增指定对手整体防守 UI bulk 组及提交标记的实机写入/恢复证据，不提供单球员对位写入。本分支14项默认字段有实机写回证据，四Freelance依据原生完整枚举/布局和有序codec支持受控执行，加上玩家明确开放的原生Tempo共19项；不将其称为本局比赛内四槽UI已验收。BenchDepth由GM依据实际阵容选人数，不设9–10测试白名单。Tempo界面含义仍未知，按原生raw读写，参考其他教练实际数值，不伪称已验证的进攻节奏或百分比。按顺序调用脚本，共享进程锁只防误开两个窗口；源码未部署main，不越权执行。玩家仍须具体批准完整batch/action集合和digest，执行结束不自动采集。
+- 教练单动作与 `scripts/coaching_batch.py` 默认纯离线 dry-run；按[批量执行规程40](40_COACHING_EXECUTION_RUNBOOK.md)的首次启用核对及连续示例操作；PR #1已于2026-10-18合并main并同步本地，首次真实生产采集发布未运行，不追加实机验收。结合最新34核对实际部署及逐字段门槛。写前玩家须退出编辑页，`--coach-editor-closed`是操作者声明，脚本无自动UI检测。默认六POE沿用既有验证；DEV07分支新增指定对手整体防守 UI bulk 组及提交标记的实机写入/恢复证据，不提供单球员对位写入。本分支14项默认字段有实机写回证据，四Freelance依据原生完整枚举/布局和有序codec支持受控执行，加上玩家明确开放的原生Tempo共19项；不将其称为本局比赛内四槽UI已验收。BenchDepth由GM依据实际阵容选人数，不设9–10测试白名单。Tempo界面含义仍未知，按原生raw读写，参考其他教练实际数值，不伪称已验证的进攻节奏或百分比。按顺序调用脚本，共享进程锁只防误开两个窗口；源码已合并main；代码部署不代替具体批次批准，不越权执行。玩家仍须具体批准完整batch/action集合和digest，执行结束不自动采集。
 - `src/bootstrap_new_game.py` / `src/slider_manager.py`：初始化设置有独立写入批准入口，不是执行单笔交易或单人编辑的通用工具。
 - `src/modifier.py`：旧通用人物属性接口主动拒绝执行，不能删除拒绝逻辑绕过规则；交易开关也不是交易执行器。
 - `src/trade_engine.py` / `src/growth_engine.py`：旧生产入口停用；其中保留的代码不是已认证执行路径。
