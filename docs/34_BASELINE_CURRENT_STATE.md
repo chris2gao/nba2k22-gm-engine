@@ -4,7 +4,7 @@ DEV07 V2 工程已在 `codex/coaching-tactics-v1` 实现并交付PR#1，尚未�
 
 双体系及命名手册已进一步在 PHI 与对手整体混合批次写入并恢复，14项默认字段有实机写回证据，另4项Freelance提供原生完整枚举的有序受控接口，加上玩家明确开放的原生Tempo共19项；玩家确认“主打内线→主打外线”和“76人→雄鹿手册”。PreferredSystem原生独立位域/回读通过，未单独查看其UI；玩家停止同类重复核对。Freelance不再因未做重复菜单测试而设执行白名单；Tempo原生raw接口已开放，界面映射未知。见[混合证据](development_reviews/DEV_20261017_07_MIXED_BATCH_EVIDENCE.json)。
 
-指定对手“整体防守”已证明是 UI 批量修改该对手全部有效 matchup 记录，非单独 All 槽；PHI→IND 14 条 PressureOnball 经 UI 差分、程序写入显示“间隔”、事务恢复，所有已捕获块恢复一致。退出编辑页观察到 IsInUse 0→1，不能解释为 0=禁用。见[原生整体证据](development_reviews/DEV_20261017_07_OVERALL_DEFENSE_EVIDENCE.json)。批量执行与同会话采集/SQLite/JSON 集成代码已加入本分支，离线85项教练/40项GM测试及4个CLI帮助入口通过，尚无本任务真实全量生产采集/发布验收。[GM手册](../web_gm/manuals/GM_COACHING_OPERATIONS.md)和[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)已建立并同步实际门槛，仍随剩余验收更新。以下 DEV06 记录保留历史含义。
+指定对手“整体防守”已证明是 UI 批量修改该对手全部有效 matchup 记录，非单独 All 槽；PHI→IND 14 条 PressureOnball 经 UI 差分、程序写入显示“间隔”、事务恢复，所有已捕获块恢复一致。退出编辑页观察到 IsInUse 0→1，不能解释为 0=禁用。见[原生整体证据](development_reviews/DEV_20261017_07_OVERALL_DEFENSE_EVIDENCE.json)。批量执行与同会话采集/SQLite/JSON 集成代码已加入本分支，离线85项教练/40项GM测试及4个CLI帮助入口通过，尚无本任务真实全量生产采集/发布验收。[GM手册](../web_gm/manuals/GM_COACHING_OPERATIONS.md)和[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)已补齐19项/18项策略说明、完整外层提案与连续执行示例、首次部署/采集/发布启用核对。工程交付不冒充真实生产运行；实际使用按GM决策、玩家批准、执行回执及玩家反馈继续，不要求额外实机验收。以下 DEV06 记录保留历史含义。
 
 状态版本：v2，2026-10-17。数据功能证据提交：`2d16a7d`；对应已发布入口提交：`875adb4`；执行接口本轮按 `c136a8d` 的源码核对，未进行实机写入验收。这些是本状态页的证据，不能作为以后任务的固定 HEAD 或固定数据版本。
 

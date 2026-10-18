@@ -4,7 +4,7 @@
 
 ## 初始化模式（玩家只说“初始化 GM 基线”时）
 
-教练专题按需读取 [GM 教练操作手册](../manuals/GM_COACHING_OPERATIONS.md) 与本批字段字典。DEV07 V2 在开发分支推进，未部署 main；不要从手册存在推定本批已有教练来源。球队默认 19 项与指定对手整体防守分开，五项 Sim 禁止 GM 操作；具体能力以最新来源和 production_enabled 为准。
+教练专题按需读取 [GM 教练操作手册](../manuals/GM_COACHING_OPERATIONS.md) 与本批字段字典。DEV07 V2 工程已实现并交付PR #1，尚未合并部署main、未运行首次生产采集/发布；不要从手册存在推定本批已有教练来源。球队默认 19 项与指定对手整体防守分开，五项 Sim 禁止 GM 操作；具体能力以最新来源和 production_enabled 为准。首次启用核对、篮球请求到完整外层提案的离线示例见该手册；SIM_EFFECT_PENDING_PLAYER_MONTH仅为合同兼容字段，不要求月份或胜率验收。
 
 先按最低限度顺序从 GitHub 的 main 读取：
 
