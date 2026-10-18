@@ -31,11 +31,7 @@
   ],
   "frequency_units": "PERCENTAGE_TENDENCY",
   "bench_depth_unit": "ROTATION_PLAYER_COUNT_LIMIT",
-  "bench_depth_target_range": [
-    9,
-    10
-  ],
-  "bench_depth_range_status": "CONSERVATIVE_VERIFIED_SUBSET_FULL_ENDPOINTS_NOT_CONFIRMED",
+  "bench_depth_range_status": "TEST_SAMPLES_ONLY_NOT_UI_ENDPOINTS_OR_EXECUTION_WHITELIST",
   "write_status": "COMMITTED_VERIFIED_IN_MEMORY",
   "restore_status": "ROLLED_BACK_VERIFIED_IN_MEMORY",
   "modified_coaches": 1,
@@ -45,5 +41,10 @@
   "tempo_modified": false,
   "formal_save_modified": false,
   "persistence": "NOT_TESTED_NOT_REQUIRED_FOR_THIS_ADJACENT_UI_VALIDATION",
-  "gameplay_effect": "NOT_TESTED"
+  "gameplay_effect": "NOT_TESTED",
+  "bench_depth_tested_values": [
+    9,
+    10
+  ],
+  "player_correction": "Remove the artificial 9..10 cap; GM selects rotation player count from observed roster context."
 }

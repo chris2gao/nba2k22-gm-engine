@@ -1,10 +1,12 @@
 # 教练批量执行操作规程
 
-DEV07 V2 开发中的真实 CLI 规程。源码尚未部署 main；19 项默认字段中六 POE、五数值设置、体系双字段及命名手册共14项通过字段门槛。四 Freelance 保留原生有序接口但未正式放行，Tempo未对应UI；BenchDepth当前仅9–10，单位为轮换人数上限，其他四项数值倾向为0–100。指定对手整体防守及默认/整体两对象混合批次已完成隔离局写入/条件恢复验证。正式存档不在开发测试范围。核对 `docs/34_BASELINE_CURRENT_STATE.md`、最新V2字段矩阵和profile，不从历史聊天推定能力。玩家已停止同类重复菜单/保存重启测试，不能编造未看见的UI或持久性结果。
+DEV07 V2 开发中的真实 CLI 规程。源码尚未部署 main；19项默认字段中18项支持提案/受控执行：六POE、五数值设置、双体系及命名手册14项有实机写回证据，四Freelance依据完整原生枚举/布局与有序codec放行，未冒充实机UI验收。Tempo尚未对应UI，保持只读。BenchDepth是轮换人数上限，GM依据实际阵容选人数，不受9–10测试样本限制；其他四个已确认百分比字段为0–100。指定对手整体防守及默认/整体两对象混合批次已完成隔离局写入/条件恢复验证。正式存档不在开发测试范围。核对 `docs/34_BASELINE_CURRENT_STATE.md`、最新V2字段矩阵和profile，不从历史聊天推定能力。玩家已停止同类重复菜单/保存重启测试，不能编造未看见的UI或持久性结果。
 
 ## 输入与来源
 
 主入口 `scripts/coaching_batch.py`；不带执行开关时完全离线，不打开游戏句柄。`--snapshot` 可读同批发布的 `coaching/teams.json`，对手动作按需重复传 `--opponent-source coaching/opponents/<TEAM>.json`。每个文件的 career/batch/date/data_updated_at 必须一致，一个 owner 文件必须恰有其他 29 队，禁止重复挂接或对自己。
+
+执行模型按玩家要求顺序调用脚本，一个批准批次结束后再处理下一个。不安排多个教练执行脚本并发操作游戏。
 
 也可使用隔离开发只读快照，但必须明确 `environment=ISOLATED_TEST`、存档确为隔离副本，并单独传 `--test-save-confirmed`。不要把开发快照补进正式发布包。正式动作必须来自本局最新可信同批来源；PID/创建时间绑定不符则重新采集，不用旧绝对地址。
 
@@ -36,7 +38,9 @@ python -B scripts/coaching_batch.py --snapshot <same-snapshot> --opponent-source
 
 隔离局技术验收额外加 `--test-save-confirmed`；正式局不能通过伪造环境跳过字段验收。输出和 state-root 必须在本仓库 `_exports` 下，不提交这些本地文件。
 
-执行器取得每生涯独占 lock，先 RO 校验全批，RO 关闭后才取得 RW，再重新校验全批。全部目标 preimage 持久化并 fsync 后才首写。共享块合并 mask，保护未知位；整体动作必定覆盖认证组全部有效记录并保留 player/defender IDs，空槽不写，提交标记最后处理。每块读回，结束再读全批。运行失效或并发变化会停止并按逆序条件恢复。
+除各自事务锁外，单动作与批次执行器在任何游戏句柄之前取得同一份进程绑定锁。它位于当前执行账户的 `tempfile.gettempdir()/Antigravity_GM_Engine/coaching_execution_locks_v1/<process_binding>.lock`，不随 state-root 或仓库工作树改变；更换career标签也不能让同一进程同时被两个入口操作。它只是误开窗口的防护，不改变顺序执行方式。锁仅存本地元数据和对应journal路径，不进入Git。
+
+先 RO 校验全批，RO 关闭后才取得 RW，再重新校验全批。全部目标 preimage 持久化并 fsync 后才首写。共享块合并 mask，保护未知位；整体动作必定覆盖认证组全部有效记录并保留 player/defender IDs，空槽不写，提交标记最后处理。每块读回，结束再读全批。运行失效或并发变化会停止并按逆序条件恢复。
 
 这是软件事务，不是跨 30 队的物理瞬时原子操作。成功为 `COMMITTED_VERIFIED_IN_MEMORY`，只证明内存，不代表游戏存档已保存。全 HOLD 批次返回 `NO_WRITE_NEEDED`，零游戏句柄。重复已完成事务只返回缓存回执，并标 `NOT_REVALIDATED_CACHED_RECEIPT`；不能把缓存回执当成当前游戏仍保持目标值的证明。
 
@@ -45,6 +49,8 @@ python -B scripts/coaching_batch.py --snapshot <same-snapshot> --opponent-source
 恢复使用同一 batch、snapshot、state-root、完整批准元组，执行命令把 `--execute` 换成 `--rollback`。同样先关闭编辑页，并先 RO 校验整批当前值仍等于已批准的目标块。成功为 `ROLLED_BACK_VERIFIED_IN_MEMORY`。
 
 失败期间只在当前块仍等于本事务刚写值时恢复旧值，避免覆盖第三方修改。`FAILED_ROLLED_BACK_TO_OPERATION_PREIMAGE` 表示此次操作已经条件恢复；`PARTIAL_UNRECOVERED_MANUAL_REVIEW` 表示仍有不确定块，停止后续写入并检查 journal，不能宣称全批恢复。锁文件提示崩溃或并发时不自动删除锁或强行重跑，先读取对应日志和当前状态。
+
+共享锁只有在首写前失败，或已持久保存成功/完整恢复的最终journal后才释放。部分恢复、首写后的进程崩溃、最终journal写盘失败都会留下共享锁，阻止从别的state-root再次执行。根据锁内 `journal_path_local_only` 定位日志，人工核对当前进程、所有未恢复块和处理决定后，由具体获批的执行窗口处理；不提供自动解锁或强制重跑参数。日志目录仍须沿用，不用更换目录规避历史回执。
 
 换帅、换局、换进程、原生布局变化、动态手册目录变化或任一旧块漂移，都要求重新取得来源和提案。不得用强制选项绕过检查。源代码和配置哈希记录在本地 journal 便于审查，不作为网页 JSON 同步契约。
 

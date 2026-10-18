@@ -24,6 +24,8 @@ def decode(raw, field):
 
 def validate_value(field, value, loaded_playbooks=(), *, target=False):
     integer(value, 0, (1 << field["width"]) - 1)
+    if field.get('observation_raw_range') is not None:
+        integer(value,*field['observation_raw_range'],error='OUTSIDE_OBSERVED_UI_RAW_RANGE')
     # A conservatively approved target range must not suppress genuine native
     # observations or prevent restoring a captured preimage outside that range.
     if target and field.get('raw_range') is not None:

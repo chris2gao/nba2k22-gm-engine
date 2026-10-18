@@ -17,6 +17,9 @@ class BatchTests(unittest.TestCase):
         self.world=World()
         self.profile=copy.deepcopy(PROFILE)
         self.temp=tempfile.TemporaryDirectory()
+        patcher=patch('coaching_execution_lock.DEFAULT_LOCK_ROOT',Path(self.temp.name)/'shared_locks')
+        patcher.start()
+        self.addCleanup(patcher.stop)
         self.batch=propose_batch(self.world.snapshot,[dict(team_id=t,targets={'POEOffense':v},
             action_id='A'+str(t),expected_effect='synthetic technical validation only')
             for t,v in ((20,2),(8,1))],'B01','D01',1,profile=self.profile)
@@ -148,6 +151,36 @@ class BatchTests(unittest.TestCase):
         self.assertEqual(list(normalize_freelance({'freelance_sets':[5,3,18,28]},self.profile).items()),list(zip(slots,[5,3,18,28])))
         with self.assertRaises(ValueError):
             normalize_freelance({'freelance_sets':[5,3,18,28],'FreelanceType':0},self.profile)
+    def test_gm_bench_count_is_not_capped_at_test_value_ten(self):
+        for count in (7,11,12,15):
+            with self.subTest(count=count):
+                batch=propose_batch(self.world.snapshot,[dict(team_id=20,targets={'BenchDepth':count},
+                    action_id='BENCH',expected_effect='Synthetic chosen rotation count, not a recommendation')],
+                    'BENCH'+str(count),'D01',1,profile=self.profile)
+                self.assertTrue(validate_batch(batch,self.world.snapshot,self.profile)['executable'])
+        for invalid in (-1,256,True,11.5):
+            with self.assertRaises(ValueError):
+                propose_batch(self.world.snapshot,[dict(team_id=20,targets={'BenchDepth':invalid},
+                    action_id='BAD_BENCH',expected_effect='Invalid native integer format')],
+                    'BAD_BENCH','D01',1,profile=self.profile)
+        self.assertEqual(self.world.opens,[])
+    def test_formal_ordered_freelance_uses_full_native_catalog_and_restores_shared_blocks(self):
+        self.world.snapshot.update(environment='FORMAL_READ_ONLY',game_date='2021-10-19')
+        desired=[33,1,24,0]
+        self.batch=propose_batch(self.world.snapshot,[dict(team_id=20,targets={'freelance_sets':desired},
+            action_id='FREE',expected_effect='Synthetic complete catalog and ordered-slot contract only')],
+            'FULL_NATIVE_FREELANCE','D01',1,profile=self.profile)
+        result=validate_batch(self.batch,self.world.snapshot,self.profile)
+        self.assertTrue(result['executable'])
+        self.assertEqual(len(result['prepared_actions'][0]['blocks']),3)
+        original=bytes(self.world.data)
+        self.assertEqual(self.run_batch()['status'],'COMMITTED_VERIFIED_IN_MEMORY')
+        from coach_codec import decode
+        observed=[decode(self.world.data[0x1000:0x1160],self.profile['fields'][name])
+                  for name in self.profile['freelance_slot_order']]
+        self.assertEqual(observed,desired)
+        self.run_batch(True)
+        self.assertEqual(bytes(self.world.data),original)
     def test_formal_pending_field_cannot_request_handle(self):
         self.world.snapshot['environment']='FORMAL_READ_ONLY'
         self.world.snapshot['game_date']='2021-10-19'

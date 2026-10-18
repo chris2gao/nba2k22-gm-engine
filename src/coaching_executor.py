@@ -47,14 +47,15 @@ def source_provenance():
     files=("src/coach_codec.py","src/coach_locator.py","src/coaching_reader.py",
            "src/coaching_executor.py","src/gm_core/coaching.py","config/coach_tactics_profile.json",
            "src/coaching_batch_executor.py","src/coaching_targets.py","src/defense_codec.py",
-           "src/gm_core/coaching_batch.py","src/coaching_overall.py")
+           "src/gm_core/coaching_batch.py","src/coaching_overall.py","src/coaching_execution_lock.py")
     return dict(version="COACH_EXECUTOR_V2",command=list(sys.argv),
                 source_files_sha256={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in files})
 
 class CoachingExecutor:
-    def __init__(self, memory_factory=live_memory, locator_factory=CoachLocator, profile=None):
+    def __init__(self, memory_factory=live_memory, locator_factory=CoachLocator, profile=None, *, lock_root=None):
         self.memory_factory,self.locator_factory=memory_factory,locator_factory
         self.profile=profile or load_profile()
+        self.lock_root=lock_root
 
     def inspect(self,plan,snapshot):
         result=validate_plan(plan,snapshot,self.profile)
@@ -108,7 +109,10 @@ class CoachingExecutor:
         except FileExistsError as exc:
             raise RuntimeError("TRANSACTION_LOCKED_OR_CRASH_RECOVERY_REQUIRED") from exc
         locator=None
+        shared_lock=None
         try:
+            from coaching_execution_lock import CoachingExecutionLock
+            shared_lock=CoachingExecutionLock(snapshot,journal_path,plan_digest(plan),self.lock_root)
             lock.write(key)
             lock.flush()
             os.fsync(lock.fileno())
@@ -177,6 +181,7 @@ class CoachingExecutor:
                 atomic_json(journal_path,journal)
             attempted=[]
             try:
+                shared_lock.mark_write_started()
                 for b in blocks:
                     locator.context_identity()
                     at=address+b["offset"]
@@ -216,11 +221,16 @@ class CoachingExecutor:
                 journal["status"]="FAILED_ROLLED_BACK" if restored else "PARTIAL_UNRECOVERED"
                 journal["error"]=str(exc)
                 atomic_json(journal_path,journal)
+                if restored:
+                    shared_lock.mark_resolved()
                 raise RuntimeError(journal["status"]+":"+str(exc)) from exc
             atomic_json(journal_path,journal)
+            shared_lock.mark_resolved()
             return journal
         finally:
             if locator:
                 locator.close()
+            if shared_lock:
+                shared_lock.close()
             lock.close()
             lock_path.unlink()

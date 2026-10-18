@@ -148,7 +148,11 @@ class CodecTests(unittest.TestCase):
             read_exact(type("M",(),{"read_bytes":lambda *a:b"\0"})(),12,4)
 
 class TransactionTests(unittest.TestCase):
-    def setUp(self):self.w=World();self.temp=tempfile.TemporaryDirectory()
+    def setUp(self):
+        self.w=World();self.temp=tempfile.TemporaryDirectory()
+        patcher=patch('coaching_execution_lock.DEFAULT_LOCK_ROOT',Path(self.temp.name)/'shared_locks')
+        patcher.start()
+        self.addCleanup(patcher.stop)
     def tearDown(self):self.temp.cleanup()
     def run_action(self,rollback=False):return self.w.executor().run(self.w.plan,self.w.snapshot,self.w.approval(),self.temp.name,rollback)
     def test_default_dry_run_has_no_handles(self):

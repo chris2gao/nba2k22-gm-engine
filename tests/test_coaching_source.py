@@ -73,6 +73,35 @@ class SourceTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.store()
         self.conn.rollback()
         self.assertEqual(len(load_coaching_source(self.conn,'TEST_BATCH')['teams']),30)
+    def test_percent_out_of_ui_range_rejects_capture_preserving_last_good(self):
+        from coach_codec import block_key
+        self.store()
+        self.conn.commit()
+        for name in ('HelpDefense','RunPlayTendency','ZoneUsage','BenchUtilization'):
+            with self.subTest(field=name):
+                source=copy.deepcopy(self.source)
+                field=source['capture_profile']['fields'][name]
+                self.assertEqual(field['observation_raw_range'],[0,100])
+                row=source['teams'][0]
+                key=block_key(field['offset'],field['storage_bytes'])
+                old=int.from_bytes(bytes.fromhex(row['blocks'][key]),'little')
+                mask=((1<<field['width'])-1)<<field['start_bit']
+                row['blocks'][key]=((old&~mask)|(101<<field['start_bit'])).to_bytes(field['storage_bytes'],'little').hex()
+                row['values'][name]=101
+                with self.assertRaisesRegex(ValueError,'OUTSIDE_OBSERVED_UI_RAW_RANGE'):
+                    store_coaching_source(self.conn,'TEST_BATCH',source['career_id'],source)
+                self.conn.rollback()
+                self.assertEqual(load_coaching_source(self.conn,'TEST_BATCH')['teams'][0]['values'][name],
+                                 self.source['teams'][0]['values'][name])
+    def test_bench_observation_is_not_limited_to_old_test_values(self):
+        from coach_codec import block_key
+        source=copy.deepcopy(self.source)
+        field=source['capture_profile']['fields']['BenchDepth']
+        self.assertNotIn('raw_range',field)
+        row=source['teams'][0]
+        row['values']['BenchDepth']=11
+        row['blocks'][block_key(field['offset'],field['storage_bytes'])]='0b'
+        self.assertEqual(validate_source(source)['status'],'OBSERVED')
     def test_source_cannot_use_write_capable_handle(self):
         with self.assertRaisesRegex(PermissionError,'READ_ONLY_HANDLE'):
             capture_coaching_source(type('Mem',(),{'read_only':False})(),{})

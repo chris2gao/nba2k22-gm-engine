@@ -235,13 +235,11 @@
       "process_restart_test": "NOT_VERIFIED",
       "gm_control_enabled": true,
       "ui_label_zh": "板凳深度",
-      "raw_range": [
-        9,
-        10
-      ],
       "ui_unit": "ROTATION_PLAYER_COUNT_LIMIT",
-      "range_evidence": "ONLY_9_AND_10_ALLOWED_FOR_ISOLATED_ACCEPTANCE_FULL_UI_ENDPOINTS_PENDING",
-      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE"
+      "range_evidence": "UI_ENDPOINTS_UNKNOWN_NOT_INFERRED_FROM_TEST_VALUES_9_AND_10",
+      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE",
+      "target_policy": "PLAYER_REQUESTED_NO_TEST_VALUE_WHITELIST_NATIVE_INTEGER_FORMAT_ONLY",
+      "gm_guidance": "Rotation player-count limit; choose from the observed roster and intended rotation. The test sample 9..10 is not a game maximum."
     },
     {
       "field": "RunPlayTendency",
@@ -266,7 +264,11 @@
       ],
       "ui_unit": "PERCENTAGE_TENDENCY",
       "range_evidence": "PLAYER_CONFIRMED_CURRENT_PC_UI_0_TO_100_20261017",
-      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE"
+      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE",
+      "observation_raw_range": [
+        0,
+        100
+      ]
     },
     {
       "field": "ZoneUsage",
@@ -291,7 +293,11 @@
       ],
       "ui_unit": "PERCENTAGE_TENDENCY",
       "range_evidence": "PLAYER_CONFIRMED_CURRENT_PC_UI_0_TO_100_20261017",
-      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE"
+      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE",
+      "observation_raw_range": [
+        0,
+        100
+      ]
     },
     {
       "field": "BenchUtilization",
@@ -316,7 +322,11 @@
       ],
       "ui_unit": "PERCENTAGE_TENDENCY",
       "range_evidence": "PLAYER_CONFIRMED_CURRENT_PC_UI_0_TO_100_20261017",
-      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE"
+      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE",
+      "observation_raw_range": [
+        0,
+        100
+      ]
     },
     {
       "field": "Tempo",
@@ -358,7 +368,11 @@
       ],
       "ui_unit": "PERCENTAGE_TENDENCY",
       "range_evidence": "PLAYER_CONFIRMED_CURRENT_PC_UI_0_TO_100_20261017",
-      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE"
+      "restoration_test": "ALL_30_COACH_AND_MANAGER_RAW_BLOCKS_MATCH_PREWRITE",
+      "observation_raw_range": [
+        0,
+        100
+      ]
     },
     {
       "field": "FreelanceType",
@@ -367,8 +381,8 @@
       "start_bit": 25,
       "width": 6,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "NATIVE_ENUM_CODEC_READY_UI_ORDER_ACCEPTANCE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "DEFAULT",
         "1": "TWO_MAN",
@@ -406,11 +420,13 @@
         "33": "FREELANCE_TWO"
       },
       "enum_rva": 80194800,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "IN_GAME_PAGE_NOT_VIEWED_PLAYER_STOPPED_REDUNDANT_MENU_TESTS_NATIVE_CATALOG_AND_SLOT_INTERFACE_ONLY",
+      "memory_write_test": "NO_LIVE_FREELANCE_WRITE_NATIVE_LAYOUT_AND_OFFLINE_MASK_CODEC_VERIFIED",
+      "ui_test": "DIRECT_IN_GAME_SLOT_PAGE_NOT_VIEWED_PLAYER_REQUESTED_NO_REDUNDANT_UI_TESTS",
       "save_reload_test": "NOT_VERIFIED",
       "process_restart_test": "NOT_VERIFIED",
-      "gm_control_enabled": true
+      "gm_control_enabled": true,
+      "readiness_evidence": "VERIFIED_NATIVE_FIELD_LAYOUT_AND_COMPLETE_ENUM_CRC_CATALOG_ORDERED_SLOT_CODEC",
+      "target_policy": "COMPLETE_VERIFIED_NATIVE_ENUM_NOT_TEST_VALUE_WHITELIST"
     },
     {
       "field": "FreelanceType2",
@@ -419,8 +435,8 @@
       "start_bit": 26,
       "width": 6,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "NATIVE_ENUM_CODEC_READY_UI_ORDER_ACCEPTANCE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "DEFAULT",
         "1": "TWO_MAN",
@@ -458,11 +474,13 @@
         "33": "FREELANCE_TWO"
       },
       "enum_rva": 80194800,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "IN_GAME_PAGE_NOT_VIEWED_PLAYER_STOPPED_REDUNDANT_MENU_TESTS_NATIVE_CATALOG_AND_SLOT_INTERFACE_ONLY",
+      "memory_write_test": "NO_LIVE_FREELANCE_WRITE_NATIVE_LAYOUT_AND_OFFLINE_MASK_CODEC_VERIFIED",
+      "ui_test": "DIRECT_IN_GAME_SLOT_PAGE_NOT_VIEWED_PLAYER_REQUESTED_NO_REDUNDANT_UI_TESTS",
       "save_reload_test": "NOT_VERIFIED",
       "process_restart_test": "NOT_VERIFIED",
-      "gm_control_enabled": true
+      "gm_control_enabled": true,
+      "readiness_evidence": "VERIFIED_NATIVE_FIELD_LAYOUT_AND_COMPLETE_ENUM_CRC_CATALOG_ORDERED_SLOT_CODEC",
+      "target_policy": "COMPLETE_VERIFIED_NATIVE_ENUM_NOT_TEST_VALUE_WHITELIST"
     },
     {
       "field": "FreelanceType3",
@@ -471,8 +489,8 @@
       "start_bit": 3,
       "width": 6,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "NATIVE_ENUM_CODEC_READY_UI_ORDER_ACCEPTANCE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "DEFAULT",
         "1": "TWO_MAN",
@@ -510,11 +528,13 @@
         "33": "FREELANCE_TWO"
       },
       "enum_rva": 80194800,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "IN_GAME_PAGE_NOT_VIEWED_PLAYER_STOPPED_REDUNDANT_MENU_TESTS_NATIVE_CATALOG_AND_SLOT_INTERFACE_ONLY",
+      "memory_write_test": "NO_LIVE_FREELANCE_WRITE_NATIVE_LAYOUT_AND_OFFLINE_MASK_CODEC_VERIFIED",
+      "ui_test": "DIRECT_IN_GAME_SLOT_PAGE_NOT_VIEWED_PLAYER_REQUESTED_NO_REDUNDANT_UI_TESTS",
       "save_reload_test": "NOT_VERIFIED",
       "process_restart_test": "NOT_VERIFIED",
-      "gm_control_enabled": true
+      "gm_control_enabled": true,
+      "readiness_evidence": "VERIFIED_NATIVE_FIELD_LAYOUT_AND_COMPLETE_ENUM_CRC_CATALOG_ORDERED_SLOT_CODEC",
+      "target_policy": "COMPLETE_VERIFIED_NATIVE_ENUM_NOT_TEST_VALUE_WHITELIST"
     },
     {
       "field": "FreelanceType4",
@@ -523,8 +543,8 @@
       "start_bit": 9,
       "width": 6,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "NATIVE_ENUM_CODEC_READY_UI_ORDER_ACCEPTANCE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "DEFAULT",
         "1": "TWO_MAN",
@@ -562,11 +582,13 @@
         "33": "FREELANCE_TWO"
       },
       "enum_rva": 80194800,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "IN_GAME_PAGE_NOT_VIEWED_PLAYER_STOPPED_REDUNDANT_MENU_TESTS_NATIVE_CATALOG_AND_SLOT_INTERFACE_ONLY",
+      "memory_write_test": "NO_LIVE_FREELANCE_WRITE_NATIVE_LAYOUT_AND_OFFLINE_MASK_CODEC_VERIFIED",
+      "ui_test": "DIRECT_IN_GAME_SLOT_PAGE_NOT_VIEWED_PLAYER_REQUESTED_NO_REDUNDANT_UI_TESTS",
       "save_reload_test": "NOT_VERIFIED",
       "process_restart_test": "NOT_VERIFIED",
-      "gm_control_enabled": true
+      "gm_control_enabled": true,
+      "readiness_evidence": "VERIFIED_NATIVE_FIELD_LAYOUT_AND_COMPLETE_ENUM_CRC_CATALOG_ORDERED_SLOT_CODEC",
+      "target_policy": "COMPLETE_VERIFIED_NATIVE_ENUM_NOT_TEST_VALUE_WHITELIST"
     }
   ],
   "freelance_slot_order": [

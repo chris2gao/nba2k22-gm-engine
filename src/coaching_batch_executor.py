@@ -36,10 +36,11 @@ def require_batch_approval(batch,approval):
 
 
 class CoachingBatchExecutor:
-    def __init__(self,memory_factory=live_memory,locator_factory=CoachLocator,profile=None):
+    def __init__(self,memory_factory=live_memory,locator_factory=CoachLocator,profile=None,*,lock_root=None):
         self.memory_factory=memory_factory
         self.locator_factory=locator_factory
         self.profile=profile or load_profile()
+        self.lock_root=lock_root
 
     def inspect(self,batch,snapshot):
         return validate_batch(batch,snapshot,self.profile)
@@ -107,7 +108,10 @@ class CoachingBatchExecutor:
         except FileExistsError as exc:
             raise RuntimeError('BATCH_LOCKED_OR_CRASH_REVIEW_REQUIRED') from exc
         mem=None
+        shared_lock=None
         try:
+            from coaching_execution_lock import CoachingExecutionLock
+            shared_lock=CoachingExecutionLock(snapshot,path,digest,self.lock_root)
             lock.write(digest)
             lock.flush()
             import os
@@ -150,6 +154,7 @@ class CoachingBatchExecutor:
             atomic_json(path,journal)
             attempted=[]
             try:
+                shared_lock.mark_write_started()
                 for action,block,address in targets:
                     validate_session(loc,snapshot)
                     if resolve_target(loc,action,block,snapshot)!=address:
@@ -194,11 +199,16 @@ class CoachingBatchExecutor:
                 journal['status']='FAILED_ROLLED_BACK_TO_OPERATION_PREIMAGE' if restored else 'PARTIAL_UNRECOVERED_MANUAL_REVIEW'
                 journal['error']=str(exc)
                 atomic_json(path,journal)
+                if restored:
+                    shared_lock.mark_resolved()
                 raise RuntimeError(journal['status']+':'+str(exc)) from exc
             atomic_json(path,journal)
+            shared_lock.mark_resolved()
             return journal
         finally:
             if mem:
                 mem.close()
+            if shared_lock:
+                shared_lock.close()
             lock.close()
             lock_path.unlink()

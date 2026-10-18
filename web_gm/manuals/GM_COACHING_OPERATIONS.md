@@ -1,12 +1,14 @@
 # GM 教练战术操作手册
 
-状态：DEV07 V2 开发中，尚未部署 main。整体防守及混合批次已完成隔离局技术验证；默认六POE沿用既有验证，五数值设置、双体系与命名手册共14项通过字段门槛。四Freelance及Tempo仍各自受限，板凳深度只开放9–10已验证子集。不能越过字段字典的生产门槛。本手册随实际验收更新，不代表玩家批准了任何具体战术。
+状态：DEV07 V2 开发中，尚未部署 main。整体防守及混合批次已完成隔离局技术验证；默认六POE沿用既有验证，五数值设置、双体系与命名手册合计14项已有实机写回证据，四Freelance按完整原生枚举与有序接口提供，共18项可提案和受控执行。Tempo映射仍未知，保持只读。板凳深度由GM根据实际阵容选择，没有9–10测试样本上限。不能越过字段字典的生产门槛。本手册随实际验收更新，不代表玩家批准了任何具体战术。
 
 ## 读取本局事实
 
 按 `published/index.json → saves/<career>/latest.json → batch_path` 选择玩家要求的生涯和批次。先核对 `data_updated_at`、`uploaded_at`、`game_date`、career/batch，再读 `coaching/teams.json` 和 `coaching/field_dictionary.json`。不存在这些文件或 coverage 未标 `VERIFIED_OBSERVED_SAME_BATCH` 时，教练来源不可用；不能拿旧 TEAM `poe_*`、另一局截图或现实 NBA 声誉补值。
 
 `teams.json` 含 30 队各自当前 HEAD_COACH 身份、阵容签名、19 项原始值、原始共享块和逐字段 readiness。更换主教练、名单、游戏进程或存档后需要重新取得可信来源。不能在旧采集包里补入较晚读取的教练数值，伪装成同一时点。数据单来源更新尚未实现；请求只更新教练时不能擅自扩大成全量。
+
+GM先读取实际阵容和当前教练设置，自行选择人数、倾向与已知原生枚举。不要把少量测试过的值当作白名单：BenchDepth的9→10只是验收样本，11、12等人数不会因此被拒绝。四个已确认百分比字段的0–100是实际UI范围；原生整数位宽/枚举校验与对象保护仍保留。完整UI端点未知时如实标未知，不编造游戏上限。
 
 仅在确实分析某一对手时读取该队 `opponent_file`，例如 `coaching/opponents/PHI.json`。不要在 GM 启动时一次读取 870 条方案。旧批次不追填新观察。
 
@@ -25,7 +27,7 @@
 | PreferredSystem | 教练偏好体系，0–7原生枚举；原生元数据与独立位域写入/回读/恢复已验收，未单独看到其UI，玩家停止同类重复核对 |
 | ActiveSystem | 当前体系，0–7原生枚举；4主打内线→3主打外线已由玩家确认，不修改体系熟练度或评分 |
 | PlaybookID | 只能选本次进程已加载且有名的 `playbooks` 条目 enum_id；目录数量动态，不接受任意 0–255 |
-| BenchDepth | 板凳深度，即轮换球员人数上限；9→10 已实机验证。当前只接受 9–10，完整菜单端点未确认，不解释为百分比 |
+| BenchDepth | 板凳深度，即轮换球员人数上限；GM结合可用阵容与目标轮换自行选择。9→10仅为测试样本，没有10人的人为上限；保持原生整数格式校验，不解释为百分比 |
 | RunPlayTendency | 执行战术频率，0–100、步长1；70→71已验收 |
 | ZoneUsage | 区域联防频率，0–100、步长1；1→2已验收 |
 | BenchUtilization | 替补球员使用率，0–100、步长1；40→41已验收，与轮换人数分开 |
@@ -38,7 +40,7 @@
 
 体系原生枚举：0 BALANCED、1 GRIT_AND_GRIND、2 PACE_AND_SPACE、3 PERIMETER、4 POST、5 TRIANGLE、6 SEVEN_SECONDS、7 DEFENSE。
 
-四套 Freelance 用 `freelance_sets:[slot1,slot2,slot3,slot4]` 保留顺序，或只修改一个具名槽。数组与具名槽不能在同一动作中重复指定。原生 34 个名称/raw 映射已由当前进程 enum CRC 与同版本可执行文件标签配对，见本批 `field_dictionary.json` 和仓库 `config/coach_tactics_profile.json`；四槽菜单顺序验收仍待完成。不假定四套使用概率相同。
+四套 Freelance 用 `freelance_sets:[slot1,slot2,slot3,slot4]` 保留顺序，或只修改一个具名槽。数组与具名槽不能在同一动作中重复指定。原生 34 个名称/raw 映射已由当前进程 enum CRC 与同版本可执行文件标签配对，见本批 `field_dictionary.json` 和仓库 `config/coach_tactics_profile.json`；按原生字段编号保存第1至4槽的顺序，提供全部34种合法枚举；不以测试样本缩减选项。未直接查看本局比赛内四槽页面，不宣称该项UI验证或四套使用概率相同。
 
 五项 `SimPace/SimPress/SimHelpDef/SimOffReb/SimDefReb` 仅允许只读兼容，标 `GM_CONTROL_DISABLED`；任何 GM 目标均拒绝这些字段。逐球员对位、轮换、普通球员能力和全联盟模拟滑块不属于此接口。
 
@@ -79,6 +81,8 @@ GM 外层提案使用 operation=COACHING_BATCH_CHANGE，并提供 coaching_batch
 ## 批准与生命周期
 
 玩家逐批明确批准 batch_id/decision_id/version/action_ids/digest 后，才交执行角色按 `docs/40_COACHING_EXECUTION_RUNBOOK.md` 操作。任何目标、范围或版本变化都需重新批准。执行回执 `COMMITTED_VERIFIED_IN_MEMORY` 只证明内存提交；游戏保存及后续数据更新各由玩家单独触发。
+
+执行角色顺序调用脚本，不组织并发写入。若收到共享执行锁或未恢复告警，保留当前提案与缺口，不通过更换批次、career标签、工作树或日志目录绕过执行端人工审阅。
 
 GM 赛季聊天按玩家触发的月度、交易截止、季后赛和休赛期节点继续；不自动触发下月、采集、比赛模拟、写入或发布。数据陈旧、换帅、来源缺失或字段门槛关闭时输出具体缺口和 HOLD，等待可信来源或开发验收。
 
