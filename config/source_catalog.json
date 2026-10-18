@@ -18,6 +18,17 @@
   },
   "development_only_sources": [
     {
+      "id": "mc_features_dev09_research",
+      "status": "READ_ONLY_RESEARCH_CURRENT_PROCESS_AND_PLAYER_UI",
+      "entrypoint": "scripts/research_mc_features.py",
+      "profile": "config/mc_features_research_profile.json",
+      "review": "docs/development_reviews/DEV_20261018_09_MC_FEATURES_RESEARCH.md",
+      "production_capture_integration": false,
+      "game_writes_supported": false,
+      "scope": "Native movement settings plus identity-bound MC takeover/Gatorade candidate observations; no gameplay-effect, weekly-workout or Gym Rat execution certification. Not a partial production update.",
+      "context": "Menu, save name and mode are player-confirmed; no automatic UI detection. Runtime evidence is isolated under _exports."
+    },
+    {
       "id": "coaching_tactics_local",
       "status": "VERIFIED_READ_ONLY_DEVELOPMENT_SOURCE",
       "entrypoint": "scripts/coaching_snapshot.py",

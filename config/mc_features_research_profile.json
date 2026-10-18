@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "task": "DEV-20261018-09",
+  "status": "READ_ONLY_RESEARCH_NO_EXECUTOR",
+  "production_capture": false,
+  "game_writes_supported": false,
+  "expected_pe": {
+    "timestamp": 1652287197,
+    "image_size": 115056640,
+    "machine": 34404
+  },
+  "native_types": {
+    "TUNEDATA_TUNABLE_SET": {
+      "rva": 86731408,
+      "field_count": 1,
+      "size": 8,
+      "fields": {
+        "Value": {
+          "crc32": 3702945584,
+          "offset": 0,
+          "size": 4,
+          "format": 587210752,
+          "array_words": [
+            65536,
+            1130664000,
+            1
+          ],
+          "reference_rva": null
+        }
+      }
+    },
+    "TUNEDATA_TUNABLE_SET_TABLE": {
+      "rva": 86731536,
+      "field_count": 1,
+      "size": 1008,
+      "fields": {
+        "ValueSet": {
+          "crc32": 3092152312,
+          "offset": 0,
+          "size": 8,
+          "format": 671105024,
+          "array_words": [
+            65536,
+            1130664024,
+            1
+          ],
+          "reference_rva": 86731408
+        }
+      }
+    },
+    "TUNEDATA_SAVED": {
+      "rva": 86731600,
+      "field_count": 3,
+      "size": 2020,
+      "fields": {
+        "GameStyle": {
+          "crc32": 3334277626,
+          "offset": 0,
+          "size": 4,
+          "format": 654319616,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": 80195760
+        },
+        "CurrentTable": {
+          "crc32": 3176096455,
+          "offset": 4,
+          "size": 1008,
+          "format": 671088640,
+          "array_words": [
+            0,
+            0,
+            0
+          ],
+          "reference_rva": 86731536
+        },
+        "CustomTable": {
+          "crc32": 3978794867,
+          "offset": 1012,
+          "size": 1008,
+          "format": 671088640,
+          "array_words": [
+            0,
+            0,
+            0
+          ],
+          "reference_rva": 86731536
+        }
+      }
+    },
+    "BLACKTOPDATA": {
+      "rva": 80188144,
+      "field_count": 131,
+      "size": 212,
+      "fields": {
+        "GatoradePrimeChews": {
+          "crc32": 465246100,
+          "offset": 2,
+          "size": 2,
+          "format": 335548416,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        },
+        "GatoradeThirstQuencher": {
+          "crc32": 2946885735,
+          "offset": 4,
+          "size": 2,
+          "format": 335548416,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        },
+        "GatoradeRecover": {
+          "crc32": 298193168,
+          "offset": 6,
+          "size": 2,
+          "format": 335548416,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        },
+        "BoostGamesLeft_GYM_TURBO": {
+          "crc32": 2963460485,
+          "offset": 120,
+          "size": 4,
+          "format": 605030400,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        },
+        "CareerModeTakeoverArchetype": {
+          "crc32": 224932955,
+          "offset": 128,
+          "size": 4,
+          "format": 655688704,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": 80187888
+        },
+        "CareerModeSecondaryTakeoverArchetype": {
+          "crc32": 1017993288,
+          "offset": 160,
+          "size": 4,
+          "format": 656147456,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": 80187888
+        },
+        "IsTakeoverSecondaryUnlocked": {
+          "crc32": 1834912400,
+          "offset": 164,
+          "size": 4,
+          "format": 622067968,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        }
+      }
+    },
+    "PLAYERDATA": {
+      "rva": 80186288,
+      "field_count": 963,
+      "size": 1264,
+      "fields": {
+        "CareerGymEliminatorBadge": {
+          "crc32": 687878954,
+          "offset": 1218,
+          "size": 1,
+          "format": 67174656,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        },
+        "UnlocalizedFirstName": {
+          "crc32": 4099911928,
+          "offset": 40,
+          "size": 2,
+          "format": 369102848,
+          "array_words": [
+            65537,
+            1125484880,
+            1
+          ],
+          "reference_rva": null
+        },
+        "UnlocalizedLastName": {
+          "crc32": 1372936809,
+          "offset": 0,
+          "size": 2,
+          "format": 369102848,
+          "array_words": [
+            65537,
+            1125484856,
+            1
+          ],
+          "reference_rva": null
+        },
+        "UniqueId": {
+          "crc32": 834505462,
+          "offset": 244,
+          "size": 2,
+          "format": 335548416,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        },
+        "BlacktopData": {
+          "crc32": 534490884,
+          "offset": 224,
+          "size": 212,
+          "format": 939524096,
+          "array_words": [
+            2048,
+            0,
+            0
+          ],
+          "reference_rva": null
+        }
+      }
+    },
+    "USERDATA_MYPLAYER": {
+      "rva": 80196656,
+      "field_count": 32,
+      "size": 81800,
+      "fields": {
+        "PlayerData": {
+          "crc32": 1926629204,
+          "offset": 0,
+          "size": 1264,
+          "format": 939524096,
+          "array_words": [
+            0,
+            0,
+            0
+          ],
+          "reference_rva": 80186288
+        },
+        "BlacktopData": {
+          "crc32": 534490884,
+          "offset": 1376,
+          "size": 212,
+          "format": 671088640,
+          "array_words": [
+            0,
+            0,
+            0
+          ],
+          "reference_rva": 80188144
+        }
+      }
+    },
+    "CAREERMODE": {
+      "rva": 81099360,
+      "field_count": 238,
+      "size": 1040120,
+      "fields": {
+        "PlayerIndex": {
+          "crc32": 940697594,
+          "offset": 0,
+          "size": 2,
+          "format": 335548416,
+          "array_words": [
+            1,
+            0,
+            0
+          ],
+          "reference_rva": null
+        }
+      }
+    }
+  },
+  "movement": {
+    "getter_rva_evidence": 11280224,
+    "getter_bytes": "4863c1488d0d86e6eb0248630c814863c2488d1448488b0524958605f30f10449004c3",
+    "getter_mask": "ffffffffffff00000000ffffffffffffffffffffffffffff00000000ffffffffffffff",
+    "pointer_instruction_offset": 21,
+    "mapping_instruction_offset": 3,
+    "table_count": 126,
+    "sides": {
+      "USER": 0,
+      "CPU": 1
+    },
+    "fields": {
+      "SpeedWithoutBallMaxRating": {
+        "native_id": 109,
+        "table_index": 108,
+        "crc32": 2785932371
+      },
+      "SpeedWithoutBallMinRating": {
+        "native_id": 110,
+        "table_index": 109,
+        "crc32": 1910916626
+      },
+      "SpeedWithBallMaxRating": {
+        "native_id": 111,
+        "table_index": 110,
+        "crc32": 2803545714
+      },
+      "SpeedWithBallMinRating": {
+        "native_id": 112,
+        "table_index": 111,
+        "crc32": 1894843443
+      },
+      "AccelerationWithoutBallMaxRating": {
+        "native_id": 113,
+        "table_index": 112,
+        "crc32": 318396511
+      },
+      "AccelerationWithoutBallMinRating": {
+        "native_id": 114,
+        "table_index": 113,
+        "crc32": 3306285598
+      },
+      "AccelerationWithBallMaxRating": {
+        "native_id": 115,
+        "table_index": 114,
+        "crc32": 3316102237
+      },
+      "AccelerationWithBallMinRating": {
+        "native_id": 116,
+        "table_index": 115,
+        "crc32": 306972188
+      }
+    },
+    "side_labels_status": "PLAYER_UI_DIFFERENTIAL_CONFIRMED",
+    "ui_scale": 100,
+    "gameplay_consumer": "UNVERIFIED",
+    "mc_effective_instance": "UNVERIFIED",
+    "name_crc_array_rva": 39589952
+  },
+  "takeover_enum": {
+    "rva": 80187888,
+    "values": {
+      "0": "SPOT_UP_SHOOTER",
+      "1": "SLASHER",
+      "2": "SHOT_CREATOR",
+      "3": "PLAYMAKER",
+      "4": "POST_SCORER",
+      "5": "LOCKDOWN_DEFENDER",
+      "6": "RIM_PROTECTOR",
+      "7": "GLASS_CLEANER",
+      "8": "DEFAULT"
+    }
+  },
+  "mc_identity_binding": "READ_ONLY_CAREERMODE_INDEX_ROSTER_NAME_BLACKTOP_POINTER_VERIFIED_CURRENT_SCENE",
+  "gatorade_semantics": "IDENTITY_BOUND_NATIVE_COUNTS_OBSERVED_ZERO_EFFECTS_AND_WEEKLY_TIMER_UNVERIFIED",
+  "gym_rat_note": "CareerGymEliminatorBadge is a badge-storage candidate, not a confirmed Gym Rat effect; task prohibits badge writes.",
+  "mc_binding_candidates": {
+    "career_reference_instruction_rva": 21395802,
+    "career_instruction_bytes": "488b0d473bec04488b96d80000004885c9741741b8f8de0f004885d27507e863383c00eb05e83d493c00",
+    "roster_getter_rva": 18701792,
+    "roster_getter_bytes": "488b0539191705c3",
+    "status": "CURRENT_MC_IDENTITY_REQUIRES_PLAYER_CONFIRMED_SCENE_AND_NAME"
+  }
+}

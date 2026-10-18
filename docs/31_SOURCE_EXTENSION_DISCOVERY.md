@@ -1,5 +1,9 @@
 # 数据源扩充：当前实现与未解字段
 
+## DEV09运动／MC原生字段研究（2026-10-18，非生产采集）
+
+[研究报告](development_reviews/DEV_20261018_09_MC_FEATURES_RESEARCH.md)及[证据矩阵](development_reviews/DEV_20261018_09_MC_FEATURES_EVIDENCE.json)登记：TUNEDATA原生getter、USER/CPU×持球速度／加速度Min/Max、菜单差分与名人堂恢复；玩家载入MC后同会话共用活动对象。主宰类型位于BLACKTOPDATA独立共享位域，Tyrese Haliburton raw2与运投高手UI对应；三类Gatorade数量与Gym Turbo场次读到0，周训练计时／效果及Gym Rat仍未认证。只读入口 `scripts/research_mc_features.py` 和 `config/mc_features_research_profile.json` 不接生产full_verified_v1，不执行游戏修改、不更新正式SQLite／published；人物徽章候选位不因发现而开放写入。
+
 ## W02转队事故后的名单计数认证（2026-10-17）
 
 精确字段和证据见`config/roster_association_profile.json`及[文档37](37_APPROVED_TRADE_EXECUTOR.md)。当前NBA2K22本体/Tools代码和30队实际关系证实：`+0xCB1`为常规名单人数；`+0x1047`低2位为双向人数，高4位为`+0xD0`活动名单人数。常规容量15，保留槽不能当21人容量；双向成员也可处于活动名单。W02首次代码漏人数，出现White不可见/崩溃；三个字节修复与独立内存复核通过，玩家随后确认公牛/活塞交易成功。当前受控v2脚本已包含计数维护；该确认不代表所有球队或签约均已验收。本次未更新正式数据库/发布包，也不改下文历史采集事实。

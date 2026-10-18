@@ -1,0 +1,413 @@
+{
+  "task": "DEV-20261018-09",
+  "status": "READ_ONLY_RESEARCH_WITH_PLAYER_UI_DIFFERENTIALS",
+  "observed_process": {
+    "pid": 552,
+    "creation_time": "2026-10-18 11:43:01.803000+00:00",
+    "pe": {
+      "timestamp": 1652287197,
+      "image_size": 115056640,
+      "machine": 34404
+    }
+  },
+  "ui_context_source": "PLAYER_REPORT_NO_SCREENSHOT_NO_AUTOMATIC_MENU_DETECTION",
+  "scope": "Myleague test save followed by player-loaded MyCAREER0004; no production capture or game writes.",
+  "movement_field_matrix": [
+    {
+      "field": "SpeedWithBallMaxRating",
+      "side": "USER",
+      "native_id": 111,
+      "table_index": 110,
+      "object_offset": 884,
+      "raw_float": 0.699999988079071,
+      "raw_hex": "3333333f",
+      "ui_scale_calculated": 70.0,
+      "ui_baseline_confirmed": false,
+      "differential_confirmed": false,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "SpeedWithBallMaxRating",
+      "side": "CPU",
+      "native_id": 111,
+      "table_index": 110,
+      "object_offset": 888,
+      "raw_float": 0.699999988079071,
+      "raw_hex": "3333333f",
+      "ui_scale_calculated": 70.0,
+      "ui_baseline_confirmed": true,
+      "differential_confirmed": false,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "SpeedWithBallMinRating",
+      "side": "USER",
+      "native_id": 112,
+      "table_index": 111,
+      "object_offset": 892,
+      "raw_float": 0.4000000059604645,
+      "raw_hex": "cdcccc3e",
+      "ui_scale_calculated": 40.0,
+      "ui_baseline_confirmed": true,
+      "differential_confirmed": true,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "SpeedWithBallMinRating",
+      "side": "CPU",
+      "native_id": 112,
+      "table_index": 111,
+      "object_offset": 896,
+      "raw_float": 0.4000000059604645,
+      "raw_hex": "cdcccc3e",
+      "ui_scale_calculated": 40.0,
+      "ui_baseline_confirmed": true,
+      "differential_confirmed": true,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "AccelerationWithBallMaxRating",
+      "side": "USER",
+      "native_id": 115,
+      "table_index": 114,
+      "object_offset": 916,
+      "raw_float": 0.699999988079071,
+      "raw_hex": "3333333f",
+      "ui_scale_calculated": 70.0,
+      "ui_baseline_confirmed": false,
+      "differential_confirmed": false,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "AccelerationWithBallMaxRating",
+      "side": "CPU",
+      "native_id": 115,
+      "table_index": 114,
+      "object_offset": 920,
+      "raw_float": 0.699999988079071,
+      "raw_hex": "3333333f",
+      "ui_scale_calculated": 70.0,
+      "ui_baseline_confirmed": true,
+      "differential_confirmed": false,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "AccelerationWithBallMinRating",
+      "side": "USER",
+      "native_id": 116,
+      "table_index": 115,
+      "object_offset": 924,
+      "raw_float": 0.4000000059604645,
+      "raw_hex": "cdcccc3e",
+      "ui_scale_calculated": 40.0,
+      "ui_baseline_confirmed": true,
+      "differential_confirmed": true,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    },
+    {
+      "field": "AccelerationWithBallMinRating",
+      "side": "CPU",
+      "native_id": 116,
+      "table_index": 115,
+      "object_offset": 928,
+      "raw_float": 0.4000000059604645,
+      "raw_hex": "cdcccc3e",
+      "ui_scale_calculated": 40.0,
+      "ui_baseline_confirmed": true,
+      "differential_confirmed": false,
+      "native_setting": "CONFIRMED",
+      "gameplay_consumer": "UNVERIFIED",
+      "mc_player_side_selection": "UNVERIFIED"
+    }
+  ],
+  "differentials": {
+    "cpu_speed_min_40_to_41": {
+      "current_and_preset_changes": [
+        {
+          "offset": 0,
+          "before": "04000000",
+          "after": "0a000000"
+        },
+        {
+          "offset": 896,
+          "before": "cdcccc3e",
+          "after": "85ebd13e"
+        }
+      ],
+      "custom_cache_changed_words": 252
+    },
+    "user_speed_min_40_to_41": {
+      "current_and_preset_changes": [
+        {
+          "offset": 892,
+          "before": "cdcccc3e",
+          "after": "85ebd13e"
+        }
+      ],
+      "custom_cache_changed_words": 1
+    },
+    "user_accel_min_40_to_41_after_restoring_user_speed": {
+      "current_and_preset_changes": [
+        {
+          "offset": 892,
+          "before": "85ebd13e",
+          "after": "cdcccc3e"
+        },
+        {
+          "offset": 924,
+          "before": "cdcccc3e",
+          "after": "85ebd13e"
+        }
+      ],
+      "custom_cache_changed_words": 2
+    }
+  },
+  "user_operation_clarification": "The first USER change was speed minimum, confirmed by player; the later independent change was 控球加速 minimum.",
+  "restoration": {
+    "preset_before": 4,
+    "preset_after": 4,
+    "current_table_byte_identical": true,
+    "custom_cache_byte_identical": false,
+    "custom_cache_changed_words": 252,
+    "game_save_performed_by_program": false
+  },
+  "native_read_path": {
+    "pe": {
+      "timestamp": 1652287197,
+      "image_size": 115056640,
+      "machine": 34404
+    },
+    "getter_rva": 11280224,
+    "pointer_slot_rva": 103986336,
+    "index_map_rva": 60294640,
+    "schemas": {
+      "TUNEDATA_TUNABLE_SET": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 8,
+        "verified_fields": [
+          "Value"
+        ]
+      },
+      "TUNEDATA_TUNABLE_SET_TABLE": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 1008,
+        "verified_fields": [
+          "ValueSet"
+        ]
+      },
+      "TUNEDATA_SAVED": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 2020,
+        "verified_fields": [
+          "GameStyle",
+          "CurrentTable",
+          "CustomTable"
+        ]
+      },
+      "BLACKTOPDATA": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 212,
+        "verified_fields": [
+          "GatoradePrimeChews",
+          "GatoradeThirstQuencher",
+          "GatoradeRecover",
+          "BoostGamesLeft_GYM_TURBO",
+          "CareerModeTakeoverArchetype",
+          "CareerModeSecondaryTakeoverArchetype",
+          "IsTakeoverSecondaryUnlocked"
+        ]
+      },
+      "PLAYERDATA": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 1264,
+        "verified_fields": [
+          "CareerGymEliminatorBadge"
+        ]
+      },
+      "USERDATA_MYPLAYER": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 81800,
+        "verified_fields": [
+          "PlayerData",
+          "BlacktopData"
+        ]
+      }
+    }
+  },
+  "mode_comparison": {
+    "mc_save_player_report": "MyCAREER0004",
+    "same_pid_creation": true,
+    "same_active_settings_object_this_session": true,
+    "mc_game_style_raw": 4,
+    "current_table_same_after_mc_load": true,
+    "conclusion": "SAME_ACTIVE_SETTINGS_OBJECT_CONFIRMED_THIS_PROCESS_ONLY; cross-save persistence, side routing and animation effect remain unverified."
+  },
+  "mc_identity": {
+    "status": "CAREER_INDEX_ROSTER_NAME_MATCHED_LOCAL_CANDIDATE",
+    "display_name": "Tyrese Haliburton",
+    "native_unique_id": 7598,
+    "fields": {
+      "GatoradePrimeChews": {
+        "raw": 0,
+        "whole_storage_hex": "0000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "GatoradeThirstQuencher": {
+        "raw": 0,
+        "whole_storage_hex": "0000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "GatoradeRecover": {
+        "raw": 0,
+        "whole_storage_hex": "0000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "BoostGamesLeft_GYM_TURBO": {
+        "raw": 0,
+        "whole_storage_hex": "00000000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "CareerModeTakeoverArchetype": {
+        "raw": 2,
+        "whole_storage_hex": "00004000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "CareerModeSecondaryTakeoverArchetype": {
+        "raw": 0,
+        "whole_storage_hex": "00000000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "IsTakeoverSecondaryUnlocked": {
+        "raw": 0,
+        "whole_storage_hex": "00002000",
+        "semantics": "NATIVE_FIELD_ONLY_EFFECT_UNVERIFIED"
+      },
+      "CareerGymEliminatorBadge": {
+        "raw": 0,
+        "whole_storage_hex": "6d",
+        "semantics": "GYM_RAT_CANDIDATE_BADGE_WRITES_FORBIDDEN"
+      }
+    },
+    "takeover_label": "SHOT_CREATOR",
+    "ui_type_confirmation": "PLAYER_REPORTED_运投高手_MATCHED_NATIVE_SHOT_CREATOR_2",
+    "live_gameplay_effect": "UNVERIFIED",
+    "game_writes": 0
+  },
+  "takeover_ui_pair": {
+    "player_report": "运投高手",
+    "native_label": "SHOT_CREATOR",
+    "raw": 2,
+    "confirmed": true
+  },
+  "weekly_workout_timer": "UNRESOLVED_NOT_INFERRED_FROM_GYM_TURBO_COUNT",
+  "gym_rat_effect": "NATIVE_BADGE_CANDIDATE_ONLY_WRITES_FORBIDDEN_BY_CURRENT_TASK",
+  "program_game_writes": 0,
+  "approved_game_changes": [],
+  "validation": {
+    "targeted_unittest_count": 9,
+    "status": "PASSED",
+    "command": "python -B -m unittest discover -s tests -p test_mc_feature_research.py -v",
+    "cli_help": "PASSED",
+    "current_mc_cli": "PASSED_CURRENT_PROCESS_READ_ONLY",
+    "game_write_tests": "NOT_RUN_NOT_AUTHORIZED",
+    "save_reload_tests": "NOT_RUN"
+  },
+  "local_evidence_directory": "_exports/dev09/ (not versioned; contains runtime addresses and PE slices)",
+  "mc_native_read_path": {
+    "pe": {
+      "timestamp": 1652287197,
+      "image_size": 115056640,
+      "machine": 34404
+    },
+    "getter_rva": 11280224,
+    "pointer_slot_rva": 103986336,
+    "index_map_rva": 60294640,
+    "name_crc_array_rva": 39589952,
+    "schemas": {
+      "TUNEDATA_TUNABLE_SET": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 8,
+        "verified_fields": [
+          "Value"
+        ]
+      },
+      "TUNEDATA_TUNABLE_SET_TABLE": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 1008,
+        "verified_fields": [
+          "ValueSet"
+        ]
+      },
+      "TUNEDATA_SAVED": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 2020,
+        "verified_fields": [
+          "GameStyle",
+          "CurrentTable",
+          "CustomTable"
+        ]
+      },
+      "BLACKTOPDATA": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 212,
+        "verified_fields": [
+          "GatoradePrimeChews",
+          "GatoradeThirstQuencher",
+          "GatoradeRecover",
+          "BoostGamesLeft_GYM_TURBO",
+          "CareerModeTakeoverArchetype",
+          "CareerModeSecondaryTakeoverArchetype",
+          "IsTakeoverSecondaryUnlocked"
+        ]
+      },
+      "PLAYERDATA": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 1264,
+        "verified_fields": [
+          "CareerGymEliminatorBadge",
+          "UnlocalizedFirstName",
+          "UnlocalizedLastName",
+          "UniqueId",
+          "BlacktopData"
+        ]
+      },
+      "USERDATA_MYPLAYER": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 81800,
+        "verified_fields": [
+          "PlayerData",
+          "BlacktopData"
+        ]
+      },
+      "CAREERMODE": {
+        "status": "CURRENT_PROCESS_SCHEMA_VERIFIED",
+        "size": 1040120,
+        "verified_fields": [
+          "PlayerIndex"
+        ]
+      }
+    }
+  },
+  "player_reported_mc_ui": {
+    "save": "MyCAREER0004",
+    "corrected_name": "tyrese haliburton",
+    "takeover": "运投高手",
+    "gatorade": "未获得，灰色图标",
+    "training": "未训练",
+    "gym_rat_separate_ui": "NOT_REPORTED"
+  }
+}

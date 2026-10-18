@@ -64,6 +64,8 @@
 
 不要因存在函数、表或预留模型就宣称生产路径已完成；独立底层函数也不等于独立采集、入库、审计和发布都可用。
 
+DEV09运动滑块／MC主宰／佳得乐研究入口为 `scripts/research_mc_features.py`、`src/mc_feature_research.py`、`config/mc_features_research_profile.json`；当前仅只读定位，真实证据与限制见文档34及其DEV09研究报告。不能调用旧slider一键入口代替独立Movement；同一活动对象不证明MC动画消费；主宰类型与充能／激活分开，佳得乐数量与周训练／Gym Rat分开。没有正式写入接口，普通能力／徽章禁区不因研究解除。
+
 当前受控v2交易入口为 `scripts/execute_approved_trades.py`；名单计数修复后玩家确认公牛/活塞交易成功，支持范围及历史事故见文档37。签约执行源码为 `src/approved_signing_executor.py` 和 `scripts/execute_approved_signing.py`，未运行/测试，待实际签约时验证，见文档38。本地只执行GM给定的交易和合同结果；不开发报价、谈判或其他经营决策逻辑。
 
 ### 5. 开发执行流程
