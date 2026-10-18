@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "GM per-team data-to-decision dossier contract v1",
-  "description": "Template/validation schema only. Do not treat it as game data, a coaching batch or game execution authorization. Each current roster player is to be assessed from observed source.",
+  "description": "Template/validation schema only. Do not treat it as game data, a coaching batch or game execution authorization. Each current roster player is to be assessed from observed source. A separate deterministic source-bound validator must confirm source_roster_player_count == assessed_roster_player_count == unique(player_assessments) and exact source identity sets; JSON Schema itself cannot prove cross-file roster completeness.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -28,7 +28,10 @@
     "uncertainties",
     "candidate_actions",
     "monitoring_plan",
-    "approval_state"
+    "approval_state",
+    "source_roster_player_count",
+    "assessed_roster_player_count",
+    "roster_coverage_status"
   ],
   "properties": {
     "career_id": {
@@ -576,6 +579,23 @@
         "NOT_APPROVED",
         "PLAYER_APPROVED",
         "EXECUTED_VERIFIED"
+      ]
+    },
+    "source_roster_player_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count of all current team roster records from same-batch teams/abbr.json"
+    },
+    "assessed_roster_player_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of distinct player source identities assessed"
+    },
+    "roster_coverage_status": {
+      "enum": [
+        "COMPLETE_SAME_BATCH",
+        "INCOMPLETE_REWORK_REQUIRED",
+        "SOURCE_UNAVAILABLE"
       ]
     }
   }
