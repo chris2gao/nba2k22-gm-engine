@@ -15,7 +15,6 @@
     "team_id",
     "review_status",
     "goal_phase",
-    "winning_philosophy",
     "team_diagnosis",
     "player_assessments",
     "staff_assessment",
@@ -31,7 +30,8 @@
     "approval_state",
     "source_roster_player_count",
     "assessed_roster_player_count",
-    "roster_coverage_status"
+    "roster_coverage_status",
+    "decision_objective"
   ],
   "properties": {
     "career_id": {
@@ -83,7 +83,8 @@
     },
     "winning_philosophy": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "Optional; do not invent team culture from its snapshot roster"
     },
     "team_diagnosis": {
       "type": "object",
@@ -235,7 +236,8 @@
             "OBSERVED_EFFECT_VALIDATED",
             "PLAYER_EXPERIENCE",
             "INFERRED_ONLY",
-            "UNKNOWN"
+            "UNKNOWN",
+            "NOT_EVALUATED"
           ]
         },
         "staff_change_executor_status": {
@@ -249,7 +251,8 @@
           "enum": [
             "STAFF_HOLD",
             "STAFF_REVIEW",
-            "STAFF_CHANGE_RESEARCH_CANDIDATE"
+            "STAFF_CHANGE_RESEARCH_CANDIDATE",
+            "STAFF_DEFERRED_BY_PLAYER"
           ]
         }
       }
@@ -597,6 +600,11 @@
         "INCOMPLETE_REWORK_REQUIRED",
         "SOURCE_UNAVAILABLE"
       ]
+    },
+    "decision_objective": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Evidence-linked, measurable performance objective"
     }
   }
 }
