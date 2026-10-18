@@ -71,7 +71,7 @@
 
 按 `published/index.json → saves/<career>/latest.json → batch_path` 选择玩家要求的生涯和批次。先核对 `data_updated_at`、`uploaded_at`、`game_date`、career/batch，再读 `coaching/teams.json` 和 `coaching/field_dictionary.json`。不存在这些文件或 coverage 未标 `VERIFIED_OBSERVED_SAME_BATCH` 时，教练来源不可用；不能拿旧 TEAM `poe_*`、另一局截图或现实 NBA 声誉补值。
 
-`teams.json` 含 30 队各自当前 HEAD_COACH 身份、阵容签名、19 项原始值、原始共享块和逐字段 readiness。更换主教练、名单、游戏进程或存档后需要重新取得可信来源。不能在旧采集包里补入较晚读取的教练数值，伪装成同一时点。数据单来源更新尚未实现；请求只更新教练时不能擅自扩大成全量。
+`teams.json` 含 30 队各自当前 HEAD_COACH 身份、阵容签名、19 项原始值、原始共享块和逐字段 readiness。更换主教练、名单、游戏进程或存档后需要重新取得可信来源。不能在旧采集包里补入较晚读取的教练数值，伪装成同一时点。**2026-10-18玩家确认全量-only规则**：任何新数据更新（包括因教练战术调整而触发）均按已授权的`full_verified_v1`刷新全部已验证来源，不开发、不请求单独教练来源刷新。GM不能自动触发更新；如玩家明确限制排除某项来源，应说明全量-only边界。
 
 GM先读取实际阵容和当前教练设置，自行选择人数、倾向与已知原生枚举。不要把少量测试过的值当作白名单：BenchDepth的9→10只是验收样本，11、12等人数不会因此被拒绝。四个已确认百分比字段的0–100是实际UI范围；原生整数位宽/枚举校验与对象保护仍保留。完整UI端点未知时如实标未知，不编造游戏上限。
 
