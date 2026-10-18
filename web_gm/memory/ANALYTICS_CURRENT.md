@@ -3,13 +3,18 @@
 - role: WEB_GPT_ANALYTICS
 - baseline_id: `WEB_GPT_ANALYTICS_V2`
 - method_version: `ANALYTICS_DECISION_READY_V2`
-- memory_version: 2
+- memory_version: 3
 - last_reviewed: 2026-10-18
-- state: `BASELINE_V2_METHOD_READY_NO_NEW_ANALYSIS`
+- state: `M02_V2_PUBLISHED_ANALYSIS_ONLY_PARTIAL_DATA_GATES`
 - current_observed_published_batch: `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`（核验时最新；**下一任务必须重新读latest**）
 - current_observed_game_date: `2021-12-12`（玩家确认）
 - previous_comparison_candidate: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`
-- last_completed_analysis_batch_id: `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（以前完成的旧版初评）
+- last_completed_analysis_batch_id: `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`（V2分析已发布，仍有数据身份与poss语义缺口）
+- latest_analytics_run_id: `20261018_M02_DEC12_V2_ANALYSIS_01`
+- latest_analytics_execution_status: `PUBLISHED_ANALYSIS_ONLY_PARTIAL_DATA_GATES`
+- latest_analytics_session: [M02 V2发布及回读记录](analytics/sessions/20261018_m02_v2_analysis_github_publish.md)
+- latest_analytics_dir: [M02 V2简明报告](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_ANALYSIS_ONLY.md)
+- latest_analytics_json: [M02 V2结构化JSON](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_ANALYSIS_ONLY.json)
 - latest_methodology_session: [20261018_decision_ready_v2_baseline](analytics/sessions/20261018_decision_ready_v2_baseline.md)
 
 ## 正式方法和交付
@@ -17,7 +22,7 @@
 - [新版方法规范：ANALYTICS_DECISION_READY_V2](../../docs/gm_analysis/ANALYTICS_DECISION_READY_V2_METHOD.md)
 - [分析基线V2](../baselines/ANALYTICS_BASELINE.md)
 - 历史已发布的 [30队量化报告](../../docs/gm_analysis/2021-2022_SIMPLE_PICKS_V1_ANALYSIS_ONLY.md) / [原JSON](../../docs/gm_analysis/2021-2022_SIMPLE_PICKS_V1_ANALYSIS_ONLY.json)。它们不是M02新分析。
-- 此次完成的是**基线和方法文档升级，不是M02分析执行**；本次`execution_mode=NOT_EXECUTED`，未计算或发布新的M01→M02结果。
+- **M02 V2分析于2026-10-18已发布至GitHub main**：简报、30队表、跨批表、方法来源与主JSON共5份。此前“未执行”的说明只适用于基线初始化任务。
 
 GM要求V2放弃**默认长篇排行榜**，改为四项决策支持：
 1. 30队简短诊断：阶段候选、区间战绩、核心与替补、攻防问题、教练与阵容是否匹配、内部改善与人才缺口/交易需求证据。
@@ -26,6 +31,12 @@ GM要求V2放弃**默认长篇排行榜**，改为四项决策支持：
 4. 进攻特征、eFG%、3PA率、估算TOV率、场均得失分等确定性指标；`poss`的原生攻守语义未认证前，不能称结果为标准ORtg/DRtg/NetRtg。
 
 每轮玩家授权发布时，在`docs/gm_analysis/<career_id>/`新建一组五个文件：`_ANALYSIS_ONLY.md`（简明报告）、`_TEAM_DECISION_TABLE.md`、`_CHANGE_TRACKING.md`、`_METHOD_AND_SOURCES.md`、`_ANALYSIS_ONLY.json`（完整证据）。每个报告必须绑定两批（如适用）、game_date、规则、计算版本/方法、身份匹配等级和未知项。
+
+## 当前已发布M02 V2分析的验证说明
+
+- [简报](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_ANALYSIS_ONLY.md) / [30队决策准备表](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_TEAM_DECISION_TABLE.md) / [跨批变化表](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_CHANGE_TRACKING.md) / [方法来源](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_METHOD_AND_SOURCES.md) / [主JSON](../../docs/gm_analysis/mc_haliburton_2021/20261018_M02_DEC12_V2_ANALYSIS_01_ANALYSIS_ONLY.json)。
+- GitHub创建写入已经恢复并实际完成，五文件重新读取通过；30队唯一、104场区间新增、5选秀权变化、870对手防守记录校验一致。
+- 主JSON是从四份已发布MD和原始 GitHub 事实重新构建，不是旧本地 JSON 的逐字节复制；身份/55逐字段差分以及poss语义仍未完全认证，状态为`PARTIAL_DATA_GATES`。GM可用已验证的球队级事实与启发式诊断，不能把177名候选称为已验证成长。
 
 ## 下一次任务入口和明确缺口
 
