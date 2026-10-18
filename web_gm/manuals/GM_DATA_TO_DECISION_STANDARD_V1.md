@@ -138,6 +138,8 @@
 
 **强制决策记录字段**：`career_id`、`game_season`、`game_date`、`source_batch_id`、`analysis_batch_id`（如有）、`gm_node`、`round_id`、`team_id/abbr`、`goal_phase`、`winning_philosophy`、`player_assessments`（覆盖大名单）、`team_diagnosis`、`staff_assessment`、`coaching_assessment`、`roster_use`、`contract_and_draft_assets`、`decision_alternatives`、`decision_dimensions{D1..D6}`、`evidence_refs`、`uncertainties`、`candidate_actions`、`expected_direction_without_fabricated_win_pct`、`monitoring_plan`、`review_status`和`approval_state`。
 
+**程序覆盖闸门**：结构化档案应记录`source_roster_player_count/assessed_roster_player_count/roster_coverage_status`。完整深度轮通过**确定性比较**确认同批`teams/<abbr>.json`当前名单身份集合，与`player_assessments[]`独特来源身份集合完全一致；仅JSON Schema通过不能证明30队全员覆盖。任何漏评或身份无法确认必须标`INCOMPLETE_REWORK_REQUIRED`，不能计入本轮研究完成。
+
 **质量闸门**：缺主力球员详细能力/岗位和员工实际身份的队伍标`REWORK_REQUIRED`，不能计入V3深度10/5队完成数；员工机制未知不意味着该队不能完成档案——可以写`STAFF_EFFECT_UNKNOWN / STAFF_HOLD`并完成其他五维度深入诊断，重点说明不可根据未知员工效应解雇。每一项变化必须可追踪到有证据的球队问题与当前球队胜利哲学，`HOLD`要给出成本收益比较。
 
 ## 7. 30队整合后如何真正决策与验收
