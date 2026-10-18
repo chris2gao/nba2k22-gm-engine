@@ -103,23 +103,7 @@ class MonthlyDecisionPipeline:
                 coaching_changes.append(f"国王解雇沃顿，聘请勇士首席助教 {replacement_coach}，注入铁血防守与手递手动态进攻！")
 
             # 维度 3: 赛场攻防策略针对性自适应调优 (POEs)
-            strat = self.strat_mgr.get_team_strategy(tid)
-            if strat:
-                new_pace = strat["off_pace"]
-                new_pnr = strat["pnr_def"]
-                new_press = strat["on_ball_pressure"]
-                
-                # 自适应规则：跑轰重建队提速，防守强队拉满贴身施压
-                if lifecycle == "REBUILDING":
-                    new_pace = 6
-                    new_pnr = 3  # 软延误
-                    self.strat_mgr.set_team_strategy(tid, off_pace=new_pace, pick_and_roll_def=new_pnr)
-                    tactical_updates.append(f"{abb} (重建期): 进攻节奏提至高速({new_pace})，挡拆策略调整为软延误(3)")
-                elif lifecycle == "CONTENDING":
-                    new_press = 5  # 窒息贴身
-                    new_pnr = 6 if abb in ["GSW", "BOS"] else 1  # 换防或沉退
-                    self.strat_mgr.set_team_strategy(tid, on_ball_pressure=new_press, pick_and_roll_def=new_pnr)
-                    tactical_updates.append(f"{abb} (争冠期): 对球贴身施压提升至({new_press})，挡拆策略锁定为({new_pnr})")
+            tactical_updates.append(f"{abb}: LEGACY_TEAM_POE_OFFSETS_REVOKED；新版战术须独立提案及玩家批准")
 
             # 维度 4: 阵容资产审计与货架清单更新 (Trade Block)
             # 写入本地 trade_block 表

@@ -244,7 +244,7 @@ def run_automated_ingestion(
         merch_rev = mem.require_uint32(addr + 0xFDC)
         media_rev = mem.require_uint32(addr + 0xFE4)
 
-        # 实测 POE 战术策略
+        # 历史 TEAM 原始字节：LEGACY_UNVERIFIED，不再解释为教练 POE。
         off_pace = mem.require_uint8(addr + 0xEB2)
         fastbreak = mem.require_uint8(addr + 0xEB3)
         off_reb = mem.require_uint8(addr + 0xEB4)

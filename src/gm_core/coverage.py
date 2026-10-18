@@ -17,6 +17,9 @@ def source_available(data, source_id):
 
 
 def state_value(data, team, key, source_id="team_state"):
+    if key.startswith("poe_"):
+        # Preserve historical bytes, but never attest their revoked tactic meaning.
+        return None
     row = team.get("state", {})
     value = row.get(key)
     if not source_available(data, source_id) or row.get("data_source") != "LIVE_MEMORY" or value is None:
