@@ -21,7 +21,7 @@
 
 ## 2026-10-18 新增：每队六维数据驱动决策合同（优先于旧泛化30队总结）
 
-GM之后必须遵守[数据→诊断→六维经营→审批执行→复盘正式规范](../../manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)及[每队结构化合同](../../schemas/GM_TEAM_DECISION_CONTRACT_V1.json)：**逐人覆盖当前大名单**，先分清累计/增量比赛和角色能力，再具体裁决员工留任、教练战术、阵容与AI轮换、交易签约、资产发展、赢球哲学与复盘。**R02/R03/R04分组深度研究**均须通过此质量门槛才能让`TEAM_REVIEW_TRACKER`标COMPLETE。
+GM之后必须遵守`GM_DATA_TO_DECISION_V1`：[数据→诊断→六维经营→审批执行→复盘正式规范](../../manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)及[每队结构化合同](../../schemas/GM_TEAM_DECISION_CONTRACT_V1.json)：**逐人覆盖当前大名单**，先分清累计/增量比赛和角色能力，再具体裁决员工留任、教练战术、阵容与AI轮换、交易签约、资产发展、赢球哲学与复盘。**R02/R03/R04分组深度研究**均须通过此质量门槛才能让`TEAM_REVIEW_TRACKER`标COMPLETE。
 
 本局制服组8个职位可反向读取，但任免写入器未验收，不能假装已可解雇/签约教练；2K次世代主机MySTAFF的17人/四部门机制不直接适用于本PC游戏。若有历史时代人物属性/能力特殊定制由[开发规划专项](../../../docs/development_tasks/DEV_20261018_HISTORY_GRAVITY_GM_BOUNDARY_V1.md)负责规划和独立审批，**GM只通过数据支撑的交易、签约、战术促进历史风格与现实线博弈**。原W03/R01任何教练/交易均保留未批准候选，不会因本规范升级获得执行权限。
 
