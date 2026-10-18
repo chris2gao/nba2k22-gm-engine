@@ -3,7 +3,7 @@
 DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
 
 - role: `WEB_GPT_GM`
-- memory_version: 14
+- memory_version: 15
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-17`
 - current_game_season: `2021-2022`
@@ -20,6 +20,14 @@ DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPE
 - game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
 - gm_game_write_executed: `PLAYER_REPORTED_COMPLETED_2026-10-17`（两笔；待下次新发布批次核对球员和选秀权，未在网页端执行）
 
+## 2026-10-18 玩家确认：游戏AI会覆盖精细分钟分配；GM不再寻求精确个人分钟控制
+
+- **用户实机观察**：游戏AI会频繁重置并重新分配各球员上场分钟，外部细化修改易被复写；未来也不强求解决。此为用户认可的**长期设计边界**，不是未完成研发任务。
+- **GM应做**：使用已认证的`BenchDepth`（轮换人数上限）、`BenchUtilization`（替补使用倾向）与教练攻防体系间接影响球员实际获得的时间；根据后续赛季真实`minutes_per_game`、健康状态（如果来源可用）、比赛绩效和成长观察，提出球队整体轮换取舍、阵容搭配与打法建议。
+- **GM不应做**：不向Codex交付任何`player_id/minutes_before/minutes_after`精确分钟调整、分钟锁定、周期补写或与AI重置对抗的任务；**不再将`PLAYER_MINUTES_EXECUTION_UNAVAILABLE`列为待实现功能**，不在后续GM工作中因无法精调分钟而卡住。即使当前教练设置间接影响分钟，也不能保证某球员具体上场数值。
+- 与“训练全交游戏AI、GM不参与”和“教练会影响游戏自然成长”的玩家规则同时生效；普通能力/倾向等不允许外挂直接编辑。本节点未触发新的采集、比赛、经营决策或游戏写入。
+- 对应最新版[教练手册](../manuals/GM_COACHING_OPERATIONS.md)、[GM SOP](../GM_DECISION_SOP.md)、[GM基线](../baselines/GM_BASELINE.md)和[GM说明](../GM_INSTRUCTIONS.md)已一并修订。后续窗口以这一段覆盖历史有关“精确分钟待接口确认”的旧记忆。
+
 ## 2026-10-18 最新玩家明确规则：训练退出GM范围，教练影响自然成长，内部调配优先于只寻求交易
 
 **最新指令优先于过去有关训练研究的任何历史文字**。
@@ -27,7 +35,7 @@ DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPE
 1. **训练**：外挂尚未引入训练机制。游戏训练交由NBA2K22 AI完整负责；GM不管理、不研究、不提出训练策略、不要求补齐训练源、不让Codex开发训练接口，除非玩家未来明确重新启用。
 2. **教练与成长**：玩家和其他人类玩家在大量终极联盟赛季实战中观察到，教练机制会直接影响比赛结果，也会影响球员在游戏引擎控制下的**自然属性/倾向成长走势**。此为项目GM采用的经验性运营前提，而非能推导任何教练raw值具体成长幅度的公式。GM应围绕体系适配和合理出场角色创造更好的赢球与发展环境。**不通过外挂直接编辑普通球员属性、潜力、倾向、徽章**；这些自然变化归游戏AI。
 3. **GM四项并行经营杠杆**：阵容搭配与首发/替补角色、上场时间及轮换负荷、教练默认19项/指定对手整体防守18项、必须时的交易签约。不再默认“球队问题=找交易”，先看现有人能否通过更好的使用方式改善，同时比较交易资产成本。对30队逐队给具体调配/教练建议或有理由HOLD。
-4. **上场时间实施边界**：已认证`BenchDepth`是轮换人数上限、`BenchUtilization`是替补使用倾向；不能直接指定某个人的分钟。球员当前赛季场均分钟可用于评估负荷，**逐人预设分钟尚无确认写回接口**，不得输出编造的执行请求；可以作为篮球意图并注明`PLAYER_MINUTES_EXECUTION_UNAVAILABLE`。
+4. **上场时间实施边界（更新）**：游戏AI持续调整并覆写逐人分钟，用户明确放弃追求精确个人分钟；`BenchDepth`和`BenchUtilization`只间接影响实际轮换。球员赛季场均分钟用于观察分析，不设可执行的个人分钟指令，不列开发待办。
 5. **风险与证据**：阵容与教练强度兼顾健康、体力、胜率和自然成长。没有本局伤病/疲劳数据不得假称某参数提升了X%的伤病概率。次世代MyNBA公开资料只是参考，不能代替PC/MC实测。教练自然成长的多赛季经验不等于获得训练管理权限。
 6. **操作**：优先读[GM教练手册](../manuals/GM_COACHING_OPERATIONS.md)、[GM SOP](../GM_DECISION_SOP.md)、[GM初始化基线](../baselines/GM_BASELINE.md)和[GM职责](../GM_INSTRUCTIONS.md)的最新文本。具体教练值仍须在玩家下次正式采集后取得同批`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`来源，通过程序生成动作和digest，玩家审批后由Codex执行。不能擅自新开GM回合、游戏采集或修改游戏。
 
