@@ -5331,5 +5331,12 @@
       ],
       "approval": "NOT_APPROVED"
     }
-  ]
+  ],
+  "status": "SUPERSEDED_BY_INTERVAL_METRIC_FIRST_R03",
+  "authoritative_artifacts": [
+    "web_gm/seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_GROUP_B_METRIC_FIRST_REPORT.md",
+    "web_gm/seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_GROUP_B1_METRIC_FIRST.json",
+    "web_gm/seasons/2021-2022/windows/W03_GM_20261018/ROUND_R03_GROUP_B2_METRIC_FIRST.json"
+  ],
+  "notice": "This preliminary full-season snapshot comparison was superseded by cross-checkpoint M01→M02 interval shooting, opponent 2PT/3PT and eFG evidence; coaching targets in this file MUST NOT be used for execution or final voting."
 }
