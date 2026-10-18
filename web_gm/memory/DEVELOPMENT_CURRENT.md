@@ -6,7 +6,7 @@
 - state: COACHING_V2_IMPLEMENTATION_AND_ISOLATED_ACCEPTANCE_IN_PROGRESS
 - linked_codex_state: `docs/34_BASELINE_CURRENT_STATE.md`（**Codex 状态索引，不在此复制更新**）
 
-DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状态。当前证据、字段门槛和剩余工作只读 [Codex 状态34](../../docs/34_BASELINE_CURRENT_STATE.md)与[集成报告](../../docs/development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)。已建立 [GM 操作手册](../manuals/GM_COACHING_OPERATIONS.md)及 [Codex 执行手册](../../docs/40_COACHING_EXECUTION_RUNBOOK.md)。当前19项默认字段接口已实现，Tempo按玩家明确选择开放原生raw并标明界面含义未知；main尚未部署，真实生产采集和数据发布未运行，不得将工程交付声称为部署或数据发布成功。
+DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状态。当前证据、字段门槛和剩余工作只读 [Codex 状态34](../../docs/34_BASELINE_CURRENT_STATE.md)与[集成报告](../../docs/development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)。已建立 [GM 操作手册](../manuals/GM_COACHING_OPERATIONS.md)及 [Codex 执行手册](../../docs/40_COACHING_EXECUTION_RUNBOOK.md)。当前19项默认字段接口已实现，Tempo按玩家明确选择开放原生raw并标明界面含义未知；PR #1已于2026-10-18通过玩家审查并合并main（2509b3b），本地已同步；真实生产采集和数据发布未运行，不能把代码部署当成数据发布成功。
 
 玩家最新修正：正式脚本顺序执行；不要把少量验收样本当作允许值白名单。BenchDepth取消9–10人为上限，由GM读取阵容后选择人数；四Freelance按完整原生枚举/布局及有序codec提供受控接口，不因未重复菜单检查而禁用，也不冒充实际UI已验证。当前19项默认字段可提案/受控执行；玩家明确开放原生Tempo并保留界面含义未知，结合其他教练观测值选择目标，不增加测试样本限制。原生类型/枚举、来源身份、具体批准和条件恢复保护保留。
 
@@ -69,7 +69,7 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 
 ## 最新交接：DEV-20261017-07 GM教练系统30队批次/来源/双手册
 
-- 状态：`COACHING_CLOSED_LOOP_SPEC_PUBLISHED_AWAITING_CODEX`，**代码尚未开发、PR #1仍是六POE单队技术能力，未合并**。用户不再要求“快速模拟胜率效果验证”；教练机制完成以工程闭环为准。
+- 状态：`COACHING_CLOSED_LOOP_SPEC_PUBLISHED_AWAITING_CODEX`，**以下为已过期的历史规划状态；当前代码与合并状态以本页顶部及状态34为准**。用户不再要求“快速模拟胜率效果验证”；教练机制完成以工程闭环为准。
 - [Codex最终完善任务书](../../docs/development_tasks/DEV_20261017_07_COACHING_GM_CLOSED_LOOP_V1.md)（首次提交`1aa5c2bacff2aaab80f4c7bb6c2b4c8c00f40d34`）；[本次范围归档](development/sessions/20261017_coaching_closed_loop_final_scope_v1.md)；既有[PR #1](https://github.com/chris2gao/nba2k22-gm-engine/pull/1)，已上传代码HEAD `5daeed8dc0001b5052dce1cfc97d6c22ee9317c3`。
 - 基础版必须：**六项默认POE正式读写 + 1–30队整批预验证/逻辑事务/失败条件恢复 + 用户触发常规采集自动包含COACHDATA战术来源入SQLite与GitHub发布JSON + 两份正式角色手册**（`web_gm/manuals/GM_COACHING_OPERATIONS.md`、`docs/40_COACHING_EXECUTION_RUNBOOK.md`）并更新GM/执行基线入口。所有内容必须有真实代码/接口/回归集成测试。
 - 主教练余18项：5Sim、2体系、1战术本（编码可用，未生产验收）；6教练滑块、4Freelance（只读）。玩家请求详细查看，**尚未批准统一转为可写**；单一对手Gameplan/18项具体防守/轮换保持只读。每字段独立认证后再提升production_enabled。
