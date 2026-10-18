@@ -1,3 +1,5 @@
+> **2026-10-17 最新状态（覆盖以下V2的阶段叙述）：玩家已转交Codex只读原生内存调查，默认POE为`COACHDATA+0x13C`六个5-bit字段，并发现旧`TEAM+0xEB2`策略writer不安全。** 本研究任务保留历史背景，后续产品工程请**优先执行 [DEV-20261017-06 正式开发任务书](DEV_20261017_06_COACHING_IMPLEMENTATION_V1.md)**；研究摘要及证据边界见 [只读交接](../development_reviews/DEV_20261017_05_COACHING_READONLY_HANDOFF.md)。不要按本文件早期旧POE枚举或先做赛果A/B测试；Codex必要技术安全检查后开发，游戏战绩效果由玩家推进一个游戏月后验证。此页尚不能证明生产写入成功。
+
 # DEV-20261017-05 — NBA2K22 PC 教练攻防、模拟策略与战术手册：内存定位 → 条件开发 → 玩家月度验证 V2
 
 > 状态：MEMORY_DISCOVERY_THEN_IMPLEMENT / GAMEPLAY_EFFECT_TEST_PLAYER_MONTH_END  
