@@ -3,7 +3,7 @@
 - season_id: `2021-2022`
 - career_id: `mc_haliburton_2021`
 - season_gm_baseline: `2021-2022`（一个游戏赛季一个派生 GM 决策聊天，赛季内各节点沿用同一聊天）
-- current_window: `GM-S2021-2022-W03`（M02已启动R01经营、30队决策提案已归档，玩家未批准执行）
+- current_window: `GM-S2021-2022-W03`（M02已完成R02与R03二轮深入研究，进度20/30队，尚未批准游戏写入）
 - last_confirmed_exact_game_date: `2021-12-12`（PLAYER_CONFIRMED）
 - current_progress_hint: `2021-12 / M02`（官方发布检查点，month_closed=false）
 - index_created_real_date: `2026-10-17`
@@ -18,6 +18,15 @@
 | 02 | **与W01相同的未知日期检查点；没有新的发布批次，不是新月月结** | `GM-S2021-2022-W02 / R01`（同赛季聊天已触发的专题续议） | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（与W01完全相同） | [本次决策归档](windows/W02_GM_20261017/ROUND_R01_RECAP.md) · [30队同批基线](windows/W02_GM_20261017/TEAM_BASELINE.json) · CHI/DET格兰特具体交易仅PROPOSED；CHA/IND暂不成交；无写入 |
 
 | 03 | **2021-12-12 / M02 普通检查点，不是12月月结** | `GM-S2021-2022-W03 / R01`（同赛季聊天，2026-10-18起采用V3至少五轮深度决策；本R01仅粗扫） | `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2` | [R01归档](windows/W03_GM_20261018/ROUND_R01_RECAP.md) · [30队教练/交易提案](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md) · [机器可读GM意图](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_INTENT.json) · 12项教练意图/1项双边交易提案，**未获玩家批准，未游戏写入** |
+
+## 2026-10-18 W03/R03 最新进度：B组10队完整比赛/战术研判完成
+
+**最新完成`W03/R03`组B：NOP/UTA/SAC/NYK/LAL/ORL/DAL/BKN/DEN/IND，10队共152条当前大名单，累计完成20/30队、309条球员记录。** M02数据仍为2021-12-12同一正式存档快照（`2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`），无游戏时间推进或任何游戏写入。
+
+- [R03完整比赛数据驱动报告](windows/W03_GM_20261018/ROUND_R03_GROUP_B_METRIC_FIRST_REPORT.md)；[前5队逐人JSON](windows/W03_GM_20261018/ROUND_R03_GROUP_B1_METRIC_FIRST.json)；[后5队逐人JSON](windows/W03_GM_20261018/ROUND_R03_GROUP_B2_METRIC_FIRST.json)；[R03完成回顾](windows/W03_GM_20261018/ROUND_R03_RECAP.md)；[30队完成状态](windows/W03_GM_20261018/TEAM_REVIEW_TRACKER.json)。
+- **明确篮球决定非游戏执行**：NOP `POEDefense14→13`，UTA `POEOffense5→4`，ORL `POEOffense5→1`，DAL `POEDefense14→15`，DEN `POEDefense14→15`；SAC/NYK/LAL/BKN/IND有事实支持HOLD。旧R01的NOP只攻篮筐和DAL只保禁区提案已按真实新增比赛修正，不能按旧R01提交执行。
+- 最新玩家标准：取消空泛“赢球哲学/球队文化”及无关模板填充，按**M01→M02新增比赛攻防指标（每场净胜、2P/3P/eFG及对手数据）→球队真实能力→教练原生参数**提出可检验调整；员工评价本节点延期，全面员工JSON与player_pool.sqlite数据访问技术问题在决策结束之后解决。球员个别属性、训练和精确分钟仍不可直接修改。
+- **下一轮仅玩家继续触发`W03/R04`组C**：DET/TOR/HOU/OKC/SAS/PHX/MIN/POR/GSW/CHA；再R05全联盟双方议价和候选审查、R06唯一执行提案与玩家批准。已有教练功能可提交明确原生战术意图，不需事先预测固定+X胜率；Codex执行/玩家实机观察属于经审批后步骤。
 
 ## W03/R02：A组10队独立经营已完成，下一步为R03（当前状态）
 
