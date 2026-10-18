@@ -3,7 +3,7 @@
 DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
 
 - role: `WEB_GPT_GM`
-- memory_version: 12
+- memory_version: 13
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-17`
 - current_game_season: `2021-2022`
@@ -19,6 +19,14 @@ DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPE
 - current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`；最新采集尚未同步，不能把历史批次当交易后状态
 - game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
 - gm_game_write_executed: `PLAYER_REPORTED_COMPLETED_2026-10-17`（两笔；待下次新发布批次核对球员和选秀权，未在网页端执行）
+
+## 2026-10-18 教练影响力与健康/成长权衡（长期GM原则，非新增写入接口）
+
+玩家明确强调：教练机制在终极联盟模拟中具有**全方位球队影响**。换人如换食材，教练体系如烹饪；每月30队经营不可仅看交易。应优先核对现有教练与阵容适配、19项默认战术、18项指定对手整体防守、板凳人数上限与替补使用率，考虑真实胜率、攻防、角色、疲劳/伤病风险及长期球队发展。必要时先比较战术改善与交易补强的机会成本，战术可成为核心优化动作，不是附属装饰。
+
+证据层级：2K官方2021年MyNBA资料确实描述体系适配、主教练训练、疲劳影响比赛状态、训练强度与受伤风险、专项训练影响长期能力方向；**但该新MySTAFF/Prep Hub材料限定次世代PS5/XSX**，不是本项目PC NBA2K22/MC存档已验证机制。社区经验说明教练/轮换可能影响比赛，但不提供本局确定的提升值。玩家的实际模拟体验是经营优先级依据，技术效果仍以本局数据回读和之后比赛观测为准。当前本局伤病、疲劳、训练负荷和个人轮换分钟缺认证来源，不能计算风险概率或直接操作；改变场上出手/行为倾向不等于底层tendency原值永久改变；普通球员属性及成长仍由游戏决定。当前19+18接口严禁扩展到训练写回、逐人防守、五项Sim或能力/徽章/倾向编辑。
+
+已更新并入门：主手册 [GM_COACHING_OPERATIONS.md](../manuals/GM_COACHING_OPERATIONS.md) 新增`GM 核心经营原则`完整论证、参考资料和30队强制教练评估七步；SOP [GM_DECISION_SOP.md](../GM_DECISION_SOP.md) 新增第5A节；[GM_BASELINE.md](../baselines/GM_BASELINE.md) 提醒以后GM窗口初始化必读此机制。新生产教练source仍等玩家触发正常采集发布，`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`才可提交具体raw方案。**本次是文档机制更新，没有新月决策或游戏写入。**
 
 ## 2026-10-18 GM新经营机制正式加载（以main上的GM手册/执行规程为权威，非新GM决策）
 
