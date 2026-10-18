@@ -30,8 +30,8 @@
       "start_bit": 0,
       "width": 5,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "SAFE_WRITE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "NO_PREFERENCE",
         "13": "PROTECT_PAINT",
@@ -39,10 +39,11 @@
         "15": "LIMIT_PERIMETER_SHOTS"
       },
       "enum_rva": 80284096,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
-      "save_reload_test": "NOT_VERIFIED",
-      "process_restart_test": "NOT_VERIFIED"
+      "memory_write_test": "VERIFIED_PHI_AND_AI_IND_SIX_FIELD_SHARED_BLOCK",
+      "ui_test": "PLAYER_CONFIRMED_AI_IND_ALL_SIX_AFTER_CONTROL_SWITCH",
+      "save_reload_test": "AI_IND_ALL_SIX_PERSISTED_AFTER_ACTUAL_NEW_PROCESS",
+      "process_restart_test": "FRESH_NATIVE_RECALIBRATION_AND_STALE_PLAN_REJECTION_BEFORE_RW_VERIFIED",
+      "restoration_test": "ALL_30_KNOWN_COACH_FIELDS_RESTORED_IN_MEMORY_FINAL_SAVE_RECHECK_WAIVED_BY_PLAYER"
     },
     "POEDefense2": {
       "offset": 316,
@@ -50,8 +51,8 @@
       "start_bit": 5,
       "width": 5,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "SAFE_WRITE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "NO_PREFERENCE",
         "16": "PLAY_CONSERVATIVE",
@@ -59,10 +60,11 @@
         "18": "PLAY_PHYSICAL"
       },
       "enum_rva": 80284096,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
-      "save_reload_test": "NOT_VERIFIED",
-      "process_restart_test": "NOT_VERIFIED"
+      "memory_write_test": "VERIFIED_PHI_AND_AI_IND_SIX_FIELD_SHARED_BLOCK",
+      "ui_test": "PLAYER_CONFIRMED_AI_IND_ALL_SIX_AFTER_CONTROL_SWITCH",
+      "save_reload_test": "AI_IND_ALL_SIX_PERSISTED_AFTER_ACTUAL_NEW_PROCESS",
+      "process_restart_test": "FRESH_NATIVE_RECALIBRATION_AND_STALE_PLAN_REJECTION_BEFORE_RW_VERIFIED",
+      "restoration_test": "ALL_30_KNOWN_COACH_FIELDS_RESTORED_IN_MEMORY_FINAL_SAVE_RECHECK_WAIVED_BY_PLAYER"
     },
     "POEDefense3": {
       "offset": 316,
@@ -70,8 +72,8 @@
       "start_bit": 10,
       "width": 5,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "SAFE_WRITE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "NO_PREFERENCE",
         "19": "CRASH_DEFENSIVE_BOARDS",
@@ -79,10 +81,11 @@
         "21": "RUN_IN_TRANSITION"
       },
       "enum_rva": 80284096,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
-      "save_reload_test": "NOT_VERIFIED",
-      "process_restart_test": "NOT_VERIFIED"
+      "memory_write_test": "VERIFIED_PHI_AND_AI_IND_SIX_FIELD_SHARED_BLOCK",
+      "ui_test": "PLAYER_CONFIRMED_AI_IND_ALL_SIX_AFTER_CONTROL_SWITCH",
+      "save_reload_test": "AI_IND_ALL_SIX_PERSISTED_AFTER_ACTUAL_NEW_PROCESS",
+      "process_restart_test": "FRESH_NATIVE_RECALIBRATION_AND_STALE_PLAN_REJECTION_BEFORE_RW_VERIFIED",
+      "restoration_test": "ALL_30_KNOWN_COACH_FIELDS_RESTORED_IN_MEMORY_FINAL_SAVE_RECHECK_WAIVED_BY_PLAYER"
     },
     "POEOffense": {
       "offset": 316,
@@ -90,8 +93,8 @@
       "start_bit": 15,
       "width": 5,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "LIVE_MEMORY_WRITE_VERIFIED_UI_AND_PERSISTENCE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "NO_PREFERENCE",
         "1": "GET_TO_BASKET",
@@ -102,10 +105,11 @@
         "6": "RUN_OFFENSE_THROUGH_SCORER"
       },
       "enum_rva": 80284096,
-      "memory_write_test": "VERIFIED_TWO_TEAMS_AND_RESTORED",
-      "ui_test": "NOT_VERIFIED",
-      "save_reload_test": "NOT_VERIFIED",
-      "process_restart_test": "NOT_VERIFIED"
+      "memory_write_test": "VERIFIED_PHI_AND_AI_IND_SIX_FIELD_SHARED_BLOCK",
+      "ui_test": "PLAYER_CONFIRMED_AI_IND_ALL_SIX_AFTER_CONTROL_SWITCH",
+      "save_reload_test": "AI_IND_ALL_SIX_PERSISTED_AFTER_ACTUAL_NEW_PROCESS",
+      "process_restart_test": "FRESH_NATIVE_RECALIBRATION_AND_STALE_PLAN_REJECTION_BEFORE_RW_VERIFIED",
+      "restoration_test": "ALL_30_KNOWN_COACH_FIELDS_RESTORED_IN_MEMORY_FINAL_SAVE_RECHECK_WAIVED_BY_PLAYER"
     },
     "POEOffense2": {
       "offset": 316,
@@ -113,8 +117,8 @@
       "start_bit": 20,
       "width": 5,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "SAFE_WRITE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "NO_PREFERENCE",
         "7": "PATIENT_OFFENSE",
@@ -122,10 +126,13 @@
         "9": "SHOOT_AT_WILL"
       },
       "enum_rva": 80284096,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
-      "save_reload_test": "NOT_VERIFIED",
-      "process_restart_test": "NOT_VERIFIED"
+      "memory_write_test": "VERIFIED_PHI_AND_AI_IND_SIX_FIELD_SHARED_BLOCK",
+      "ui_test": "PLAYER_CONFIRMED_AI_IND_ALL_SIX_AFTER_CONTROL_SWITCH",
+      "save_reload_test": "AI_IND_ALL_SIX_PERSISTED_AFTER_ACTUAL_NEW_PROCESS",
+      "process_restart_test": "FRESH_NATIVE_RECALIBRATION_AND_STALE_PLAN_REJECTION_BEFORE_RW_VERIFIED",
+      "editor_cache_hazard": "OPEN_EDITOR_LATER_REVERTED_7_TO_8",
+      "editor_closed_test": "HELD_STABLE_WITH_EDITOR_CLOSED",
+      "restoration_test": "ALL_30_KNOWN_COACH_FIELDS_RESTORED_IN_MEMORY_FINAL_SAVE_RECHECK_WAIVED_BY_PLAYER"
     },
     "POEOffense3": {
       "offset": 316,
@@ -133,8 +140,8 @@
       "start_bit": 25,
       "width": 5,
       "writable": true,
-      "production_enabled": false,
-      "readiness": "SAFE_WRITE_PENDING",
+      "production_enabled": true,
+      "readiness": "EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL",
       "enum": {
         "0": "NO_PREFERENCE",
         "10": "CRASH_OFFENSIVE_BOARDS",
@@ -142,10 +149,11 @@
         "12": "LIMIT_TRANSITION"
       },
       "enum_rva": 80284096,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
-      "save_reload_test": "NOT_VERIFIED",
-      "process_restart_test": "NOT_VERIFIED"
+      "memory_write_test": "VERIFIED_PHI_AND_AI_IND_SIX_FIELD_SHARED_BLOCK",
+      "ui_test": "PLAYER_CONFIRMED_AI_IND_ALL_SIX_AFTER_CONTROL_SWITCH",
+      "save_reload_test": "AI_IND_ALL_SIX_PERSISTED_AFTER_ACTUAL_NEW_PROCESS",
+      "process_restart_test": "FRESH_NATIVE_RECALIBRATION_AND_STALE_PLAN_REJECTION_BEFORE_RW_VERIFIED",
+      "restoration_test": "ALL_30_KNOWN_COACH_FIELDS_RESTORED_IN_MEMORY_FINAL_SAVE_RECHECK_WAIVED_BY_PLAYER"
     },
     "SimPace": {
       "offset": 244,
@@ -154,7 +162,7 @@
       "width": 3,
       "writable": true,
       "production_enabled": false,
-      "readiness": "SAFE_WRITE_PENDING",
+      "readiness": "RUNTIME_WRITE_AND_ROLLBACK_VERIFIED_PERSISTENCE_PENDING",
       "enum": {
         "0": "VERYLOW",
         "1": "LOW",
@@ -163,8 +171,8 @@
         "4": "VERYHIGH"
       },
       "enum_rva": 80283392,
-      "memory_write_test": "NOT_RUN",
-      "ui_test": "NOT_VERIFIED",
+      "memory_write_test": "PHI_2_TO_4_AND_ROLLBACK_VERIFIED",
+      "ui_test": "NOT_THE_PLAYERS_POE_OFFENSIVE_TEMPO_OPTION",
       "save_reload_test": "NOT_VERIFIED",
       "process_restart_test": "NOT_VERIFIED"
     },
@@ -488,5 +496,12 @@
     "playbook_content": "SHARED_PLAYBOOK_CONTENT_READ_ONLY",
     "sliders": "NATIVE_STORAGE_VERIFIED_UI_RANGE_PENDING",
     "in_game": "IN_GAME_TEMPORARY_DEFERRED"
-  }
+  },
+  "acceptance_scope": "MEMORY_RUNTIME_FIRST_COMPUTER_USE_OPTIONAL_PLAYER_CONFIRMED",
+  "write_preconditions": [
+    "SPECIFIC_EXTERNAL_PLAYER_APPROVAL",
+    "PLAYER_CONFIRMED_COACH_EDITOR_CLOSED",
+    "CURRENT_PROCESS_OWNER_ROSTER_AND_FULL_SHARED_BLOCK_MATCH"
+  ],
+  "acceptance_status": "CORE_SIX_POE_READY_SPECIFIC_EXTERNAL_PLAYER_APPROVAL_REQUIRED"
 }

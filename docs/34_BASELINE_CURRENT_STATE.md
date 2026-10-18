@@ -2,7 +2,7 @@
 
 状态版本：v2，2026-10-17。数据功能证据提交：`2d16a7d`；对应已发布入口提交：`875adb4`；执行接口本轮按 `c136a8d` 的源码核对，未进行实机写入验收。这些是本状态页的证据，不能作为以后任务的固定 HEAD 或固定数据版本。
 
-教练开发增量（DEV06，2026-10-17）：[接口39](39_COACHING_TACTICS.md)、[实施报告](development_reviews/DEV_20261017_06_COACHING_IMPLEMENTATION_REPORT.md)、[验收矩阵](development_reviews/DEV_20261017_06_COACHING_EXECUTOR_ACCEPTANCE.md)。旧 TEAM POE 语义/写入已撤销；新增独立教练只读、离线提案和隔离局受控内存事务。两队 POEOffense 内存写/回读/恢复通过，但 UI/保存/真实重启验收缺失，**全部正式字段禁用**。下面旧数据批次证据保持原历史含义。
+教练开发增量（DEV06，2026-10-17）：[接口39](39_COACHING_TACTICS.md)、[实施报告](development_reviews/DEV_20261017_06_COACHING_IMPLEMENTATION_REPORT.md)、[验收矩阵](development_reviews/DEV_20261017_06_COACHING_EXECUTOR_ACCEPTANCE.md)、[全部已定位能力及对手评估](development_reviews/DEV_20261017_06_COACHING_CAPABILITIES_AND_MATCHUP.md)。旧TEAM POE语义/写入已撤销。PHI重点、AI IND六项均经玩家界面确认；保存及真实进程重启保持，IND六项已按新快照恢复内存原值。**仅六项默认POE技术就绪，须玩家批准具体方案；正式局未执行。** 其他字段分项保留限制。玩家停止恢复后额外保存重载，不宣称该项复核完成。Computer Use仅辅助；写前必须确认退出教练编辑页，防止缓存覆盖。下面旧数据批次证据保持历史含义。
 
 **范围提示（2026-10-17）：** 本页专供 Codex 的文档 32（数据采集基线）、33（本地开发基线）和 36（批准方案执行基线）共同引用。网页版 GPT 的三份新基线位于 `web_gm/baselines/`，由 `docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md` 规定：Web GPT ANALYTICS 负责 GM 数据加工与报告 GitHub 回写，Web GPT GM 负责经营决策，Web GPT DEVELOPMENT 负责规划和给 Codex 任务书；这些都不会替代 Codex 本地数据更新、工程开发及具体批准后的执行职责。
 
@@ -33,7 +33,7 @@
 | 同一有效批次重新发布 | 已实现 | `scripts/publish_web_snapshot.py --save-id ...`；不重新采集/改采集时间 |
 | SQLite 备份 ZIP 与 JSON 自动导出 | 已实现 | `src/export_web_gm.py`；JSON 在 Git，ZIP 在 Release |
 | 网页 GM 本地分析/计算/提案接口 | GM v1 已交付 | `src/gm_core/`、三个 GM CLI；无正式决策自动启动和执行权 |
-| 教练战术独立本地接口 | 工程实现，正式写入禁用 | `coaching_snapshot.py`、`coaching_validate.py`、`coaching_execute.py`；默认纯离线预演；未接入生产 SQLite/JSON 发布 |
+| 教练战术独立本地接口 | 六项默认POE技术就绪，需具体玩家批准 | `coaching_snapshot.py`、`coaching_validate.py`、`coaching_execute.py`；默认纯离线预演；未接入生产 SQLite/JSON 发布 |
 | 通用交易写回、历史新秀槽位注入、历史重力执行 | 尚未完整验收 | 执行窗口先核对实际实现；不要使用旧伪代码试写正式局 |
 | 模型自动派发、多模型谈判、v3 完整经营史 | 未完整实现 | 协议/边界预留不是生产功能 |
 
@@ -133,7 +133,7 @@ _exports/receipts/                          发布回执
 | 进程校准/原值读取 | `memory.py`、`address_calibrator.py` 已用于只读采集与审计 | 校准不证明当前 save_id 自动识别，也不证明写入权限/批准或业务写回已验收 |
 | 底层内存写入 | `GameMemory(read_only=False)`、`write_bytes` 与数值 writer 存在；默认实例只读 | 仅检查调用/写入字节数，不提供方案批准、身份白名单、交易事务或完整恢复；部分 writer 会掩码截断，调用前须校验 |
 | 历史 TEAM 策略 | `StrategyManager.set_team_strategy` 无条件拒绝；旧调用已清除 | `LEGACY_TEAM_POE_OFFSETS_REVOKED`；旧 poe_* 只保留原始观测，GM 不认作教练战术 |
-| 原生主教练战术 | 三个 coaching CLI，24字段只读，默认POE/Sim/体系/加载手册选择具备受控编码；POEOffense 两队内存验证 | 所有 production_enabled=false；UI/保存/真实重启验收未完成，正式局不得写；外部具体批准不能替代技术验收 |
+| 原生主教练战术 | 三个coaching CLI；24默认字段可读，14可隔离编码；六项POE通过两队、AI球队、界面、保存实际重启及内存恢复 | 仅六项production_enabled=true／EXECUTOR_IMPLEMENTED_READY_FOR_PLAYER_APPROVAL；`--coach-editor-closed`和具体独立批准仍必须。其他字段正式禁用；Gameplan仅只读/预设，0标志不明时不启用 |
 | 对手 Gameplan、防守和轮换 | 独立 codec，只读/排序/离线预设；本次870条 IsInUse全0 | MATCHUP_EXECUTION_BLOCKED_NOT_ACTIVATED；禁止强行开启；防守/人物引用未开放写入 |
 | 球票定价 | `StrategyManager.set_ticket_pricing` 有有限非负检查与浮点回读 | 仍需本次批准、当前球队身份与只改批准字段；不等于通用经营执行器已验收 |
 | 新局全局设置/30 队票价模板 | `bootstrap_new_game.py --approve-game-writes` 有批准开关；调用 slider 与票价；旧战术跳过 | 不把票价成功说成战术已配置；不能借初始化入口应用单笔GM战术或顺带改全联盟 |

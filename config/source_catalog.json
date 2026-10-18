@@ -11,8 +11,16 @@
       "entrypoint": "scripts/coaching_snapshot.py",
       "profile": "config/coach_tactics_profile.json",
       "production_capture_integration": false,
-      "production_execution_enabled": false,
-      "scope": "Native coach defaults, opponent gameplans, defense and rotation capture-local references. Does not refresh full_verified_v1 sources or timestamps."
+      "scope": "Native coach defaults, opponent gameplans, defense and rotation capture-local references. Does not refresh full_verified_v1 sources or timestamps.",
+      "production_execution_enabled_fields": [
+        "POEOffense",
+        "POEOffense2",
+        "POEOffense3",
+        "POEDefense",
+        "POEDefense2",
+        "POEDefense3"
+      ],
+      "execution_approval": "SPECIFIC_EXTERNAL_PLAYER_APPROVAL_AND_EDITOR_CLOSED_REQUIRED"
     }
   ],
   "player_confirmed_scope": {

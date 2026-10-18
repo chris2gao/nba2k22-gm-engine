@@ -90,7 +90,7 @@ class World:
     def executor(self):return CoachingExecutor(self.memory,self.locator)
     def approval(self):
         p=self.plan
-        return PlayerApproval(p["career_id"],p["decision_id"],p["version"],(p["action_id"],),plan_digest(p),True)
+        return PlayerApproval(p["career_id"],p["decision_id"],p["version"],(p["action_id"],),plan_digest(p),True,True)
 
 class CodecTests(unittest.TestCase):
     def test_all_legal_enums_and_reserved_bits(self):
@@ -152,11 +152,36 @@ class TransactionTests(unittest.TestCase):
         self.w.plan["approved"]=True
         with self.assertRaises(ValueError):self.run_action()
         self.assertEqual(self.w.opens,[])
+    def test_editor_closed_precondition_before_handles(self):
+        p=self.w.plan
+        approval=PlayerApproval(p['career_id'],p['decision_id'],p['version'],(p['action_id'],),plan_digest(p),True)
+        with self.assertRaisesRegex(PermissionError,'COACH_EDITOR_MUST_BE_CLOSED'):
+            self.w.executor().run(p,self.w.snapshot,approval,self.temp.name)
+        self.assertEqual(self.w.opens,[])
     def test_formal_disabled_before_handles(self):
         self.w.snapshot["environment"]="FORMAL_READ_ONLY"
         self.w.snapshot["game_date"]=self.w.plan["game_date"]="2021-10-19"
-        with self.assertRaisesRegex(PermissionError,"PRODUCTION_DISABLED"):self.run_action()
+        profile=copy.deepcopy(PROFILE)
+        profile['fields']['POEOffense']['production_enabled']=False
+        executor=CoachingExecutor(self.w.memory,self.w.locator,profile)
+        with self.assertRaisesRegex(PermissionError,"PRODUCTION_DISABLED"):
+            executor.run(self.w.plan,self.w.snapshot,self.w.approval(),self.temp.name)
         self.assertEqual(self.w.opens,[])
+    def test_ready_formal_fields_still_require_exact_external_approval(self):
+        self.w.snapshot['environment']='FORMAL_READ_ONLY'
+        self.w.snapshot['game_date']=self.w.plan['game_date']='2021-10-19'
+        profile=copy.deepcopy(PROFILE)
+        for change in self.w.plan['changes']:
+            profile['fields'][change['field']]['production_enabled']=True
+        executor=CoachingExecutor(self.w.memory,self.w.locator,profile)
+        with self.assertRaisesRegex(PermissionError,'SPECIFIC_EXTERNAL_PLAYER_APPROVAL_REQUIRED'):
+            executor.run(self.w.plan,self.w.snapshot,None,self.temp.name)
+        self.assertEqual(self.w.opens,[])
+        p=self.w.plan
+        approval=PlayerApproval(p['career_id'],p['decision_id'],p['version'],(p['action_id'],),plan_digest(p),False,True)
+        receipt=executor.run(p,self.w.snapshot,approval,self.temp.name)
+        self.assertEqual(receipt['status'],'EXECUTED_VERIFIED')
+        self.assertEqual(len(self.w.writes),1)
     def test_wrong_coach_plan_before_handles(self):
         self.w.plan["verified_coach_identity"]={"wrong":True}
         with self.assertRaises(ValueError):self.run_action()
@@ -189,7 +214,9 @@ class TransactionTests(unittest.TestCase):
         self.assertEqual(len(self.w.writes),1)
         self.assertEqual(bytes(self.w.data[0x2000:0x2160]),original[0x2000:0x2160])
         self.assertEqual(result["persistence"],"NOT_VERIFIED_BY_MEMORY_READBACK")
-        self.assertTrue(self.run_action()["idempotent"])
+        repeated=self.run_action()
+        self.assertTrue(repeated["idempotent"])
+        self.assertEqual(repeated['current_state'],'NOT_REVALIDATED_CACHED_RECEIPT')
         self.assertEqual(len(self.w.writes),1)
         self.assertEqual(self.run_action(True)["status"],"ROLLED_BACK")
         self.assertEqual(bytes(self.w.data),original)

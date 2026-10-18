@@ -21,6 +21,7 @@ class PlayerApproval:
     action_ids: tuple
     digest: str
     isolated_test_confirmed: bool = False
+    coach_editor_closed_confirmed: bool = False
 
 def require_approval(plan,approval):
     if (type(approval) is not PlayerApproval or approval.career_id!=plan.get("career_id")
@@ -56,7 +57,8 @@ class CoachingExecutor:
     def inspect(self,plan,snapshot):
         result=validate_plan(plan,snapshot,self.profile)
         return dict(**result,plan_digest=plan_digest(plan),mode="DRY_RUN",
-                    meaning="Offline preflight only; no process handle or approval")
+                    meaning="Offline preflight only; no process handle or approval",
+                    interface_precondition="PLAYER_CONFIRMED_COACH_EDITOR_CLOSED_BEFORE_EXECUTION")
 
     def _session(self,snapshot,expected_pid):
         mem=self.memory_factory(read_only=False)
@@ -81,6 +83,8 @@ class CoachingExecutor:
         validation=validate_plan(plan,snapshot,self.profile)
         if not validation["valid"]:
             raise ValueError(";".join(validation["errors"]))
+        if approval.coach_editor_closed_confirmed is not True:
+            raise PermissionError("COACH_EDITOR_MUST_BE_CLOSED_BEFORE_EXECUTION")
         if plan["scope"]!="COACH_DEFAULT":
             raise PermissionError("MATCHUP_EXECUTION_BLOCKED_NOT_ACTIVATED")
         fields=[self.profile["fields"][c["field"]] for c in plan["changes"]]
@@ -112,11 +116,11 @@ class CoachingExecutor:
                 raise RuntimeError("ACTION_ID_ALREADY_BOUND_TO_DIFFERENT_PLAN")
             if not rollback and prior:
                 if prior.get("status") in ("EXECUTED_VERIFIED","ROLLED_BACK"):
-                    return dict(prior,idempotent=True)
+                    return dict(prior,idempotent=True,current_state="NOT_REVALIDATED_CACHED_RECEIPT")
                 raise RuntimeError("INCOMPLETE_TRANSACTION_REQUIRES_REVIEW")
             if rollback and (not prior or prior.get("status")!="EXECUTED_VERIFIED"):
                 if prior and prior.get("status")=="ROLLED_BACK":
-                    return dict(prior,idempotent=True)
+                    return dict(prior,idempotent=True,current_state="NOT_REVALIDATED_CACHED_RECEIPT")
                 raise RuntimeError("VERIFIED_EXECUTION_REQUIRED_FOR_ROLLBACK")
             blocks=validation["prepared_blocks"]
             if prior and prior.get("blocks")!=blocks:
@@ -153,6 +157,7 @@ class CoachingExecutor:
                                                 version=approval.version,action_ids=list(approval.action_ids),
                                                 plan_digest=approval.digest,origin="LOCAL_OPERATOR_EXTERNAL_INPUT"),
                          isolation="ISOLATED_TEST" if isolated else "FORMAL_PLAYER_APPROVED",
+                         interface_precondition="PLAYER_CONFIRMED_COACH_EDITOR_CLOSED_BEFORE_EXECUTION",
                          effect_status="SIM_EFFECT_PENDING_PLAYER_MONTH",
                          timestamp=datetime.now(timezone.utc).isoformat(),status="PREPARED",
                          blocks=blocks,runtime_local_only=dict(pid=locator.mem.pid,address=hex(address)),

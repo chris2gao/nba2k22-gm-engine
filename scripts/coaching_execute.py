@@ -18,6 +18,8 @@ def main():
     p.add_argument("--approve-action-id",action="append",default=[])
     p.add_argument("--approve-plan-digest")
     p.add_argument("--test-save-confirmed",action="store_true")
+    p.add_argument("--coach-editor-closed",action="store_true",
+                   help="Operator confirms player has left Coach Gameplan; open editor can overwrite live memory")
     p.add_argument("--state-root",default=str(Path(__file__).resolve().parents[1]/"_exports/coaching_execution"))
     p.add_argument("--output",help="Local receipt JSON under _exports")
     a=p.parse_args()
@@ -29,7 +31,7 @@ def main():
     if a.execute or a.rollback:
         state_root=export_path(a.state_root)
         approval=PlayerApproval(a.approve_career_id,a.approve_decision_id,a.approve_version,
-                                tuple(a.approve_action_id),a.approve_plan_digest,a.test_save_confirmed)
+                                tuple(a.approve_action_id),a.approve_plan_digest,a.test_save_confirmed,a.coach_editor_closed)
         result=executor.run(plan,snapshot,approval,state_root,a.rollback)
     else:
         result=executor.inspect(plan,snapshot)
