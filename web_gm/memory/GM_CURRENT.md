@@ -3,7 +3,7 @@
 DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
 
 - role: `WEB_GPT_GM`
-- memory_version: 11
+- memory_version: 12
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-17`
 - current_game_season: `2021-2022`
@@ -19,6 +19,33 @@ DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPE
 - current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`；最新采集尚未同步，不能把历史批次当交易后状态
 - game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
 - gm_game_write_executed: `PLAYER_REPORTED_COMPLETED_2026-10-17`（两笔；待下次新发布批次核对球员和选秀权，未在网页端执行）
+
+## 2026-10-18 GM新经营机制正式加载（以main上的GM手册/执行规程为权威，非新GM决策）
+
+本节基于玩家请求对main分支的正式机制再次核实。核对资料：
+- [GM教练手册](../manuals/GM_COACHING_OPERATIONS.md)
+- [教练执行手册](../../../docs/40_COACHING_EXECUTION_RUNBOOK.md)
+- [交易执行器](../../../docs/37_APPROVED_TRADE_EXECUTOR.md)
+- [签约执行](../../../docs/38_APPROVED_SIGNING_EXECUTION.md)
+- [能力状态表](../../../docs/34_BASELINE_CURRENT_STATE.md)
+- [休赛期P0研究](../../../docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)
+- [休赛期P1源码](../../../docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P1_IMPLEMENTATION.md)
+
+**教练19项球队默认设置：** `COACH_DEFAULT`。六项POE：`POEOffense/POEOffense2/POEOffense3/POEDefense/POEDefense2/POEDefense3`；`PreferredSystem`、`ActiveSystem`（0–7原生体系）；`PlaybookID`（仅用最新同进程已命名字典）；`BenchDepth`、`RunPlayTendency`、`ZoneUsage`、`BenchUtilization`、`Tempo`、`HelpDefense`；`FreelanceType/2/3/4`（34个原生合法枚举、有序四槽）。四项已确认百分比字段0–100；BenchDepth是轮换人数不是百分比，9–10仅测试样本无固定上限；Tempo允许原生raw读写，但UI/引擎效果UNKNOWN，不能假称进攻节奏、百分比；不自行猜原生枚举值。
+
+**对手防守18字段：** `VS_OPPONENT_DEFENSE` + owner team + opponent team + `defensive_setting_scope=OVERALL`，改变该owner面对该对手的**所有有效matchup记录**，不是单球员对位写入。字段：`PressureOnball`、`PressureOffball`、`ForceDirection`、`ScreenDefenseOnBall`、`ScreenDefenseHedge`、`OffballScreenDefense`、`PostDefense`、`DoubleTeamPerimeter`、`DoubleTeamPost`、`ScreenDefenseOnBall5`、`ScreenDefenseHedge5`、`SwitchRule`、`OnballHelp`、`ScreenHelp`、`ExtendPressure`、`TagOnRoll`、`StayAttached`、`PreRotate`；每字段必须按最新source里的合法原生字典，部分原生名作用尚未知。禁止GM写五项SimPace/SimPress/SimHelpDef/SimOffReb/SimDefReb；旧TEAM poe_*不可当作教练值；无单独球员对位/轮换分钟写入能力。
+
+**首次生产来源门槛：** 玩家下一次主动触发正式采集上传；读取最新 `published/index.json → saves/<career>/latest.json`，本批 `source_coverage.json` 必须 `coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`，存在 `coaching/teams.json`（30队）与 `coaching/field_dictionary.json`；对手按需读`coaching/opponents/<owner>.json`，不要默认全读870组合。2026-10-18本次检查的latest仍指向旧批次 `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`，**尚无可信正式教练新来源**。教练代码已main合并，隔离局技术验收与正式来源成功发布不可混淆。
+
+**教练提案→执行：** GM逐队以球队真实阵容决定HOLD/PROPOSED、`COACH_DEFAULT`或`VS_OPPONENT_DEFENSE`、目标合法raw值、篮球理由；只能用程序从可信批次生成`gm_intent → requests → coaching_batch → gm_proposal`，模型不猜coach IDs、before_raw/共享块、整体组身份。玩家审核`career_id/batch_id/decision_id/version/全部action_ids/batch_digest`，批准后Codex才执行`scripts/coaching_batch.py`的离线校验、RO preflight、受控execute及回执；必须玩家确认先退出教练编辑页`--coach-editor-closed`。回执`COMMITTED_VERIFIED_IN_MEMORY`不等于玩家游戏保存或新批次上传。无批准不写，互不并行，异常按原执行手册处理。保持“不为验证胜率自动推进比赛”的规则。
+
+**交易能力：** 受控`ownership_transfer_v2`脚本`scripts/execute_approved_trades.py`或`scripts/run_approved_trades.ps1`，常用姓名/from_team/to_team，可选face/DOB；简单三届选秀权身份；plan→player-approved execute→verify；15人常规名单上限、计数与引用一致、防重放。有限支持普通球队不重叠批次；不把此成功推广成复杂多笔同队依赖、签约或裁员能力。先前两笔交易玩家确认已落地，切忌重复执行。
+
+**签约：** GM负责球员/目标球队/逐年整数美元合同/选项/择队/审批，Codex不重复议价。`approved_signing_v1_unvalidated`和`scripts/execute_approved_signing.py`仅源码准备，`SIGNING_LAYOUT_VALIDATED=False`/`SIGNING_EXECUTION_ENABLED=False`，真实写回未运行/未验收；等有正式签约且玩家明确批准才做实机布局核验、打开控制写入，不能现在当作可用完成态。
+
+**休赛期竞价：** `src/gm_core/offseason.py`、`scripts/offseason_plan.py`、`scripts/offseason_validate.py` 已有30队集中竞价、同队最终匹配、UFA/RFA、工资/名额顺序占用的合成来源离线规划源码，但P0真实休赛期采集、到期判定/原生AI签约冻结、下一季资金资格、持久性及签约执行未验收。规划器v1_1只准`SYNTHETIC_OFFSEASON_V1`，真实输入会阻断，不得声称已“彻底堵死”原生球员流动。待玩家触发休赛期测试/采集，另行验证原生AI不覆盖外部决策与跨赛季保存。该系统是外部竞价与合同方案来源，不自动执行游戏写入。
+
+**经营方向：** 每月30队独立经营，除交易/人员外新增球队体系与对手防守的战术选择，提高争胜能力，同时依据玩家历史重力专项规则平衡现实/历史线。普通球员属性/潜力/徽章、人物成长仍由游戏决定，任何历史重力例外需玩家逐项批准。此次仅加载文档与GM能力，无新比赛、无任何游戏写入、无新30队决策节点；仍沿用同赛季一个GM聊天、玩家先发布新源再触发GM的流程。
 
 ## 2026-10-17 玩家新指令：两个交易均已批准、攻防开发恢复
 
