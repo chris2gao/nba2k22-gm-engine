@@ -15,10 +15,10 @@
   },
   "protected_player_names": ["Tyrese Haliburton"],
   "tactical_enums": {
-    "poe_off_pace": {"values": [0, 1, 2, 3, 4, 5], "status": "DOCUMENTED_ENUM_PENDING_EXECUTOR_VALIDATION"},
-    "poe_fastbreak": {"values": [0, 1, 2, 3, 4, 5], "status": "DOCUMENTED_ENUM_PENDING_EXECUTOR_VALIDATION"},
-    "poe_pnr_def": {"values": [0, 1, 2, 3, 4, 5, 6], "status": "DOCUMENTED_ENUM_PENDING_EXECUTOR_VALIDATION"},
-    "poe_on_ball": {"values": [], "status": "UNVERIFIED_ENUM_CONFLICT_OBSERVED_7_VS_LEGACY_0_TO_4"}
+    "profile": "config/coach_tactics_profile.json",
+    "legacy_team_poe_status": "REVOKED_LEGACY_UNVERIFIED",
+    "contract": "gm_core.coaching.validate_plan_WITH_CURRENT_COACHING_SNAPSHOT",
+    "approval": "EXTERNAL_SPECIFIC_PLAYER_APPROVAL_REQUIRED"
   },
   "extensions": {
     "v2": ["asset_ownership", "bilateral_negotiation", "cba_and_game_rules", "multi_model_handoff"],

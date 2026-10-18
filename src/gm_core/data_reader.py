@@ -27,6 +27,22 @@ def identifier(value):
     return value
 
 
+def attach_coaching_opponents(snapshot,payload):
+    """Attach one published owner file with the same source binding, offline."""
+    if any(payload.get(k)!=snapshot.get(k) for k in ('career_id','source_batch_id','game_date','data_updated_at')):
+        raise ValueError('Opponent source must match snapshot career/batch/date/update time')
+    teams=[t for t in snapshot['teams'] if t['team_id']==payload.get('team_id')]
+    if len(teams)!=1 or teams[0].get('gameplans'):
+        raise ValueError('Missing team or duplicate opponent source')
+    records=payload['records']
+    opponents=[g['opponent_team_id'] for g in records]
+    expected={t['team_id'] for t in snapshot['teams']}-{payload['team_id']}
+    if len(opponents)!=29 or len(set(opponents))!=29 or set(opponents)!=expected:
+        raise ValueError('Opponent source requires the exact other 29 teams')
+    teams[0]['gameplans']=[dict(opponent_team_id=g['opponent_team_id'],is_in_use=g['is_in_use_raw'],
+        overall_defense=g.get('overall_defense'),readiness=g['readiness']) for g in records]
+
+
 def timestamp(value):
     if not isinstance(value, str):
         raise ValueError("A published timestamp is required")
@@ -83,10 +99,42 @@ class DataReader:
                         pointer["game_date"], pointer.get("source_commit") or git_revision(self.root, pointer_path.relative_to(self.root).as_posix()),
                         pointer["batch_path"])
         staff_path = directory / "staff.json"
+        coaching={}
+        coaching_path=directory/'coaching/teams.json'
+        coverage=load_json(directory / 'source_coverage.json')
+        if coaching_path.exists():
+            coaching=load_json(coaching_path)
+            statuses={s['id']:s['status'] for s in coverage.get('sources',[])}
+            if (statuses.get('coaching_tactics')!='VERIFIED_OBSERVED_SAME_BATCH'
+                or coaching.get('career_id')!=career_id or coaching.get('source_batch_id')!=pointer['batch_id']
+                or coaching.get('data_updated_at')!=pointer['data_updated_at']
+                or coaching.get('game_date')!=pointer['game_date']):
+                raise ValueError('Coaching source is not bound to the selected published batch')
+            rows={t['team_id']:t for t in coaching['teams']}
+            if len(rows)!=30 or len(coaching['teams'])!=30 or set(rows)!={t['identity']['team_id'] for t in teams.values()}:
+                raise ValueError('Coaching source requires exactly the selected 30 teams')
+            for team in teams.values():team['coaching']=rows[team['identity']['team_id']]
         return PublishedData(source, gameplay, load_json(self.root / "config/gm_policy.json"),
                              git_revision(self.root, "config/gameplay_policy.json"), league, teams,
-                             load_json(directory / "source_coverage.json"), load_json(directory / "calculations.json"),
-                             load_json(staff_path) if staff_path.exists() else {}, self.root, directory)
+                             coverage, load_json(directory / "calculations.json"),
+                             load_json(staff_path) if staff_path.exists() else {}, self.root, directory,coaching)
+
+    def coaching_opponent(self,data,team_id,opponent_team_id):
+        rows=[t for t in data.coaching.get('teams',[]) if t['team_id']==team_id]
+        if len(rows)!=1 or opponent_team_id==team_id:
+            raise ValueError('Unknown coaching team or self opponent')
+        payload=load_json(safe_child(data.batch_directory,rows[0]['opponent_file']))
+        if (payload.get('career_id')!=data.source.career_id or payload.get('source_batch_id')!=data.source.batch_id
+            or payload.get('data_updated_at')!=data.source.data_updated_at or payload.get('team_id')!=team_id
+            or payload.get('game_date')!=data.source.game_date):
+            raise ValueError('Opponent source batch mismatch')
+        opponents=[g['opponent_team_id'] for g in payload['records']]
+        expected={t['team_id'] for t in data.coaching['teams']}-{team_id}
+        if len(opponents)!=29 or len(set(opponents))!=29 or set(opponents)!=expected:
+            raise ValueError('Opponent source requires the exact other 29 teams')
+        records=[g for g in payload['records'] if g['opponent_team_id']==opponent_team_id]
+        if len(records)!=1:raise ValueError('Missing or ambiguous opponent')
+        return records[0]
 
     def draft_catalog(self, data, year):
         catalog_root = data.batch_directory / "player_catalog"

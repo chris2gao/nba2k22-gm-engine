@@ -4,6 +4,8 @@
 
 常驻执行基线的完整提示词是 [36_EXECUTION_BASELINE_PROMPT.md](36_EXECUTION_BASELINE_PROMPT.md)，当前执行能力和未验收项目见 [34_BASELINE_CURRENT_STATE.md](34_BASELINE_CURRENT_STATE.md) 第 8 节。建立基线只读文件并等待，不连接游戏或执行历史批准方案。
 
+教练 V2 当前批次入口见[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)及[状态34](34_BASELINE_CURRENT_STATE.md)：默认预演不连接进程，旧 TEAM writer 已撤销。19项默认字段可提案和受控执行，14项有实机写回证据，四Freelance依据原生完整枚举/布局和有序codec。板凳深度是人数，GM根据阵容决定，9–10不是上限。玩家已明确开放原生Tempo读写，界面含义未知；参考本局教练实际值，不把它称为已验证的进攻节奏或百分比。指定对手整体防守通过该对手全部有效记录的原生批量操作，已用 PHI→IND 验收；不提供逐球员写入。IsInUse 0→1 依据真实 UI 退出差分，只在受控批次字段完成后提交，不能凭 0 猜禁用。其余默认字段及生产集成仍按各自门槛。正式局须批准具体批次；写前退出编辑页并传 `--coach-editor-closed`。V2 分支未部署 main，不能把分支验收当作部署成功。
+
 ## 最小阅读与输入
 
 先读本文件、`AGENTS.md`、文档 22 和 26；只在需要时查目标字段的实现和来源规范。不要加载所有球队历史档案。

@@ -1,10 +1,14 @@
 # Web GPT · 开发规划基线当前记忆
 
 - role: WEB_GPT_DEVELOPMENT
-- memory_version: 1
+- memory_version: 3
 - last_reviewed: 2026-10-17
-- state: COACHING_IMPLEMENTATION_TASK_PUBLISHED_AWAITING_CODEX
+- state: COACHING_V2_IMPLEMENTATION_AND_ISOLATED_ACCEPTANCE_IN_PROGRESS
 - linked_codex_state: `docs/34_BASELINE_CURRENT_STATE.md`（**Codex 状态索引，不在此复制更新**）
+
+DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状态。当前证据、字段门槛和剩余工作只读 [Codex 状态34](../../docs/34_BASELINE_CURRENT_STATE.md)与[集成报告](../../docs/development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)。已建立 [GM 操作手册](../manuals/GM_COACHING_OPERATIONS.md)及 [Codex 执行手册](../../docs/40_COACHING_EXECUTION_RUNBOOK.md)。当前19项默认字段接口已实现，Tempo按玩家明确选择开放原生raw并标明界面含义未知；main尚未部署，真实生产采集和数据发布未运行，不得将工程交付声称为部署或数据发布成功。
+
+玩家最新修正：正式脚本顺序执行；不要把少量验收样本当作允许值白名单。BenchDepth取消9–10人为上限，由GM读取阵容后选择人数；四Freelance按完整原生枚举/布局及有序codec提供受控接口，不因未重复菜单检查而禁用，也不冒充实际UI已验证。当前19项默认字段可提案/受控执行；玩家明确开放原生Tempo并保留界面含义未知，结合其他教练观测值选择目标，不增加测试样本限制。原生类型/枚举、来源身份、具体批准和条件恢复保护保留。
 
 ## 已知工程事实
 
