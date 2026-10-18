@@ -1,4 +1,6 @@
-# W03/R03 第二组10队：比赛指标 → 教练字段的可检验决定
+# W03/R03 第二组10队：比赛指标 → 教练字段的可检验决定 
+
+> **SUPERSEDED — 仅保留初稿供审计**：本文件以M02赛季累计为主，后续更强的M01→M02真实区间比赛分析已正式完成。应以[正式R03区间分析报告](ROUND_R03_GROUP_B_METRIC_FIRST_REPORT.md)、[R03完成回顾](ROUND_R03_RECAP.md)及进度追踪为准。尤其NOP与DAL的本初稿战术目标已由对手两分/三分命中变化证据推翻，IND后续定为HOLD。本文件不允许进入执行清单。
 
 - `career_id=mc_haliburton_2021`；`game_date=2021-12-12`；`source_batch_id=2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`。
 - 本轮独立核查10队、**152/152名当前大名单球员**。完整逐人身份、能力、统计、工资、合同、教练19项现值和合法签位：[数据分析与经营底稿](ROUND_R03_GROUP_B_DATA_FIRST_DOSSIERS.json)。
