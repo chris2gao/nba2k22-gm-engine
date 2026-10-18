@@ -36,7 +36,7 @@
 
 - **实际最新快照**：玩家已触发Codex发布正式M02，game_date=2021-12-12，月序M02普通检查点，`latest.json`指向`2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`，`coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`、审计PASS。**下方“latest还是M01 / 两笔交易尚待刷新”是W02历史记录，已失效，不作为当前事实。**
 - **两笔先前获批交易当前名单可观察**：Jerami Grant在CHI、Coby White在DET；David Nwaba在DAL；执行动作来源仍按玩家已确认，不重新执行。
-- **本轮30队GM经营已触发R01并完成**浅层**初步意见（尚不足以通过V3逐队深度质量门槛）**：11队共12个教练篮球意图、19队教练HOLD；一项双方一致交易候选CHA↔SAS Poeltl vs P.J. Washington + 2024 NOP原始二轮，全部`PROPOSED_NOT_APPROVED`，原始详情和完整角色风险见[R01回顾](windows/W03_GM_20261018/ROUND_R01_RECAP.md)。
+- **本轮30队GM经营已触发R01并完成浅层初步意见（尚不足以通过V3逐队深度质量门槛）**：11队共12个教练篮球意图、19队教练HOLD；一项双方一致交易候选CHA↔SAS Poeltl vs P.J. Washington + 2024 NOP原始二轮，全部`PROPOSED_NOT_APPROVED`，原始详情和完整角色风险见[R01回顾](windows/W03_GM_20261018/ROUND_R01_RECAP.md)。
 - **回合使用规则（新V3）**：本节点最少走完R02–R06的3轮每轮10队深入研究+2轮整合终稿；此处旧“3轮上限”已作废。R01只是历史总览，R02仍须由玩家继续触发；不自动开始新回合或写入游戏。
 - **教练原生批准闸门**：GM现在只发布已验证raw目标和篮球理由，**尚未生成离线完整native batch/摘要/digest**；任何“赞成方向”不可自动等同教练执行摘要批准。交易T01同样必须玩家逐项具体批准并由Codex只读预检后执行。
 - **球员数据特别注意**：个人累计出场/得分可跨球队。MC真实Tyrese Haliburton槽1235已在IND，个人27场58.41均分不等于在IND效力27场；重复模型Ty Hali槽184不是同一人物。训练由AI管理，精确分钟不强控。
