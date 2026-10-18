@@ -14,25 +14,25 @@
 - 当前教练/交易申请均处于待审批阶段，严禁因发表GitHub提案自行改游戏。下一轮只在玩家继续本赛季GM谈判时触发。
 
 
-DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
+DEV07 V2 技术验收历史补充（首次正式生产来源现已由M02完成；本段其他旧时点描述仅保留作历史）：见[教练操作手册](../manuals/GM_COACHING_OPERATIONS.md)。新范围为 19 项球队默认设置、指定对手整体防守、30 队批准绑定批次及同会话来源；五项 Sim 禁止 GM 操作。PR #1已于2026-10-18合并main（2509b3b）并同步本地，首次生产采集/发布未运行；六默认 POE 沿用既有验证，整体防守新增 PHI→IND 14 条 UI 等价批量写入/显示/恢复证据，五数值设置、双体系与命名手册现也通过分项门槛，14项有实机写回证据，四Freelance依原生完整目录/有序codec提供受控接口，加上玩家明确开放的原生Tempo共19项；Tempo界面含义仍未知，参考同局教练实际值，不声称其为已验证的进攻节奏，BenchDepth不再设置9–10测试白名单，GM按阵容决定人数。未运行新的 GM 轮次、正式存档执行或数据发布，不改变以下已归档赛季决定。
 
 - role: `WEB_GPT_GM`
-- memory_version: 16
+- memory_version: 17
 - gm_chat_scope: `ONE_CHAT_PER_GAME_SEASON_V1`（本赛季持续使用一个 GM 决策聊天；月度 Wxx 为节点归档，不要求另开聊天）
 - updated_real_world: `2026-10-18`
 - current_game_season: `2021-2022`
 - current_career: `mc_haliburton_2021`
 - current_window: `GM-S2021-2022-W03` / `R01`（M02正式提案已发布，尚未批准）
-- last_game_month_hint: `2021-11`（原项目进度参考，**本批精确game_date UNKNOWN**）
+- last_game_month_hint: `2021-12 / M02`（2021-12-12玩家确认，非月结）
 - last_game_date_exact: `2021-12-12`（PLAYER_CONFIRMED）
 - month_closed: false
 - last_snapshot_batch: `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`
 - last_snapshot_data_updated_at: `2026-10-18T12:12:13.170996+00:00`
 - last_gm_decision_id: `GM-20261018-W03-R01 v1`（新M02正式30队提案PROPOSED，非玩家批准）
 - approved_actions: W01 `GM-A01..GM-A07`（限战略/研究）；W02 `GM-W02-A01`、`GM-W02-R02-A01` 玩家批准且于2026-10-17报告已在游戏中成功落地
-- current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`；最新采集尚未同步，不能把历史批次当交易后状态
-- game_write_approved: true (only W02 two specifically approved trades; not blanket writing permission)
-- gm_game_write_executed: `PLAYER_REPORTED_COMPLETED_2026-10-17`（两笔；待下次新发布批次核对球员和选秀权，未在网页端执行）
+- current_game_change_decision: `W02_A01_GRANT_PLAYER_CONFIRMED_EXECUTED`; `W02_R02_A01_NWABA_PLAYER_CONFIRMED_EXECUTED`; `W02_A02_TURNER_NO_DEAL`; 两笔交易后的部分球员归属已在M02新快照观察；`W03_R01=PROPOSED_NOT_APPROVED`
+- game_write_approved: false (W03本轮无游戏写入批准；W02过去两笔交易曾获分别批准并已完成，不构成新权限)
+- gm_game_write_executed: `W02_TWO_TRADES_PLAYER_REPORTED_COMPLETED_2026-10-17_AND_M02_ROSTER_OBSERVED`; `W03_R01_NO_EXECUTION`
 
 ## 2026-10-18 玩家确认：游戏AI会覆盖精细分钟分配；GM不再寻求精确个人分钟控制
 
