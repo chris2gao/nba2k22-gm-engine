@@ -3,7 +3,7 @@
 - season_id: `2021-2022`
 - career_id: `mc_haliburton_2021`
 - season_gm_baseline: `2021-2022`（一个游戏赛季一个派生 GM 决策聊天，赛季内各节点沿用同一聊天）
-- current_window: `GM-S2021-2022-W03`（M02已完成R02与R03二轮深入研究，进度20/30队，尚未批准游戏写入）
+- current_window: `GM-S2021-2022-W03`（R04第三组已完成30队深度研究；R05仅待玩家触发，未批准游戏写入）
 - last_confirmed_exact_game_date: `2021-12-12`（PLAYER_CONFIRMED）
 - current_progress_hint: `2021-12 / M02`（官方发布检查点，month_closed=false）
 - index_created_real_date: `2026-10-17`
@@ -18,6 +18,13 @@
 | 02 | **与W01相同的未知日期检查点；没有新的发布批次，不是新月月结** | `GM-S2021-2022-W02 / R01`（同赛季聊天已触发的专题续议） | `2021-2022_M01_SIMPLE_PICKS_V1_88101a36a3e3_fbde28d7_TS2`（与W01完全相同） | [本次决策归档](windows/W02_GM_20261017/ROUND_R01_RECAP.md) · [30队同批基线](windows/W02_GM_20261017/TEAM_BASELINE.json) · CHI/DET格兰特具体交易仅PROPOSED；CHA/IND暂不成交；无写入 |
 
 | 03 | **2021-12-12 / M02 普通检查点，不是12月月结** | `GM-S2021-2022-W03 / R01`（同赛季聊天，2026-10-18起采用V3至少五轮深度决策；本R01仅粗扫） | `2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2` | [R01归档](windows/W03_GM_20261018/ROUND_R01_RECAP.md) · [30队教练/交易提案](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md) · [机器可读GM意图](../../decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_INTENT.json) · 12项教练意图/1项双边交易提案，**未获玩家批准，未游戏写入** |
+
+## 2026-10-18 W03/R04 最新进度：第三组完成，全联盟30队深度研究收齐
+
+- 2021-12-12同一M02普通检查点，不是月结；`W03/R04`完成C组DET/TOR/HOU/OKC/SAS/PHX/MIN/POR/GSW/CHA共10队、157条当前名单记录，累计**30/30队、466条名单**。机器资料每队核对M02原生教练默认值、同队同槽位球员区间事实、合同和2022–24签位。无游戏日期推进或写入。
+- [R04逐队数据人读报告](windows/W03_GM_20261018/ROUND_R04_GROUP_C_METRIC_FIRST_REPORT.md) · [C1逐人机器档案](windows/W03_GM_20261018/ROUND_R04_GROUP_C1_METRIC_FIRST.json) · [C2逐人机器档案](windows/W03_GM_20261018/ROUND_R04_GROUP_C2_METRIC_FIRST.json) · [R04回顾](windows/W03_GM_20261018/ROUND_R04_RECAP.md) · [30队总研究索引](windows/W03_GM_20261018/ALL_30_TEAMS_RESEARCH_INDEX.md) · [完整进度tracker](windows/W03_GM_20261018/TEAM_REVIEW_TRACKER.json)。
+- R04新增5个**未获玩家批准**的教练单字段候选：DET/OKC/MIN `POEDefense14→13`、SAS `POEOffense5→4`、CHA `POEDefense14→15`；TOR/HOU/PHX/POR/GSW保留。三组共有15项阶段候选，**不是R06审批清单**。
+- 下一轮仅在玩家明确指令后启动`W03/R05` 30队整合、双方独立交易报价与战术机会成本复核；之后`W03/R06`才最终选择教练/交易意图和Codex执行材料。员工/全球员池技术债在本次决策结束后处理，训练和个人分钟精调仍不做。
 
 ## 2026-10-18 W03/R03 最新进度：B组10队完整比赛/战术研判完成
 
