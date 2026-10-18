@@ -24,12 +24,12 @@ DEV07 V2 开发状态补充：见[教练操作手册](../manuals/GM_COACHING_OPE
 
 本节基于玩家请求对main分支的正式机制再次核实。核对资料：
 - [GM教练手册](../manuals/GM_COACHING_OPERATIONS.md)
-- [教练执行手册](../../../docs/40_COACHING_EXECUTION_RUNBOOK.md)
-- [交易执行器](../../../docs/37_APPROVED_TRADE_EXECUTOR.md)
-- [签约执行](../../../docs/38_APPROVED_SIGNING_EXECUTION.md)
-- [能力状态表](../../../docs/34_BASELINE_CURRENT_STATE.md)
-- [休赛期P0研究](../../../docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)
-- [休赛期P1源码](../../../docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P1_IMPLEMENTATION.md)
+- [教练执行手册](../../docs/40_COACHING_EXECUTION_RUNBOOK.md)
+- [交易执行器](../../docs/37_APPROVED_TRADE_EXECUTOR.md)
+- [签约执行](../../docs/38_APPROVED_SIGNING_EXECUTION.md)
+- [能力状态表](../../docs/34_BASELINE_CURRENT_STATE.md)
+- [休赛期P0研究](../../docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)
+- [休赛期P1源码](../../docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P1_IMPLEMENTATION.md)
 
 **教练19项球队默认设置：** `COACH_DEFAULT`。六项POE：`POEOffense/POEOffense2/POEOffense3/POEDefense/POEDefense2/POEDefense3`；`PreferredSystem`、`ActiveSystem`（0–7原生体系）；`PlaybookID`（仅用最新同进程已命名字典）；`BenchDepth`、`RunPlayTendency`、`ZoneUsage`、`BenchUtilization`、`Tempo`、`HelpDefense`；`FreelanceType/2/3/4`（34个原生合法枚举、有序四槽）。四项已确认百分比字段0–100；BenchDepth是轮换人数不是百分比，9–10仅测试样本无固定上限；Tempo允许原生raw读写，但UI/引擎效果UNKNOWN，不能假称进攻节奏、百分比；不自行猜原生枚举值。
 
