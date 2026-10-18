@@ -73,7 +73,7 @@
   },
   "field_notes": {
     "team_monthly_stats.poe_*": "LEGACY_UNVERIFIED raw TEAM bytes; tactical semantics revoked by DEV06. Never reuse these names as native COACHDATA POE or assign a new meaning to historical batches.",
-    "coaching_snapshot": "Independent engineering CLI does not refresh production source timestamps. PR #1 merged the same-RO-session ingestion/audit/SQLite/export hook into main (2509b3b). The first player-triggered real production capture/publication has not run.",
+    "coaching_snapshot": "Independent engineering CLI does not refresh production source timestamps. PR #1 merged the same-RO-session ingestion/audit/SQLite/export hook into main (2509b3b). First player-triggered full production capture and publication completed on 2026-10-18; see coaching_tactics.first_production below. Historical batches are not backfilled.",
     "team_monthly_stats.monthly_gate_revenue": "Direct offset value; the revenue aggregation window has not been independently established. The legacy column name does not prove it is monthly revenue.",
     "season_rules": "Configured and versioned rules, not observations of an in-game CBA ledger.",
     "monthly_snapshot": "A capture label is not evidence that game results for a month were acquired. Game date comes from the player's explicit trigger.",
@@ -87,7 +87,7 @@
   "sources": [
     {
       "id": "coaching_tactics",
-      "status": "MAIN_DEPLOYED_REAL_PRODUCTION_RUN_PENDING",
+      "status": "FIRST_PRODUCTION_CAPTURED_AND_PUBLISHED",
       "scope": "Same capture-session 30 head coaches: 19 default fields; per-owner opponent overall bulk-defense observations. Five Sim fields are read-only GM_CONTROL_DISABLED. No individual matchup or rotation writer.",
       "current_capture": "Hook in auto_pipeline_ingest.py on main; player-triggered full update only",
       "tables": ["coaching_source_captures", "coaching_team_observations"],
@@ -95,6 +95,21 @@
       "audit": "Same RO source session and later same-process source audit; missing/ambiguous teams fail before new publication",
       "historical_batches": "No backfill; absent source remains NOT_OBSERVED_IN_THIS_BATCH",
       "deployed_to_main": true,
+      "first_production": {
+        "save_id": "mc_haliburton_2021",
+        "snapshot_id": "2021-2022_M02_DEC12_FULL_20261018",
+        "batch_id": "2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2",
+        "game_date": "2021-12-12",
+        "game_date_provenance": "USER_CONFIRMED",
+        "data_updated_at": "2026-10-18T12:12:13.170996+00:00",
+        "uploaded_at": "2026-10-18T12:14:23.439960+00:00",
+        "upload_status": "UPLOADED",
+        "publication_commit": "a84e1b522e66d189f77f28f2f84947f9bee35b84",
+        "source_coverage_status": "VERIFIED_OBSERVED_SAME_BATCH",
+        "audit_verdict": "PASS_VERIFIED",
+        "gm_data_reader": "PASS_30_TEAMS_AND_SELECTED_OPPONENT",
+        "chatgpt_web_connection_verified": false
+      },
       "recommended_events": ["player_requested_full_update", "post_approved_coaching_execution"]
     },
     {

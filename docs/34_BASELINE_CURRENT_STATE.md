@@ -1,10 +1,23 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
-DEV07 V2已通过玩家审查，PR #1于2026-10-18合并main，合并提交`2509b3b6266accc2c95b17d8364bd80ffde225a3`，本地执行仓库已同步代码。首次真实生产采集或数据发布尚未运行，等待玩家单独触发。玩家最终明确将原生Tempo按raw开放、界面含义未知；该项不再作为开发阻塞。权威范围见[最终规格 V2](development_tasks/DEV_20261017_07_COACHING_GM_CLOSED_LOOP_V2.md)，当前[字段矩阵](development_reviews/DEV_20261017_07_COACHING_FIELD_MATRIX.json)、[集成报告](development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)、[批次验收](development_reviews/DEV_20261017_07_COACHING_BATCH_ACCEPTANCE.md)、[来源验收](development_reviews/DEV_20261017_07_COACHING_SOURCE_PUBLICATION_ACCEPTANCE.md)。六项 POE 沿用已验证证据；五项数值设置经 PHI 小步程序写入、玩家确认、日志恢复，30 队已捕获块完全恢复，见[滑块证据](development_reviews/DEV_20261017_07_SLIDER_EVIDENCE.json)。BenchDepth是轮换人数上限，9→10只是测试样本，玩家明确要求去掉此人为白名单；GM依据实际阵容选人数，仅保留原生整数格式保护。四项已确认百分比倾向为0–100。玩家已明确开放原生Tempo读写，界面含义未知，不称作已验证的进攻节奏或百分比；同局8位主帅已观测raw40–95，作为选择目标的实用参考，不变成执行白名单。四Freelance按完整原生枚举/布局和有序codec支持提案及受控执行，不宣称比赛内页面已实测；双体系/手册证据见下一段。五项 Sim 禁止 GM 控制。
+## 2026-10-18 首次教练生产来源启用回执（优先于下方历史待运行说明）
+
+状态：`FIRST_PRODUCTION_CAPTURED_AND_PUBLISHED`。玩家触发正常 `full_verified_v1` 全量流程，沿用存档 `mc_haliburton_2021`、2021–2022赛季，游戏日期由玩家确认12月12日，记录为 `2021-12-12`，框架M02、普通检查点。日期不是内存自动观测，未标月末闭账。
+
+- 快照：`2021-2022_M02_DEC12_FULL_20261018`；发布批次：`2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2`。
+- `data_updated_at=2026-10-18T12:12:13.170996+00:00`；`uploaded_at=2026-10-18T12:14:23.439960+00:00`；`upload_status=UPLOADED`。数据发布提交：`a84e1b522e66d189f77f28f2f84947f9bee35b84`。
+- 源审计 `PASS_VERIFIED`，教练同源审计通过；SQLite本快照包含30队、每队19默认字段、每队29个对手整体防守组，共870组。
+- 本批包含 `coaching/teams.json`、`coaching/field_dictionary.json`、30份球队对手文件；字典有19默认字段及18项对手防守字段，coverage为 `coaching_tactics=VERIFIED_OBSERVED_SAME_BATCH`。
+- 已读取GitHub main的最新指针，数据库Release附件状态为uploaded；现有 `gm_core.data_reader.DataReader` 成功装载30队教练并读取指定对手。网页GPT实际连接未代替玩家测试，不声称已运行正式GM。
+- [最新数据入口](https://github.com/chris2gao/nba2k22-gm-engine/blob/main/published/saves/mc_haliburton_2021/latest.json)；[本批数据库Release](https://github.com/chris2gao/nba2k22-gm-engine/releases/tag/data-2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2)。后续仍按玩家请求的新批次、时间和来源审计判断，不将此批次固定为未来事实。
+
+下方DEV07开发验收记录保留原有技术证据；生产启用状态以本节真实回执为准。本次没有游戏写入、教练调整、比赛模拟或GM决策；新数据更新继续全量-only，已采有效批次仍可独立重发。
+
+DEV07 V2已通过玩家审查，PR #1于2026-10-18合并main，合并提交`2509b3b6266accc2c95b17d8364bd80ffde225a3`，本地执行仓库已同步代码。首次真实生产采集与发布已于2026-10-18完成，见本页顶部真实回执。玩家最终明确将原生Tempo按raw开放、界面含义未知；该项不再作为开发阻塞。权威范围见[最终规格 V2](development_tasks/DEV_20261017_07_COACHING_GM_CLOSED_LOOP_V2.md)，当前[字段矩阵](development_reviews/DEV_20261017_07_COACHING_FIELD_MATRIX.json)、[集成报告](development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)、[批次验收](development_reviews/DEV_20261017_07_COACHING_BATCH_ACCEPTANCE.md)、[来源验收](development_reviews/DEV_20261017_07_COACHING_SOURCE_PUBLICATION_ACCEPTANCE.md)。六项 POE 沿用已验证证据；五项数值设置经 PHI 小步程序写入、玩家确认、日志恢复，30 队已捕获块完全恢复，见[滑块证据](development_reviews/DEV_20261017_07_SLIDER_EVIDENCE.json)。BenchDepth是轮换人数上限，9→10只是测试样本，玩家明确要求去掉此人为白名单；GM依据实际阵容选人数，仅保留原生整数格式保护。四项已确认百分比倾向为0–100。玩家已明确开放原生Tempo读写，界面含义未知，不称作已验证的进攻节奏或百分比；同局8位主帅已观测raw40–95，作为选择目标的实用参考，不变成执行白名单。四Freelance按完整原生枚举/布局和有序codec支持提案及受控执行，不宣称比赛内页面已实测；双体系/手册证据见下一段。五项 Sim 禁止 GM 控制。
 
 双体系及命名手册已进一步在 PHI 与对手整体混合批次写入并恢复，14项默认字段有实机写回证据，另4项Freelance提供原生完整枚举的有序受控接口，加上玩家明确开放的原生Tempo共19项；玩家确认“主打内线→主打外线”和“76人→雄鹿手册”。PreferredSystem原生独立位域/回读通过，未单独查看其UI；玩家停止同类重复核对。Freelance不再因未做重复菜单测试而设执行白名单；Tempo原生raw接口已开放，界面映射未知。见[混合证据](development_reviews/DEV_20261017_07_MIXED_BATCH_EVIDENCE.json)。
 
-指定对手“整体防守”已证明是 UI 批量修改该对手全部有效 matchup 记录，非单独 All 槽；PHI→IND 14 条 PressureOnball 经 UI 差分、程序写入显示“间隔”、事务恢复，所有已捕获块恢复一致。退出编辑页观察到 IsInUse 0→1，不能解释为 0=禁用。见[原生整体证据](development_reviews/DEV_20261017_07_OVERALL_DEFENSE_EVIDENCE.json)。批量执行与同会话采集/SQLite/JSON 集成代码已加入本分支，离线85项教练/40项GM测试及4个CLI帮助入口通过，尚无本任务真实全量生产采集/发布验收。[GM手册](../web_gm/manuals/GM_COACHING_OPERATIONS.md)和[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)已补齐19项/18项策略说明、完整外层提案与连续执行示例、首次部署/采集/发布启用核对。工程交付不冒充真实生产运行；实际使用按GM决策、玩家批准、执行回执及玩家反馈继续，不要求额外实机验收。以下 DEV06 记录保留历史含义。
+指定对手“整体防守”已证明是 UI 批量修改该对手全部有效 matchup 记录，非单独 All 槽；PHI→IND 14 条 PressureOnball 经 UI 差分、程序写入显示“间隔”、事务恢复，所有已捕获块恢复一致。退出编辑页观察到 IsInUse 0→1，不能解释为 0=禁用。见[原生整体证据](development_reviews/DEV_20261017_07_OVERALL_DEFENSE_EVIDENCE.json)。批量执行与同会话采集/SQLite/JSON 集成代码已加入本分支，离线85项教练/40项GM测试及4个CLI帮助入口通过，首次真实全量生产采集/发布已通过，见顶部回执。[GM手册](../web_gm/manuals/GM_COACHING_OPERATIONS.md)和[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)已补齐19项/18项策略说明、完整外层提案与连续执行示例、首次部署/采集/发布启用核对。工程交付不冒充真实生产运行；实际使用按GM决策、玩家批准、执行回执及玩家反馈继续，不要求额外实机验收。以下 DEV06 记录保留历史含义。
 
 状态版本：v5，2026-10-17。数据功能证据提交：`2d16a7d`；对应已发布入口提交：`875adb4`。本次基于`8274510`新增本地交易执行与签约候选源码；W02首次漏人数后已修复，玩家明确确认CHI/DET交易成功，标准交易v2已启用有限范围，见[文档37](37_APPROVED_TRADE_EXECUTOR.md)。签约只执行GM已定案的人物/去向/合同，源码未运行/未测试，写入关闭等待未来签约验证，见[文档38](38_APPROVED_SIGNING_EXECUTION.md)。既有休赛期P1模拟不被执行入口调用。这些证据不是以后任务的固定HEAD或固定数据版本。
 
@@ -40,12 +53,12 @@ DEV07 V2已通过玩家审查，PR #1于2026-10-18合并main，合并提交`2509
 | SQLite 备份 ZIP 与 JSON 自动导出 | 已实现 | `src/export_web_gm.py`；JSON 在 Git，ZIP 在 Release |
 | 网页 GM 本地分析/计算/提案接口 | GM v1 已交付 | `src/gm_core/`、三个 GM CLI；无正式决策自动启动和执行权 |
 | 休赛期自由球员系统 | P0部分研究；P1合成模拟源码未运行/未测试，规划器v1_1静态修正涨幅取整与RFA选择顺序 | `scripts/offseason_research.py`清点历史字段，`scripts/offseason_plan.py`/`offseason_validate.py`为合成来源离线竞价/回放入口；见[P0](development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md)/[P1](development_reviews/DEV_20261017_04_OFFSEASON_FA_P1_IMPLEMENTATION.md)。无真实休赛期来源、签约执行器或跨季验收 |
-| 教练战术与批次接口 | main中的19项默认字段提供受控接口（14项有实机写回证据），指定对手整体已验收；Tempo按玩家明确选择开放原生raw，界面含义未知 | `coaching_batch.py` 和原有三个 CLI；默认纯离线；SQLite/JSON 同批集成已合并main；未运行首次真实生产全量采集/发布 |
+| 教练战术与批次接口 | main中的19项默认字段提供受控接口（14项有实机写回证据），指定对手整体已验收；Tempo按玩家明确选择开放原生raw，界面含义未知 | `coaching_batch.py` 和原有三个 CLI；默认纯离线；SQLite/JSON 同批集成已合并main；首次真实生产全量采集/发布已完成，见顶部回执 |
 | 批准普通球员交易/简单选秀权 | 标准v2，CHI/DET经人数修复后玩家已确认成功；输入姓名/原队/目标队并由脚本固定身份 | `scripts/execute_approved_trades.py` / `run_approved_trades.ps1`；plan→显式execute→verify；限定布局/15人容量、计数保护/防重放。见文档37，不认证任意其他业务 |
 | 通用交易、签约/裁员、历史新秀注入、历史重力执行 | 未完整验收 | 新实验代码不认证其他业务、原生交易日志或存盘持久化 |
 | 模型自动派发、多模型谈判、v3 完整经营史 | 未完整实现 | 协议/边界预留不是生产功能 |
 
-**当前执行结论（2026-10-18玩家明确确认）：**新游戏数据更新统一走`scripts/run_data_update.ps1`的`full_verified_v1`，一次刷新全部已验证来源（包括原生教练战术）。无单来源采集开发任务；独立`REPUBLISH`只重发已采有效批次。若玩家明确要求排除某来源，不能在不符合该约束时擅自运行全量，应先说明当前全量-only规则。教练首次正式采集与发布待玩家触发，见[DEV08全量启用规划](development_tasks/DEV_20261018_08_COACHING_FULL_REFRESH_FIRST_PRODUCTION_V1.md)。
+**当前执行结论（2026-10-18玩家明确确认）：**新游戏数据更新统一走`scripts/run_data_update.ps1`的`full_verified_v1`，一次刷新全部已验证来源（包括原生教练战术）。无单来源采集开发任务；独立`REPUBLISH`只重发已采有效批次。若玩家明确要求排除某来源，不能在不符合该约束时擅自运行全量，应先说明当前全量-only规则。教练首次正式采集与发布已完成，见顶部回执；原启用规划见[DEV08全量启用规划](development_tasks/DEV_20261018_08_COACHING_FULL_REFRESH_FIRST_PRODUCTION_V1.md)。
 
 ## 3. 数据任务路由（玩家只触发全量或重新发布）
 
@@ -124,7 +137,7 @@ _exports/receipts/                          发布回执
 5. 每次数据采集不重写本页的整套计数；它们留在 manifest/latest。只有能力或维护口径变化才更新基线。
 6. 基线窗口没有自动刷新推送能力。玩家派生新任务后，模型重新读磁盘文件；不要声称旧聊天已经自动学会新提交。
 
-当前数据源待办：玩家下一次明确触发完整生产采集/按需发布后，核验首份包含原生教练来源的线上批次。文档33第7节已取消单来源开发。此处不触发采集、发布、GM或游戏写入。
+首次教练来源生产采集与发布已完成。后续数据刷新仍需玩家明确触发，逐次使用新批次和审计结果。文档33第7节已取消单来源开发。此处不触发采集、发布、GM或游戏写入。
 
 ## 8. 执行基线能力表：可读、可写底层与已验收业务分别看待
 
