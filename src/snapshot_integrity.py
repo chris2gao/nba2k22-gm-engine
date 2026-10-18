@@ -18,7 +18,8 @@ SNAPSHOT_TABLES = (
     "market_trade_offers",
     "market_free_agents",
 )
-EXTENSION_TABLES = ('player_source_details', 'staff_source_details', 'team_source_stats', 'draft_asset_observations')
+EXTENSION_TABLES = ('player_source_details', 'staff_source_details', 'team_source_stats', 'draft_asset_observations',
+                    'coaching_source_captures','coaching_team_observations')
 
 
 def _json_value(value: Any):

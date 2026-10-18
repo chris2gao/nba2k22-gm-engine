@@ -45,8 +45,10 @@ def transaction_key(plan):
 def source_provenance():
     root=Path(__file__).resolve().parents[1]
     files=("src/coach_codec.py","src/coach_locator.py","src/coaching_reader.py",
-           "src/coaching_executor.py","src/gm_core/coaching.py","config/coach_tactics_profile.json")
-    return dict(version="COACH_EXECUTOR_V1",command=list(sys.argv),
+           "src/coaching_executor.py","src/gm_core/coaching.py","config/coach_tactics_profile.json",
+           "src/coaching_batch_executor.py","src/coaching_targets.py","src/defense_codec.py",
+           "src/gm_core/coaching_batch.py","src/coaching_overall.py")
+    return dict(version="COACH_EXECUTOR_V2",command=list(sys.argv),
                 source_files_sha256={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in files})
 
 class CoachingExecutor:

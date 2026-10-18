@@ -33,10 +33,24 @@ def defensive_catalog(locator):
                           mask=hex(((1<<bits)-1)<<(shift+field["offset"]*8)),
                           native_enum_name_crc32={str(raw):f"{crc:08x}" for raw,crc in values.items()},
                           readiness="LOCATED_READ_ONLY",production_enabled=False)
+        expected=locator.profile.get('defensive_fields',{}).get(name)
+        if expected:
+            if any(result[name][key]!=expected[key] for key in ('offset','storage_bytes','start_bit','width','mask','native_enum_name_crc32')):
+                raise RuntimeError('DEFENSIVE_NATIVE_PROFILE_CHANGED_'+name)
+            result[name]['native_enum_labels']=expected['native_enum_labels']
+            result[name]['readiness']=expected['readiness']
+            result[name]['production_enabled']=expected['production_enabled']
+        if name=='PreRotate':
+            # 0x25 is the native bool kind (0x05) with packed-field flag 0x20.
+            if ((field['format']>>24)&0x1f)!=5 or bits!=1 or field['enum_address']:
+                raise RuntimeError('PREROTATE_NATIVE_BOOLEAN_LAYOUT_CHANGED')
+            result[name]['native_boolean']=True
     return result
 
 def gameplans(locator,tid):
+    from coaching_overall import overall_from_raw
     n=locator.profile["native"]
+    catalog=defensive_catalog(locator)
     result=[]
     for i in range(n["gameplan_capacity"]):
         raw=read_exact(locator.mem,locator.managers[tid]+n["gameplan_start"]+i*n["gameplan_stride"],
@@ -74,17 +88,18 @@ def gameplans(locator,tid):
                    for j in range((0x64-6)//4)]
         result.append(dict(opponent_team_id=opponent,is_in_use=raw[0],is_tainted=raw[1],
                            values=values,defensive_matchups=defenses,rotations=rotations,
-                           readiness="MATCHUP_EXECUTION_BLOCKED_NOT_ACTIVATED",
-                           player_identity_status="CAPTURE_LOCAL_UNVERIFIED_FOR_WRITES"))
+                           overall_defense=overall_from_raw(raw,locator.profile['opponent_overall_defense'],catalog),
+                           readiness=locator.profile['opponent_overall_defense']['readiness'],
+                           player_identity_status="GROUP_IDS_AND_CAPTURE_ROSTER_BOUND_INDIVIDUAL_WRITES_NOT_EXPOSED"))
     opponents=[r["opponent_team_id"] for r in result]
     if len(set(opponents))!=len(opponents) or set(opponents)!=set(locator.teams)-{tid}:
         raise RuntimeError("MISSING_OR_DUPLICATE_OPPONENT_GAMEPLAN")
     return sorted(result,key=lambda r:r["opponent_team_id"])
 
-def coaching_snapshot(locator,context,environment="FORMAL_READ_ONLY"):
+def coaching_snapshot(locator,context,environment="FORMAL_READ_ONLY",allow_unknown_date=False):
     if environment not in ("FORMAL_READ_ONLY","ISOLATED_TEST"):
         raise ValueError("UNKNOWN_SNAPSHOT_ENVIRONMENT")
-    context=validate_context(context,environment=="ISOLATED_TEST")
+    context=validate_context(context,environment=="ISOLATED_TEST" or allow_unknown_date)
     identity=locator.context_identity()
     rows=[]
     fields=locator.profile["fields"]
@@ -102,9 +117,11 @@ def coaching_snapshot(locator,context,environment="FORMAL_READ_ONLY"):
         rows.append(dict(team_id=tid,abbreviation=locator.teams[tid]["abbreviation"],
                          coach_identity=c["identity"],roster_signature=c["roster_signature"],
                          values=values,blocks=blocks,gameplans=gameplans(locator,tid),
-                         readiness={name:f["readiness"] for name,f in fields.items()}))
+                         readiness={name:f["readiness"] for name,f in fields.items()},
+                         freelance_sets=[values[n] for n in locator.profile['freelance_slot_order']]))
     if locator.context_identity()!=identity:
         raise RuntimeError("CONTEXT_CHANGED_DURING_SNAPSHOT")
+    from coaching_targets import process_binding
     return dict(schema_version=1,snapshot_id=uuid.uuid4().hex,**context,
                 observed_at=datetime.now(timezone.utc).isoformat(),
                 observation_status="OBSERVED_LIVE_READ_ONLY",environment=environment,
@@ -112,6 +129,7 @@ def coaching_snapshot(locator,context,environment="FORMAL_READ_ONLY"):
                 codec_version=locator.profile["codec_version"],
                 effect_status="SIM_EFFECT_PENDING_PLAYER_MONTH",
                 process_pid=locator.mem.pid,process_creation_time=locator.mem.creation_time,native_evidence=locator.evidence,
+                process_binding=process_binding(locator.mem.pid,locator.mem.creation_time),
                 defensive_field_catalog=defensive_catalog(locator),
                 context_identity=identity,teams=rows,playbooks=locator.playbooks,
                 loaded_playbook_ids=sorted(p["enum_id"] for p in locator.playbooks if p["selectable"]))

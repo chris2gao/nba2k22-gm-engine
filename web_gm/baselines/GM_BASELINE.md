@@ -4,6 +4,8 @@
 
 ## 初始化模式（玩家只说“初始化 GM 基线”时）
 
+教练专题按需读取 [GM 教练操作手册](../manuals/GM_COACHING_OPERATIONS.md) 与本批字段字典。DEV07 V2 在开发分支推进，未部署 main；不要从手册存在推定本批已有教练来源。球队默认 19 项与指定对手整体防守分开，五项 Sim 禁止 GM 操作；具体能力以最新来源和 production_enabled 为准。
+
 先按最低限度顺序从 GitHub 的 main 读取：
 
 1. `AGENTS.md`、本 `web_gm/baselines/GM_BASELINE.md`；

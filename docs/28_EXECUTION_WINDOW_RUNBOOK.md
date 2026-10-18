@@ -4,7 +4,7 @@
 
 常驻执行基线的完整提示词是 [36_EXECUTION_BASELINE_PROMPT.md](36_EXECUTION_BASELINE_PROMPT.md)，当前执行能力和未验收项目见 [34_BASELINE_CURRENT_STATE.md](34_BASELINE_CURRENT_STATE.md) 第 8 节。建立基线只读文件并等待，不连接游戏或执行历史批准方案。
 
-DEV06教练接口见[文档39](39_COACHING_TACTICS.md)：默认预演不连接进程；旧TEAM策略writer撤销。仅六项默认POE技术就绪，经PHI／AI IND界面、保存实际重启及内存恢复，正式局仍须具体玩家批准；写前确认已退出编辑页并传`--coach-editor-closed`。其余字段按矩阵只读或正式禁用。指定对手Gameplan仅读取/预设，不猜写IsInUse，也不把默认值显示于对手页面当作独立对手覆盖已认证。
+教练 V2 当前批次入口见[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)及[状态34](34_BASELINE_CURRENT_STATE.md)：默认预演不连接进程，旧 TEAM writer 已撤销。六项默认POE、五项滑块、双体系及命名手册合计14项已按矩阵通过字段门槛；板凳深度是人数，当前只开放已验收的 9–10 子集。指定对手整体防守通过该对手全部有效记录的原生批量操作，已用 PHI→IND 验收；不提供逐球员写入。IsInUse 0→1 依据真实 UI 退出差分，只在受控批次字段完成后提交，不能凭 0 猜禁用。其余默认字段及生产集成仍按各自门槛。正式局须批准具体批次；写前退出编辑页并传 `--coach-editor-closed`。V2 分支未部署 main，不能把分支验收当作部署成功。
 
 ## 最小阅读与输入
 

@@ -15,8 +15,12 @@ def u64(mem, address):
 
 def live_memory(read_only=True):
     from memory import GameMemory
-    import win32process
     mem = GameMemory(read_only=read_only)
+    return attach_process_identity(mem)
+
+
+def attach_process_identity(mem):
+    import win32process
     mem.is_alive = lambda: win32process.GetExitCodeProcess(mem.handle) == 259
     mem.creation_time=str(win32process.GetProcessTimes(mem.handle)["CreationTime"])
     return mem
@@ -103,6 +107,7 @@ class CoachLocator:
             raise RuntimeError("NATIVE_PLAYBOOK_ID_LAYOUT_MISMATCH")
         # Each byte-level Gameplan location is verified independently of packed COACHDATA.
         gp_expected={"TeamId":(2,2),"OpponentId":(4,2),"IsInUse":(0,1),
+                     "IsTainted":(1,1),"MatchupGameplan":(0x64,12),"ScoringOption":(0x178,2),
                      "POEOffense":(0x17e,1),"POEDefense":(0x181,1),
                      "HelpDefense":(0x184,1),"RunPlayTendency":(0x185,1),
                      "ZoneUsage":(0x186,1),"BenchDepth":(0x187,1),

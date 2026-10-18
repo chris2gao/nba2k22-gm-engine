@@ -82,7 +82,7 @@ def validate_plan(plan, snapshot, profile=None):
                 if change["field"] not in records[0]["values"] or change["field"] not in profile["fields"]:
                     raise ValueError("MATCHUP_FIELD_UNVERIFIED")
                 from coach_codec import validate_value
-                validate_value(profile["fields"][change["field"]], change["after_raw"], snapshot["loaded_playbook_ids"])
+                validate_value(profile["fields"][change["field"]], change["after_raw"], snapshot["loaded_playbook_ids"], target=True)
                 validate_value(profile["fields"][change["field"]], change["before_raw"], snapshot["loaded_playbook_ids"])
                 if change["before_raw"] != records[0]["values"][change["field"]]:
                     raise ValueError("STALE_FIELD_VALUE")

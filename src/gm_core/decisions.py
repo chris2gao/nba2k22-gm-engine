@@ -4,7 +4,7 @@ from .tactics import check_field
 from .trades import constraints
 from .coverage import SOURCE_FIELDS, state_value, player_value
 
-OPERATIONS = ("STRATEGY", "TRADE_INTEREST", "TRADE_PROPOSAL", "TACTIC_CHANGE",
+OPERATIONS = ("STRATEGY", "TRADE_INTEREST", "TRADE_PROPOSAL", "TACTIC_CHANGE", "COACHING_BATCH_CHANGE",
               "STAFF_CHANGE", "CONTRACT_CHANGE", "BUSINESS_CHANGE", "DRAFT_PLAN",
               "HISTORICAL_GRAVITY", "PLAYER_EDIT", "MC_GROWTH")
 
@@ -110,6 +110,48 @@ def validate_proposal(proposal, data, calculation_ids=()):
             missing.extend(result["readiness"])
         if proposal.get("changes"):
             errors.append("LEGACY_TACTICAL_CHANGE_CONTRACT_REVOKED")
+    if operation=='COACHING_BATCH_CHANGE':
+        from .coaching_batch import validate_batch
+        batch=proposal.get('coaching_batch')
+        snapshot=proposal.get('coaching_snapshot')
+        authoritative=getattr(data,'coaching',{})
+        if not isinstance(batch,dict) or not isinstance(snapshot,dict) or not authoritative:
+            errors.append('VERIFIED_PUBLISHED_COACHING_BATCH_SOURCE_REQUIRED')
+        else:
+            result=validate_batch(batch,snapshot)
+            errors.extend(result['errors'])
+            if any(batch.get(k)!=proposal.get(k) for k in ('decision_id','version','career_id','source_batch_id')):
+                errors.append('COACHING_BATCH_CONTEXT_MISMATCH')
+            if any(snapshot.get(k)!=authoritative.get(k) for k in ('snapshot_id','context_identity','native_evidence','playbooks','process_binding','defensive_field_catalog')):
+                errors.append('COACHING_BATCH_SOURCE_IDENTITY_MISMATCH')
+            selected={a.get('team_id') for a in batch.get('actions',[])}|set(batch.get('hold_team_ids',[]))
+            advertised={data.teams[t]['identity']['team_id'] for t in proposal['teams']}
+            if selected!=advertised:
+                errors.append('COACHING_BATCH_TEAMS_MISMATCH')
+            observed={t['team_id']:t for t in authoritative.get('teams',[])}
+            for row in snapshot.get('teams',[]):
+                original=observed.get(row.get('team_id'))
+                if not original or any(row.get(k)!=original.get(k) for k in ('coach_identity','values','blocks','roster_signature')):
+                    errors.append('COACHING_BATCH_VALUES_NOT_PUBLISHED_SOURCE')
+                    break
+            # Only load opponents selected by an action. Model-supplied overall
+            # records must equal these published observations, not create facts.
+            from .data_reader import DataReader
+            reader=DataReader(data.root)
+            for action in batch.get('actions',[]):
+                if action.get('scope')!='VS_OPPONENT_DEFENSE':
+                    continue
+                try:
+                    actual=reader.coaching_opponent(data,action['team_id'],action['opponent_team_id'])
+                    rows=[t for t in snapshot['teams'] if t['team_id']==action['team_id']]
+                    records=[g for g in rows[0]['gameplans'] if g['opponent_team_id']==action['opponent_team_id']]
+                    if len(records)!=1 or records[0].get('overall_defense')!=actual.get('overall_defense'):
+                        raise ValueError('Overall record differs from published source')
+                    if records[0].get('is_in_use')!=actual.get('is_in_use_raw'):
+                        raise ValueError('Inheritance flag differs from published source')
+                except (ValueError,KeyError,IndexError,TypeError,OSError):
+                    errors.append('COACHING_OVERALL_NOT_PUBLISHED_SOURCE')
+            missing.extend('BLOCKED_ACTION:'+a for a in result['blocked_action_ids'])
     if operation == "BUSINESS_CHANGE":
         allowed = {"ticket_courtside", "ticket_lower", "ticket_upper"}
         from .calculations import number

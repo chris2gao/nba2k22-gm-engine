@@ -96,6 +96,7 @@ class CodecTests(unittest.TestCase):
     def test_all_legal_enums_and_reserved_bits(self):
         raw,_,_=fixture()
         for name,f in PROFILE["fields"].items():
+            if f.get('gm_control_enabled') is False:continue
             if not isinstance(f.get("enum"),dict):continue
             for enum in map(int,f["enum"]):
                 with self.subTest(field=name,value=enum):
@@ -127,7 +128,17 @@ class CodecTests(unittest.TestCase):
     def test_readonly_field_write_denied(self):
         raw,s,p=fixture()
         with self.assertRaisesRegex(ValueError,"FIELD_READ_ONLY"):
-            encode_changes(raw,[dict(field="BenchDepth",before_raw=decode(raw,PROFILE["fields"]["BenchDepth"]),after_raw=9)],PROFILE,for_write=True)
+            encode_changes(raw,[dict(field="Tempo",before_raw=decode(raw,PROFILE["fields"]["Tempo"]),after_raw=80)],PROFILE,for_write=True)
+    def test_target_range_does_not_reject_observed_preimage(self):
+        raw,s,p=fixture()
+        profile=copy.deepcopy(PROFILE)
+        profile['fields']['BenchDepth']['raw_range']=[9,10]
+        old=decode(raw,profile['fields']['BenchDepth'])
+        self.assertNotIn(old,range(9,11))
+        result=encode_changes(raw,[dict(field='BenchDepth',before_raw=old,after_raw=10)],profile)
+        self.assertEqual(result[0]['after'],'0a')
+        with self.assertRaisesRegex(ValueError,'OUTSIDE_VERIFIED_RAW_RANGE'):
+            encode_changes(raw,[dict(field='BenchDepth',before_raw=old,after_raw=11)],profile)
     def test_unknown_or_duplicate_field(self):
         raw,s,p=fixture()
         for changes in ([dict(field="poe_off_pace",before_raw=0,after_raw=1)],p["changes"]*2):
@@ -358,9 +369,13 @@ class LocatorAndGameplanTests(unittest.TestCase):
             raw[at+2:at+4]=owner.to_bytes(2,"little")
             raw[at+4:at+6]=opponent.to_bytes(2,"little")
         set_record(9,20,8)
-        loc=type("L",(),{"profile":PROFILE,"teams":{20:{},8:{}},"managers":{20:0},
+        profile=copy.deepcopy(PROFILE)
+        profile['opponent_overall_defense']['record_selector']=None
+        profile['defensive_fields']={}
+        loc=type("L",(),{"profile":profile,"teams":{20:{},8:{}},"managers":{20:0},
                          "mem":type("M",(),{"read_bytes":lambda _,at,size:bytes(raw[at:at+size])})(),
                          "defense_fields":{zlib.crc32(name.encode()):dict(offset=0,size=4,format=1<<8,enum_address=0) for name in DEFENSE_NAMES}})()
+        loc.defense_fields[zlib.crc32(b'PreRotate')]['format']=(5<<24)|(1<<8)
         self.assertEqual(len(gameplans(loc,20)),1)
         set_record(10,20,8)
         with self.assertRaisesRegex(RuntimeError,"DUPLICATE_OPPONENT"):gameplans(loc,20)

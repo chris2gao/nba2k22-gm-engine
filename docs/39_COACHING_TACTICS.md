@@ -1,5 +1,7 @@
 # 教练战术接口 V1
 
+**历史接口文档：下文描述 DEV06/V1 的状态，不代表 V2 当前门槛。** DEV07 后续已新增指定对手整体防守、批次执行、来源集成代码及五项数值设置验收；当前入口见[执行手册40](40_COACHING_EXECUTION_RUNBOOK.md)、[GM手册](../web_gm/manuals/GM_COACHING_OPERATIONS.md)和[状态34](34_BASELINE_CURRENT_STATE.md)。旧 `VS_OPPONENT` 预设仍不执行；新的 `VS_OPPONENT_DEFENSE` 具有独立合同和经验证的整体批量语义。以下 V1 不可替代 V2 的字段矩阵或审批。
+
 2026-10-17，DEV-20261017-06。**默认六项 POE 已完成隔离局写入、玩家界面确认、保存后真实进程重启及恢复内存原值，技术接口可在玩家批准具体方案后使用。** 六项 production_enabled=true，其余字段保持各自限制；这不代表任何正式局已经获批或执行。玩家明确目标是内存实时修改，Computer Use仅为辅助。完整状态见 [字段矩阵](development_reviews/DEV_20261017_06_COACHING_FIELD_MATRIX.json)、[执行器验收](development_reviews/DEV_20261017_06_COACHING_EXECUTOR_ACCEPTANCE.md)及[能力清单与对手方案评估](development_reviews/DEV_20261017_06_COACHING_CAPABILITIES_AND_MATCHUP.md)。
 
 ## 范围与对象

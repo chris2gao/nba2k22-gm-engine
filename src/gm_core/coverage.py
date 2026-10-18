@@ -5,8 +5,8 @@ SOURCE_FIELDS = {
     "results": ("games_box_scores_standings", ("total_wins", "total_losses")),
     "efficiency": ("games_box_scores_standings", ("ortg", "drtg")),
     "finances": ("team_state", ("total_salary", "budget")),
-    "offense": ("team_state", ("poe_off_pace", "poe_fastbreak", "poe_off_reb")),
-    "defense": ("team_state", ("poe_def_reb", "poe_on_ball", "poe_off_ball", "poe_pnr_def", "poe_help_def")),
+    "offense": ("coaching_tactics", ("POEOffense", "POEOffense2", "POEOffense3")),
+    "defense": ("coaching_tactics", ("POEDefense", "POEDefense2", "POEDefense3")),
 }
 
 
@@ -20,6 +20,9 @@ def state_value(data, team, key, source_id="team_state"):
     if key.startswith("poe_"):
         # Preserve historical bytes, but never attest their revoked tactic meaning.
         return None
+    if source_id=='coaching_tactics':
+        if not source_available(data,source_id):return None
+        return team.get('coaching',{}).get('values',{}).get(key)
     row = team.get("state", {})
     value = row.get(key)
     if not source_available(data, source_id) or row.get("data_source") != "LIVE_MEMORY" or value is None:

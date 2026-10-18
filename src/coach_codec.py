@@ -22,8 +22,12 @@ def decode(raw, field):
         raise ValueError("INCOMPLETE_COACH_RECORD")
     return (int.from_bytes(part, "little") >> field["start_bit"]) & ((1 << field["width"]) - 1)
 
-def validate_value(field, value, loaded_playbooks=()):
+def validate_value(field, value, loaded_playbooks=(), *, target=False):
     integer(value, 0, (1 << field["width"]) - 1)
+    # A conservatively approved target range must not suppress genuine native
+    # observations or prevent restoring a captured preimage outside that range.
+    if target and field.get('raw_range') is not None:
+        integer(value,*field['raw_range'],error='OUTSIDE_VERIFIED_RAW_RANGE')
     enum = field.get("enum")
     if isinstance(enum, dict) and str(value) not in enum:
         raise ValueError("INVALID_NATIVE_COACHING_ENUM")
@@ -43,10 +47,12 @@ def encode_changes(raw, changes, profile, loaded_playbooks=(), for_write=False):
             raise ValueError("UNKNOWN_OR_DUPLICATE_FIELD")
         seen.add(name)
         field = profile["fields"][name]
+        if field.get('gm_control_enabled') is False:
+            raise ValueError('GM_CONTROL_DISABLED_'+name)
         if for_write and not field["writable"]:
             raise ValueError("FIELD_READ_ONLY")
         before = validate_value(field, change["before_raw"], loaded_playbooks)
-        after = validate_value(field, change["after_raw"], loaded_playbooks)
+        after = validate_value(field, change["after_raw"], loaded_playbooks, target=True)
         if before != decode(raw, field):
             raise ValueError("STALE_FIELD_VALUE")
         offset, size = field["offset"], field["storage_bytes"]

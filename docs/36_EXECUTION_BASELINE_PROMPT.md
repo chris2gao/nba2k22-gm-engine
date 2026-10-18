@@ -81,7 +81,7 @@
 - `src/source_extensions.py` 与 `config/memory_field_profile.json`：球员属性、薪资/合同位域、员工关联等读取语义。读取已验证不等于对应写入执行器已验收。
 - `src/draft_assets.py` 与 `config/draft_asset_profile.json`：选秀资产定位、身份、年份轮次与权属读取；当前不是选秀权转让执行器。
 - `src/strategy_manager.py`：旧 TEAM 策略 setter 已撤销并无条件拒绝，历史 poe_* 不作为教练事实；票价功能独立保留。
-- `src/coaching_executor.py`与三个coaching CLI：默认纯离线dry-run；Computer Use仅辅助。写前玩家须退出教练编辑页，由操作者传入`--coach-editor-closed`，否则缓存可能覆盖结果。默认六项POE已完成PHI／AI IND界面、保存实际重启及内存恢复，技术就绪但仍须玩家批准具体版本和动作；其他字段正式门槛关闭。恢复后的再次保存重载由玩家叫停，不宣称额外复核。状态查34/39及矩阵；指定对手Gameplan的激活、继承、回退未确认，禁止猜写IsInUse。
+- 教练单动作与 `scripts/coaching_batch.py` 默认纯离线 dry-run；按[批量执行规程40](40_COACHING_EXECUTION_RUNBOOK.md)和最新34核对实际部署及逐字段门槛。写前玩家须退出编辑页，`--coach-editor-closed`是操作者声明，脚本无自动UI检测。默认六POE沿用既有验证；DEV07分支新增指定对手整体防守 UI bulk 组及提交标记的实机写入/恢复证据，不提供单球员对位写入。本分支五数值设置、双体系和命名手册也已有分项证据，合计14项默认字段通过门槛；BenchDepth仅9–10。Tempo与四Freelance仍受限，源码未部署main，不越权执行。玩家仍须具体批准完整batch/action集合和digest，执行结束不自动采集。
 - `src/bootstrap_new_game.py` / `src/slider_manager.py`：初始化设置有独立写入批准入口，不是执行单笔交易或单人编辑的通用工具。
 - `src/modifier.py`：旧通用人物属性接口主动拒绝执行，不能删除拒绝逻辑绕过规则；交易开关也不是交易执行器。
 - `src/trade_engine.py` / `src/growth_engine.py`：旧生产入口停用；其中保留的代码不是已认证执行路径。

@@ -1,10 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
 - role: WEB_GPT_DEVELOPMENT
-- memory_version: 1
+- memory_version: 2
 - last_reviewed: 2026-10-17
-- state: COACHING_IMPLEMENTATION_TASK_PUBLISHED_AWAITING_CODEX
+- state: COACHING_V2_IMPLEMENTATION_AND_ISOLATED_ACCEPTANCE_IN_PROGRESS
 - linked_codex_state: `docs/34_BASELINE_CURRENT_STATE.md`（**Codex 状态索引，不在此复制更新**）
+
+DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状态。当前证据、字段门槛和剩余工作只读 [Codex 状态34](../../docs/34_BASELINE_CURRENT_STATE.md)与[集成报告](../../docs/development_reviews/DEV_20261017_07_COACHING_INTEGRATION_REPORT.md)。已建立 [GM 操作手册](../manuals/GM_COACHING_OPERATIONS.md)及 [Codex 执行手册](../../docs/40_COACHING_EXECUTION_RUNBOOK.md)。main 部署、完整19项及实际生产来源发布未完成，不得宣布整项交付完成；本条只是工程交接索引更新。
 
 ## 已知工程事实
 
