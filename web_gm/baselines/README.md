@@ -10,6 +10,12 @@
 | **开发规划** | [DEVELOPMENT_BASELINE.md](DEVELOPMENT_BASELINE.md) | 架构、规格、Codex 开发任务书与审查 | 开发任务/验收报告与记忆 |
 | **数据整理分析** | [ANALYTICS_BASELINE.md](ANALYTICS_BASELINE.md) | GitHub 已发布数据 → Python/SQL → 分析结果回写 GitHub | `docs/gm_analysis/` Markdown/JSON 与记忆 |
 
+## 数据分析 V2：以 GM 决策准备替代排行榜
+
+`WEB_GPT_ANALYTICS_V2` 已将《[ANALYTICS_DECISION_READY_V2_METHOD.md](../../docs/gm_analysis/ANALYTICS_DECISION_READY_V2_METHOD.md)》作为正式方法规范。分析任务默认产出：**简明报告、30队逐队决策准备表、跨批变化表、计算方法及来源文件、主分析JSON**，每份锁定 career/batch/时间/代码版本。默认不重复长篇球队排行榜、全部55项原始属性清单或870组防守配置原文。具体判断仍属于GM，分析端不给交易执行授权。
+
+M02开始有同批教练19项与针对对手OVERALL18项来源；M01不含教练，不回填。分析必须核验跨批身份再认定球员自然成长，未明确认证`poss`的原生定义时不能称计算值为标准百回合攻防效率；`is_in_use_raw=0`不是防守不存在。更新仍由玩家触发，基线初始化只加载方法不计算/发布；详细规则和例外以最新方法规范为准。
+
 ## 三份可复制的初始化指令
 
 ### GM 基线
