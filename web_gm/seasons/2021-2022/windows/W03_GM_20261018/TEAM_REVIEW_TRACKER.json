@@ -1,0 +1,338 @@
+{
+  "protocol_id": "GM_MIN_FIVE_ROUNDS_V3",
+  "career_id": "mc_haliburton_2021",
+  "season_id": "2021-2022",
+  "node_id": "GM-S2021-2022-W03",
+  "source_batch_id": "2021-2022_M02_DEC12_FULL_20261018_bee1cb016256_e94b241a_TS2",
+  "game_date": "2021-12-12",
+  "month_closed": false,
+  "phase": "WAITING_FOR_PLAYER_TO_START_W03_R02",
+  "depth_mode": "TEN_TEAMS_PER_ROUND_DEFAULT",
+  "player_may_switch_to_five_teams": true,
+  "preliminary_round": {
+    "id": "W03-R01",
+    "status": "ARCHIVED_PRELIMINARY_SCAN_NOT_DEEP",
+    "candidate_coaching_actions": 12,
+    "candidate_trades": 1,
+    "approval_granted": false,
+    "execution_authorized": false
+  },
+  "groups": [
+    {
+      "id": "A",
+      "planned_round": "W03-R02",
+      "teams": [
+        "PHI",
+        "MIL",
+        "WAS",
+        "CHI",
+        "CLE",
+        "BOS",
+        "LAC",
+        "MEM",
+        "ATL",
+        "MIA"
+      ],
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "B",
+      "planned_round": "W03-R03",
+      "teams": [
+        "NOP",
+        "UTA",
+        "SAC",
+        "NYK",
+        "LAL",
+        "ORL",
+        "DAL",
+        "BKN",
+        "DEN",
+        "IND"
+      ],
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "C",
+      "planned_round": "W03-R04",
+      "teams": [
+        "DET",
+        "TOR",
+        "HOU",
+        "OKC",
+        "SAS",
+        "PHX",
+        "MIN",
+        "POR",
+        "GSW",
+        "CHA"
+      ],
+      "status": "NOT_STARTED"
+    }
+  ],
+  "team_reviews": [
+    {
+      "abbr": "PHI",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "MIL",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "WAS",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "CHI",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "CLE",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "BOS",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "LAC",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "MEM",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "ATL",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "MIA",
+      "group": "A",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "NOP",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "UTA",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "SAC",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "NYK",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "LAL",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "ORL",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "DAL",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "BKN",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "DEN",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "IND",
+      "group": "B",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "DET",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "TOR",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "HOU",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "OKC",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "SAS",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "PHX",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "MIN",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "POR",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "GSW",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    },
+    {
+      "abbr": "CHA",
+      "group": "C",
+      "status": "PENDING_DEEP_REVIEW",
+      "dossier_ref": null,
+      "decision_status": null,
+      "source_verified": false
+    }
+  ],
+  "deep_reviews_completed": 0,
+  "deep_reviews_total": 30,
+  "post_research_rounds": [
+    {
+      "id": "W03-R05",
+      "stage": "CROSS_TEAM_INTEGRATION_AND_BILATERAL_NEGOTIATION",
+      "status": "BLOCKED_UNTIL_30_DEEP_REVIEWS_COMPLETE"
+    },
+    {
+      "id": "W03-R06",
+      "stage": "SINGLE_FINAL_DECISION_AND_EXECUTION_PREPARATION",
+      "status": "BLOCKED_UNTIL_CROSS_TEAM_ROUND_COMPLETE"
+    }
+  ],
+  "source_change_requires_rebase": true,
+  "game_write_approved": false,
+  "game_write_executed": false,
+  "last_gm_artifact": "web_gm/decisions/mc_haliburton_2021/20261018_M02_W03_R01_GM_PROPOSED.md",
+  "notes": [
+    "每队档案必须具有战力/教练/阵容搭配/轮换自然成长/真实合同选秀资产/本队备选方案/来源引证，NO_ACTION也需要证据。",
+    "每轮玩家手动触发，结束后更新此tracker并归档到GitHub，不能因已有R01总览就提前标记任意球队COMPLETE。",
+    "如果改五队模式，则六轮研究W03/R02–R07、两轮整合和终稿W03/R08–R09，并更新分组和状态，原文件不当执行批准。"
+  ]
+}
