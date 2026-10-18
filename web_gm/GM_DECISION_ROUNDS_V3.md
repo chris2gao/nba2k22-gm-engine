@@ -29,6 +29,8 @@
 
 **本轮判定标准升级（2026-10-18）**：每支球队的深度档案必须符合[GM_DATA_TO_DECISION_V1](manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)与[机器可读球队合同](schemas/GM_TEAM_DECISION_CONTRACT_V1.json)。先有全大名单的`player_assessments[]`和球队累计/增量事实，再有六独立维度`D1_STAFF/D2_TACTICS/D3_ROSTER_USE/D4_MARKET/D5_ASSETS_AND_DEVELOPMENT/D6_TEAM_IDENTITY_AND_MONITORING`、至少两种有证据的方案比较、经营目标、风险和下一批复盘指标。**没有主教练/其他员工效应证据时可以合规`STAFF_HOLD`，不能编造员工评级、训练加成或直接换人。** 历史线人物能力定制完全不在本轮GM目标内，只允许正常交易/签约/教练模拟时代逻辑。必要时降为每轮5队，不降研究深度。相关人物定制只在独立[开发规划专项](../docs/development_tasks/DEV_20261018_HISTORY_GRAVITY_GM_BOUNDARY_V1.md)中讨论，需另批。
 
+**2026-10-18 玩家最新经营内容纠偏优先**：仍严格遵守前三轮10队、后两轮跨联盟裁决与执行准备，**但研究核心必须是两批累计比赛数据的真实增量、投篮分布、对手攻防和球员能力 → 当前教练字段 → 可执行篮球方案**。不能为了填六维表格给球队编造从当前阵容倒推的“赢球文化/哲学”。员工评价明确延期至解决大文件/SQLite读取之后；此节点`STAFF_DEFERRED_BY_PLAYER`合法，非质量未通过。交易名单与未来资产照常研究；不能把尚未读取的球员池/员工池说成已分析。详见[最新数据决策规则](manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)。
+
 ## 二、深度研究轮“质量验收门槛”：真正决策，而不是数据分析模型的模板重复
 
 每队至少交付：
