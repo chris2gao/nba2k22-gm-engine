@@ -1,5 +1,7 @@
 # DEV-20261018-10 — GM V4 自主经营引擎：数据可用性、知识/财务、决策压缩与运营反馈总规划 V1
 
+> **2026-10-18 V2 范围更新：本文件中的 M0 大量 JSON 分页/分片方案已经取消。** 玩家决定让网页开发、数据分析、GM模型经授权终端按需只读查询本地 SQLite。**新的权威开发任务书为 [DEV10 V2 SQLite-first](DEV_20261018_10_GM_V4_SQLITE_FIRST_MASTER_PLAN_V2.md)**；M1—M4愿景仍可参照此V1，但如有冲突以V2为准，Codex首轮只做V2 M0，未授权游戏写入。
+
 > **任务类型：多里程碑开发总任务书（MASTER PLAN），不是要求一次运行所有模块。**
 >
 > 项目：`chris2gao/nba2k22-gm-engine`；计划日：2026-10-18；状态：`PLAYER_REQUESTED_DEVELOPMENT_PLAN / NOT_IMPLEMENTED`。
