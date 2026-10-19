@@ -219,3 +219,9 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 原生经营：Trade ON保持游戏框架、CPU-CPU Trades OFF、CPU Trade Offers OFF、TradeFrequency0、Trade Approval ON；30队Automation交易/签约/选秀/球探/员工OFF，仅训练/伤病应急仍暂ON待替代，ACE进攻/防守ON，比赛中AI自动控制战术调用与实际分钟。外部GM谈判决策、Codex批准后游戏落地，不让2K黑盒评估重写双方意愿。当前签约执行能力仍待正式验收。
 - 自然成长/生态PROPOSED初稿：Progression48、Regression50、Training50、Badge默认50、各能力Growth/Peak年龄曲线保留原版；Injuries总开、ProgressiveFatigue开、SimInjuryFrequency55/Severity40、实机50/50、CareerEnding5；Morale ON Difficulty35 Effects40、Chemistry ON Difficulty/Effects50/50。**没有任何玩家公认最佳值，均需标注来源及提案状态**；继续禁止普通经营性直接改球员能力/潜力/徽章。
 - 原生每队TeamCash保持当前事实且语义未证，不向游戏内存统一注资。外挂另建议按2021Forbes市值排序A60M/B40M/C25M/D15M四档机动经营资金（**全新游戏设计数值，不是真实球队现金**），已有2021合同及税费不追溯，M1财务现金解释和虚拟税务成本未核实时不得作为真实签约容量。真实比赛仍以HoF默认赛场参数为底，另一个HOF Court V1候选独立等待玩家体验，日历SimEngine全部默认。
+
+## 2026-10-19 30队全部玩家经营权评估：建议User-owned，比赛CPU/USER滑块仍需分离
+
+- 用户担心CPU球队自动化改写外挂GM决定，提出新MyLEAGUE将30队都设为**User-controlled franchises**。评估文档：[30队控制权与场上滑块作用范围V1](../../docs/research/NBA2K22_30_TEAM_USER_CONTROL_EVALUATION_V1_20261019.md)。**建议采用**：2K22 PC玩家cdcool已采用全30队控制且每场CPUvsCPU观赛；这样能让外部GM独占交易、签约、员工、选秀等经营，30队Team Automation经营项Manual/Off，但比赛参与Game Participation建议Auto、训练及伤病应急暂Auto、比赛ACE/战术自动调用/换人仍由原版AI负责。
+- **特别澄清**：球队被标为User-controlled仅代表经营权限，不足以证明游戏3D赛场10名球员使用USER Gameplay Sliders。跨版本Operation Sports玩家对CPU/USER作用在AI队友的规则有互相矛盾结论，**当前2K22 PC精确消费路径UNKNOWN**，不要把USER/CPU两栏合并/丢弃。名人堂HoF原始USER Inside48 vs CPU56及独立候选52/60暂都保留，不自动修改为所有队一侧。球场手柄居中CPUvsCPU与真人控单队可能不同，calendar sim是另一引擎。
+- 30队User也不能保证原版实际分钟、伤病自动重排、特定对手教练计划和休赛期提示永远不覆盖；外部GM事实决策与游戏真正的名单/合同写入继续玩家审批。此处只是文档评估，**没有读写游戏或改变正式存档**。
