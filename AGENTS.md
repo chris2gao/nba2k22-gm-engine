@@ -1,5 +1,14 @@
 # NBA2K22 GM project instructions
 
+## Player development policy
+
+- Follow `docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md`: prioritize excellent implementation within reasonable scope, with proportionate directly relevant verification. Do not make boundaries so strict that checks/tests displace implementation. The player accepts undiscovered bugs that were believed correct at development time, including impactful data-interpretation bugs, for later discovery and repair; do not turn every hypothetical issue into a preventive gate. Preserve explicit game-write authorization and existing read-only/identity protections without expanding validation scope.
+
+## DEV-10 V2 / M0 SQLite consumer access
+
+- Static audited query snapshots and `scripts/gm_data_query.py` are the M0 access layer; see `docs/GM_SQLITE_QUERY_ACCESS.md` and `web_gm/data_contracts/CONSUMER_DATA_CAPABILITIES_V2.md`. Web roles query bounded snapshot-scoped views, never active saves. No large-JSON paging, partial capture, M1–M4 workbench, or GM V4 rule switch is authorized by M0.
+- The player explicitly deferred actual Web DEVELOPMENT/ANALYTICS/GM terminal connections until after implementation. Implement and verify local PowerShell access; do not block this delivery on three Web sessions, impersonate their acceptance, or mark M0_CONSUMER_ACCEPTED. Dedicated non-admin read-only consumer ACL setup is documented for later connection. Preserve raw cash; signed32 output is an unverified hypothesis, never a factual correction or signing capacity.
+
 ## Coaching DEV07 V2 development state
 
 - Player-confirmed value-selection workflow: use other coaches' observed values and verified native enum catalogs to infer practical settings. Do not schedule coaching value trials, UI endpoint sweeps or save/restart tests for value selection. Do not turn observed sample minima/maxima into allowed-value caps. Reuse the existing object-identity, native-format and masked-write protections.

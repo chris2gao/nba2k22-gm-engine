@@ -57,6 +57,7 @@
 | 采集/审计 | `src/auto_pipeline_ingest.py`、`src/run_monthly_cycle.py`、`src/audit_sampling.py`、`src/audit_source_extensions.py` | 脚本采集与内存复核；失败不发布；当前是全量 profile |
 | 来源绑定 | `src/snapshot_integrity.py`、`src/data_context.py`、`src/data_sync_metadata.py` | 绑定源批次，不把新字段/新规则追认为旧观测；不要误删必要的来源审计机制 |
 | 网页导出 | `src/export_web_gm.py` | SQLite 是事实源，JSON 自动生成；保留不可变批次和原始导出字节 |
+| SQLite消费M0 | `src/gm_data_access/`、`scripts/gm_data_query.py`、`gm_data_snapshot.py`、文档GM_SQLITE_QUERY_ACCESS | 复用同批审计备份，仅查询静态双库；小结果与SQL聚合。三Web实际连接按玩家最新指令延后，不阻塞工程交付、不冒称验收；本任务不启动M1—M4 |
 | GitHub 发布 | `scripts/publish_web_snapshot.py`、`config/github_sync.json` | 数据专用提交、不夹带代码；SQLite ZIP 为 Release 附件；同步只看时间 |
 | GM v1 | `src/gm_core/`、三个 `scripts/gm_*.py`、`web_gm/GM_DECISION_SOP.md` | 只读事实和确定性计算；提案不代表批准；不自动运行正式 GM |
 | 休赛期专项开发 | `src/gm_core/offseason*.py`、`scripts/offseason_*.py`；实际能力与验证状态查文档34及其研究报告链接 | 游戏外竞价、独立批准、再验证合同/名单写回；实机机制先调研，模拟资格不升级为真实来源或执行权，不在月度采集中扩展完整CBA |
@@ -67,6 +68,8 @@
 当前受控v2交易入口为 `scripts/execute_approved_trades.py`；名单计数修复后玩家确认公牛/活塞交易成功，支持范围及历史事故见文档37。签约执行源码为 `src/approved_signing_executor.py` 和 `scripts/execute_approved_signing.py`，未运行/测试，待实际签约时验证，见文档38。本地只执行GM给定的交易和合同结果；不开发报价、谈判或其他经营决策逻辑。
 
 ### 5. 开发执行流程
+
+玩家最新开发规范见 [边界优先与范围内验证](DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)：先定义边界、以高质量实现为主、只做直接相关的必要验证；接受后续实际使用发现问题再修复，不为穷尽边缘风险扩大测试或新增交付门槛。未证实语义保留原始值与UNKNOWN，批准/只读/身份边界不变。
 
 1. **定义本次交付。** 从玩家任务列出具体输入、输出、改动范围和成功条件。小任务直接做；较大任务给简短分批计划，优先交付可审阅的完整路径。
 2. **核对既有实现。** 用 `rg` 和有界文件段定位入口、调用方、schema、默认值、实际参数与被废止的旧逻辑。不为本次无关模块做重构。

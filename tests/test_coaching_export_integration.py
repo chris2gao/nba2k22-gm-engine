@@ -18,6 +18,7 @@ from test_coaching_source import synthetic_source
 from coaching_source import store_coaching_source
 from data_context import PREFIX
 import export_web_gm as exporter
+from snapshot_integrity import snapshot_digest, file_sha256
 
 REPO=Path(__file__).resolve().parents[1]
 
@@ -69,8 +70,20 @@ class CoachingExportTests(unittest.TestCase):
         exporter.GMEngine.return_value.verify_snapshot_gate.side_effect=lambda _:copy.deepcopy(self.audit)
     def tearDown(self):
         for p in reversed(self.patchers):p.stop()
+        for p in self.root.rglob('*'):
+            if p.is_file():p.chmod(0o600)
         self.temp.cleanup()
     def export(self):
+        # The M0 consumer needs realistic source/audit bindings even though the
+        # live full-source audit remains deliberately stubbed in this fixture.
+        with contextlib.closing(sqlite3.connect(self.db)) as c:
+            digest=snapshot_digest(c,self.snapshot)
+        pool_hash=file_sha256(str(self.pool))
+        self.manifest.update(snapshot_id=self.snapshot,save_id=self.save,
+                             batch_binding=dict(snapshot_digest_sha256=digest,player_pool_sha256=pool_hash))
+        self.manifest_path.write_text(json.dumps(self.manifest),encoding='utf-8')
+        self.audit.update(save_id=self.save,database_digest_sha256=digest,player_pool_sha256=pool_hash,
+                          player_pool_records=0,manifest_binding=dict(manifest_sha256=file_sha256(str(self.manifest_path))))
         with contextlib.redirect_stdout(io.StringIO()):return exporter.export_snapshot(self.save,self.snapshot)
     def test_real_export_includes_33_coaching_files_and_only_pending_upload(self):
         result=self.export()
@@ -85,6 +98,7 @@ class CoachingExportTests(unittest.TestCase):
         self.assertEqual(source['status'],'VERIFIED_OBSERVED_SAME_BATCH')
         self.assertEqual(source['data_updated_at'],self.updated)
         self.assertTrue((self.root/'_exports/archives'/result['archive']['filename']).is_file())
+        self.assertTrue((self.root/'database/query_snapshots'/self.save/result['batch_id']/'manifest.json').is_file())
     def test_missing_coaching_team_does_not_replace_last_good_pointer_or_bundle(self):
         self.export()
         pointer=self.root/'published/saves'/self.save/'latest.json'
@@ -106,6 +120,15 @@ class CoachingExportTests(unittest.TestCase):
         self.manifest_path.write_text(json.dumps(self.manifest),encoding='utf-8')
         result=self.export()
         self.assertFalse(any(p.startswith('coaching/') for p in result['files']))
+
+    def test_query_snapshot_failure_preserves_published_pointer(self):
+        self.export()
+        pointer=self.root/'published/saves'/self.save/'latest.json'
+        original=pointer.read_bytes()
+        self.manifest['timestamp']='2026-10-17T03:00:00+00:00'
+        with patch('gm_data_access.snapshots.install_archive',side_effect=RuntimeError('SYNTHETIC_QUERY_INSTALL_FAILURE')):
+            with self.assertRaisesRegex(RuntimeError,'QUERY_INSTALL_FAILURE'):self.export()
+        self.assertEqual(pointer.read_bytes(),original)
 
 
 if __name__=='__main__':unittest.main()

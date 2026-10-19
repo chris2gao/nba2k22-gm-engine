@@ -4,6 +4,8 @@
 
 ## 选择基线
 
+三个角色的本地SQLite按需访问共用 [GM_SQLITE_QUERY_ACCESS.md](../../docs/GM_SQLITE_QUERY_ACCESS.md) 和 [消费者能力V2](../data_contracts/CONSUMER_DATA_CAPABILITIES_V2.md)。玩家已决定完成M0实现后再建立各Web终端连接；本地PowerShell验证不冒称Web连接验收，连接未建立时保持明确阻断。查询静态同批双库，不默认读取整份员工/模型池JSON，不修改游戏事实；各角色业务与当前GM规则不因M0自动改变。
+
 | 网页 GPT 窗口 | 基线文件 | 角色 | 任务产物 |
 | --- | --- | --- | --- |
 | **GM** | [GM_BASELINE.md](GM_BASELINE.md) | 30 队独立建队、运营、交易、历史线取舍 | 待批准 GM 方案、经营总结与记忆 |

@@ -46,6 +46,8 @@ web_gm/memory/analytics/sessions/<run_id>.md
 
 ## 4. 数据与分析真相规则
 
+DEV-10 V2/M0增加玩家授权的本地命令行只读入口，见 [SQLite手册](GM_SQLITE_QUERY_ACCESS.md) 与 [消费者契约V2](../web_gm/data_contracts/CONSUMER_DATA_CAPABILITIES_V2.md)。只访问从同批审计备份生成的静态双库，不连活动saves，不把派生结果写事实。GitHub小型来源指针、报告和角色记忆继续保留。玩家在本次开发明确将三个Web实际终端连接延后到工程完成之后；不阻塞本轮实现，不代表已连接或已验收。本轮不建设派生工作台、不改变GM现行轮次或触发条件。
+
 始终以最新有效 `published/saves/<career_id>/latest.json` 为入口，读取 `data_updated_at`、`uploaded_at`、`batch_path`、`game_date`。正常同步只依赖时间；不恢复 JSON 哈希、逐字段检查、ZIP 回下载。分析需要的源事实审计与数据语义由 Codex 源脚本处理。
 
 - `published/` 与 Release ZIP：**游戏事实的只读来源**；网页分析不得直接修改、覆盖、伪造其中的记录，也不修改 `latest.json`。

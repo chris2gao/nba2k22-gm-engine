@@ -1,5 +1,15 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-18 DEV-10 V2 / M0：本地 SQLite 按需访问
+
+玩家开发规范已归档为 [DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md](DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)：边界先行、实现优先、只做范围内必要验证；接受实际使用中发现数据解释等问题后续修复，不追加穷尽式测试。本轮不为cash假设追做游戏UI/签约机制验收。
+
+版本 `gm_sqlite_m0_v1`，状态 `IMPLEMENTED_LOCAL / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。从既有审计 Release 双库备份生成不可覆盖静态查询副本；新导出复用同一备份自动建立本地副本。`scripts/gm_data_query.py` 提供球队/名单/球员池/员工岗位及候选/合同/19教练/18对手防守/三届选秀权/财务查询与受限SQL聚合，默认20、最多50条，约20KB预算，游标固定批次。不会让网页模型直连活动事实库；专用消费者账号及ACL脚本见[操作手册](GM_SQLITE_QUERY_ACCESS.md)。
+
+本地M02查询、隔离安全测试和导出钩子测试的实际证据见[M0验收](development_reviews/DEV_20261018_10_M0_SQLITE_ACCESS_ACCEPTANCE.md)及[机器证据](development_reviews/DEV_20261018_10_M0_LOCAL_EVIDENCE.json)。玩家在开发中明确取消本轮三Web窗口实际连接验收前置条件：完成实现/PowerShell验证后由玩家建立连接，连接问题以后修复；不声称三窗口已测或M0_CONSUMER_ACCEPTED。
+
+cash仍保留uint32，signed32仅单列假设；资金/收入周期与签约容量不认证。没有修改真实财务数值、历史批次或published数据，无新采集/发布/游戏写入。全量-only与时间戳同步不变；不实施M1—M4、不切换现行GM规则。下次开发重读本节及手册，实际连接仍由玩家后续安排。
+
 ## 2026-10-18 首次教练生产来源启用回执（优先于下方历史待运行说明）
 
 状态：`FIRST_PRODUCTION_CAPTURED_AND_PUBLISHED`。玩家触发正常 `full_verified_v1` 全量流程，沿用存档 `mc_haliburton_2021`、2021–2022赛季，游戏日期由玩家确认12月12日，记录为 `2021-12-12`，框架M02、普通检查点。日期不是内存自动观测，未标月末闭账。

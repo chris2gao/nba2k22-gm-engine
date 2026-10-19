@@ -2,6 +2,16 @@
   "schema_version": 2,
   "capture_profile": "full_verified_v1",
   "trigger_mode": "PLAYER_INITIATED_ONLY",
+  "consumer_access": {
+    "task": "DEV-20261018-10_V2_M0",
+    "entrypoint": "scripts/gm_data_query.py",
+    "snapshot_preparation": "scripts/gm_data_snapshot.py",
+    "mode": "AUDITED_STATIC_TWO_DATABASE_READ_ONLY",
+    "new_game_source": false,
+    "web_connections": "DEFERRED_BY_PLAYER_NOT_TESTED_NOT_BLOCKING_DELIVERY",
+    "finance_semantics": "RAW_PRESERVED_SIGNED_CASH_HYPOTHESIS_UNVERIFIED",
+    "manual": "docs/GM_SQLITE_QUERY_ACCESS.md"
+  },
   "game_calendar_detection": "NOT_OBSERVED_USER_DATE_OR_EXPLICIT_CURRENT_DATE_UNKNOWN",
   "career_identity_detection": "NOT_IMPLEMENTED_EXPLICIT_SAVE_ID_REQUIRED",
   "offseason_development": {
