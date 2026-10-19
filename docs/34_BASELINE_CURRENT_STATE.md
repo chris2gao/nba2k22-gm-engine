@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-18 DEV10 M1：三年财务情景已实现
+
+版本 `gm_finance_projection_v1`，`IMPLEMENTED_LOCAL`。`scripts/gm_finance.py`提供project/compare/show/list/export，读取M0同批静态双库并写独立派生workbench。区分槽位原值、已知小计、假设投影、选项/延期、财务资格与执行状态；支持球员/简单签转移、新签/替换/未来延期情景，不运行报价或游戏写入。
+
+7项直接相关测试通过；已有M02静态来源生成30队×3年，并钻取GSW/SAS/CLE、验证小批查询/KEEP/导出。见[M1回执](development_reviews/DEV10_M1_FINANCE_ACCEPTANCE.md)、[手册](GM_FINANCE_WORKBENCH.md)。三年为显式槽序假设，未认证未来保证薪资或签约容量；Web连接、现金实测仍延后。M2沿既有设计继续实现，现行GM规则不变。
+
 ## 2026-10-18 DEV10后续：M0已合并，M1/M2设计与研究交接
 
 M0 PR #2已合并，正式main代码基线为 `67bf4dc`；玩家随后切换Astra并明确开始后续流程。当前状态 `ASTRA_DESIGN_COMPLETE / SOL_IMPLEMENTATION_NEXT`，入口：[M1/M2实施交接](development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md)。
