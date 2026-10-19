@@ -211,3 +211,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 正式提案文档：[NBA2K22 HOF COURT PROFILE V1](../../docs/research/NBA2K22_HOF_COURT_PROFILE_V1_PROPOSED_20261019.md)。**以PC/PS4 2K22原版HOF为底，只有四种Gameplay滑块发生更改（CPU/USER各侧），不是直接套社区整套Pro/All-Star**：Inside Shot Success USER48→52 CPU56→60；Layup Defense Strength Takeoff和Release USER/CPU原版50→35；Help Defense Strength USER/CPU 50→70。原版ACE开启，所有其余Offense、Defense、Attributes、Movement、Tendencies、Fouls、Controller正常项保持HoF。
 - 依据：gu8lal8 PS4本世代HOF默认表；IrishSalsa PS4 HOF Help70/70；H2UKNOW次世代HOF原作者回复上下Layup防守改35；Eccentric次世代作者明确Inside60改善大个子内线。**这是Web结合不对称HoF默认构成的研究型候选，不是任何来源验证过的整个四项组合**。尤其Help70**不能保证修复两人围持球者+无人tag roll man**，有本世代Help100仍失败的反例。
 - 玩家这轮已明确要自行验证一个有来源的综合方案，区别于此前拒绝研究人员随机给不明数值并长期A/B磨参数。此文档**未写游戏、不自动执行**，待玩家实际观察结果反馈后才评价是否成为正式WORLD profile。
+
+## 2026-10-19 MyLEAGUE全局世界设置/外挂财务研究V1
+
+- **最新候选权威文档**：[2021–22终极联盟30队外挂GM世界规则及全局设置V1](../../docs/research/NBA2K22_EXTERNAL_GM_MYLEAGUE_WORLD_SETTINGS_V1_20261019.md)。2026-10-19根据玩家要求检索本世代/次世代2K22 MyLeague方案与NBA官方真实2021–22薪资/税线，并逐项给出赛制、30队经营自动化、交易/选秀、成长伤病士气、球队财务、3D/日历基础设定。**这只是未执行的研究提案，最终由玩家批准才能写游戏**。旧docs/10_GAME_SETTINGS_AND_SLIDERS.md已贴非认证警示。
+- 2021–22实际联盟财务：Cap112.414M、Tax136.606M、2021版Tax Apron143.002M（**只对特定签约触发硬帽，不能统一设置全联盟HardCap143M**）；SalaryFloor101.173M。游戏SalaryCap ON、HardCap OFF（独立外挂约束）、Tax ON（若可）、Staff Budget ON；直到2026–27现实NBA每年度真实Cap/Tax计划由外挂引用，游戏通胀raw不当成确定年度百分比。
+- 原生经营：Trade ON保持游戏框架、CPU-CPU Trades OFF、CPU Trade Offers OFF、TradeFrequency0、Trade Approval ON；30队Automation交易/签约/选秀/球探/员工OFF，仅训练/伤病应急仍暂ON待替代，ACE进攻/防守ON，比赛中AI自动控制战术调用与实际分钟。外部GM谈判决策、Codex批准后游戏落地，不让2K黑盒评估重写双方意愿。当前签约执行能力仍待正式验收。
+- 自然成长/生态PROPOSED初稿：Progression48、Regression50、Training50、Badge默认50、各能力Growth/Peak年龄曲线保留原版；Injuries总开、ProgressiveFatigue开、SimInjuryFrequency55/Severity40、实机50/50、CareerEnding5；Morale ON Difficulty35 Effects40、Chemistry ON Difficulty/Effects50/50。**没有任何玩家公认最佳值，均需标注来源及提案状态**；继续禁止普通经营性直接改球员能力/潜力/徽章。
+- 原生每队TeamCash保持当前事实且语义未证，不向游戏内存统一注资。外挂另建议按2021Forbes市值排序A60M/B40M/C25M/D15M四档机动经营资金（**全新游戏设计数值，不是真实球队现金**），已有2021合同及税费不追溯，M1财务现金解释和虚拟税务成本未核实时不得作为真实签约容量。真实比赛仍以HoF默认赛场参数为底，另一个HOF Court V1候选独立等待玩家体验，日历SimEngine全部默认。
