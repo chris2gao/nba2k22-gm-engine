@@ -1,7 +1,7 @@
 # DEV-20261018-10 V2 — GM V4 SQLite按需数据访问、金融知识、经营决策与反馈系统
 
 - 更新：2026-10-18
-- **2026-10-19最新阶段**：玩家明确开始M3并切换Astra Extra High，按约定完成设计/审阅后由Sol编码。入口：[M3A/M3B完整设计与交接](DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)。当前`ASTRA_M3_DESIGN_READY_FOR_SOL_IMPLEMENTATION`，运行实现待后续编码；正式30队仍UNASSESSED，V4未启用。下方“不启动M3”是此前M1/M2收尾时的边界，新授权只启动M3、不启动M4。
+- **2026-10-19最新阶段**：Astra设计审阅后，玩家已授权继续编码；M3A/M3B本地工程完成，见[M3入口](DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)、[M3A验收](../development_reviews/DEV10_M3A_ACCEPTANCE.md)、[M3B验收](../development_reviews/DEV10_M3B_ACCEPTANCE.md)。PR #4待源代码审阅/合并，正式30队仍UNASSESSED，V3继续生效、V4未启用。下方“不启动M3”是此前阶段边界；本次不启动M4。
 - **本次M0开发中的玩家最新修正（优先于下文原C3/E连接前置要求）**：不要求Codex测试三个Web GPT的真实连接；完成实现与PowerShell本地访问验证即可交付并提交GitHub，玩家在开发完成后自行建立连接，有问题届时修复。三个角色仍如实记录未测试，不冒称M0_CONSUMER_ACCEPTED。M0本地交付与Web后续连接分开，不因此启动M1—M4。实现与本地证据见[验收报告](../development_reviews/DEV_20261018_10_M0_SQLITE_ACCESS_ACCEPTANCE.md)。
 - 当前进度：`M0_MERGED_MAIN / M1_M2_ENGINEERING_COMPLETE`（2026-10-19，随PR #3收尾交付）。M0随PR #2合并（`67bf4dc`）；M1/M2设计、实现、审查路径修补及范围内验证已完成，见[交接](DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md)和[收尾记录](../development_reviews/DEV10_M1_M2_CLOSEOUT.md)。下文“首轮仅M0”是原阶段范围；30队策略仍UNASSESSED、正式评估0队，Web连接延后，GM V4尚未启用，不启动M3/M4。
 - 权威关系：**本V2取代**[DEV10 V1](DEV_20261018_10_GM_V4_FOUNDATION_DECISION_OBSERVABILITY_MASTER_PLAN_V1.md) 的**M0大JSON分片架构和与之矛盾的M3/M4数据访问描述**。V1其余GM愿景、历史审计、篮球/经济/决策/反馈研究方向仍作背景；执行以本V2为准。Codex首轮**仅实施M0**，其它里程碑必须玩家再次触发。

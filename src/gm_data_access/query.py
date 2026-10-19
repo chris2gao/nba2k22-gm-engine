@@ -13,6 +13,7 @@ from .finance import semantics
 from .snapshots import DB_NAMES, read_json, identifier, load_snapshot, source_binding
 
 DEFAULTS = {
+    'team_stats': ('team_id','team','season_year','totals','source_status'),
     'teams': ('team_id','team','total_wins','total_losses'),
     'players': ('identity','name','team','position','salary','years_left'),
     'pool': ('identity','name','position','draft_year','roster_status','historical_rookie'),
@@ -23,7 +24,7 @@ DEFAULTS = {
     'finance': ('team','total_salary','payroll','budget','cash','cash_signed32_hypothesis','financial_eligibility'),
     'finance_semantics': ('field','offset','encoding','unit','time_scope','financial_eligibility'),
 }
-JSON_FIELDS = {'attributes','contract','season_totals','system','freelance','sliders','values','mixed_fields','readiness'}
+JSON_FIELDS = {'attributes','contract','season_totals','totals','system','freelance','sliders','values','mixed_fields','readiness'}
 FUNCTIONS = {'count','sum','avg','min','max','total','round','abs','coalesce','ifnull','nullif',
              'lower','upper','length','substr','like','instr','in','json_extract','json_remove','json_object',
              'json_array','json_valid','rookie_marker','trim','typeof','row_number','rank','dense_rank'}
@@ -79,6 +80,11 @@ class QuerySession:
                 sql='SELECT '+','.join('NULL AS "'+f+'"' for f in DEFAULTS[name])+' WHERE 0'
             self.c.execute('CREATE TEMP VIEW q_'+name+' AS '+sql)
         view('teams', f"SELECT team_id,team_abbr AS team,total_wins,total_losses,total_games,win_pct,total_salary FROM facts.team_monthly_stats WHERE snapshot_id={sid}")
+        view('team_stats', f"""SELECT s.team_id,t.team_abbr AS team,
+            json_extract(s.totals_json,'$.season_year') AS season_year,
+            s.totals_json AS totals,'OBSERVED_STATIC_SOURCE' AS source_status
+            FROM facts.team_source_stats s JOIN facts.team_monthly_stats t
+            ON t.snapshot_id=s.snapshot_id AND t.team_id=s.team_id WHERE s.snapshot_id={sid}""")
         view('players', f"""SELECT d.snapshot_id||':roster:'||d.team_id||':'||d.roster_slot AS identity,
             d.player_name AS name,d.team_id,t.team_abbr AS team,d.pool_slot,
             p.position_name AS position,d.face_id,d.birth_date,

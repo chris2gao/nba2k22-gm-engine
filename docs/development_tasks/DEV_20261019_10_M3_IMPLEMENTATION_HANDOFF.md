@@ -1,5 +1,7 @@
 # DEV-10 M3交接给Sol：实现顺序与验收
 
+2026-10-19编码收尾：S1–S8已在开发分支实现并有本地工程证据，见[M3A验收](../development_reviews/DEV10_M3A_ACCEPTANCE.md)、[M3B验收](../development_reviews/DEV10_M3B_ACCEPTANCE.md)。本页以下是原交接任务，不覆盖最新docs/34状态；网页与正式V4启用仍分开。
+
 状态`DESIGN_READY_FOR_SOL_IMPLEMENTATION`。本页是具体编码任务，当前没有M3运行CLI。按玩家约定，Astra Extra High完成设计/审阅，随后Sol High编码；M3A/M3B都属于本次M3范围，不能仅做查询/一张提案模板便宣告M3工程完成。
 
 入口：[M3总设计](DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)、[M3A](DEV_20261019_10_M3A_DECISION_PACKET_DESIGN_V1.md)、[M3B](DEV_20261019_10_M3B_GM_PROTOCOL_V4_DESIGN.md)、[字段与存储契约](dev10_m3/CONTRACTS_V1.md)。基线7a60d5e包含M1/M2及最新原生控制研究，开发开始重新读main和最新状态；不将此历史SHA固定为以后执行源。

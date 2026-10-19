@@ -1,5 +1,7 @@
 # M3B — GM_DECISION_PROTOCOL_V4 候选设计
 
+实现补记：候选协议的本地工程已完成，见[GM手册](../../web_gm/manuals/GM_M3_DECISION_WORKBENCH.md)和[M3B验收](../development_reviews/DEV10_M3B_ACCEPTANCE.md)。DRAFT_NOT_ENABLED仍是实际启用状态，工程完成不替换V3。
+
 状态`DRAFT_NOT_ENABLED`。protocol_id=`GM_V4_SINGLE_TRIGGER_INTERNAL_FIVE_PHASES`。现行`GM_DECISION_ROUNDS_V3.md`仍是生效规则；本设计不替代其玩家逐轮触发要求，不更新W03/赛季索引/GM_CURRENT。
 
 ## 1. 产品目标和工作方式

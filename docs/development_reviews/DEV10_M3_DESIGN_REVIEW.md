@@ -1,5 +1,7 @@
 # DEV-10 M3 Astra设计审阅与交接
 
+后续编码交付已完成本地工程验证，见[M3A验收](DEV10_M3A_ACCEPTANCE.md)及[M3B验收](DEV10_M3B_ACCEPTANCE.md)。本页保留Astra设计阶段审阅，不冒称已经进行独立的编码后Astra审查；正式V4仍未启用。
+
 日期2026-10-19；基于main `7a60d5e`（末次fetch新增研究已合入设计分支，无运行源码变化）。结论：`ASTRA_M3_DESIGN_READY_FOR_SOL_IMPLEMENTATION`。本报告评审设计是否覆盖M3A/M3B及当前代码对接；**M3工程尚未实现，实际GM V4未启用**。
 
 ## 1. 原M3要求逐项对应

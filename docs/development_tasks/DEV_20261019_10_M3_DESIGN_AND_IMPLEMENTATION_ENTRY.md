@@ -1,5 +1,7 @@
 # DEV-10 M3：从事实与知识到30队经营决定
 
+2026-10-19实现补记：M3A/M3B本地工程与范围内验收已完成，见[M3A验收](../development_reviews/DEV10_M3A_ACCEPTANCE.md)、[M3B验收](../development_reviews/DEV10_M3B_ACCEPTANCE.md)及两本实际CLI手册。本页以下保留Astra原设计阶段说明；“待编码”不是当前状态。PR #4尚待源代码审阅/合并，正式V3仍生效、V4未启用。
+
 阶段：`ASTRA_M3_DESIGN`。玩家2026-10-19明确开始M3，并切换Astra Extra High。沿用已约定分工：Astra设计/审阅，Sol编码。此包覆盖M3A和M3B完整设计及编码交接；**设计完成不等于M3工程已实现，也不启用GM V4**。
 
 代码/文档基线：`7a60d5e`（包含PR #3合并`180f031`、实时赛场研究及最新原生GM控制发现清单）。开发分支`codex/dev10-m3-design`，复用现有开发worktree。正式main与正式GM赛季档案不在本设计中改写。

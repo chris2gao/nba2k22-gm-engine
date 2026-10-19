@@ -1,6 +1,6 @@
 # M3数据与接口契约草案
 
-`contract_version=DEV10_M3_DESIGN_CONTRACT_V1`，`implementation_status=NOT_IMPLEMENTED`。此文规定Sol实现目标，所有CLI为拟议接口。对象均为纯DTO；不用此文或样例伪造观测/批准/执行回执。
+`contract_version=DEV10_M3_DESIGN_CONTRACT_V1`。本地实现已完成，运行契约由标准库Python校验器执行，见[M3A](../../development_reviews/DEV10_M3A_ACCEPTANCE.md)/[M3B](../../development_reviews/DEV10_M3B_ACCEPTANCE.md)验收及实际手册。本页保留原设计字段和拟议接口，补充的实际参数（template、artifact/section、历史上下文等）以手册/CLI为准。对象均为纯DTO；不能用契约或样例伪造观测/批准/执行回执。
 
 ## 1. 通用对象
 

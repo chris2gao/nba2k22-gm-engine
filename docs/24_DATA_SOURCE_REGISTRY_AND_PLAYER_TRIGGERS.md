@@ -12,6 +12,8 @@
 
 ## 数据源范围与当前缺口
 
+2026-10-19 DEV10 M3新增 `q_team_stats` / `gm_data_query.py team stats`，只投影已捕获的team_source_stats累计计数、来源赛季年和同批球队身份，不暴露raw_struct/地址。旧快照缺来源时明确不可用；无新增观测字段、生产采集来源或source_catalog变更。`gm_analysis.py`和`gm_decision.py`仅写独立派生工作台，筛选回执、模型注释、GM候选终稿都不是新游戏事实；见[M3A手册](../web_gm/manuals/ANALYTICS_M3_WORKBENCH.md)。生产更新继续使用full_verified_v1，不新增按来源刷新。
+
 机器可读清单为 `config/source_catalog.json`。以下“已抓取”仅指已经验证的字段，不代表数据库 schema 中所有列都有来源。
 
 2026-10-19 DEV10 M1/M2只新增已有静态来源的财务情景、篮球参考和策略派生工作台；没有新增原生观测字段、采集来源或写入器，因此机器来源清单不变。知识/策略JSON不是游戏事实，见[财务手册](GM_FINANCE_WORKBENCH.md)与[知识/策略手册](GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH.md)。

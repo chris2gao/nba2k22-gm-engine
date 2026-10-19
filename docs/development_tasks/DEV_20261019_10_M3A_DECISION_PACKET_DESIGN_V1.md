@@ -1,5 +1,7 @@
 # M3A — GM_DECISION_PACKET_V1：可查询的决策准备包
 
+实现补记：当前本地工程已完成，实际命令以[分析手册](../../web_gm/manuals/ANALYTICS_M3_WORKBENCH.md)和[M3A验收](../development_reviews/DEV10_M3A_ACCEPTANCE.md)为准。以下保留原设计，非当前“未实现”状态。
+
 状态`DESIGN_READY_FOR_IMPLEMENTATION`；命令与表均是待实现设计。总入口见[M3](DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)。基于DEV10 V2的SQLite消费方式，替代V1中“每队一个大JSON”的存储建议；保留V1全队/全员研究深度。
 
 ## 1. 输入与一次运行

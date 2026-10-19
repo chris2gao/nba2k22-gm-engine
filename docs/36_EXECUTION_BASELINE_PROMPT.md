@@ -2,6 +2,8 @@
 
 版本：v1，2026-10-17。用途：建立常驻执行基线；玩家把网页 GM 汇总且已经批准的具体动作交给一次性执行窗口。本文件不是本次游戏写入授权，也不是已经验收的通用执行器。
 
+DEV10 M3的候选终稿不是批准：普通交易仍为SPECIFIC_TRADE_INTENT/REQUIRES_LIVE_TRADE_PLAN，教练离线batch/digest仍需玩家明确批准。`gm_decision.py`不打开游戏、不调用live plan/preflight、不启用V4；执行能力以最新docs/34第8节为准。
+
 ## 玩家如何使用
 
 建立执行基线时发送：

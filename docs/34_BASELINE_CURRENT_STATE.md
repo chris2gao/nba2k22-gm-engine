@@ -1,5 +1,15 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-19 DEV10 M3A/M3B：本地工程实现与范围内验收
+
+状态 `M3_LOCAL_ENGINEERING_COMPLETE / WEB_CONNECTION_DEFERRED / GM_V4_DRAFT_NOT_ENABLED`，开发分支`codex/dev10-m3-design`，PR #4。按玩家确认的Astra设计审阅→编码分工交付M3A与M3B；[M3A验收](development_reviews/DEV10_M3A_ACCEPTANCE.md)、[M3B验收](development_reviews/DEV10_M3B_ACCEPTANCE.md)、[分析操作手册](../web_gm/manuals/ANALYTICS_M3_WORKBENCH.md)、[GM操作手册](../web_gm/manuals/GM_M3_DECISION_WORKBENCH.md)为当前入口。下方“设计待编码”保留阶段历史，以本节为准。
+
+- M3A：已有team_source_stats的静态安全投影；全队全员事实/实际访问回执、明确上下文的区间计数差分、人物暂定匹配与UNKNOWN、固定M1/M2版本、注释导入/封存、有界钻取与角色字段筛选。封存后的市场补查独立追加，不改原包。
+- M3B：全30队精确名单/六维/三类方案、独立兴趣和同版双方接受；候选竞争与所选资源/字段/执行依赖区分；当前M1组合成本、真实纯离线教练batch/dry_run/verdict/digest、唯一终稿历史、M2策略候选与事前观察假设。纯Python形状/业务校验，不新增模型API或游戏执行器。
+- 实际已有M02只读演练：30队/466在队身份/1458员工/30球队统计/30教练/870整体防守/504原始签位行/30财务行。GSW/SAS/OKC完整身份分页一致，三类市场查询已实际运行。M02包为SEALED_PARTIAL，未填30队经营判断；全合成30队则通过P1–P5 CLI流程及v2终稿修订。范围内15项检查、89次主流程CLI演练与补充检查见验收，未扩大现金、网页或实机验证。
+- **正式30队策略仍为UNASSESSED，正式评估0队；GM V3继续生效，V4未启用。** 没有正式GM/W03/赛季索引或GM_CURRENT变更，没有采集、数据发布、游戏访问/写入；M4未启动。工作台、合成样例和完整离线工件位于_exports，不提交SQLite/运行日志。
+- Antigravity同期main提交`9b4fe87`仅新增7个DEV12文件，没有改M3分支或M0/M1/M2接口；当前M3不导入这些模块，无需撤销它来继续本任务。该提交的能力不作为M3验收依据。PR #4源代码审阅/合并和正式本地部署另按玩家指令，不能把开发分支交付写成main已部署。
+
 ## 2026-10-19 DEV10 M3：玩家已启动，Astra设计交接
 
 玩家明确“开始M3”，并切换Astra Extra High。沿已约定分工，本阶段完成M3A分析包与M3B候选GM V4的设计/审阅，状态`ASTRA_M3_DESIGN_READY_FOR_SOL_IMPLEMENTATION`。入口：[M3总设计](development_tasks/DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)，[实现任务书](development_tasks/DEV_20261019_10_M3_IMPLEMENTATION_HANDOFF.md)，[设计审阅](development_reviews/DEV10_M3_DESIGN_REVIEW.md)。
@@ -198,6 +208,7 @@ _exports/receipts/                          发布回执
 
 | 动作/层 | 当前实际入口与状态 | 执行时必须处理的边界 |
 | --- | --- | --- |
+| M3候选决策交接 | `gm_analysis.py` / `gm_decision.py`本地工程已实现；真实纯离线教练工件及描述性普通交易条款 | 无游戏句柄、无live plan/preflight、无执行权；所有终稿NOT_GRANTED/false。V4候选不自动替换V3，交易实时身份/容量计划和具体玩家批准继续独立触发 |
 | 进程校准/原值读取 | `memory.py`、`address_calibrator.py` 已用于只读采集与审计 | 校准不证明当前 save_id 自动识别，也不证明写入权限/批准或业务写回已验收 |
 | 底层内存写入 | `GameMemory(read_only=False)`、`write_bytes` 与数值 writer 存在；默认实例只读 | 仅检查调用/写入字节数，不提供方案批准、身份白名单、交易事务或完整恢复；部分 writer 会掩码截断，调用前须校验 |
 | 历史 TEAM 策略 | `StrategyManager.set_team_strategy` 无条件拒绝；旧调用已清除 | `LEGACY_TEAM_POE_OFFSETS_REVOKED`；旧 poe_* 只保留原始观测，GM 不认作教练战术 |
