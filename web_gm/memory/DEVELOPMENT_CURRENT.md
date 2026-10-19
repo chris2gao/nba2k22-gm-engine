@@ -148,3 +148,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 研究证据：2K20 官方MyLeague士气化学反应+性格徽章；2K22社区阵容编辑Play For Win、Financial Security、Loyalty，为PC22字段线索，**本局尚未实机认证这些游戏内存地址**。用户设想“长期拒绝交易导致能力下降”与目前不准普通经营性直接修改球员属性的规则冲突，**不得按设想直接开发**；优先用外挂续约/交易请求/球员接受报价及已证实原生士气机制表达，任何超出既定规则的能力惩罚需玩家另行审议批准。
 - NBA2K22 PC社区已存在Looyh NBA2K Hook（资源导出/加载日志/动态Mod/扩展插件线索）、Debug Unlock/Free Camera脚本和转播计分板Mod，证明部分改编空间；但**不证明**2K20破纪录叫暂停庆祝、记者/采访/社交观众图层仍存在于22，更不证明有可写事件触发器。分R0 Obsidian纯报道、R1外置赛场覆盖、R2原生转播UI资源Mod、R3原生事件/解说/动画注入四级，只读研究后再决定是否开发，禁止未经批准游戏修改。
 - Obsidian原生Markdown+YAML+内链，可由未来Codex在玩家提供Vault路径权限后离线写文稿（不需要绑定未知插件）。媒体文章永远明确区分游戏事实、模拟报道/人物公开语句与传闻；每月/季后赛可先做，逐场真实赛后报道/即时场边采访须增加可信逐场或即时数据来源，现有数据仍缺game logs。
+
+## 2026-10-19 GM V4之后：NBA2K22 PC竞技对抗与Sim Engine调校研究
+
+- 用户确认发展次序：**先完成GM V4获得真实队伍建设与攻防决策能力，再独立调校NBA2K22 PC MyLEAGUE竞技引擎**，使竞技能力、对抗过程及博弈真实，而不是人/AI随便获胜；为后续球员、媒体沉浸生态奠基。
+- 新研究基线：[竞技模拟与比赛引擎调校路线V1](../../docs/research/NBA2K22_COMPETITIVE_SIMULATION_CALIBRATION_ROADMAP_V1.md)。已初步检索Operation Sports本世代MyLeague sim研究、RES2 Current Gen、部分PC跨版反馈、Competitive slider比照及2021–22NBA统计基准。**不能直接套用社区整套数值；来源版本、玩法USERvsCPU/CPUvsCPU live/日历quick sim必须分开**，先动作/AI出手选择/犯规/战术响应，再投篮命中与联盟统计。
+- 游戏世界级`WORLD_GAMEPLAY_PROFILE`只由玩家批准、稳定运行；GM按月仅调教练/战术/阵容等合法策略，绝不靠每月改变全局参数保证单队获胜。现有旧`docs/10_GAME_SETTINGS_AND_SLIDERS.md`自称权威但多个数值与效果未证实，旧`src/slider_manager.py`地址未经实机重新核验，不做一键写入。球员原始能力/潜力/徽章保持禁止普通经营性修改。
+- 未来Antigravity取字段与内存真实地址/游戏消费验证，Codex按获批差分执行，分析模型比较赛场过程、联盟真实统计分布和GM战术效果；维持适量验证、不为找最优值长期停摆。**本轮只做研究文档，不开启调校开发或更改游戏。**
