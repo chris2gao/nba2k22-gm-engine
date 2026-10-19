@@ -127,3 +127,24 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - Strict roles: Web GPT facts SQLite read-only; Codex writes certified source only on authorized full capture; derived analytics/strategic feedback in separately writable `gm_workbench.sqlite` via controlled writers (M3/M4); no Web SQL access may directly edit source DB or game memory. Bind both DBs to career/batch/snapshot/data timestamp and GitHub publication status.
 - M0 still includes unverified unsigned-like cash anomalies and original financial field semantic audit. First Codex delivery covers M0 only; requires actual read-only CLI validation by WEB_ANALYTICS, WEB_GM and WEB_DEVELOPMENT before `M0_CONSUMER_ACCEPTED`. Tool availability is not proof of machine connectivity. M1-M4 retained, with SQLite query/sidecar interfaces instead of enormous derived JSON files. Feedback remains player-triggered.
 - Original [DEV10 V1 plan](../../docs/development_tasks/DEV_20261018_10_GM_V4_FOUNDATION_DECISION_OBSERVABILITY_MASTER_PLAN_V1.md) carries a supersession banner. No runtime database changes, game writes, or authorized terminal use occurred in this update.
+
+## 2026-10-19 MyLEAGUE玩法全景研究：PC本世代终极联盟主战场
+
+- 用户计划放弃以MC为主要模拟存档，改以NBA2K22 PC本世代终极联盟新开档运行30队GM V4；新局应独立save_id。M1/M2由Codex进行中，原五阶段仍玩家分别触发。
+- 完整可持续扩充的[MyLEAGUE玩家操作/原生系统手册](../../docs/research/NBA2K22_PC_MYLEAGUE_PLAYER_OPERATIONS_AND_SYSTEMS_GUIDE_V1.md)已创建：16章，首页/日历、行政、教练、训练发展、球探/选秀、扩军搬迁、联盟新闻、排行榜/统计、全球设置、球队AI自动化、规则变化、休赛期与GM接管映射，并纳入用户提供的Gemini候选设置全集及外部资料来源。
+- 用户已实机确认PC本世代很多全局设置与次世代一致；但PS5/Xbox Series 2K22新增MySTAFF/Prep Hub/Conditional Coaching具体专用机制不能未经PC菜单观察直接当PC事实。Gemini原文某些默认值/枚举/旧ADDR_TRADE/SETTINGS/SLIDERS地址尚未逐条认证；需Antigravity后续提供实机页面、实际值域与内存差分，补入手册，再独立规划MYLEAGUE_NATIVE_CONTROL层。
+- **研究手册不授权任何游戏修改或自动接管**；已有教练19默认+18对手、交易等继续复用。GM可未来接管原生训练安排但仍禁止经营性直接改球员能力，世界级成长/伤病/工资帽设置由玩家批准。逐项确认GM已能执行后再关闭相应原生CPU自动化，以免休赛期无法签人/选秀。下一次玩家主动触发阶段更新时保留来源与反馈。
+
+## 2026-10-19 MyLEAGUE实际GM能力审计/六人制服组/月度训练
+
+- 新研究：[外部GM运营能力覆盖与月度安全训练方案](../../docs/research/NBA2K22_MYLEAGUE_GM_CAPABILITY_GAP_AND_MONTHLY_TRAINING_V1.md)；已同步修订[终极联盟玩法手册](../../docs/research/NBA2K22_PC_MYLEAGUE_PLAYER_OPERATIONS_AND_SYSTEMS_GUIDE_V1.md)，从人类可查看菜单转向外挂GM的`OBSERVED → ANALYSIS/DECISION → APPROVED EXECUTION → OUTCOME`覆盖审计，独立于现有M1/M2未验收设计PR #3。
+- 玩家本世代实际UI可任命六人：CFO/财务、GM、主教练、助教、首席球探、训练师；当前`memory_field_profile.json`底层仍有8个staff岗位enum与8个反向指针槽，其中Governor/AssistantGM不能当作玩家UI已验证的可聘岗位，注意区别。主教练上任关联的Playbook/体系、助教/训练师加成实际公式待研究；已有数据读取但未有受控员工聘任执行闭环。
+- 玩家确认训练类与2K20类似：球员导师影响徽章成长机会，团队/个体训练方向及强度，比赛+训练共用疲劳负担；老将/高分钟首发易过载，高潜年轻替补可在身体状况允许时更积极。但`source_catalog.json: injuries_availability_rotations`当前为`NOT_OBSERVED`，训练配置/伤病/疲劳/导师关系未认证读取；目前不应让GM基于假疲劳数据制定积极的每月高强度自动训练。首选`保守月度球队基准+少量目标球员例外`，无疲劳数据时原生自动或低强度HOLD；不能保证伤病为零。
+- 下一步候选能力：累计疲劳/伤病与训练设置真实数据、六职位员工任免与人员市场、聘教练自动联动、CPU原生交易签约选秀自动化、导师、球探/休赛期阶段及历史事件账本；GM可新增信息不对称新秀/交易评估、长期预测等超出原生UI能力。**这些只是研究缺口，不直接给Codex新开发任务、不修改游戏，也不要求正在进行的M1/M2改范围。**
+
+## 2026-10-19 NBA WORLD球员/媒体/赛场沉浸研究（不抢GM开发）
+
+- 玩家最终次序：**先GM V4，随后球员系统，再做媒体系统**；媒体是高优先级的沉浸目标，不能只用“是否改变游戏数值”衡量其价值。独立研究文档：[NBA WORLD 人格、Obsidian媒体及NBA2K22赛场沉浸可行性](../../docs/research/NBA_WORLD_PLAYER_MEDIA_AND_BROADCAST_IMMERSION_FEASIBILITY_V1.md)。
+- 研究证据：2K20 官方MyLeague士气化学反应+性格徽章；2K22社区阵容编辑Play For Win、Financial Security、Loyalty，为PC22字段线索，**本局尚未实机认证这些游戏内存地址**。用户设想“长期拒绝交易导致能力下降”与目前不准普通经营性直接修改球员属性的规则冲突，**不得按设想直接开发**；优先用外挂续约/交易请求/球员接受报价及已证实原生士气机制表达，任何超出既定规则的能力惩罚需玩家另行审议批准。
+- NBA2K22 PC社区已存在Looyh NBA2K Hook（资源导出/加载日志/动态Mod/扩展插件线索）、Debug Unlock/Free Camera脚本和转播计分板Mod，证明部分改编空间；但**不证明**2K20破纪录叫暂停庆祝、记者/采访/社交观众图层仍存在于22，更不证明有可写事件触发器。分R0 Obsidian纯报道、R1外置赛场覆盖、R2原生转播UI资源Mod、R3原生事件/解说/动画注入四级，只读研究后再决定是否开发，禁止未经批准游戏修改。
+- Obsidian原生Markdown+YAML+内链，可由未来Codex在玩家提供Vault路径权限后离线写文稿（不需要绑定未知插件）。媒体文章永远明确区分游戏事实、模拟报道/人物公开语句与传闻；每月/季后赛可先做，逐场真实赛后报道/即时场边采访须增加可信逐场或即时数据来源，现有数据仍缺game logs。
