@@ -205,3 +205,9 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 用户进一步明确PnR情况是**弱侧第三人无人补防，至少应该正确换防**。OS 2021本世代CPUvsCPU案例反馈Help Defense=100、Over/Drop、Pre-Rotate甚至关闭ACE仍没修好；2022部分PC用户反馈高防守滑块改善整体防守但未证明能修roll-man的tag。因此**目前没找到可证实的本世代HoF PnR完整成功修复参数，不建议瞎给Help=100或全防守=100**，本来正常的防守和名人堂基线保留。
 - 篮下接触终结方面已有直接反馈改善资料：2022次世代Eccentric作者本人用Inside60/Close55/Contact50认为改善了中锋近筐终结（他自己的套装条件）；H2UKNOW HoF次世代减弱Layup Defense对詹姆斯/字母哥轻接触惩罚；J-Kits PS5 HoF V2.3针对layup干扰反复修订并有实战视频。**这些证据支持参数作用方向，不是PC本世代HoF适用的“已验收最终值”**，不交用户试错。继续只查2021–2022 HoF PC/PS4的可追踪成功结论；若未知明确写UNKNOWN，宁可不推荐。
 - ACE始终ON，不引入实时C2/C3；GM赛前战术与球员倾向由Codex另行接入；M3继续主任务。当前没有新的游戏写入或场上数值。
+
+## 2026-10-19 名人堂Gameplay V1候选（玩家请求实际可输入的单套方案）
+
+- 正式提案文档：[NBA2K22 HOF COURT PROFILE V1](../../docs/research/NBA2K22_HOF_COURT_PROFILE_V1_PROPOSED_20261019.md)。**以PC/PS4 2K22原版HOF为底，只有四种Gameplay滑块发生更改（CPU/USER各侧），不是直接套社区整套Pro/All-Star**：Inside Shot Success USER48→52 CPU56→60；Layup Defense Strength Takeoff和Release USER/CPU原版50→35；Help Defense Strength USER/CPU 50→70。原版ACE开启，所有其余Offense、Defense、Attributes、Movement、Tendencies、Fouls、Controller正常项保持HoF。
+- 依据：gu8lal8 PS4本世代HOF默认表；IrishSalsa PS4 HOF Help70/70；H2UKNOW次世代HOF原作者回复上下Layup防守改35；Eccentric次世代作者明确Inside60改善大个子内线。**这是Web结合不对称HoF默认构成的研究型候选，不是任何来源验证过的整个四项组合**。尤其Help70**不能保证修复两人围持球者+无人tag roll man**，有本世代Help100仍失败的反例。
+- 玩家这轮已明确要自行验证一个有来源的综合方案，区别于此前拒绝研究人员随机给不明数值并长期A/B磨参数。此文档**未写游戏、不自动执行**，待玩家实际观察结果反馈后才评价是否成为正式WORLD profile。
