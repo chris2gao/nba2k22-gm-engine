@@ -2,7 +2,7 @@
 
 - 编制：2026-10-19，Web Development 研究。
 - 用途：**首先弄懂NBA2K22终极联盟有哪些功能、每个界面如何玩、各阶段的经营含义**；以后再决定让外部GM接管哪些、保留哪些，不在本手册预先批准接管或写游戏。
-- 项目：\`chris2gao/nba2k22-gm-engine\`。计划新开独立 MyLEAGUE 存档，2021–22开始，1984–2020历史选秀轮回。30队 GM V4 数据采集→分析→GM决策→玩家审批→Codex执行仍适用。
+- 项目：`chris2gao/nba2k22-gm-engine`。计划新开独立 MyLEAGUE 存档，2021–22开始，1984–2020历史选秀轮回。30队 GM V4 数据采集→分析→GM决策→玩家审批→Codex执行仍适用。
 - 输入一：玩家提供的《全局设置清单》（2026-10-19；包含建档、MyLeague Settings、USER/CPU Gameplay、休赛期规则、Team Automation和旧地址），**它是用户提供的候选菜单清单**。玩家亲自确认许多本世代与次世代的**全局设置相同**；尊重这项实机结论，不武断说全部不同。但候选列表里的每个子菜单、取值范围、内存类型和地址尚未逐项实机认证。
 - 输入二：NBA2K22 本世代攻略、2K官方 MyNBA 文章、玩家实际菜单讨论、项目仓库已验证源码。**官方次世代 MySTAFF/Prep Hub/Conditional Coaching专题仅为类比材料，不能自动认证 PC 2021版也有其新增专用系统。**
 - **本文件是玩法研究文档，不是内存字段地图/开发任务书/游戏已验收报告。** 它追求功能覆盖，明确「菜单候选、功能解释、版本证据、未来GM接口」的界限。Antigravity 后续提供实际菜单、截图及字段差分后应在本文件逐条补齐。
@@ -74,8 +74,8 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 1. 在测试存档先浏览全部开局菜单，记录默认值、选项范围和只能开档设置的条目；不要把「当前显示默认值」写成游戏所有版本的统一默认。
 2. 选择30队、基础21–22阵容，设置30队可经营范围；明确操控 vs CPU 自动执行的关系。
-3. 确定赛程/季后赛/选秀/交易/工资/伤病/模拟节奏等，形成一份 \`MYLEAGUE_WORLD_PROFILE\`。
-4. 创建新存档独立 \`save_id\`；避免沿用MC数据。开档后首轮玩家主动触发全量采集，建立新的球队名单/教练/人员/财务基线。
+3. 确定赛程/季后赛/选秀/交易/工资/伤病/模拟节奏等，形成一份 `MYLEAGUE_WORLD_PROFILE`。
+4. 创建新存档独立 `save_id`；避免沿用MC数据。开档后首轮玩家主动触发全量采集，建立新的球队名单/教练/人员/财务基线。
 5. 后续通过GM V4只提出获批的球队经营动作；**不在常规节点自动修改整个联盟世界的基础参数**。
 
 ---
@@ -132,7 +132,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 - 合同界面可能提供每年薪金、合同长度、球员/球队选项、Bird相关资格、续约资格与谈判状态；不同2K版本有不同条款显示。
 - 签约流程涉及自由球员名单、报价、签约竞争、限制自由球员与匹配、队伍名单容量、工资帽与可能的例外规则。
-- 对本项目：**先核实实际PC游戏+外挂的约束**，M1计算合法/可承担/值得做三个独立问题；不得用 \`budget-total_salary\`伪造可签约额度。
+- 对本项目：**先核实实际PC游戏+外挂的约束**，M1计算合法/可承担/值得做三个独立问题；不得用 `budget-total_salary`伪造可签约额度。
 - 正式休赛期原生选项与我们的外挂竞价框架之间，需要选出唯一的执行权源：尽量避免「外部报价决定结果」和「游戏AI再次自动报价/续约」同时运行。
 
 ### 3.5 员工（Staff / Staff Hiring）
@@ -144,8 +144,8 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 ### 3.6 财政办公室（Finances / Salary Cap）
 
-- 查看球队 \`total_salary\`、\`payroll\`、\`budget\`、\`cash\`、\`staff_budget\` 及相关工资帽与税线规则。
-- 当前编码问题：CLE/NOP/ORL/UTA \`cash\` 近 \`2^32\`，有signed32候选但未确证；\`payroll\`口径不等于球员年度合同合计。
+- 查看球队 `total_salary`、`payroll`、`budget`、`cash`、`staff_budget` 及相关工资帽与税线规则。
+- 当前编码问题：CLE/NOP/ORL/UTA `cash` 近 `2^32`，有signed32候选但未确证；`payroll`口径不等于球员年度合同合计。
 - 从人类玩法角度，财务的用途是**决定是否能负担一名即战力，以及未来续约核心的机会成本**；从系统角度，直到M1证据足够，不把现有原始金额直接变成交易合法性硬门。
 
 ---
@@ -159,11 +159,11 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 通常涉及首发、替补、轮换深度、进攻/防守重点（POE）、体力、关键球打法、指定对手战术。部分操作可针对全联盟对手统一设置，也可针对具体对手；系列指南支持这一基本玩法。
 
 **项目实际确认**：
-- 每支球队原生\`coaching_tactics\`默认 **19项**设置；
+- 每支球队原生`coaching_tactics`默认 **19项**设置；
 - 对29个对手各有指定的**18项整体防守**配置；所谓“整体”对应修改对手各有效matchup数据，不是一个唯一的All槽；
-- 19项包括POE、PreferredSystem、ActiveSystem、PlaybookID、BenchDepth、RunPlayTendency、ZoneUsage、BenchUtilization、Tempo、HelpDefense、4个Freelance类型等；实际字段枚举/混合字段精确含义以 \`coaching/field_dictionary.json\` 及 \`docs/40_COACHING_EXECUTION_RUNBOOK.md\` 为准；
-- **Sim相关5项只读GM参考、不做正式修改**；\`Tempo\`即使可读写，其UI含义仍未完整认证，不能解释成有证据的模拟回合数参数；
-- 游戏AI会重新分配球员分钟，**精确锁分钟不再是项目开发目标**；允许用\`BenchDepth\`和合法体系控制轮换方向。
+- 19项包括POE、PreferredSystem、ActiveSystem、PlaybookID、BenchDepth、RunPlayTendency、ZoneUsage、BenchUtilization、Tempo、HelpDefense、4个Freelance类型等；实际字段枚举/混合字段精确含义以 `coaching/field_dictionary.json` 及 `docs/40_COACHING_EXECUTION_RUNBOOK.md` 为准；
+- **Sim相关5项只读GM参考、不做正式修改**；`Tempo`即使可读写，其UI含义仍未完整认证，不能解释成有证据的模拟回合数参数；
+- 游戏AI会重新分配球员分钟，**精确锁分钟不再是项目开发目标**；允许用`BenchDepth`和合法体系控制轮换方向。
 
 ### 4.2 系统适应性（System Proficiency）
 
@@ -175,7 +175,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 - 设置球队有哪些战术配合、某类球员被分配什么Play Type，如挡拆持球手/顺下者、定点、低位、单打。
 - 在比赛中选择战术执行；不同球员有不同可用配合。2022年社区提示可在Coaching→Edit Playbook里切换不同球员的战术种类。
-- 我们的\`PlaybookID\`只是某层原生标识；**修改整个每名球员的战术分配**是否存在另一个内存结构，目前需要Antigravity实际定位；不要宣称已有PlaybookID就完全掌控所有战术。
+- 我们的`PlaybookID`只是某层原生标识；**修改整个每名球员的战术分配**是否存在另一个内存结构，目前需要Antigravity实际定位；不要宣称已有PlaybookID就完全掌控所有战术。
 
 ### 4.4 临场阵容、练习和指挥
 
@@ -320,7 +320,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 ### 9.3 项目数据从哪里来
 
-- 现有 \`team_monthly_stats\`、\`player_monthly_stats\`、\`player_source_details\`、\`team_source_stats\` 等是真实批次，当前M0只读CLI可按需查询；
+- 现有 `team_monthly_stats`、`player_monthly_stats`、`player_source_details`、`team_source_stats` 等是真实批次，当前M0只读CLI可按需查询；
 - 游戏UI如提供更丰富的单场Box Score、Lineup On/Off和球员奖项，未来可依GM价值按需研究，不一开始无限扩大采集；
 - M3数据分析应提供 **30队决策信号**，而不是重复输出“排行榜”；
 - 研究清单中所有「该页面可以展示」与「我们目前已采集」必须分别登记，不能把看到的菜单当已获得数据。
@@ -350,7 +350,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 候选价值权重：Overall Rating、Potential、Age Discount、Team Style Importance、Contract Years Remaining、Expiring Contract Value、Draft Pick Importance、Draft Pick Depreciation。
 
-**经营作用**：约束游戏AI能否自己谈判、签订交易、发送报价、审查交易合法性。项目交易另由双方GM达成共识与获批执行。关闭\`CPU–CPU Trades\` 是减少野生交易的合理候选；然而「关闭原生Trade总开关是否也阻止外挂受控交易」必须通过实机验证，不能仅凭推理宣称最优值。游戏可能提供的交易审批/保护/互换机制，也不能自动改变我们的三年简单签位业务规则。
+**经营作用**：约束游戏AI能否自己谈判、签订交易、发送报价、审查交易合法性。项目交易另由双方GM达成共识与获批执行。关闭`CPU–CPU Trades` 是减少野生交易的合理候选；然而「关闭原生Trade总开关是否也阻止外挂受控交易」必须通过实机验证，不能仅凭推理宣称最优值。游戏可能提供的交易审批/保护/互换机制，也不能自动改变我们的三年简单签位业务规则。
 
 ### 10.3 工资合同（Contracts & Finance）
 
@@ -359,7 +359,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 - Min/Max Roster Size、Two-Way slots；Contract Negotiation Difficulty；CPU Re-Signing Aggressiveness；
 - Salary Demands：Min Rating for Max Contract、Max Rating for Min Contract、Salary Curve、Potential Weight、Durability Weight、Minutes Weight、Player Fame Weight、Non-Financial Ambitions等（后面多项**尤其需要实机核对有无对应PC页面**）。
 
-业务用途：决定原生球队能否合法签约、要支付多少以及球员报价倾向；**不是**把\`cash/budget\`两列相减获得球队自由市场资金。M1需同时研究游戏真实规则与外挂休赛期竞价规则。工资帽设置属于全联盟世界级，不由单队GM随意调低竞争对手工资空间。
+业务用途：决定原生球队能否合法签约、要支付多少以及球员报价倾向；**不是**把`cash/budget`两列相减获得球队自由市场资金。M1需同时研究游戏真实规则与外挂休赛期竞价规则。工资帽设置属于全联盟世界级，不由单队GM随意调低竞争对手工资空间。
 
 ### 10.4 成长、年龄与徽章（Progression/Regression）
 
@@ -404,7 +404,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 | Fouls | Shooting、Reach-in、Loose Ball、Charging、Blocking、Over the Back、Flagrant及版本可有的Illegal Screen | 犯规环境 |
 | **Movement** | **Speed with Ball Min/Max、Acceleration with Ball Min/Max、Speed/Acceleration without Ball Min/Max**（具体用UI校准） | 限制最慢/最快球员的运动区间；中锋“月球运球”研究重点 |
 
-**当前研究状态**：旧\`src/slider_manager.py\`的\`ADDR_TRADE=0x0632FAE8\`、\`ADDR_SETTINGS=0x06332630\`、\`ADDR_SLIDERS=0x063319F8\`是**历史候选偏移**，不能因为源码存在就当成当前进程已确认的真实读写地址。2021年Operation Sports Current Gen玩家确有讨论USER/CPU gameplay/sliders、伤病、犯规、投篮、运动等实际方案，但社区值不是我们的游戏默认值，也不证明某字段对应内存。
+**当前研究状态**：旧`src/slider_manager.py`的`ADDR_TRADE=0x0632FAE8`、`ADDR_SETTINGS=0x06332630`、`ADDR_SLIDERS=0x063319F8`是**历史候选偏移**，不能因为源码存在就当成当前进程已确认的真实读写地址。2021年Operation Sports Current Gen玩家确有讨论USER/CPU gameplay/sliders、伤病、犯规、投篮、运动等实际方案，但社区值不是我们的游戏默认值，也不证明某字段对应内存。
 
 ---
 
@@ -420,7 +420,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 用户清单候选包含：Roster Management、Injury Reserve Management、Free Agency/Extensions、Scouting、Training、ACE、Substitution Method，以及其它合同/选秀/员工/球探自动操作。
 
-**最重要的行为边界**：\`Team Automation\`不是单个总开关。对每项应建立 \`NativeAI / ExternalGM / HumanManual\`责任矩阵：
+**最重要的行为边界**：`Team Automation`不是单个总开关。对每项应建立 `NativeAI / ExternalGM / HumanManual`责任矩阵：
 
 | 功能 | 当前项目可承担多少 | 建议接管原则 |
 |---|---|---|
@@ -460,7 +460,7 @@ MyLEAGUE 是一个可以跨赛季运行的 NBA Franchise/Sandbox：玩家不只�
 
 ### 12.3 休赛期操作图（**概念顺序**，不是已认证PC每一个按钮先后）
 
-\`\`\`text
+```text
 季后赛结束 / 总冠军 / 奖项
   ↓
 球员退役、教练/员工去留、联盟规则变化（实际先后需PC菜单记录）
@@ -476,9 +476,9 @@ NBA选秀 / 球员交易 / 新秀合同
 最低阵容人数/双向合同/裁员与合同清算
   ↓
 训练营、球队战略/员工/教练调整、进入新赛季
-\`\`\`
+```
 
-关键提醒：**真实游戏内部流程可能把某些步骤放在完全不同顺序**。有的游戏会先显示退休人员、员工签约或选项，后显示选秀/自由市场。这里是GM经营工作链，Antigravity后续应实际记录每页\`phase_id, UI标题,可返回/可跳过,所需玩家选择,是否不可逆\`并替换为精确操作顺序。
+关键提醒：**真实游戏内部流程可能把某些步骤放在完全不同顺序**。有的游戏会先显示退休人员、员工签约或选项，后显示选秀/自由市场。这里是GM经营工作链，Antigravity后续应实际记录每页`phase_id, UI标题,可返回/可跳过,所需玩家选择,是否不可逆`并替换为精确操作顺序。
 
 ### 12.4 GM休赛期最重要的经营链
 
@@ -496,7 +496,7 @@ NBA选秀 / 球员交易 / 新秀合同
 
 **示例不是实际GM决策，也不修改游戏。**
 
-1. 新建MyLEAGUE（30队、2021–22），选择赛程/工资/成长/自动化；存 \`WORLD_PROFILE\`；按需引入历史1984选秀规则但不把1984班强塞进2021年已有NBA球员名单。
+1. 新建MyLEAGUE（30队、2021–22），选择赛程/工资/成长/自动化；存 `WORLD_PROFILE`；按需引入历史1984选秀规则但不把1984班强塞进2021年已有NBA球员名单。
 2. 首次全量采集：30队阵容、合同、教练、员工、选秀权和球员池真实快照；新局单独save_id。
 3. 分析模型SQL计算30队战绩/阵容、关键合同和战术弱点；GM读30队长期策略，优先提出少量影响大的方案，其余HOLD。
 4. 例如马刺：现有Murray/Poeltl适合挡拆却外围投射不足，GM比较HOLD、教练/打法内部优化和交易；本局财政及Poeltl对对手队的价值需要独立谈判。
@@ -527,7 +527,7 @@ NBA选秀 / 球员交易 / 新秀合同
 | 30队经营记忆与GM一次对话 | DEV10 M1–M4规划 | IN_DEVELOPMENT | GM V4 |
 | 强行修改球员能力/训练成绩 | 游戏菜单可能允许，但违反项目日常规则 | POLICY_PROHIBITED | **不接管**，只有历史重力独立审批例外 |
 
-**严禁误用**：旧\`slider_manager.py\`的历史地址（\`ADDR_TRADE\`等）未经当前进程确证，不应被这份手册自动认证；\`docs/10_GAME_SETTINGS_AND_SLIDERS.md\`是早期策略建议，不能当作所有旧设置已验收的生效证明。
+**严禁误用**：旧`slider_manager.py`的历史地址（`ADDR_TRADE`等）未经当前进程确证，不应被这份手册自动认证；`docs/10_GAME_SETTINGS_AND_SLIDERS.md`是早期策略建议，不能当作所有旧设置已验收的生效证明。
 
 ---
 
@@ -537,7 +537,7 @@ NBA选秀 / 球员交易 / 新秀合同
 
 每个原生UI条目建议记录下列字段：
 
-\`\`\`yaml
+```yaml
 menu_id: MYLEAGUE.COACHING.GAMEPLAN
 ui_zh: "执教 / 教练比赛计划"
 ui_en: "Coaching / Coach Gameplan"
@@ -560,9 +560,9 @@ control_owner: "UNDECIDED"      # USER_APPROVED_WORLD/GM_APPROVED/AUTO_NATIVE/HU
 evidence_level: "PENDING_PC_UI"
 reference_urls: []
 notes: ""
-\`\`\`
+```
 
-重要：本手册是*功能与玩法地图*，真正内存地址、写入能力应由未来独立 \`MYLEAGUE_NATIVE_CONTROL_REGISTRY\` 承担。来源论文/界面位置可对照，但字段字典和执行代码不能用主观攻略推断。
+重要：本手册是*功能与玩法地图*，真正内存地址、写入能力应由未来独立 `MYLEAGUE_NATIVE_CONTROL_REGISTRY` 承担。来源论文/界面位置可对照，但字段字典和执行代码不能用主观攻略推断。
 
 ### 未来最值得补的PC实机页面
 
@@ -571,7 +571,7 @@ notes: ""
 3. **教练补充**：19项默认/18对手以外的首发阵容、Playbook内部战术、球员Play Types、换人模式及实际可编辑性。
 4. **训练+员工**：训练计划、强度、负荷、个人发展方向、岗位评价与雇佣/解约的实际菜单。
 5. **新秀与休赛期**：从季后赛结束到新赛季每一步**真实UI出现顺序**，哪些是推进日期前必须处理。
-6. **财务与合同**：游戏视图里显示的 \`cash/budget/payroll/tax/cap\`口径；员工预算与普通薪金是否互通。
+6. **财务与合同**：游戏视图里显示的 `cash/budget/payroll/tax/cap`口径；员工预算与普通薪金是否互通。
 7. **World sliders**：用真实UI当前页做字段/数据类型/内存差分，特别是 USER/CPU Movement 最低速度与加速度。
 
 ---
@@ -596,16 +596,16 @@ notes: ""
 14. [Reddit — 在NBA2K22 Coaching中Edit Playbook（2022）](https://www.reddit.com/r/NBA2k/comments/wsvt1u)，**同代玩家方法**。
 
 **项目证据（开发仓库，优先于外部论坛对本局已实现能力的推断）**：
-- \`docs/34_BASELINE_CURRENT_STATE.md\` — 当前局教练真实采集/执行状态与其它来源清单；
-- \`docs/39_COACHING_TACTICS.md\`、\`docs/40_COACHING_EXECUTION_RUNBOOK.md\` — 原生教练战术读取与执行；
-- \`docs/GM_SQLITE_QUERY_ACCESS.md\` — M0按需查询本地事实数据库；
-- \`docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md\` — 用户定义的工程验证与行动边界；
-- \`docs/development_tasks/DEV_20261018_10_GM_V4_SQLITE_FIRST_MASTER_PLAN_V2.md\` — GM知识/财务/数据决策/反馈建设；
-- \`docs/10_GAME_SETTINGS_AND_SLIDERS.md\`、\`src/slider_manager.py\` — 早期设置/历史旧偏移参考，**不等于最新内存认证**。
+- `docs/34_BASELINE_CURRENT_STATE.md` — 当前局教练真实采集/执行状态与其它来源清单；
+- `docs/39_COACHING_TACTICS.md`、`docs/40_COACHING_EXECUTION_RUNBOOK.md` — 原生教练战术读取与执行；
+- `docs/GM_SQLITE_QUERY_ACCESS.md` — M0按需查询本地事实数据库；
+- `docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md` — 用户定义的工程验证与行动边界；
+- `docs/development_tasks/DEV_20261018_10_GM_V4_SQLITE_FIRST_MASTER_PLAN_V2.md` — GM知识/财务/数据决策/反馈建设；
+- `docs/10_GAME_SETTINGS_AND_SLIDERS.md`、`src/slider_manager.py` — 早期设置/历史旧偏移参考，**不等于最新内存认证**。
 
 ### 最新待补状态
 
 - **已形成完整业务地图与操作原理**，涵盖开档、首页、行政、执教、训练、球探、扩军搬迁、新闻统计、候选全局设置、CPU自动化、赛季/休赛期、30队经营框架。
-- **尚不是逐像素逐菜单实机穷举**：Antigravity未提交各PC页面截图和逐项地址校准；因此存在\`PENDING_PC_UI\`，不得宣称清单每一项及每一个MemoryOffset已最终确认。
+- **尚不是逐像素逐菜单实机穷举**：Antigravity未提交各PC页面截图和逐项地址校准；因此存在`PENDING_PC_UI`，不得宣称清单每一项及每一个MemoryOffset已最终确认。
 - 下一步先研究功能和实际操作，再由玩家**讨论每项交给GM还是游戏AI**，之后独立规划内存定位/控制开发；本手册不直接执行游戏写入。
 
