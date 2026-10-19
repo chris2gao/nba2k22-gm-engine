@@ -1,5 +1,7 @@
 # DEV10 — Astra设计完成后的实现交接
 
+**M3后续已启动（2026-10-19）：** 玩家按下文模型分工切换Astra Extra High开始M3；新的[M3设计与Sol交接](DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)覆盖分析包、独立30队判断、双边议价、组合冲突和终稿。当前是设计完成、运行实现待Sol，未启用V4或启动M4。
+
 **2026-10-19工程收尾：** M1/M2为`ENGINEERING_COMPLETE`，PR #3审查要求的工作台/财务导出目录保护已修补，3项直接路径检查通过；最新main纳入时无文本冲突。详见[收尾记录](../development_reviews/DEV10_M1_M2_CLOSEOUT.md)。30队仍UNASSESSED、GM V4未启用；不自动推进M3/M4。以下设计与实现记录保留各阶段含义。
 
 **2026-10-19实现回执：** 玩家已切换Sol并授权实现，M1/M2均为 `IMPLEMENTED_LOCAL`。实际接口与证据见[M1手册](../GM_FINANCE_WORKBENCH.md)、[M1验收](../development_reviews/DEV10_M1_FINANCE_ACCEPTANCE.md)、[M2手册](../GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH.md)、[M2验收](../development_reviews/DEV10_M2_KNOWLEDGE_ACCEPTANCE.md)。13项直接相关检查及已有M02静态CLI路径通过；30队仅UNASSESSED候选、正式评估0队。Web连接/现金/签约实机仍延后，现行GM规则不变。下文保留原Astra设计交接，不代表当前仍缺少运行实现。后续M3/M4按玩家另行任务推进。

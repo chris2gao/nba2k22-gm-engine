@@ -1,5 +1,15 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-19 DEV10 M3：玩家已启动，Astra设计交接
+
+玩家明确“开始M3”，并切换Astra Extra High。沿已约定分工，本阶段完成M3A分析包与M3B候选GM V4的设计/审阅，状态`ASTRA_M3_DESIGN_READY_FOR_SOL_IMPLEMENTATION`。入口：[M3总设计](development_tasks/DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)，[实现任务书](development_tasks/DEV_20261019_10_M3_IMPLEMENTATION_HANDOFF.md)，[设计审阅](development_reviews/DEV10_M3_DESIGN_REVIEW.md)。
+
+设计包含同批SQLite累计统计投影、30队全员事实/访问覆盖、跨批指标与身份层级、按角色问题筛选候选、M1成本/M2策略引用、五个内部研究阶段、双方同版报价接受、选定资产/教练字段与执行依赖冲突、唯一终稿及事前假设。15个合成案例是待实现行为说明，不是已通过M3测试。
+
+**M3运行CLI/工作台表尚未实现，M3工程尚未完成。** 正式30队策略仍UNASSESSED；现行V3保持生效、V4未启用；本设计不启动正式GM或更新W03。下一步按玩家模型安排由Sol实现M3A/M3B，再给实际工程验收。网页连接仍由玩家后续建立，不阻塞内部开发。M4、实时赛场调校、训练/员工任免、媒体世界等不在本轮范围。
+
+代码/文档基线7a60d5e已包含M1/M2正式合并、最新3D赛场及原生控制发现研究；玩家已确认全局设置可修改，新NC01–NC15候选不当现成执行器。本轮未修改运行源码、事实/发布数据或游戏，没有采集、实际数据库分析或实机测试。下文“不启动M3”保留上一阶段边界，本次新授权和状态以本节为准。
+
 ## 2026-10-19 DEV10 M1/M2工程收尾（PR #3）
 
 状态 `M1_M2_ENGINEERING_COMPLETE / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。本节随PR #3合入正式main后生效，优先于下方“本地实现、待分支审阅”历史记录。M1财务情景与M2知识/策略接口工程完成；操作入口与前次证据沿用下节链接，收尾记录见[DEV10_M1_M2_CLOSEOUT](development_reviews/DEV10_M1_M2_CLOSEOUT.md)。

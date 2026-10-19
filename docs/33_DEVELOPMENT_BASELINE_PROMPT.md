@@ -61,6 +61,7 @@
 | DEV10后续财务/知识设计 | `docs/development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md`及关联研究 | 设计之后玩家已授权Sol实现，M1/M2本地实现证据查34及独立验收；不将M0原范围限制误读为后续永久禁令 |
 | DEV10财务工作台M1 | `gm_data_access/finance_inputs.py`、`gm_core/finance_projection.py`、`finance_scenarios.py`、`gm_workbench/store.py`、`scripts/gm_finance.py` | gm_core仅接纯数据；同批静态来源与独立派生存储。槽序情景不认证签约额度，规则输入不授予游戏执行权；实际状态查34 |
 | DEV10知识/策略M2 | `gm_core/knowledge.py`、`strategy_state.py`、`gm_data_access/knowledge_inputs.py`、`scripts/gm_knowledge.py`、`gm_strategy.py`、`web_gm/knowledge/` | 12卡/30参考/19机制按需查询；同批字典映射不授予执行权。30候选UNASSESSED，修订只存调用方分析；详见GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH |
+| DEV10 M3分析与GM设计 | `docs/development_tasks/DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md`及M3A/M3B/CONTRACTS/实现交接 | 玩家已启动M3；Astra设计审阅、Sol编码。完整运行接口尚待实现，不把拟议CLI当现成功能；V3仍生效，V4切换另批 |
 | GitHub 发布 | `scripts/publish_web_snapshot.py`、`config/github_sync.json` | 数据专用提交、不夹带代码；SQLite ZIP 为 Release 附件；同步只看时间 |
 | GM v1 | `src/gm_core/`、三个 `scripts/gm_*.py`、`web_gm/GM_DECISION_SOP.md` | 只读事实和确定性计算；提案不代表批准；不自动运行正式 GM |
 | 休赛期专项开发 | `src/gm_core/offseason*.py`、`scripts/offseason_*.py`；实际能力与验证状态查文档34及其研究报告链接 | 游戏外竞价、独立批准、再验证合同/名单写回；实机机制先调研，模拟资格不升级为真实来源或执行权，不在月度采集中扩展完整CBA |
