@@ -1,5 +1,7 @@
 # DEV11 — NBA2K22 PC 实时赛场球员决策与 ACE 临场教练控制调研 V1
 
+> **2026-10-19 用户最新裁定覆盖本任务范围**：不再查ACE运行时对象/动态修改控制接口，不做C2/C3外挂临场教练、不改ACE内部算法。ACE比赛期间始终ON，已观察到原版教练会正常叫暂停和调整。GM赛前教练策略与球员倾向由其他模块负责，Antigravity也不需要重复这些。剩余三方竞技调校仅限游戏Gameplay全局设置与用户真实打球反馈。**现行权威文档：[LIVE_COURT_GAMEPLAY_PARAMETERS_V3](../research/NBA2K22_LIVE_COURT_GAMEPLAY_PARAMETERS_V3.md)**。DEV11保留作为废止的研究提案，不再执行。
+
 > 2026-10-19；Web Development；供 Antigravity 与开发规划后续配合。
 > **仅实时3D比赛（USER vs CPU、CPU vs CPU）；不调日历快速模拟/Sim Engine。** 本轮为内存取证/少量玩家实战观察任务，不授权游戏写入，不增加M3 GM V4交付范围。
 > 玩家已确认此前全部全局比赛设置均可修改；不要重做全局滑块内存扫描。
