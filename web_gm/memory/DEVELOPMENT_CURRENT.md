@@ -241,3 +241,14 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **实核源码路径**：`config/coach_tactics_profile.json`（playbook相关pointer/stride与68 slots只是布局线索，不意味内战术已解）、`src/coach_locator.py`、`src/coaching_reader.py`、`src/coaching_overall.py`（有效matchup、defender、8-byte设置，matchup_id与全局player_id对应仍需认证）、`src/coaching_targets.py`、`src/coach_codec.py`、`src/defense_codec.py`、`src/gm_core/coaching_batch.py`、`src/coaching_batch_executor.py`、`scripts/coaching_snapshot.py`/`scripts/coaching_batch.py`，gm手册及执行手册。2026-10-18首次真实同批来源**已经**完成30队19默认+870对手整体采集；旧手册的“尚未正式首采”被`docs/34_BASELINE_CURRENT_STATE.md`后续状态覆盖。
 - 用户已授权GM按赛前战术适配**提出**个人Tendencies修改，真实正式存档仍逐动作经用户批准；不直接改球员原始能力/潜力/徽章/伤病。ACE原版一直ON、不做外挂实时教练、个人精确分钟不锁定。Antigravity可以独立实现，但生产新增来源遵守玩家触发全量`full_verified_v1`同批，不发布错时半套数据。
 - 重点2K22社区证据：玩家实测个人ISO POINT槽若当前Playbook没有对应Type会被跳过；有些内置plays的受益者硬绑定，Touch等单一值不能保证谁得到战术。完整机制关系研究原文：[TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1](../../docs/research/NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1.md)。不建立虚假的角色适配百分比或属性修改捷径。
+
+## 2026-10-19 Antigravity类别2–6：世界规则V2缺口复核
+
+- [新研究：NBA2K22世界线V2类别二至六设置缺口审计](../../docs/research/NBA2K22_WORLD_RULES_V2_GAP_AUDIT_20261019.md)。用户给出Antigravity总结：日历模拟20+、能力成长巅峰衰退100+、30队战术/轮换/训练、历史新秀生成6项、原生交易估值25+。**这只是该摘要而非完整Antigravity raw字段表；SLOT_TRADE/GAMEMODE_SETTINGS_SAVED_PROFILE等具体偏移与CPUAttributeBoost效果仍待原值和实机证据，不能自称已认证。**
+- **类别2 Sim Engine是之前V1真实漏项**，因为30队GM多数赛事日历模拟，且GM根据这些比赛数据进行交易/战术诊断。设2021–22 NBA.com官方标尺PPG110.6、PACE98.8、FG46.1%、3PT35.4%、三分出手占比39.9%、eFG53.2%；**标尺不是Slider raw值**。先保存现有全局sim设置、同批统计核对，不能任意拼DarthRambo11min方案与RealSport101另一套数值；实际3D仍是独立HoF Court Profile。
+- **类别3成长曲线是第二漏项**：V1 Progression48/Regression50仅保留候选，各属性Growth/Peak/Decline和全球Peak年龄原版HOLD直到拿原生实际值/年龄阶段语义；肌体能力先于IQ衰退是经验方向，不直接套2K20 Comduklakis整套Speed12/-5/-30等为2K22最优。GLeague历史有超级成长风险，当前2K22未经证实；训练属DEV12，游戏自然成长严禁经营直接改Ability/Potential/Badge。
+- **类别4已交Antigravity DEV12 V2**，不重复开发。Antigravity声称能直接锁Target Minutes或Crunch Time5，不等于已经证明真实3D游戏AI会始终遵守（以前实际看到分钟被覆盖）。保留原版ACE/AI换人并视实机持续验证；不强制重启锁精确分钟任务。
+- **类别5历史班保护**：DraftClassQuality及随机新秀Potential/Badge/Durability原版HOLD；DraftStorylines若存在优先OFF以避免导入历史球员原值无意随机化，仍需核实关闭后历史原始能力/潜力实际稳定。检查历史1984→2020每班60个选秀名额真实人与generated填充比例，循环名字与ID冲突。
+- **类别6原生交易估值全部HOLD**：Year2–5选秀权贬值、九种PlayerType折价及四种球队资产偏好是原生AI市场权重，30独立GM已代替其决策，原生总开关与CPU自主交易由世界配置负责；不同球队价值哲学/未来选秀权相对价值需要在M3外部GM协议和DEV12技能匹配中形成，不要浪费精力改引擎市场价。提高原生Pick Depreciation raw可能是提高价值保留，不能由字段名臆断。
+- 世界规则下一步更重要的补漏：退役/永久伤退/自动补员/自由球员去向与长期联盟人数守恒、真实Cap/Tax与游戏原生通胀或外挂税款重复、训练疲劳+日历Sim伤病双重扣减、30队User经营自动化与原版CPU市场抑制、固定2021比赛规则不随1984历史班轮回自行变1980年代、世界配置季节版本快照。
+- 本文件只完成研究和GitHub索引，**没有更改真实游戏**。最终全字段数值版需要Antigravity现有设置表的name/current/default/range/type/真实消费路径/读写读回验证，先不要让模型瞎补100+曲线。
