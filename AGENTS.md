@@ -6,6 +6,8 @@
 
 ## DEV-10 V2 / M0 SQLite consumer access
 
+- **Post-M0 follow-up:** PR #2 is merged at `67bf4dc`; the player started the subsequent Astra design phase. M1 finance and M2 knowledge designs/research are handed off in `docs/development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md`. They are design artifacts, not implemented M1/M2 capabilities. Follow the player's model handoff; Web connections and cash live investigation remain deferred. The M0-only scope below describes M0, not a prohibition on this newly triggered design work. Preserve current GM rules until a separate V4 switch approval.
+
 - Static audited query snapshots and `scripts/gm_data_query.py` are the M0 access layer; see `docs/GM_SQLITE_QUERY_ACCESS.md` and `web_gm/data_contracts/CONSUMER_DATA_CAPABILITIES_V2.md`. Web roles query bounded snapshot-scoped views, never active saves. No large-JSON paging, partial capture, M1–M4 workbench, or GM V4 rule switch is authorized by M0.
 - The player explicitly deferred actual Web DEVELOPMENT/ANALYTICS/GM terminal connections until after implementation. Implement and verify local PowerShell access; do not block this delivery on three Web sessions, impersonate their acceptance, or mark M0_CONSUMER_ACCEPTED. Dedicated non-admin read-only consumer ACL setup is documented for later connection. Preserve raw cash; signed32 output is an unverified hypothesis, never a factual correction or signing capacity.
 

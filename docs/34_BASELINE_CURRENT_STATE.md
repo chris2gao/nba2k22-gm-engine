@@ -1,5 +1,14 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-18 DEV10后续：M0已合并，M1/M2设计与研究交接
+
+M0 PR #2已合并，正式main代码基线为 `67bf4dc`；玩家随后切换Astra并明确开始后续流程。当前状态 `ASTRA_DESIGN_COMPLETE / SOL_IMPLEMENTATION_NEXT`，入口：[M1/M2实施交接](development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md)。
+
+- M1已完成三年合同/资产情景的算法、来源与假设口径、接口、最小派生库和针对性验收设计。未来工资容量未认证时不抹掉可计算结果，也不擅自制定老板预算。
+- M2已完成12张战术卡内容、GSW/SAS/OKC三队条件式方法、30队2021官方背景参考和长期策略状态/修订/检索设计。现实参考不是本局球队决策，现行GM规则未切换。
+- 本轮成果是设计和研究文档；尚未实现M1/M2 CLI、工作台表和正式球队策略。下一步按玩家模型安排由Sol实现，M1/M2分别验收；Web连接和现金实测延后，不追加为研发门槛。
+- 本轮没有运行测试、M02查询、采集、游戏写入或正式GM。旧下文“M0不实施M1—M4”是M0原交付范围，当前新授权与状态以本节为准。
+
 ## 2026-10-18 DEV-10 V2 / M0：本地 SQLite 按需访问
 
 玩家开发规范已归档为 [DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md](DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)：边界先行、实现优先、只做范围内必要验证；接受实际使用中发现数据解释等问题后续修复，不追加穷尽式测试。本轮不为cash假设追做游戏UI/签约机制验收。
