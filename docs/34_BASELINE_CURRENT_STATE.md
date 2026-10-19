@@ -1,5 +1,13 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-19 DEV10 M1/M2工程收尾（PR #3）
+
+状态 `M1_M2_ENGINEERING_COMPLETE / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。本节随PR #3合入正式main后生效，优先于下方“本地实现、待分支审阅”历史记录。M1财务情景与M2知识/策略接口工程完成；操作入口与前次证据沿用下节链接，收尾记录见[DEV10_M1_M2_CLOSEOUT](development_reviews/DEV10_M1_M2_CLOSEOUT.md)。
+
+最新审查提出的自定义路径问题已修复：共享工作台和财务导出均拒绝saves/query_snapshots/published/seasons，解析后忽略大小写；仅运行3项直接相关的临时目录检查并通过。已核对并纳入最新main的研究文档/记忆索引，无文本合并冲突，不复跑前次7+6项测试。
+
+**30队策略仍为UNASSESSED候选，正式评估0队；GM V4尚未启用。** 不启动M3/M4。网页真实连接、cash实测、实际签约验证仍按玩家安排延后。本轮未连接游戏、采集、发布游戏数据或修改任何数据库观测事实。PR合并状态及SHA以实际GitHub记录为准，正式本地main同步后才作为执行仓库的新代码基线。
+
 ## 2026-10-19 DEV10 M1/M2：本地实现完成，待分支审阅
 
 状态 `M1_M2_IMPLEMENTED_LOCAL / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。玩家从Astra设计交接切换Sol并明确开始实现。本节优先于下方原“设计待实现”历史记录；正式main仍按实际合并状态判断，不将开发分支当作已部署。

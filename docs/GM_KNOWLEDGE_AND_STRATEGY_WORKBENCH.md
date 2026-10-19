@@ -42,7 +42,7 @@ python -B scripts/gm_strategy.py list --career mc_haliburton_2021
 python -B scripts/gm_strategy.py export --career mc_haliburton_2021 --output _exports/strategy_summary
 ```
 
-默认工作台 `database/workbench/<career>/gm_workbench.sqlite`；可用 `--workbench PATH`指定同名派生库。读命令使用只读连接，写操作不允许指向 saves/query_snapshots。候选/摘要导出拒绝事实、published和正式seasons目录；不自动提交导出或上传SQLite。`export`只生成当前状态摘要、历史前驱指针与引用，历史全文仍按revision读取。
+默认工作台 `database/workbench/<career>/gm_workbench.sqlite`；可用 `--workbench PATH`指定同名派生库。读命令使用只读连接，工作台路径不允许指向 saves/query_snapshots/published/seasons（解析后忽略大小写）。候选/摘要导出拒绝事实、published和正式seasons目录；不自动提交导出或上传SQLite。`export`只生成当前状态摘要、历史前驱指针与引用，历史全文仍按revision读取。
 
 第二版须新 `state_id`、`revision=2`、`supersedes_state_id=<第一版ID>`，并填写 `change_reason`和`rejected_hypotheses`（无被否定项可为空）。`--expected-revision 1`表示预期当前只有第一版。事务比较当前修订后插入；旧预期返回 `STRATEGY_REVISION_CONFLICT`，不会覆盖已保存版本。每次保留来源批次，不自动用新批次重写旧分析。
 

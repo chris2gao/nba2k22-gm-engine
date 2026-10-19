@@ -16,9 +16,9 @@ python -B scripts/gm_finance.py show --career mc_haliburton_2021 --run finance_r
 python -B scripts/gm_finance.py export --career mc_haliburton_2021 --run finance_review_01
 ```
 
-`--batch`固定历史/当前批次；省略时由M0按本地published/latest解析。`--base-season`在快照context缺少season时必填；本轮M02便属于这种情况，不能只从日期推断休赛期是否已过账。`--horizon`默认3（当前季+随后两季），最多6。`--workbench`可指定独立开发库，但文件名必须是gm_workbench.sqlite，路径不能位于saves/query_snapshots。读取模式不会创建不存在的库。
+`--batch`固定历史/当前批次；省略时由M0按本地published/latest解析。`--base-season`在快照context缺少season时必填；本轮M02便属于这种情况，不能只从日期推断休赛期是否已过账。`--horizon`默认3（当前季+随后两季），最多6。`--workbench`可指定独立开发库，但文件名必须是gm_workbench.sqlite；解析后的路径不能位于saves/query_snapshots/published/seasons（忽略大小写）。读取模式不会创建不存在的库。
 
-project创建新run，相同ID拒绝覆盖。compare为每个互斥备选保存新scenario_id；不同情景可使用同一资产，同一情景内不能重复转让。show只读；合同明细和情景行支持limit/offset并返回next_offset。export默认写入 `_exports/finance/<run>`，目录存在就拒绝覆盖；生成精简summary.json及Markdown，不上传工作台。
+project创建新run，相同ID拒绝覆盖。compare为每个互斥备选保存新scenario_id；不同情景可使用同一资产，同一情景内不能重复转让。show只读；合同明细和情景行支持limit/offset并返回next_offset。export默认写入 `_exports/finance/<run>`，目录存在就拒绝覆盖；自定义输出同样拒绝saves/query_snapshots/published/seasons目录，生成精简summary.json及Markdown，不上传工作台。
 
 ## 金额解释
 

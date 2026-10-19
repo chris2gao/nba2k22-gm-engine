@@ -12,7 +12,7 @@ class Store:
     def __init__(self, path, readonly=False):
         self.path = Path(path).resolve()
         parts = {s.casefold() for s in self.path.parts}
-        if self.path.name != 'gm_workbench.sqlite' or parts.intersection({'saves', 'query_snapshots'}):
+        if self.path.name != 'gm_workbench.sqlite' or parts.intersection({'saves', 'query_snapshots', 'published', 'seasons'}):
             raise ValueError('WORKBENCH_PATH_REQUIRED_NOT_FACTS')
         self.readonly = readonly
         if readonly:

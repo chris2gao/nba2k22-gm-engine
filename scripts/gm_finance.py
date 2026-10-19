@@ -121,7 +121,7 @@ def run(a):
         output = output.resolve()
         if output.exists():
             raise ValueError('EXPORT_DIRECTORY_EXISTS')
-        if any(p.casefold() in {'saves','query_snapshots'} for p in output.parts):
+        if any(p.casefold() in {'saves','query_snapshots','published','seasons'} for p in output.parts):
             raise ValueError('EXPORT_CANNOT_TARGET_FACTS')
         output.mkdir(parents=True)
         compact = summary(result)
