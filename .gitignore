@@ -14,6 +14,7 @@ database/*.sqlite*
 database/*.json
 database/saves/
 database/query_snapshots/
+database/workbench/
 database/backups/
 database/draft_classes/
 database/evaluations/

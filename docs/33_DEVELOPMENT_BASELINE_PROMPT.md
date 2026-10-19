@@ -58,6 +58,9 @@
 | 来源绑定 | `src/snapshot_integrity.py`、`src/data_context.py`、`src/data_sync_metadata.py` | 绑定源批次，不把新字段/新规则追认为旧观测；不要误删必要的来源审计机制 |
 | 网页导出 | `src/export_web_gm.py` | SQLite 是事实源，JSON 自动生成；保留不可变批次和原始导出字节 |
 | SQLite消费M0 | `src/gm_data_access/`、`scripts/gm_data_query.py`、`gm_data_snapshot.py`、文档GM_SQLITE_QUERY_ACCESS | 复用同批审计备份，仅查询静态双库；小结果与SQL聚合。三Web实际连接按玩家最新指令延后，不阻塞工程交付、不冒称验收；本任务不启动M1—M4 |
+| DEV10后续财务/知识设计 | `docs/development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md`及关联研究 | 设计之后玩家已授权Sol实现，M1/M2本地实现证据查34及独立验收；不将M0原范围限制误读为后续永久禁令 |
+| DEV10财务工作台M1 | `gm_data_access/finance_inputs.py`、`gm_core/finance_projection.py`、`finance_scenarios.py`、`gm_workbench/store.py`、`scripts/gm_finance.py` | gm_core仅接纯数据；同批静态来源与独立派生存储。槽序情景不认证签约额度，规则输入不授予游戏执行权；实际状态查34 |
+| DEV10知识/策略M2 | `gm_core/knowledge.py`、`strategy_state.py`、`gm_data_access/knowledge_inputs.py`、`scripts/gm_knowledge.py`、`gm_strategy.py`、`web_gm/knowledge/` | 12卡/30参考/19机制按需查询；同批字典映射不授予执行权。30候选UNASSESSED，修订只存调用方分析；详见GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH |
 | GitHub 发布 | `scripts/publish_web_snapshot.py`、`config/github_sync.json` | 数据专用提交、不夹带代码；SQLite ZIP 为 Release 附件；同步只看时间 |
 | GM v1 | `src/gm_core/`、三个 `scripts/gm_*.py`、`web_gm/GM_DECISION_SOP.md` | 只读事实和确定性计算；提案不代表批准；不自动运行正式 GM |
 | 休赛期专项开发 | `src/gm_core/offseason*.py`、`scripts/offseason_*.py`；实际能力与验证状态查文档34及其研究报告链接 | 游戏外竞价、独立批准、再验证合同/名单写回；实机机制先调研，模拟资格不升级为真实来源或执行权，不在月度采集中扩展完整CBA |

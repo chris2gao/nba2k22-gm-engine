@@ -1,5 +1,38 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-19 DEV10 M1/M2工程收尾（PR #3）
+
+状态 `M1_M2_ENGINEERING_COMPLETE / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。本节随PR #3合入正式main后生效，优先于下方“本地实现、待分支审阅”历史记录。M1财务情景与M2知识/策略接口工程完成；操作入口与前次证据沿用下节链接，收尾记录见[DEV10_M1_M2_CLOSEOUT](development_reviews/DEV10_M1_M2_CLOSEOUT.md)。
+
+最新审查提出的自定义路径问题已修复：共享工作台和财务导出均拒绝saves/query_snapshots/published/seasons，解析后忽略大小写；仅运行3项直接相关的临时目录检查并通过。已核对并纳入最新main的研究文档/记忆索引，无文本合并冲突，不复跑前次7+6项测试。
+
+**30队策略仍为UNASSESSED候选，正式评估0队；GM V4尚未启用。** 不启动M3/M4。网页真实连接、cash实测、实际签约验证仍按玩家安排延后。本轮未连接游戏、采集、发布游戏数据或修改任何数据库观测事实。PR合并状态及SHA以实际GitHub记录为准，正式本地main同步后才作为执行仓库的新代码基线。
+
+## 2026-10-19 DEV10 M1/M2：本地实现完成，待分支审阅
+
+状态 `M1_M2_IMPLEMENTED_LOCAL / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。玩家从Astra设计交接切换Sol并明确开始实现。本节优先于下方原“设计待实现”历史记录；正式main仍按实际合并状态判断，不将开发分支当作已部署。
+
+- M1财务工作台：三年合同/资产情景、KEEP/内部优化/交易签约比较、来源与假设标记、合同钻取及摘要导出；7项直接相关检查与已有M02 30队×3年静态CLI验证通过。见[M1手册](GM_FINANCE_WORKBENCH.md)、[回执](development_reviews/DEV10_M1_FINANCE_ACCEPTANCE.md)。槽序投影不是已认证保证工资或签约容量。
+- M2知识与策略：12张战术卡、30队2021参考、19条机制、38来源；小结果检索与同批原生字典解析，Drop保留假设。共享派生库支持追加策略revision、旧版读取/冲突检查、可选finance run；6项M2检查及M02静态CLI通过。见[M2手册](GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH.md)、[回执](development_reviews/DEV10_M2_KNOWLEDGE_ACCEPTANCE.md)。
+- 30队初始化结果为UNASSESSED候选，正式已评估0队；GSW/SAS/OKC仅提供有条件的研究方法，未写本局球队决策。策略保存/导出不是批准或执行。
+- 没有新增游戏采集来源或业务写入器，来源登记和原执行能力范围不变；工作台与事实库隔离。没有运行生产采集/发布、正式GM、游戏写入、Web连接、现金实测或签约实机验证。保持当前GM规则，M3/M4及V4切换等待后续任务。
+- 开发规范继续以优秀实现为主，验证只覆盖本次关键路径。允许开发时被认为正确的未知bug日后发现修复，现金例子不追加本轮调查。
+
+## 2026-10-18 DEV10 M1：三年财务情景已实现
+
+版本 `gm_finance_projection_v1`，`IMPLEMENTED_LOCAL`。`scripts/gm_finance.py`提供project/compare/show/list/export，读取M0同批静态双库并写独立派生workbench。区分槽位原值、已知小计、假设投影、选项/延期、财务资格与执行状态；支持球员/简单签转移、新签/替换/未来延期情景，不运行报价或游戏写入。
+
+7项直接相关测试通过；已有M02静态来源生成30队×3年，并钻取GSW/SAS/CLE、验证小批查询/KEEP/导出。见[M1回执](development_reviews/DEV10_M1_FINANCE_ACCEPTANCE.md)、[手册](GM_FINANCE_WORKBENCH.md)。三年为显式槽序假设，未认证未来保证薪资或签约容量；Web连接、现金实测仍延后。M2沿既有设计继续实现，现行GM规则不变。
+
+## 2026-10-18 DEV10后续：M0已合并，M1/M2设计与研究交接
+
+M0 PR #2已合并，正式main代码基线为 `67bf4dc`；玩家随后切换Astra并明确开始后续流程。当前状态 `ASTRA_DESIGN_COMPLETE / SOL_IMPLEMENTATION_NEXT`，入口：[M1/M2实施交接](development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md)。
+
+- M1已完成三年合同/资产情景的算法、来源与假设口径、接口、最小派生库和针对性验收设计。未来工资容量未认证时不抹掉可计算结果，也不擅自制定老板预算。
+- M2已完成12张战术卡内容、GSW/SAS/OKC三队条件式方法、30队2021官方背景参考和长期策略状态/修订/检索设计。现实参考不是本局球队决策，现行GM规则未切换。
+- 本轮成果是设计和研究文档；尚未实现M1/M2 CLI、工作台表和正式球队策略。下一步按玩家模型安排由Sol实现，M1/M2分别验收；Web连接和现金实测延后，不追加为研发门槛。
+- 本轮没有运行测试、M02查询、采集、游戏写入或正式GM。旧下文“M0不实施M1—M4”是M0原交付范围，当前新授权与状态以本节为准。
+
 ## 2026-10-18 DEV-10 V2 / M0：本地 SQLite 按需访问
 
 玩家开发规范已归档为 [DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md](DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)：边界先行、实现优先、只做范围内必要验证；接受实际使用中发现数据解释等问题后续修复，不追加穷尽式测试。本轮不为cash假设追做游戏UI/签约机制验收。

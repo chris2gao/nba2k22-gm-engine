@@ -6,6 +6,8 @@
 
 ## DEV-10 V2 / M0 SQLite consumer access
 
+- **Post-M0 follow-up:** PR #2 is merged at `67bf4dc`; M1 finance and M2 knowledge/strategy engineering is complete, with PR #3 closeout in `docs/development_reviews/DEV10_M1_M2_CLOSEOUT.md`; see both workbench manuals and the latest docs/34. Use static M0 facts and separate derived `gm_workbench.sqlite`; gm_core accepts plain DTOs. Workbench and finance export paths reject saves/query_snapshots/published/seasons. Thirty team candidates remain UNASSESSED, zero formally assessed; strategy revisions are analysis only, not player approval. GM V4 is not enabled. Web connections, cash live investigation and actual signing remain deferred. The M0-only scope below does not cancel subsequent explicit M1/M2 authorization. Do not start M3/M4 or switch GM V4 without a later task.
+
 - Static audited query snapshots and `scripts/gm_data_query.py` are the M0 access layer; see `docs/GM_SQLITE_QUERY_ACCESS.md` and `web_gm/data_contracts/CONSUMER_DATA_CAPABILITIES_V2.md`. Web roles query bounded snapshot-scoped views, never active saves. No large-JSON paging, partial capture, M1–M4 workbench, or GM V4 rule switch is authorized by M0.
 - The player explicitly deferred actual Web DEVELOPMENT/ANALYTICS/GM terminal connections until after implementation. Implement and verify local PowerShell access; do not block this delivery on three Web sessions, impersonate their acceptance, or mark M0_CONSUMER_ACCEPTED. Dedicated non-admin read-only consumer ACL setup is documented for later connection. Preserve raw cash; signed32 output is an unverified hypothesis, never a factual correction or signing capacity.
 
