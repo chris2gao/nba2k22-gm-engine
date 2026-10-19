@@ -1,6 +1,7 @@
 # DEV-20261018-10 V2 — GM V4 SQLite按需数据访问、金融知识、经营决策与反馈系统
 
 - 更新：2026-10-18
+- **本次M0开发中的玩家最新修正（优先于下文原C3/E连接前置要求）**：不要求Codex测试三个Web GPT的真实连接；完成实现与PowerShell本地访问验证即可交付并提交GitHub，玩家在开发完成后自行建立连接，有问题届时修复。三个角色仍如实记录未测试，不冒称M0_CONSUMER_ACCEPTED。M0本地交付与Web后续连接分开，不因此启动M1—M4。实现与本地证据见[验收报告](../development_reviews/DEV_20261018_10_M0_SQLITE_ACCESS_ACCEPTANCE.md)。
 - 状态：`PLAYER_APPROVED_ARCHITECTURE_DIRECTION / DEVELOPMENT_NOT_STARTED_V2`
 - 权威关系：**本V2取代**[DEV10 V1](DEV_20261018_10_GM_V4_FOUNDATION_DECISION_OBSERVABILITY_MASTER_PLAN_V1.md) 的**M0大JSON分片架构和与之矛盾的M3/M4数据访问描述**。V1其余GM愿景、历史审计、篮球/经济/决策/反馈研究方向仍作背景；执行以本V2为准。Codex首轮**仅实施M0**，其它里程碑必须玩家再次触发。
 - 仓库：`chris2gao/nba2k22-gm-engine`。开发模型执行具体代码；本文件由Web Development制定。

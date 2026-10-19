@@ -278,6 +278,10 @@ def export_snapshot(save_id, snapshot_id):
                         "files": files, "null_policy": "UNOBSERVED_IS_NULL_NOT_ZERO", "game_write_policy": "PLAYER_APPROVAL_REQUIRED",
                         "reader_contract": "Read latest.json, compare data_updated_at/uploaded_at, and use its batch_path. No JSON verification required."}
             write(bundle / "manifest.json", manifest)
+            # M0 query copies reuse this exact audited two-database backup.
+            # No new capture, publication, or game execution is triggered here.
+            from gm_data_access.snapshots import install_archive
+            install_archive(archive, manifest, ROOT / 'database' / 'query_snapshots')
             final_dir.parent.mkdir(parents=True, exist_ok=True)
             os.replace(bundle, final_dir)
         pointer = {"save_id": save_id, "batch_id": batch_id, "batch_path": final_dir.relative_to(PUBLISHED).as_posix(),

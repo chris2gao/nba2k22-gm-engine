@@ -107,7 +107,7 @@
 - 模型池：同目录 `player_pool.sqlite`。
 - 来源清单和审计：同目录 `snapshots/`。
 - 网页入口：`published/saves/<save_id>/latest.json`。
-- 大型 SQLite 备份：自动生成 ZIP，作为 GitHub Release 附件；网页按 `batch_path` 读取自动导出 JSON。
+- 大型 SQLite 备份：自动生成 ZIP，作为 GitHub Release 附件；M0复用同一备份生成 `database/query_snapshots/<career>/<batch>/` 本地静态双库。网页获得玩家连接后按 [SQLite操作手册](GM_SQLITE_QUERY_ACCESS.md) 小结果只读查询；原有小型JSON/Release交接保留，不要求先读完整员工池或大JSON。首次Web连接延后，不由采集窗口代测。
 
 发布遵守文档 29：只通过 `data_updated_at` / `uploaded_at` 判断新旧；不新增 JSON 哈希、逐字段导出比对、下载比较或网页访问测试。源采集审计继续保留。重新发布旧批次不改其采集时间。
 

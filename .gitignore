@@ -13,6 +13,7 @@ secrets*
 database/*.sqlite*
 database/*.json
 database/saves/
+database/query_snapshots/
 database/backups/
 database/draft_classes/
 database/evaluations/
