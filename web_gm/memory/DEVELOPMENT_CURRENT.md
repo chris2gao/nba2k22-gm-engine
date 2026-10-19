@@ -111,3 +111,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 玩家已排除PC帧率和整体运行环境问题；中锋低持球属性导致的局部整套运球/篮球落地动作过慢，目标是两项Min的全局调整可行性，不准写普通球员能力，不动Game Speed/HOF。旧`slider_manager.py`静态地址及“拟真一键写入”不可信/会动其它设置，禁止本次直接使用。
 - 另研究当前代MC**主宰类型**（须与充能/比赛激活分离）和Gatorade消耗品/每周锻炼额外体力槽/Gym Rat永久状态；先只读定位，服务端权益不可假造。**本次未批准任何游戏内存写入**；必要的GUI单值差分由玩家操作或在另行获准后于测试存档最小操作并恢复。
 - [本次开发归档](development/sessions/20261018_mc_movement_takeover_gatorade_research_handoff.md)。研究不自动触发正式全量采集、GM回合或任何正式局写入。
+
+## 2026-10-18 DEV10 — GM V4 phased development plan
+
+- Master plan: `docs/development_tasks/DEV_20261018_10_GM_V4_FOUNDATION_DECISION_OBSERVABILITY_MASTER_PLAN_V1.md` (M0-M4). FIRST Codex delivery is M0 only: published data consumability, small queryable staff/player exports, consumer evidence and cash field semantics; no game writes.
+- Observed issue: M02 staff.json manifest says 2,728,888 bytes / 1,458 employees, but current Web GitHub fetch returns empty content despite file SHA; Web GM cannot infer access from source audit. Large player catalogue and individual roster accessibility require live consumer tests separately.
+- Financial anomaly: CLE/NOP/UTA/ORL cash near 2^32; signed 32-bit interpretations are unverified hypotheses, never silently replace raw values. `budget`, `cash`, `payroll`, `total_salary` not interchangeable.
+- M1 financial & current-gen rules; M2 basketball/franchise knowledge and 30 team memory; M3 ANALYTICS decision packet plus five internal GM stages in one user-triggered decision task; M4 lifecycle feedback, issue inbox, and representative pilots. Feedback produced by normal player-triggered stages, never by unattended background work.
+- Existing GM V3 five-interaction protocol stays effective until the new V4 contract passes real Web model verification and the player approves switching. Only the plan has been created; no implementation or game update is claimed.
