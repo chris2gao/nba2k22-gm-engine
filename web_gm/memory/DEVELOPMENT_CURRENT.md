@@ -182,3 +182,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 已有19默认+18对手教练受控写入，Antigravity不重建静态教练执行器而优先找**ACE实际控制范围**（玩家端/CPU端，自动进攻/防守，临场RUNTIME Coach/Gameplan实例、静态数据与live覆盖，是否每场重置、ACE四模式当前PC枚举）；并记录比赛前、节间、暂停后少量时点的动态状态，允许UNKNOWN，不把社区猜测视为已认证指针。Codex继续完整Playbook/阵容/角色实现。
 - 2022 Operation Sports RES2本世代玩家为维持Play Physical选择关ACE，另一论坛用户指出ACE只作用于USER端，证据互有冲突；**开关不等于提高CPU教练智商**。长期若可受控运行时写入比赛计划，可以研究玩家批准的暂停/节间规则控制器，**目前仅研究不执行**，不承诺逆向/重编ACE内部算法。
 - 当前项目仍不准经营性改个体球员真实倾向/能力/潜力/徽章；全局Gameplay Tendency可作为世界配置研究输入，今后若专项修改个体Tendency需玩家独立批准。用户主观实战体验与定向场上观察为调校主要反馈，M3优先级不变。
+
+## 2026-10-19 用户最终限定实时赛场竞技：ACE原版开启，三方仅调Gameplay
+
+- **最新权威研究：[NBA2K22实时赛场Gameplay全局参数V3](../../docs/research/NBA2K22_LIVE_COURT_GAMEPLAY_PARAMETERS_V3.md)**，覆盖前版Live Court V2中ACE动态控制部分及[DEV11 ACE实时控制探索V1](../../docs/development_tasks/DEV_20261019_11_LIVE_COURT_AI_AND_ACE_DISCOVERY_V1.md)。用户明确**不做C2实时内存改战术、C3外挂临场教练、不逆向修改ACE的决策算法**，无法常驻模型看比赛；已观察原版AI与教练会叫暂停、变更防守，接受其运行；**实时3D比赛ACE全程ON**。
+- GM/Codex负责比赛开始前阵容、原生教练策略、Playbook、球员打法/个人倾向（个体倾向需明确批准设定与能力属性禁改边界）。之后游戏原版AI/ACE全程作场上临场调整。Antigravity不重复原生ACE实时对象逆向，之前已发现的全局GamePlay可读写接口作为来源即可。
+- 用户+Web Development+Antigravity下一个竞技目标是**打磨Gameplay全局环境**：A运动8项上下限+Game Speed；B防守与接触/防守干扰；C投篮判定/覆盖和时机；D传球/控球安全；E Attributes全球作用倍率/疲劳；F犯规；G全球Tendencies（默认HOLD，与GM个人Tendency严格分开）；H真人操作/辅助与投篮模式。优先解决真实场上运动与攻防执行，不匹配赛季快速Sim统计、不先改个体能力/潜力/徽章。
+- 继续采用玩家实时3D打球发现问题→按NBA2K22本世代社区资料定位参数小组→玩家批准差分→保留/回滚的反馈机制，适量试验；无后台监控，没有AI实时比赛干预。GM M3工程继续最高优先级，当前只是后续研究方案。
