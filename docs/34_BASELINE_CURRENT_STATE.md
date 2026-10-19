@@ -1,5 +1,15 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-19 DEV10 M1/M2：本地实现完成，待分支审阅
+
+状态 `M1_M2_IMPLEMENTED_LOCAL / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。玩家从Astra设计交接切换Sol并明确开始实现。本节优先于下方原“设计待实现”历史记录；正式main仍按实际合并状态判断，不将开发分支当作已部署。
+
+- M1财务工作台：三年合同/资产情景、KEEP/内部优化/交易签约比较、来源与假设标记、合同钻取及摘要导出；7项直接相关检查与已有M02 30队×3年静态CLI验证通过。见[M1手册](GM_FINANCE_WORKBENCH.md)、[回执](development_reviews/DEV10_M1_FINANCE_ACCEPTANCE.md)。槽序投影不是已认证保证工资或签约容量。
+- M2知识与策略：12张战术卡、30队2021参考、19条机制、38来源；小结果检索与同批原生字典解析，Drop保留假设。共享派生库支持追加策略revision、旧版读取/冲突检查、可选finance run；6项M2检查及M02静态CLI通过。见[M2手册](GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH.md)、[回执](development_reviews/DEV10_M2_KNOWLEDGE_ACCEPTANCE.md)。
+- 30队初始化结果为UNASSESSED候选，正式已评估0队；GSW/SAS/OKC仅提供有条件的研究方法，未写本局球队决策。策略保存/导出不是批准或执行。
+- 没有新增游戏采集来源或业务写入器，来源登记和原执行能力范围不变；工作台与事实库隔离。没有运行生产采集/发布、正式GM、游戏写入、Web连接、现金实测或签约实机验证。保持当前GM规则，M3/M4及V4切换等待后续任务。
+- 开发规范继续以优秀实现为主，验证只覆盖本次关键路径。允许开发时被认为正确的未知bug日后发现修复，现金例子不追加本轮调查。
+
 ## 2026-10-18 DEV10 M1：三年财务情景已实现
 
 版本 `gm_finance_projection_v1`，`IMPLEMENTED_LOCAL`。`scripts/gm_finance.py`提供project/compare/show/list/export，读取M0同批静态双库并写独立派生workbench。区分槽位原值、已知小计、假设投影、选项/延期、财务资格与执行状态；支持球员/简单签转移、新签/替换/未来延期情景，不运行报价或游戏写入。

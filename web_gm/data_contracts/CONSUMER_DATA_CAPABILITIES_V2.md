@@ -2,6 +2,8 @@
 
 工程范围：DEV-10 V2/M0。权威实现与命令见 [操作手册](../../docs/GM_SQLITE_QUERY_ACCESS.md)。
 
+2026-10-19后续实现：玩家另行授权的M1/M2已提供[财务CLI](../../docs/GM_FINANCE_WORKBENCH.md)和[知识/策略CLI](../../docs/GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH.md)，可从同批静态来源创建派生财务run、检索少量参考、维护显式策略revision。工作台写权限由玩家后续建立的运行边界单独分配，M0事实消费者ACL不自动授予派生库写权限。知识查询不要求完整联盟预载；30队候选仍未评估。这里只登记本地能力，不声称三个Web角色已连接或已使用，不启动正式GM或切换V4。
+
 玩家开发中最新修正：三个Web模型实际连接由玩家在工程完成后建立；本轮仅实现和PowerShell本地验证，连接问题以后修复，不阻塞交付。所有角色保留 `DEFERRED_BY_PLAYER_NOT_TESTED`，不冒称 `M0_CONSUMER_ACCEPTED`。
 
 |角色|权限与可消费内容|当前证据|
