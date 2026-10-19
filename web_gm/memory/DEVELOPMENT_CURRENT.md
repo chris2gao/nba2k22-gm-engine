@@ -155,3 +155,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 新研究基线：[竞技模拟与比赛引擎调校路线V1](../../docs/research/NBA2K22_COMPETITIVE_SIMULATION_CALIBRATION_ROADMAP_V1.md)。已初步检索Operation Sports本世代MyLeague sim研究、RES2 Current Gen、部分PC跨版反馈、Competitive slider比照及2021–22NBA统计基准。**不能直接套用社区整套数值；来源版本、玩法USERvsCPU/CPUvsCPU live/日历quick sim必须分开**，先动作/AI出手选择/犯规/战术响应，再投篮命中与联盟统计。
 - 游戏世界级`WORLD_GAMEPLAY_PROFILE`只由玩家批准、稳定运行；GM按月仅调教练/战术/阵容等合法策略，绝不靠每月改变全局参数保证单队获胜。现有旧`docs/10_GAME_SETTINGS_AND_SLIDERS.md`自称权威但多个数值与效果未证实，旧`src/slider_manager.py`地址未经实机重新核验，不做一键写入。球员原始能力/潜力/徽章保持禁止普通经营性修改。
 - 未来Antigravity取字段与内存真实地址/游戏消费验证，Codex按获批差分执行，分析模型比较赛场过程、联盟真实统计分布和GM战术效果；维持适量验证、不为找最优值长期停摆。**本轮只做研究文档，不开启调校开发或更改游戏。**
+
+## 2026-10-19 玩家修正竞技调校范围：只针对NBA2K22实时3D赛场
+
+- **新的权威文档**：[NBA2K22实时3D赛场引擎竞技调校V2](../../docs/research/NBA2K22_LIVE_COURT_ENGINE_CALIBRATION_V2.md)；前一版[竞技模拟调校V1](../../docs/research/NBA2K22_COMPETITIVE_SIMULATION_CALIBRATION_ROADMAP_V1.md)已经标记范围被覆盖。**用户明确不调日历快速模拟/Sim Engine，不以统计/赛季结果拟合作为项目目标。**
+- 赛场唯一核心杠杆：**比赛Gameplay全局参数**（速度/加速度/防守/动作/疲劳/投篮与接触判定）、**球员Tendencies**（全局Tendency滑块 vs 个体球员真实倾向明确分开，后者现行普通属性/倾向禁写政策未自动改变，需要特别批准）、**球队教练战术**（19默认/18指定对手，手册/体系）及**AI攻防针对性临场调整/ACE覆盖**。CPU与玩家应凭篮球能力、战术对抗和操作公平竞争，不是通过CPU无解释加成确保结果。
+- 重点用Operation Sports NBA2K22本世代RES2滑块反复调试经验、Eccentric关于先倾向后命中、Competitive体验作为候选，不直接照搬；**以玩家亲自打实时比赛/CPU对CPU观赛观察为主**，每次一个场上现象→模型查经验/定位相关机制→小范围配置差分→玩家再打后给出体验→保留/恢复，版本化LIVE_COURT_PROFILE。旧地址未经实机认证，不自动写游戏。
+- **阶段顺序不变：M3 GM V4先完成，随后专项Live Court调校**；媒体球员系统之后，不把Sim Engine、训练/球员能力修改偷渡进新任务。当前文档只是研究规范。
