@@ -117,6 +117,8 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(neg.digest(terms),o['terms_digest'])
         invalid=offer();invalid['conditions']=[dict(amount=1.5)]
         with self.assertRaisesRegex(ValueError,'INTEGER_MONETARY'):neg.offer(invalid,self.d,self.a,3)
+        invalid=offer();invalid['moves'][0]['asset_id']='ambiguous-second-asset-key'
+        with self.assertRaisesRegex(ValueError,'EXACT_PLAYER_IDENTITY'):neg.offer(invalid,self.d,self.a,3)
 
     def test_candidate_competition_selected_conflict_and_supported_trade(self):
         o1=self.add_agreed(offer('O1')); o2=self.add_agreed(offer('O2',0,2))

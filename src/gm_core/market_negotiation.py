@@ -50,8 +50,12 @@ def offer(payload, decision, analysis, revision):
         if any(type(m[k]) is not int for k in ('from_team_id','to_team_id')) or set((m['from_team_id'],m['to_team_id']))!=set(teams):
             raise ValueError('MOVE_MUST_CONNECT_THE_TWO_TEAMS')
         if m['kind']=='TRADE_PLAYER':
+            if 'asset_id' in m:
+                raise ValueError('EXACT_PLAYER_IDENTITY_FIELD_REQUIRED')
             identity=m.get('source_identity'); owner=players.get(identity)
         elif m['kind']=='TRADE_PICK':
+            if 'source_identity' in m:
+                raise ValueError('EXACT_PICK_ASSET_FIELD_REQUIRED')
             identity=m.get('asset_id'); owner=picks.get(identity)
             if not owner or owner['trade_eligible']!=1:
                 raise ValueError('PICK_NOT_CURRENT_SIMPLE_TRADE_ELIGIBLE')

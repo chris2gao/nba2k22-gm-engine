@@ -30,6 +30,8 @@
 
 收尾另用6次合成CLI调用修订同一节点：保留v1、select/validate/finalize生成唯一current v2，查询60个未选方案理由，并把一个明确研究事项带入终稿后导出。结果M3_FINAL_REVISION_PASS，见同目录revision_report.json；实际球队未被研究或修改。研究ID必须解析到真实已存alternative/action，M2候选的rejected_hypotheses只保存明确否定项，不能把选中的HOLD也列为被否定。
 
+最后资产字段核对补充：球员动作只接source_identity，签位动作只接asset_id，拒绝两类身份字段混填；selected资源键也按动作类型确定，防止混合ID掩盖同一资产。受影响的bilateral/candidate_competition两项定向检查通过。
+
 ## 15个原设计案例对应
 
 | 设计案例 | 本轮对应证据 |

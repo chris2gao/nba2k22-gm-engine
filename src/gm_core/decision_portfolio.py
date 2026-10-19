@@ -76,7 +76,7 @@ def inspect(portfolio, artifacts, analysis):
         for t in o['team_ids']:
             teams[t].append(o['offer_id'])
         for move in o['moves']:
-            key=move.get('source_identity',move.get('asset_id'))
+            key=move['source_identity'] if move['kind']=='TRADE_PLAYER' else move['asset_id']
             if key in assets:
                 issues.append(dict(code='SELECTED_ASSET_CONFLICT',object_id=key,actions=[assets[key],o['offer_id']],effect='BLOCK_FINAL'))
             assets[key]=o['offer_id']
