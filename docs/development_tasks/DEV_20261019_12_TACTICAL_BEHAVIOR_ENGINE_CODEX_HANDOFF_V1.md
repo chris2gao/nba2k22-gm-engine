@@ -1,5 +1,7 @@
 # DEV12 — 战术手册、球员四槽、个人倾向及逐人防守的Codex交接 V1
 
+> **2026-10-19 玩家最新决定，本V1执行分工已废止**：原A/B/C/D四期**全部由Antigravity负责开发**，而非Codex。技术背景与篮球问题可继续参考，但不要把本文件直接发给Codex执行，不要开发第二套教练读写系统。请使用唯一现行实施任务：[DEV12 V2 — ANTIGRAVITY_TACTICAL_ECOSYSTEM_AND_GM_REASONING](DEV_20261019_12_V2_ANTIGRAVITY_TACTICAL_ECOSYSTEM_AND_GM_REASONING.md)。核心验收是**战术机制关联、球员行为解释与GM如何判断内部改善/交易**，不只是可写内存地址。仍需玩家审批正式游戏写入，普通能力值不可修改。
+
 2026-10-19，Web Development；详细机制依据：[NBA2K22战术生态与球员行为研究V1](../research/NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1.md)。**这是Codex后续的工程准备文档，不是已经实现或授权在游戏写入。** M系列实际完成并得到玩家安排之后再开始。Antigravity负责另外的原生训练/恢复/疲劳发现，等待其后续报告。
 
 ## 0. 项目不能改变的原则
