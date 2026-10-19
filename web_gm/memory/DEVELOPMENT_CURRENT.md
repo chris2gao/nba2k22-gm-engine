@@ -225,3 +225,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 用户担心CPU球队自动化改写外挂GM决定，提出新MyLEAGUE将30队都设为**User-controlled franchises**。评估文档：[30队控制权与场上滑块作用范围V1](../../docs/research/NBA2K22_30_TEAM_USER_CONTROL_EVALUATION_V1_20261019.md)。**建议采用**：2K22 PC玩家cdcool已采用全30队控制且每场CPUvsCPU观赛；这样能让外部GM独占交易、签约、员工、选秀等经营，30队Team Automation经营项Manual/Off，但比赛参与Game Participation建议Auto、训练及伤病应急暂Auto、比赛ACE/战术自动调用/换人仍由原版AI负责。
 - **特别澄清**：球队被标为User-controlled仅代表经营权限，不足以证明游戏3D赛场10名球员使用USER Gameplay Sliders。跨版本Operation Sports玩家对CPU/USER作用在AI队友的规则有互相矛盾结论，**当前2K22 PC精确消费路径UNKNOWN**，不要把USER/CPU两栏合并/丢弃。名人堂HoF原始USER Inside48 vs CPU56及独立候选52/60暂都保留，不自动修改为所有队一侧。球场手柄居中CPUvsCPU与真人控单队可能不同，calendar sim是另一引擎。
 - 30队User也不能保证原版实际分钟、伤病自动重排、特定对手教练计划和休赛期提示永远不覆盖；外部GM事实决策与游戏真正的名单/合同写入继续玩家审批。此处只是文档评估，**没有读写游戏或改变正式存档**。
+
+## 2026-10-19 NBA2K22战术生态与球员Tendency战术适配——GM/Codex后续重点
+
+- 新权威机制研究：[NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1](../../docs/research/NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1.md)；给Codex的接入任务书：[DEV_20261019_12_TACTICAL_BEHAVIOR_ENGINE_CODEX_HANDOFF_V1](../../docs/development_tasks/DEV_20261019_12_TACTICAL_BEHAVIOR_ENGINE_CODEX_HANDOFF_V1.md)。这是M系列后GM正式以球员和战术为核心经营必备的篮球知识：教练能力与阵容适配→Preferred/Active体系→Freelance/POE→本内实际PlayID与PlayType→球员4个有序PlayType/PlayInitiator→Touch/Shot/Isolation/Drive/PlayDiscipline等个体Tendencies→实际55只读原始能力→对手整体18+逐人特殊防守→原版ACE运行→比赛输出→内部改善/交易签约。
+- **新授权**：用户明确允许GM调整**球员个人原生Tendencies**以融入赛前球队战术体系，必须是基于原生数据的具体提案、玩家逐项批准、Codex受控执行；**不是一般性获准直接写游戏**，绝不扩大到普通能力/潜力/徽章修改（仍只能历史重力单独批准）。Play Type 4槽是另一类角色输入，不能冒充已有可写能力。
+- 当前已经能够读取执行的教练19默认+每队对其他29队整体防守18字段不变；但本Book具体PlayID目录、球员4槽、完整个体Tendencies、个别防守、主教练属性实际作用等**未完成本局读写验收**。DEV12首批先只读补这些字段+生成PlayType和Playbook静态不匹配/角色受益人冲突报告，下一批Codex实现经批准的个人Tendencies、PlayTypes、个人防守差异、Playbook内部编辑，不在新的DEV重复建19/18执行器。
+- Operation Sports 2K22实际玩家发现：ISO POINT类型不在本队Playbook就会跳过到Play2；Touch与CloseShot的作用出现互相矛盾的玩家观察，2K22有某些硬编码叫战术受益人，不能用统一50和虚假概率公式判断。2022勇士总决赛G5 NBA官方Curry16分0/9三分、Wiggins26分13板，说明次级进攻点与错位攻击/防守对位的合理GM问题，并不等于当局直接改Wiggins能力。
+- **训练旧禁令被用户后续决定覆盖**：Antigravity会单独找到训练类型/强度/疲劳/恢复/导师，交Codex。GM教练手册已加注用户最新授权优先条款，待源认证后再纳入训练与赛场表现的联合诊断。仍不开发实时外挂AI/关闭ACE、锁定精确分钟、擅改CalendarSim全球参数。
