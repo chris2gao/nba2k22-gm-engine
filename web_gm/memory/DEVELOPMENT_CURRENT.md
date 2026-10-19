@@ -189,3 +189,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - GM/Codex负责比赛开始前阵容、原生教练策略、Playbook、球员打法/个人倾向（个体倾向需明确批准设定与能力属性禁改边界）。之后游戏原版AI/ACE全程作场上临场调整。Antigravity不重复原生ACE实时对象逆向，之前已发现的全局GamePlay可读写接口作为来源即可。
 - 用户+Web Development+Antigravity下一个竞技目标是**打磨Gameplay全局环境**：A运动8项上下限+Game Speed；B防守与接触/防守干扰；C投篮判定/覆盖和时机；D传球/控球安全；E Attributes全球作用倍率/疲劳；F犯规；G全球Tendencies（默认HOLD，与GM个人Tendency严格分开）；H真人操作/辅助与投篮模式。优先解决真实场上运动与攻防执行，不匹配赛季快速Sim统计、不先改个体能力/潜力/徽章。
 - 继续采用玩家实时3D打球发现问题→按NBA2K22本世代社区资料定位参数小组→玩家批准差分→保留/回滚的反馈机制，适量试验；无后台监控，没有AI实时比赛干预。GM M3工程继续最高优先级，当前只是后续研究方案。
+
+## 2026-10-19 玩家数十场HOF实时比赛EYE_TEST：实际竞技问题优先级
+
+- 已归档完整原始观测及假设分层：[NBA2K22赛场玩家眼测与首轮针对性A/B](../../docs/research/NBA2K22_LIVE_COURT_USER_EYE_TEST_20261019_V1.md)。玩家打了数十场名人堂NBA2K22实时3D比赛。CPU勇士传切反跑、伦纳德接触强攻表现出彩；没有观察到HoF整体作弊式投篮/速度/抢断篮板，犯规/疲劳/篮板与基本防守总体合理→**这些HOLD，不因为社区要求强行降低难度**。
+- 第一优先问题：**挡拆后两人围住持球人、顺下roll man频繁无人防守形成免费得分**，不能未经实际防守观察断言是SWITCH交接失误还是主动HEDGE/夹击却缺第三人TAG/轮转。先由现有19/18赛前Gameplan的`ScreenDefenseOnBall/Hedge/SwitchRule/StayAttached/PreRotate`做有理由对照，ACE原版ON，不研究实时外挂控制。
+- 第二：普通CPU球员篮下只要有防守便几乎打铁、小后卫还敢正面挑战中锋，拆成不合理出手决策（个人/全球Tendencies、Playbook/RunPlayTendency/进攻调用）与轻接触下命中判定过严（Layup Defense Takeoff/Release、Contact Shot、Inside/Close/Layup、Shot Coverage）；社区2K22 HOF/跨版本玩家亦有类似篮下强干扰失真反馈。**保持球星强终结与防守尺寸差，不全局无脑加成功率**。
+- 第三：勇士已有成功传切而多数球队少流畅组合，优先GM/Codex完善赛前战术手册和球员战术分配。用户之前仅中锋持球月球慢动作，Movement专项留后。
+- V3研究路线已改为以玩家实际问题驱动、先挡拆与篮下，而非预设先8项Movement。短时A/B：3–5个类似挡拆回合+普通/明星轻接触内线终结，按单一参数族、用户批准、保持原版ACE、记录副作用。**待明确几十场HOF究竟是MyCareer单人控制还是MyLeague全队控制**，不能提前断言USER/CPU滑块归属和教练权限。
