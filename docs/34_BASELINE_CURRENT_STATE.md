@@ -1,10 +1,16 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
-## 2026-10-20 BPTI B0：知识契约与最小工程基础（独立分支，待玩家审核）
+## 2026-10-20 BPTI B1：十体系知识卡与有界检索（独立分支，待玩家审核）
+
+玩家本次明确授权合并B0，PR #8已合main（e4b397e721a5b2fa91de557db5c1dc339e66f437）。随后从该最新main建立独立codex/bpti-b1-system-cards，实施DEV25：原SystemCard契约下十张完整知识卡、六条开档前机制Claim提取，原40复合Claim保持不变。沿Knowledge.bpti()/ResearchIndex与gm_knowledge新增bpti-system/bpti-systems，按ID/角色/反制有界查询；普通GM整卡来源/时间裁剪后才返回正文，研究全文显式RESEARCH。
+
+创建数、研究查询数、GM可读数及实际三项验收证据见[B1验收](development_reviews/BPTI_B1_IMPLEMENTATION_AND_ACCEPTANCE.md)；用法/范围见[B1手册](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)。十卡齐全不等于GM十卡全可读，更不等于已认证原生行为。所有native_binding_refs为空，M3自动接入/B2/B3均未实施，真实30队仍UNASSESSED，V4未启用。下一阶段DEV23待玩家另行批准，DEV24仍后置；没有新采集/发布、游戏访问或能力修改。
+
+## 2026-10-20 BPTI B0：知识契约与最小工程基础（PR #8已合main）
 
 从最新main `6af12ba`建立独立`codex/bpti-b0-knowledge`，仅实现DEV22的B0。四类纯DTO（SystemCard/TeamIdentity/NativeBinding/SystemBlueprint）、来源/时间/非执行载荷校验及M2按需查询已实现；没有另建事实库或GM系统。研究索引覆盖R1十家族及R2三十队最小Claim，缺源和复合时间未拆分项保持UNKNOWN/SOURCE_MISSING，不等于B1完整卡或B3实局评估。
 
-契约与用法：[BPTI_KNOWLEDGE_CONTRACT_V1](BPTI_KNOWLEDGE_CONTRACT_V1.md)；实际验证/PR状态：[B0验收](development_reviews/BPTI_B0_IMPLEMENTATION_AND_ACCEPTANCE.md)。三项静态检查按本次授权执行并在验收中记录；没有运行旧M3/DEV14集合。B0没有游戏来源/执行能力变更，无需修改source_catalog或执行能力白名单。V3继续有效、V4未启用、实际三十队仍UNASSESSED。完成后等待玩家审核，不启动B1、DEV23、DEV24、真实采集/发布或游戏写入。
+契约与用法：[BPTI_KNOWLEDGE_CONTRACT_V1](BPTI_KNOWLEDGE_CONTRACT_V1.md)；原始三项验证：[B0验收](development_reviews/BPTI_B0_IMPLEMENTATION_AND_ACCEPTANCE.md)。PR #8已按后续玩家明确授权合并，见本页B1增量；没有重跑B0或旧M3/DEV14集合。B0没有游戏来源/执行能力变更，无需修改source_catalog或执行能力白名单。V3继续有效、V4未启用、实际三十队仍UNASSESSED。
 
 ## 2026-10-20 DEV20/M4：系统自我进化工程完成，PR #7已合并main
 

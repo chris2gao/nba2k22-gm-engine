@@ -1,10 +1,16 @@
 # NBA2K22 GM project instructions
 
+## BPTI B1 system cards (2026-10-20)
+
+- Player explicitly approved merging B0 PR #8; it is merged at e4b397e. B1 is implemented on independent codex/bpti-b1-system-cards from that main, not on the old B0 branch. See docs/BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md and docs/development_reviews/BPTI_B1_IMPLEMENTATION_AND_ACCEPTANCE.md for current code/acceptance/PR evidence; do not assume B1 is merged.
+- Reuse B0 SystemCard/ResearchIndex/Knowledge.bpti(). system_cards_v1.json contains ten complete research cards plus six pre-cutoff qualitative claim extractions; the original 40 compound claims remain unchanged. Query bpti-system/bpti-systems, default GM with explicit date, bounded summaries and whole-card filtering; report created/research/GM-eligible coverage separately. Research eligibility is not native support, a team assessment or player approval.
+- B1 only authorizes DEV25 T1/T2/T3, no old B0/M3/DEV14 suite reruns or extra tests. Native bindings remain empty/UNKNOWN. After B1 delivery wait for player review; DEV23 is next but requires separate approval, and B2–B6/DEV24/real GM/game access are not authorized.
+
 ## BPTI B0 knowledge foundation (2026-10-20)
 
-- B0 is implemented on an independent Draft PR branch; see docs/BPTI_KNOWLEDGE_CONTRACT_V1.md and docs/development_reviews/BPTI_B0_IMPLEMENTATION_AND_ACCEPTANCE.md for actual evidence. Pure gm_core/bpti.py DTOs and the M2 research index do not activate V4 or assess real teams. Latest stage order is DEV22: B0 then separately approved B1, DEV23, B2–B6; DEV24 is deferred until after BPTI.
+- B0 PR #8 is merged at e4b397e after explicit player approval; its original branch evidence remains in docs/BPTI_KNOWLEDGE_CONTRACT_V1.md and docs/development_reviews/BPTI_B0_IMPLEMENTATION_AND_ACCEPTANCE.md. Pure gm_core/bpti.py DTOs and the M2 research index do not activate V4 or assess real teams. Latest stage order is DEV22/DEV25: B0, B1, DEV23, B2–B6, with independent player triggers; DEV24 is deferred until after BPTI.
 - Use Knowledge.bpti()/ResearchIndex and validate_bpti_knowledge; ordinary GM views require an explicit game date and cap real historical knowledge at 2021-10-19. Later retrospective sources need claim-level earlier-event extraction. Missing sources (including LAL-S2/POR-S2) and compound time boundaries stay UNKNOWN/SOURCE_MISSING. Research acceptance or a URL does not certify a claim.
-- Knowledge objects never carry raw native writes or player approval. M3 reference_evidence is an opt-in handoff only; source sanitization and DEV14 planning/approval remain authoritative. B0 authorizes only three static boundary checks, no old M3/DEV14 reruns. Complete B0 and wait for player review; do not start B1, native CRC discovery, production capture or game execution.
+- Knowledge objects never carry raw native writes or player approval. M3 reference_evidence is an opt-in handoff only; source sanitization and DEV14 planning/approval remain authoritative. The historical B0 authorization covered only three static boundary checks; the later player-approved B1 scope is above. No native CRC discovery, production capture or game execution follows automatically.
 
 ## DEV20 / M4 system evolution (2026-10-20)
 

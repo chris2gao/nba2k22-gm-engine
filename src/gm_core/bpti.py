@@ -169,7 +169,7 @@ def publication_upper_bound(value):
 class ResearchIndex:
     """M2 claim/source index. GM is the default, research an explicit mode."""
 
-    def __init__(self, payload):
+    def __init__(self, payload, system_cards=None):
         self.payload = deepcopy(payload)
         _no_native_payload(self.payload)
         if payload.get("schema_version") != VERSION:
@@ -190,6 +190,13 @@ class ResearchIndex:
                 raise ValueError("BPTI_SOURCE_VERIFICATION_REFERENCE_REQUIRED")
         for claim in self.claims.values():
             self.validate_claim(claim)
+        self.system_cards = self._unique(system_cards or [], "system_id")
+        if system_cards is not None and set(self.system_cards) != set(SYSTEM_IDS):
+            raise ValueError("BPTI_SYSTEM_CARD_COVERAGE_REQUIRED")
+        for card in self.system_cards.values():
+            validate_bpti_knowledge(card, self, audience="RESEARCH")
+            if card["object_type"] != "SystemCard" or card["native_binding_refs"]:
+                raise ValueError("BPTI_B1_CARDS_ONLY_NO_NATIVE_BINDINGS")
 
     @staticmethod
     def _unique(rows, key):
@@ -284,6 +291,79 @@ class ResearchIndex:
             result[ref] = dict(ref_id=ref, kind="KNOWLEDGE", version=VERSION,
                                availability=selected["availability"], value=selected["claim"])
         return result
+
+    def system(self, system_id, *, as_of=None, audience="GM"):
+        """One complete card, or a text-free HOLD if any supporting claim is hidden."""
+        _enum(audience, {"GM", "RESEARCH"}, "AUDIENCE")
+        _enum(system_id, SYSTEM_IDS, "SYSTEM_ID")
+        card = self.system_cards[system_id]
+        blocked = []
+        if audience == "GM":
+            _date(as_of)
+            blocked = [dict(claim_id=cid, availability=self.availability(self.claims[cid], as_of=as_of))
+                       for cid in card["evidence_claim_ids"]
+                       if not self.availability(self.claims[cid], as_of=as_of).startswith("AVAILABLE_")]
+        result = dict(system_id=system_id, audience=audience,
+                      availability="NOT_READY" if blocked else "RESEARCH_ONLY" if audience == "RESEARCH" else "GM_ELIGIBLE_REFERENCE",
+                      native_support="UNKNOWN_NOT_MAPPED_B1", card=None, evidence=[], blocked_claims=blocked)
+        if blocked:
+            return result
+        # Validate the whole DTO before returning any narrative/list field.
+        result["card"] = validate_bpti_knowledge(card, self, as_of=as_of, audience=audience)
+        for cid in card["evidence_claim_ids"]:
+            claim = self.claim(cid, as_of=as_of, audience=audience)["claim"]
+            sources = []
+            for sid in claim["source_ids"]:
+                source = self.sources[sid]
+                if audience == "RESEARCH":
+                    sources.append(deepcopy(source))
+                else:
+                    # Follow B0: retrospective page titles/URLs are research
+                    # metadata and may disclose future results. Keep locators.
+                    sources.append(dict(source_id=sid, origin=deepcopy(source["origin"])))
+            result["evidence"].append(dict(claim=claim, sources=sources))
+        return result
+
+    def system_coverage(self, *, as_of):
+        _date(as_of)
+        eligible = [sid for sid in self.system_cards
+                    if self.system(sid, as_of=as_of)["card"] is not None]
+        return dict(created_count=len(self.system_cards), research_query_count=len(self.system_cards),
+                    gm_eligible_count=len(eligible), gm_eligible_ids=eligible,
+                    research_only_ids=[sid for sid in self.system_cards if sid not in eligible],
+                    as_of=as_of, historical_cutoff=HISTORICAL_CUTOFF.isoformat(),
+                    meaning="REFERENCE_ELIGIBILITY_NOT_TEAM_ASSESSMENT_OR_NATIVE_SUPPORT")
+
+    def search_systems(self, *, system_id=None, role=None, counter=None,
+                       limit=5, as_of=None, audience="GM"):
+        """Bounded summaries only; filter the GM projection before text matching."""
+        _enum(audience, {"GM", "RESEARCH"}, "AUDIENCE")
+        if type(limit) is not int or not 1 <= limit <= 5:
+            raise ValueError("BPTI_SYSTEM_LIMIT_1_TO_5")
+        if system_id is not None:
+            _enum(system_id, SYSTEM_IDS, "SYSTEM_ID")
+        if audience == "GM":
+            _date(as_of)
+        rows = []
+        for sid in self.system_cards:
+            if system_id and sid != system_id:
+                continue
+            projected = self.system(sid, as_of=as_of, audience=audience)
+            card = projected["card"]
+            if card is None:
+                continue
+            if role and not any(role.casefold() in text.casefold() for text in card["role_requirements"]):
+                continue
+            if counter and not any(counter.casefold() in text.casefold() for text in card["defensive_counter_options"]):
+                continue
+            rows.append(dict(system_id=sid, title=card["title"], availability=projected["availability"],
+                             roles=[r.split(":", 1)[0] for r in card["role_requirements"]],
+                             counters=[r.split(":", 1)[0] for r in card["defensive_counter_options"]],
+                             evidence_claim_ids=deepcopy(card["evidence_claim_ids"]),
+                             native_support="UNKNOWN_NOT_MAPPED_B1"))
+        return dict(total_matches=len(rows), returned_count=min(limit, len(rows)),
+                    truncated=len(rows) > limit, systems=rows[:limit],
+                    coverage=self.system_coverage(as_of=as_of) if as_of else None)
 
 
 def validate_bpti_knowledge(obj, index, *, as_of=None, audience="GM", analysis=None):

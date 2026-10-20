@@ -15,7 +15,11 @@ from gm_data_access import AccessError
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('action', choices=('search', 'show', 'franchise', 'rules',
-                                    'bpti-claim', 'bpti-source', 'bpti-contract', 'bpti-validate'))
+                                    'bpti-claim', 'bpti-source', 'bpti-contract', 'bpti-validate',
+                                    'bpti-system', 'bpti-systems'))
+    p.add_argument('--system-id')
+    p.add_argument('--role', help='BPTI basketball role token or text; not a game enum')
+    p.add_argument('--counter', help='BPTI counter condition token or text')
     p.add_argument('--claim-id')
     p.add_argument('--source-id')
     p.add_argument('--as-of', help='Explicit game date; real historical knowledge remains capped at 2021-10-19')
@@ -50,6 +54,13 @@ def run(a):
                         contracts={name:list(dto.__annotations__) for name,dto in CONTRACTS.items()},
                         authority='REFERENCE_ONLY_NO_GAME_APPROVAL')
         index = k.bpti()
+        if a.action == 'bpti-system':
+            if not a.system_id:
+                raise ValueError('SYSTEM_ID_REQUIRED')
+            return index.system(a.system_id, as_of=a.as_of, audience=a.audience)
+        if a.action == 'bpti-systems':
+            return index.search_systems(system_id=a.system_id, role=a.role, counter=a.counter,
+                                        limit=a.limit, as_of=a.as_of, audience=a.audience)
         if a.action == 'bpti-claim':
             if not a.claim_id:
                 raise ValueError('CLAIM_ID_REQUIRED')
