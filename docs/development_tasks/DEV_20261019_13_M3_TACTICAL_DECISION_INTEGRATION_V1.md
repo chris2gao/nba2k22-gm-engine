@@ -1,5 +1,7 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
+**2026-10-20工程回执：** 主线窗口②已接收正式main DEV14（570419a/f68d75d），整合提交82083b5，并在原PR #4完成M3-T消费、诊断、稀疏意图和本轮8项最小验收。见[实现与验收](../development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM手册](../../web_gm/manuals/GM_M3_TACTICAL_WORKBENCH.md)。PR #4保持Draft/未合并；正式30队仍UNASSESSED、V4未启用。下文为设计依据及历史增量，当前支持与已知底层目录脱敏阻断以交付报告为准，不以旧计划扩大测试或开发。
+
 窗口①底层交接见[DEV14_TO_M3_HANDOFF](../development_reviews/DEV14_TO_M3_HANDOFF.md)：DEV14-H/DEV15、rotation域、GM净化访问检查、TEAM_BOOK_REBIND稀疏合同与MANUAL_OPERATOR_TRUST_ONLY。窗口②接准确提交后再做M3策略和回归，不复制数据库/Codec/审批，不把此说明当作已合并。
 
 DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)与[验收](../development_reviews/DEV14_ACCEPTANCE.md)。M3-T读取M0新域的object_key/field_key、registry_version及save_instance_id/generation_id，向gm_state_io stage提交最小稀疏changes，再由玩家批准完整摘要。不得生成裸地址、复制前像或自建执行事务。能力缺失/新档未全量采集则明确未观察；本次仅补依赖说明，没有实施DEV13或启用GM V4。

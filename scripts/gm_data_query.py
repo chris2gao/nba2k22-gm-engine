@@ -20,8 +20,8 @@ from gm_data_access.query import QuerySession,DEFAULTS
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('domain',choices=('status','team','player','staff','coaching','contract','picks','finance','sql','issues',
-                                  'world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books'))
-    p.add_argument('action',nargs='?',choices=('summary','roster','search','team','semantics','opponent'))
+                                  'world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books','native_context'))
+    p.add_argument('action',nargs='?',choices=('summary','stats','roster','search','team','semantics','opponent'))
     p.add_argument('--career',required=True)
     p.add_argument('--batch',help='Pin a historical or current batch; default resolves local published/latest')
     p.add_argument('--query-root',type=Path,default=ROOT/'database/query_snapshots')
@@ -91,12 +91,12 @@ def run(a):
             if not a.select:
                 raise AccessError('INVALID_INPUT','--select required')
             return session.query('sql',sql=a.select,params=json.loads(a.params),limit=a.limit,cursor=a.cursor)
-        routes={('team','summary'):'teams',('team','roster'):'players',('player','search'):'pool' if a.scope=='pool' else 'players',
+        routes={('team','summary'):'teams',('team','stats'):'team_stats',('team','roster'):'players',('player','search'):'pool' if a.scope=='pool' else 'players',
                 ('staff','team'):'staff',('staff','search'):'staff',('coaching','team'):'coaching',
                 ('coaching','opponent'):'defense',('contract','search'):'players',('contract','team'):'players',
                 ('picks','team'):'picks',('picks','search'):'picks',('finance','team'):'finance',('finance','semantics'):'finance_semantics'}
         entity=routes.get((a.domain,a.action))
-        if a.domain in ('world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books') and a.action in ('search','team',None):
+        if a.domain in ('world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books','native_context') and a.action in ('search','team',None):
             entity=a.domain
         if not entity:
             raise AccessError('INVALID_INPUT','Unsupported domain/action; use --help')

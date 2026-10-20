@@ -1,5 +1,14 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 DEV14正式合并，M3-T本地工程完成、PR #4待审
+
+PR #5已按玩家批准合入main，合并提交`570419a`、最终开发提交`f68d75d`。下方DEV14“未合并”是交付时历史记录，不再代表当前部署状态。M3窗口在原PR #4分支以`82083b5`整合本底座，保留M3A/M3B并完成DEV13/M3-T本地工程；PR #4保持Draft/未合并。当前正式main接收了DEV14，尚未接收M3-T。采用开发规范V2，本任务八项最小验收均通过：首轮6项、修正样例后仅复验另2项，未重跑已通过旧集合。详见[实现与验收](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM操作手册](../web_gm/manuals/GM_M3_TACTICAL_WORKBENCH.md)。
+
+- 接入脱敏M0事实、原生对象/代次/Registry来源、八体系熟练度、四PlayTypes/Initiator、48具名倾向、6+5训练和Intangibles；D1–D6全员角色/分钟目标、内部修复比较、市场缺口和证据质量进入原工作台。普通GM仅个人防守、不写OVERALL；教练普通18项、本队已加载同名书68槽。新档或确认换帅后独立TEAM_BOOK_REBIND，绑定后新来源再另提槽位；换帅只休赛期每队每季一次，无员工市场执行器。
+- 稀疏意图通过既有DEV14纯离线build_plan生成实际digest/审批tuple/diff，交易后或绑定后需重计划，导出不等于stage/批准/执行。Potential=1只为MASKED/NOT_GAME_OBSERVED；旧未脱敏包与旧缓存禁供GM。51未知倾向、CRC语义、疲劳/更多位置模板仍UNKNOWN，交Antigravity后续。
+- 已发现DEV14完整Registry元数据中的世界设置键`world.contracts_and_finances.player_potential_factor`被净化器误识别为球员潜力别名；完整目录合成输入被阻断。玩家已明确选择本轮不扩展修复或追加1项检查，记录给DEV14窗口①后续修复。M3八项验证使用实际观察字段目录及真实净化凭据，不代表完整生产采集已验收。详见上述报告。
+- 真实30队策略仍UNASSESSED、正式评估0队；V3继续生效、V4未启用、M4未启动；本轮没有游戏访问/写入、正式GM、新采集/发布或正式赛季档案改动。
+
 ## 2026-10-20 DEV14-H / DEV15：PR #5增量工程（未合并）
 
 **开发规范V2：玩家要求任何扩展设计或追加测试先询问并等待确认。** 原定范围完成即交付，不继续为完备性扩展；规则已写入AGENTS和DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY。多存档采用独立目录/数据库的简单结构，review可选，不追加权限防伪工程。
@@ -28,6 +37,26 @@
 | 明确限制 | 游戏唯一save身份无法独立证明，正式动作须人工确认完整save/instance/generation；导师关系、未命名倾向语义、未提供可用布局的剩余世界曲线/Gameplay目录保留扩展；不泛化人物能力/徽章/合同写权限 |
 
 以下历史说明不应把本工程的合成/静态验收升级为生产观察、已批准GM或main部署。
+
+## 2026-10-19 DEV10 M3A/M3B：本地工程实现与范围内验收
+
+状态 `M3_LOCAL_ENGINEERING_COMPLETE / WEB_CONNECTION_DEFERRED / GM_V4_DRAFT_NOT_ENABLED`，开发分支`codex/dev10-m3-design`，PR #4。按玩家确认的Astra设计审阅→编码分工交付M3A与M3B；[M3A验收](development_reviews/DEV10_M3A_ACCEPTANCE.md)、[M3B验收](development_reviews/DEV10_M3B_ACCEPTANCE.md)、[分析操作手册](../web_gm/manuals/ANALYTICS_M3_WORKBENCH.md)、[GM操作手册](../web_gm/manuals/GM_M3_DECISION_WORKBENCH.md)为当前入口。下方“设计待编码”保留阶段历史，以本节为准。
+
+- M3A：已有team_source_stats的静态安全投影；全队全员事实/实际访问回执、明确上下文的区间计数差分、人物暂定匹配与UNKNOWN、固定M1/M2版本、注释导入/封存、有界钻取与角色字段筛选。封存后的市场补查独立追加，不改原包。
+- M3B：全30队精确名单/六维/三类方案、独立兴趣和同版双方接受；候选竞争与所选资源/字段/执行依赖区分；当前M1组合成本、真实纯离线教练batch/dry_run/verdict/digest、唯一终稿历史、M2策略候选与事前观察假设。纯Python形状/业务校验，不新增模型API或游戏执行器。
+- 实际已有M02只读演练：30队/466在队身份/1458员工/30球队统计/30教练/870整体防守/504原始签位行/30财务行。GSW/SAS/OKC完整身份分页一致，三类市场查询已实际运行。M02包为SEALED_PARTIAL，未填30队经营判断；全合成30队则通过P1–P5 CLI流程及v2终稿修订。范围内15项检查、89次主流程CLI演练与补充检查见验收，未扩大现金、网页或实机验证。
+- **正式30队策略仍为UNASSESSED，正式评估0队；GM V3继续生效，V4未启用。** 没有正式GM/W03/赛季索引或GM_CURRENT变更，没有采集、数据发布、游戏访问/写入；M4未启动。工作台、合成样例和完整离线工件位于_exports，不提交SQLite/运行日志。
+- Antigravity同期main提交`9b4fe87`仅新增7个DEV12文件，没有改M3分支或M0/M1/M2接口；当前M3不导入这些模块，无需撤销它来继续本任务。该提交的能力不作为M3验收依据。PR #4源代码审阅/合并和正式本地部署另按玩家指令，不能把开发分支交付写成main已部署。
+
+## 2026-10-19 DEV10 M3：玩家已启动，Astra设计交接
+
+玩家明确“开始M3”，并切换Astra Extra High。沿已约定分工，本阶段完成M3A分析包与M3B候选GM V4的设计/审阅，状态`ASTRA_M3_DESIGN_READY_FOR_SOL_IMPLEMENTATION`。入口：[M3总设计](development_tasks/DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)，[实现任务书](development_tasks/DEV_20261019_10_M3_IMPLEMENTATION_HANDOFF.md)，[设计审阅](development_reviews/DEV10_M3_DESIGN_REVIEW.md)。
+
+设计包含同批SQLite累计统计投影、30队全员事实/访问覆盖、跨批指标与身份层级、按角色问题筛选候选、M1成本/M2策略引用、五个内部研究阶段、双方同版报价接受、选定资产/教练字段与执行依赖冲突、唯一终稿及事前假设。15个合成案例是待实现行为说明，不是已通过M3测试。
+
+**M3运行CLI/工作台表尚未实现，M3工程尚未完成。** 正式30队策略仍UNASSESSED；现行V3保持生效、V4未启用；本设计不启动正式GM或更新W03。下一步按玩家模型安排由Sol实现M3A/M3B，再给实际工程验收。网页连接仍由玩家后续建立，不阻塞内部开发。M4、实时赛场调校、训练/员工任免、媒体世界等不在本轮范围。
+
+代码/文档基线7a60d5e已包含M1/M2正式合并、最新3D赛场及原生控制发现研究；玩家已确认全局设置可修改，新NC01–NC15候选不当现成执行器。本轮未修改运行源码、事实/发布数据或游戏，没有采集、实际数据库分析或实机测试。下文“不启动M3”保留上一阶段边界，本次新授权和状态以本节为准。
 
 ## 2026-10-19 DEV10 M1/M2工程收尾（PR #3）
 
@@ -217,6 +246,7 @@ _exports/receipts/                          发布回执
 
 | 动作/层 | 当前实际入口与状态 | 执行时必须处理的边界 |
 | --- | --- | --- |
+| M3候选决策交接 | `gm_analysis.py` / `gm_decision.py`本地工程已实现；真实纯离线教练工件及描述性普通交易条款 | 无游戏句柄、无live plan/preflight、无执行权；所有终稿NOT_GRANTED/false。V4候选不自动替换V3，交易实时身份/容量计划和具体玩家批准继续独立触发 |
 | 进程校准/原值读取 | `memory.py`、`address_calibrator.py` 已用于只读采集与审计 | 校准不证明当前 save_id 自动识别，也不证明写入权限/批准或业务写回已验收 |
 | 底层内存写入 | `GameMemory(read_only=False)`、`write_bytes` 与数值 writer 存在；默认实例只读 | 仅检查调用/写入字节数，不提供方案批准、身份白名单、交易事务或完整恢复；部分 writer 会掩码截断，调用前须校验 |
 | 历史 TEAM 策略 | `StrategyManager.set_team_strategy` 无条件拒绝；旧调用已清除 | `LEGACY_TEAM_POE_OFFSETS_REVOKED`；旧 poe_* 只保留原始观测，GM 不认作教练战术 |

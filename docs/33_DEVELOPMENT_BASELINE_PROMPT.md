@@ -1,6 +1,6 @@
 # 迭代开发基线提示词
 
-DEV14-H/DEV15工程增量（PR#5，未合并）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。详见文档34、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)；不开发M3或自动运行游戏。
+DEV14-H/DEV15工程已随PR#5合入main（570419a）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。M3-T已在原PR#4接入此底座并完成本轮8项最小验收，PR#4仍Draft/未合并；详见文档34、[M3-T交付](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)。基线加载不自动开发、测试或运行游戏，扩展遵守开发规范V2。
 
 DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多存档生命周期见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md) 和文档34。开发复用 `gm_state_io`、`save_context` 与原 codecs；不要另造字段偏移表、隐式legacy-shared或跨档审批。当前PR/部署、真实观测和限制以文档34/验收为准，不自动运行示例。
 
@@ -65,6 +65,7 @@ DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多�
 | DEV10后续财务/知识设计 | `docs/development_tasks/DEV_20261018_10_M1_M2_IMPLEMENTATION_HANDOFF.md`及关联研究 | 设计之后玩家已授权Sol实现，M1/M2本地实现证据查34及独立验收；不将M0原范围限制误读为后续永久禁令 |
 | DEV10财务工作台M1 | `gm_data_access/finance_inputs.py`、`gm_core/finance_projection.py`、`finance_scenarios.py`、`gm_workbench/store.py`、`scripts/gm_finance.py` | gm_core仅接纯数据；同批静态来源与独立派生存储。槽序情景不认证签约额度，规则输入不授予游戏执行权；实际状态查34 |
 | DEV10知识/策略M2 | `gm_core/knowledge.py`、`strategy_state.py`、`gm_data_access/knowledge_inputs.py`、`scripts/gm_knowledge.py`、`gm_strategy.py`、`web_gm/knowledge/` | 12卡/30参考/19机制按需查询；同批字典映射不授予执行权。30候选UNASSESSED，修订只存调用方分析；详见GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH |
+| DEV10 M3分析与候选GM工作台 | `scripts/gm_analysis.py`、`gm_decision.py`；`gm_core/analysis_*`、`decision_*`、`market_negotiation.py`；`gm_workbench/m3_store.py` | 本地工程与直接验收见DEV10_M3A_ACCEPTANCE/DEV10_M3B_ACCEPTANCE及两本M3手册。静态事实/独立判断/双方报价/组合复核/离线交接分开；只读来源与派生库隔离，V3仍生效，V4切换另批 |
 | GitHub 发布 | `scripts/publish_web_snapshot.py`、`config/github_sync.json` | 数据专用提交、不夹带代码；SQLite ZIP 为 Release 附件；同步只看时间 |
 | GM v1 | `src/gm_core/`、三个 `scripts/gm_*.py`、`web_gm/GM_DECISION_SOP.md` | 只读事实和确定性计算；提案不代表批准；不自动运行正式 GM |
 | 休赛期专项开发 | `src/gm_core/offseason*.py`、`scripts/offseason_*.py`；实际能力与验证状态查文档34及其研究报告链接 | 游戏外竞价、独立批准、再验证合同/名单写回；实机机制先调研，模拟资格不升级为真实来源或执行权，不在月度采集中扩展完整CBA |
