@@ -68,6 +68,6 @@ export生成CURRENT.md、轻量index.json、readiness.json及按问题ID的小�
 
 `readiness`读取 [m4_readiness_evidence.json](../config/m4_readiness_evidence.json) 的带日期小型证据清单，并可附加本地Issue #6管理状态；没有库时也能报告，不因此创建数据库。清单是显式维护的GitHub/验收引用，**不会在线探测Web、GitHub、游戏或伪装实时验收**。以后新证据出现时由相应任务更新清单日期/状态/引用；未知条件保持PENDING。
 
-分开列出M0–M3-T正式工程、M4分支工程/待合并、PR #4真实合并记录、三个Web连接、已脱敏新生产批次及GM消费、真实30队研究、GSW/SAS/OKC无写入演练、Issue #6、BPTI、新采集/校准接口与玩家切换/新档决定。旧M02接口演练不能替代新脱敏批次正式经营演练。即使将来证据齐备，M4仍只输出GM_V4_NOT_ENABLED，切换规则由独立玩家任务完成。
+分开列出M0–M3-T正式工程、M4工程及实际合并情况、PR #4真实合并记录、三个Web连接、已脱敏新生产批次及GM消费、真实30队研究、GSW/SAS/OKC无写入演练、Issue #6、BPTI、新采集/校准接口与玩家切换/新档决定。旧M02接口演练不能替代新脱敏批次正式经营演练。即使将来证据齐备，M4仍只输出GM_V4_NOT_ENABLED，切换规则由独立玩家任务完成。
 
 Issue #6只登记已有合成报告的已知风险，未证明所有生产采集必然失败；本轮不修复、不重现或测DEV14。BPTI是正式新档前置，季后赛采集与年度校准是独立后续项目；本M4均不实施。实际30队仍UNASSESSED，V3生效，正式GM V4未启用。

@@ -1,6 +1,6 @@
 # 迭代开发基线提示词
 
-DEV20/M4工程增量：独立M4分支已实现外挂工程问题池、追加事件、显式有界导入/分流/交接和带日期readiness，状态M4_ENGINEERING_COMPLETE_AWAITING_PLAYER，独立Draft PR待玩家审阅，不自动合并。见[工作台手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)、文档34及[开发问题索引](../web_gm/development_feedback/CURRENT.md)。它取代旧M4混合经营效果/比赛校准定义；不修Issue #6、不实施BPTI或校准器、不启用V4。新开发规划由玩家主动触发后读取索引，先提出范围/成本再待批准。
+DEV20/M4工程增量：独立M4分支已实现外挂工程问题池、追加事件、显式有界导入/分流/交接和带日期readiness，状态M4_ENGINEERING_MAIN_MERGED，PR #7经玩家批准小修正后合入main（c51fa36），正式本地工作区已同步。见[工作台手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)、文档34及[开发问题索引](../web_gm/development_feedback/CURRENT.md)。它取代旧M4混合经营效果/比赛校准定义；不修Issue #6、不实施BPTI或校准器、不启用V4。新开发规划由玩家主动触发后读取索引，先提出范围/成本再待批准。
 
 DEV14-H/DEV15工程已随PR#5合入main（570419a）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。M3-T已在原PR#4接入此底座并完成本轮8项最小验收，PR#4已由玩家批准合入main（504a4c0），正式本地工作区已同步；详见文档34、[M3-T交付](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)。基线加载不自动开发、测试或运行游戏，扩展遵守开发规范V2。
 
@@ -68,7 +68,7 @@ DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多�
 | DEV10财务工作台M1 | `gm_data_access/finance_inputs.py`、`gm_core/finance_projection.py`、`finance_scenarios.py`、`gm_workbench/store.py`、`scripts/gm_finance.py` | gm_core仅接纯数据；同批静态来源与独立派生存储。槽序情景不认证签约额度，规则输入不授予游戏执行权；实际状态查34 |
 | DEV10知识/策略M2 | `gm_core/knowledge.py`、`strategy_state.py`、`gm_data_access/knowledge_inputs.py`、`scripts/gm_knowledge.py`、`gm_strategy.py`、`web_gm/knowledge/` | 12卡/30参考/19机制按需查询；同批字典映射不授予执行权。30候选UNASSESSED，修订只存调用方分析；详见GM_KNOWLEDGE_AND_STRATEGY_WORKBENCH |
 | DEV10 M3分析与候选GM工作台 | `scripts/gm_analysis.py`、`gm_decision.py`；`gm_core/analysis_*`、`decision_*`、`market_negotiation.py`；`gm_workbench/m3_store.py` | 本地工程与直接验收见DEV10_M3A_ACCEPTANCE/DEV10_M3B_ACCEPTANCE及两本M3手册。静态事实/独立判断/双方报价/组合复核/离线交接分开；只读来源与派生库隔离，V3仍生效，V4切换另批 |
-| DEV20 M4工程反馈 | `scripts/gm_development_feedback.py`、`gm_core/development_feedback.py`、`gm_workbench/development_store.py`；`web_gm/development_feedback/CURRENT.md` | 复用原workbench存轻量问题/事件，显式导入现有工程报告；CAS人工决定、有界交接和带日期readiness，不自动开发/采集/执行或评价篮球赛果。独立Draft PR，正式状态查34 |
+| DEV20 M4工程反馈 | `scripts/gm_development_feedback.py`、`gm_core/development_feedback.py`、`gm_workbench/development_store.py`；`web_gm/development_feedback/CURRENT.md` | 复用原workbench存轻量问题/事件，显式导入现有工程报告；CAS人工决定、有界交接和带日期readiness，不自动开发/采集/执行或评价篮球赛果。PR #7已合main，正式状态查34 |
 | GitHub 发布 | `scripts/publish_web_snapshot.py`、`config/github_sync.json` | 数据专用提交、不夹带代码；SQLite ZIP 为 Release 附件；同步只看时间 |
 | GM v1 | `src/gm_core/`、三个 `scripts/gm_*.py`、`web_gm/GM_DECISION_SOP.md` | 只读事实和确定性计算；提案不代表批准；不自动运行正式 GM |
 | 休赛期专项开发 | `src/gm_core/offseason*.py`、`scripts/offseason_*.py`；实际能力与验证状态查文档34及其研究报告链接 | 游戏外竞价、独立批准、再验证合同/名单写回；实机机制先调研，模拟资格不升级为真实来源或执行权，不在月度采集中扩展完整CBA |

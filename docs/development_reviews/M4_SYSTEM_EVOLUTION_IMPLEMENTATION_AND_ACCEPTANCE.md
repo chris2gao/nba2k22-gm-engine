@@ -1,8 +1,8 @@
 # DEV20 / M4 系统自我进化工程与最小验收
 
-2026-10-20。状态：**M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED**。独立分支 `codex/dev10-m4-system-evolution`，从最新main `5a49d71`开始；此前PR #4已按玩家批准合并，合并SHA `504a4c0656bad0e890c3783c89c656fca5b2e647`，本次不向原PR #4添加代码。M4交付独立Draft PR，不自动合并。
+2026-10-20。状态：**M4_ENGINEERING_MAIN_MERGED / GM_V4_NOT_ENABLED**。独立分支 `codex/dev10-m4-system-evolution`，从最新main `5a49d71`开始；此前PR #4已按玩家批准合并，合并SHA `504a4c0656bad0e890c3783c89c656fca5b2e647`，本次不向原PR #4添加代码。M4最初交付独立Draft PR；玩家审核后批准作用域小修正`1e4fb66`并合并，实际合并SHA `c51fa36080ed39c8305635f1cb4363128475fdf0`，正式本地main已同步。
 
-工程实现提交：`652d10763b7bcfa6db811515f148014db74c609c`；独立[Draft PR #7](https://github.com/chris2gao/nba2k22-gm-engine/pull/7)，base为main，创建后核对OPEN/Draft、MERGEABLE/CLEAN。后续仅补交付索引链接，不改实现或重跑验证。
+首次实现及PR创建历史：工程实现提交：`652d10763b7bcfa6db811515f148014db74c609c`；独立[Draft PR #7](https://github.com/chris2gao/nba2k22-gm-engine/pull/7)，base为main，创建后核对OPEN/Draft、MERGEABLE/CLEAN。后续仅补交付索引链接，不改实现或重跑验证。
 
 ## 实现范围
 
@@ -41,4 +41,4 @@
 - BPTI是正式新档前置；季后赛统计采集与双引擎年度校准后续另立项目。51未知倾向、全部CRC与疲劳等原生研究继续后置；本M4无球队经营效果/赛果比较/滑块调参功能。
 - 显式triage信任操作者对真实玩家决定的引用，不新增身份认证服务；RESOLVED只记录人工结论，不能替代修复证据或批准游戏执行。工程报告提案不自动成为任务，下一次玩家主动触发开发规划后再提出范围/成本并待批准。
 
-本轮没有访问/修改游戏、运行新采集/发布、建立正式新档或GM回合，也没有改V3/V4规则、正式球队档案、GM_CURRENT或赛季INDEX。源事实、原历史批次与原生安全保护沿用；正式main仅已有M3整合，本M4等待玩家审阅独立Draft PR。
+本轮没有访问/修改游戏、运行新采集/发布、建立正式新档或GM回合，也没有改V3/V4规则、正式球队档案、GM_CURRENT或赛季INDEX。源事实、原历史批次与原生安全保护沿用；正式main已包含M4与审核小修正；工程合并不批准正式GM、游戏或后续项目。

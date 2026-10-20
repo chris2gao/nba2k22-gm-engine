@@ -2,7 +2,7 @@
 
 ## 2026-10-20 M4系统自我进化交付索引
 
-Codex窗口②已从合并M3后的main实现DEV20/M4，状态M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED，独立Draft PR待审。玩家下次主动触发开发规划时，先读[工程问题CURRENT](../../web_gm/development_feedback/CURRENT.md)、[准备状态](../../web_gm/development_feedback/readiness.json)及必要的每项详情/原证据，再提出最小研究/实现范围、成本和任务书草案，等待玩家批准；不把候选当作已立项任务。长期Codex实态查[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)、[M4验收](../../docs/development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。Issue #6、BPTI、季后赛采集与双引擎校准均仍DEFERRED；M4只管理工程需求，不评价GM篮球经营效果或实现校准器。真实30队UNASSESSED、Web/已脱敏生产消费待证、V3生效。本条仅开发交接指针，不启动后续任务或游戏。
+Codex窗口②已从合并M3后的main实现DEV20/M4，状态M4_ENGINEERING_MAIN_MERGED / GM_V4_NOT_ENABLED，PR #7经审核小修正后按玩家批准合入main（`c51fa36080ed39c8305635f1cb4363128475fdf0`）；正式本地main已同步。本次仅定向test_02通过，未扩大测试或处理Issue #6。玩家下次主动触发开发规划时，先读[工程问题CURRENT](../../web_gm/development_feedback/CURRENT.md)、[准备状态](../../web_gm/development_feedback/readiness.json)及必要的每项详情/原证据，再提出最小研究/实现范围、成本和任务书草案，等待玩家批准；不把候选当作已立项任务。长期Codex实态查[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)、[M4验收](../../docs/development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。Issue #6、BPTI、季后赛采集与双引擎校准均仍DEFERRED；M4只管理工程需求，不评价GM篮球经营效果或实现校准器。真实30队UNASSESSED、Web/已脱敏生产消费待证、V3生效。本条仅开发交接指针，不启动后续任务或游戏。
 
 ## 2026-10-20 Codex主线交付指针
 
