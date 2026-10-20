@@ -1,5 +1,7 @@
 # GM 教练战术操作手册
 
+> **2026-10-19 主教练/球队本名战术书规则**：[DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)与[GM个人防守/Book政策](GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)：每队每游戏赛季只有休赛期允许换帅一次（合同竞价/签约另列后续），A队聘B教练后必须在获得玩家批准的技术绑定操作中，将可能继承的B书恢复到**A队同名的真正独占原生Book**，再根据B教练体系与A球员修改A书68槽；B书不得被修改。普通GM不改Overall、不随意切BookID。此处是最新运营政策；实际同名Book唯一性和换帅写入还未完成本局生产验证。
+
 > **2026-10-19 最新玩家决议（GM运营优先规则）**：[GM个人防守与球队专属手册政策V1](GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)已生效。**普通GM只使用逐人PERSONAL_DEFENSE策略，不改OVERALL_DEFENSE**；整体18项可继续采集只读，后面旧“修改整体防守”的章节仅供已部署旧执行器的历史技术参考，**不是新的GM提案规范**。**普通GM不通过PlaybookID切换战术手册**，必须使用本队原生独占书、编辑该书68槽；换帅后重取教练和书绑定、按新教练理念修改本队书。如果本队和其他球队共享同一本PHI等原生书，**禁止任何单队修改共享槽位**，需Antigravity确认专属书实体与受控技术绑定，不能仅通过名称伪装独占。用户对新方案仍逐批审批；并不意味着现有DEV14已实现新禁写和独占规则。
 
 > **2026-10-19 第二次补充：新增原生战术生态四期开发全部由Antigravity负责。** 现行实施任务为[DEV12 V2 Antigravity：教练-手册-4槽-倾向-逐人防守-训练-知识引擎](../../docs/development_tasks/DEV_20261019_12_V2_ANTIGRAVITY_TACTICAL_ECOSYSTEM_AND_GM_REASONING.md)。本手册仍是已验收19默认/18整体的操作依据；新任务必须复用其内存定位、原生枚举、审批/恢复与全量采集，不视为已拥有完整Playbook内战术、个人PlayTypes、Tendencies和逐人防守写入。核心目标是教会GM解释多个设置对球员选择和战术执行的相互作用，再形成内部调整与交易决策。**这覆盖先前DEV12 V1分配给Codex的实施职责。**
