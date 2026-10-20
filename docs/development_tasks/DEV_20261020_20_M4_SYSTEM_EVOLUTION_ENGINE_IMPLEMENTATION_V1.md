@@ -55,7 +55,7 @@
 
 **特定既有问题用作手工样例，而非修复授权**：GitHub Issue #6（DEV14完整Registry元数据中`world.contracts_and_finances.player_potential_factor`误判为球员Potential镜像）应该能够登记成一个`DEFERRED`开发候选，证据引用M3-T报告和Issue #6；该问题尚未修复，未来由独立开发模型处理，不许Codex在M4改`src/player_potential_mask.py`或额外重跑DEV14测试。
 
-`DEV19 BPTI`与季后赛采集/年度引擎校准器可登记为`PLANNED/DEFERRED`的未来**开发候选指针**，不得把它们冒充发现的BUG，不自动实现。
+`DEV19 BPTI`与季后赛采集/年度引擎校准器可登记为`DEFERRED`状态、类别`DEVELOPMENT_FEATURE_CANDIDATE`的未来**规划任务指针**（规划状态仅存于roadmap说明，不新增PLANNED状态枚举），不得把它们冒充发现的BUG，不自动实现。
 
 ## 4. M4-C 跨模型交接和持续演化
 
