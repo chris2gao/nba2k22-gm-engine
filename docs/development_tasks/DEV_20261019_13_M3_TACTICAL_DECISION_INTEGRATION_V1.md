@@ -4,6 +4,8 @@
 
 **决策：M3A/M3B原工程验收保留，不重做P1–P5、不重跑已经通过的业务接口。不把DEV12直接吞进原M3代码。新增M3-T战术证据、GM诊断约束、提案动作与组合依赖整合层，并在GM V4正式启用前完成最小必需部分。**
 
+> **2026-10-19 DEV14底层依赖更新**：正式新增[DEV14确定性状态读写引擎](DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)，Codex先在独立分支实现`NativeFieldRegistry + Observed/Desired/Applied状态隔离 + SQLite控制库 + 批次审批/前值/写入/读回/条件回滚 + 同批采集/对账`。**DEV13只消费其已证状态查询和获批动作合同**，不得自行写第二套内存事务或另建30队数据库表。DEV14完成不自动启用GM V4；Antigravity本地DEV12字段未归档时，能力清单按READ_ONLY/BLOCKED_SOURCE显式保留。`
+
 ## 0. 核对现状和仓库引用
 
 - [PR #4](https://github.com/chris2gao/nba2k22-gm-engine/pull/4)，head fa62fb2d371438cd9d8062e1fa842e7c8eede4ad；37文件，Draft、Open、未merge；代码存在且M3A/M3B本地工程完成不等于30队实际研究已启动。
