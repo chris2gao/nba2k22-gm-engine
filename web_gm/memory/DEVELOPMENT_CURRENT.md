@@ -291,3 +291,5 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **Intangibles作为30队GM正常轮换手段**：GM可按首发、第六人、板凳人数、角色目标分钟，提出25–99综评补偿偏置并从真实后续赛场分钟反馈调整；原版ACE自动换人继续ON，不硬锁分钟。用户已放弃额外研究Intangibles对游戏其它模块副作用的要求，Codex不应浪费额度做研究；但确定性身份/字段/写前/写后/回滚和每批游戏修改的玩家批准照旧。
 - **DEV14已有实际整合而非空架构**：PR#5 `registry.py`注册19默认/18整体、个人防守、4PlayTypes/initiator、48可命名可写+51语义未知只读的99Tendencies、68槽本、4Gameplay USER/CPU、50世界设置、6球队+5球员训练并通过NativeSession RO/RW/capture bridge。欠缺其余原生字段/导师关系、正式游戏生产采集验证，以及将战术理解转为M3决策的DEV13。不要再立项重做整个通用采集写入器。
 - [额度友好计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)现分B0原加固，B1首先潜力入库后强制脱敏，B2 DEV13战术/训练决策，B3综评补偿动作和反馈；该规则也已写入DEV13与DEV14权威文档。本次仅更新GitHub文档，**Codex代码尚未实现这两项新增修改**。
+
+- **重大新发现：GM脱敏球员池不可用于原生历史选秀注入。** `src/historical_rookies.py.query_historical_draft_class()`返回`player_pool.raw_struct`及`raw_potential/potential`。GM正式采集发布库已按用户决定将PLAYER byte0x441和所有潜力明文置1；**任何利用这份脱敏raw_struct向游戏注入1984–2020历史新秀的脚本，可能把真实原生Potential变成1**，违背游戏人物自然成长规则。历史选秀入游戏必须使用独立权限的未脱敏原生私有注入来源，或每次从真实游戏原生存档正确重读；未提供则报`SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE`拒绝导入，而不是用GM发布库冒险。此为数据防污染工程约束，不是用户取消的Intangibles额外副作用研究。已写入DEV15 V2，并在PR#5评论明确。
