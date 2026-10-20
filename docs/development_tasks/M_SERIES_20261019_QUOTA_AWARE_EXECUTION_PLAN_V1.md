@@ -1,4 +1,4 @@
-# M系列紧急开发路线 — Codex额度受限分批执行 V1
+# M系列紧急开发路线 — Codex额度受限分批执行 V1.1
 
 **日期2026-10-19** · 当前用户反馈Codex **周额度约9%、5小时约49%**，这是界面现状快照，任务书不承诺所剩额度一定足够，也不按百分比换算成完成工时。**务必避免一条指令同时要求写完全部M3-T、完成30队研究、认证原生Intangibles并部署。**
 
@@ -18,15 +18,15 @@
 
 **停止条件**：本次不开始DEV13、不把隐藏Pot修在错误的M3分支、不运行全量119测试。
 
-### B1 / P0 — 合并顺序与GM潜力遮蔽
+### B1 / P0 — Potential=1数据库自动后处理 + PR兼容安排
 
-在玩家明确授权后，DEV14 PR#5先合并main；再让M3 PR#4更新到新main、处理实际文件合并冲突（至少`src/gm_data_access/query.py`与`scripts/gm_data_query.py`整合）并跑M3 P1–P5定向回归；合并PR#4仍需玩家单独授权。
+**先完成DEV15 V2的自动净化**：在`auto_pipeline_ingest.py`原生采集与初步来源校验之后、两库commit/replace、snapshot digest/哈希、备份和GitHub发布之前，自动运行`sanitize_player_potential`，令全部`player_pool.potential/raw_potential`、所有球员`attributes.potential.raw/value`、球员`raw_struct[0x441]`统一为1；跨球员池/球队名单、JSON/静态副本和旧/新来源镜像，能读到实际潜力的存储位置都纳入检查。脱敏字段标MASKED而非游戏观测。除了字节0x441，绝不修改其他原始字段；失败停止发布。单脚本可用于dry-run和幂等再跑，正式`full_verified_v1`不需要GM/执行模型另外触发。
 
-把**DEV15-A**放到新M3数据消费和GM查询统一代码层：GM只读投影、M3数据包、市场查询以及任意SQL投影不能泄露原生Potential，原始私有数据库保持完整。测试必须跨球员/历史新秀池/SQL/M3报告，并显示GitHub原始发布数据是否仍对GM可直接访问（如果仍开放，`FOG_NOT_ENFORCED_RAW_SOURCE_ACCESSIBLE`不宣称完全隔离）。
+现有老M02历史批次如含真实Potential应隔离GM访问或另经审批生成安全的GM可见副本，不悄悄篡改不可变历史。**不需要再开发“只在显示层隐藏潜力”的多重替代方案**；在库阶段改1是当前权威决议。升级GM规则明确Potential=1不是所有球员低潜力，仅表示未来潜力未知。
 
-**M3正式评估门禁：即使M3程序和数据已经可用，也不应在潜力值仍可直达GM时进行30队正式新秀/球员潜力研究。**
+PR顺序：B0完成后PR#5经用户许可合并main；PR#4更新到新main做必要兼容回归并等待用户批准合并（这不是B1可自动执行的merge指令）。要防止Codex误在旧M3分支复制采集器造成两套脱敏脚本。
 
-周额度不足时：只做兼容合并准备和DEV15-A的GM字段红线，不开始30队真实经营。
+**若周额度只够一个子工作**：先交付自动潜力处理、合成测试及新来源哈希验证，下一次接着做PR整合/GM轮换。
 
 ### B2 / P1 — DEV13 M3-T 最小闭环
 
@@ -39,16 +39,18 @@
 
 该阶段可拆为B2a（M3A只读桥接+UNKNOWN约束）、B2b（M3B诊断+提案合同）；每个小任务独立PR/测试，不要求Codex单次完成巨量大任务。
 
-### B3 / P1 — DEV15-B 轮换引导（须Antigravity原生证据）
+### B3 / P1 — Intangibles轮换正式动作+GM分钟反馈（用户已定，无需副作用研究）
 
-Antigravity先交付PC本局Intangibles/OverallAdjustment原生地址/字段名/25–99实际值域、只读可见OVR/先发第6人/实际分钟和原生属性保护证据。Codex再把一个**独立**`PLAYER_ROTATION_OVR_BIAS`动作加入DEV14能力表与M3方案合同；真实球队GM先采集/提出软分钟区间+HOLD替代，不运行强制锁分钟；正式修改由玩家批准。若没有原生认证，结束为READ_ONLY及完整诊断规则而不是硬写内存。
+**不再设置Antigravity额外副作用研究/测试门禁**：项目现存`config/memory_field_profile.json`已定义球员`intangibles` offset=0x440，`potential` offset=0x441；属于精确单字段可写例外。Codex在DEV14 Registry/Codec/Adapter新增`PLAYER_ROTATION_OVR_BIAS`，合法25–99，30队GM可按软分钟目标自由提出此类动作；所有正式内存修改依旧逐批用户批准和前后读回，原本真实Ability/Potential/Badge保护不放宽。
 
-**实现目标不是精确分钟公式**：按位置OVR及第6人、BenchDepth/BenchUtilization、年龄/体系适配/训练疲劳观察，做可逆的小范围试验与月度复核；该评级影响合同/市场或模拟的副作用没有证据前保持风险警示，GM估值不能把被调高的显示OVR当真实能力。
+DEV13记录首发/第六人/BenchDepth/年轻老将/体系熟练度/实际场均分钟与GM目标分钟，后续正常采集持续改进。这是**操纵AI轮换输入**而不是通过脚本硬锁分钟；别重新研究Intangibles对交易/合同/模拟的副作用。只需确定性准确写入和不触碰相邻字段0x441的最小工程回归。
+
+**如额度不足**：Antigravity可以把原生字段/写入适配细节交付，Codex稍后在已存在DEV14接口上补单个动作，不阻塞GM的P1/P2只读战术分析。
 
 ## 2. 当前额度策略/交付格式
 
 - 先执行**B0单独一轮**。如果Codex运行额度不足，即使只完成H1也可以先交commit；下次同分支继续，不重新开第二套架构。
-- DEV15-A的字段遮蔽**优先于**M3 V4正式GM分析；DEV15-B的内存操作**晚于**DEV13核心只读/GM决策，可以由Antigravity先行定位/研发而不消耗Codex额度。
+- **Potential入库后统一=1的自动脱敏**优先于任何GM V4正式球员分析；Intangibles单字段能力可独立接DEV14，M3后续按真实轮换效果调整，无需额外研究各模块副作用。
 - 不重新搞DEV14 A/B/C/D、完整采集、仓库大迁移、99种倾向重新探址、全部30队策略首次运行、两套GitHub历史快照重发布、117+个重复验收；阶段成功只要求本阶段直接相关测试。
 - 任何阶段都不默认合并GitHub PR、写入游戏存档、采集或更新正式数据库、启用GM V4。已经完成并提交的代码与尚未真实生产验收严格区分。
 - Codex单次输出固定四项：完成变更/commit/PR、定向测试与剩余风险、是否需要Antigravity原生证据、**下一个可独立触发任务**。不报告不能保证的完成时间或额度换算。
