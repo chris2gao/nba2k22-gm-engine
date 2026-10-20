@@ -96,6 +96,8 @@ def migrate_database_schema(conn: sqlite3.Connection):
     ensure_coaching_schema(conn)
     from gm_state_io.capture_bridge import ensure_schema as ensure_state_io_schema
     ensure_state_io_schema(conn)
+    from match_history_reader import ensure_match_history_schema
+    ensure_match_history_schema(conn)
     conn.commit()
 
 
@@ -537,6 +539,19 @@ def _run_automated_ingestion(
         conn.close()
         mem.close()
         raise RuntimeError('COACHING_SOURCE_CAPTURE_FAILED:'+str(exc)) from exc
+
+    # -------------------------------------------------------------------------
+    # 步骤 5: 抓取当前赛季全量比赛历史 (Schedule, LineScore, BoxScore & 进阶高阶数据)
+    # -------------------------------------------------------------------------
+    try:
+        from match_history_reader import MatchHistoryReader, save_match_data_to_db
+        match_reader = MatchHistoryReader(mem=mem, loc=teams_dict, players_db_path=player_pool_stage_path)
+        match_data = match_reader.capture_season_match_data(season_id=f"{season_year-1}-{season_year}")
+        match_summary = save_match_data_to_db(match_data, conn=conn)
+        print(f"[+] 赛季比赛历史全量入库完成: {match_summary['played_games']}/{match_summary['total_schedule_games']} 场完赛, "
+              f"入库 {match_summary['games_stored']} 场比赛, {match_summary['player_boxscores_stored']} 条球员 BoxScore")
+    except Exception as exc:
+        print(f"[*] 比赛历史全量抓取跳过或提示: {exc}")
 
     # A league season has one win/loss and equal scored/conceded points per game.
     balances = cursor.execute("""SELECT sum(total_wins)-sum(total_losses)
