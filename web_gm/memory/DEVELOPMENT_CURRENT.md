@@ -260,3 +260,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **最新决策**：M3必须有战术和训练因果理解，不能只是HOLD/INTERNAL/MARKET叙述能力。已发布[DEV13 M3-T增量集成方案](../../docs/development_tasks/DEV_20261019_13_M3_TACTICAL_DECISION_INTEGRATION_V1.md)，并在PR#4留下集成审阅[discussion](https://github.com/chris2gao/nba2k22-gm-engine/pull/4#issuecomment-6282559304)。保留M3A/M3B现有30队审议/报价/版本/终稿结构；下一步待Antigravity本地新代码由Codex归档线上后，再增量加入同批战术/个人Tendency/训练只读投影、来源索引、D1–D6诊断约束、内外部调整比较、跨交易动作失效、个人字段冲突及审批落地，独立PR；暂不启用GM V4/不操作游戏。
 - **已发现仅在线早期9b4fe87代码风险需在新版本重验**：`tactical_reader.read_team_playbook`目前只输出68槽hex CRC、不含每条Play的Type/目标球员；`tactical_fit_analyzer`凭Pacers名称+Isolation Point特例判UNSERVED并标STATIC_VERIFIED，非真实PlayType交集；Touches≥75/多个创造者、最高教练体系熟练度=最优体系属启发式不可证明胜率；`player_tactics_adapter.execute_single_write`和`matchup_defense_adapter.execute_matchup_write`可接收裸地址/hex写入，函数本身没有career/batch/user approval绑定，正式执行不能直接暴露。**本地新版本是否已经修复未知**，需要Antigravity最新源码、训练导出与实机测试后验证。
 - GM正式经营核心规则：读球员55 Ability（只读）+99行为Tendencies（可逐审批改）+有序4 PlayTypes/真实手册类型/教练体系/逐人防守/训练与疲劳；先判断使用问题、战术缺口和内部修复能否解决，仍缺执行者时再发起经济自洽、对手GM独立接受的交易；原版ACE始终ON，精确分钟不锁定，普通能力值/潜力/徽章严禁直接修改。
+
+## 2026-10-19 新优先级 DEV14：确定性数据库-内存双向I/O底座
+
+- **Codex已获玩家授权开发新DEV14（授权开发不等于授权正式游戏写入）**：[完整开发任务书](../../docs/development_tasks/DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)。DEV14优先于DEV13的M3-T正式接入；M3A/M3B PR #4继续Draft未合并，DEV12由Antigravity在独立本地目录研究原生字段与训练。
+- 数据建模：保留`league_state.sqlite` + `player_pool.sqlite`既有正式事实权威与不可变`full_verified_v1`批次；新增本地`gm_control.sqlite`记录Desired变更/用户Approval/执行Run/Shared Byte Preimages/Receipt/Reconciliation；无30队同构物理表，统一按`career/batch/team/player/side/opponent/slot/field`建模并可创建游戏页面视图。全部字段共享版本化NativeFieldRegistry和read/decode/encode_patch，未知不可假补50。
+- Codex三个阶段A:registry+控制库+stage/validate，B:复用既有CoachingBatchExecutor做审批、共享bitfield合并与条件回滚、按已认证适配器整批写入，C:扩充现有玩家触发`run_data_update.ps1`而不是另造capture路径、SQLite双库审计归档/GM分页查询/approved-applied-vs-observed自动对账。模型只提交稀疏字段变更、执行模型只触发获批批次；即使数千字段也靠Python确定性写入，SQLite事务与进程内存非原子必须区分。
+- 本任务只做定向合成测试与既有M02只读副本，禁止无玩家后续审批自动运行正式RW、采集、发布或合并PR。不直接改玩家原始能力/潜力/徽章；个人Tendency/教练/训练/游戏全局仅按字段允许范围与审批。DEV13已添加先消费DEV14底座而不重复开发执行器的说明。
