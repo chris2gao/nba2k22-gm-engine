@@ -1,5 +1,7 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
+> **2026-10-19 M3-T新决策接口与低额度执行次序**：先读[分批开发顺序](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。正式GM使用M3之前，需按[DEV15-A球探信息遮蔽](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)通过GM安全字段投影隐藏原始Potential，禁止M0/M3/市场SQL间接泄露；M3诊断引入首发/第六人/轮换分钟`minutes_target_band`与实际分钟对账，优先教练BenchDepth等非原生属性调整。仅Antigravity确证PC版`Intangibles/OverallAdjustment`（25–99）不动真实篮球技能且副作用已界定、玩家逐项批准后，才允许单字段例外`PLAYER_ROTATION_OVR_BIAS`通过DEV14执行。该值只是可能影响显示OVR/轮换的策略性代理，**GM市场估值和实力评估不能使用被调整OVR替代真实能力/比赛数据**。本扩展不恢复硬锁分钟，不扩大直接修改原始Ability/Potential/Badge权限。正式动作权限与真人凭据见[DEV14-H安全加固](DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)。
+
 2026-10-19 · owner: Web Development（决策与审阅） · implementation: Codex（M3集成及源数据接入），Antigravity（原生游戏战术与训练接口的开发及实机验证） · authority: USER approval for all game writes.
 
 **决策：M3A/M3B原工程验收保留，不重做P1–P5、不重跑已经通过的业务接口。不把DEV12直接吞进原M3代码。新增M3-T战术证据、GM诊断约束、提案动作与组合依赖整合层，并在GM V4正式启用前完成最小必需部分。**
