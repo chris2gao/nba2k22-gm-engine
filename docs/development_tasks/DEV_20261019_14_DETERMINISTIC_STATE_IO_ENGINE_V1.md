@@ -1,8 +1,9 @@
-# DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1
+# DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1.1
 
 **日期：2026-10-19；执行模型：Codex；原生字段/游戏内存适配来源：Antigravity；需求与审阅：Web Development；游戏修改批准人：玩家。**
 **状态：APPROVED_TO_DEVELOP_BY_PLAYER_REQUEST / GAME_WRITE_NOT_AUTHORIZED / CAPTURE_NOT_TRIGGERED。** 本文件是交付Codex的正式工程任务，不表示任何正式存档已经修改。
 **实施优先级**：DEV14底座先于DEV13的M3-T生产级集成；不推翻已完成的M3A/M3B，不提前启用GM V4/M4。
+**V1.1新增用户需求**：开新档、活动存档切换、可恢复的安全reset。复用`src/save_context.py`按`save_id`物理隔离，最多4个可切换档、同一时刻一个活动档，不采用全库清空。DEV14新增D期。
 
 ## 0. 一句话目标、为什么现在做
 
@@ -36,7 +37,7 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 
 保留事实两库：
 - `database/league_state.sqlite`：正式采集后的游戏观测事实；`player_pool.sqlite`：人物池。不可让执行器直接修改已封存的`snapshot`事实。
-- **新增`database/gm_control.sqlite`（建议本地路径，具体可沿项目已有`save_context`做按career隔离）**：目标配置、审批批次、写入结果、对账与恢复日志索引。实际文件与完整内存日志默认不当GitHub源码跟踪；只在玩家允许的发布流程上传需要的审计摘要。不得把未批准`desired`发布为`observed`。
+- **新增`database/saves/<save_id>/gm_control.sqlite`（每个存档各一份，复用`save_context`隔离，不允许全局共享）**：目标配置、审批批次、写入结果、对账与恢复日志索引。实际文件与完整内存日志默认不当GitHub源码跟踪；只在玩家允许的发布流程上传需要的审计摘要。不得把未批准`desired`发布为`observed`。
 
 数据库“按游戏页面区分逻辑视图、但按对象类型共享物理表”：**不创建30个完全相同的Pacers/Warriors/Lakers战术表，也不为USER/CPU维持两份冗余迁移代码**。例如`gameplay_settings`有`side=USER/CPU`，并可创建`v_gameplay_user`与`v_gameplay_cpu`视图；球队字段用**经过观测验证的原生team_id**。
 
@@ -53,7 +54,7 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 - 玩家Tendencies、4 Play Types、团队训练、单个matchup个人防守等表可按访问效率使用窄表`player_tendencies`、`player_playtypes`、`team_training`、`personal_defense`；禁止读一条记录便擅自声称所有字段完整已采。
 - 个体记录使用`career_id + snapshot_id + verified identity`；Playtype再加`slot 1..4`，防守再加`owner,opponent,target-player,defender,field`；个人改变归属时旧意图不能自动拿新队应用。player_id与GM查询的`batch-scoped identity`映射必须复核；`matchup_id`不得凭名字直接当通用全局ID。
 
-**控制库（新`gm_control.sqlite`）**：
+**控制库（每档私有`database/saves/<save_id>/gm_control.sqlite`）**：
 1. `desired_change_sets`：`change_set_id,career_id,source_batch_id,source_snapshot_id,profile_version,decision_id,version,status,created_at,change_digest,origin_model,reason`；
 2. `desired_changes`：`change_set_id,action_id,target_kind,team_id,player_id,opponent_team_id,defender_id,slot,side,field_key,expected_observed_raw,target_value_json,field_registry_version,reason,dependencies`；UNIQUE`(change_set_id,action_id)`，逻辑字段冲突按**真实对象键**，非名字；
 3. `approval_records`：`change_set_id,approved_digest,career_id,source_batch_id,decision_id,version,approved_action_ids,approved_scope,player_approval_reference,approved_at`；**存在一条approve记录不等于模型可自行创建该记录**，由玩家明确批准流程写入；
@@ -74,6 +75,53 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 - `TEAM_TRAINING(team_id,training_period,field_key)`；`PLAYER_TRAINING(team_id,player_identity,training_period,field_key)`、`MENTOR(team_id,player_identity,mentor_identity,slot)`。
 
 这些都是**业务标识**，不是具体进程地址。由执行时的locator解析进程当前地址，并验证所属save/team/roster。
+
+## 2A. 新增存档生命周期与重置（V1.1，必须实现）
+
+### 2A.1 决策：方案二，但只允许一个活动存档
+
+**不采用方案一“每次开档把所有SQLite中的业务数据清空”。** 推荐方案二的**物理按档隔离**：最多同时登记4个可切换工作区，实际只有1个ACTIVE。旧档不会因切换而失去球队数据、审批历史、player_pool、不可变发布批次和GM分析记忆。用户绝大多数时间只用1档时，界面只面对ACTIVE即可，模型无须管理4档数据。
+
+**此架构已存在可复用基石，不需要开发多租户共表**：`src/save_context.py`已通过`save_paths(save_id)`生成`database/saves/<save_id>/league_state.sqlite`、`player_pool.sqlite`、`snapshots/`、`backups/`、`evaluations/`；`create_or_open_save()`由干净的`database/templates/league_template_v2.sqlite`建立新档，并在`save_metadata`验证save_id。`src/auto_pipeline_ingest.py`已调用`resolve_context(save_id)`，`scripts/run_data_update.ps1`必须提供`-SaveId`，M0`database/query_snapshots/<career>/<batch>`与`published/saves/<save_id>/latest.json`也按档隔离。
+
+**已知实际风险**：`resolve_context(None)`还会退回`legacy-shared`根目录数据库；`monthly_snapshots.snapshot_id`基于赛季/月，不包含career，若放进一份共享事实库，A/B档相同M02会相撞、现有`ON CONFLICT`/删除可能覆盖别的档。**DEV14新入口必须拒绝隐式shared，不得将多个save_id的事实写进一份SQLite。** 保留旧CLI兼容但新控制执行强制显式/可信活动绑定。
+
+### 2A.2 目录/绑定/schema
+
+在每档现有目录新增：
+- `database/saves/<save_id>/gm_control.sqlite`：该档私有的Desired/Approval/Execution/Journal索引/Reconciliation，不能放到全局共享`database/gm_control.sqlite`。
+- `database/saves/<save_id>/workspace.json`：至少`save_id,save_instance_id,generation_id,schema_version,created_at,lifecycle_status,manifest_digest`。不同新游戏存档必须有不同save_id或generation；同名重新开档必须推新代次，旧审批一律失效。
+- `database/active_save.json`：全局唯一活动指针，至少`save_id,save_instance_id,generation_id,activation_status,activated_at`，持久化时原子替换。其他非活动档允许显式只读历史查询，不得成为默认修改目标。
+- 可选`database/saves/<save_id>/reset_archives/<generation>/`：老代次三库及控制日志的密封一致性备份；不同save_id不可互相恢复。
+
+最多**4个非RETIRED的可切换存档工作区**，超限拒绝新建、不自动删档；retire保留历史且腾出名额。绝不自动删除历史`published`、已审计`query_snapshots`、旧`latest`或别档数据。游戏实例标识≠队伍标识，不能靠30队名单相同推断载入同一个真实存档。
+
+### 2A.3 明确三种业务操作
+
+1. **create / activate（优先，非破坏）**：`save create --save-id NEW`用现有clean template创建空事实库和新gm_control；`save activate --save-id X`只切换本地唯一活动绑定，不自动加载游戏存档、不采集、不提交GM决策、更不能自动向游戏内存写入。激活后首次状态`NEW_UNCAPTURED`，直到用户加载对应NBA2K22存档并正式触发一次`full_verified_v1`采集形成同代次快照才能执行GM决策。重复`create`不得擦旧档。
+2. **switch / deactivate / retire（无破坏）**：切档前校验当前没有`APPLYING`、`PREFLIGHT_OK`、`PARTIAL_UNRECOVERED`等未解决的写入/回滚任务；检查目标库`save_metadata`、身份/版本、控制库及快照归属。`save list/status`只读；`save deactivate`不丢数据；`save retire`需玩家明确批准，历史档保持只读可恢复。
+3. **reset（**危险的例外操作**）**：用户坚持在**同一个save_id下重开全新游戏世界**时，才允许`save reset --save-id X --dry-run`→展示将替换的三库、审批记录及归档路径→玩家对`save_id + generation + manifest digest`二次明确确认→**先密封归档，再由干净模板创建新generation**，不能执行`DELETE FROM ALL TABLES`。默认建议为新世界使用新save_id；若现有published代次协议无法识别新旧generation，则同名reset必须`BLOCKED_UNSUPPORTED_GENERATION`，直接建议创建新ID，而不是破坏旧发布数据。
+
+### 2A.4 reset的确定性安全细节
+
+- reset/activate/retire/create都要和`stage/apply/capture/publish/reconcile`共用生命周期互斥锁；不允许正在游戏写入时切档。模型只能调用固定CLI，不允许`--all`/`--force`/任意目录路径、裸SQL或通配清库。
+- 目标存档的`league_state.sqlite`、`player_pool.sqlite`、`gm_control.sqlite`与执行journal必须保留完整一致备份；SQLite活动/WAL数据库用`Connection.backup()`创建归档，不要直接复制正在使用的SQLite文件。归档附带hash、save_id、generation、版本/最新batch/来源metadata。归档校验失败则原档完全不动。
+- 多份SQLite文件没有跨文件原子替换。推荐**先准备完整新代次目录与三库，校验无误后一次提交活动manifest/指针**，或采用有持久activation journal和中断恢复的等效方案；任何程序只按已提交generation读取同一组三库。崩溃后必须恢复旧完整generation，或进入`RESET_INTERRUPTED_BLOCKED`，禁止“新league + 旧pool + 旧control”混合。
+- 新generation必须清空**该档业务数据**但保留数据库Schema、静态球队目录/外键参考、合法枚举等必要模板初始值；控制库无审批、无目标、无已执行事项。人物池如果只能通过正式采集生成，创建时可为缺失/空但标`NOT_CAPTURED`，**不可偷偷拿上一代player_pool冒充新档**。
+- 当前`published/saves/<save_id>/latest.json`与不可变history如果不支持generation，则绝不把上一代latest当新档；无法升级发布协议即要求换新save_id，避免使历史快照/脚本索引失效。
+- 用户输入`--save-id`不是游戏内存已加载哪个save的证明。必须优先获取游戏中可验证的save实例来源/唯一锚点；若缺乏，标`GAME_SAVE_BINDING_UNVERIFIED`并阻止无人监督的正式内存写。仅以玩家显式确认和可核验源事实作为人工降级措施，执行回执必须披露无法独立唯一辨别的风险。
+- 每项`change_set`绑定`save_id + generation + source_batch + decision_version + digest`；跨档同球员/同M02/同decision ID均无关联。切回旧档时不得静默执行此前挂起的已批准batch，必须针对实际载入状态重新preflight。
+- 正常月度采集**绝不是reset**：保留旧M02/历史赛季数据；新档建库不修改旧档历史记录或释放旧的玩家批准。
+
+### 2A.5 本项验收（只需合成+现有M02静态副本）
+
+1. 创建A/B，两个档都有相同的`2021-2022_M02`与同样的球员ID，但事实、player_pool、控制库、审批与快照不串档。
+2. A为ACTIVE，`activate B`成功后只改变active绑定；不写游戏、不采集、不发布，A未完成方案不能在B执行。四档限额/retire生效。
+3. 没有可靠真实游戏档身份、无active、请求错档或旧generation时，`apply/capture`必须阻断；历史查询`--career A`只读不切换ACTIVE。
+4. 无确认`reset A`直接拒绝；确认后仅A进入新generation的`NEW_UNCAPTURED`，B不受影响，旧A归档可回读且旧批准不可新代次执行。
+5. 注入归档和新代次提交中途故障：只能看到旧完整generation或新完整generation，不可混三库；发生未恢复内存写入时切档/reset拒绝。
+6. 新DEV14 CLI不允许默认`legacy-shared`，但不破坏旧版本`resolve_context(None)`的历史兼容；历史published旧代次不能成为同名新世界的当前来源。
+
 
 ## 3. 核心确定性管道：三个简单入口，模型不直接处理千条地址
 
@@ -178,7 +226,7 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 - 世界配置此前已有Antigravity制作的可复用原值表，待其本地资料由玩家/Codex提供后按`registry`导入；文档未提供的raw默认值不编造。
 - 旧快照保持不可变；代码和schema迁移向前兼容，可通过显式schema_version执行迁移。不因这次创建第三SQLite就重做M0安全ACL/静态双库路径。
 
-## 7. 开发切分：A/B/C三期由Codex一条任务完成
+## 7. 开发切分：A/B/C加D存档管理，由Codex同一任务完成
 
 ### DEV14-A：规范化字段与控制数据模型
 
@@ -212,10 +260,18 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 
 完成标准：合成全量采集一套 + 已有M02静态SQLite离线只读校验，不重采真实比赛/跨赛季模拟或大规模端到端游戏测试；生产新数据随下次玩家触发真正的full_verified_v1自然出现。
 
+### DEV14-D：单活动存档、开新档与安全重置（新增必做）
+
+直接实现第2A节的`save list/status/create/activate/deactivate/retire/reset`接口和每档`gm_control.sqlite`，复用现有`src/save_context.py`、M0按career快照隔离及唯一采集入口。优先无损`create + activate`，不要开发四套互不相同的执行器；危险同名reset可以在历史published代次不兼容时阻断并要求新save_id，不准冒险清库。
+
+完成标准：两存档同名M02数据不会相撞、仅活动档可执行、切档无需删除数据、reset写前有完整备份与严格确认、失败可恢复/明确阻断，旧审批不会继承到新代次。使用定向合成测试，不触碰正式游戏。
+
+
 ### 交付物清单
 
 - 代码：`src/gm_state_io/`共享registry、schema/stage/validator/executor/capture/reconcile及`scripts/gm_state_io.py`（或更贴近仓库的等价模块名称）；
-- DB：`database/gm_control_schema.sql`和实际迁移逻辑；已有事实表必要增量迁移；README描述按游戏页面逻辑视图而非30物理表；
+- DB：`database/gm_control_schema.sql`和实际迁移逻辑；每档`database/saves/<save_id>/gm_control.sqlite`私有化；已有事实表必要增量迁移；README描述按游戏页面逻辑视图而非30物理表；
+- 存档生命周期：复用`src/save_context.py`、活动manifest/generation、开新档/切档/安全reset命令与两档隔离验收。
 - 文档：`docs/DEV14_STATE_IO_RUNBOOK.md`（字段登记/CLI/审批/异常恢复/数据源/部署步骤）；`docs/development_reviews/DEV14_ACCEPTANCE.md`（仅直接相关的有限检查及实际未验收项）；
 - 集成：`config/source_catalog.json`能力说明；`web_gm/memory/DEVELOPMENT_CURRENT.md`索引；`docs/development_tasks/DEV_20261019_13_M3_TACTICAL_DECISION_INTEGRATION_V1.md`补充DEV14依赖（只写说明，DEV13代码开发不在本任务范围）；
 - PR：独立DEV14分支/PR，具体提交、影响路径、离线运行示例和未实现的原生字段列表。**不自动合并**。
@@ -237,10 +293,10 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 
 - 仓库：`chris2gao/nba2k22-gm-engine`。
 - 权威任务文档：`docs/development_tasks/DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md`。
-- 请直接完成A/B/C三期工程，在**独立工作分支**实现并提交PR；保留已有M0/M1/M2、M3 Draft和19+18教练执行器的结构；不征求重复技术方案确认。
+- 请直接完成A/B/C以及D存档管理四项工程，在**独立工作分支**实现并提交PR；保留已有M0/M1/M2、M3 Draft和19+18教练执行器的结构；不征求重复技术方案确认。
 - 先看现有M0数据库与`src/coaching_batch_executor.py`，**从它们抽取最小可行公共实现，而不是另建庞大数据库服务或一堆独立字段脚本**。
 - 你负责确定性数据库和执行/采集内核；Antigravity后续提供字段目录和本地原生适配器。缺失的原生数据明确标BLOCKED，而不编造地址、不为其停工。
 - 正式游戏内存写入与全量采集只有玩家另外明确触发时才执行；本任务授权开发和合成/静态副本验证，**不授权影响当前存档**。
-- 完成后回复：源码PR、schema/字段注册、运行CLI示例、直接相关测试、哪些域已接入、哪些域因Antigravity本地文件未到位未完成、下一步如何供DEV13的GM决策使用。
+- 完成后回复：源码PR、schema/字段注册、包含save create/activate/reset dry-run在内的CLI示例、两档隔离与中断恢复定向测试、哪些域已接入、哪些域因Antigravity本地文件未到位、下一步如何供DEV13的GM决策使用。
 
 **成功定义：无论30队涉及几十还是上千项调整，模型只提交少量结构化意图与获批批次ID；由确定性程序读取正确事实、执行可认证字段、核对游戏实际结果并给GM提供可回查的可信下一批次事实。**
