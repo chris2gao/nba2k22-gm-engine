@@ -99,6 +99,8 @@ def export_snapshot(save_id, snapshot_id):
     source_pool_hash = file_sha256(paths["player_pool_db_path"])
     league, pool = connect(paths["db_path"]), connect(paths["player_pool_db_path"])
     try:
+        from player_potential_mask import verify_sanitized_pair
+        potential_mask = verify_sanitized_pair(league,pool,snapshot_id)
         metadata = league.execute("SELECT * FROM monthly_snapshots WHERE snapshot_id=?", (snapshot_id,)).fetchone()
         context = decode_context(metadata["notes"])
         if context.get("career_id", save_id) != save_id:
@@ -147,6 +149,8 @@ def export_snapshot(save_id, snapshot_id):
                               potential=detail['attributes']['potential']['value'],
                               contract_salary_schedule=[detail['contract'][f'contract_year_{i}']['value'] for i in range(1, 7)],
                               full_cba_ledger_verified=False)
+                from player_potential_mask import MARKERS
+                player.update(MARKERS)
         staff = [{"staff_slot": row["staff_slot"], "first_name": row["first_name"], "last_name": row["last_name"],
                   "observed_candidate_team_id": row["raw_team_id"], "team_id": None,
                   "team_mapping_status": row["team_mapping_status"]} for row in league.execute(
@@ -167,6 +171,8 @@ def export_snapshot(save_id, snapshot_id):
         models = []
         for row in pool.execute("SELECT * FROM player_pool ORDER BY slot_id"):
             model = public_row(row)
+            from player_potential_mask import MARKERS
+            model.update(MARKERS)
             if model.get('source_details_json'):
                 model['source_details'] = json.loads(model.pop('source_details_json'))
             model["model_category"] = "HISTORICAL_ROOKIE" if is_historical_rookie(row["raw_struct"]) else "OTHER_UNCLASSIFIED"
@@ -285,6 +291,7 @@ def export_snapshot(save_id, snapshot_id):
             files = {path.relative_to(bundle).as_posix(): {"bytes": path.stat().st_size}
                      for path in sorted(bundle.rglob("*")) if path.is_file()}
             manifest = {"schema_version": 2, "sync_mode": "TIMESTAMP_ONLY", "data_updated_at": data_updated_at,
+                        "player_potential_mask":potential_mask,
                         "batch_id": batch_id, "save_id": save_id, "snapshot_id": snapshot_id,
                         "captured_at_utc": source_manifest["timestamp"], "exported_at_utc": datetime.now(timezone.utc).isoformat(),
                         "context": context, "gm_decisions_allowed": context["purpose"] == "production",

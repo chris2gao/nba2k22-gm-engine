@@ -1,5 +1,18 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 DEV14-H / DEV15：PR #5增量工程（未合并）
+
+代码版本`DEV14_V1.2_H_DEV15`，控制库user_version仍1；新增观察策略表`player_potential_masks`，M0保留`gm_sqlite_m0_v1`并增加rotation域和`require_gm_sanitized()`。Registry指纹随字段/策略改变。证据和最终提交查[DEV14_TO_M3_HANDOFF](development_reviews/DEV14_TO_M3_HANDOFF.md)，本节不代表main部署或正式游戏验收。
+
+- H1：league/pool/control三库实际save/instance/generation与capture_id/snapshot/时间一致；先暂存、日志安装，失败恢复旧完整文件；PREPARED中断阻断托管入口，显式`save recover-capture`恢复，不释放未解决的原生写锁。
+- H2按玩家2026-10-20最新决定简化：保留聊天中的具体方案批准、完整tuple/显式写入开关和原值回读，信任操作者批准引用（MANUAL_OPERATOR_TRUST_ONLY），不研究防伪或独立OS权限。apply/rollback可由Codex执行，review仅可选；文件或approved=true本身不构成批准。3项直接相关增量检查通过，不追加隔离研发。
+- DEV15：full_verified_v1自动在原生RO采集及初步校验后、库安装/hash/JSON/backup/M0之前净化Potential；pool/roster/DEV14 PLAYER镜像的结构化、JSON和0x441均为1。记录覆盖数和非Potential字节指纹；Staff及游戏内存不变。旧M02/Release/Git历史不修改、禁供GM，无脱敏标记旧包禁止重发；公开旧历史仍可能含原值，未声称删除。新生产批次仍待玩家触发。
+- Intangibles：`rotation.intangibles` / `PLAYER_ROTATION_OVR_BIAS`，25–99，profile/rating codec、唯一0x440、批准/CAS/回读/恢复；不开放其他能力或锁分钟。正式写入/UI效果/存盘均未验证。
+- 普通GM：19默认的原生能力保留，PlaybookID仅限TEAM_BOOK_REBIND；整体18项只读、个人18项受控。本队同名已加载书68槽可编辑，新档/已确认换帅后绑定需独立人工确认，绑后重新取源再改槽。6+5训练、4PlayTypes/Initiator、48命名倾向沿用；51未知倾向、疲劳和CRC真实行为仍UNKNOWN。
+- 窗口职责：只交DEV14底层；PR#4须接新的脱敏检查和Registry/operation合同后独立做M3-T。未合并PR、运行真实采集/发布/游戏写入或启用GM V4。
+
+手册：[DEV15](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[GM数据语义](../web_gm/manuals/GM_POTENTIAL_FOG_AND_ROTATION_BIAS.md)。下方历史记录按本节新策略解释。
+
 ## 2026-10-19 DEV14 V1.1：确定性状态 I/O 与多存档底座
 
 独立 `codex/dev14-state-io` 分支实现 A/B/C/D，未合并前不称 main 已部署。入口 `scripts/gm_state_io.py`，手册 [DEV14_STATE_IO_RUNBOOK](DEV14_STATE_IO_RUNBOOK.md)，实际验收见 [DEV14_ACCEPTANCE](development_reviews/DEV14_ACCEPTANCE.md)。沿用原生 coach/defense codecs、进程锁、full_verified_v1、SQLite backup、M0；GM 只给稀疏意图，Observed/Desired/Applied 分库、实例/代次/来源批次/批准摘要绑定。真实采集和游戏写入本轮均未触发，GM V4 未启用。

@@ -22,10 +22,12 @@ DEFAULTS = {
     'picks': ('asset_id','owner','original_team_id','draft_year','draft_round','trade_eligible'),
     'finance': ('team','total_salary','payroll','budget','cash','cash_signed32_hypothesis','financial_eligibility'),
     'finance_semantics': ('field','offset','encoding','unit','time_scope','financial_eligibility'),
+    'native_objects': ('identity','object_key','target_kind','team_id','selector','native_identity','source_status'),
+    'native_books': ('identity','name','enum_id','index','unique_id'),
 }
-for _domain in ('world','gameplay','tactics','tendency','training','personal_defense'):
+for _domain in ('world','gameplay','tactics','tendency','training','personal_defense','rotation'):
     DEFAULTS[_domain] = ('identity','object_key','team_id','player_identity','side','field_key','value','source_status')
-JSON_FIELDS = {'attributes','contract','season_totals','system','freelance','sliders','values','mixed_fields','readiness','value'}
+JSON_FIELDS = {'attributes','contract','season_totals','system','freelance','sliders','values','mixed_fields','readiness','value','selector','native_identity','field_keys'}
 FUNCTIONS = {'count','sum','avg','min','max','total','round','abs','coalesce','ifnull','nullif',
              'lower','upper','length','substr','like','instr','in','json_extract','json_remove','json_object',
              'json_array','json_valid','rookie_marker','trim','typeof','row_number','rank','dense_rank'}
@@ -40,6 +42,9 @@ class QuerySession:
         self.directory = Path(root).resolve()/career/batch
         self.record = load_snapshot(root, career, batch)
         self.binding = source_binding(self.record, published, career, batch)
+        mask=self.record['source_manifest'].get('player_potential_mask',{})
+        self.binding['player_potential_visibility']='MASKED' if mask.get('potential_mask_version')=='potential_v1' else 'UNMASKED_HISTORICAL_EXCLUDED_FROM_GM'
+        self.binding['production_gm_eligible'] = self.binding['production_gm_eligible'] and self.binding['player_potential_visibility']=='MASKED'
         self.c = sqlite3.connect(':memory:', timeout=2, uri=True)
         self.c.row_factory = sqlite3.Row
         try:
@@ -68,6 +73,14 @@ class QuerySession:
 
     def close(self):
         self.c.close()
+
+    def require_gm_sanitized(self):
+        """GM-role access policy; old audited M0 owner reads stay read-only."""
+        mask = self.record['source_manifest'].get('player_potential_mask',{})
+        if mask.get('potential_mask_version') != 'potential_v1' or mask.get('source_role') != 'GM_SANITIZED':
+            raise AccessError('UNMASKED_HISTORICAL_BATCH_EXCLUDED_FROM_GM',
+                              'GM requires a new potential_v1 sanitized capture; do not rewrite sealed history')
+        return mask
 
     def _views(self):
         sid = "'"+self.binding['snapshot_id'].replace("'","''")+"'"
@@ -154,7 +167,21 @@ class QuerySession:
         self.c.execute('CREATE TEMP TABLE finance_dictionary(field,offset,encoding,unit,time_scope,evidence,financial_eligibility,usable_as_signing_capacity,evidence_file)')
         self.c.executemany('INSERT INTO finance_dictionary VALUES (?,?,?,?,?,?,?,?,?)', [tuple(r.values()) for r in semantics()])
         view('finance_semantics','SELECT field,offset,encoding,unit,time_scope,evidence,financial_eligibility,usable_as_signing_capacity,evidence_file FROM finance_dictionary')
-        for name in ('world','gameplay','tactics','tendency','training','personal_defense'):
+        view('native_objects',f"""SELECT o.object_key AS identity,o.object_key,
+            json_extract(o.object_json,'$.selector.target_kind') AS target_kind,
+            json_extract(o.object_json,'$.selector.team_id') AS team_id,
+            json_extract(o.object_json,'$.selector.opponent_team_id') AS opponent_team_id,
+            json_extract(o.object_json,'$.selector') AS selector,
+            json_extract(o.object_json,'$.identity') AS native_identity,
+            json_extract(o.object_json,'$.field_keys') AS field_keys,
+            json_extract(o.object_json,'$.source_status') AS source_status
+            FROM facts.state_io_objects o WHERE o.snapshot_id={sid}""")
+        view('native_books',f"""SELECT 'book:'||json_extract(b.value,'$.index')||':'||json_extract(b.value,'$.enum_id')||':'||json_extract(b.value,'$.unique_id') AS identity,
+            json_extract(b.value,'$.name') AS name,json_extract(b.value,'$.enum_id') AS enum_id,
+            json_extract(b.value,'$.index') AS "index",json_extract(b.value,'$.unique_id') AS unique_id
+            FROM facts.state_io_captures s,json_each(json_extract(s.metadata_json,'$.source_context.playbooks')) b
+            WHERE s.snapshot_id={sid}""")
+        for name in ('world','gameplay','tactics','tendency','training','personal_defense','rotation'):
             domain = 'defense' if name=='personal_defense' else name
             predicate = " AND v.target_kind='PERSONAL_DEFENSE'" if name=='personal_defense' else ''
             view(name, f"""SELECT v.object_key||':'||v.field_key AS identity,

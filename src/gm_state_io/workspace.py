@@ -102,27 +102,50 @@ class Workspaces:
         return w
 
     def check_databases(self, w):
+        from .capture_files import metadata, sync_origin, require_complete, SOURCE_KEYS
         paths = save_context.save_paths(w['save_id'])
-        for key, table in (('db_path', 'save_metadata'), ('control_db_path', 'control_metadata')):
+        require_complete(paths)
+        metas, origins = {}, {}
+        for key, table in (('db_path', 'save_metadata'), ('player_pool_db_path', 'save_metadata'),
+                           ('control_db_path', 'control_metadata')):
             p = Path(paths[key])
             if not p.exists():
-                raise ValueError('WORKSPACE_DATABASE_MISSING')
+                raise ValueError('POOL_SAVE_BINDING_MISMATCH' if key == 'player_pool_db_path' else 'WORKSPACE_DATABASE_MISSING')
             c = sqlite3.connect(p.as_uri()+'?mode=ro', uri=True)
             try:
-                meta = dict(c.execute('SELECT key,value FROM '+table))
+                meta = metadata(c, table)
                 if any(meta.get(k) != v for k, v in binding(w).items()):
-                    raise ValueError('WORKSPACE_DATABASE_BINDING_MISMATCH')
+                    raise ValueError('POOL_SAVE_BINDING_MISMATCH' if key == 'player_pool_db_path' else 'WORKSPACE_DATABASE_BINDING_MISMATCH')
+                metas[key] = meta
+                if key != 'control_db_path':
+                    origins[key] = sync_origin(c)
             finally:
                 c.close()
+        if origins['db_path'] != origins['player_pool_db_path']:
+            raise ValueError('POOL_SOURCE_METADATA_MISMATCH')
+        origin = origins['db_path']
+        if origin and origin[1] != w['save_id']:
+            raise ValueError('POOL_SAVE_BINDING_MISMATCH')
+        # Before the first hardened capture older enrolled generations have only
+        # binding metadata. Once any source token exists, require it in all three.
+        if any(k in meta for meta in metas.values() for k in SOURCE_KEYS):
+            expected = {k: metas['db_path'].get(k) for k in SOURCE_KEYS}
+            if not all(expected.values()) or any(any(meta.get(k) != v for k,v in expected.items()) for meta in metas.values()):
+                raise ValueError('POOL_SOURCE_METADATA_MISMATCH')
+            if not origin or origin != (expected['capture_snapshot_id'], w['save_id'], expected['capture_updated_at']):
+                raise ValueError('POOL_SOURCE_METADATA_MISMATCH')
         return paths
 
-    def idle(self):
+    def idle(self, *, recovering_capture=None):
+        from .capture_files import require_complete
         from coaching_execution_lock import DEFAULT_LOCK_ROOT
         if DEFAULT_LOCK_ROOT.exists():
             for path in DEFAULT_LOCK_ROOT.glob('*.lock'):
                 if load(path).get('status')=='WRITE_PHASE_UNRESOLVED_UNTIL_JOURNAL_FINALIZED':
                     raise RuntimeError('UNRESOLVED_NATIVE_WRITE_REQUIRES_MANUAL_REVIEW')
         for w in self.list():
+            if w['save_id'] != recovering_capture:
+                require_complete(save_context.save_paths(w['save_id']))
             journal=self.path(w['save_id']).parent/'reset_activation.json'
             if journal.exists() and load(journal).get('status')=='PREPARED':
                 raise RuntimeError('RESET_INTERRUPTED_BLOCKED')
@@ -135,6 +158,22 @@ class Workspaces:
                 rows = c.execute('SELECT status FROM execution_runs').fetchall()
                 if any(r[0] in UNRESOLVED for r in rows):
                     raise RuntimeError('UNRESOLVED_WRITE_BLOCKS_SAVE_LIFECYCLE')
+
+    def recover_capture(self, save_id, confirmation):
+        """Explicit last-good restoration; never auto-unlock native write state."""
+        from .capture_files import restore, journal_path
+        with lifecycle_lock():
+            w = self.read(save_id)
+            if confirmation != w['manifest_digest']:
+                raise PermissionError('EXPLICIT_CAPTURE_RECOVERY_MANIFEST_REQUIRED')
+            self.idle(recovering_capture=save_id)
+            paths = save_context.save_paths(save_id)
+            journal = load(journal_path(paths))
+            if journal['status'] != 'PREPARED':
+                raise ValueError('NO_INCOMPLETE_CAPTURE_TO_RECOVER')
+            restore(paths, journal)
+            self.check_databases(w)
+            return dict(status='LAST_GOOD_CAPTURE_RESTORED', **binding(w))
 
     def _fresh(self, w, paths):
         save_context.initialize_save(paths)
@@ -176,11 +215,30 @@ class Workspaces:
             paths = save_context.save_paths(save_id)
             if not Path(paths['db_path']).exists():
                 raise ValueError('EXISTING_SAVE_REQUIRED')
+            # Adoption is a conscious enrollment of an existing complete cohort,
+            # never permission to relabel a foreign/missing pool.
+            from contextlib import closing
+            from .capture_files import sync_origin, put_metadata
+            if not Path(paths['player_pool_db_path']).exists():
+                raise ValueError('POOL_SAVE_BINDING_MISMATCH')
+            origins = []
+            for key in ('db_path', 'player_pool_db_path'):
+                with closing(sqlite3.connect(Path(paths[key]).as_uri()+'?mode=ro', uri=True)) as c:
+                    origins.append(sync_origin(c))
+                    tables = {r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+                    if 'save_metadata' in tables:
+                        prior = dict(c.execute('SELECT key,value FROM save_metadata'))
+                        if prior.get('save_id', save_id) != save_id or any(prior.get(k) for k in ('save_instance_id','generation_id')):
+                            raise ValueError('EXISTING_DATABASE_ALREADY_BOUND')
+            if origins[0] is None or origins[0] != origins[1] or origins[0][1] != save_id:
+                raise ValueError('POOL_SOURCE_METADATA_MISMATCH')
             save_context.create_or_open_save(save_id)
             w = dict(save_id=save_id, save_instance_id=uuid4().hex, generation_id=uuid4().hex,
                      schema_version=1, created_at=now(), lifecycle_status='NEW_UNCAPTURED', data_directory='.')
             with connect(paths['db_path']) as c:
                 c.executemany('INSERT OR REPLACE INTO save_metadata VALUES (?,?)', binding(w).items())
+            with connect(paths['player_pool_db_path']) as c:
+                put_metadata(c, binding(w))
             initialize(paths['control_db_path'], w)
             return self.write(w)
 

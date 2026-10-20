@@ -11,6 +11,9 @@ def decode(raw, field):
     part = raw[off:off+size]
     if len(part) != size:
         raise ValueError('INCOMPLETE_NATIVE_OBJECT')
+    if f.get('encoding') == 'rating':
+        from config import raw_to_rating
+        return raw_to_rating(part[0])
     if f.get('encoding','').startswith('float32'):
         value = struct.unpack('<f', part)[0]
         if not math.isfinite(value):
@@ -80,6 +83,9 @@ def encode_patch(raw, changes, registry, playbooks=()):
                 raise ValueError('OVERLAPPING_FIELD_MASKS')
             if f.get('encoding','').startswith('float32'):
                 after = struct.pack('<f', value/100 if f['encoding']=='float32_percent' else value)
+            elif f.get('encoding') == 'rating':
+                from config import rating_to_raw
+                after = bytes([rating_to_raw(value)])
             else:
                 previous = int.from_bytes(bytes.fromhex(group['after']), 'little')
                 after = ((previous & ~mask) | (value << shift)).to_bytes(size, 'little')

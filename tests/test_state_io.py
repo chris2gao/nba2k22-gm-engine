@@ -58,6 +58,23 @@ class FakeSession:
     def close(self):pass
 
 
+class SupervisedSyntheticExecutor(Executor):
+    """Drive the actual foreground review with synthetic operator input only."""
+    def run(self, plan, approval, *, rollback=False, supervision=None):
+        from gm_state_io.approval import review
+        from gm_state_io.executor import require_approval
+        require_approval(plan, approval)
+        answers=[':'.join(binding(plan).values()),'EDITORS CLOSED','SYNTHETIC_PLAYER_APPROVAL',
+                 'APPROVE '+('ROLLBACK' if rollback else 'APPLY')+' '+plan['digest']]
+        if plan.get('operation') == 'TEAM_BOOK_REBIND':
+            event=plan['event']
+            answers.insert(3,'CONFIRM '+event['kind']+' '+event['reference'])
+        with patch('sys.stdin.isatty',return_value=True), patch('sys.stdout.isatty',return_value=True), \
+             patch('builtins.input',side_effect=answers), patch('builtins.print'):
+            with review(plan,rollback=rollback) as (human,token):
+                return super().run(plan,human,rollback=rollback,supervision=token)
+
+
 class FullCaptureSession:
     """Complete 30-team synthetic native source, including noncontinuous ID 31."""
     def __init__(self, reg):
@@ -155,7 +172,7 @@ class StateIOTests(unittest.TestCase):
                                 loaded_save_confirmation=':'.join(binding(plan).values()),editors_closed=True)
 
     def executor(self):
-        return Executor(self.reg,lambda ro:FakeSession(self.state,ro),self.root/'locks')
+        return SupervisedSyntheticExecutor(self.reg,lambda ro:FakeSession(self.state,ro),self.root/'locks')
 
     def test_stage_sparse_shared_coach_bits_and_two_sides(self):
         before=Path(save_context.save_paths('A')['db_path']).read_bytes()
@@ -333,6 +350,12 @@ class StateIOTests(unittest.TestCase):
                 self.assertEqual(result['row_count'],20)
                 self.assertTrue(result['next_cursor'])
                 self.assertEqual(q.query('gameplay',filters={'side':'CPU'})['row_count'],4)
+                self.assertEqual(q.query('rotation',filters={'team_id':31})['row_count'],2)
+                native=q.query('native_objects',filters={'team_id':31},limit=20)
+                self.assertEqual(native['row_count'],20)
+                self.assertIsInstance(native['rows'][0]['selector'],dict)
+                self.assertNotIn('raw',native['rows'][0])
+                self.assertEqual(q.query('native_books')['rows'][0]['enum_id'],0)
             finally:q.close()
 
     def test_overall_bulk_and_personal_conflict_noop_and_shared_playbook(self):
@@ -342,14 +365,16 @@ class StateIOTests(unittest.TestCase):
         overall=next(o for o in source['objects'] if o['selector']['target_kind']=='OVERALL_DEFENSE')
         prop=dict(decision_id='DEF',version=1,reason='synthetic',changes=[dict(action_id='def',object_key=overall['object_key'],
                     field_key='overall.PressureOnball',target_value=1,reason='synthetic')])
+        with self.assertRaisesRegex(PermissionError,'OVERALL_DEFENSE_GM_DISABLED_USE_PERSONAL'):
+            build_plan(prop,source,self.reg,self.a)
+        personal=next(o for o in source['objects'] if o['selector']['target_kind']=='PERSONAL_DEFENSE' and o['selector']['team_id']==overall['selector']['team_id'] and o['selector']['opponent_team_id']==overall['selector']['opponent_team_id'])
+        prop['changes']=[dict(action_id='personal',object_key=personal['object_key'],field_key='personal.PressureOffball',target_value=1,reason='synthetic')]
         p=build_plan(prop,source,self.reg,self.a)
         self.assertEqual(len(p['blocks']),2)
         self.assertEqual(p['blocks'][-1]['selector']['target_kind'],'GAMEPLAN_COMMIT')
+        self.assertTrue(all(b['selector']['target_kind']!='OVERALL_DEFENSE' for b in p['blocks']))
         prop['changes'][0]['target_value']=0
         self.assertEqual(build_plan(prop,source,self.reg,self.a)['blocks'],[])
-        personal=next(o for o in source['objects'] if o['selector']['target_kind']=='PERSONAL_DEFENSE' and o['selector']['team_id']==overall['selector']['team_id'] and o['selector']['opponent_team_id']==overall['selector']['opponent_team_id'])
-        prop['changes'].append(dict(action_id='personal',object_key=personal['object_key'],field_key='personal.PressureOffball',target_value=1,reason='synthetic'))
-        with self.assertRaisesRegex(ValueError,'ORDER'):build_plan(prop,source,self.reg,self.a)
 
     def test_native_training_packed_codec_and_approval_generation(self):
         from gm_state_io.codec import encode_patch,decode
@@ -430,7 +455,7 @@ class StateIOTests(unittest.TestCase):
                 b=p['blocks'][0]
                 self.state['memory'][self.state['addresses'][b['object_key']]+b['offset']]=255
             return FakeSession(self.state,ro)
-        executor=Executor(self.reg,factory,self.root/'locks')
+        executor=SupervisedSyntheticExecutor(self.reg,factory,self.root/'locks')
         with self.assertRaisesRegex(ValueError,'STALE_SOURCE'):executor.run(p,self.approval(p))
         self.assertEqual(self.state['writes'],0)
         self.assertFalse(list((self.root/'locks').glob('*.lock')))

@@ -47,6 +47,8 @@ def capture(mem, coaching, registry=None, *, session=None, object_provider=None)
     return dict(**binding(w),source_batch_id=coaching['source_batch_id'],source_snapshot_id=coaching['source_batch_id'],
                 registry_version=reg.version,observed_at=coaching['observed_at'],process_binding=coaching['process_binding'],
                 source_context=source_context,loaded_playbooks=[p['enum_id'] for p in coaching['playbooks'] if p.get('name')],
+                team_directory={str(tid):{k:t.get(k) for k in ('name','city','abbreviation')}
+                                for tid,t in session.loc.teams.items()},
                 loaded_play_crcs=sorted({crc for p in coaching['playbooks'] for crc in p.get('play_crc_slots',[])}),
                 objects=objects,coverage=coverage,observation_status='OBSERVED_SAME_SESSION',
                 native_dictionary=reg.fields)
@@ -99,6 +101,7 @@ def load_audited_source(career, batch, query_root=None, published_root=None):
     root=Path(save_context.PROJECT_DIR)
     session=QuerySession(query_root or root/'database/query_snapshots',published_root or root/'published',career,batch)
     try:
+        session.require_gm_sanitized()
         c=sqlite3.connect((session.directory/'league_state.sqlite').as_uri()+'?mode=ro',uri=True)
         try:
             source=load_from_connection(c,session.binding['snapshot_id'],session.batch)

@@ -1,5 +1,7 @@
 # DEV14 确定性状态读写引擎 V1.1
 
+2026-10-20增量：引擎DEV14_V1.2_H_DEV15；[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)及[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)优先解释历史接口。三库实存binding/source检查，先暂存league/pool和同capture标记的control再日志安装；失败恢复原文件。PREPARED中断阻断托管入口。核对workspace后可`save recover-capture --save-id <id> --confirm-manifest <digest>`恢复上次完整组，不释放未解决原生写锁。旧adopt必须双库原有来源一致，不能给外国库补标签。
+
 状态：`ENGINEERING_IMPLEMENTED / SYNTHETIC_AND_STATIC_VERIFIED / REAL_CAPTURE_NOT_TRIGGERED`。本文件随独立 DEV14 PR 交付，未合并前不能称为 main 已部署。游戏写入、数据采集、GitHub 数据发布仍需玩家分别明确触发；本工程不启用 GM V4，也不合并 M3 Draft PR。
 
 ## 三类状态与物理位置
@@ -22,9 +24,9 @@
 | 域 | 注册/采集/受控写入 |
 | --- | --- |
 | 教练 | 19 默认字段继续复用 coach_codec；另外 5 Sim 只读，不开放 GM 控制。Tempo raw 含义未知；BenchDepth 不设 9–10 人样本限制 |
-| 防守 | 18 OVERALL + 18 PERSONAL，复用 defense_codec。整体展开至所有有效记录；个人目标只有在当前双方名单 native ID 可唯一对应时才产生来源对象。身份/defender/shared 8-byte 前像保留 |
+| 防守 | 18 OVERALL只读、18 PERSONAL受控，复用defense_codec。普通GM整体目标返回OVERALL_DEFENSE_GM_DISABLED_USE_PERSONAL；个人目标要求当前双方native ID唯一对应，保留身份/defender/8-byte前像 |
 | 球员 | 99 字节倾向区原值；本地目录已命名 48 项可提案，其余 51 项只读、语义 UNKNOWN。4 有序 PlayType + Initiator 受控写入，不写 Ability/Potential/Badge/合同/身体/伤病 |
-| 战术本 | 当前在用本的 68 槽；一个对象包含所有共享使用球队，批准覆盖该完整 owner 集合。目标只允许本批已加载目录实际出现的 Play CRC（含观测到的空值），不猜 PlayType/战术行为或接受任意 CRC |
+| 战术本 | 普通GM只编辑本队同名已绑定书68槽；匹配已加载name/enum_id/index/unique_id。异常仅阻断该动作，不开发克隆或共享调查。CRC只取本批已加载目录；PlaybookID只限TEAM_BOOK_REBIND独立批准 |
 | Gameplay | Antigravity court 目录中的 4 项设置，USER/CPU 分开；按原逻辑同时写 Current/Custom 两个 float32 表，分别保留前值和回滚 |
 | World | 两份本地 settings/world 目录中可用的 50 个原生设置，按 slot/group 注册和读写。原生类型正确不代表效果量化或整套玩法配置已经批准 |
 | Training | 6 球队训练字段、5 球员训练字段；复用原生 packed 布局。球队按真实 franchise slot 映射，个人 native ID 歧义/缺失时不采、不写 |
@@ -32,7 +34,7 @@
 
 训练、世界与 Gameplay 根对象不可用时，逐域记录 NOT_OBSERVED/PARTIALLY_OBSERVED，不用 50 填值。现有 required 教练来源和源审计继续 fail closed。原教练三个 CLI 和 coaching_batch.py 保持可用，共享既有按进程加锁机制；管理过的存档同时受 DEV14 生命周期互斥锁保护。
 
-OVERALL 与同一 owner/opponent 的 PERSONAL 混合动作拒绝为 `BLOCKED_UNVERIFIED_OVERALL_PERSONAL_ORDER`；应拆成有独立来源和批准的顺序批次。切换 PlaybookID 与修改内部槽也要求分开批准、重新采集来源后再做第二步。不会猜覆盖优先级后静默吞掉个人配置。
+普通GM不再修改OVERALL，也不使用先整体后个人流程。TEAM_BOOK_REBIND与槽编辑分两次来源/批准，绑定成功后重新采集再做第二步。Intangibles唯一新增Ability例外是PLAYER 0x440、25–99；Potential只在采集数据库内脱敏，见DEV15手册。
 
 ## 存档管理：最多四档，只有一个 ACTIVE
 
@@ -97,7 +99,7 @@ python -B scripts/gm_data_query.py gameplay search --career career_new --side CP
 python -B scripts/gm_data_query.py training team --career career_new --team CHA --player-identity <本批identity> --limit 20
 ```
 
-分域查询包括 world/gameplay/tactics/tendency/training/personal_defense，继承 M0 默认20、最多50、约20KB及固定 batch 游标；不返回原始内存地址。旧批缺新表时保持 UNVERIFIED_FIELD/未观测，不回填新字段。
+分域查询包括world/gameplay/tactics/tendency/training/personal_defense/rotation，继承M0默认20、最多50、约20KB及固定batch游标，不返回地址。GM只消费potential_v1净化批次，旧批保留CodeX只读审计能力，不回填新字段。
 
 ## 稀疏意图、审批与执行
 
@@ -115,12 +117,13 @@ python -B scripts/gm_state_io.py preflight --career career_new --change-set <cha
 
 stage 从现有 M0 密封副本取同批事实，稳定排序、编码和摘要；仅写本档控制库，预览最多20项，不打开游戏句柄。preflight 全批 RO，不能设置 APPROVED。批准 JSON 只含 save_id、save_instance_id、generation_id、source_batch_id、decision_id、version、完整 action_ids、digest；文件本身不授权。
 
-玩家批准确切摘要，确认退出相关 Coach/Player/Playbook/Training 编辑页和当前所加载游戏档后，执行角色才可运行：
+玩家2026-10-20明确不继续防伪/权限隔离研发，采用MANUAL_OPERATOR_TRUST_ONLY：玩家在聊天批准具体计划，Codex引用该批准、提供完整tuple和显式写入开关即可执行，不另要求玩家操作终端。文件/approved=true本身不批准，不把操作者声明称为独立真人证明。TEAM_BOOK_REBIND的批准应明确覆盖新档/已实际换帅事件。review保留为可选完整审阅工具：
 
 ```powershell
-python -B scripts/gm_state_io.py apply --career career_new --change-set <id> --approval _exports/approval.json --approve-game-writes --player-approval-reference '<本次玩家明确批准依据>' --loaded-save-confirmation '<save_id>:<save_instance_id>:<generation_id>' --editors-closed
+python -B scripts/gm_state_io.py review --career career_new --change-set <id> --operation apply
+python -B scripts/gm_state_io.py apply --career career_new --change-set <id> --approval <exact_tuple.json> --approve-game-writes --player-approval-reference '<真实聊天批准引用>' --loaded-save-confirmation '<save_id>:<instance>:<generation>' --editors-closed
 python -B scripts/gm_state_io.py receipt --career career_new --change-set <id>
-# 若玩家批准原动作的条件恢复：使用同一批准绑定，将 apply 换为 rollback
+# 条件恢复须具体批准；apply可换rollback，或可选review --operation rollback
 python -B scripts/gm_state_io.py reconcile --career career_new --batch <后续独立全量batch>
 ```
 

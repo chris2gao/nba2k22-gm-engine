@@ -10,6 +10,7 @@ capture script and database-driven GM code use the same deterministic rule.
 import os
 import sqlite3
 from pathlib import Path
+from contextlib import closing
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 
@@ -122,6 +123,7 @@ def query_historical_draft_class(
     db_path: str,
     year: int,
     limit: Optional[int] = 60,
+    *, for_native_injection: bool = False,
 ) -> List[Dict[str, Any]]:
     """Read a verified historical draft class from a player-pool SQLite DB."""
     resolved_path = os.path.abspath(db_path)
@@ -129,7 +131,7 @@ def query_historical_draft_class(
         raise FileNotFoundError(f"球员池数据库不存在: {resolved_path}")
 
     uri = Path(resolved_path).as_uri() + "?mode=ro"
-    with sqlite3.connect(uri, uri=True) as conn:
+    with closing(sqlite3.connect(uri, uri=True)) as conn:
         conn.row_factory = sqlite3.Row
         columns = {row[1] for row in conn.execute("PRAGMA table_info(player_pool)")}
         if not columns:
@@ -151,5 +153,37 @@ def query_historical_draft_class(
             'WHERE draft_year = ? ORDER BY slot_id ASC'
         )
         rows = conn.execute(sql, (int(year),)).fetchall()
+        from player_potential_mask import tables
+        masked_source = 'player_potential_masks' in tables(conn)
 
-    return select_historical_rookies(rows, year=year, limit=limit)
+    if for_native_injection:
+        if masked_source:
+            raise PermissionError('SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE')
+        raise PermissionError('NATIVE_INJECTION_REQUIRES_INDEPENDENT_CALIBRATED_SOURCE_ADAPTER')
+    results = select_historical_rookies(rows, year=year, limit=limit)
+    if masked_source:
+        from player_potential_mask import MARKERS
+        for row in results:
+            row.update(MARKERS)
+            row['mask_version']='potential_v1'
+    return results
+
+
+def preflight_native_rookie_source(rows, source):
+    """Validate an independent native DTO; this does not inject or approve writes.
+
+    No private/fresh source collector exists here. A future controlled adapter
+    must supply calibrated identity/binding; a GM-sanitized pool is never one.
+    """
+    from player_potential_mask import PLAYER_BYTES
+    if source.get('source_role') == 'GM_SANITIZED' or source.get('mask_version') or source.get('potential_mask_version'):
+        raise PermissionError('SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE')
+    if source.get('source_role') not in ('FRESH_NATIVE_CALIBRATED','NATIVE_INJECTION_PRIVATE') or not source.get('native_binding'):
+        raise PermissionError('INDEPENDENT_NATIVE_INJECTION_SOURCE_REQUIRED')
+    for row in rows:
+        if row.get('player_raw_masked') or row.get('mask_version') or row.get('potential_mask_version') or row.get('source_role') == 'GM_SANITIZED':
+            raise PermissionError('SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE')
+        if len(row.get('raw_struct',b'')) != PLAYER_BYTES or not row.get('native_identity'):
+            raise ValueError('NATIVE_INJECTION_PLAYER_IDENTITY_AND_FULL_RAW_REQUIRED')
+    return dict(status='NATIVE_SOURCE_PREFLIGHT_ONLY_NOT_WRITE_AUTHORIZATION',rows=len(rows),
+                native_binding=source['native_binding'],execution_authorized=False)

@@ -21,7 +21,7 @@ def parser():
     r.add_argument('--limit',type=int,default=20)
     r.add_argument('--offset',type=int,default=0)
     s=sub.add_parser('save')
-    s.add_argument('action',choices=('list','status','create','adopt','activate','deactivate','retire','reset','recover'))
+    s.add_argument('action',choices=('list','status','create','adopt','activate','deactivate','retire','reset','recover','recover-capture'))
     s.add_argument('--save-id')
     s.add_argument('--dry-run',action='store_true')
     s.add_argument('--generation')
@@ -46,6 +46,10 @@ def parser():
     re=sub.add_parser('reconcile')
     re.add_argument('--career',required=True)
     re.add_argument('--batch',required=True)
+    review=sub.add_parser('review',help='Human-operated foreground review and supervised execution; no portable approval token')
+    review.add_argument('--career',required=True)
+    review.add_argument('--change-set',required=True)
+    review.add_argument('--operation',choices=('apply','rollback'),default='apply')
     ca=sub.add_parser('capture')
     ca.add_argument('--career',required=True)
     ca.add_argument('--approve-capture',action='store_true')
@@ -89,6 +93,7 @@ def run(a):
             if a.dry_run:return manager.reset_plan(a.save_id)
             return manager.reset(a.save_id,a.generation,a.confirm_manifest)
         if a.action=='recover':return manager.recover(a.save_id,a.confirm_manifest)
+        if a.action=='recover-capture':return manager.recover_capture(a.save_id,a.confirm_manifest)
     if a.command=='lease-check':
         from gm_state_io.lifecycle import verify_lease
         return dict(status='LIFECYCLE_LEASE_VERIFIED',**binding(verify_lease(a.career)))
@@ -146,16 +151,25 @@ def run(a):
         if a.command=='receipt':return receipt(a.change_set)
         executor=Executor(registry)
         if a.command=='preflight':return executor.preflight(plan)
+        if a.command=='review':
+            from gm_state_io.approval import review, TRUST
+            with review(plan,rollback=a.operation=='rollback') as (approval,supervision):
+                result=executor.run(plan,approval,rollback=a.operation=='rollback',supervision=supervision)
+            return dict(result,approval_state='HUMAN_APPROVED',approval_trust=TRUST)
+        # Explicit player acceptance of caller/OS trust: the reference records
+        # actual chat approval, not an unforgeable credential. JSON alone is not
+        # approval. Do not make the player type into a separate terminal.
         if not a.approve_game_writes:
-            raise PermissionError('EXPLICIT_PLAYER_WRITE_TRIGGER_REQUIRED')
+            raise PermissionError('MODEL_PROVIDED_CLAIM_ONLY_SPECIFIC_PLAYER_TRIGGER_REQUIRED')
         payload=load(a.approval)
         expected={'save_id','save_instance_id','generation_id','source_batch_id','decision_id','version','action_ids','digest'}
         if set(payload)!=expected:
             raise ValueError('EXACT_APPROVAL_BINDING_REQUIRED')
         payload['action_ids']=tuple(payload['action_ids'])
         approval=ExternalApproval(**payload,player_approval_reference=a.player_approval_reference,
-                                  loaded_save_confirmation=a.loaded_save_confirmation,editors_closed=a.editors_closed)
-        return executor.run(plan,approval,rollback=a.command=='rollback')
+            loaded_save_confirmation=a.loaded_save_confirmation,editors_closed=a.editors_closed)
+        result=executor.run(plan,approval,rollback=a.command=='rollback')
+        return dict(result,approval_state='HUMAN_APPROVED_OPERATOR_ATTESTED',approval_trust='MANUAL_OPERATOR_TRUST_ONLY')
 
 
 def main():

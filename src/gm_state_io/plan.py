@@ -12,9 +12,12 @@ def object_key(selector):
 
 
 def build_plan(proposal, source, registry, workspace):
-    allowed = {'change_set_id','decision_id','version','origin_model','reason','changes'}
+    allowed = {'change_set_id','decision_id','version','origin_model','reason','changes','operation','event'}
     if set(proposal)-allowed:
         raise ValueError('EXACT_INTENT_CONTRACT_REQUIRED_NO_AUTHORITY_OR_ADDRESSES')
+    operation = proposal.get('operation','GM_STATE_CHANGE')
+    if operation not in ('GM_STATE_CHANGE','TEAM_BOOK_REBIND') or (operation == 'GM_STATE_CHANGE' and 'event' in proposal):
+        raise ValueError('INVALID_OPERATION_OR_EVENT')
     if binding(source) != binding(workspace):
         raise ValueError('STALE_OR_CROSS_SAVE_OBSERVATION')
     if source['registry_version'] != registry.version:
@@ -41,12 +44,27 @@ def build_plan(proposal, source, registry, workspace):
             raise ValueError('DUPLICATE_LOGICAL_FIELD')
         logical.add((key,name))
         field = registry.field(name)
-        if not field['gm_enabled'] or field['write_capability'] != 'MEMORY_WRITE_VERIFIED':
+        if name.startswith('overall.'):
+            raise PermissionError('OVERALL_DEFENSE_GM_DISABLED_USE_PERSONAL')
+        if name == 'coach.PlaybookID' and operation != 'TEAM_BOOK_REBIND':
+            raise PermissionError('ORDINARY_GM_BOOK_SWITCH_DISABLED_USE_TEAM_BOOK_REBIND')
+        rebind = name == 'coach.PlaybookID' and operation == 'TEAM_BOOK_REBIND'
+        if (not field['gm_enabled'] and not rebind) or field['write_capability'] != 'MEMORY_WRITE_VERIFIED':
             raise PermissionError('FIELD_READ_ONLY_OR_BLOCKED_SOURCE:'+name)
         validate_value(intent['target_value'],field,source.get('loaded_playbooks',[]))
         if key not in objects:
             raise ValueError('OBJECT_NOT_OBSERVED_IN_SOURCE_BATCH')
         obj = objects[key]
+        if operation == 'TEAM_BOOK_REBIND':
+            from copy import deepcopy
+            from .team_book import validate_rebind
+            if not rebind or len(proposal['changes']) != 1:
+                raise PermissionError('TEAM_BOOK_REBIND_REQUIRES_SEPARATE_SINGLE_BINDING_ACTION')
+            obj = deepcopy(obj)
+            obj['team_book_rebind'] = validate_rebind(proposal,source,obj,intent['target_value'])
+        if field['target_kind'] == 'PLAYBOOK_SLOT':
+            from .team_book import validate_slot
+            validate_slot(source,obj)
         if field['target_kind']=='PLAYBOOK_SLOT' and intent['target_value'] not in source.get('loaded_play_crcs',[]):
             raise ValueError('PLAY_CRC_NOT_IN_OBSERVED_LOADED_CATALOG')
         if (field['target_kind'] != obj['selector']['target_kind'] or name not in obj['field_keys']
@@ -111,6 +129,10 @@ def build_plan(proposal, source, registry, workspace):
                 actions_requested=len(actions),actions_effective=len(actions)-unchanged,unchanged=unchanged,
                 native_blocks_planned=len(blocks),status='VALIDATED_PENDING_APPROVAL',
                 approval_required=True,result_is_game_observation=False)
+    plan['operation'] = operation
+    if operation == 'TEAM_BOOK_REBIND':
+        plan['event'] = proposal['event']
+        plan['event_evidence'] = 'REQUIRES_FOREGROUND_HUMAN_CONFIRMATION_NOT_MODEL_ATTESTED'
     plan['digest'] = digest(plan)
     plan['change_set_id'] = proposal.get('change_set_id') or ('cs_'+plan['digest'][:24])
     if not isinstance(plan['change_set_id'],str) or not plan['change_set_id'].replace('_','').replace('-','').isalnum():

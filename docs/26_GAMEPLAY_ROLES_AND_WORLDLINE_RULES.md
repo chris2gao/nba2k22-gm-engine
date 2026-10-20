@@ -1,5 +1,7 @@
 # 本局分工、轮回选秀与球员修改边界
 
+2026-10-19玩家DEV15 V2决定的窄例外：30队GM可提出Intangibles 25–99轮换偏置，只有PLAYER 0x440由DEV14在具体批准后受控写入，其他普通Ability/Potential/Badge禁令不变。Potential=1仅是采集后GM数据遮蔽，不改游戏潜力，不用于成长/选秀判断；旧公开原始批次禁供GM、历史文件不就地改。正式开发状态见docs/34和[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)，本规则不启动游戏动作。
+
 本规范记录玩家最新明确规则；与早期玩法文档冲突时，以本规范及文档 22 的真实性/审批要求为准。机器可读版本是 `config/gameplay_policy.json`。这次规则整理不执行任何游戏写入，也不启用 MC 成长故事。
 
 ## 分工与操作闭环

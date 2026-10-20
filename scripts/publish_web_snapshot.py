@@ -48,6 +48,8 @@ def publish(args):
     if not directory.is_relative_to((ROOT / "published/saves" / args.save_id).resolve()):
         raise RuntimeError("Data path is outside the selected career")
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    if manifest.get('player_potential_mask',{}).get('potential_mask_version') != 'potential_v1':
+        raise RuntimeError('UNMASKED_HISTORICAL_GM_BATCH_REPUBLISH_DISABLED_REQUIRES_SEPARATE_AUTHORIZED_CONVERSION')
     config = json.loads((ROOT / "config/github_sync.json").read_text(encoding="utf-8"))
     repository, branch = config["repository"], config["branch"]
     remote = json.loads(command(["gh", "repo", "view", repository, "--json", "nameWithOwner,isPrivate,url"]).stdout)

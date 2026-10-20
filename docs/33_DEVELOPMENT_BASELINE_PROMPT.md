@@ -1,5 +1,7 @@
 # 迭代开发基线提示词
 
+DEV14-H/DEV15工程增量（PR#5，未合并）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。详见文档34、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)；不开发M3或自动运行游戏。
+
 DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多存档生命周期见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md) 和文档34。开发复用 `gm_state_io`、`save_context` 与原 codecs；不要另造字段偏移表、隐式legacy-shared或跨档审批。当前PR/部署、真实观测和限制以文档34/验收为准，不自动运行示例。
 
 版本：v2，2026-10-17。用途：建立常驻开发基线；每次开发任务由玩家另开一次性窗口。读取本文件不代表启动待办开发。

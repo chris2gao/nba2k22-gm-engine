@@ -12,10 +12,25 @@
     "control_database": "database/saves/<save_id>/gm_control.sqlite (generation paths via save_context)",
     "capture": "EXISTING_full_verified_v1_SAME_RO_SESSION_ONLY",
     "consumer": "EXISTING_M0_STATIC_SNAPSHOT_BOUNDED_DOMAINS",
-    "domains": ["world", "gameplay", "tactics", "tendency", "training", "personal_defense"],
+    "domains": ["world", "gameplay", "tactics", "tendency", "training", "personal_defense", "rotation"],
+    "approval_trust": "MANUAL_OPERATOR_TRUST_ONLY_PLAYER_CHAT_APPROVAL_OPERATOR_ATTESTED_OPTIONAL_REVIEW",
+    "rotation_bias": {"field_key": "rotation.intangibles", "target_kind": "PLAYER_ROTATION_OVR_BIAS", "profile": "memory_field_profile.fields.PLAYER.intangibles", "display_range": [25, 99], "native_byte": "0x440", "codec": "config.rating_to_raw"},
+    "gm_policy": "PERSONAL_DEFENSE_ONLY_OWN_TEAM_NAMED_BOOK_TEAM_BOOK_REBIND_REQUIRES_SEPARATE_HUMAN_EVENT_CONFIRMATION",
     "capability": "Native write evidence is retained from existing profiles/player-reported Antigravity tests; DEV14 integration was verified synthetically only.",
     "not_adapted": ["mentor relationship/count/badge grant", "51 unnamed tendency byte semantics", "remaining gameplay/world/curve catalogs not supplied with supported layouts"],
     "manual": "docs/DEV14_STATE_IO_RUNBOOK.md"
+  },
+  "player_potential_mask": {
+    "version": "potential_v1",
+    "source_role": "GM_SANITIZED",
+    "value": 1,
+    "evidence": "NOT_GAME_OBSERVED",
+    "automatic_stage": "AFTER_RAW_CAPTURE_CHECKS_BEFORE_FILE_INSTALL_HASH_EXPORT_ARCHIVE",
+    "module": "src/player_potential_mask.py",
+    "unknown_mirrors": "FAIL_CLOSED",
+    "native_injection": "SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE",
+    "historical_policy": "SEALED_OLD_BATCHES_UNCHANGED_EXCLUDED_FROM_GM_NO_UNMASKED_REPUBLISH",
+    "manual": "docs/DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md"
   },
   "consumer_access": {
     "task": "DEV-20261018-10_V2_M0",

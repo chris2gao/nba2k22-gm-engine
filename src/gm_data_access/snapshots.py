@@ -76,6 +76,10 @@ def validate_pair(directory, manifest, audit, ingest):
                     raise AccessError("STALE_OR_MIXED_BATCH", "Snapshot game context differs")
                 if snapshot_digest(c, expected[0]) != digest:
                     raise AccessError("STALE_OR_MIXED_BATCH", "SQLite snapshot rows do not match source audit")
+    if manifest.get('player_potential_mask'):
+        from player_potential_mask import verify_sanitized_pair
+        with closing(ro(Path(directory)/DB_NAMES[0])) as league, closing(ro(Path(directory)/DB_NAMES[1])) as pool:
+            verify_sanitized_pair(league,pool,expected[0])
 
 
 def install_archive(archive, manifest, root):

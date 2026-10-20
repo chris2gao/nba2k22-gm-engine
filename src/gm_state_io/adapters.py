@@ -131,7 +131,11 @@ class NativeSession:
         if kind == 'COACH_DEFAULT':
             coach = self.loc.coaches[tid]
             identity, at = coach['identity'], coach['address']
-        elif kind in ('PLAYER_TENDENCY','PLAYER_PLAYTYPE','PLAYER_TRAINING'):
+            if obj.get('team_book_rebind'):
+                from .team_book import team_book
+                if team_book(self.loc.teams[tid],self.loc.playbooks) != obj['team_book_rebind']:
+                    raise ValueError('TEAM_BOOK_REBIND_TARGET_IDENTITY_CHANGED')
+        elif kind in ('PLAYER_TENDENCY','PLAYER_PLAYTYPE','PLAYER_TRAINING','PLAYER_ROTATION_OVR_BIAS'):
             hits = [p for p in self.players(tid) if p['identity']['identity_tag']==s['player_identity']]
             if len(hits)!=1:
                 raise ValueError('PLAYER_IDENTITY_CHANGED')
@@ -170,6 +174,9 @@ class NativeSession:
             owners=sorted(t for t,c in self.loc.coaches.items() if decode_coach(self.read(c['address'],0x160),self.loc.profile['fields']['PlaybookID'])==book['enum_id'])
             if owners!=s['owner_team_ids']:
                 raise ValueError('SHARED_PLAYBOOK_OWNER_SET_CHANGED')
+            from .team_book import team_book
+            if owners != [tid] or digest(team_book(self.loc.teams[tid],self.loc.playbooks)) != book_identity(book):
+                raise ValueError('ONLY_OWN_TEAM_NAMED_BOOK_SLOTS_ALLOWED')
             n=self.loc.profile['native']
             at=u64(self.mem,self.loc.roster+n['playbook_pointer_offset'])+book['index']*n['playbook_stride']+0x58+s['slot_index']*4
             identity=dict(playbook_identity=s['playbook_identity'],owner_team_ids=owners)
@@ -248,7 +255,7 @@ def capture_objects(session, coaching):
                                 raw=None,field_keys=by_kind['OVERALL_DEFENSE'],members=members,commit_object=commit,
                                 values={'overall.'+k:v for k,v in overall['values'].items()},source_status='OBSERVED_SAME_SESSION'))
         for p in session.players(tid):
-            for kind in ('PLAYER_TENDENCY','PLAYER_PLAYTYPE'):
+            for kind in ('PLAYER_TENDENCY','PLAYER_PLAYTYPE','PLAYER_ROTATION_OVR_BIAS'):
                 add(dict(target_kind=kind,team_id=tid,player_identity=p['identity']['identity_tag']),p['identity'],p['raw'],by_kind[kind])
     for book in coaching['playbooks']:
         owners=sorted(t['team_id'] for t in coaching['teams'] if t['values']['PlaybookID']==book['enum_id'])

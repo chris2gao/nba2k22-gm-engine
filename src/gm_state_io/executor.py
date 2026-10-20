@@ -104,7 +104,13 @@ class Executor:
             finally:
                 session.close()
 
-    def run(self, plan, approval, *, rollback=False):
+    def run(self, plan, approval, *, rollback=False, supervision=None):
+        # Player decision 2026-10-20: trust the operator's reference to explicit
+        # chat approval; do not require a separate OS issuer or foreground TTY.
+        # Optional review tokens remain scoped, but are not a mandatory gate.
+        if supervision is not None:
+            from .approval import require_supervision
+            require_supervision(plan, approval, supervision, rollback)
         require_approval(plan,approval)  # before any native handle or DB authority claim
         with lifecycle_lock():
             manager=Workspaces()
@@ -151,10 +157,11 @@ class Executor:
                     self.targets(probe,plan,rollback)
                 finally:
                     probe.close()
-                # Approval reference is explicit operator input, not parsed model text.
+                # Caller attests actual player approval; no isolated human issuer.
                 with connect(paths['control_db_path']) as c:
                     c.execute('INSERT INTO approval_records VALUES (?,?,?,?,?,?,?,?)',
-                              (uuid4().hex,plan['change_set_id'],approval.digest,canonical(binding(plan)),
+                              (uuid4().hex,plan['change_set_id'],approval.digest,canonical(dict(**binding(plan),
+                               approval_state='HUMAN_APPROVED',approval_trust='MANUAL_OPERATOR_TRUST_ONLY')),
                                canonical(sorted(approval.action_ids)),approval.player_approval_reference,now(),
                                'ROLLBACK' if rollback else 'APPLY'))
                     c.execute('INSERT INTO execution_runs VALUES (?,?,?,?,?,?,?,?,?,?,?)',
@@ -166,9 +173,14 @@ class Executor:
                              digest=plan['digest'],registry_version=plan['registry_version'],process_binding=plan['process_binding'],
                              source_batch_id=plan['source_batch_id'],decision_id=plan['decision_id'],version=plan['version'],
                              status='PREPARED',operation='ROLLBACK' if rollback else 'APPLY',
+                             approval_state='HUMAN_APPROVED',approval_trust='MANUAL_OPERATOR_TRUST_ONLY',
                              game_save_binding='PLAYER_CONFIRMED_NOT_INDEPENDENTLY_IDENTIFIED',
                              player_approval_reference=approval.player_approval_reference,blocks=targets,write_log=[],
                              persisted_in_save=False,result_is_game_observation=False,physical_atomicity=False)
+                journal['rotation_bias_changes']=[dict(action_id=a['action_id'],selector=a['selector'],
+                    intangible_before=a['expected_observed_raw'][0],intangible_after=a['target_value'],
+                    source_batch_id=plan['source_batch_id'],displayed_ovr='UNKNOWN',minutes_feedback='LATER_PLAYER_TRIGGERED_BATCH')
+                    for a in plan['actions'] if a['field_key']=='rotation.intangibles']
                 from . import VERSION
                 journal['engine_version']=VERSION
                 journal['native_evidence']=(plan.get('source_context') or {}).get('native_evidence')
@@ -230,6 +242,7 @@ class Executor:
                 if 'error_code' in journal:
                     raise RuntimeError(journal['status']+':'+journal['error_code'])
                 return dict(status=journal['status'],run_id=run_id,blocks_written=len(targets),journal_path=str(journal_path),
+                            approval_state=journal['approval_state'],approval_trust=journal['approval_trust'],
                             persisted_in_save=False,result_is_game_observation=False,
                             game_save_binding=journal['game_save_binding'])
             except BaseException as exc:
