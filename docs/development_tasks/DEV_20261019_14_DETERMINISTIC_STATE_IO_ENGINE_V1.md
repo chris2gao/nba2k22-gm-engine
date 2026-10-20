@@ -1,5 +1,7 @@
 # DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1.1
 
+> **上线前加固（2026-10-19）**：[DEV14-H](DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)须在正式自动执行之前处理第三库`player_pool.sqlite`代次绑定和独立真人审批来源，现PR#5工程完成不等于生产完成。[分批执行顺序](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。新注册`Intangibles`/OVR compensation须按[DEV15](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)的特殊单字段权限和Antigravity实际原生验证，不属于普通Ability写权限；GM查询输出隐藏真实Potential，但本地原始源保留。
+
 **日期：2026-10-19；执行模型：Codex；原生字段/游戏内存适配来源：Antigravity；需求与审阅：Web Development；游戏修改批准人：玩家。**
 **状态：APPROVED_TO_DEVELOP_BY_PLAYER_REQUEST / GAME_WRITE_NOT_AUTHORIZED / CAPTURE_NOT_TRIGGERED。** 本文件是交付Codex的正式工程任务，不表示任何正式存档已经修改。
 **实施优先级**：DEV14底座先于DEV13的M3-T生产级集成；不推翻已完成的M3A/M3B，不提前启用GM V4/M4。
