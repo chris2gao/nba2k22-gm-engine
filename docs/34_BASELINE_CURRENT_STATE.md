@@ -4,6 +4,8 @@
 
 交付[Draft PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)，研究提交`583b695`；未合入main，本节描述该独立分支的研究成果。
 
+玩家后续澄清E09（PLAYER_REPORTED_UI）：球员从本队手册按四有序PlayType匹配同类型战术，随机或指定调用，没有固定位置限制；第1/2槽执行频繁、优先级影响大。固定位置/固定受益人证明不是类型匹配前置；具体CRC类型、等概率/权重/顺延算法和指定调用入口仍未认证。原三个位置分配问题已替换为报告第8节的多类型/四槽选择方式/指定入口问题；未新增游戏调查或代码测试。
+
 从main `b3ace72`独立分支`codex/bpti-dev23-playbook-semantics`交付[研究报告](development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)与[机读库存](development_research/BPTI_DEV23_PLAYBOOK_SEMANTICS_INVENTORY_V1.json)。状态`BPTI_DEV23_PARTIAL_REQUIRES_PLAYER_DESCRIPTION_TASK_CLOSED`；交付后结束，不设置等待玩家检查点。B1 PR #9已合并main，合并提交`f4d615c14f0b541fc9f1395b7035952b01e0e417`；下方旧B1阶段说明不覆盖此事实。
 
 完成静态目录/历史密封SQLite与玩家允许的管理员只读进程调查：CHI/MIA/GSW各68槽，共204槽/148非零；111槽/89个不同CRC与本机PE静态标签精确匹配，37非零槽名UNKNOWN。46名当前球员四有序PlayTypes/Initiator与47条历史名单分来源保留；当前游戏档身份未确认，不绑定旧career。逐战术native type、发起/第一/第二受益人全部UNKNOWN，实际比赛执行未观察。类型覆盖/匹配不得从名字推定，未知时HOLD，不误报STATIC_PLAY_TYPE_UNSERVED。三个必要文字问题在报告末尾，后续口述先标PLAYER_REPORTED_UI。
