@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 BPTI B0：知识契约与最小工程基础（独立分支，待玩家审核）
+
+从最新main `6af12ba`建立独立`codex/bpti-b0-knowledge`，仅实现DEV22的B0。四类纯DTO（SystemCard/TeamIdentity/NativeBinding/SystemBlueprint）、来源/时间/非执行载荷校验及M2按需查询已实现；没有另建事实库或GM系统。研究索引覆盖R1十家族及R2三十队最小Claim，缺源和复合时间未拆分项保持UNKNOWN/SOURCE_MISSING，不等于B1完整卡或B3实局评估。
+
+契约与用法：[BPTI_KNOWLEDGE_CONTRACT_V1](BPTI_KNOWLEDGE_CONTRACT_V1.md)；实际验证/PR状态：[B0验收](development_reviews/BPTI_B0_IMPLEMENTATION_AND_ACCEPTANCE.md)。三项静态检查按本次授权执行并在验收中记录；没有运行旧M3/DEV14集合。B0没有游戏来源/执行能力变更，无需修改source_catalog或执行能力白名单。V3继续有效、V4未启用、实际三十队仍UNASSESSED。完成后等待玩家审核，不启动B1、DEV23、DEV24、真实采集/发布或游戏写入。
+
 ## 2026-10-20 DEV20/M4：系统自我进化工程完成，PR #7已合并main
 
 独立审核后仅修正CAREER/IDENTITY跨存档复用局部event_id的幂等身份，完整scope入键；SYSTEM保留全局键与已登记记录。按玩家本次授权，只补并运行原test_02，1项通过（5.909秒），未重跑其余项目。收尾合并由玩家本次批准，不扩展Issue #6或后续工程。

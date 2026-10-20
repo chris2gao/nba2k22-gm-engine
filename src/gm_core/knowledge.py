@@ -14,11 +14,17 @@ def read_json(path):
 class Knowledge:
     def __init__(self, root):
         root = Path(root)
+        self.root = root
         self.cards = read_json(root/'tactics_v1.json')['cards']
         self.franchises = read_json(root/'franchise_references_2021_v1.json')['franchises']
         self.sources = read_json(root/'sources_v1.json')['sources']
         self.rules = read_json(root/'game_engine_rules_v1.json')['rules']
         self.validate()
+
+    def bpti(self):
+        """Opt-in B0 research references; does not replace the twelve M2 cards."""
+        from .bpti import ResearchIndex
+        return ResearchIndex(read_json(self.root/'bpti/research_source_index.json'))
 
     def validate(self):
         for rows, key, count in ((self.cards, 'card_id', 12), (self.franchises, 'team', 30),
