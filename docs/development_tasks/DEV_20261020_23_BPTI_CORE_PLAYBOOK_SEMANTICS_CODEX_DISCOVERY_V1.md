@@ -2,6 +2,8 @@
 
 日期：2026-10-20 | 负责人：开发规划Web GPT | 阶段：RESEARCH_TASK_PREPARED / PLAYER_TO_TRIGGER_CODEX | 依赖：DEV19/21/22、R1–R4、M3-T/DEV14；**不自动启动游戏操作/编码/测试/写入**。
 
+> **2026-10-20 B1实做后交接更新（仅规划，不代表DEV23已启动）：** B0 PR #8已经玩家批准合并；B1成果见[Draft PR #9](https://github.com/chris2gao/nba2k22-gm-engine/pull/9)，实施提交`65efdafb43636812eebeb8e88e6e1660763d7f97`，本窗口已完成静态审阅并在PR附审核评论，建议玩家合并，**尚未代玩家合并**。B1 `SystemCard`有10/10，研究检索10/10，2021-10-19普通GM可读6/10。四张`ISOLATION_MIDRANGE_CREATION`、`POST_HIGH_LOW`、`TRANSITION_EARLY_OFFENSE`、`DEFENSE_FIRST_RIM_PROTECTION`的正式GM知识投影为`NOT_READY`；**DEV23可以按完整10张RESEARCH卡识别需研究的篮球战术动作，但不得将这四卡绕过B0的历史可用性门注入普通GM。** 该补源问题在B4正式经营接入前最小范围解决，不要求本DEV23研究NBA历史出处或回滚B1。**玩家先合并PR #9后**，Codex从最新main独立工作树按本任务调查，不要在B1未合并的分支上追加实现。按本任务仅只读观察与小型研究交付，无代码扩展、额外测试、原生写入或全量CRC解码；如果当前游戏/页面无法访问，先交阶段A已有目录审计和精确`REQUIRES_PLAYER_UI_STEP`，不要编造运行时证据。推荐Codex：**GPT-6 Astra / High**（若选择器不可用则最强可用Sol / High）。DEV24数据源扩展仍在B6之后。
+
 ## 1. 为什么值得做，什么不值得做
 
 现有M3-T和DEV14已能读取当前球队同名Playbook的68槽、按同批目录写入已存在CRC、读取/提案4个有序PlayTypes及Initiator，已能通过个人18项防守字段和具名48项球员Tendencies提案。**原生字段已知 ≠ 战术CRC是什么、由谁发起/谁受益、哪名球员执行、在ACE中如何调用已经被证实。**
