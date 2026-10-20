@@ -1,6 +1,8 @@
 # BPTI B0 — Knowledge Contract & Architecture Foundation V1
 
 日期：2026-10-20。契约版本：BPTI_KNOWLEDGE_V1。
+
+B1增量沿用本契约和TypedDict；新增知识文件/整卡投影/有界检索见[B1手册](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)。下文B0范围与历史限制保留原阶段含义；原40复合Claim未升证，六条细粒度提取另存B1知识文件，不改变既有数据契约。
 范围：DEV22 的 B0；不代表 B1–B6、DEV23、DEV24 或 GM V4 启用。
 当前工程/验收/PR 状态见[验收报告](development_reviews/BPTI_B0_IMPLEMENTATION_AND_ACCEPTANCE.md)。
 业务权威：[DEV22](development_tasks/DEV_20261020_22_BPTI_RESEARCH_TO_CODEX_PHASED_HANDOFF_V1.md)及[R4](development_research/BPTI_R4_RESEARCH_INTEGRATION_AND_ENGINEERING_HANDOFF_V1.md)。

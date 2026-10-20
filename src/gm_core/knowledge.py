@@ -22,9 +22,17 @@ class Knowledge:
         self.validate()
 
     def bpti(self):
-        """Opt-in B0 research references; does not replace the twelve M2 cards."""
+        """Opt-in BPTI references/cards; does not replace the twelve M2 cards."""
         from .bpti import ResearchIndex
-        return ResearchIndex(read_json(self.root/'bpti/research_source_index.json'))
+        payload = read_json(self.root/'bpti/research_source_index.json')
+        card_path = self.root/'bpti/system_cards_v1.json'
+        if not card_path.exists():
+            return ResearchIndex(payload)
+        card_set = read_json(card_path)
+        if card_set['schema_version'] != payload['schema_version'] or card_set['version'] != 'BPTI_SYSTEM_CARDS_V1':
+            raise ValueError('BPTI_SYSTEM_CARD_VERSION')
+        payload['claims'] += card_set['claims']
+        return ResearchIndex(payload, card_set['cards'])
 
     def validate(self):
         for rows, key, count in ((self.cards, 'card_id', 12), (self.franchises, 'team', 30),

@@ -1,6 +1,6 @@
 # 迭代开发基线提示词
 
-BPTI知识层开发索引：当前B0契约为[BPTI_KNOWLEDGE_CONTRACT_V1](BPTI_KNOWLEDGE_CONTRACT_V1.md)，纯DTO/来源引用复用M2和M3，执行仍走DEV14；易变交付/验证/PR状态见34及其B0验收链接。B0不等于B1十卡、B3三十队或GM V4启用。阶段先后以DEV22为准，每阶段须玩家独立触发；不要把阅读研究或B0交付视为后续开发/采集/游戏写入授权。
+BPTI知识层开发索引：[B0契约](BPTI_KNOWLEDGE_CONTRACT_V1.md)已随PR #8按玩家授权合入main；[B1十卡与检索](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)在独立分支交付，实际验证/PR状态见34及其验收链接。复用M2和M3，执行仍走DEV14；分别报告研究覆盖与GM可读覆盖，不把十卡当原生支持、B3三十队或GM V4启用。阶段顺序按DEV22/DEV25，每阶段独立触发；B1后DEV23仍须玩家另批。
 
 DEV20/M4工程增量：独立M4分支已实现外挂工程问题池、追加事件、显式有界导入/分流/交接和带日期readiness，状态M4_ENGINEERING_MAIN_MERGED，PR #7经玩家批准小修正后合入main（c51fa36），正式本地工作区已同步。见[工作台手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)、文档34及[开发问题索引](../web_gm/development_feedback/CURRENT.md)。它取代旧M4混合经营效果/比赛校准定义；不修Issue #6、不实施BPTI或校准器、不启用V4。新开发规划由玩家主动触发后读取索引，先提出范围/成本再待批准。
 
