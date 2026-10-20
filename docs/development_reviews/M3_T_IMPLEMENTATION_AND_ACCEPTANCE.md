@@ -46,7 +46,7 @@
 
 合成源若在state_io_captures.metadata_json中保留完整Registry（包括未观察的World域），现有player_potential_mask._unknown_mirrors会把目录键`world.contracts_and_finances.player_potential_factor`当作球员潜力别名，返回UNKNOWN_PLAYER_POTENTIAL_JSON_MIRROR。该项是世界设置目录名称，并非原始球员潜力值；本轮未改底层净化器。
 
-本次M3专用fixture只包含实际观察的战术/训练/轮换字段目录，并调用真实sanitize_player_potential生成两库凭据，再经现有M0封存验证。这证明M3消费合格的DEV14脱敏接口，不证明完整生产采集已经运行。完整目录问题已向玩家单独询问最小修复+1项检查的范围，未获明确授权前不扩展修复或测试；若保留现有完整目录，未来生产采集有此已知阻断，交DEV14窗口①处理。
+本次M3专用fixture只包含实际观察的战术/训练/轮换字段目录，并调用真实sanitize_player_potential生成两库凭据，再经现有M0封存验证。这证明M3消费合格的DEV14脱敏接口，不证明完整生产采集已经运行。**玩家2026-10-20明确选择“不扩展本轮，记录给DEV14窗口①后续修复”**；本轮不修改净化器、不追加所询1项检查。若保留现有完整目录，未来生产采集有此已知阻断，交DEV14窗口①处理。
 
 ## 剩余资料与交付层级
 

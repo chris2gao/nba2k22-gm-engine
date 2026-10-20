@@ -6,7 +6,7 @@ PR #5已按玩家批准合入main，合并提交`570419a`、最终开发提交`f
 
 - 接入脱敏M0事实、原生对象/代次/Registry来源、八体系熟练度、四PlayTypes/Initiator、48具名倾向、6+5训练和Intangibles；D1–D6全员角色/分钟目标、内部修复比较、市场缺口和证据质量进入原工作台。普通GM仅个人防守、不写OVERALL；教练普通18项、本队已加载同名书68槽。新档或确认换帅后独立TEAM_BOOK_REBIND，绑定后新来源再另提槽位；换帅只休赛期每队每季一次，无员工市场执行器。
 - 稀疏意图通过既有DEV14纯离线build_plan生成实际digest/审批tuple/diff，交易后或绑定后需重计划，导出不等于stage/批准/执行。Potential=1只为MASKED/NOT_GAME_OBSERVED；旧未脱敏包与旧缓存禁供GM。51未知倾向、CRC语义、疲劳/更多位置模板仍UNKNOWN，交Antigravity后续。
-- 已发现DEV14完整Registry元数据中的世界设置键`world.contracts_and_finances.player_potential_factor`被净化器误识别为球员潜力别名；完整目录合成输入被阻断。底层修复及额外1项检查已另询范围，未获授权前不纳入。M3八项验证使用实际观察字段目录及真实净化凭据，不代表完整生产采集已验收。详见上述报告。
+- 已发现DEV14完整Registry元数据中的世界设置键`world.contracts_and_finances.player_potential_factor`被净化器误识别为球员潜力别名；完整目录合成输入被阻断。玩家已明确选择本轮不扩展修复或追加1项检查，记录给DEV14窗口①后续修复。M3八项验证使用实际观察字段目录及真实净化凭据，不代表完整生产采集已验收。详见上述报告。
 - 真实30队策略仍UNASSESSED、正式评估0队；V3继续生效、V4未启用、M4未启动；本轮没有游戏访问/写入、正式GM、新采集/发布或正式赛季档案改动。
 
 ## 2026-10-20 DEV14-H / DEV15：PR #5增量工程（未合并）
