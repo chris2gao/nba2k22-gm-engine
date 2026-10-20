@@ -1,5 +1,19 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 DEV20/M4：系统自我进化工程完成，独立Draft PR待审
+
+独立审核后仅修正CAREER/IDENTITY跨存档复用局部event_id的幂等身份，完整scope入键；SYSTEM保留全局键与已登记记录。按玩家本次授权，只补并运行原test_02，1项通过（5.909秒），未重跑其余项目。收尾合并由玩家本次批准，不扩展Issue #6或后续工程。
+
+独立[Draft PR #7](https://github.com/chris2gao/nba2k22-gm-engine/pull/7)，实现提交`652d10763b7bcfa6db811515f148014db74c609c`，OPEN/Draft，未合并。正式main仍为M3收尾`5a49d71`；M4代码与工作台在已附加开发工作树，不切换正式执行仓库。
+
+状态 **M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED**。玩家正式授权M4工程，从最新main `5a49d71`建立独立`codex/dev10-m4-system-evolution`，不混入已合并PR #4。权威范围为[DEV20](development_tasks/DEV_20261020_20_M4_SYSTEM_EVOLUTION_ENGINE_IMPLEMENTATION_V1.md)，覆盖旧M4“经营效果比较/比赛校准”混合定义。交付见[M4手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[实际验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。本M4尚未合并正式main，不自动上线。
+
+- `gm_development_feedback.py ingest/list/show/triage/export/readiness`：原派生gm_workbench新增development_issues/events，稳定根因/能力/作用域指纹、跨批追加、同事件幂等、玩家决定/CAS/历史、有界SQL分页和引用输出。没有新游戏来源、事实库或内存执行器，也不扫描/自动push/建Issue/唤醒模型/修复Bug。
+- 五项授权最小验收通过：实际CLI的事件追溯、跨批去重/历史、人工状态及修订边界、小型导出、诚实readiness。首轮共同URL校验误判修正后5项通过，未重跑已通过项/旧M3或DEV14集合。只用隔离合成来源及已有只读报告；无游戏访问、采集或额外测试。
+- [CURRENT问题索引](../web_gm/development_feedback/CURRENT.md)与机器索引/每项详情已从本地工作台生成：Issue #6 P1/DEFERRED；BPTI、季后赛采集接口、独立双引擎校准器为P2/DEFERRED规划指针。occurrences为独立证据导入数，不是生产故障次数。下一次玩家主动触发开发规划才评估范围/成本，索引不是执行命令。
+- [readiness清单](../config/m4_readiness_evidence.json)按实际日期/引用分开报告：M0–M3-T正式工程已合入，PR #4 MERGED；M4分支工程待玩家；三Web实际连接、真实已脱敏新批次及GM消费、GSW/SAS/OKC新来源演练均PENDING；实际30队UNASSESSED、正式0队。Issue #6仍有完整目录生产路径阻断风险，未修复/重测，不宣称所有采集必然失败。BPTI为正式新档前置，季后赛采集与年度校准另立项目。
+- V3继续生效、V4未启用；未改SOP/GM_CURRENT/正式赛季档案，未运行正式GM或新档。工程交付后停止，后续Bug修复、BPTI和校准由玩家独立授权。下方“M4未启动”等为历史阶段，不覆盖本次工程授权与交付状态。
+
 ## 2026-10-20 DEV14与M3-T均已正式合并，PR #4收尾完成
 
 PR #5已按玩家批准合入main，合并提交`570419a`、最终开发提交`f68d75d`。下方DEV14“未合并”是交付时历史记录，不再代表当前部署状态。M3窗口在原PR #4分支以`82083b5`整合本底座，保留M3A/M3B并完成DEV13/M3-T本地工程；玩家已批准PR #4，标记Ready后合入main，合并提交`504a4c0656bad0e890c3783c89c656fca5b2e647`（开发head `7e8ba1a`）。正式本地工作区`E:\games\NBA 2K22\Antigravity_GM_Engine`已切回main并同步。合并时保留main新增规划文档；无额外测试或运行。采用开发规范V2，本任务八项最小验收均通过：首轮6项、修正样例后仅复验另2项，未重跑已通过旧集合。详见[实现与验收](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM操作手册](../web_gm/manuals/GM_M3_TACTICAL_WORKBENCH.md)。

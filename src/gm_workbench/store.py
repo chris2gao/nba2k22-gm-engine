@@ -3,13 +3,14 @@ import json
 from pathlib import Path
 import sqlite3
 from .m3_store import M3Store
+from .development_store import DevelopmentStore
 
 
 def dump(value):
     return json.dumps(value, ensure_ascii=False, allow_nan=False, sort_keys=True)
 
 
-class Store(M3Store):
+class Store(M3Store, DevelopmentStore):
     def __init__(self, path, readonly=False):
         self.path = Path(path).resolve()
         parts = {s.casefold() for s in self.path.parts}

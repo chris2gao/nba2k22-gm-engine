@@ -1,5 +1,7 @@
 # DEV-20261018-10 V2 — GM V4 SQLite按需数据访问、金融知识、经营决策与反馈系统
 
+2026-10-20：M3已按玩家批准合入main（PR #4 / 504a4c0）；M4最新职责由[DEV20](DEV_20261020_20_M4_SYSTEM_EVOLUTION_ENGINE_IMPLEMENTATION_V1.md)覆盖本文件旧混合定义，仅工程问题池/开发交接/readiness，不做GM赛果比较或双引擎校准。独立M4分支实现和5项最小验收见[M4交付](../development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)，待玩家审阅、不启用V4。
+
 - 更新：2026-10-18
 - **2026-10-19最新阶段**：Astra设计审阅后，玩家已授权继续编码；M3A/M3B本地工程完成，见[M3入口](DEV_20261019_10_M3_DESIGN_AND_IMPLEMENTATION_ENTRY.md)、[M3A验收](../development_reviews/DEV10_M3A_ACCEPTANCE.md)、[M3B验收](../development_reviews/DEV10_M3B_ACCEPTANCE.md)。PR #4待源代码审阅/合并，正式30队仍UNASSESSED，V3继续生效、V4未启用。下方“不启动M3”是此前阶段边界；本次不启动M4。
 - **本次M0开发中的玩家最新修正（优先于下文原C3/E连接前置要求）**：不要求Codex测试三个Web GPT的真实连接；完成实现与PowerShell本地访问验证即可交付并提交GitHub，玩家在开发完成后自行建立连接，有问题届时修复。三个角色仍如实记录未测试，不冒称M0_CONSUMER_ACCEPTED。M0本地交付与Web后续连接分开，不因此启动M1—M4。实现与本地证据见[验收报告](../development_reviews/DEV_20261018_10_M0_SQLITE_ACCESS_ACCEPTANCE.md)。
