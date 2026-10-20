@@ -1,6 +1,16 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
 DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)与[验收](../development_reviews/DEV14_ACCEPTANCE.md)。M3-T读取M0新域的object_key/field_key、registry_version及save_instance_id/generation_id，向gm_state_io stage提交最小稀疏changes，再由玩家批准完整摘要。不得生成裸地址、复制前像或自建执行事务。能力缺失/新档未全量采集则明确未观察；本次仅补依赖说明，没有实施DEV13或启用GM V4。
+> **2026-10-19 最终窗口分工和Book默认规则（最高优先级）**：[DEV18双Codex窗口交接](DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)：PR#5独立窗口①负责全部DEV14安全IO、自动Potential=1、Intangibles原生字段和受控BookID动作；**本DEV13只交PR#4的M系列Codex窗口②**负责GM分析、战术训练方案、换帅同名书归位。不同窗口必须靠PR#5最终commit+`DEV14_TO_M3_HANDOFF.md`交接，不能把两个模型当同一执行者。用户确定新档30队各自持本队同名Book，换帅归位即可，**不要另建共享书克隆/全联盟逐书验证项目**；保留通常的Native ID/CAS/读回。51未知Tendency、完整战术CRC、训练模板和疲劳知识均是后续Antigravity扩展。正文与此冲突的早期任务描述作废。
+
+> **2026-10-19 赛季换帅与Codex主线优先**：[DEV17](DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)规定：每队每游戏赛季只允许**休赛期换帅一次**。A队换B教练后，将当前教练的PlaybookID从可能的B书**恢复为A队同名且独占原生Book**，再根据B教练理念和A队球员改变A书内部战术，不触碰B书；本轮不开发合同到期/签约/自由市场机制，只做业务政策和确认换帅事件后的Book恢复动作。**Codex先集成已有DEV14与M3字段进行最低闭环**，AG余下CRC语义/倾向/模板/疲劳属于后置扩展，唯独原生Book安全绑定阻塞可提前给AG小任务。
+
+> **2026-10-19 GM防守/Playbook最高优先级新规则（覆盖旧段落）**：[GM个人防守与球队专属战术手册](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)要求：GM正常经营**只写PERSONAL_DEFENSE、OVERALL_DEFENSE只读不改**；**不主动修改coach.PlaybookID切书**，而是在经原生身份验证的**本队独占**Playbook 68槽中增删/替换战术。共享书owner=[A,B]时禁止任何单队写槽；换帅后重新取新教练和手册归属，需要AG认证的技术性球队书绑定时另获用户批准，再按新教练理念改本队书。此前本文件任何“先Overall后Personal/日常先切Book再改Slot”的文字作废，不能继续用旧规则生成M3动作。
+
+> **2026-10-19 用户七项正式定稿 / DEV16**：以[DEV16完整GM战术、训练与原生字段整合](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)为本文件后续业务依据。具体执行限制仅为同一team/opponent的`OVERALL_DEFENSE+PERSONAL_DEFENSE`不能在同一内存批次（必须顺序预检执行）、`coach.PlaybookID + PLAYBOOK_SLOT`不能同批（先切本后重读槽位）。二者不是篮球策略互斥。Antigravity负责Playbook/现实战术映射与替换、补51无名Tendency、按位置训练模板与疲劳只读；Codex负责注册统一DEV14、GM D1-D6诊断。训练只允许球队/个人强度、恢复及球员原型/位置模板，不扩展到单项属性训练或直接徽章操作。已证同codec家族允许一项代表实测支持整类实现，不要求逐字段游戏手工验证；但字段地址、值域、真实来源不能省。World当前50及Gameplay4项接入有效，未认证其它字段不得假装全覆盖。
+
+> **2026-10-19 用户最终决定 DEV15 V2（覆盖本文件所有旧门禁）**：GM所有队允许以原生球员`Intangibles`（PLAYER 0x440，25–99）作为策略性轮换控制输入，目标是引导原版AI首发/第六人/分钟；其作为仅此一个字段的普通GM经营权限例外，经玩家批次批准和DEV14确定性前值/写入/读回即可。**不再要求研究/验证对交易、合同、模拟及其它系统的副作用**，不锁定精确分钟。全部球员真实潜力在正式采集入库后/发布前由统一确定性脚本将各表、JSON及Player raw_struct 0x441**置1**，来源标`MASKED_NOT_OBSERVED`，GM禁止将1当作真实潜力。详见[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)及[额度分批计划](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。早期“仅GM投影隐藏Pot/必须先研究Intangibles副作用”的段落全部失效。
+> **2026-10-19 M3-T新决策接口与低额度执行次序**：先读[分批开发顺序](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。正式GM使用M3之前，需按[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)在采集入库后、发布前强制将所有Player Potential数据覆盖为1（并标记MASKED），不准将1作为球员潜力依据；M3诊断引入首发/第六人/轮换分钟`minutes_target_band`与实际分钟对账，优先教练BenchDepth等非原生属性调整。已知本局PLAYER `intangibles`字段0x440作为综评补偿、玩家逐批批准后，才允许单字段例外`PLAYER_ROTATION_OVR_BIAS`通过DEV14执行。该值只是可能影响显示OVR/轮换的策略性代理，**GM市场估值和实力评估不能使用被调整OVR替代真实能力/比赛数据**。本扩展不恢复硬锁分钟，不扩大直接修改原始Ability/Potential/Badge权限。正式动作权限与真人凭据见[DEV14-H安全加固](DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)。
 
 2026-10-19 · owner: Web Development（决策与审阅） · implementation: Codex（M3集成及源数据接入），Antigravity（原生游戏战术与训练接口的开发及实机验证） · authority: USER approval for all game writes.
 
@@ -24,8 +34,8 @@ DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)�
 
 1. 一致来源：球队现有教练原始评级及8体系熟练度（只读）/ActiveSystem/PreferredSystem/POE/Freelance/RunPlayTendency/球队本Playbook及68槽原生数据、每人4有序Play Types/PlayInitiator/99 Tendency（实际认证字段）/55原始能力（只读）/全部对手18整体及逐人防守/球队训练及疲劳可用性/战绩与本人及队友统计、合同预算。
 2. 进攻身份：优势创造者、传导者、终结者、掩护者、无球牵制、篮板/二次进攻；防守身份：主防、协防/tag、护框、可换防、后场篮板。问战术为什么会或不会被调用，不能看OVR排序直接判定。
-3. 发现断链：类型未覆盖；同类型但战术真实受益人未知；个人倾向与叫战术频率冲突；教练体系偏好与人员适配冲突；个人防守责任与整体防守冲突；球员原始技能限制；训练/疲劳使人员无法完成高强度角色；或者根本没有问题，HOLD。
-4. 给出正反事实与代价：HOLD vs 调原有教练设置/战术本及内部plays vs 调4PlayType槽位/PlayInitiator vs 最小必要个人Tendency vs 逐人/整体防守 vs 训练/恢复/导师 vs 员工与主教练 vs 自由市场/交易。每个候选必须有“为何优于/劣于HOLD、有哪些替代及负效应、若被对手针对的下一选择”。
+3. 发现断链：类型未覆盖；同类型但战术真实受益人未知；个人倾向与叫战术频率冲突；教练体系偏好与人员适配冲突；逐人防守责任与原版整体默认是否产生继承/覆盖问题（GM不修改整体防守）；球员原始技能限制；训练/疲劳使人员无法完成高强度角色；或者根本没有问题，HOLD。
+4. 给出正反事实与代价：HOLD vs 调原有教练设置/本队独占战术本内部plays vs 调4PlayType槽位/PlayInitiator vs 最小必要个人Tendency vs 逐人防守（整体防守仅观察） vs 训练/恢复 vs 员工与主教练 vs 自由市场/交易。每个候选必须有“为何优于/劣于HOLD、有哪些替代及负效应、若被对手针对的下一选择”。
 5. 只有证明了无法经济合理地使用现有人员与战术修复角色缺口，才进入D4 MARKET；交易必须符合M1财务和M3双方独立GM利益，不把愿意卖/合理换当必定成交。
 6. 赛前提案，原版ACE比赛中继续自主调整；后续批次再看表现。3D与CalendarSim具体影响权重若不可证标UNKNOWN，不能编提高胜率百分比；训练输入不直接改人物原始能力。
 7. 30队彼此独立形成报价和组合同步：一个队交易掉的球员可能是另一个队的核心，成交后的战术/训练/逐人防守人员绑定全部重新规划，而不是沿用旧快照继续执行。
@@ -49,7 +59,7 @@ DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)�
 
 - main版 src/player_tactics_adapter.py 的 execute_single_write(runtime_addr,expected_old,new_val) 在函数入口只做前值CAS+写回读回，**没有在这一入口强制包含career/batch/player identity/field allowlist/玩家批准digest**；preflight有字段白名单但直接write接受任意runtime地址。需要执行时重新验证来源、身份、字段和用户批准；禁止将裸地址写函数暴露给GM外部CLI。
 - main版 src/matchup_defense_adapter.py 的 execute_matchup_write(settings_addr,...) 类似接受裸地址与任意8字节hex；preflight通过位掩码编码new_value但未在这段验证真实原生枚举合法性，可能截断。需复用原有18字段enum合同、实际条目身份/对手/owner绑定与玩家审批。
-- Antigravity本地更新版是否已实现绑定，**以Codex整理进仓后的实际源码和最新测试验证为准**。目前不能宣称生产可安全执行。
+- Antigravity本地更新版是否已实现绑定，以最新实际源码及测试验证为准；**DEV14原生集成交窗口①，不由本M系列窗口复制执行引擎**。目前不能宣称生产可安全执行。
 
 ## 3. M3-T增量架构：先建立源数据与只读GM规则，再接动作
 
@@ -86,7 +96,7 @@ DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)�
 
 ### T4 动作与组合校验（从RESEARCH_ONLY逐项升级）
 
-增加明确动作和能力注册：COACH_DEFAULT/OVERALL_DEFENSE（已有）、PLAYER_PLAY_TYPE、PLAYER_TENDENCY、PLAYBOOK_CONTENT、PERSONAL_DEFENSE、TRAINING_PLAN、LINEUP_ROLE（如实机认证）。未有正式执行器的动作保持RESEARCH_ONLY/BLOCKED_EXECUTOR，不可由于Antigravity演示了preflight就算可批准落地。
+增加明确动作和能力注册：COACH_DEFAULT（已有）、PERSONAL_DEFENSE（GM正常唯一对位写类型）、PLAYER_PLAY_TYPE、PLAYER_TENDENCY、TEAM_EXCLUSIVE_PLAYBOOK_CONTENT、TRAINING_PLAN、LINEUP_ROLE（如实机认证）。OVERALL_DEFENSE继续读，不进入普通GM修改提案；coach.PlaybookID只能由独立获批的专属Book绑定或原生合法换帅流程处理。未有正式执行器的动作保持RESEARCH_ONLY/BLOCKED_EXECUTOR，不可由于Antigravity演示了preflight就算可批准落地。
 
 - 冲突键：
   (player_id,playtype_slot)；
@@ -95,7 +105,7 @@ DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)�
   (owner,opponent,opponent_player_id,defender_id,defense_field)；
   (player_id,training_period,training_field)；
   (team_id,coach_field/opponent_overall_field)。
-- 顺序：Coach/Playbook选择影响PlayType可用性；先应用整体防守再应用个人例外或单事务显式合并；交易后人员/对位/训练与战术动作全部过期，必须在新名单与Gameplan绑定后重计划。
+- 顺序：现任Coach与本队独占Playbook影响PlayType适用性；个人防守单独稀疏写，GM不再先修改Overall；换帅后重新认证球队专属Book并改写本队槽位，原已批slot计划失效；交易后人员/个人对位/训练/战术绑定必须按新名单重计划。
 - 最终输出仍分离：ANALYSIS_CONFIRMED vs RESEARCH_HYPOTHESIS vs OFFLINE_PREPARED vs APPROVED_BY_USER vs EXECUTED_READBACK_VERIFIED，不得混淆。交易/签约当前独立执行链不变。
 - 修改球员Tendency是玩家新许可的运营输入，但仍每个player+field+before/after+reason+approval+source绑定；普通能力、潜力、徽章、身高速度不可直接写。教练属性只读用以选择教练/合同，不允许任意提高原始教练评级。
 
@@ -119,8 +129,8 @@ Antigravity交付的gm_tactical_knowledge_v1可做source-grounded规则卡来源
 2. 68个Playbook槽只有CRC而没有类型映射时，所有这类PlayType coverage必须UNKNOWN；不得因为Team=IND或PB name=pacers就断言STATIC_VERIFIED；
 3. 玩家Touch≥75但球权分布实际合理时不能自动判定TRADE；同样教练最高熟练体系与实际Active不同不能自动改体系；
 4. 同一个球员同一Tendency不同值冲突、不同槽合法组合、重复当前同值幂等；
-5. 整体防守批次之后指定个人防守仍能按原审批生效，个人例外不会被无关整体动作静默覆盖；
-6. 交易后失效的个人战术、训练、对位、教练人员目标全部被正确重新绑定或BLOCKED；
+5. 同一对手的多个PERSONAL_DEFENSE字段/球员可安全组成一个稀疏批次，默认不产生任何GM整体防守写；整体字段仍保留RO；
+6. **按用户默认30队各有同名书**，已确认换帅后将当前Coach的BookID恢复到本队已存在同名Book并重新采集本队68槽；只修改当前本队书、其它队数据不动。仅真实读到同名ID缺失/身份异常才阻断该动作，不另开发模拟共享书克隆。交易后个人战术、训练与对位旧目标须重新绑定或BLOCKED；
 7. 未经玩家批准，任何新增动作都不能拿裸运行时地址/8字节hex绕过身份与digest白名单直接写游戏；坏enum、新批、来源过期拒绝；
 8. 原始能力/潜力/徽章保存前后内容不变（只在隔离测试存档核查），训练自然进步只能是游戏后续结果；
 9. 两种比赛路径：3D赛场与CalendarSim无法证明的效果写UNKNOWN，并给赛前可证假设/反例；
@@ -130,7 +140,7 @@ Antigravity交付的gm_tactical_knowledge_v1可做source-grounded规则卡来源
 ## 5. 交付与版本门禁
 
 - M3A/M3B PR#4先保持既有工程成果，提交/合并需要用户另批准；新任务优先在**独立M3-T分支/PR**增量完成，避免干扰正在调试的Antigravity本地专用目录或重复实现DEV12。
-- Antigravity完成本地测试后，Codex先**对照main当前已存在的9b4fe87七文件**，整理完整新版，明确覆盖/新增与已有教练审批机制的区别；同步生产数据源建议，而非盲目复制全套重复的coach_locator。
+- Antigravity扩展在M3主线之后按需提交；本M系列窗口**只从窗口①的DEV14_TO_M3_HANDOFF.md和已合入的PR#5接口消费字段**，不再归并第二套coach_locator/采集器。
 - 短期“最小GM V4启用前门禁”：M3能读同批战术上下文；P1/P2必须有经证据审阅的内部战术替代对照；战术信息不足时不能产生伪证交易结论；动作仍可RESEARCH_ONLY，不必等99倾向每种全写才能开GM分析。
 - 完整功能激活条件：真正有效的Playbook类型映射、个人防守/训练/倾向的有界审批执行器、跨交易依赖和写入后读回以及新一轮可比比赛数据。所有允许修改的人物Tendency需玩家具体批准。
 - 不自动把GM V4从DRAFT_NOT_ENABLED改FORMAL，不自动更改任何球队/游戏/原始SQLite，不合并PR，不启动M4。

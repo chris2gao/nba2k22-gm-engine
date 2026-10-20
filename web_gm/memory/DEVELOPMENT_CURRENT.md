@@ -279,3 +279,50 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 实核技术边界：旧`resolve_context(None)`会fallback到`legacy-shared`；新版DEV14 CLI必须拒绝这种隐式共享，但保留历史工具兼容。原`monthly_snapshots.snapshot_id`不带career，因此多档必须物理分库存储，不能在共享league表中混写同名赛季快照。
 - **危险重置**只在用户确需重复同一save_id时使用，dry-run→精确双确认→旧三库/控制journal的SQLite backup完整归档→准备新generation→持久化激活指针；任何归档或替换失败都保留旧完整generation或阻断，不能混新旧league/pool/control。历史GitHub发布、旧快照和其他档不删；旧审批对新代次无效。若当前`published/latest`代次不支持安全复用同名save_id，宁可BLOCKED，要求新save_id。
 - 目前仅更新开发文档/开发记忆，**尚未运行reset、修改游戏、采集或创建多档工作区**；DEV14开发仍交Codex，Antigravity只负责原生字段接口。需针对两个档同名快照/同球员和切档中执行/重置失败做少量合成定向验收。
+
+## 2026-10-19 Codex额度优先顺序+新GM潜力遮蔽/OVR轮换机制
+
+- 用户反馈Codex周额度约9%、5小时额度约49%（当时界面状态，不推算能执行多少任务）。推荐单次一阶段：**B0 DEV14-H**三库pool代次/人工审批信任边界小补丁→**B1** PR#5由玩家授权合并、PR#4适配/定向回归 + GM潜力脱敏→**B2** DEV13 M3-T只读数据与GM六维战术诊断→**B3** 经Antigravity原生证据的OVR软轮换反馈。[M系列分批执行总计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。
+- [DEV14-H](../../docs/development_tasks/DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)指出PR#5 `Workspaces.check_databases()`只核league和control却未核pool；pool采集`os.replace(*.capture)`后generation元数据容易丢。CLI用户输入的`--approve-game-writes`、`player-approval-reference`由调用者提供，不构成不可伪造真人批准；模型自动调度不得为自己签授权，同权限操作无法靠同目录HMAC提供强隔离，生产期间保持MANUAL_OPERATOR_TRUST_ONLY。
+- [DEV15](../../docs/development_tasks/DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)：**A P0潜力信息遮蔽必须在GM V4正式分析前实现**。当前M0`q_players/q_pool.attributes`直接JSON暴露原生attributes，PR#4 M3将其解到`decoded_attributes`，市场筛选支持`attributes.<field>.value`，所以GM view需要allowlist、SQL/屏蔽属性测试，新版GM导出不应包含原生Potential；内部私有原始库可保留以支撑自然成长/校验。若GM仍可从GitHub原始SQLite直接读取Potential，则标FOG_NOT_ENFORCED_RAW_SOURCE_ACCESSIBLE，不能声称实现严格信息遮蔽；历史选秀的现实未来成就不能自动当当前世界线确定未来。
+- **B P1 新用户单字段例外**：玩家称原版球员有25–99的综评补偿、能影响显示OVR与AI优先首发/第6人/轮换分钟，非真实投射/传球/防守技能调整。旧2K Intangibles玩家反馈支持方向但对2K22 PC具体效果/合同和Sim副作用未认证；只允许Antigravity确认具体原生字段和能力保护之后，以玩家逐项批准的`PLAYER_ROTATION_OVR_BIAS`引导原版自动换人；继续不做锁定分钟。先把GM`minutes_target_band`、教练BenchDepth、年龄/体系、球员位置、先发和第6人等加入DEV13诊断，依据真实采集校准而不是发明分钟公式。可调整的显示OVR不得直接变成GM球员真实实力/交易价值。
+- 现有DEV13任务文件已加本批新规则与依赖；DEV14原任务V1.1保留但已标新的小补丁及例外。已有M3PR#4 Draft、DEV14PR#5 Open尚未合并；此轮只更新GitHub文档，未执行代码/游戏、更未触发全量采集。
+
+## 2026-10-19 玩家正式修订：Potential强制入库遮蔽与全联盟Intangibles轮换
+
+- **本条覆盖前文DEV15 V1“GM查询层遮蔽即可”和“Intangibles副作用研究必须先做”的早期建议。** [权威DEV15 V2](../../docs/development_tasks/DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)已确认PLAYER `intangibles` offset1088/0x440（rating/1 byte），`potential` offset1089/0x441（1 byte），见`config/memory_field_profile.json`、`src/dump_player_pool.py`。两字段相邻，DEV14例外只允许获批写入Intangibles一个字节，不开放其他Ability/Potential/Badge。
+- **Potential后处理固定为1**：每次`full_verified_v1`原生RO采集完、正式备份/SQLite哈希/manifest/发布前，自动执行确定性`sanitize_player_potential`处理所有在队和球员池记录：`player_pool.potential`、`raw_potential`、`player_pool.source_details_json.attributes.potential`、`player_source_details.details_json.attributes.potential`（raw/value均1）及两边完整PLAYER `raw_struct[0x441]=1`，覆盖新扩展存储的其它Player raw镜像（如`state_io_objects`）；失败阻断发布，哈希须脱敏后计算。**不改游戏真正Potential**，此值是MASKED占位而非观察值，GM不得当作选秀/成长依据。历史已发布潜力可能泄露，单独处理老批隔离或获批的新GM安全副本，不暗改immutable。
+- **Intangibles作为30队GM正常轮换手段**：GM可按首发、第六人、板凳人数、角色目标分钟，提出25–99综评补偿偏置并从真实后续赛场分钟反馈调整；原版ACE自动换人继续ON，不硬锁分钟。用户已放弃额外研究Intangibles对游戏其它模块副作用的要求，Codex不应浪费额度做研究；但确定性身份/字段/写前/写后/回滚和每批游戏修改的玩家批准照旧。
+- **DEV14已有实际整合而非空架构**：PR#5 `registry.py`注册19默认/18整体、个人防守、4PlayTypes/initiator、48可命名可写+51语义未知只读的99Tendencies、68槽本、4Gameplay USER/CPU、50世界设置、6球队+5球员训练并通过NativeSession RO/RW/capture bridge。欠缺其余原生字段/导师关系、正式游戏生产采集验证，以及将战术理解转为M3决策的DEV13。不要再立项重做整个通用采集写入器。
+- [额度友好计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)现分B0原加固，B1首先潜力入库后强制脱敏，B2 DEV13战术/训练决策，B3综评补偿动作和反馈；该规则也已写入DEV13与DEV14权威文档。本次仅更新GitHub文档，**Codex代码尚未实现这两项新增修改**。
+
+- **重大新发现：GM脱敏球员池不可用于原生历史选秀注入。** `src/historical_rookies.py.query_historical_draft_class()`返回`player_pool.raw_struct`及`raw_potential/potential`。GM正式采集发布库已按用户决定将PLAYER byte0x441和所有潜力明文置1；**任何利用这份脱敏raw_struct向游戏注入1984–2020历史新秀的脚本，可能把真实原生Potential变成1**，违背游戏人物自然成长规则。历史选秀入游戏必须使用独立权限的未脱敏原生私有注入来源，或每次从真实游戏原生存档正确重读；未提供则报`SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE`拒绝导入，而不是用GM发布库冒险。此为数据防污染工程约束，不是用户取消的Intangibles额外副作用研究。已写入DEV15 V2，并在PR#5评论明确。
+
+## 2026-10-19 用户最终补充七项DEV16：教练冲突澄清、战术本、倾向语义和训练范围
+
+- [DEV16授权开发文档](../../docs/development_tasks/DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)：主任务是把已完成的DEV14字段能力交GM用、补缺知识与训练疲劳；不重做已有原生框架。
+- **教练所谓冲突并非球场战术矛盾**：DEV14 plan代码目前拒绝同一owner/opponent同批OVERALL+PERSONAL防守，以及同批coach.PlaybookID切本+PLAYBOOK_SLOT编辑。可以GM提出组合策略，执行器拆为有序可审批子批：整体防守再个人例外；先切新手册并再采新槽位原值后修改。原Coach POE共享位域支持合并。
+- **战术/倾向Antigravity责任**：战术本68槽CRC≠已掌握实际Play Type/使用位置，AG补Play CRC↔UI名称/类别/教练体系/现实篮球动作与替换安全流程；51剩余未知Tendency补真正语义/映射后交Codec家族登记，不要开发第二套读取/写入。
+- **训练范围收敛**：仅队伍主客场强度/自动强度/B2B休息和个人训练位置模板、原型、强度、伤病恢复；不做各单项能力微调、直接加能力或徽章、导师复杂关系作为本期必需。当前`config/state_io_native/training.json`仅能证实通用九类player_types(0..8)，尚未覆盖用户提到每个位置约十套模板的实际UI枚举，AG给位置/模版对应。原生已记录progressive_fatigue_history @0x2F5与count flags，但DEV14 Registry当前只把5个个人训练flags读作设置字段，**疲劳当前值/趋势解码仍未接入可供GM读取的字段**：由AG补ReadOnly fatigue映射，Codex复用统一采集/查询，GM结合比赛分钟/赛程决定训练强度与伤病风险，不把历史字段当实时确定值。
+- **同一家族验证**：用户与AG已验证一类中有代表的单个字段写入成功即可认同一原生编码类别的机制；不要求每个World字段/99个Tendencies反复手工测。仍保留确定性原字段slot/offset/合法值域、唯一球队球员身份、mask和CAS/读回；复杂手册替换因实测曾失败，独立修复。World仅现已注册50、Gameplay当前4项USER/CPU足够，不得将未知未映射项称为已可执行；其他世界字段未来按已证codec加registry即可。
+- DEV15 V2 Potential入库后全部置1和Intangibles 0x440/25–99 30队软轮换规则继续有效，无新增副作用研究。所有游戏修改都需玩家批准。本轮只更新GitHub文档，不运行游戏、合并PR或开始实际代码开发。
+
+## 2026-10-19 GM防守与战术书最终定稿：个人策略、球队独占实体
+
+- [新权威GM运营文档](../manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)及修订[DEV16](../../docs/development_tasks/DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)：玩家最新明确**GM日常完全不修改OVERALL_DEFENSE，仅对对手具体球员按需写PERSONAL_DEFENSE**。用户确认原生整体防守会覆盖所有个人防守；原有“先改Overall后改Personal”经营规则作废。Overall仍可采集/只读，DEV14底层codec保留，非GM维修需要独立授权。无法唯一匹配个人native ID时BLOCKED，不得偷改整体。
+- **战术手册策略**：GM正常经营不得自由改coach.PlaybookID切换书。每队以专属的**物理独立原生Playbook对象**（优先本队同名原生书）为资产，允许在68槽添加/替换内容满足当前教练体系和球员；更换教练是员工/合同事件，需重新采集新任教练与Playbook的原生绑定，必要时经玩家批准做仅用于确保球队独占的技术性绑定，再修改本队专属书槽位。**名称同队名不代表书实体独立**。
+- PR#5的`adapters.py`会识别共享owner集但Registry标记`EXPLICIT_ALL_SHARED_OWNERS_OBSERVED_PLAY_CRC_ONLY`，因此目前共享Book若所有owner身份没有变化仍可能按共享方式被写。**新GM政策必须默认阻止任何包含多Owner原生Playbook的单队编辑**：`SHARED_PLAYBOOK_MUTATION_BLOCKED`，需要`owner_team_ids == [team_id]`且原生指针/实体独立。不能因两教练都使用PHI书而让一队改槽影响另一队。Antigravity负责认证一队一本的真实克隆/预留/技术绑定可行性，不能实现则BOOK槽位保持BLOCKED，GM仍可调球员PlayTypes/Tendency/教练其他字段。
+- 现有DEV14代码尚未完成此新增审批策略；本轮仅发布GitHub规范和开发交接，**无真实游戏修改、PR合并或生产采集**。同步改GM_COACHING_OPERATIONS/DEV13/DEV14/DEV16/额度计划，旧文档中先Overall再Personal或日常切书建议已废止。 
+
+## 2026-10-19 换帅后球队本名书归位、每赛季休赛期一次、Codex主线优先
+
+- [DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)最新规则：A队原A主教练/A手册，聘B教练后可能原生变为A队/B教练/B手册；**玩家批准技术性修改A队新Coach的PlaybookID恢复A队同名独立原生A手册**，其后再根据B教练体系与A队阵容改A书68槽，不能编辑B队书/共享书。新档建库原始本名书绑定也是技术初始化，不等于日常自由切Book。每队每游戏赛季只能在休赛期换帅**一次**；本轮只实现GM赛季/阶段约束及换帅后Book恢复接口，休赛期合同到期、员工竞价、自由市场及阶段控制明确不在本轮开发。
+- **Codex先主线，AG扩展后置**：B0 DEV14-H、B1 Potential=1、B2 用现有DEV14读取/编码/审批及M3流程建设已知字段最低闭环与Book同名索引/恢复、个人防守与Intangibles。AG的CRC真实战术、51未知倾向、各位置训练模板、当前疲劳完整解码均在主线后补，唯独同名Book无法找到独占对象或现有槽位技术无法写入时给AG最小专项。缺数据允许UNKNOWN/HOLD，不伪称完整战术科学已实现。
+- 本轮仅在GitHub更新开发和GM文档，未授权正式换帅/实际修改游戏或合并PR。
+
+## 2026-10-19 用户最终确认：两个独立Codex开发窗口与球队同名书默认不变量
+
+- [DEV18最新两窗口交接](../../docs/development_tasks/DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)覆盖DEV13/16/17早期将B0/B1/B2交给同一个Codex的错误安排。**窗口①DEV14专项Codex**负责PR#5底层：DEV14-H同档三库/真实批准、DEV15 Pot=1自动采集后清洗、Intangibles受控轮换、原生Codec/BookID限制/受控动作、`DEV14_TO_M3_HANDOFF.md`；**窗口②M系列Codex**负责PR#4既有M3A/M3B和DEV13 M3-T、30队GM决策、教练/轮换/训练/个人防守和球队本名Book恢复策略。先①形成PR#5增量交接→用户独立授权合并#5→②将main整合进#4，处理冲突并继续；#4的合并也须单独审批。两个窗口不共享上下文，只通过GitHub commit/接口报告传递。
+- **玩家明确声明新档每支球队有自己队名的独立原生战术手册容器**；默认不存在此前虚构的多队共享书风险，取消为此研究物理克隆/全联盟手册身份验证的立项或主线门禁。换帅导致新教练BookID短暂指向B球队书时，以获批受控动作将**A球队的新教练BookID恢复到A球队同名书**，然后按新教练体系和A队阵容编辑A书，不操作B书。简单保持现有Native ID/原值/CAS/读回；只有真实单一对象异常才Fail Closed，不据此预先研究共享冲突。
+- 换帅每队每赛季仅休赛期一次，完整员工合同/竞价/自由市场系统留后续；GM日常不写OVERALL_DEFENSE，针对球员PERSONAL_DEFENSE；DEV14当前已知教练/68槽/48具名倾向/训练与GAMEPLAY/WORLD统一机制继续复用。AG战术CRC/51未知倾向/位置模板/疲劳为后续扩展，不先阻塞主线。
+- 上述是本轮Github文档改动，两个PR仍独立未合并，未修改游戏或生产事实。
