@@ -11,6 +11,8 @@
 
 ## Player development policy
 
+- **Player instruction 2026-10-20:** Ask the player before any extension design or additional testing. State proposed scope, reason and expected effort/cost; wait for explicit confirmation before that work. Do not add design, test cases, broader coverage, another validation round or rerun passing tests on your own. Complete already authorized work and deliver with existing evidence. Prefer simple per-save directories/databases; no speculative isolation or anti-spoof infrastructure. See `docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md` V2.
+
 - Follow `docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md`: prioritize excellent implementation within reasonable scope, with proportionate directly relevant verification. Do not make boundaries so strict that checks/tests displace implementation. The player accepts undiscovered bugs that were believed correct at development time, including impactful data-interpretation bugs, for later discovery and repair; do not turn every hypothetical issue into a preventive gate. Preserve explicit game-write authorization and existing read-only/identity protections without expanding validation scope.
 
 ## DEV-10 V2 / M0 SQLite consumer access

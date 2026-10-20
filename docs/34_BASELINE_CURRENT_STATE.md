@@ -2,6 +2,8 @@
 
 ## 2026-10-20 DEV14-H / DEV15：PR #5增量工程（未合并）
 
+**开发规范V2：玩家要求任何扩展设计或追加测试先询问并等待确认。** 原定范围完成即交付，不继续为完备性扩展；规则已写入AGENTS和DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY。多存档采用独立目录/数据库的简单结构，review可选，不追加权限防伪工程。
+
 代码版本`DEV14_V1.2_H_DEV15`，控制库user_version仍1；新增观察策略表`player_potential_masks`，M0保留`gm_sqlite_m0_v1`并增加rotation域和`require_gm_sanitized()`。Registry指纹随字段/策略改变。证据和最终提交查[DEV14_TO_M3_HANDOFF](development_reviews/DEV14_TO_M3_HANDOFF.md)，本节不代表main部署或正式游戏验收。
 
 - H1：league/pool/control三库实际save/instance/generation与capture_id/snapshot/时间一致；先暂存、日志安装，失败恢复旧完整文件；PREPARED中断阻断托管入口，显式`save recover-capture`恢复，不释放未解决的原生写锁。
