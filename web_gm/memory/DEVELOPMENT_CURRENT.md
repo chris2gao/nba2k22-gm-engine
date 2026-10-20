@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-20 M4系统自我进化交付索引
+
+Codex窗口②已从合并M3后的main实现DEV20/M4，状态M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED，独立Draft PR待审。玩家下次主动触发开发规划时，先读[工程问题CURRENT](../../web_gm/development_feedback/CURRENT.md)、[准备状态](../../web_gm/development_feedback/readiness.json)及必要的每项详情/原证据，再提出最小研究/实现范围、成本和任务书草案，等待玩家批准；不把候选当作已立项任务。长期Codex实态查[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)、[M4验收](../../docs/development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。Issue #6、BPTI、季后赛采集与双引擎校准均仍DEFERRED；M4只管理工程需求，不评价GM篮球经营效果或实现校准器。真实30队UNASSESSED、Web/已脱敏生产消费待证、V3生效。本条仅开发交接指针，不启动后续任务或游戏。
+
 ## 2026-10-20 Codex主线交付指针
 
 DEV14 PR #5已合入main（570419a/f68d75d）；M3窗口②以82083b5接收，M3A/M3B+M3-T工程及本轮8项最小验收已完成，原PR #4已按玩家批准合入main（`504a4c0656bad0e890c3783c89c656fca5b2e647`），正式本地工作区已同步，未追加测试或运行。长期Codex状态仍以[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)为准，具体接口、证据与完整目录脱敏待办见[M3-T交付](../../docs/development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM手册](../manuals/GM_M3_TACTICAL_WORKBENCH.md)。本条仅作开发索引；V3生效、V4未启用、真实30队UNASSESSED，不代表正式经营或新数据。

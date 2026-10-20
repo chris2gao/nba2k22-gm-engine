@@ -1,5 +1,7 @@
 # DEV20 — M4外挂系统自我进化与开发反馈引擎：Codex实施任务 V1
 
+**2026-10-20工程回执：** 本任务已在独立`codex/dev10-m4-system-evolution`实现并通过所授权5项最小检查，状态M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED，独立Draft PR不自动合并。起点为已合并PR #4的main `5a49d71`；下文PR #4待合并是规划时历史。见[实现与验收](../development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)、[操作手册](../M4_SYSTEM_EVOLUTION_WORKBENCH.md)和[开发问题索引](../../web_gm/development_feedback/CURRENT.md)。后续项目保持原后置边界。
+
 2026-10-20 · 玩家要求M系列Codex继续完成M4，先完成工程，不自动启动游戏。任务所有者：M系列Codex窗口②；基于M3-T/DEV14现有能力。状态：IMPLEMENTATION_TASK / AWAITING_CODEX_EXECUTION。
 
 ## 0. 最新权威业务边界（覆盖旧M4混合定义）
