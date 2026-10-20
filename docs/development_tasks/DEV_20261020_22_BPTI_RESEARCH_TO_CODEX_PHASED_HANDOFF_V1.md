@@ -6,6 +6,8 @@
 
 > **B0验收与B1入口更新（2026-10-20）：** B0工程已完成于[Draft PR #8](https://github.com/chris2gao/nba2k22-gm-engine/pull/8)，静态审核确认B0契约/知识索引和三项测试源码符合本阶段要求，审核意见已写入PR评论；开发者报告3项静态验证通过，开发规划窗口未重复执行。**PR #8尚未获玩家批准合并，因此B1尚未开始**；玩家合并B0后，下一阶段唯一应执行[DEV25 — B1十种SystemCard工程任务与Codex模型思考等级指南](DEV_20261020_25_BPTI_B1_SYSTEM_CARD_IMPLEMENTATION_AND_CODEX_MODEL_GUIDE_V1.md)，独立分支/PR。R1源中B0复合Claim多数UNKNOWN，不得只生成10张RESEARCH卡却声称普通GM知识就绪；B1须如实报告GM可读内容/时间裁剪。完成B1并获玩家批准后才进入DEV23。DEV24仍后置B6之后。
 
+> **2026-10-20 新增可选调度方案（尚需玩家选择并发送工作包授权）：** [DEV26 分组连续交付与四家族补证](DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md) 将B2→B3→最小四体系2021前证据修复定为**工作包B**，B4→B5→B6定为**工作包C**，DEV23仍单独处理本机UI/只读内存调查。DEV26只在玩家显式将对应包提示词交给Codex后覆盖此前“每段单独审批”的调度；工程知识、测试/扩大范围和玩家游戏写入权限不变。B1当前PR #9仍待玩家合并，DEV24仍后置。此处历史“B0尚未开始”的旧记录是当时状态，不再代表最新进度。
+
 ## 0. 必读、当前状态与仓库事实
 
 - `docs/development_tasks/DEV_20261020_19_BPTI_BASKETBALL_PHILOSOPHY_AND_TACTICAL_INTELLIGENCE_MASTER_PLAN_V1.md`
