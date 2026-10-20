@@ -1,8 +1,8 @@
 # 迭代开发基线提示词
 
-2026-10-20玩家补充的战术调用规则已记入DEV23报告E09：按球员四个有序PlayType从本队手册调用同类型战术，无固定位置限制，第1/2槽频繁执行。按PLAYER_REPORTED_UI使用，不假装认证逐CRC类型、精确权重或实际比赛执行；无需再把固定发起/受益位置证明当成类型匹配前置。当前细节和后续问题见34与DEV23报告，文档补录不启动B2或游戏操作。
+2026-10-20玩家补充E09/E10：同一战术可跨类型分类，类型匹配后装载；球员四PlayType的1/2主用、3/4偶尔，效果与教练等会影响选择；人类按键指定、CPU自动调用，无固定位置限制。按PLAYER_REPORTED_UI使用，不深究精确频率/AI系数，不把固定受益人当类型匹配前置。操作问题已答完；[手册关联补录](development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md)和34区分球员类型、球队Freelance、POE与ScoringOption。逐CRC类型仍缺证据；文档补录不启动B2或游戏操作。
 
-BPTI知识层开发索引：[B0契约](BPTI_KNOWLEDGE_CONTRACT_V1.md)和[B1十卡与检索](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)已按玩家授权分别经PR #8/#9合入main。后续独立DEV23只读研究见[研究报告](development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)及34：204槽中111槽/89个CRC有静态名称，逐战术类型/受益人仍UNKNOWN；实际同名书后缀匹配阻断已记录，未修复。研究部分交付后TASK_CLOSED，三个文字问题由玩家另开任务处理，不保持等待会话。复用M2/M3/DEV14，研究不成为GM源/执行许可，不启用V4。后续包B（B2→B3→四家族补证）、包C（B4→B5→B6）按DEV26分别由玩家新触发，DEV24后置。
+BPTI知识层开发索引：[B0契约](BPTI_KNOWLEDGE_CONTRACT_V1.md)和[B1十卡与检索](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)已按玩家授权分别经PR #8/#9合入main。后续独立DEV23只读研究见[研究报告](development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)及34：204槽中111槽/89个CRC有静态名称，逐战术类型/受益人仍UNKNOWN；实际同名书后缀匹配阻断已记录，未修复。研究部分交付后TASK_CLOSED，后续操作问题已由E10答复，不保持等待会话。复用M2/M3/DEV14，研究不成为GM源/执行许可，不启用V4。后续包B（B2→B3→四家族补证）、包C（B4→B5→B6）按DEV26分别由玩家新触发，DEV24后置。
 
 DEV20/M4工程增量：独立M4分支已实现外挂工程问题池、追加事件、显式有界导入/分流/交接和带日期readiness，状态M4_ENGINEERING_MAIN_MERGED，PR #7经玩家批准小修正后合入main（c51fa36），正式本地工作区已同步。见[工作台手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)、文档34及[开发问题索引](../web_gm/development_feedback/CURRENT.md)。它取代旧M4混合经营效果/比赛校准定义；不修Issue #6、不实施BPTI或校准器、不启用V4。新开发规划由玩家主动触发后读取索引，先提出范围/成本再待批准。
 

@@ -89,6 +89,43 @@
       "ref": "Direct player mechanism clarification in this task, 2026-10-20",
       "proves": "Player confirms type-based play eligibility, no fixed position restriction, random or specified calls, and frequent execution from slots 1 and 2",
       "does_not_prove": "Per-CRC native type mapping, uniform probabilities, exact slot weights, specific call UI, or newly observed game execution"
+    },
+    {
+      "evidence_id": "E10",
+      "kind": "PLAYER_REPORTED_UI",
+      "ref": "Direct player answers to Q4/Q5/Q6, 2026-10-20",
+      "proves": "Multi-type membership via category entries; type mismatch cannot load; player slot1/2 dominate automatic calls and slot3/4 are occasional; success/context/coach affect selection; specified calling is player button input and CPU-vs-CPU is automatic.",
+      "boundary": "Qualitative operational knowledge only. Do not investigate exact AI frequency/coefficients or infer a strict fallback algorithm."
+    },
+    {
+      "evidence_id": "E11",
+      "kind": "OFFICIAL_PC_MANUAL",
+      "url": "https://cdn.2kgames.com/manuals/nba2k22/PC/2KSWIN_NBA2K22_PC_Online_Manual_ENG.pdf",
+      "title": "NBA 2K22 PC Online Manual",
+      "retrieved_on": "2026-10-20",
+      "locator": "Printed pages 1–4 / PDF pages 2–5: controls, basic and advanced offense",
+      "supports": "Manual play/pick call and offensive game-plan/strategy input categories exist.",
+      "not_supported": "MyLEAGUE CPU selection weights or per-play native type mapping"
+    },
+    {
+      "evidence_id": "E12",
+      "kind": "COMMUNITY_FIRST_HAND_REPORT",
+      "url": "https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings",
+      "title": "NBA 2K22 Useful Findings",
+      "retrieved_on": "2026-10-20",
+      "locator": "2021-09-18, jimbo3772 #5; VictorMG #4",
+      "supports": "Author reports coach focus, offense, play types/book, tendencies and initiator interactions.",
+      "not_supported": "Exact formulas, universal Touch values, or direct certification on this PC build"
+    },
+    {
+      "evidence_id": "E13",
+      "kind": "COMMUNITY_FIRST_HAND_REPORT",
+      "url": "https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings/page4",
+      "title": "NBA 2K22 Useful Findings page 4",
+      "retrieved_on": "2026-10-20",
+      "locator": "2021-09-20 #55–58",
+      "supports": "Players report unmatched ISO Point category skips the displayed slot; a few plays may use unexpected beneficiaries.",
+      "not_supported": "General fixed-position requirement or certified behavior on this PC build"
     }
   ],
   "coverage": {
@@ -11980,8 +12017,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12020,8 +12067,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12060,8 +12117,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12100,8 +12167,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12140,8 +12217,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12180,8 +12267,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12220,8 +12317,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12260,8 +12367,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12300,8 +12417,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12340,8 +12467,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12380,8 +12517,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12420,8 +12567,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12460,8 +12617,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12500,8 +12667,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12540,8 +12717,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12580,8 +12767,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12620,8 +12817,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12660,8 +12867,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12700,8 +12917,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12740,8 +12967,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12780,8 +13017,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12820,8 +13067,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12860,8 +13117,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12900,8 +13167,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12940,8 +13217,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -12980,8 +13267,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13020,8 +13317,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13060,8 +13367,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13100,8 +13417,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13140,8 +13467,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13180,8 +13517,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13220,8 +13567,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13260,8 +13617,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13300,8 +13667,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13340,8 +13717,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13380,8 +13767,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13420,8 +13817,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13460,8 +13867,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13500,8 +13917,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13540,8 +13967,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13580,8 +14017,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13620,8 +14067,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13660,8 +14117,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13700,8 +14167,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13740,8 +14217,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     },
     {
@@ -13780,8 +14267,18 @@
         "exact_weights": "UNKNOWN",
         "selection_algorithm": "UNKNOWN",
         "evidence_ref": [
-          "E09"
-        ]
+          "E09",
+          "E10"
+        ],
+        "primary_slots": [
+          1,
+          2
+        ],
+        "occasional_reserve_slots": [
+          3,
+          4
+        ],
+        "success_and_context_can_affect_selection": "PLAYER_REPORTED_QUALITATIVE"
       }
     }
   ],
@@ -15352,7 +15849,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "TRIANGLE_INSIDE_OUT",
@@ -15374,7 +15871,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "SPREAD_PICK_AND_ROLL",
@@ -15398,7 +15895,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "ISOLATION_MIDRANGE_CREATION",
@@ -15422,7 +15919,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "POST_HIGH_LOW",
@@ -15446,7 +15943,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "POINT_CENTER_ELBOW_HUB",
@@ -15471,7 +15968,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "TRANSITION_EARLY_OFFENSE",
@@ -15493,7 +15990,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "DEFENSE_FIRST_RIM_PROTECTION",
@@ -15515,7 +16012,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "SWITCHABLE_PRESSURE_DEFENSE",
@@ -15537,7 +16034,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     },
     {
       "system_id": "ADAPTIVE_MULTIPLE_SYSTEMS",
@@ -15562,7 +16059,7 @@
       "behavior_effect": "HYPOTHESIS_NOT_GUARANTEED",
       "fallback": "HOLD_RESEARCH",
       "gm_knowledge_eligibility": "UNCHANGED_FROM_B1; research inventory grants no GM visibility or operating authority",
-      "calling_rule_ref": "E09; type-driven selection, no fixed position restriction, ordered slot1/2 frequent; no numeric weights"
+      "calling_rule_ref": "E09/E10: multi-type membership, type eligibility, no fixed position restriction, primary slots1/2, occasional3/4; CPU automatic, no exact AI model"
     }
   ],
   "unsupported_actions": [
@@ -15596,13 +16093,14 @@
     "impact": "Existing own-book intent path remains blocked for these observed labels; do not bypass it or claim executable book support",
     "proposed_followup": "Player separately scopes minimal suffix normalization fix; not implemented or tested here"
   },
-  "player_text_evidence_policy": "Direct clarification E09 remains PLAYER_REPORTED_UI. Questions may be answered in a new task; no active wait or new engine proof.",
+  "player_text_evidence_policy": "E09/E10 are direct player operational reports; E11 manual and E12/E13 community reports have distinct limits. No remaining player question or active wait.",
   "task_lifecycle": "Original DEV23 task closed; player clarification documented as a new finite documentation follow-up; no active wait",
   "capability_delta": "NONE; source registry, executors, gm_core, GM visibility, V4 and actual 30 teams unchanged",
   "tests": "NOT_RUN; read-only research and deterministic extraction only",
   "player_confirmed_calling_rules": {
     "evidence_ref": [
-      "E09"
+      "E09",
+      "E10"
     ],
     "evidence_level": "PLAYER_REPORTED_UI",
     "rules": [
@@ -15621,17 +16119,31 @@
       {
         "rule_id": "REAL_BASKETBALL_PLAY_CONTENT",
         "statement": "Player describes book entries as real basketball plays; this does not certify each name, action branch or actor mapping."
+      },
+      {
+        "rule_id": "MULTI_TYPE_CATEGORY_MEMBERSHIP",
+        "statement": "A play can occur under several type categories. Resolve category then play; type mismatch cannot load. Same display name alone must not merge distinct native identifiers."
+      },
+      {
+        "rule_id": "PRIMARY_AND_RESERVE_TYPE_PRIORITY",
+        "statement": "Slots 1/2 provide most automatic calls, slots 3/4 are occasional. Poor success may gradually encourage other types; many factors including coach affect this. Player frequency description is not a per-game quota or numeric probability."
+      },
+      {
+        "rule_id": "MANUAL_SPECIFIED_CPU_AUTOMATIC",
+        "statement": "Specified calls are player button input. CPU-vs-CPU selects automatically; player four types, team offensive configurations, coach system and offensive/defensive focus are related influences without exact measured interactions."
       }
     ],
     "not_inferred": [
       "Uniform random selection",
-      "Numerical slot weights",
+      "Numerical slot weights or per-game quotas",
       "Strict sequential fallback",
-      "All first options always succeed",
-      "Specific-calling UI or whether it is manual vs preset",
-      "Fixed beneficiary per CRC"
+      "Same display name implies same native identifier",
+      "Freelance/POE/player types are one setting",
+      "Manual calling can be commanded by a pregame GM intent",
+      "A universal success threshold",
+      "CalendarSim and 3D have identical selection"
     ],
-    "B2_implication": "Use type-driven eligible-play pools and preserve ordered qualitative priority. Do not require a fixed position or fixed beneficiary certificate for type-only matching. Per-play certified type metadata is still needed for a verified intersection; no engine development authorized."
+    "B2_implication": "Interpret existing settings with multi-type eligible-play membership and ordered primary/reserve player types; preserve qualitative influence/uncertainty. No fixed actor prerequisite, precise AI model, new manual-call executor, or new implementation authorized."
   },
   "superseded_initial_player_text_questions": [
     {
@@ -15651,21 +16163,36 @@
     }
   ],
   "superseded_question_reason": "Player clarified the general type-driven/no-position mechanism; fixed actor/beneficiary proof is no longer requested as a general eligibility prerequisite.",
-  "player_text_questions": [
+  "answered_followup_questions": [
     {
       "question_id": "Q4",
       "question": "编辑战术或添加战术时，同一条战术只能属于一种PlayType，还是可同时归入多种？例如同一条既可作为挡拆持球手又可作为挡拆顺下人使用。",
-      "reason": "Determine one-to-one vs many-to-many type metadata; unknown is acceptable."
+      "reason": "Determine one-to-one vs many-to-many type metadata; unknown is acceptable.",
+      "answer_evidence_ref": "E10",
+      "status": "ANSWERED_AT_REQUESTED_OPERATIONAL_LEVEL"
     },
     {
       "question_id": "Q5",
       "question": "你说第1、2槽执行频繁，是四槽都可能参与选择但前两槽更常用，还是先尝试高优先级槽、条件不满足才落到后续槽？若只确认前两槽更频繁、不知道内部方式，也说明这一点即可。",
-      "reason": "Keep observed qualitative priority separate from an unverified weighted/sequential algorithm."
+      "reason": "Keep observed qualitative priority separate from an unverified weighted/sequential algorithm.",
+      "answer_evidence_ref": "E10",
+      "status": "ANSWERED_AT_REQUESTED_OPERATIONAL_LEVEL"
     },
     {
       "question_id": "Q6",
       "question": "同类型战术的“指定调用”是指比赛中玩家手动点选具体战术，还是赛前可以给球员指定某条具体战术、由AI自动调用，或者两者都有？",
-      "reason": "Separate manual in-game calling from a pregame configurable interface; no new test requested."
+      "reason": "Separate manual in-game calling from a pregame configurable interface; no new test requested.",
+      "answer_evidence_ref": "E10",
+      "status": "ANSWERED_AT_REQUESTED_OPERATIONAL_LEVEL"
     }
-  ]
+  ],
+  "player_text_questions": [],
+  "latest_handoff_status": "PLAYER_CALLING_RULES_CLARIFIED_CRC_TYPE_METADATA_PENDING_TASK_CLOSED",
+  "remaining_gaps": [
+    "Per-CRC certified PlayType membership",
+    "37 nonzero-slot labels unknown",
+    "Existing team_book suffix matching issue documented, not fixed",
+    "Exact AI selection formulas intentionally not pursued; actual new gameplay not observed"
+  ],
+  "manual_followup_ref": "docs/development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md"
 }
