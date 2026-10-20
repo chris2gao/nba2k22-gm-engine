@@ -1,5 +1,7 @@
 # M系列紧急开发路线 — Codex额度受限分批执行 V1.1
 
+> **2026-10-19 最新GM政策**：[个人防守优先+球队专属战术书](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)与[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)已更新：日常GM不再写整体防守，个人针对球员；GM不主动切PlaybookID，必须用本队原生独占Book修改槽位，多队共享PHI等书时BLOCKED，换帅需重审Book归属/新教练体系。Antigravity先研究独占书实体、专属绑定可行性与安全战术替换；Codex之后用现有DEV14做少量策略禁写与独占验证，**不要为此重做引擎或重复测试50世界参数**。
+
 > **2026-10-19 DEV16用户七项修订**：新增[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)作为新执行范围：Antigravity可并行做Playbook目录/替换、51无名倾向语义及位置模板与疲劳只读；Codex只在既有DEV14上注册这些新增字段，DEV13使用，不重复开发19/18教练、48倾向、6+5训练、50World/4Gameplay。某一codec家族已有成功代表实验不再逐字段手工测试；战术书替换因曾失败属于例外独立修复。总体优先B0、B1，之后AG字段资料就绪再做B2；B3Intangibles不需要其他系统副作用研究。训练只改模板/强度/休息，不做属性微操。
 
 **日期2026-10-19** · 此前用户反馈Codex **周额度约9%、5小时约49%**，这是界面现状快照，任务书不承诺所剩额度一定足够，也不按百分比换算成完成工时。**务必避免一条指令同时要求写完全部M3-T、完成30队研究、上线完整脚本并部署。**
