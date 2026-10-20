@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## BPTI task execution protocol — HARD STOP / NO PAUSED CHECKPOINTS (2026-10-20)
+
+- This instruction applies to subsequent BPTI Codex tasks and supersedes older "wait at gate", "pause for user", "ask then continue" examples. Read latest `docs/development_tasks/DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md` and `DEV_20261020_23_BPTI_CORE_PLAYBOOK_SEMANTICS_CODEX_DISCOVERY_V1.md`.
+- Per **user request**: NEVER leave an active Codex run/checkpoint/tool call suspended while waiting for user reply or approval; **finish what is already authorized, commit existing results, clearly report precise missing information, return terminal COMPLETED/PARTIAL/BLOCKED_TASK_CLOSED, and END the current task**. A user answer starts a fresh Codex task, not a resumed waiting session. Do not set up background/polling/wait tasks.
+- DEV23: No screenshots, computer-use screenshot, or player-provided live game page are required. Prefer archived native directory + permitted **read-only** game memory; if necessary, ask at most specific questions answerable by the user's **textual** description of visible UI, but only in the completed terminal deliverable. Player description is PLAYER_REPORTED_UI, not authenticated engine evidence. Do not write game data or invent runtime effects.
+- After DEV23 is completed/reviewed, package B executes **B2→B3→four families' pre-2021 evidence patch** in a single terminating task; package C executes **B4→B5→B6** in another terminating task. Separate packages start only on explicit new user instructions. No within-package pause gates. DEV24 remains deferred until after B6. All additional design/tests still require player approval under policy V2; such a need causes a **terminal partial handoff**, never an active waiting run.
+
 ## BPTI B1 system cards (2026-10-20)
 
 - Player explicitly approved merging B0 PR #8; it is merged at e4b397e. B1 is implemented on independent codex/bpti-b1-system-cards from that main, not on the old B0 branch. See docs/BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md and docs/development_reviews/BPTI_B1_IMPLEMENTATION_AND_ACCEPTANCE.md for current code/acceptance/PR evidence; do not assume B1 is merged.
