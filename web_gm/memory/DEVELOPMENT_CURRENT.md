@@ -293,3 +293,12 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - [额度友好计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)现分B0原加固，B1首先潜力入库后强制脱敏，B2 DEV13战术/训练决策，B3综评补偿动作和反馈；该规则也已写入DEV13与DEV14权威文档。本次仅更新GitHub文档，**Codex代码尚未实现这两项新增修改**。
 
 - **重大新发现：GM脱敏球员池不可用于原生历史选秀注入。** `src/historical_rookies.py.query_historical_draft_class()`返回`player_pool.raw_struct`及`raw_potential/potential`。GM正式采集发布库已按用户决定将PLAYER byte0x441和所有潜力明文置1；**任何利用这份脱敏raw_struct向游戏注入1984–2020历史新秀的脚本，可能把真实原生Potential变成1**，违背游戏人物自然成长规则。历史选秀入游戏必须使用独立权限的未脱敏原生私有注入来源，或每次从真实游戏原生存档正确重读；未提供则报`SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE`拒绝导入，而不是用GM发布库冒险。此为数据防污染工程约束，不是用户取消的Intangibles额外副作用研究。已写入DEV15 V2，并在PR#5评论明确。
+
+## 2026-10-19 用户最终补充七项DEV16：教练冲突澄清、战术本、倾向语义和训练范围
+
+- [DEV16授权开发文档](../../docs/development_tasks/DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)：主任务是把已完成的DEV14字段能力交GM用、补缺知识与训练疲劳；不重做已有原生框架。
+- **教练所谓冲突并非球场战术矛盾**：DEV14 plan代码目前拒绝同一owner/opponent同批OVERALL+PERSONAL防守，以及同批coach.PlaybookID切本+PLAYBOOK_SLOT编辑。可以GM提出组合策略，执行器拆为有序可审批子批：整体防守再个人例外；先切新手册并再采新槽位原值后修改。原Coach POE共享位域支持合并。
+- **战术/倾向Antigravity责任**：战术本68槽CRC≠已掌握实际Play Type/使用位置，AG补Play CRC↔UI名称/类别/教练体系/现实篮球动作与替换安全流程；51剩余未知Tendency补真正语义/映射后交Codec家族登记，不要开发第二套读取/写入。
+- **训练范围收敛**：仅队伍主客场强度/自动强度/B2B休息和个人训练位置模板、原型、强度、伤病恢复；不做各单项能力微调、直接加能力或徽章、导师复杂关系作为本期必需。当前`config/state_io_native/training.json`仅能证实通用九类player_types(0..8)，尚未覆盖用户提到每个位置约十套模板的实际UI枚举，AG给位置/模版对应。原生已记录progressive_fatigue_history @0x2F5与count flags，但DEV14 Registry当前只把5个个人训练flags读作设置字段，**疲劳当前值/趋势解码仍未接入可供GM读取的字段**：由AG补ReadOnly fatigue映射，Codex复用统一采集/查询，GM结合比赛分钟/赛程决定训练强度与伤病风险，不把历史字段当实时确定值。
+- **同一家族验证**：用户与AG已验证一类中有代表的单个字段写入成功即可认同一原生编码类别的机制；不要求每个World字段/99个Tendencies反复手工测。仍保留确定性原字段slot/offset/合法值域、唯一球队球员身份、mask和CAS/读回；复杂手册替换因实测曾失败，独立修复。World仅现已注册50、Gameplay当前4项USER/CPU足够，不得将未知未映射项称为已可执行；其他世界字段未来按已证codec加registry即可。
+- DEV15 V2 Potential入库后全部置1和Intangibles 0x440/25–99 30队软轮换规则继续有效，无新增副作用研究。所有游戏修改都需玩家批准。本轮只更新GitHub文档，不运行游戏、合并PR或开始实际代码开发。
