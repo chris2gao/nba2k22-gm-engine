@@ -302,3 +302,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **训练范围收敛**：仅队伍主客场强度/自动强度/B2B休息和个人训练位置模板、原型、强度、伤病恢复；不做各单项能力微调、直接加能力或徽章、导师复杂关系作为本期必需。当前`config/state_io_native/training.json`仅能证实通用九类player_types(0..8)，尚未覆盖用户提到每个位置约十套模板的实际UI枚举，AG给位置/模版对应。原生已记录progressive_fatigue_history @0x2F5与count flags，但DEV14 Registry当前只把5个个人训练flags读作设置字段，**疲劳当前值/趋势解码仍未接入可供GM读取的字段**：由AG补ReadOnly fatigue映射，Codex复用统一采集/查询，GM结合比赛分钟/赛程决定训练强度与伤病风险，不把历史字段当实时确定值。
 - **同一家族验证**：用户与AG已验证一类中有代表的单个字段写入成功即可认同一原生编码类别的机制；不要求每个World字段/99个Tendencies反复手工测。仍保留确定性原字段slot/offset/合法值域、唯一球队球员身份、mask和CAS/读回；复杂手册替换因实测曾失败，独立修复。World仅现已注册50、Gameplay当前4项USER/CPU足够，不得将未知未映射项称为已可执行；其他世界字段未来按已证codec加registry即可。
 - DEV15 V2 Potential入库后全部置1和Intangibles 0x440/25–99 30队软轮换规则继续有效，无新增副作用研究。所有游戏修改都需玩家批准。本轮只更新GitHub文档，不运行游戏、合并PR或开始实际代码开发。
+
+## 2026-10-19 GM防守与战术书最终定稿：个人策略、球队独占实体
+
+- [新权威GM运营文档](../manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)及修订[DEV16](../../docs/development_tasks/DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)：玩家最新明确**GM日常完全不修改OVERALL_DEFENSE，仅对对手具体球员按需写PERSONAL_DEFENSE**。用户确认原生整体防守会覆盖所有个人防守；原有“先改Overall后改Personal”经营规则作废。Overall仍可采集/只读，DEV14底层codec保留，非GM维修需要独立授权。无法唯一匹配个人native ID时BLOCKED，不得偷改整体。
+- **战术手册策略**：GM正常经营不得自由改coach.PlaybookID切换书。每队以专属的**物理独立原生Playbook对象**（优先本队同名原生书）为资产，允许在68槽添加/替换内容满足当前教练体系和球员；更换教练是员工/合同事件，需重新采集新任教练与Playbook的原生绑定，必要时经玩家批准做仅用于确保球队独占的技术性绑定，再修改本队专属书槽位。**名称同队名不代表书实体独立**。
+- PR#5的`adapters.py`会识别共享owner集但Registry标记`EXPLICIT_ALL_SHARED_OWNERS_OBSERVED_PLAY_CRC_ONLY`，因此目前共享Book若所有owner身份没有变化仍可能按共享方式被写。**新GM政策必须默认阻止任何包含多Owner原生Playbook的单队编辑**：`SHARED_PLAYBOOK_MUTATION_BLOCKED`，需要`owner_team_ids == [team_id]`且原生指针/实体独立。不能因两教练都使用PHI书而让一队改槽影响另一队。Antigravity负责认证一队一本的真实克隆/预留/技术绑定可行性，不能实现则BOOK槽位保持BLOCKED，GM仍可调球员PlayTypes/Tendency/教练其他字段。
+- 现有DEV14代码尚未完成此新增审批策略；本轮仅发布GitHub规范和开发交接，**无真实游戏修改、PR合并或生产采集**。同步改GM_COACHING_OPERATIONS/DEV13/DEV14/DEV16/额度计划，旧文档中先Overall再Personal或日常切书建议已废止。 
