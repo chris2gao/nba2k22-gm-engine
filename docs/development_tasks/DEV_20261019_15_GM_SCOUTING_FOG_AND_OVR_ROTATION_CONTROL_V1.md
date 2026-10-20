@@ -64,6 +64,18 @@
 
 市场报价、球探、30队GM、历史新秀与M3的`decoded_attributes`必须同样遵守这条规则；当`potential=1`仍出现在字段显示时明确标注`MASKED`。
 
+### 3.5 严禁脱敏球员池反向成为历史选秀注入源（新增确定性工程保护）
+
+仓库真实的`src/historical_rookies.py`→`query_historical_draft_class(db_path,year)`会从`player_pool`表读取`raw_potential`、`potential`和**完整`raw_struct`**并返回查询结果；`src/dump_player_pool.py`也自称历史选秀注入引擎的来源模块。这意味着当GM库已将PLAYER`raw_struct[0x441]`置1时，**任何把查询结果的raw_struct直接用于人物/历史新秀注入游戏的代码，都可能意外将真实原生潜力写成1**。这属于游戏数据完整性风险，**不属于用户已取消的Intangibles副作用研究**，必须防止。
+
+具体决议：
+- **所有GM可见和发布的球员池数据库必须Pot=1**，不能因“以后需要注入”让真实潜力漏到GM。
+- 如果历史选秀执行确实需要保留新秀真实原生Potential，必须从**GM和GitHub普通发布完全不可访问的、未脱敏的私有注入专用来源**取得（可为采集过程中的仅本地受控原始缓冲/权限隔离主档，或由游戏原生当前存档重新读取并校准）；**不得把GM发布库中的`raw_struct`当成可逆转的官方人物源**。
+- 如当前项目尚未完成私有注入来源接口，历史选秀相关写入调用面对`potential_mask_version`时必须**Fail Closed**，返回`SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE`；不能悄悄使用Potential=1构建未来历史新秀。这条约束适用于Codex和Antigravity已有/以后所有注入适配器。
+- 读写分类清晰：`source_role=GM_SANITIZED`与`source_role=NATIVE_INJECTION_PRIVATE`、`mask_version=potential_v1`、`player_raw_masked=true`。GM不能通过注入专用私有来源读取真实Potential；原始游戏内存中Potential本身始终不更改。
+- 直接相关验收：从GM库调用历史注入接口，必须拒绝`masked`结构；从独立受控原生来源执行同一个球员的预检，必须保持原生Potential原值、无需修改技能/徽章。**不需要为了此安全约束研究综评补偿影响合同、模拟或其它业务**。
+
+
 ## 四、轮换控制完整GM闭环（让DEV13直接用）
 
 - 核实真实原生位置排序、首发5、主要第6人、教练BenchDepth/BenchUtilization/年轻-年长、体系熟练度、实际最近若干场分钟（无法自动观察时UNKNOWN）。**用户总结的1–10分钟变化经验不需要再做副作用研究，不当作精确公式**。
