@@ -1,6 +1,6 @@
 # DEV27 — BPTI本队战术手册名称后缀匹配：最小Bug修复 V1
 
-2026-10-20 | owner=Web DEVELOPMENT | executor=Codex（玩家新任务触发） | status=**PLAYER_APPROVED_SCOPE / CODEX_NOT_YET_STARTED**。
+2026-10-20 | owner=Web DEVELOPMENT | executor=Codex（玩家新任务触发） | status=**BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED / DRAFT_NOT_MERGED**。实际实现、T1–T3及交付见[验收报告](../development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md)。下文为原批准合同。
 
 > 玩家已批准先修DEV23揭示的`team_book()`后缀Bug，再继续BPTI B2–B6；PR #10已在2026-10-20合并main（merge commit `8c80c7d452a69cdef72eee1c22b39562926af32a`）。本文件是单独Codex工程任务合同；写入规划不等于已实施修复。严格遵守`AGENTS.md`的**TASK CLOSED而非PAUSED**协议以及`PLAYER_DEVELOPMENT_POLICY_V2`。
 

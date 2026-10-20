@@ -1,5 +1,7 @@
 # 迭代开发基线提示词
 
+2026-10-20 DEV27局部修复：team_book()仅兼容独立末尾Playbook标签，保留原精确匹配、缺失/歧义报错及原生identity，不改游戏数据或其它功能。授权T1–T3静态检查一次通过（3 tests，0.005s）；独立Draft交付未合main，状态BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED。验收见development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md及34。下方DEV23“未修”保留历史调查含义。
+
 2026-10-20接收决定：玩家接受DEV23研究，并明确同意[PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)作为“战术知识基础设施”并入main，工程提交88a16ec。实际合并提交/状态以该PR与本地Git为准；下方原Draft/独立分支是交付历史。此次接收不认证未知类型/比赛效果、不修既有缺口、不授权后续B2–B6、测试、采集或游戏写入。
 
 2026-10-20玩家追加开发：已实现[共享战术池/用途适配](GM_SHARED_PLAY_POOL_V1.md)，通过Knowledge.play_pool及现有gm_knowledge的play-*只读入口给GM使用。1392个归档共享标识、1345个静态名称、1335条名称推断用途；精确原生类型成员仍UNKNOWN、候选另列。玩家确认球员四PlayTypes和球队四Freelance均前槽更优先/更多执行；共享条目可被其它球队加入或替换进各自书，保留容量和原DEV14同批全局目录/本队目标/具体批准。此授权只新增知识结构与读取，不等于完成B2或新游戏执行能力；没有新测试/采集/写入。

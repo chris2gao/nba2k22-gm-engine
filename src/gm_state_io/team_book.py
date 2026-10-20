@@ -15,7 +15,14 @@ def team_book(team, books):
     aliases = {normalized(team.get(k)) for k in ('name','abbreviation')}
     aliases.add(normalized((team.get('city') or '')+(team.get('name') or '')))
     aliases.discard('')
-    matches = [book for book in books if normalized(book.get('name')) in aliases]
+    matches = []
+    for book in books:
+        labels = {normalized(book.get('name'))}
+        parts = unicodedata.normalize('NFKC', book.get('name') or '').rsplit(None, 1)
+        if len(parts) == 2 and parts[1].casefold() == 'playbook':
+            labels.add(normalized(parts[0]))
+        if aliases & labels:
+            matches.append(book)
     if len(matches) != 1:
         raise ValueError('TEAM_NAMED_BOOK_MISSING_OR_AMBIGUOUS')
     return identity(matches[0])

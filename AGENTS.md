@@ -1,5 +1,9 @@
 # NBA2K22 GM project instructions
 
+## Scoped team_book suffix fix (2026-10-20)
+
+- DEV27 authorizes only the same-name Playbook suffix fix and T1–T3 static checks. `team_book()` additionally compares the exact normalized label after removing an independent terminal `Playbook` word; no fuzzy/prefix matching or identity rewriting. Missing/ambiguous matches retain the same error; native book identity/owner/CAS/approval logic is unchanged. T1–T3 passed once (3 tests, 0.005s); no game access/capture/writes or old suite reruns. See `docs/development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md`. Independent Draft delivery, not merged; status `BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED`. Historical DEV23 "unfixed" entries describe its earlier investigation. No B2 or further feature follows.
+
 ## Player-authorized shared play pool / both four-slot priorities (2026-10-20)
 
 - Player accepted DEV23 findings and explicitly approved PR #10 as tactical knowledge infrastructure for main on 2026-10-20. Implementation commit `88a16ec`; PR URL `https://github.com/chris2gao/nba2k22-gm-engine/pull/10` is authoritative for merge status/commit. Earlier Draft/no-auto-merge statements describe delivery before this approval. Acceptance does not certify per-CRC types/gameplay, fix the binder or authorize follow-up work.
