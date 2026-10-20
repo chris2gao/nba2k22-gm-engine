@@ -1,5 +1,7 @@
 # GM个人防守优先与每队同名Playbook运营规则 V2
 
+2026-10-20玩家明确区分：**专属的是球队手册容器，战术条目来自共享池**。相同战术可以被多本书引用，另一队可以将其添加或替换到自己的有限槽中；禁止写其它队容器不意味着禁止引用其它手册出现过的战术。查[共享池知识手册](../../docs/GM_SHARED_PLAY_POOL_V1.md)获取类型状态、用途及适配；历史参考池不替代本次已加载全目录和具体写入批准。
+
 **2026-10-19 用户最新业务保证与窗口接力**。上位开发调度见[DEV18](../../docs/development_tasks/DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)，M系列实现见[DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)。本规则为GM业务规范，代码实施未自动完成，真实游戏操作仍需玩家批准。
 
 ## 一、个人防守优先：GM不设置整体防守

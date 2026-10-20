@@ -34,6 +34,12 @@ class Knowledge:
         payload['claims'] += card_set['claims']
         return ResearchIndex(payload, card_set['cards'])
 
+    def play_pool(self):
+        """Opt-in shared plays, name-based purpose/fit and archived book references."""
+        from .play_pool import PlayPool
+        return PlayPool(read_json(self.root/'plays/play_pool_v1.json'),
+                        read_json(self.root/'plays/observed_catalog_v1.json'))
+
     def validate(self):
         for rows, key, count in ((self.cards, 'card_id', 12), (self.franchises, 'team', 30),
                                  (self.sources, 'source_id', None), (self.rules, 'rule_id', None)):

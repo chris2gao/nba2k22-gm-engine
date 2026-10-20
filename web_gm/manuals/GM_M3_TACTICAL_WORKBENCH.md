@@ -1,6 +1,12 @@
 # M3-T 战术、角色、训练和轮换工作台
 
+共享战术知识入口见[GM共享战术池](../../docs/GM_SHARED_PLAY_POOL_V1.md)：按名称/用途/球员职责/球队打法查共享条目，完整卡含类型状态、用途、适配及风险；球队手册是有限槽位对池的引用，同条可被多队使用。球员四PlayTypes和教练四Freelance都前槽优先、执行更多（玩家说明），但两组并非同一配置，也没有固定百分比。精确原生类型未知时不拿名称推断冒充匹配；归档在哪本书出现不证明当前档所属，正式源与批准照旧。
+
 版本M3_T_V1，2026-10-20。复用M3A/M3B与已随PR #5合入main的DEV14；本工具仍为DEVELOPMENT_CANDIDATE，GM V4未启用。它准备可供玩家审阅的稀疏意图，不运行stage/preflight/apply，不采集、不写游戏。底层执行约定见[DEV14手册](../../docs/DEV14_STATE_IO_RUNBOOK.md)。
+
+2026-10-20操作知识补录：[DEV23手册与玩家调用规则](../../docs/development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md)。玩家说明（PLAYER_REPORTED_UI）：同一战术可以出现在多个类型中，球员四槽填类型、先匹配类型再选本队条目；1/2主用、3/4偶尔，执行效果/教练等会影响选择；CPU对打自动调用，指定按键调用属于人类操作。无固定位置资格限制，不要求固定受益人认证作为类型匹配前置；逐CRC原生类型尚未取得时仍TYPE_UNKNOWN。无需研究精确频率/系数或保证每场调用次数。
+
+球员四个PlayTypes、球队四个Freelance与POE是不同配置层；POEOffense2/3在当前目录分别为节奏/篮板方向，不是第二/第三得分手。该补录不新增原生映射、评分选择执行器或GM权限，Knowledge/BPTI默认可读覆盖、同批GM_SANITIZED及DEV14具体审批不变。
 
 ## 1. 先取得合格来源
 

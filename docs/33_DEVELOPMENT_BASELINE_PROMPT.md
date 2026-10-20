@@ -1,6 +1,12 @@
 # 迭代开发基线提示词
 
-BPTI知识层开发索引：[B0契约](BPTI_KNOWLEDGE_CONTRACT_V1.md)已随PR #8按玩家授权合入main；[B1十卡与检索](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)在独立分支交付，实际验证/PR状态见34及其验收链接。复用M2和M3，执行仍走DEV14；分别报告研究覆盖与GM可读覆盖，不把十卡当原生支持、B3三十队或GM V4启用。阶段顺序按DEV22/DEV25，每阶段独立触发；B1后DEV23仍须玩家另批。
+2026-10-20接收决定：玩家接受DEV23研究，并明确同意[PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)作为“战术知识基础设施”并入main，工程提交88a16ec。实际合并提交/状态以该PR与本地Git为准；下方原Draft/独立分支是交付历史。此次接收不认证未知类型/比赛效果、不修既有缺口、不授权后续B2–B6、测试、采集或游戏写入。
+
+2026-10-20玩家追加开发：已实现[共享战术池/用途适配](GM_SHARED_PLAY_POOL_V1.md)，通过Knowledge.play_pool及现有gm_knowledge的play-*只读入口给GM使用。1392个归档共享标识、1345个静态名称、1335条名称推断用途；精确原生类型成员仍UNKNOWN、候选另列。玩家确认球员四PlayTypes和球队四Freelance均前槽更优先/更多执行；共享条目可被其它球队加入或替换进各自书，保留容量和原DEV14同批全局目录/本队目标/具体批准。此授权只新增知识结构与读取，不等于完成B2或新游戏执行能力；没有新测试/采集/写入。
+
+2026-10-20玩家补充E09/E10：同一战术可跨类型分类，类型匹配后装载；球员四PlayType的1/2主用、3/4偶尔，效果与教练等会影响选择；人类按键指定、CPU自动调用，无固定位置限制。按PLAYER_REPORTED_UI使用，不深究精确频率/AI系数，不把固定受益人当类型匹配前置。操作问题已答完；[手册关联补录](development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md)和34区分球员类型、球队Freelance、POE与ScoringOption。逐CRC类型仍缺证据；文档补录不启动B2或游戏操作。
+
+BPTI知识层开发索引：[B0契约](BPTI_KNOWLEDGE_CONTRACT_V1.md)和[B1十卡与检索](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)已按玩家授权分别经PR #8/#9合入main。后续独立DEV23只读研究见[研究报告](development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)及34：204槽中111槽/89个CRC有静态名称，逐战术类型/受益人仍UNKNOWN；实际同名书后缀匹配阻断已记录，未修复。研究部分交付后TASK_CLOSED，后续操作问题已由E10答复，不保持等待会话。复用M2/M3/DEV14，研究不成为GM源/执行许可，不启用V4。后续包B（B2→B3→四家族补证）、包C（B4→B5→B6）按DEV26分别由玩家新触发，DEV24后置。
 
 DEV20/M4工程增量：独立M4分支已实现外挂工程问题池、追加事件、显式有界导入/分流/交接和带日期readiness，状态M4_ENGINEERING_MAIN_MERGED，PR #7经玩家批准小修正后合入main（c51fa36），正式本地工作区已同步。见[工作台手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)、文档34及[开发问题索引](../web_gm/development_feedback/CURRENT.md)。它取代旧M4混合经营效果/比赛校准定义；不修Issue #6、不实施BPTI或校准器、不启用V4。新开发规划由玩家主动触发后读取索引，先提出范围/成本再待批准。
 
