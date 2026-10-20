@@ -1,5 +1,7 @@
 # M2 篮球知识与球队策略工作台
 
+BPTI B0增量：现有Knowledge新增按需bpti()入口和gm_knowledge的bpti-contract/bpti-source/bpti-claim/bpti-validate子命令，详见[B0契约](BPTI_KNOWLEDGE_CONTRACT_V1.md)。只提供研究引用和四类DTO，不替换下述12卡或创建第二套数据库；GM默认时间投影，研究全文须显式RESEARCH。十家族完整卡及实际球队身份仍留给后续玩家批准的B1/B3。
+
 版本 `gm_knowledge_v1 / TEAM_STRATEGY_STATE_V1`，状态 `IMPLEMENTED_LOCAL`。这是供 GM 显式消费的参考检索与派生状态工具；现行 GM 规则不切换为 V4。与 [M1 财务工具](GM_FINANCE_WORKBENCH.md) 共用独立 `gm_workbench.sqlite`，不修改事实库。
 
 ## 查少量参考，再按卡片钻取
