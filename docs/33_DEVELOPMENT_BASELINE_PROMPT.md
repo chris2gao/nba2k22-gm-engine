@@ -1,5 +1,7 @@
 # 迭代开发基线提示词
 
+2026-10-20 工作包C增量：PR #11经玩家批准合并main（04b194a），B4/B5/B6在独立codex/bpti-package-c接入现有M3候选流程。新增submit-blueprint/record-evolution、D1–D6与内部优先比较、同工作台版本历史；详见[B4/B5手册](BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)、本轮验收与34。仅C-C1～C-C5合成验收；正式GM、DEV24、采集/游戏数据发布与写入未触发。文化慢变、技能按当前来源、未知方向HOLD，V3有效/V4未启用、实际30队UNASSESSED。下方包B“未合并/包C未开始”为历史阶段描述。
+
 2026-10-20 工作包B增量：DEV27已按玩家新授权以80459b4快进合入远端及本地main。B2/B3已在独立codex/bpti-package-b交付知识映射/30队历史seed和四条早期机制；接口与限制见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)、[四项验收](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)及34。仅四项授权检查首次通过；包B待Draft PR审阅，不自动合并或启动B4–B6。V4未启用，真实30队UNASSESSED；下面旧“未合main/未做B2”描述保留原阶段历史。
 
 

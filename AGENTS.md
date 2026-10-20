@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## BPTI package C integration (2026-10-20)
+
+- Player approved PR #11 merge: main base 04b194ab8b4644161242391e964051d3d9f9520a. Separately triggered package C implements B4 → B5 → B6 on codex/bpti-package-c with a Draft PR, not automatic merge. Read docs/BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md and its package C acceptance report; older package B/unstarted-C notes below are historical.
+- Opt-in submit-blueprint/record-evolution reuse sealed GM_SANITIZED M3 packets, Knowledge.bpti, decision_artifacts, CAS and existing native_intent/DEV14 planner. Current blueprint revision binds D1–D6 and HOLD/INTERNAL/MARKET comparison; unavailable source/knowledge/native direction stays HOLD. No name-to-peak logic or claimed boxscore/gameplay effect. Evolution retains referenced prior system/culture and current visible skill evidence; cultural reidentification needs long-term and management context. No new game source, registry capability, database, executor or approval path.
+- Only five authorized checks C-C1..C-C5 and direct failed-item repair/reruns; no old suite or broader testing. V3 active, V4 not enabled, actual 30 teams UNASSESSED. No formal GM, DEV24, save creation, production capture/game-data publication or game access/write follows. Complete source Draft delivery and close the task.
+
+
 ## BPTI package B knowledge delivery (2026-10-20)
 
 - Player explicitly authorized DEV27 integration and continuation. Reviewed commits 867fe85/80459b4 were fast-forwarded into remote and local main at 80459b4; the old direct-commit/unmerged notes below are historical. Package B uses independent codex/bpti-package-b and a Draft PR; do not auto-merge it or start package C.

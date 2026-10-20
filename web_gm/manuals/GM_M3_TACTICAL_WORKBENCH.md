@@ -1,5 +1,7 @@
 # M3-T 战术、角色、训练和轮换工作台
 
+BPTI工作包C新增按需的篮球理由与球队演化：[B4/B5操作契约](../../docs/BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)。使用原gm_decision的submit-blueprint/record-evolution，之后沿现有评审/备选/定稿；同批GM_SANITIZED、当前蓝图版本和既有DEV14权限不变。HOLD/内部优先/市场成本必须与体系角色相连，文化不随单月输赢重写。候选历史不会自动成为正式GM、玩家批准或游戏动作。
+
 共享战术知识入口见[GM共享战术池](../../docs/GM_SHARED_PLAY_POOL_V1.md)：按名称/用途/球员职责/球队打法查共享条目，完整卡含类型状态、用途、适配及风险；球队手册是有限槽位对池的引用，同条可被多队使用。球员四PlayTypes和教练四Freelance都前槽优先、执行更多（玩家说明），但两组并非同一配置，也没有固定百分比。精确原生类型未知时不拿名称推断冒充匹配；归档在哪本书出现不证明当前档所属，正式源与批准照旧。
 
 版本M3_T_V1，2026-10-20。复用M3A/M3B与已随PR #5合入main的DEV14；本工具仍为DEVELOPMENT_CANDIDATE，GM V4未启用。它准备可供玩家审阅的稀疏意图，不运行stage/preflight/apply，不采集、不写游戏。底层执行约定见[DEV14手册](../../docs/DEV14_STATE_IO_RUNBOOK.md)。

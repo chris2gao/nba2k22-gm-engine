@@ -1,5 +1,16 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 工作包C：B4/B5/B6完成，独立Draft交付
+
+玩家已批准PR #11合并；main合并点04b194ab8b4644161242391e964051d3d9f9520a。随后独立触发包C，从该main建立codex/bpti-package-c，保留原season-match-history工作区。本包实现[B4/B5手册](BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)中的M3按需篮球理由、D1–D6及HOLD/INTERNAL/MARKET比较、球队六级演化与已有工作台不可变历史；证据见[包C验收](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)。旧包B“未合并/包C未开始”是历史记录。
+
+只运行C-C1～C-C5及直接失败项修正/复验，最终5/5 PASS（17.700s），未重跑旧B0/B1/B/M3/DEV14套件。修正合成蓝图必填状态、动作类型及测试导入路径，没有扩大测试。三队示例和跨队历史姓名/教练适配均为合成工程证据，不评定真实球队，也不认证比赛效果或存盘。
+
+新增gm_decision submit-blueprint/record-evolution：CLI重新核对同批GM_SANITIZED，知识按游戏日期过滤；角色绑定当前可见技能，HOLD阻断不可支持动作/市场方案，蓝图修订要求重新评审/比较。BPTI_BLUEPRINT/BPTI_EVOLUTION沿原decision_artifacts/CAS/history/export，不新增数据库或审批。演化保留前态体系/文化，文化重构需跨季与管理层语境，不能由单月成绩或历史人名决定。
+
+本包无新游戏来源、source_catalog项、原生registry字段或执行能力；第8节原执行能力表继续适用。OVERALL/Potential/Ability/Badge/unknown51及自由PlaybookID不开放；同批身份、本队书/全目录CRC、DEV14批准元组与CAS不变。Tempo含义/CRC类型/AI效果UNKNOWN，不能补造趋势或胜率。V3有效、GM_V4_NOT_ENABLED、真实30队UNASSESSED；DEV24、正式GM、采集/事实发布、新存档和游戏操作未启动。状态BPTI_PACKAGE_C_COMPLETE_TASK_CLOSED，源码Draft供玩家独立审阅/合并，不自动跟进。
+
+
 ## 2026-10-20 工作包B：B2/B3/四类历史机制已完成，独立Draft交付
 
 DEV27的867fe85与80459b4已按玩家新指令合入远端和本地main（快进到80459b4），本包从该主线建立codex/bpti-package-b。140条分级NativeBinding、30张五层历史TeamIdentity及四条NBA官方早期机制已通过现有Knowledge.bpti / gm_knowledge只读查询接入。用法见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)，证据见[验收报告](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)。

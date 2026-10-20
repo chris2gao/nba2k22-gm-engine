@@ -142,7 +142,7 @@ class M3Store:
 
     def save_decision(self, run, expected_revision=0, artifacts=()):
         self.ensure_m3()
-        allowed={'TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS','COACH_EVENT'}
+        allowed={'TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS','COACH_EVENT','BPTI_BLUEPRINT','BPTI_EVOLUTION'}
         payload={k:v for k,v in run.items() if k!='artifacts'}
         b=run['source_binding']
         with self.c:
