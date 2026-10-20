@@ -1,12 +1,6 @@
 # DEV22 — BPTI三路研究成果交Codex：阶段化实施与审批分界 V1
 
-2026-10-20 | Web Development | 状态：**IMPLEMENTATION_HANDOFF_PREPARED / PLAYER_STAGE_APPROVAL_REQUIRED**。本文本身不授予开发/测试/PR合并/游戏写入权限。玩家决定阶段开始后，以此分段任务书约束Codex，遵守AGENTS.md和DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md V2。
-
-> **2026-10-20执行顺序澄清（本条覆盖先前的“DEV24可并行”计划）：** 玩家确认**目前尚未启动B0/B1；下一项唯一应推进的任务是B0**。阶段顺序固定为 **B0（研究证据和接口契约）→ B1（10种篮球体系可检索化）→ DEV23（限范围Playbook语义专项调查）→ B2（原生映射）→ B3（30队历史种子）→ B4（篮球决策接M3）→ B5（跨赛季演化）→ B6（最小验收）**。每阶段完成后由玩家明确触发下一阶段。DEV23任务书虽已发布，仅代表**待执行任务**，不是已启动的编码/原生调查；必须等B1完成后再触发。**DEV24 Antigravity逐场/高级统计源扩展由玩家选择后置到B0–B6全部结束再启动**，不是BPTI研发前置依赖。B4/B6如缺逐场数据，只能用已有受控同批来源进行可支持的逻辑与静态验收，趋势/机制效果明确`NOT_OBSERVED`，不能谎称已完成真实逐场有效性验证。正式开档的可靠数据来源要求仍单独有效。B0遵守`PLAYER_DEVELOPMENT_POLICY_V2`，不得自动启动B1、DEV23或其它范围。
-
-> **B0验收与B1入口更新（2026-10-20）：** B0工程已完成于[Draft PR #8](https://github.com/chris2gao/nba2k22-gm-engine/pull/8)，静态审核确认B0契约/知识索引和三项测试源码符合本阶段要求，审核意见已写入PR评论；开发者报告3项静态验证通过，开发规划窗口未重复执行。**PR #8尚未获玩家批准合并，因此B1尚未开始**；玩家合并B0后，下一阶段唯一应执行[DEV25 — B1十种SystemCard工程任务与Codex模型思考等级指南](DEV_20261020_25_BPTI_B1_SYSTEM_CARD_IMPLEMENTATION_AND_CODEX_MODEL_GUIDE_V1.md)，独立分支/PR。R1源中B0复合Claim多数UNKNOWN，不得只生成10张RESEARCH卡却声称普通GM知识就绪；B1须如实报告GM可读内容/时间裁剪。完成B1并获玩家批准后才进入DEV23。DEV24仍后置B6之后。
-
-> **2026-10-20 新增可选调度方案（尚需玩家选择并发送工作包授权）：** [DEV26 分组连续交付与四家族补证](DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md) 将B2→B3→最小四体系2021前证据修复定为**工作包B**，B4→B5→B6定为**工作包C**，DEV23仍单独处理本机UI/只读内存调查。DEV26只在玩家显式将对应包提示词交给Codex后覆盖此前“每段单独审批”的调度；工程知识、测试/扩大范围和玩家游戏写入权限不变。B1当前PR #9仍待玩家合并，DEV24仍后置。此处历史“B0尚未开始”的旧记录是当时状态，不再代表最新进度。
+> **2026-10-20 最新权威执行状态及用户调度（覆盖旧B0/B1待做、PR9未合并、逐阶段中途等待等时间性说明）：** B0 PR #8已合并，B1 PR #9 **已合并**（GitHub已核实）；现可由玩家**单独触发**[DEV23](DEV_20261020_23_BPTI_CORE_PLAYBOOK_SEMANTICS_CODEX_DISCOVERY_V1.md)。DEV23不需要用户截图、Computer Use截图或预先打开特定游戏页面，Codex从仓库现存原生对象/已授权只读内存调查，无法证实的仍UNKNOWN；真需玩家文字解答时以完成报告+问题清单**结束当前任务**，玩家随后另开Codex任务。DEV23经玩家接受后，按[DEV26](DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md)分为**包B（B2→B3→四家族2021前补证）**和**包C（B4→B5→B6）**，每包一次新用户触发、包内自动连续实施，**不设交互检查点/暂停等待**；遇需人参与，提交已完成材料+准确问题后彻底关闭当前任务。DEV24由玩家决定推迟至B6之后。不授权任何游戏写入/自动合并/额外测试。旧资料中阶段门的静态工程条件仍生效，**不再保留运行中的等待检查点**。
 
 ## 0. 必读、当前状态与仓库事实
 
