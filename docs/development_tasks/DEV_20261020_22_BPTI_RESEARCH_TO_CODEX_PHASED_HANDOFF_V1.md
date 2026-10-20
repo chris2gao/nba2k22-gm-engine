@@ -2,7 +2,7 @@
 
 2026-10-20 | Web Development | 状态：**IMPLEMENTATION_HANDOFF_PREPARED / PLAYER_STAGE_APPROVAL_REQUIRED**。本文本身不授予开发/测试/PR合并/游戏写入权限。玩家决定阶段开始后，以此分段任务书约束Codex，遵守AGENTS.md和DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md V2。
 
-> **2026-10-20 B0–B6最新依赖决策：** 历史案例库/R1-R2六级调整阶梯已经形成可用的篮球认知闭环，不需要先补齐所有历史案例。**B0/B1立即可进入玩家批准后的工程阶段；关键战术CRC→PlayType/角色语义专项调查[DEV23](DEV_20261020_23_BPTI_CORE_PLAYBOOK_SEMANTICS_CODEX_DISCOVERY_V1.md)对B2/B4高价值，宜在B1核心动作清单明确后、B2关键绑定定稿前由Codex另行专项调查，不要求全量解码；逐场统计/伤病/出场/高级数据源扩展[DEV24](DEV_20261020_24_BPTI_ANTIGRAVITY_GAME_DATA_SOURCE_REQUIREMENTS_V1.md)由Antigravity在玩家授权下并行，优先P0比赛实体/双队/球员箱分与覆盖审计，B0–B3不依赖它完成。**B4可先搭篮球决策框架，没有真实逐场数据时趋势判断`NOT_OBSERVED/HOLD`。不得因这些后置任务无限推迟BPTI开发，也不得以本条自动授权研究、采集或测试。
+> **2026-10-20执行顺序澄清（本条覆盖先前的“DEV24可并行”计划）：** 玩家确认**目前尚未启动B0/B1；下一项唯一应推进的任务是B0**。阶段顺序固定为 **B0（研究证据和接口契约）→ B1（10种篮球体系可检索化）→ DEV23（限范围Playbook语义专项调查）→ B2（原生映射）→ B3（30队历史种子）→ B4（篮球决策接M3）→ B5（跨赛季演化）→ B6（最小验收）**。每阶段完成后由玩家明确触发下一阶段。DEV23任务书虽已发布，仅代表**待执行任务**，不是已启动的编码/原生调查；必须等B1完成后再触发。**DEV24 Antigravity逐场/高级统计源扩展由玩家选择后置到B0–B6全部结束再启动**，不是BPTI研发前置依赖。B4/B6如缺逐场数据，只能用已有受控同批来源进行可支持的逻辑与静态验收，趋势/机制效果明确`NOT_OBSERVED`，不能谎称已完成真实逐场有效性验证。正式开档的可靠数据来源要求仍单独有效。B0遵守`PLAYER_DEVELOPMENT_POLICY_V2`，不得自动启动B1、DEV23或其它范围。
 
 ## 0. 必读、当前状态与仓库事实
 
