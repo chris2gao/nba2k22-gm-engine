@@ -2,6 +2,8 @@
 
 2026-10-20 | owner: Web GPT Development | 状态：SOURCE_REQUIREMENTS_PREPARED / ANTIGRAVITY_SEPARATE_USER_TRIGGER | 不自动授权开发、游戏访问、采集或数据发布。
 
+> **2026-10-20玩家最新调度：DEV24暂缓到BPTI B0–B6全部完成后再由玩家触发。** 本文为需求清单而非正在运行的工作命令。BPTI先使用现有赛季累计/原生配置可信数据建立认知、静态映射和决策合同；未观察逐场数据时不可宣称已实现逐场趋势推理。任何真实新档的生产数据可信度门槛不因后置而取消。
+
 ## 0. 当前真实数据边界
 
 截至本任务编写前的repo `config/source_catalog.json` / `docs/24_DATA_SOURCE_REGISTRY_AND_PLAYER_TRIGGERS.md` / `docs/31_SOURCE_EXTENSION_DISCOVERY.md`：
@@ -76,4 +78,4 @@
 
 **暂不做P2**：ACE战术调用逆向、所有五人组合/Tracking/全场回合事件。需先说明是否在当前游戏中实际存在可认证来源及复杂度，未来独立授权。
 
-在Codex B0/B1开发期间，Antigravity可按玩家授权并行做这一源扩展；B2/B3可以基于现有同批coach/player/roster字段设计，B4的比赛趋势诊断应优先消费真实新增逐场源，有字段未观测就降级分析，不伪称完整球队运行行为。
+根据玩家最新调度，Antigravity的DEV24扩展**后置至B0–B6完成之后**，届时再单独授权。B0–B3依据现有同批coach/player/roster字段设计；B4的比赛趋势诊断在无逐场来源时应输出NOT_OBSERVED或不执行，不能伪称完整球队运行行为。
