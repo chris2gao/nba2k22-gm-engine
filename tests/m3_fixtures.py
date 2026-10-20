@@ -5,7 +5,7 @@ from gm_core.workbench_common import now
 
 
 def inputs():
-    b=dict(career_id='synthetic',batch_id='SYNTHETIC_B1',snapshot_id='SYNTHETIC_S1',game_date='2021-12-12',
+    b=dict(career_id='synthetic',batch_id='SYNTHETIC_B1',snapshot_id='SYNTHETIC_S1',game_date='2021-12-12',player_potential_visibility='MASKED',
            data_updated_at='2026-10-19T00:00:00+00:00',publication_status='LOCAL_AUDITED_NOT_PUBLISHED',audit='PASS_VERIFIED')
     result=dict(source_binding=b,context={'synthetic':True},teams=[],team_stats=[],players=[],staff=[],coaching=[],defense=[],picks=[],finance=[],source_access=[])
     for tid in range(30):

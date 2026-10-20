@@ -1,6 +1,6 @@
 # 批准方案执行基线提示词
 
-DEV14-H/DEV15最新工程分支规则：按玩家2026-10-20简化决定，信任操作者引用真实聊天批准，以完整tuple及显式写入开关运行apply/rollback；review可选，不强迫玩家输入终端，不建设防伪/权限隔离。MANUAL_OPERATOR_TRUST_ONLY不是真人签发证明，JSON本身不批准。Intangibles仅25–99、0x440；Potential只脱敏数据库；普通GM整体防守/任意切BookID被阻止，新档/换帅恢复本队同名书须独立具体批准。详见[DEV15](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[交接](development_reviews/DEV14_TO_M3_HANDOFF.md)；未合并、未正式运行。
+DEV14-H/DEV15已随PR#5合入main（570419a）：按玩家2026-10-20简化决定，信任操作者引用真实聊天批准，以完整tuple及显式写入开关运行apply/rollback；review可选，不强迫玩家输入终端，不建设防伪/权限隔离。MANUAL_OPERATOR_TRUST_ONLY不是真人签发证明，JSON本身不批准。Intangibles仅25–99、0x440；Potential只脱敏数据库；普通GM整体防守/任意切BookID被阻止，新档/换帅恢复本队同名书须独立具体批准。详见[DEV15](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[交接](development_reviews/DEV14_TO_M3_HANDOFF.md)。M3-T在PR#4提供稀疏intent/approval tuple离线交接，未合并且不运行stage/preflight/apply；文件不构成批准，绑定后槽位必须用新来源另提案。工程集成不表示正式游戏执行或存盘验证。
 
 DEV14增量：统一状态执行入口 `scripts/gm_state_io.py` 只执行已stage、绑定ACTIVE实例/代次/批次与完整外部批准摘要的意图；操作者须明确确认已载入游戏档及退出编辑页。能力与实际验收范围见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md)、文档34和 [DEV14验收](development_reviews/DEV14_ACCEPTANCE.md)。不把Desired、内存回读或合成测试当成正式观察/已保存，不借控制库SQL状态授予批准。交易/签约继续走专用业务执行器。
 

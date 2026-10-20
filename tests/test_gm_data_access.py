@@ -18,11 +18,10 @@ from gm_data_access.snapshots import install_archive,load_snapshot,validate_pair
 from gm_data_access.query import QuerySession
 
 
-def fixture(root, team_stats=False, team_count=2):
+def fixture(root, team_stats=False, team_count=2, native_source=None, potential_mask=None, sid='SYNTHETIC_S1', batch='SYNTHETIC_BATCH'):
     source=root/'source'
     source.mkdir()
     context=dict(career_id='synthetic',game_date='2021-12-12',purpose='validation',synthetic=True,trigger='PLAYER_INITIATED')
-    sid='SYNTHETIC_S1'
     c=sqlite3.connect(source/'league_state.sqlite')
     c.executescript((ROOT/'database/schema.sql').read_text(encoding='utf-8-sig'))
     note='CAPTURE_CONTEXT_V1:'+base64.b64encode(json.dumps(context).encode()).decode()
@@ -33,7 +32,11 @@ def fixture(root, team_stats=False, team_count=2):
         c.execute('INSERT INTO team_monthly_stats(snapshot_id,team_id,team_abbr,total_salary) VALUES (?,?,?,?)',('OLD',t,'T'+str(t),99999))
         for n in range(3):
             d=dict(contract={'contract_year_1':dict(value=100+n),'years_left_on_contract':dict(value=1)},attributes={'speed':dict(raw=150,value=70)},season_totals=dict(points=20,minutes=10))
-            c.execute('INSERT INTO player_source_details VALUES (?,?,?,?,?,?,?,?,?,?)',(sid,t,n,t*3+n,'Same Name' if n==0 else 'Player'+str(t*3+n),10+n,None,None,json.dumps(d),bytes(0x80)))
+            if potential_mask:
+                d['attributes'].update(potential=dict(raw=1,value=1),intangibles=dict(raw=90,value=55))
+                d['season_totals']['times']=2
+            blob=bytes(0x4f0) if potential_mask else bytes(0x80)
+            c.execute('INSERT INTO player_source_details VALUES (?,?,?,?,?,?,?,?,?,?)',(sid,t,n,t*3+n,'Same Name' if n==0 else 'Player'+str(t*3+n),10+n,None,None,json.dumps(d),blob))
         detail=dict(fields=dict(vitals=dict(position=dict(label='HEAD_COACH'),salary=dict(value=10),years_left=dict(value=2)),attributes={}))
         c.execute('INSERT INTO staff_pool_observations VALUES (?,?,?,?,?,?,?,?)',(sid,t,'Coach',str(t),None,'VERIFIED_RECIPROCAL_TEAM_ROLE',bytes(8),None))
         c.execute('INSERT INTO staff_source_details VALUES (?,?,?,?,?,?,?)',(sid,t,t,'HEAD_COACH','VERIFIED_RECIPROCAL_TEAM_ROLE',json.dumps(detail),bytes(8)))
@@ -45,6 +48,9 @@ def fixture(root, team_stats=False, team_count=2):
     c.execute('INSERT INTO staff_source_details VALUES (?,?,?,?,?,?,?)',(sid,candidate_slot,None,None,'UNASSIGNED',json.dumps(detail),bytes(8)))
     for n,year in enumerate((2022,2023,2024,2025)):
         c.execute('INSERT INTO draft_asset_observations VALUES (?,?,?,?,?,?,?,?,?)',(sid,n,0,0,year,1,None,'VERIFIED_SIMPLE_FUTURE_PICK',bytes(32)))
+    if native_source:
+        from gm_state_io.capture_bridge import store
+        store(c,native_source)
     stamp_database(c,sid,'synthetic','2026-10-18T00:00:00+00:00')
     if team_stats:
         for t in range(team_count):
@@ -55,17 +61,32 @@ def fixture(root, team_stats=False, team_count=2):
     c.close()
     p=sqlite3.connect(source/'player_pool.sqlite')
     p.execute('CREATE TABLE player_pool(slot_id PRIMARY KEY,full_name,position_name,draft_year,draft_round,draft_pick,cyberface_id,raw_struct,source_details_json)')
+    if potential_mask:
+        p.execute('ALTER TABLE player_pool ADD COLUMN potential')
+        p.execute('ALTER TABLE player_pool ADD COLUMN raw_potential')
     pool_count=max(60,team_count*3)
     for n in range(pool_count):
-        blob=bytearray(0x80)
+        blob=bytearray(0x4f0 if potential_mask else 0x80)
         if n==59: blob[0x70]=0xe0
-        p.execute('INSERT INTO player_pool VALUES (?,?,?,?,?,?,?,?,?)',(n,'Michael Jordan' if n>=58 else 'Player'+str(n),'PG',1984 if n>=58 else 2021,1,1,1,bytes(blob),json.dumps(dict(attributes={}))))
+        details=dict(attributes={'potential':dict(raw=1,value=1)} if potential_mask else {})
+        p.execute('INSERT INTO player_pool(slot_id,full_name,position_name,draft_year,draft_round,draft_pick,cyberface_id,raw_struct,source_details_json) VALUES (?,?,?,?,?,?,?,?,?)',(n,'Michael Jordan' if n>=58 else 'Player'+str(n),'PG',1984 if n>=58 else 2021,1,1,1,bytes(blob),json.dumps(details)))
     stamp_database(p,sid,'synthetic','2026-10-18T00:00:00+00:00')
     p.commit()
     p.close()
+    if potential_mask:
+        from player_potential_mask import sanitize_player_potential
+        league=sqlite3.connect(source/'league_state.sqlite');pool=sqlite3.connect(source/'player_pool.sqlite')
+        try:
+            potential_mask=sanitize_player_potential(league,pool,sid)
+            digest=snapshot_digest(league,sid)
+            league.commit();pool.commit()
+        finally:
+            league.close();pool.close()
     ingest=dict(snapshot_id=sid,save_id='synthetic',data_updated_at='2026-10-18T00:00:00+00:00',batch_binding=dict(snapshot_digest_sha256=digest,player_pool_sha256='SYNTHETIC_POOL'),quality_metrics=dict(simple_draft_assets=dict(next_draft_year=2022),coaching_tactics=dict(profile=1)))
     audit=dict(snapshot_id=sid,save_id='synthetic',verdict='PASS_VERIFIED',checks=dict(synthetic_only=True),database_digest_sha256=digest,player_pool_sha256='SYNTHETIC_POOL',player_pool_records=pool_count,manifest_binding=dict(manifest_sha256='SYNTHETIC_SOURCE'))
-    manifest=dict(batch_id='SYNTHETIC_BATCH',snapshot_id=sid,save_id='synthetic',data_updated_at=ingest['data_updated_at'],context=context,audit_verdict='PASS_VERIFIED',gm_decisions_allowed=False,source_binding=dict(snapshot_digest_sha256=digest,ingest_manifest_sha256='SYNTHETIC_SOURCE',player_pool_sha256='SYNTHETIC_POOL'))
+    manifest=dict(batch_id=batch,snapshot_id=sid,save_id='synthetic',data_updated_at=ingest['data_updated_at'],context=context,audit_verdict='PASS_VERIFIED',gm_decisions_allowed=False,source_binding=dict(snapshot_digest_sha256=digest,ingest_manifest_sha256='SYNTHETIC_SOURCE',player_pool_sha256='SYNTHETIC_POOL'))
+    if potential_mask:
+        manifest['player_potential_mask']=potential_mask
     archive=root/'synthetic.zip'
     with zipfile.ZipFile(archive,'w') as z:
         for n in ('league_state.sqlite','player_pool.sqlite'):
@@ -74,7 +95,7 @@ def fixture(root, team_stats=False, team_count=2):
             z.writestr(name,json.dumps(data))
     published=root/'published'
     (published/'saves/synthetic').mkdir(parents=True)
-    latest=dict(save_id='synthetic',batch_id='SYNTHETIC_BATCH',data_updated_at=ingest['data_updated_at'],game_date=context['game_date'],upload_status='UPLOADED',uploaded_at='2026-10-18T00:01:00+00:00')
+    latest=dict(save_id='synthetic',batch_id=batch,data_updated_at=ingest['data_updated_at'],game_date=context['game_date'],upload_status='UPLOADED',uploaded_at='2026-10-18T00:01:00+00:00')
     (published/'saves/synthetic/latest.json').write_text(json.dumps(latest))
     queryroot=root/'query_snapshots'
     install_archive(archive,manifest,queryroot)

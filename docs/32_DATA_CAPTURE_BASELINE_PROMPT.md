@@ -1,6 +1,6 @@
 # 数据采集基线提示词
 
-DEV15/DEV14-H增量见文档34与DEV15手册：full_verified_v1在暂存安装/hash/导出之前自动净化所有PLAYER Potential=1（MASKED/NOT_GAME_OBSERVED），失败关闭；Staff/游戏内存不改。三库来源与日志须一致，旧未脱敏批次不供GM或直接重发。本分支未自动部署，加载基线不运行流程。
+DEV15/DEV14-H已随PR#5合入main（570419a），见文档34与DEV15手册：full_verified_v1在暂存安装/hash/导出之前自动净化所有PLAYER Potential=1（MASKED/NOT_GAME_OBSERVED），失败关闭；Staff/游戏内存不改。三库来源与日志须一致，旧未脱敏批次不供GM或直接重发。M3-T为PR#4未合并消费层工程，不触发新采集；完整Registry元数据潜力别名误判的已知阻断见[M3-T报告](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)，本轮未修底层。加载基线不运行流程。
 
 DEV14增量：注册管理的存档先核对唯一ACTIVE、save_instance_id/generation及玩家对实际载入存档的确认；全量入口共享生命周期lease，同RO会话采原生设置/倾向/训练并交原审计、backup与M0。没有新来源专用入口或独立latest，不回填历史；见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md)、文档34。工程已实现不表示本轮生产采集已运行。
 

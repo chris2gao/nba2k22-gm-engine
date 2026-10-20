@@ -10,6 +10,7 @@ sys.path.insert(0,str(ROOT/'src'))
 from gm_data_access import AccessError
 from gm_data_access.query import QuerySession
 from gm_data_access.decision_inputs import coaching_source
+from gm_data_access.decision_inputs import prepare_native_artifacts
 from gm_core import decision_protocol as protocol
 from gm_core import analysis_packet
 from gm_core.workbench_common import page, export_files, same_source
@@ -19,26 +20,29 @@ from gm_analysis import read_input
 
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action',choices=('begin','template','submit-review','submit-alternatives','submit-offer','respond-offer','select','validate','finalize','show','team','artifact','export'))
+    p.add_argument('action',choices=('begin','template','submit-review','submit-alternatives','submit-offer','respond-offer','record-coach-event','select','validate','finalize','show','team','artifact','export'))
     p.add_argument('--workbench',type=Path,default=ROOT/'_exports/dev10_m3/gm_workbench.sqlite')
     p.add_argument('--query-root',type=Path,default=ROOT/'database/query_snapshots')
     p.add_argument('--published-root',type=Path,default=ROOT/'published')
     p.add_argument('--run'); p.add_argument('--analysis-run'); p.add_argument('--career')
     p.add_argument('--mode',choices=('development',),default='development')
+    p.add_argument('--season-phase',choices=('UNKNOWN','REGULAR','PLAYOFFS','OFFSEASON'),default='UNKNOWN',help='Explicit player context; does not advance the game or implement offseason control')
     p.add_argument('--input',type=Path); p.add_argument('--expected-revision',type=int)
     p.add_argument('--output-context',type=Path); p.add_argument('--output',type=Path)
     p.add_argument('--constraints',type=Path,help='Source-bound restrictive player rules with context_evidence; cannot grant approval')
     p.add_argument('--team'); p.add_argument('--players',action='store_true')
     p.add_argument('--limit',type=int,default=20); p.add_argument('--cursor')
-    p.add_argument('--kind',choices=('TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS'))
+    p.add_argument('--kind',choices=('TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS','COACH_EVENT'))
     p.add_argument('--artifact-id'); p.add_argument('--artifact-revision',type=int)
     p.add_argument('--section',help='artifact: dotted stored-object path, including list indices; results remain paginated')
     return p
 
 
 def check_source(a,analysis):
+    analysis_packet.require_gm_packet(analysis)
     b=analysis['source_binding']; s=QuerySession(a.query_root,a.published_root,b['career_id'],b['batch_id'])
     try:
+        s.require_gm_sanitized()
         if not same_source(s.binding,b):
             raise ValueError('SOURCE_CHANGE_REBASE_REQUIRED')
     finally:
@@ -64,7 +68,7 @@ def run(a):
                 context_path=a.output_context.resolve()
                 if context_path.exists() or any(x.casefold() in {'published','saves','query_snapshots','seasons'} for x in context_path.parts):
                     raise ValueError('NEW_CONTEXT_FILE_OUTSIDE_FACTS_REQUIRED')
-            d=protocol.begin(analysis,a.run,bases,read_input(a.constraints) if a.constraints else None)
+            d=protocol.begin(analysis,a.run,bases,read_input(a.constraints) if a.constraints else None,a.season_phase)
             d=store.save_decision(d)
             if a.output_context:
                 context_path.parent.mkdir(parents=True,exist_ok=True)
@@ -75,6 +79,7 @@ def run(a):
             raise ValueError('RUN_REQUIRED')
         d=store.load_decision(a.run)
         analysis=store.analysis_context(d['analysis_run_id'])
+        analysis_packet.require_gm_packet(analysis)
         if a.career and a.career!=d['source_binding']['career_id']:
             raise ValueError('CAREER_MISMATCH')
         if writes:
@@ -85,12 +90,18 @@ def run(a):
                 finance=store.load_run(analysis['finance_run_id']) if analysis['finance_run_id'] else None
                 requests=[]
                 selected=d['artifacts'].get('PORTFOLIO',{}).get('selected')
-                if selected:
+                native=None
+                if selected and analysis.get('tactical_version'):
+                    from gm_core.decision_portfolio import inspect
+                    selection=inspect(selected['payload'],d['artifacts'],analysis,d)
+                    if not any(i['effect']=='BLOCK_FINAL' for i in selection['issues']):
+                        native=prepare_native_artifacts(analysis,d,selection,a.query_root,a.published_root)
+                elif selected:
                     from gm_core.decision_portfolio import resolve
                     _,actions,_,_=resolve(selected['payload'],d['artifacts'],analysis)
                     requests=[r for action in actions if action['kind']=='COACHING' for r in action['requests']]
                 snapshot=coaching_source(a.published_root,d['source_binding'],requests) if requests else None
-                updated,artifacts=protocol.validate(d,analysis,finance,snapshot)
+                updated,artifacts=protocol.validate(d,analysis,finance,snapshot,native)
             elif a.action=='finalize':
                 check_source(a,analysis)
                 updated,artifacts=protocol.finalize(d,analysis)
@@ -101,7 +112,10 @@ def run(a):
             if a.action=='validate':
                 v=d['artifacts']['VALIDATION']['current']['payload']
                 result['validation']={k:v[k] for k in ('report_id','valid_for_finalization','issues','bilateral_checks')}
-                result['specific_approval_items']=v['specific_approval_items']
+                result['specific_approval_item_count']=len(v['specific_approval_items'])
+                result['specific_approval_items']=[dict(item_id=i['item_id'],kind=i['kind'],executor_readiness=i['executor_readiness'],
+                    digest=i.get('digest',i.get('batch_digest')),action_count=len(i.get('action_ids',[]))) for i in v['specific_approval_items'][:20]]
+                result['details']='artifact --kind VALIDATION --artifact-id current --section specific_approval_items'
             return result
         meta=dict(run_id=a.run,revision=d['revision'],source_binding=d['source_binding'],execution_authorized=False)
         if a.action=='show':
@@ -135,6 +149,10 @@ def run(a):
             f=store.artifact_history(a.run,'FINAL','final',d['current_final_version'])
             files.update({'team_summaries.json':f['team_summaries'],'selected_items.json':dict(specific_approval_items=f['specific_approval_items'],research_items=f['research_items'],holds=f['holds']),
                 'hypotheses.json':f['hypotheses'],'strategy_candidates.json':f['strategy_candidates'],'offline_artifacts.json':f['generated_artifact_refs']})
+            for index,artifact in enumerate(f['generated_artifact_refs']):
+                if artifact.get('kind')=='DEV14_SPARSE_INTENT' and artifact.get('status')=='OFFLINE_PREPARED':
+                    files['intent_'+str(index+1)+'.json']=artifact['intent']
+                    files['approval_tuple_'+str(index+1)+'.json']=artifact['approval_tuple']
         return export_files(a.output,files)
 
 

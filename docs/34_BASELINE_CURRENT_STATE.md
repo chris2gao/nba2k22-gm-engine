@@ -1,8 +1,13 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
-## 2026-10-20 DEV14正式合并，M3-T接入开始
+## 2026-10-20 DEV14正式合并，M3-T本地工程完成、PR #4待审
 
-PR #5已按玩家批准合入main，合并提交`570419a`、最终开发提交`f68d75d`。下方DEV14“未合并”是交付时历史记录，不再代表当前部署状态。M3窗口在原PR #4分支接收本底座，保留M3A/M3B并实现DEV13/M3-T；采用开发规范V2，仅执行本任务八项最小验收，不重跑已通过旧集合。GM V4未启用、正式游戏/新采集/发布未触发。
+PR #5已按玩家批准合入main，合并提交`570419a`、最终开发提交`f68d75d`。下方DEV14“未合并”是交付时历史记录，不再代表当前部署状态。M3窗口在原PR #4分支以`82083b5`整合本底座，保留M3A/M3B并完成DEV13/M3-T本地工程；PR #4保持Draft/未合并。当前正式main接收了DEV14，尚未接收M3-T。采用开发规范V2，本任务八项最小验收均通过：首轮6项、修正样例后仅复验另2项，未重跑已通过旧集合。详见[实现与验收](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM操作手册](../web_gm/manuals/GM_M3_TACTICAL_WORKBENCH.md)。
+
+- 接入脱敏M0事实、原生对象/代次/Registry来源、八体系熟练度、四PlayTypes/Initiator、48具名倾向、6+5训练和Intangibles；D1–D6全员角色/分钟目标、内部修复比较、市场缺口和证据质量进入原工作台。普通GM仅个人防守、不写OVERALL；教练普通18项、本队已加载同名书68槽。新档或确认换帅后独立TEAM_BOOK_REBIND，绑定后新来源再另提槽位；换帅只休赛期每队每季一次，无员工市场执行器。
+- 稀疏意图通过既有DEV14纯离线build_plan生成实际digest/审批tuple/diff，交易后或绑定后需重计划，导出不等于stage/批准/执行。Potential=1只为MASKED/NOT_GAME_OBSERVED；旧未脱敏包与旧缓存禁供GM。51未知倾向、CRC语义、疲劳/更多位置模板仍UNKNOWN，交Antigravity后续。
+- 已发现DEV14完整Registry元数据中的世界设置键`world.contracts_and_finances.player_potential_factor`被净化器误识别为球员潜力别名；完整目录合成输入被阻断。底层修复及额外1项检查已另询范围，未获授权前不纳入。M3八项验证使用实际观察字段目录及真实净化凭据，不代表完整生产采集已验收。详见上述报告。
+- 真实30队策略仍UNASSESSED、正式评估0队；V3继续生效、V4未启用、M4未启动；本轮没有游戏访问/写入、正式GM、新采集/发布或正式赛季档案改动。
 
 ## 2026-10-20 DEV14-H / DEV15：PR #5增量工程（未合并）
 

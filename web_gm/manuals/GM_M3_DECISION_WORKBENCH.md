@@ -1,5 +1,7 @@
 # M3B 候选GM决策工作台操作手册
 
+2026-10-20增量：M3-T已在原PR #4接入正式main的DEV14，新增已脱敏原生事实、内部优先诊断、角色/目标分钟、个人防守/球员战术/训练/轮换及本队手册意图。完整新用法见[M3-T手册](GM_M3_TACTICAL_WORKBENCH.md)。新包必须通过potential_v1净化，旧M02与未脱敏缓存不供GM；本页P1–P5与交易协议继续复用。PR #4仍Draft/未合并，V3生效、V4未启用。
+
 协议ID为 `GM_V4_SINGLE_TRIGGER_INTERNAL_FIVE_PHASES`，状态DRAFT_NOT_ENABLED。当前V3继续生效。本工具在DEVELOPMENT_CANDIDATE模式保存研究和离线交接，不能直接启动正式GM、批准、写游戏或替换W03。分析包操作见[M3A手册](ANALYTICS_M3_WORKBENCH.md)。
 
 ## 1. 开始、查看与恢复
@@ -51,7 +53,7 @@ alternatives含team_id和alternatives数组，HOLD/INTERNAL/MARKET三类都要�
 }
 ```
 
-以上为接口示例，不是当前球队建议。既有19项/原生格式仍由纯离线教练生成器核验。指定对手使用scope=VS_OPPONENT_DEFENSE、defensive_setting_scope=OVERALL和opponent_team_id；不扩大到个人防守或轮换写入。
+以上为原M3B接口示例，不是当前球队建议。M3-T普通GM只允许不含PlaybookID的18项教练默认，指定对手仅PERSONAL_DEFENSE，OVERALL只读；不再使用scope=VS_OPPONENT_DEFENSE/OVERALL生成日常GM动作。当前T包的纯离线工件由DEV14适配层准备，个人防守、轮换及TEAM_BOOK_REBIND规则见[M3-T手册](GM_M3_TACTICAL_WORKBENCH.md)。19项原生读取能力继续保留。
 
 ## 3. P3独立报价、反报价与NO_DEAL
 

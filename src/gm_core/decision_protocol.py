@@ -4,7 +4,7 @@ from uuid import uuid4
 from . import market_negotiation as negotiation
 from . import decision_portfolio as portfolio
 from . import decision_handoff as handoff
-from .analysis_packet import team, validate_refs
+from .analysis_packet import team, validate_refs, require_gm_packet
 from .workbench_common import now, reject_authority, require, text_required
 from .strategy_state import validate as validate_strategy, LIST_FIELDS
 
@@ -16,7 +16,10 @@ HYPOTHESIS=('baseline_refs','mechanism_claim','alternative_explanations','expect
             'minimum_evidence_description','falsification_conditions','confounds')
 
 
-def begin(analysis, run_id=None, strategy_bases=(), constraints=None):
+def begin(analysis, run_id=None, strategy_bases=(), constraints=None, season_phase='UNKNOWN'):
+    require_gm_packet(analysis)
+    if season_phase not in ('UNKNOWN','REGULAR','PLAYOFFS','OFFSEASON'):
+        raise ValueError('EXPLICIT_SEASON_PHASE_OR_UNKNOWN_REQUIRED')
     if not analysis['sealed_at']:
         raise ValueError('SEALED_ANALYSIS_REQUIRED')
     if constraints:
@@ -35,7 +38,7 @@ def begin(analysis, run_id=None, strategy_bases=(), constraints=None):
         context=deepcopy(analysis['context']),calculation_version=analysis['calculation_version'],knowledge_version=analysis['knowledge_version'],
         finance_run_id=analysis['finance_run_id'],finance_alignment=analysis['finance_alignment'],
         protected_identities=constraints['protected_identities'] if constraints else [],constraints_context=deepcopy(constraints),
-        strategy_bases=deepcopy(list(strategy_bases)),phase='P1',status='OPEN',phase_progress={},
+        strategy_bases=deepcopy(list(strategy_bases)),season_phase=season_phase,coach_events=[],phase='P1',status='OPEN',phase_progress={},
         current_final_version=None,latest_final_version=0,approval_status='NOT_GRANTED',execution_authorized=False,artifacts={})
 
 
@@ -57,6 +60,12 @@ def templates(analysis, key):
         competitive_window=dict(assessment='',evidence_refs=[ref],alternatives=[]),
         team_interest_profile={k:[] for k in INTEREST},evidence_refs=[ref],uncertainties=[],monitoring_hypothesis=hypothesis)
     r['team_interest_profile'].update(objective_and_window='',evidence_refs=[ref],best_internal_alternative_id='internal:'+str(tid))
+    if analysis.get('tactical_version'):
+        r.update(internal_tactical_diagnosis_refs=['tactical:'+str(tid)],rejected_internal_fixes=[],
+            market_gap_after_internal_assessment=dict(status='UNKNOWN',reason='',evidence_refs=[ref]),
+            evidence_quality=dict(native_fields='GAME_NATIVE_FIELD_VERIFIED_OR_NOT_OBSERVED',behavior='UNKNOWN'),play_type_coverage='UNKNOWN')
+        for p in r['player_assessments']:
+            p['role_plan']=dict(role='HOLD',minutes_target_band=None,reason='')
     alts=[]
     for category in ('HOLD','INTERNAL','MARKET'):
         alts.append(dict(alternative_id=category.lower()+':'+str(tid),category=category,status='RESEARCH',problem='',proposed_means='',
@@ -99,6 +108,14 @@ def review(payload, analysis):
         if p['review_depth'] not in ('NORMAL','FOCAL') or 'player:'+p['source_identity'] not in p['key_evidence_refs']:
             raise ValueError('PLAYER_OWN_EVIDENCE_AND_REVIEW_DEPTH_REQUIRED')
         validate_refs(analysis,p['key_evidence_refs'])
+        if analysis.get('tactical_version'):
+            require(p,('role_plan',));plan=p['role_plan'];require(plan,('role','minutes_target_band','reason'))
+            if plan['role'] not in ('STARTER','SIXTH_MAN','ROTATION','DEVELOPMENT','HOLD'):
+                raise ValueError('PLAYER_ROLE_PLAN_REQUIRED')
+            text_required(plan['reason'],'role_plan_reason')
+            band=plan['minutes_target_band']
+            if band is not None and (not isinstance(band,list) or len(band)!=2 or any(type(v) not in (int,float) or v<0 for v in band) or band[0]>band[1]):
+                raise ValueError('TARGET_MINUTES_BAND_IS_NOT_A_NATIVE_LOCK')
     require(payload['decision_dimensions'],DIMENSIONS)
     for key in DIMENSIONS:
         dim=payload['decision_dimensions'][key]
@@ -113,6 +130,21 @@ def review(payload, analysis):
             raise ValueError('TEAM_INTEREST_VALUE_OR_REASON_REQUIRED:'+k)
     validate_refs(analysis,interest['evidence_refs']); validate_refs(analysis,payload['evidence_refs'])
     validate_hypothesis(analysis,payload['monitoring_hypothesis'])
+    if analysis.get('tactical_version'):
+        require(payload,('internal_tactical_diagnosis_refs','rejected_internal_fixes','market_gap_after_internal_assessment','evidence_quality','play_type_coverage'))
+        validate_refs(analysis,payload['internal_tactical_diagnosis_refs'])
+        if payload['play_type_coverage']!='UNKNOWN':
+            raise ValueError('CRC_ONLY_PLAY_TYPE_COVERAGE_MUST_REMAIN_UNKNOWN')
+        gap=payload['market_gap_after_internal_assessment']
+        require(gap,('status','reason','evidence_refs'))
+        if gap['status'] not in ('NO_GAP','GAP_REMAINS','UNKNOWN'):
+            raise ValueError('INTERNAL_ASSESSMENT_REQUIRED_BEFORE_MARKET')
+        text_required(gap['reason'],'market_gap_reason');validate_refs(analysis,gap['evidence_refs'])
+        for fix in payload['rejected_internal_fixes']:
+            require(fix,('reason','evidence_refs'));text_required(fix['reason'],'internal_fix_rejection');validate_refs(analysis,fix['evidence_refs'])
+        require(payload['evidence_quality'],('native_fields','behavior'))
+        if payload['evidence_quality']['behavior'] not in ('BASKETBALL_REASONING','RESEARCH_HYPOTHESIS','HEURISTIC_THRESHOLD','UNKNOWN'):
+            raise ValueError('TACTICAL_EFFECT_NOT_ENGINE_VERIFIED')
     return deepcopy(payload)
 
 
@@ -145,6 +177,12 @@ def alternatives(payload, run, analysis):
                     require(req,('action_id','team_id','targets','expected_effect'))
                     if req['team_id']!=payload['team_id'] or not req['targets']:
                         raise ValueError('OWN_TEAM_SPECIFIC_COACH_TARGETS_REQUIRED')
+            action=dict(a['action'],team_id=payload['team_id'])
+            handoff.validate_tactical_action(run,analysis,action)
+        if analysis.get('tactical_version') and a['category']=='MARKET' and a['status']=='VIABLE_CANDIDATE':
+            r=review_row['payload']
+            if r['market_gap_after_internal_assessment']['status']!='GAP_REMAINS' or not r['rejected_internal_fixes']:
+                raise ValueError('MARKET_REQUIRES_EVIDENCED_GAP_AFTER_INTERNAL_COMPARISON')
     internal={a['alternative_id'] for a in alts if a['category']=='INTERNAL'}
     if review_row['payload']['team_interest_profile']['best_internal_alternative_id'] not in internal:
         raise ValueError('BEST_INTERNAL_ALTERNATIVE_MUST_RESOLVE')
@@ -157,7 +195,9 @@ def apply(run, analysis, command, payload):
         raise ValueError('SOURCE_CHANGE_REBASE_REQUIRED')
     run=deepcopy(run)
     artifacts=[]
-    if command=='submit-review':
+    if command=='record-coach-event':
+        obj=coach_event(run,analysis,payload);kind,aid='COACH_EVENT',payload['event_id']
+    elif command=='submit-review':
         obj=review(payload,analysis); kind,aid='TEAM_REVIEW',str(payload['team_id'])
     elif command=='submit-alternatives':
         obj=alternatives(payload,run,analysis); kind,aid='ALTERNATIVES',str(payload['team_id'])
@@ -165,6 +205,11 @@ def apply(run, analysis, command, payload):
         if not progress(run)['all_teams_ready']:
             raise ValueError('P1_P2_ALL_30_REQUIRED_FOR_MARKET_SELECTION')
         if command=='submit-offer':
+            if analysis.get('tactical_version'):
+                for tid in payload['team_ids']:
+                    options=get(run,'ALTERNATIVES',tid)['payload']['alternatives']
+                    if not any(a['category']=='MARKET' and a['status']=='VIABLE_CANDIDATE' for a in options):
+                        raise ValueError('BOTH_PARTIES_NEED_INTERNAL_COMPARISON_BEFORE_TRADE')
             previous=run['artifacts'].get('OFFER',{}).get(payload['offer_id'])
             obj=negotiation.offer(payload,run,analysis,(previous['payload']['terms_revision'] if previous else 0)+1)
             kind,aid='OFFER',payload['offer_id']
@@ -186,12 +231,12 @@ def apply(run, analysis, command, payload):
     return run,artifacts
 
 
-def validate(run, analysis, finance=None, coach_snapshot=None):
+def validate(run, analysis, finance=None, coach_snapshot=None, native_artifacts=None):
     run=deepcopy(run)
     if analysis['source_binding']!=run['source_binding'] or analysis['revision']!=run['analysis_revision']:
         raise ValueError('SOURCE_CHANGE_REBASE_REQUIRED')
     p=get(run,'PORTFOLIO','selected')
-    selected=portfolio.inspect(p['payload'],run['artifacts'],analysis)
+    selected=portfolio.inspect(p['payload'],run['artifacts'],analysis,run)
     prog=progress(run)
     issues=selected['issues']
     # Changed P1 interests require refreshed P2 and any bilateral acceptances.
@@ -201,7 +246,7 @@ def validate(run, analysis, finance=None, coach_snapshot=None):
         if not r or not a or a['payload']['team_interest_revision']!=r['revision']:
             issues.append(dict(code='TEAM_RESEARCH_STALE_OR_INCOMPLETE',team_id=tid,effect='BLOCK_FINAL'))
     valid=prog['all_teams_ready'] and not any(i['effect']=='BLOCK_FINAL' for i in issues)
-    generated=handoff.generate(run,selected,analysis,finance,coach_snapshot) if valid else dict(specific_approval_items=[],research_items=[],generated_artifact_refs=[],finance_evidence={'status':'NOT_EVALUATED'})
+    generated=handoff.generate(run,selected,analysis,finance,coach_snapshot,native_artifacts) if valid else dict(specific_approval_items=[],research_items=[],generated_artifact_refs=[],finance_evidence={'status':'NOT_EVALUATED'})
     report=dict(report_id=uuid4().hex,decision_run_revision=run['revision']+1,portfolio_revision=p['revision'],
         source_check='MATCHED_SEALED_ANALYSIS',roster_coverage=prog,bilateral_checks=selected['bilateral_checks'],
         issues=issues,valid_for_finalization=valid,approval_status='NOT_GRANTED',**generated)
@@ -209,6 +254,28 @@ def validate(run, analysis, finance=None, coach_snapshot=None):
     run['phase']='P5' if valid else 'P4'; run['status']='VALIDATED' if valid else 'PARTIAL'
     run['validation_revision']=run['revision']+1; run['current_final_version']=None
     return run,[('VALIDATION','current',report)]
+
+
+def coach_event(run,analysis,payload):
+    require(payload,('event_id','kind','reference','team_id','current_coach_identity'))
+    if set(payload)!={'event_id','kind','reference','team_id','current_coach_identity'}:
+        raise ValueError('EXACT_CONFIRMED_COACH_EVENT_FIELDS_REQUIRED')
+    text_required(payload['event_id'],'event_id');text_required(payload['reference'],'actual_player_confirmation_reference')
+    if payload['kind']=='CONFIRMED_COACH_CHANGE':
+        gate=handoff.coach_change_gate(run,payload['team_id'])
+        if gate!='BUSINESS_PROPOSAL_ONLY_NO_STAFF_EXECUTOR':
+            raise ValueError(gate)
+    elif payload['kind']=='INITIAL_SAVE':
+        if run['context']['node_type'] not in ('BOOTSTRAP','SEASON_INITIALIZATION'):
+            raise ValueError('INITIAL_SAVE_BINDING_REQUIRES_INITIALIZATION_NODE')
+    else:
+        raise ValueError('CONFIRMED_INITIAL_SAVE_OR_COACH_CHANGE_REQUIRED')
+    tc=team(analysis,payload['team_id']).get('tactical_context',{})
+    obj=tc.get('objects',{}).get(tc.get('coach_object_key'))
+    if not obj or obj['native_identity']!=payload['current_coach_identity']:
+        raise ValueError('CONFIRMED_COACH_MUST_MATCH_CURRENT_POST_CHANGE_SOURCE')
+    return dict(**deepcopy(payload),source_binding=deepcopy(run['source_binding']),season=run['context']['season'],
+        authority='OPERATOR_REFERENCE_TO_PLAYER_CONFIRMATION_NOT_GAME_WRITE_APPROVAL')
 
 
 def strategy_candidate(run, analysis, t, review_row, final_version):
@@ -296,6 +363,8 @@ def finalize(run, analysis):
 
 def summary(run):
     return dict(**{k:run[k] for k in ('decision_run_id','revision','mode','protocol_id','protocol_status','source_binding','analysis_run_id','context','phase','status','current_final_version')},
+        season_phase=run.get('season_phase','UNKNOWN'),
+        coach_events=[{k:e[k] for k in ('event_id','kind','team_id','season','reference')} for e in run.get('coach_events',[])],
         phase_progress=progress(run),approval_status='NOT_GRANTED',execution_authorized=False,
         offers=[dict(offer_id=o['payload']['offer_id'],terms_revision=o['payload']['terms_revision'],terms_digest=o['payload']['terms_digest'],
             status=negotiation.bilateral(o['payload'],[r['payload'] for r in run['artifacts'].get('RESPONSE',{}).values()],run['artifacts'].get('TEAM_REVIEW',{}),run['artifacts'].get('ALTERNATIVES',{}))) for o in run['artifacts'].get('OFFER',{}).values()])

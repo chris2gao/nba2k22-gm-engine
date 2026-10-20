@@ -120,11 +120,18 @@ class M3Store:
         result['artifacts']={}
         if 'context' not in result:
             result['context']=self.load_analysis(result['analysis_run_id'])['context']
+        result['coach_events']=self.coach_events(result['source_binding']['career_id'],result['context']['season'])
         for kind,aid,rev,payload in self.c.execute('''SELECT a.kind,a.artifact_id,a.revision,a.payload_json FROM decision_artifacts a
             JOIN (SELECT kind,artifact_id,MAX(revision) revision FROM decision_artifacts WHERE run_id=? GROUP BY kind,artifact_id) n
             ON a.kind=n.kind AND a.artifact_id=n.artifact_id AND a.revision=n.revision WHERE a.run_id=?''',(run_id,run_id)):
             result['artifacts'].setdefault(kind,{})[aid]=dict(revision=rev,payload=json.loads(payload))
         return result
+
+    def coach_events(self,career,season):
+        self.ensure_m3()
+        return [json.loads(row[0]) for row in self.c.execute('''SELECT a.payload_json FROM decision_artifacts a
+            JOIN decision_runs d ON d.run_id=a.run_id WHERE a.kind='COACH_EVENT' AND d.career_id=?
+            AND json_extract(a.payload_json,'$.season')=? ORDER BY a.created_at''',(career,season))]
 
     def artifact_history(self, run_id, kind, artifact_id, revision):
         self.ensure_m3()
@@ -135,7 +142,7 @@ class M3Store:
 
     def save_decision(self, run, expected_revision=0, artifacts=()):
         self.ensure_m3()
-        allowed={'TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS'}
+        allowed={'TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS','COACH_EVENT'}
         payload={k:v for k,v in run.items() if k!='artifacts'}
         b=run['source_binding']
         with self.c:
@@ -152,6 +159,9 @@ class M3Store:
             for kind,aid,obj in artifacts:
                 if kind not in allowed:
                     raise ValueError('INVALID_ARTIFACT_KIND')
+                if kind=='COACH_EVENT' and obj['kind']=='CONFIRMED_COACH_CHANGE':
+                    if any(e['kind']=='CONFIRMED_COACH_CHANGE' and e['team_id']==obj['team_id'] for e in self.coach_events(b['career_id'],obj['season'])):
+                        raise ValueError('COACH_CHANGE_ONCE_PER_TEAM_SEASON')
                 rev=self.c.execute('SELECT COALESCE(MAX(revision),0)+1 FROM decision_artifacts WHERE run_id=? AND kind=? AND artifact_id=?',(run['decision_run_id'],kind,aid)).fetchone()[0]
                 self.c.execute('INSERT INTO decision_artifacts VALUES(?,?,?,?,?,?)',(run['decision_run_id'],kind,aid,rev,dump(obj),now()))
         return self.load_decision(run['decision_run_id'])

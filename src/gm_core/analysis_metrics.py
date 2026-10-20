@@ -78,6 +78,8 @@ def temporal_links(current, previous):
                 before=old.get(group) or {}; after=p.get(group) or {}
                 diffs=[]
                 for field in sorted(set(before)|set(after)):
+                    if group=='attributes' and field.casefold() in ('potential','intangibles'):
+                        continue
                     a=before.get(field);b=after.get(field)
                     a=a.get('value') if isinstance(a,dict) else a
                     b=b.get('value') if isinstance(b,dict) else b

@@ -6,6 +6,7 @@ from .analysis_packet import validate_refs
 from .workbench_common import require, text_required
 from .coaching_batch import normalize_freelance
 from coach_codec import load_profile
+from .decision_handoff import NATIVE_KINDS, native_intent
 
 
 def resolve(portfolio, artifacts, analysis):
@@ -62,7 +63,7 @@ def resolve(portfolio, artifacts, analysis):
     return offers,actions,issues,research
 
 
-def inspect(portfolio, artifacts, analysis):
+def inspect(portfolio, artifacts, analysis, decision=None):
     offers,actions,issues,research=resolve(portfolio,artifacts,analysis)
     responses=[v['payload'] for v in artifacts.get('RESPONSE',{}).values()]
     reviews=artifacts.get('TEAM_REVIEW',{})
@@ -86,8 +87,27 @@ def inspect(portfolio, artifacts, analysis):
         if len(oids)>1:
             issues.append(dict(code='DEPENDENCY_UNSUPPORTED_SAME_TEAM_TRADES',team_id=tid,object_id=','.join(oids),effect='RESEARCH_ONLY',
                 needed_input='Combine same-pair terms into one renegotiated offer; other overlapping-team sequences are unsupported'))
+    rebound={a['team_id'] for a in actions if a['kind']=='TEAM_BOOK_REBIND'}
     for action in actions:
-        if action['kind']=='COACHING':
+        if analysis.get('tactical_version') and (action['kind'] in NATIVE_KINDS or action['kind']=='COACHING'):
+            try:
+                context=decision or dict(source_binding=analysis['source_binding'],decision_run_id='PORTFOLIO_CHECK',revision=1,
+                    coach_events=[e['payload'] for e in artifacts.get('COACH_EVENT',{}).values()])
+                intent=native_intent(context,analysis,action)
+                for c in intent['changes']:
+                    key=(c['object_key'],c['field_key'])
+                    if key in fields and fields[key][0]!=c['target_value']:
+                        issues.append(dict(code='NATIVE_FIELD_CONFLICT',object_id=str(key),effect='BLOCK_FINAL'))
+                    fields[key]=(c['target_value'],action['action_id'])
+                opposing={analysis_t['tactical_context']['objects'][c['object_key']]['selector'].get('opponent_team_id')
+                    for analysis_t in analysis['teams'] for c in intent['changes'] if c['object_key'] in analysis_t.get('tactical_context',{}).get('objects',{})}
+                if action['team_id'] in teams or opposing&set(teams):
+                    issues.append(dict(code='POST_TRADE_NATIVE_REPLAN_REQUIRED',object_id=action['action_id'],effect='RESEARCH_ONLY'))
+                if action['team_id'] in rebound and action['kind'] in ('COACHING','COACH_DEFAULT','TEAM_EXCLUSIVE_PLAYBOOK_CONTENT','PLAYER_PLAY_TYPE'):
+                    issues.append(dict(code='POST_REBIND_SOURCE_REQUIRED',object_id=action['action_id'],effect='RESEARCH_ONLY'))
+            except ValueError as exc:
+                issues.append(dict(code='NATIVE_PREPARATION_PENDING',object_id=action['action_id'],reason=str(exc),effect='RESEARCH_ONLY'))
+        elif action['kind']=='COACHING':
             for request in action['requests']:
                 if request['team_id']!=action['team_id']:
                     raise ValueError('INTERNAL_ACTION_CANNOT_CONTROL_ANOTHER_TEAM')

@@ -14,6 +14,8 @@ DEV14工程为原full_verified_v1增加同RO会话的state_io_native观察投影
 
 ## 数据源范围与当前缺口
 
+2026-10-20 M3-T在原M0封存来源上增加`native_context`安全元数据、`coach_traits`静态教练投影及native_books已捕获68槽。coach_traits复用既有DEV12 COACH解码器读取8体系熟练度/评级，移除地址与“最高即最优”推断；native_context只给批次/实例/代次/Registry与覆盖状态。不新采集、不新增source_catalog来源、不改历史批次。消费层先require_gm_sanitized，Potential只为MASKED占位；个人防守按显式对手读取。底层完整目录脱敏误判问题、实际消费范围和8项最小验收见[M3-T交付](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)。
+
 2026-10-19 DEV10 M3新增 `q_team_stats` / `gm_data_query.py team stats`，只投影已捕获的team_source_stats累计计数、来源赛季年和同批球队身份，不暴露raw_struct/地址。旧快照缺来源时明确不可用；无新增观测字段、生产采集来源或source_catalog变更。`gm_analysis.py`和`gm_decision.py`仅写独立派生工作台，筛选回执、模型注释、GM候选终稿都不是新游戏事实；见[M3A手册](../web_gm/manuals/ANALYTICS_M3_WORKBENCH.md)。生产更新继续使用full_verified_v1，不新增按来源刷新。
 
 机器可读清单为 `config/source_catalog.json`。以下“已抓取”仅指已经验证的字段，不代表数据库 schema 中所有列都有来源。

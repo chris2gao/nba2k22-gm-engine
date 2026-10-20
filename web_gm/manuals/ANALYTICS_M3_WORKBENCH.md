@@ -1,5 +1,7 @@
 # M3A 分析工作台操作手册
 
+2026-10-20 M3-T增量见[M3-T手册](GM_M3_TACTICAL_WORKBENCH.md)：prepare/筛选/导出首先require_gm_sanitized；原M02只保留历史兼容审计用途，不作为新GM球探来源，旧未脱敏缓存拒绝。新T包增加同批教练体系、四槽/48具名倾向、训练/轮换及显式对手个人防守面板；Potential/null和Intangibles偏置与真实篮球能力分开。原统计/注释/封存继续保留；当前八项最小验收和完整目录脱敏待办见[交付报告](../../docs/development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)。
+
 本工具把既有M0静态快照整理为 `GM_DECISION_PACKET_V1` 分析包，供候选GM协议研究。它不会采集、调用模型或修改游戏事实。网页连接由玩家后续建立；本地CLI成功不等于网页验收。M3B见[GM手册](GM_M3_DECISION_WORKBENCH.md)。
 
 所有示例在仓库根目录运行。派生库默认 `_exports/dev10_m3/gm_workbench.sqlite`；实际使用可固定另一独立派生库，后续每次传同一 `--workbench`。路径名必须为 `gm_workbench.sqlite`；拒绝位于saves/query_snapshots/published/seasons中的文件。`--query-root`默认database/query_snapshots，`--published-root`默认published，均只读。

@@ -20,7 +20,7 @@ from gm_data_access.query import QuerySession,DEFAULTS
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('domain',choices=('status','team','player','staff','coaching','contract','picks','finance','sql','issues',
-                                  'world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books'))
+                                  'world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books','native_context'))
     p.add_argument('action',nargs='?',choices=('summary','stats','roster','search','team','semantics','opponent'))
     p.add_argument('--career',required=True)
     p.add_argument('--batch',help='Pin a historical or current batch; default resolves local published/latest')
@@ -96,7 +96,7 @@ def run(a):
                 ('coaching','opponent'):'defense',('contract','search'):'players',('contract','team'):'players',
                 ('picks','team'):'picks',('picks','search'):'picks',('finance','team'):'finance',('finance','semantics'):'finance_semantics'}
         entity=routes.get((a.domain,a.action))
-        if a.domain in ('world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books') and a.action in ('search','team',None):
+        if a.domain in ('world','gameplay','tactics','tendency','training','personal_defense','rotation','native_objects','native_books','native_context') and a.action in ('search','team',None):
             entity=a.domain
         if not entity:
             raise AccessError('INVALID_INPUT','Unsupported domain/action; use --help')

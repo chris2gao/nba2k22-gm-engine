@@ -26,7 +26,7 @@ def read_input(path):
 
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action',choices=('prepare','import-analysis','seal','show','team','players','market','screen-market','evidence','export'))
+    p.add_argument('action',choices=('prepare','import-analysis','seal','show','team','players','native','market','screen-market','evidence','export'))
     p.add_argument('--workbench',type=Path,default=ROOT/'_exports/dev10_m3/gm_workbench.sqlite')
     p.add_argument('--query-root',type=Path,default=ROOT/'database/query_snapshots')
     p.add_argument('--published-root',type=Path,default=ROOT/'published')
@@ -39,6 +39,8 @@ def parser():
     p.add_argument('--expected-revision',type=int)
     p.add_argument('--input',type=Path); p.add_argument('--query',type=Path); p.add_argument('--ref')
     p.add_argument('--team'); p.add_argument('--limit',type=int,default=20); p.add_argument('--cursor')
+    p.add_argument('--defense-matchup',action='append',default=[],help='prepare: OWNER:OPPONENT, exact team ID or abbreviation; only requested personal matchups are read')
+    p.add_argument('--target-kind');p.add_argument('--field-key');p.add_argument('--player-identity')
     p.add_argument('--output',type=Path); p.add_argument('--allow-local-audited',action='store_true')
     return p
 
@@ -49,7 +51,7 @@ def run(a):
         if a.action=='prepare':
             if not all((a.career,a.batch,a.season,a.node_type)):
                 raise ValueError('PREPARE_REQUIRES_CAREER_BATCH_SEASON_NODE')
-            inputs=load_inputs(a.query_root,a.published_root,a.career,a.batch,a.allow_local_audited)
+            inputs=load_inputs(a.query_root,a.published_root,a.career,a.batch,a.allow_local_audited,a.defense_matchup)
             previous=load_inputs(a.query_root,a.published_root,a.career,a.previous_batch,a.allow_local_audited) if a.previous_batch else None
             if previous:
                 previous.update(season=a.previous_season,history_branch_context=a.previous_history_context)
@@ -72,6 +74,14 @@ def run(a):
                 ref='knowledge:'+card['card_id']
                 r['reference_evidence'][ref]=dict(ref_id=ref,kind='KNOWLEDGE',version=card['version'],
                     value=card,availability='REFERENCE_NOT_CURRENT_GAME_FACT')
+            tactical=read_input(ROOT/'config/gm_tactical_knowledge_v1.json')
+            for card in tactical['knowledge_cards']:
+                ref='tactical-knowledge:'+card['id']
+                r['reference_evidence'][ref]=dict(ref_id=ref,kind='KNOWLEDGE',version=tactical['version'],
+                    availability='REFERENCE_NOT_ENGINE_CAUSAL_VERIFICATION',value=dict(title=card['title'],
+                        basketball_principle=card['basketball_principle'],research_heuristics=card.get('requirements',{}),
+                        contraindications=card.get('contraindications',[]),counterplay_and_cost=card.get('counterplay_and_cost'),
+                        classification='BASKETBALL_REASONING_AND_HEURISTIC_THRESHOLD',live_3d_effect='UNKNOWN',calendar_sim_effect='UNKNOWN'))
             for state in strategies:
                 ref='strategy:'+state['state_id']+':'+str(state['revision'])
                 r['reference_evidence'][ref]=dict(ref_id=ref,kind='STRATEGY',value=state,availability='ANALYSIS_ONLY',binding=state['source_binding'])
@@ -85,6 +95,7 @@ def run(a):
         if not a.run:
             raise ValueError('RUN_REQUIRED')
         r=store.load_analysis(a.run)
+        packet.require_gm_packet(r)
         if a.career and a.career!=r['source_binding']['career_id']:
             raise ValueError('CAREER_MISMATCH')
         if a.action in ('import-analysis','seal'):
@@ -99,12 +110,30 @@ def run(a):
         if a.action=='players':
             t=packet.team(r,a.team)
             rows=[{k:p[k] for k in ('identity','name','position','salary','years_left','decoded_attributes','season_totals','evidence_ref','unknowns')} for p in t['player_supply']['players']]
+            for row,p in zip(rows,t['player_supply']['players']):
+                row['potential_visibility']=p.get('potential_visibility')
+                row['tactical_context']={k:v for k,v in p.get('tactical_context',{}).items() if k not in ('field_refs','objects')}
             return dict(**meta,**page(rows,[a.run,r['revision'],'players',t['team_id']],a.limit,a.cursor))
+        if a.action=='native':
+            t=packet.team(r,a.team);rows=[]
+            for obj in t.get('tactical_context',{}).get('objects',{}).values():
+                if a.target_kind and obj['target_kind']!=a.target_kind:
+                    continue
+                if a.player_identity:
+                    matches=[p for p in t['player_supply']['players'] if p['identity']==a.player_identity]
+                    if len(matches)!=1 or obj['selector'].get('player_identity')!=matches[0].get('tactical_context',{}).get('native_player_identity'):
+                        continue
+                for key,value in obj['fields'].items():
+                    if not a.field_key or key==a.field_key:
+                        rows.append(dict(**value,evidence_ref='native:'+value['identity'],target_kind=obj['target_kind'],selector=obj['selector']))
+            rows.sort(key=lambda row:row['identity'])
+            return dict(**meta,**page(rows,[a.run,r['revision'],'native',t['team_id'],a.target_kind,a.field_key,a.player_identity],a.limit,a.cursor))
         if a.action=='team':
             t=packet.team(r,a.team)
-            compact={k:v for k,v in t.items() if k not in ('player_supply','coaching_context')}
+            compact={k:v for k,v in t.items() if k not in ('player_supply','coaching_context','tactical_context')}
             compact['player_supply']=dict(source_identity_set=t['player_supply']['source_identity_set'], coverage=t['player_supply']['coverage'])
             compact['coaching_context']=dict(defaults=t['coaching_context']['defaults'],opponent_count=len(t['coaching_context']['overall']))
+            compact['tactical_context']=packet.tactical_summary(t)
             return dict(**meta,team=compact)
         if a.action=='evidence':
             return dict(**meta,evidence=packet.evidence(store.analysis_context(a.run),a.ref))
@@ -113,6 +142,7 @@ def run(a):
             b=r['source_binding']
             s=QuerySession(a.query_root,a.published_root,b['career_id'],b['batch_id'])
             try:
+                s.require_gm_sanitized()
                 if not same_source(s.binding,b):
                     raise ValueError('SOURCE_CHANGE_REBASE_REQUIRED')
                 profile=read_input(ROOT/'config/memory_field_profile.json')['fields']
@@ -133,6 +163,7 @@ def run(a):
             raise ValueError('EXPLICIT_NEW_EXPORT_DIRECTORY_REQUIRED')
         b=r['source_binding']; s=QuerySession(a.query_root,a.published_root,b['career_id'],b['batch_id'])
         try:
+            s.require_gm_sanitized()
             if not same_source(s.binding,b):
                 raise ValueError('EXPORT_SOURCE_UNAVAILABLE_OR_CHANGED')
         finally:

@@ -13,6 +13,7 @@ from .finance import semantics
 from .snapshots import DB_NAMES, read_json, identifier, load_snapshot, source_binding
 
 DEFAULTS = {
+    'coach_traits': ('team_id','traits','source_status'),
     'team_stats': ('team_id','team','season_year','totals','source_status'),
     'teams': ('team_id','team','total_wins','total_losses'),
     'players': ('identity','name','team','position','salary','years_left'),
@@ -25,13 +26,27 @@ DEFAULTS = {
     'finance_semantics': ('field','offset','encoding','unit','time_scope','financial_eligibility'),
     'native_objects': ('identity','object_key','target_kind','team_id','selector','native_identity','source_status'),
     'native_books': ('identity','name','enum_id','index','unique_id'),
+    'native_context': ('identity','save_id','save_instance_id','generation_id','registry_version','team_directory','coverage'),
 }
 for _domain in ('world','gameplay','tactics','tendency','training','personal_defense','rotation'):
     DEFAULTS[_domain] = ('identity','object_key','team_id','player_identity','side','field_key','value','source_status')
-JSON_FIELDS = {'attributes','contract','season_totals','totals','system','freelance','sliders','values','mixed_fields','readiness','value','selector','native_identity','field_keys'}
+JSON_FIELDS = {'attributes','contract','season_totals','totals','system','freelance','sliders','values','mixed_fields','readiness','value','selector','native_identity','field_keys','team_directory','coverage','play_crc_slots','traits'}
 FUNCTIONS = {'count','sum','avg','min','max','total','round','abs','coalesce','ifnull','nullif',
              'lower','upper','length','substr','like','instr','in','json_extract','json_remove','json_object',
              'json_array','json_valid','rookie_marker','trim','typeof','row_number','rank','dense_rank'}
+
+
+def sealed_coach_traits(raw_hex):
+    """Reuse DEV12's existing reader on one sealed DEV14 record, never a process."""
+    from tactical_reader import read_coach_attributes
+    raw=bytes.fromhex(raw_hex or '')
+    if len(raw)!=0x160:
+        return None
+    class SealedRecord:
+        def read_bytes(self, offset, size):
+            return raw[offset:offset+size]
+    result=read_coach_attributes(SealedRecord(),0)
+    return json.dumps({k:result[k] for k in ('system_proficiencies','staff_ratings','max_staff_ratings')})
 
 
 class QuerySession:
@@ -54,6 +69,7 @@ class QuerySession:
                 self.c.execute('ATTACH DATABASE ? AS '+alias,(path,))
             self.c.enable_load_extension(False)
             self.c.create_function('rookie_marker',1,lambda b: int(bool(b and len(b)>0x70 and b[0x70]&0xE0==0xE0)), deterministic=True)
+            self.c.create_function('sealed_coach_traits',1,sealed_coach_traits,deterministic=True)
             if self.c.execute("SELECT json_extract('{\"ok\":1}', '$.ok')").fetchone()[0] != 1:
                 raise AccessError('BLOCKED_LOCAL_DB_ACCESS','SQLite JSON1 is required')
             self._views()
@@ -184,9 +200,17 @@ class QuerySession:
             FROM facts.state_io_objects o WHERE o.snapshot_id={sid}""")
         view('native_books',f"""SELECT 'book:'||json_extract(b.value,'$.index')||':'||json_extract(b.value,'$.enum_id')||':'||json_extract(b.value,'$.unique_id') AS identity,
             json_extract(b.value,'$.name') AS name,json_extract(b.value,'$.enum_id') AS enum_id,
-            json_extract(b.value,'$.index') AS "index",json_extract(b.value,'$.unique_id') AS unique_id
+            json_extract(b.value,'$.index') AS "index",json_extract(b.value,'$.unique_id') AS unique_id,
+            json_extract(b.value,'$.play_crc_slots') AS play_crc_slots
             FROM facts.state_io_captures s,json_each(json_extract(s.metadata_json,'$.source_context.playbooks')) b
             WHERE s.snapshot_id={sid}""")
+        view('native_context',f"""SELECT snapshot_id AS identity,save_id,save_instance_id,generation_id,registry_version,
+            json_extract(metadata_json,'$.team_directory') AS team_directory,
+            json_extract(metadata_json,'$.coverage') AS coverage FROM facts.state_io_captures WHERE snapshot_id={sid}""")
+        view('coach_traits',f"""SELECT json_extract(object_json,'$.selector.team_id') AS team_id,
+            sealed_coach_traits(json_extract(object_json,'$.raw')) AS traits,
+            'STATIC_DEV14_RECORD_EXISTING_DEV12_DECODER' AS source_status FROM facts.state_io_objects
+            WHERE snapshot_id={sid} AND json_extract(object_json,'$.selector.target_kind')='COACH_DEFAULT'""")
         for name in ('world','gameplay','tactics','tendency','training','personal_defense','rotation'):
             domain = 'defense' if name=='personal_defense' else name
             predicate = " AND v.target_kind='PERSONAL_DEFENSE'" if name=='personal_defense' else ''
@@ -201,6 +225,8 @@ class QuerySession:
         if action in (sqlite3.SQLITE_SELECT, sqlite3.SQLITE_RECURSIVE):
             return sqlite3.SQLITE_OK
         if action == sqlite3.SQLITE_FUNCTION:
+            if arg2=='sealed_coach_traits' and origin=='q_coach_traits':
+                return sqlite3.SQLITE_OK
             return sqlite3.SQLITE_OK if (arg2 or '').lower() in FUNCTIONS else sqlite3.SQLITE_DENY
         if action == sqlite3.SQLITE_READ:
             # Raw tables/JSON/addresses can only be read through the fixed projections.
