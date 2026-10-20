@@ -4,6 +4,8 @@
 
 > **2026-10-20执行顺序澄清（本条覆盖先前的“DEV24可并行”计划）：** 玩家确认**目前尚未启动B0/B1；下一项唯一应推进的任务是B0**。阶段顺序固定为 **B0（研究证据和接口契约）→ B1（10种篮球体系可检索化）→ DEV23（限范围Playbook语义专项调查）→ B2（原生映射）→ B3（30队历史种子）→ B4（篮球决策接M3）→ B5（跨赛季演化）→ B6（最小验收）**。每阶段完成后由玩家明确触发下一阶段。DEV23任务书虽已发布，仅代表**待执行任务**，不是已启动的编码/原生调查；必须等B1完成后再触发。**DEV24 Antigravity逐场/高级统计源扩展由玩家选择后置到B0–B6全部结束再启动**，不是BPTI研发前置依赖。B4/B6如缺逐场数据，只能用已有受控同批来源进行可支持的逻辑与静态验收，趋势/机制效果明确`NOT_OBSERVED`，不能谎称已完成真实逐场有效性验证。正式开档的可靠数据来源要求仍单独有效。B0遵守`PLAYER_DEVELOPMENT_POLICY_V2`，不得自动启动B1、DEV23或其它范围。
 
+> **B0验收与B1入口更新（2026-10-20）：** B0工程已完成于[Draft PR #8](https://github.com/chris2gao/nba2k22-gm-engine/pull/8)，静态审核确认B0契约/知识索引和三项测试源码符合本阶段要求，审核意见已写入PR评论；开发者报告3项静态验证通过，开发规划窗口未重复执行。**PR #8尚未获玩家批准合并，因此B1尚未开始**；玩家合并B0后，下一阶段唯一应执行[DEV25 — B1十种SystemCard工程任务与Codex模型思考等级指南](DEV_20261020_25_BPTI_B1_SYSTEM_CARD_IMPLEMENTATION_AND_CODEX_MODEL_GUIDE_V1.md)，独立分支/PR。R1源中B0复合Claim多数UNKNOWN，不得只生成10张RESEARCH卡却声称普通GM知识就绪；B1须如实报告GM可读内容/时间裁剪。完成B1并获玩家批准后才进入DEV23。DEV24仍后置B6之后。
+
 ## 0. 必读、当前状态与仓库事实
 
 - `docs/development_tasks/DEV_20261020_19_BPTI_BASKETBALL_PHILOSOPHY_AND_TACTICAL_INTELLIGENCE_MASTER_PLAN_V1.md`
