@@ -100,7 +100,7 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 
 1. **create / activate（优先，非破坏）**：`save create --save-id NEW`用现有clean template创建空事实库和新gm_control；`save activate --save-id X`只切换本地唯一活动绑定，不自动加载游戏存档、不采集、不提交GM决策、更不能自动向游戏内存写入。激活后首次状态`NEW_UNCAPTURED`，直到用户加载对应NBA2K22存档并正式触发一次`full_verified_v1`采集形成同代次快照才能执行GM决策。重复`create`不得擦旧档。
 2. **switch / deactivate / retire（无破坏）**：切档前校验当前没有`APPLYING`、`PREFLIGHT_OK`、`PARTIAL_UNRECOVERED`等未解决的写入/回滚任务；检查目标库`save_metadata`、身份/版本、控制库及快照归属。`save list/status`只读；`save deactivate`不丢数据；`save retire`需玩家明确批准，历史档保持只读可恢复。
-3. **reset（**危险的例外操作**）**：用户坚持在**同一个save_id下重开全新游戏世界**时，才允许`save reset --save-id X --dry-run`→展示将替换的三库、审批记录及归档路径→玩家对`save_id + generation + manifest digest`二次明确确认→**先密封归档，再由干净模板创建新generation**，不能执行`DELETE FROM ALL TABLES`。默认建议为新世界使用新save_id；若现有published代次协议无法识别新旧generation，则同名reset必须`BLOCKED_UNSUPPORTED_GENERATION`，直接建议创建新ID，而不是破坏旧发布数据。
+3. **reset（危险的例外操作）**：用户坚持在**同一个save_id下重开全新游戏世界**时，才允许`save reset --save-id X --dry-run`→展示将替换的三库、审批记录及归档路径→玩家对`save_id + generation + manifest digest`二次明确确认→**先密封归档，再由干净模板创建新generation**，不能执行`DELETE FROM ALL TABLES`。默认建议为新世界使用新save_id；若现有published代次协议无法识别新旧generation，则同名reset必须`BLOCKED_UNSUPPORTED_GENERATION`，直接建议创建新ID，而不是破坏旧发布数据。
 
 ### 2A.4 reset的确定性安全细节
 
