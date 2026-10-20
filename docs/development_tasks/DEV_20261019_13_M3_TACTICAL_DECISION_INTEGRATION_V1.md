@@ -1,5 +1,7 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
+> **2026-10-19 赛季换帅与Codex主线优先**：[DEV17](DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)规定：每队每游戏赛季只允许**休赛期换帅一次**。A队换B教练后，将当前教练的PlaybookID从可能的B书**恢复为A队同名且独占原生Book**，再根据B教练理念和A队球员改变A书内部战术，不触碰B书；本轮不开发合同到期/签约/自由市场机制，只做业务政策和确认换帅事件后的Book恢复动作。**Codex先集成已有DEV14与M3字段进行最低闭环**，AG余下CRC语义/倾向/模板/疲劳属于后置扩展，唯独原生Book安全绑定阻塞可提前给AG小任务。
+
 > **2026-10-19 GM防守/Playbook最高优先级新规则（覆盖旧段落）**：[GM个人防守与球队专属战术手册](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)要求：GM正常经营**只写PERSONAL_DEFENSE、OVERALL_DEFENSE只读不改**；**不主动修改coach.PlaybookID切书**，而是在经原生身份验证的**本队独占**Playbook 68槽中增删/替换战术。共享书owner=[A,B]时禁止任何单队写槽；换帅后重新取新教练和手册归属，需要AG认证的技术性球队书绑定时另获用户批准，再按新教练理念改本队书。此前本文件任何“先Overall后Personal/日常先切Book再改Slot”的文字作废，不能继续用旧规则生成M3动作。
 
 > **2026-10-19 用户七项正式定稿 / DEV16**：以[DEV16完整GM战术、训练与原生字段整合](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)为本文件后续业务依据。具体执行限制仅为同一team/opponent的`OVERALL_DEFENSE+PERSONAL_DEFENSE`不能在同一内存批次（必须顺序预检执行）、`coach.PlaybookID + PLAYBOOK_SLOT`不能同批（先切本后重读槽位）。二者不是篮球策略互斥。Antigravity负责Playbook/现实战术映射与替换、补51无名Tendency、按位置训练模板与疲劳只读；Codex负责注册统一DEV14、GM D1-D6诊断。训练只允许球队/个人强度、恢复及球员原型/位置模板，不扩展到单项属性训练或直接徽章操作。已证同codec家族允许一项代表实测支持整类实现，不要求逐字段游戏手工验证；但字段地址、值域、真实来源不能省。World当前50及Gameplay4项接入有效，未认证其它字段不得假装全覆盖。
