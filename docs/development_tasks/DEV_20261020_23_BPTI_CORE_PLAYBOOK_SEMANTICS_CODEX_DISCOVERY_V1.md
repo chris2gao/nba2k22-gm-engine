@@ -2,9 +2,7 @@
 
 日期：2026-10-20 | 负责人：开发规划Web GPT | 阶段：RESEARCH_TASK_PREPARED / PLAYER_TO_TRIGGER_CODEX | 依赖：DEV19/21/22、R1–R4、M3-T/DEV14；**不自动启动游戏操作/编码/测试/写入**。
 
-> **2026-10-20 B1实做后交接更新（仅规划，不代表DEV23已启动）：** B0 PR #8已经玩家批准合并；B1成果见[Draft PR #9](https://github.com/chris2gao/nba2k22-gm-engine/pull/9)，实施提交`65efdafb43636812eebeb8e88e6e1660763d7f97`，本窗口已完成静态审阅并在PR附审核评论，建议玩家合并，**尚未代玩家合并**。B1 `SystemCard`有10/10，研究检索10/10，2021-10-19普通GM可读6/10。四张`ISOLATION_MIDRANGE_CREATION`、`POST_HIGH_LOW`、`TRANSITION_EARLY_OFFENSE`、`DEFENSE_FIRST_RIM_PROTECTION`的正式GM知识投影为`NOT_READY`；**DEV23可以按完整10张RESEARCH卡识别需研究的篮球战术动作，但不得将这四卡绕过B0的历史可用性门注入普通GM。** 该补源问题在B4正式经营接入前最小范围解决，不要求本DEV23研究NBA历史出处或回滚B1。**玩家先合并PR #9后**，Codex从最新main独立工作树按本任务调查，不要在B1未合并的分支上追加实现。按本任务仅只读观察与小型研究交付，无代码扩展、额外测试、原生写入或全量CRC解码；如果当前游戏/页面无法访问，先交阶段A已有目录审计和精确`REQUIRES_PLAYER_UI_STEP`，不要编造运行时证据。推荐Codex：**GPT-6 Astra / High**（若选择器不可用则最强可用Sol / High）。DEV24数据源扩展仍在B6之后。
-
-> **2026-10-20 后续连续开发选项：** DEV23仍是独立的、可能需要玩家提供当前游戏页面的只读调查，不与大批次自动游戏操作合并。完成/审核并将成果入main后，玩家可按[DEV26](DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md)一次授权B2→B3→四类证据补充，再一次授权B4→B5→B6；Codex不需要每小阶段停工等确认。该调度未自动执行，不更改DEV23只读/UNKNOWN/非全量CRC边界。
+> **2026-10-20 最新用户执行规则（覆盖所有旧的UI/等待/检查点要求）：** [B1 PR #9](https://github.com/chris2gao/nba2k22-gm-engine/pull/9) **已合并main**。DEV23独立于B2–B6；用户无法提供屏幕截图，Computer Use同样不能提供截图，**不得把截图、远程桌面或玩家将游戏停在指定编辑页面当作启动/交付前置条件**。按仓库已有对象→已获授权的只读游戏内存→玩家可用的文字描述的顺序研究。若必须由玩家答疑，收集不超过必要的具体问题并**交付已完成的研究/问题清单后结束此次Codex任务**，不是在活跃会话中“暂停等玩家回复”。玩家另外发起**全新后续任务**后方可处理回答。所有部分未认证项`UNKNOWN`/HOLD，不能推定实际游戏执行。任务研究边界以本文件为准，调度与中断语义以[DEV26最新修订](DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md)为准。推荐Astra High；DEV24仍后置B6。
 
 ## 1. 为什么值得做，什么不值得做
 
@@ -30,7 +28,7 @@
 **P0：可执行性底座**
 - 本队68槽，至少能静态取得每个有效槽的`slot_index / native_crc_or_enum / raw_label_if_available / play_type_enum_if_available / source_batch_id / team_and_book_identity`；**无可认证PlayType或名称则UNKNOWN**。
 - 球员4个有序PlayTypes/Initiator与本队可用战术类型之间的静态匹配；能发现真正`STATIC_PLAY_TYPE_UNSERVED`和`TYPE_MATCHED_ONLY`，但PlayType相符不保证战术第一受益人。
-- 通过当前游戏**战术编辑/分配页面**确认名字、类目、通常安排给的球员/位置；若可以合法只读定位相关内存结构，记录复现方法，不把这一步自动升级为真实ACE运行效果。
+- 首先从已验证目录、已授权的**只读进程内存/原生对象**调查名字、类目、战术分配、球员/位置；无当前UI截图也可进行。无法只读认证的信息继续UNKNOWN。若需要用户描述其眼见菜单，只接受**文字描述**，单独标注PLAYER_REPORTED_UI，不当作已认证内存事实。
 
 **P1：对首批BPTI案例最重要的动作**
 - Warriors/MOTION：无球射手(Offscreen 3、Floppy/Pindown)、掩护后切入、Hand-Off/连接者与二次接应。
@@ -43,12 +41,12 @@
 
 阶段A：**只读静态目录审计**。盘点本仓库`config/state_io_native`、球队本队book/CRC原生目录、M3-T安全投影和已存capture中能确定哪些PlayType/槽/枚举/名字；输出已知映射和UNKNOWN，不重做DEV14、不能拿猜测的CRC+球员一对一关系当事实。
 
-阶段B：**游戏当前页面辅助调查**。如果玩家提供当前存档并将游戏停在编辑Playbook/Assign Plays/球员PlayType或运行时战术菜单页面，Codex使用本项目已有授权只读进程工具或已认证采集方式研究可见条目与内存/对象身份，必要时由玩家切换UI以A/B比较。未准备游戏页面/进程时先完成阶段A并生成`REQUIRES_PLAYER_UI_STEP`，不得凭离线样例冒充本机验证，也不要运行全量正式采集、模拟赛季、修改存档、游戏内存或任何教练/战术设置。页面切换可由玩家亲自完成；Codex的进程访问严格只读。绝对地址/原始进程dump不进GitHub。
+阶段B：**只读原生内存优先，玩家文字协助可选，绝不依赖截图**。如Codex已有授权且能够访问正在运行的NBA2K22进程，可利用现有只读工具和已确认的对象目录确定战术/分配结构；不要求截图、Computer Use截图或游戏当前停在某页面。没有进程、权限或只读来源时直接完成A的静态研究，不能冒充本机认证。若确实必须由玩家提供UI事实，写出玩家**无需截图、仅文字回答**的具体菜单问题（例如栏目名、当前选中项、菜单上可见的战术名/类型），并在完成A和已有可做的C/D后**提交成果且完全结束任务**。不调用交互式询问并悬停，不启动长期等待或后台轮询；收到玩家回答后只能由玩家发起新任务继续。文字信息分类`PLAYER_REPORTED_UI`，未经内存/目录交叉佐证不提升成`UI_OR_STATIC_LABEL_VERIFIED`或实际ACE执行证据。绝对地址/进程dump不入GitHub。不切档、不改变游戏设置、不自动正式采集、不开启比赛模拟。
 
 阶段C：**建立语义映射**。仅对证据足够的核心动作记录：`game_version_and_platform`、`play_identifier_and_book`、`native_type`、`visible_name`、`entry_actor_role`、`intended_primary_option_role`、`known_secondary_role`、`observed_vs_inferred`、`evidence_ref`、`coverage_status`、`uncertainty`、`fallback`。同一CRC若随阵容/角色/Assign菜单产生不同受益人，必须多态表示并保留冲突，不可强制唯一受益球员。
 - **三个不同证明层**：`UI_OR_STATIC_LABEL_VERIFIED`（菜单字样、类型、槽） / `RUNTIME_ASSIGNEE_OBSERVED`（当前分配指定人） / `IN_GAME_EXECUTION_OBSERVED`（真实比赛AI有实际行动证据，另需批准比赛观察）。不能从第一层自动推出后两层。
 
-阶段D：**最小交付和停止**。产出Markdown和可机读映射建议（如现有知识文件补充），列出`PLAYTYPE_COVERED`、`TYPE_MATCH_ONLY`、`BENEFICIARY_UNKNOWN`、`UNSUPPORTED`和明确的后续一两个阻断。可以提出下一批扩充清单，但需玩家另行批准，不自动穷尽所有68槽、全部Playbook或模拟AI行为。
+阶段D：**提交交付并结束任务，不保留暂停会话**。产出Markdown和可机读映射建议（如现有知识文件补充），列出`PLAYTYPE_COVERED`、`TYPE_MATCH_ONLY`、`BENEFICIARY_UNKNOWN`、`UNSUPPORTED`与精确阻断；可提交独立Draft PR，不自动合并。**完整完成时**返回`BPTI_DEV23_RESEARCH_COMPLETE_AWAITING_PLAYER`并终止；**只读研究有进展但关键UI事实需玩家文字协助时**提交已有成果和简短问题清单，返回`BPTI_DEV23_PARTIAL_REQUIRES_PLAYER_DESCRIPTION_TASK_CLOSED`并终止；**只读访问或其他前提无法满足时**返回`BPTI_DEV23_BLOCKED_TASK_CLOSED`并终止。上述AWAITING_PLAYER只代表交付后需要玩家决定下一新任务，绝不是开放中的等待状态；严禁`pause/wait_for_user/approve_and_continue`。下一任务由玩家新消息触发，不得自行继续。
 
 ## 5. 原生边界与验收
 
@@ -59,4 +57,4 @@
 
 ## 6. 与Antigravity数据源扩展的关系
 
-Antigravity负责赛程、逐场赛果、球员Box Score等**历史比赛事实的采集**；本Codex任务只负责**战术控制语义**。`Playbook Native Mapping`属于慢更新的本地目录与同批有效身份；不要要求Antigravity为了获得每条战术CRC语义而延迟逐场数据源上线。两项可以按玩家触发并行进行，Codex将结果交BPTI B2/B4，Antigravity源头结果交M0数据消费/GM分析链。
+Antigravity未来负责赛程、逐场赛果、球员Box Score等**历史比赛事实的采集**，但玩家已决定**DEV24在B0–B6全部完成后单独启动**。本DEV23只负责**战术控制语义**，不因无法获得比赛源或UI截图而停工等待。只有玩家单独触发DEV24才进入数据扩展，DEV23研究结果供B2/B4消费。
