@@ -252,3 +252,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **类别6原生交易估值全部HOLD**：Year2–5选秀权贬值、九种PlayerType折价及四种球队资产偏好是原生AI市场权重，30独立GM已代替其决策，原生总开关与CPU自主交易由世界配置负责；不同球队价值哲学/未来选秀权相对价值需要在M3外部GM协议和DEV12技能匹配中形成，不要浪费精力改引擎市场价。提高原生Pick Depreciation raw可能是提高价值保留，不能由字段名臆断。
 - 世界规则下一步更重要的补漏：退役/永久伤退/自动补员/自由球员去向与长期联盟人数守恒、真实Cap/Tax与游戏原生通胀或外挂税款重复、训练疲劳+日历Sim伤病双重扣减、30队User经营自动化与原版CPU市场抑制、固定2021比赛规则不随1984历史班轮回自行变1980年代、世界配置季节版本快照。
 - 本文件只完成研究和GitHub索引，**没有更改真实游戏**。最终全字段数值版需要Antigravity现有设置表的name/current/default/range/type/真实消费路径/读写读回验证，先不要让模型瞎补100+曲线。
+
+## 2026-10-19 紧急更新：M3A/M3B已工程完成，DEV12战术系统需要M3-T整合
+
+- Codex PR [#4](https://github.com/chris2gao/nba2k22-gm-engine/pull/4) 已提交M3A/M3B本地工程，实现head `fa62fb2d371438cd9d8062e1fa842e7c8eede4ad`，Draft/Open/mergeable，未合并、未开启GM V4、30队正式研究仍0/UNASSESSED。已有15项直接测试、真实M02 30队466在队身份和合成30队P1–P5主流程/终稿v2；不应因战术新需求推翻已有M3主干。
+- 玩家报告Antigravity在本机`e:/games/NBA 2K22/antigravityUse/完整战术与球员行为系统/`已研发完整DEV12 A–D（68槽战术本、4PlayTypes、99Tendencies、8教练体系与评级、个人防守、训练联动、受控预检），正在与玩家实机调试；**线上main已含其早期commit `9b4fe87`七文件，但用户报告本地新版更多文件尚未全部入库，不能把旧GitHub 7文件当当前本地完整成果**。
+- **最新决策**：M3必须有战术和训练因果理解，不能只是HOLD/INTERNAL/MARKET叙述能力。已发布[DEV13 M3-T增量集成方案](../../docs/development_tasks/DEV_20261019_13_M3_TACTICAL_DECISION_INTEGRATION_V1.md)，并在PR#4留下集成审阅[discussion](https://github.com/chris2gao/nba2k22-gm-engine/pull/4#issuecomment-6282559304)。保留M3A/M3B现有30队审议/报价/版本/终稿结构；下一步待Antigravity本地新代码由Codex归档线上后，再增量加入同批战术/个人Tendency/训练只读投影、来源索引、D1–D6诊断约束、内外部调整比较、跨交易动作失效、个人字段冲突及审批落地，独立PR；暂不启用GM V4/不操作游戏。
+- **已发现仅在线早期9b4fe87代码风险需在新版本重验**：`tactical_reader.read_team_playbook`目前只输出68槽hex CRC、不含每条Play的Type/目标球员；`tactical_fit_analyzer`凭Pacers名称+Isolation Point特例判UNSERVED并标STATIC_VERIFIED，非真实PlayType交集；Touches≥75/多个创造者、最高教练体系熟练度=最优体系属启发式不可证明胜率；`player_tactics_adapter.execute_single_write`和`matchup_defense_adapter.execute_matchup_write`可接收裸地址/hex写入，函数本身没有career/batch/user approval绑定，正式执行不能直接暴露。**本地新版本是否已经修复未知**，需要Antigravity最新源码、训练导出与实机测试后验证。
+- GM正式经营核心规则：读球员55 Ability（只读）+99行为Tendencies（可逐审批改）+有序4 PlayTypes/真实手册类型/教练体系/逐人防守/训练与疲劳；先判断使用问题、战术缺口和内部修复能否解决，仍缺执行者时再发起经济自洽、对手GM独立接受的交易；原版ACE始终ON，精确分钟不锁定，普通能力值/潜力/徽章严禁直接修改。
