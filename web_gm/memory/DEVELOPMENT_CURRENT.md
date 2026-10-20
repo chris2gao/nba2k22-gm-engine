@@ -275,3 +275,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 实核技术边界：旧`resolve_context(None)`会fallback到`legacy-shared`；新版DEV14 CLI必须拒绝这种隐式共享，但保留历史工具兼容。原`monthly_snapshots.snapshot_id`不带career，因此多档必须物理分库存储，不能在共享league表中混写同名赛季快照。
 - **危险重置**只在用户确需重复同一save_id时使用，dry-run→精确双确认→旧三库/控制journal的SQLite backup完整归档→准备新generation→持久化激活指针；任何归档或替换失败都保留旧完整generation或阻断，不能混新旧league/pool/control。历史GitHub发布、旧快照和其他档不删；旧审批对新代次无效。若当前`published/latest`代次不支持安全复用同名save_id，宁可BLOCKED，要求新save_id。
 - 目前仅更新开发文档/开发记忆，**尚未运行reset、修改游戏、采集或创建多档工作区**；DEV14开发仍交Codex，Antigravity只负责原生字段接口。需针对两个档同名快照/同球员和切档中执行/重置失败做少量合成定向验收。
+
+## 2026-10-19 Codex额度优先顺序+新GM潜力遮蔽/OVR轮换机制
+
+- 用户反馈Codex周额度约9%、5小时额度约49%（当时界面状态，不推算能执行多少任务）。推荐单次一阶段：**B0 DEV14-H**三库pool代次/人工审批信任边界小补丁→**B1** PR#5由玩家授权合并、PR#4适配/定向回归 + GM潜力脱敏→**B2** DEV13 M3-T只读数据与GM六维战术诊断→**B3** 经Antigravity原生证据的OVR软轮换反馈。[M系列分批执行总计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。
+- [DEV14-H](../../docs/development_tasks/DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)指出PR#5 `Workspaces.check_databases()`只核league和control却未核pool；pool采集`os.replace(*.capture)`后generation元数据容易丢。CLI用户输入的`--approve-game-writes`、`player-approval-reference`由调用者提供，不构成不可伪造真人批准；模型自动调度不得为自己签授权，同权限操作无法靠同目录HMAC提供强隔离，生产期间保持MANUAL_OPERATOR_TRUST_ONLY。
+- [DEV15](../../docs/development_tasks/DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)：**A P0潜力信息遮蔽必须在GM V4正式分析前实现**。当前M0`q_players/q_pool.attributes`直接JSON暴露原生attributes，PR#4 M3将其解到`decoded_attributes`，市场筛选支持`attributes.<field>.value`，所以GM view需要allowlist、SQL/屏蔽属性测试，新版GM导出不应包含原生Potential；内部私有原始库可保留以支撑自然成长/校验。若GM仍可从GitHub原始SQLite直接读取Potential，则标FOG_NOT_ENFORCED_RAW_SOURCE_ACCESSIBLE，不能声称实现严格信息遮蔽；历史选秀的现实未来成就不能自动当当前世界线确定未来。
+- **B P1 新用户单字段例外**：玩家称原版球员有25–99的综评补偿、能影响显示OVR与AI优先首发/第6人/轮换分钟，非真实投射/传球/防守技能调整。旧2K Intangibles玩家反馈支持方向但对2K22 PC具体效果/合同和Sim副作用未认证；只允许Antigravity确认具体原生字段和能力保护之后，以玩家逐项批准的`PLAYER_ROTATION_OVR_BIAS`引导原版自动换人；继续不做锁定分钟。先把GM`minutes_target_band`、教练BenchDepth、年龄/体系、球员位置、先发和第6人等加入DEV13诊断，依据真实采集校准而不是发明分钟公式。可调整的显示OVR不得直接变成GM球员真实实力/交易价值。
+- 现有DEV13任务文件已加本批新规则与依赖；DEV14原任务V1.1保留但已标新的小补丁及例外。已有M3PR#4 Draft、DEV14PR#5 Open尚未合并；此轮只更新GitHub文档，未执行代码/游戏、更未触发全量采集。
