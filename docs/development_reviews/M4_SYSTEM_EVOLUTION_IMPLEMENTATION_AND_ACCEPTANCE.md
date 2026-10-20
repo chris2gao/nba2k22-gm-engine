@@ -15,6 +15,12 @@
 
 ## 本轮唯一五项验收
 
+### 独立审核后收尾：跨存档局部事件ID（玩家本次授权）
+
+审核认可工程主体，仅要求修正局部事件身份。CAREER/IDENTITY的event_key现加入完整scope；同一producer可在不同存档复用event_id。SYSTEM明确表示全局，保留既有键以兼容已经登记的4条系统记录；无表迁移、无历史改写。仅在原test_02补同producer/同局部ID、不同CAREER/IDENTITY分别保存、各自重放幂等及同scope不同内容仍拒绝的断言。
+
+实际只运行 `python -B -m unittest discover -s tests -p test_m4_system_evolution.py -k test_02 -v`，1项通过（5.909秒）；没有重跑另外4项、旧M3/DEV14集合或Issue #6复现。以下5项记录仍是原交付证据，不冒称本轮重跑。本次按玩家授权在修正后将PR #7标Ready、合并并同步正式main；实际合并SHA在状态34登记。
+
 命令：`python -B -m unittest discover -s tests -p test_m4_system_evolution.py -v`。只有5个test方法，调用实际CLI、临时隔离SQLite和合成事件；Issue #6仅复制已有报告引用为离线样例，没有运行净化器。事实占位文件逐项保持原字节。
 
 | DEV20目标 | 已运行证据 | 结果 |

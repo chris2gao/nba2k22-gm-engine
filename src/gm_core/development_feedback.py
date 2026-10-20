@@ -110,7 +110,11 @@ def event(payload):
         raise ValueError('DEFERRED_REQUIRES_PLAYER_DECISION_REF')
     result['roadmap_note'] = text(result.get('roadmap_note', ''), 'roadmap_note', empty=True)
     result['fingerprint'] = fingerprint({k:result[k] for k in ('category', 'root_cause_key', 'scope', 'affected_capability')})
-    result['event_key'] = 'ingest:'+fingerprint([source['producer'], result['event_id']])
+    # SYSTEM already denotes the global namespace; retain its existing persisted keys.
+    event_identity = [source['producer'], result['event_id']]
+    if scope['kind'] != 'SYSTEM':
+        event_identity.append(scope)
+    result['event_key'] = 'ingest:'+fingerprint(event_identity)
     result['issue_id'] = 'DEV-'+result['fingerprint'][:20]
     result['evidence_interpretation'] = 'OPERATOR_SUPPLIED_REFERENCES_NOT_M4_LIVE_VERIFICATION'
     if len(encoded(result).encode()) > 14000:

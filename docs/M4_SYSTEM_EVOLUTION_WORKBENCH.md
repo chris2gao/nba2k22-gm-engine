@@ -23,7 +23,7 @@ python -B scripts/gm_development_feedback.py export --output _exports/m4_handoff
 
 | 字段 | 含义 |
 | --- | --- |
-| event_id / occurred_at | 同一producer内稳定事件ID；带时区的证据事件时间。登记报告时说明该时间是报告/整理时间，不能伪装实际游戏故障起点 |
+| event_id / occurred_at | 同一producer和明确scope内稳定事件ID；带时区的证据事件时间。登记报告时说明该时间是报告/整理时间，不能伪装实际游戏故障起点 |
 | category / root_cause_key / affected_capability | 固定工程类别、稳定根因键和能力名。错误文本变化不应随意改变根因；不同根因不能复用键 |
 | scope | SYSTEM仅含kind；CAREER需career_id，可加save_instance_id；IDENTITY还需save_instance_id和identity_key。由操作者明确判断范围，不自动跨档合并身份问题 |
 | source | source_stage/producer必填；career_id/save_instance_id/generation_id/source_batch/run_id/error_code/code_version实际有才填，缺失不补假值 |
@@ -36,7 +36,7 @@ python -B scripts/gm_development_feedback.py export --output _exports/m4_handoff
 
 可用source_stage：CAPTURE、ACCESS、ANALYTICS、GM_INTERFACE、APPROVAL、EXECUTION、HANDOFF、MANUAL_RESEARCH。M0查询错误可引用已有AccessError报告；M3源包/交接阻断可引用已有验证工件；DEV14规划/审批/回读失败引用已有回执，均只整理工程问题。没有报告时保留UNKNOWN，不宣称复现。类别用于路由，不自动将一条推测认证为Bug。
 
-指纹只由category、root_cause_key、scope、affected_capability生成，不含batch/run/title。因此同根因跨批追加到同一问题；不同scope/身份或根因分开。同一producer+event_id完全相同为IDEMPOTENT_REPLAY，不增加occurrences/revision；同ID不同内容拒绝，不能篡改旧事件。occurrences统计独立证据事件数，**不等于游戏实际故障次数**。首次/最近按事件时间归并，处理时间另存。当前问题保留首次描述、最新来源/证据与最新人工分流；历史事件保存每次原描述，不覆盖旧记录。
+指纹只由category、root_cause_key、scope、affected_capability生成，不含batch/run/title。因此同根因跨批追加到同一问题；不同scope/身份或根因分开。CAREER/IDENTITY事件的幂等键包含producer、event_id及完整scope，同一producer可在不同存档复用局部事件ID；同scope内完全相同为IDEMPOTENT_REPLAY，不增加occurrences/revision，同ID不同内容仍拒绝。SYSTEM表示明确的全局命名空间，保留原producer+event_id键以兼容已登记的系统级问题；系统级事件ID仍须全局唯一，局部存档事件使用CAREER/IDENTITY。occurrences统计独立证据事件数，**不等于游戏实际故障次数**。首次/最近按事件时间归并，处理时间另存。当前问题保留首次描述、最新来源/证据与最新人工分流；历史事件保存每次原描述，不覆盖旧记录。
 
 ## 人工分流与决定
 

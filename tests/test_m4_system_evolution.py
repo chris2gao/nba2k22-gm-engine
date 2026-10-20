@@ -79,12 +79,25 @@ class M4ObjectiveChecks(unittest.TestCase):
         distinct = deepcopy(self.sample); distinct.update(event_id='OTHER_ERROR', root_cause_key='DIFFERENT_ROOT_CAUSE')
         self.assertNotEqual(self.ingest(distinct)['issue']['issue_id'], first['issue']['issue_id'])
         scoped = []
-        for career in ('SYNTHETIC_A', 'SYNTHETIC_B'):
-            item = deepcopy(self.sample); item['event_id'] = career
-            item['scope'] = dict(kind='IDENTITY', career_id=career, save_instance_id=career+'_INSTANCE', identity_key='player:1')
-            item['source'].update(career_id=career, save_instance_id=career+'_INSTANCE')
-            scoped.append(self.ingest(item)['issue']['issue_id'])
-        self.assertEqual(len(set(scoped+[first['issue']['issue_id']])), 3)
+        for kind in ('CAREER', 'IDENTITY'):
+            for career in ('SYNTHETIC_A', 'SYNTHETIC_B'):
+                item = deepcopy(self.sample); item['event_id'] = 'LOCAL_ERROR_001'
+                item['scope'] = dict(kind=kind, career_id=career)
+                if kind == 'IDENTITY':
+                    item['scope'].update(save_instance_id=career+'_INSTANCE', identity_key='player:1')
+                item['source'].update(career_id=career, save_instance_id=career+'_INSTANCE')
+                saved = self.ingest(item)
+                scoped.append(saved['issue']['issue_id'])
+                replay = self.ingest(item)
+                self.assertEqual(replay['result'], 'IDEMPOTENT_REPLAY')
+                self.assertEqual(replay['issue']['occurrences'], 1)
+                changed = deepcopy(item); changed['actual'] = 'Changed content in the same scope'
+                error = self.cli('ingest', '--input', self.put(changed), code=2)
+                self.assertIn('EVENT_ID_REUSE', error['error'])
+                shown = self.cli('show', '--issue', saved['issue']['issue_id'])
+                self.assertEqual(shown['issue']['revision'], 1)
+                self.assertEqual(shown['history']['rows'][0]['source']['career_id'], career)
+        self.assertEqual(len(set(scoped+[first['issue']['issue_id']])), 5)
 
     def test_03_manual_status_revision_and_approval_boundaries(self):
         item = deepcopy(self.sample)
