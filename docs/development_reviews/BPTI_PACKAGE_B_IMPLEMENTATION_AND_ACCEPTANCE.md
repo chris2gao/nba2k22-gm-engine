@@ -42,3 +42,9 @@ B-B3的外部真实性证据是实际读取官方页面及[精确定位记录](B
 - B4/B5/B6只可复用本包接口，尚未实现。V3保持有效，V4仍未启用；本任务不访问游戏/活动库、不切档、不创建存档、不采集/发布游戏事实、不执行交易/签约/换帅/战术、不修改Ability/Potential/Badge。
 
 工程分支发布和Draft PR属于本次授权的源码交付，与游戏数据-Publish分开。当前任务完成后终结；后续包C须玩家新任务明确触发。
+
+## 实际源码交付位置
+
+实现提交：`8776c7841e6e5132d458b660e09dbc786033ec3a`。
+Draft PR：[PR #11](https://github.com/chris2gao/nba2k22-gm-engine/pull/11)，base `main`，head `codex/bpti-package-b`。
+后续仅补此交付链接，不追加测试或修改实现；本包不自动合并。
