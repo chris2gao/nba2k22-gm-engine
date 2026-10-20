@@ -1,5 +1,7 @@
 # DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1.1
 
+> **2026-10-19 个人防守与独占战术书新GM写权限（覆盖旧执行依赖）**：[权威GM政策](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)。已有DEV14可以读写OVERALL/PERSONAL及共享Book，但GM最新指令要求**日常仅PERSONAL_DEFENSE写、OVERALL_DEFENSE只读**，不再生成常规先整体后个人批次；**GM日常禁止写coach.PlaybookID**，只编辑本队真实独占Playbook（原生owner严格一个且等于本队）。对共享书（即使owner集合无变化）返回SHARED_PLAYBOOK_MUTATION_BLOCKED，不能让A改Book连带B。换帅/建档技术性专属Book绑定是玩家特别批准、AG原生确认后的例外；若不能形成独占对象即Fail Closed不改槽。实施与最小验收见[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)。此段为**当前用户授权开发的新需求**，PR#5现有代码还未实现完毕。
+
 > **2026-10-19 DEV16新增字段范围与家族验证原则**：[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)确认原统一读写机制已实质接入19Coach默认/18Overall和个人防守、68手册槽、4PlayTypes/Initiator、48个具名可写+51个未知只读Tendencies、6队伍/5球员训练、4Gameplay USER/CPU及50World；Codex无需重写。Antigravity补手册Play CRC映射及替换流程、51未知倾向真实语义、按位置训练模板+当前疲劳只读。训练只改模版/强度/B2B恢复，不逐属性微调；已实测的同类codec只需一条代表样本，保留通用值域/原值/对象身份/位域校验。World/Gameplay仍按已有已登记字段执行，未注册的字段只待字典补录，无逐项反复手工测试要求。整体防守+个人防守、换Playbook+编槽位的限制属于顺序依赖，不是禁止同一GM方案。
 
 > **2026-10-19 用户最终决定：DEV15 V2覆盖潜力与综评补偿旧例外限制**：[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)要求`full_verified_v1`采集完毕后且正式commit/SQLite备份/manifest哈希/发布前**自动执行潜力置1后处理**，包括pool/roster数值、JSON、PLAYER raw_struct byte 0x441，并将这类人为遮蔽明确标`NOT_OBSERVED`；同时允许通过特定allowlist为30队GM开放PLAYER 0x440`Intangibles`综评补偿25–99的获批轮换动作，不要求额外研究交易/合同/模拟副作用，仍不准泛化修改其它原始Ability字段。DEV14原A/B/C/D架构无需重构，新开发仅增量添加这两部分。
@@ -77,7 +79,7 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 - `WORLD_SETTING(group,field_key)`：赛季规则/工资/Sim/成长曲线；具有`season_scope`和UI生效时点，部分开档设置不能在月中假设可写。
 - `COACH_DEFAULT(team_id,coach_identity,field_key)`；`PLAYBOOK_SLOT(team_id,playbook_identity,slot_index)`。
 - `PLAYER_TENDENCY(team_id,player_identity,field_key)`；`PLAYER_PLAYTYPE(team_id,player_identity,slot=1..4)`。
-- `PERSONAL_DEFENSE(owner_team_id,opponent_team_id,opponent_player_identity,defender_identity,field_key)`；原生OVERALL和PERSONAL需要同一事务顺序规则。
+- `PERSONAL_DEFENSE(owner_team_id,opponent_team_id,opponent_player_identity,defender_identity,field_key)`；**GM只准个人防守写入，整体只读**，无需再安排同一日常GM方案先Overall后Personal的写入顺序；多名个人对位可在一个批次合并。
 - `TEAM_TRAINING(team_id,training_period,field_key)`；`PLAYER_TRAINING(team_id,player_identity,training_period,field_key)`、`MENTOR(team_id,player_identity,mentor_identity,slot)`。
 
 这些都是**业务标识**，不是具体进程地址。由执行时的locator解析进程当前地址，并验证所属save/team/roster。
@@ -227,7 +229,7 @@ M3当前`PR #4`（`fa62fb2...`）是Draft、未合并；现有M0/M1/M2与DEV12�
 - 真正team_id来自同一已校准NBA球队目录，支持非连续ID；`player_id`、球员池slot、`face_id`、`coaching.matchup_id`含义不可混用；如果交易后已换队，旧计划必须拒绝。
 - Antigravity原生字段含`coach_tactics_profile`、`memory_field_profile`、DEV12本地技能与训练模块；**只把已经证实的字段写进可执行列表**，新增别的字段可先只读。
 - 世界静态设置/全局Gameplay、球员倾向、训练、教练和逐人防守各自不同目标解析器，但输出相同`native storage blocks`和变更回执；对抗USER/CPU保持双side；成长曲线只允许经批准的世界级PROFILE变更，不算日常球队经营。
-- 对`PlaybookID`切本、`PLAYBOOK_SLOT`逐项、`PLAYER_PLAYTYPE`与`PLAYER_TENDENCY`、`OVERALL_DEFENSE`与`PERSONAL_DEFENSE`建立变更依赖顺序。若关系尚未验证，返回有明确原因的BLOCKED，而非强制覆盖。
+- 对**本队独占的`PLAYBOOK_SLOT`**、`PLAYER_PLAYTYPE`与`PLAYER_TENDENCY`和多球员`PERSONAL_DEFENSE`建立变更依赖/身份约束。**普通GM不修改`PlaybookID`和`OVERALL_DEFENSE`**；只有正式换帅后必要且获另行批准的原生独占书绑定可能涉及BookID修改，换帅后必须先重新采集。共享原生Book一律阻断单队改槽，禁止跨队影响。
 - SQLite控制库写入可以用事务；运行时游戏不能单事务。源批次发布与控制状态不组成跨SQLite/内存的伪分布式事务，改用明确阶段状态与日志、重试的幂等行为。
 - 世界配置此前已有Antigravity制作的可复用原值表，待其本地资料由玩家/Codex提供后按`registry`导入；文档未提供的raw默认值不编造。
 - 旧快照保持不可变；代码和schema迁移向前兼容，可通过显式schema_version执行迁移。不因这次创建第三SQLite就重做M0安全ACL/静态双库路径。
