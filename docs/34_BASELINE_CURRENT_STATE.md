@@ -1,5 +1,8 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+源码交付：[Draft PR #12](https://github.com/chris2gao/nba2k22-gm-engine/pull/12)，实现da8a645；工作包C独立分支已推送，未合并main。实际验收与边界见紧随其后的包C记录。
+
+
 ## 2026-10-20 工作包C：B4/B5/B6完成，独立Draft交付
 
 玩家已批准PR #11合并；main合并点04b194ab8b4644161242391e964051d3d9f9520a。随后独立触发包C，从该main建立codex/bpti-package-c，保留原season-match-history工作区。本包实现[B4/B5手册](BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)中的M3按需篮球理由、D1–D6及HOLD/INTERNAL/MARKET比较、球队六级演化与已有工作台不可变历史；证据见[包C验收](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)。旧包B“未合并/包C未开始”是历史记录。

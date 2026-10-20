@@ -38,3 +38,9 @@
 这是本地合成工程验收，不能声称真实生产GM消费、真实换帅/交易/签约、AI调用效果、赛场效果、存盘或游戏事实发布已验证。历史知识可读不等于本档阵容适配；当前缺失的精确CRC类型/受益人/ACE/调用频率/Tempo含义与比赛因果仍UNKNOWN。B4当前不从未知类型生成装载承诺，不改变底层既有同批全目录CRC、本队书及单独TEAM_BOOK_REBIND规则。
 
 仍沿既有gm_core纯DTO、M3市场/M1财务、DEV14身份/字节校验/CAS/批准元组执行边界；Potential遮蔽不是球探能力，Intangibles只为既有软轮换例外，OVERALL只读。V3有效、GM_V4_NOT_ENABLED、实际30队UNASSESSED。源码分支/Draft发布与游戏数据-Publish分开。交付结束，不启动DEV24或后续任务。
+
+## 源码交付位置
+
+实现提交：da8a645d95602eb6cc244559599ebab66fa55231。
+
+Draft PR：[PR #12](https://github.com/chris2gao/nba2k22-gm-engine/pull/12)，base main，head codex/bpti-package-c。未合并；后续仅补交付链接，不修改实现或追加测试。
