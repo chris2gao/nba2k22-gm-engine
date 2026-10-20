@@ -1,5 +1,7 @@
 # 新窗口入口：数据源初始化与更新
 
+DEV14托管存档增量：数据任务先核对唯一ACTIVE与完整实例/代次；玩家确认实际加载档后，现有run_data_update.ps1增加 `-LoadedSaveConfirmation 'save_id:save_instance_id:generation_id'`，自动持有生命周期lease覆盖全量采集/审计/导出及本次明确授权的-Publish。UAC worker显式转交该lease，不依赖提权继承环境。新档保持NEW_UNCAPTURED直到本代次全量导出；详见[DEV14手册](DEV14_STATE_IO_RUNBOOK.md)。没有按来源局部更新或另一条生产入口。
+
 本窗口只负责玩家明确触发的数据任务。数据完成不触发 GM 决策；GM 由玩家另行找到对应模型启动。游戏执行也由玩家批准并在执行窗口另行触发。
 
 常驻采集基线使用 [32_DATA_CAPTURE_BASELINE_PROMPT.md](32_DATA_CAPTURE_BASELINE_PROMPT.md)，共享能力/关键词状态见 [34_BASELINE_CURRENT_STATE.md](34_BASELINE_CURRENT_STATE.md)。建立基线只读规则并等待，不开始数据任务。

@@ -94,6 +94,8 @@ def migrate_database_schema(conn: sqlite3.Connection):
     quarantine_unverified_coaches(conn)
     ensure_extension_schema(conn)
     ensure_coaching_schema(conn)
+    from gm_state_io.capture_bridge import ensure_schema as ensure_state_io_schema
+    ensure_state_io_schema(conn)
     conn.commit()
 
 
@@ -502,6 +504,8 @@ def run_automated_ingestion(
             policy_id='PLAYER_RULES_20261017_V3'),expected_root=pool_root,expected_teams=teams_dict,
             allow_unknown_date=game_context.get('game_date') is None)
         store_coaching_source(conn,snapshot_id,context['save_id'],coaching)
+        from gm_state_io.capture_bridge import capture as capture_state_io, store as store_state_io
+        state_io_summary = store_state_io(conn, capture_state_io(mem, coaching))
     except Exception as exc:
         conn.rollback()
         conn.close()
@@ -637,6 +641,7 @@ def run_automated_ingestion(
             "coaching_tactics": {"profile":1,"status":"OBSERVED_SAME_INGESTION_RO_SESSION","teams":30,
                 "default_fields_per_team":19,"coaching_snapshot_id":coaching['snapshot_id'],
                 "observed_at":coaching['observed_at']},
+            "deterministic_state_io": state_io_summary,
             "directory_slot_counts": {key: value['count'] for key, value in directory.items()}
         },
         "batch_binding": {

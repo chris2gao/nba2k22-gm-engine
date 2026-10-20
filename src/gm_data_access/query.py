@@ -23,7 +23,9 @@ DEFAULTS = {
     'finance': ('team','total_salary','payroll','budget','cash','cash_signed32_hypothesis','financial_eligibility'),
     'finance_semantics': ('field','offset','encoding','unit','time_scope','financial_eligibility'),
 }
-JSON_FIELDS = {'attributes','contract','season_totals','system','freelance','sliders','values','mixed_fields','readiness'}
+for _domain in ('world','gameplay','tactics','tendency','training','personal_defense'):
+    DEFAULTS[_domain] = ('identity','object_key','team_id','player_identity','side','field_key','value','source_status')
+JSON_FIELDS = {'attributes','contract','season_totals','system','freelance','sliders','values','mixed_fields','readiness','value'}
 FUNCTIONS = {'count','sum','avg','min','max','total','round','abs','coalesce','ifnull','nullif',
              'lower','upper','length','substr','like','instr','in','json_extract','json_remove','json_object',
              'json_array','json_valid','rookie_marker','trim','typeof','row_number','rank','dense_rank'}
@@ -152,6 +154,15 @@ class QuerySession:
         self.c.execute('CREATE TEMP TABLE finance_dictionary(field,offset,encoding,unit,time_scope,evidence,financial_eligibility,usable_as_signing_capacity,evidence_file)')
         self.c.executemany('INSERT INTO finance_dictionary VALUES (?,?,?,?,?,?,?,?,?)', [tuple(r.values()) for r in semantics()])
         view('finance_semantics','SELECT field,offset,encoding,unit,time_scope,evidence,financial_eligibility,usable_as_signing_capacity,evidence_file FROM finance_dictionary')
+        for name in ('world','gameplay','tactics','tendency','training','personal_defense'):
+            domain = 'defense' if name=='personal_defense' else name
+            predicate = " AND v.target_kind='PERSONAL_DEFENSE'" if name=='personal_defense' else ''
+            view(name, f"""SELECT v.object_key||':'||v.field_key AS identity,
+                v.object_key,v.team_id,v.opponent_team_id,v.player_identity,v.side,v.slot_index,
+                v.field_key,v.value_json AS value,v.source_status,v.registry_version,
+                s.save_instance_id,s.generation_id FROM facts.observed_setting_values v
+                JOIN facts.state_io_captures s ON s.snapshot_id=v.snapshot_id
+                WHERE v.snapshot_id={sid} AND v.domain='{domain}'{predicate}""")
 
     def _authorize(self, action, arg1, arg2, db, origin):
         if action in (sqlite3.SQLITE_SELECT, sqlite3.SQLITE_RECURSIVE):

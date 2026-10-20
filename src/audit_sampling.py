@@ -376,6 +376,9 @@ def run_ai_sampling_audit(
         if manifest.get('quality_metrics',{}).get('coaching_tactics',{}).get('profile')==1:
             from coaching_source import audit_coaching_source
             checks.update(audit_coaching_source(conn,mem,snapshot_id))
+        if manifest.get('quality_metrics',{}).get('deterministic_state_io'):
+            from gm_state_io.capture_bridge import audit as audit_state_io
+            checks.update(audit_state_io(conn,mem,snapshot_id))
     finally:
         if mem is not None:
             mem.close()

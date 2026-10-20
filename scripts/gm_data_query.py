@@ -19,7 +19,8 @@ from gm_data_access.query import QuerySession,DEFAULTS
 
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('domain',choices=('status','team','player','staff','coaching','contract','picks','finance','sql','issues'))
+    p.add_argument('domain',choices=('status','team','player','staff','coaching','contract','picks','finance','sql','issues',
+                                  'world','gameplay','tactics','tendency','training','personal_defense'))
     p.add_argument('action',nargs='?',choices=('summary','roster','search','team','semantics','opponent'))
     p.add_argument('--career',required=True)
     p.add_argument('--batch',help='Pin a historical or current batch; default resolves local published/latest')
@@ -30,6 +31,9 @@ def parser():
     p.add_argument('--opponent',help='Exact observed abbreviation or team ID')
     p.add_argument('--name',help='Literal case-insensitive substring; returns all matching identities in bounded pages')
     p.add_argument('--identity',help='Exact batch-scoped identity, not a permanent player ID')
+    p.add_argument('--player-identity',help='DEV14 verified player identity within the selected batch')
+    p.add_argument('--field-key',help='Exact registered DEV14 native field key')
+    p.add_argument('--side',choices=('USER','CPU'),help='Gameplay control side; unrelated to 30-team GM ownership')
     p.add_argument('--scope',choices=('roster','pool'),default='roster')
     p.add_argument('--position')
     p.add_argument('--job',help='Verified assigned role, or observed candidate-position enum with --candidates')
@@ -89,12 +93,17 @@ def run(a):
                 ('coaching','opponent'):'defense',('contract','search'):'players',('contract','team'):'players',
                 ('picks','team'):'picks',('picks','search'):'picks',('finance','team'):'finance',('finance','semantics'):'finance_semantics'}
         entity=routes.get((a.domain,a.action))
+        if a.domain in ('world','gameplay','tactics','tendency','training','personal_defense') and a.action in ('search','team',None):
+            entity=a.domain
         if not entity:
             raise AccessError('INVALID_INPUT','Unsupported domain/action; use --help')
         filters={}
         team=resolve_team(session,a.team)
         if team is not None:
             filters['team_id']=team
+        for arg,key in ((a.player_identity,'player_identity'),(a.field_key,'field_key'),(a.side,'side')):
+            if arg is not None:
+                filters[key]=arg
         for arg,key in ((a.name,'name'),(a.identity,'identity'),(a.position,'position'),(a.draft_year,'draft_year'),(a.years_left,'years_left')):
             if arg is not None:
                 filters[key]=arg

@@ -1,5 +1,19 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-19 DEV14 V1.1：确定性状态 I/O 与多存档底座
+
+独立 `codex/dev14-state-io` 分支实现 A/B/C/D，未合并前不称 main 已部署。入口 `scripts/gm_state_io.py`，手册 [DEV14_STATE_IO_RUNBOOK](DEV14_STATE_IO_RUNBOOK.md)，实际验收见 [DEV14_ACCEPTANCE](development_reviews/DEV14_ACCEPTANCE.md)。沿用原生 coach/defense codecs、进程锁、full_verified_v1、SQLite backup、M0；GM 只给稀疏意图，Observed/Desired/Applied 分库、实例/代次/来源批次/批准摘要绑定。真实采集和游戏写入本轮均未触发，GM V4 未启用。
+
+| 能力 | 当前实现和证据边界 |
+| --- | --- |
+| 字段/控制库 | 原19默认/18整体、个人防守、4 PlayType/Initiator、99倾向原字节（48命名可写）、68战术本槽、4双侧Gameplay、50世界设置、11训练字段接入；5 Sim只读。原生证据继承，统一引擎只做合成验证 |
+| 执行 | stage/validate/preflight/apply/receipt/rollback；整批RO后RW、共享块mask合并、durable preimages、逐块回读/条件恢复/部分留锁；MEMORY_VERIFIED不声称游戏存盘 |
+| 采集与访问 | 现有全量入口同RO会话扩充、既有来源审计/双库备份/M0静态分域查询；旧M02不追填。生产部署后只在玩家下次全量触发时出现新观测 |
+| 存档 | 最多4档、唯一ACTIVE、create/adopt/activate/deactivate/retire/reset/recover；每档私有控制库，新代次清洁三库；发布历史无代次兼容时同名reset拒绝并要求新ID |
+| 明确限制 | 游戏唯一save身份无法独立证明，正式动作须人工确认完整save/instance/generation；导师关系、未命名倾向语义、未提供可用布局的剩余世界曲线/Gameplay目录保留扩展；不泛化人物能力/徽章/合同写权限 |
+
+以下历史说明不应把本工程的合成/静态验收升级为生产观察、已批准GM或main部署。
+
 ## 2026-10-19 DEV10 M1/M2工程收尾（PR #3）
 
 状态 `M1_M2_ENGINEERING_COMPLETE / WEB_CONNECTIONS_DEFERRED_BY_PLAYER`。本节随PR #3合入正式main后生效，优先于下方“本地实现、待分支审阅”历史记录。M1财务情景与M2知识/策略接口工程完成；操作入口与前次证据沿用下节链接，收尾记录见[DEV10_M1_M2_CLOSEOUT](development_reviews/DEV10_M1_M2_CLOSEOUT.md)。

@@ -1,5 +1,7 @@
 # 数据源清单与玩家触发更新
 
+DEV14工程为原full_verified_v1增加同RO会话的state_io_native观察投影（world/gameplay/tactics/tendency/training/personal_defense）、原来源审计及M0静态分域访问；缺失可选域明确NOT_OBSERVED，不回填旧包。每档控制库只存目标/批准/执行/对账，不修改事实。部署、真实采集和原生字段限制以[DEV14手册](DEV14_STATE_IO_RUNBOOK.md)、文档34为准。
+
 本规范补充文档 21/22/23。玩家决定游戏时间与进程；每次数据更新均由玩家主动触发。脚本不按现实月份推断游戏月份，不因重启自行推进游戏或批量覆盖历史。采集、校验、计算、导出和同步阶段均不调用模型。
 
 新开模型对话时先读 [27_DATA_WINDOW_RUNBOOK.md](27_DATA_WINDOW_RUNBOOK.md)。数据任务在交付后停止；GM 决策由玩家另行找到对应模型触发，游戏执行也由玩家批准具体方案后单独触发。采集入口不生成交易/战术候选。确定性财务差额、计数和变化比较属于数据处理，不代表开始 GM 决策。

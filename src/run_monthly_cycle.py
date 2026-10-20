@@ -56,6 +56,12 @@ def run_cycle(
     notes: str = "",
     save_id: str = None,
 ):
+    from gm_state_io.lifecycle import operation
+    with operation(save_id or 'legacy-shared','capture'):
+        return _run_cycle(season_year,month_idx,month_name,notes,save_id)
+
+
+def _run_cycle(season_year,month_idx,month_name,notes,save_id):
     context = resolve_context(save_id)
     db_path = context["db_path"]
     os.makedirs(context["backups_dir"], exist_ok=True)

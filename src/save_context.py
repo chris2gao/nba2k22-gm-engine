@@ -5,6 +5,7 @@ import os
 import re
 import shutil
 import sqlite3
+from contextlib import closing
 from datetime import datetime
 from typing import Dict, Optional
 
@@ -33,7 +34,7 @@ def ensure_template_database() -> str:
     if template_config.get("template_version") != TEMPLATE_VERSION:
         raise RuntimeError("save_template.json 版本与程序不一致，请先完成模板版本迁移。")
     if os.path.exists(TEMPLATE_DB):
-        with sqlite3.connect(TEMPLATE_DB) as conn:
+        with closing(sqlite3.connect(TEMPLATE_DB)) as conn:
             version = conn.execute("PRAGMA user_version").fetchone()[0]
         if version != TEMPLATE_VERSION:
             raise RuntimeError(
@@ -71,20 +72,40 @@ def save_paths(save_id: str) -> Dict[str, str]:
     saves_root = os.path.abspath(os.path.join(DATABASE_DIR, "saves"))
     if os.path.commonpath([save_dir, saves_root]) != saves_root:
         raise ValueError("save_id 指向了保存目录之外")
+    data_dir = save_dir
+    workspace_path = os.path.join(save_dir, 'workspace.json')
+    if os.path.isfile(workspace_path):
+        with open(workspace_path, encoding='utf-8') as source:
+            workspace = json.load(source)
+        if workspace['save_id'] != save_id:
+            raise ValueError('WORKSPACE_SAVE_ID_MISMATCH')
+        if workspace.get('lifecycle_status') == 'RESET_INTERRUPTED_BLOCKED':
+            raise RuntimeError('RESET_INTERRUPTED_BLOCKED')
+        relative = workspace.get('data_directory', '.')
+        data_dir = os.path.abspath(os.path.join(save_dir, relative))
+        if os.path.commonpath([data_dir, save_dir]) != save_dir:
+            raise ValueError('WORKSPACE_DIRECTORY_OUTSIDE_SAVE')
     return {
         "save_id": save_id,
         "save_dir": save_dir,
-        "db_path": os.path.join(save_dir, "league_state.sqlite"),
-        "player_pool_db_path": os.path.join(save_dir, "player_pool.sqlite"),
-        "snapshots_dir": os.path.join(save_dir, "snapshots"),
-        "backups_dir": os.path.join(save_dir, "backups"),
-        "evaluations_dir": os.path.join(save_dir, "evaluations"),
+        "data_dir": data_dir,
+        "db_path": os.path.join(data_dir, "league_state.sqlite"),
+        "player_pool_db_path": os.path.join(data_dir, "player_pool.sqlite"),
+        "control_db_path": os.path.join(data_dir, "gm_control.sqlite"),
+        "snapshots_dir": os.path.join(data_dir, "snapshots"),
+        "backups_dir": os.path.join(data_dir, "backups"),
+        "evaluations_dir": os.path.join(data_dir, "evaluations"),
     }
 
 
 def create_or_open_save(save_id: str) -> Dict[str, str]:
     """Create an isolated save database from the clean template or open it."""
     paths = save_paths(save_id)
+    return initialize_save(paths)
+
+
+def initialize_save(paths):
+    """Initialize explicit generation paths using the existing clean template."""
     os.makedirs(paths["save_dir"], exist_ok=True)
     os.makedirs(paths["snapshots_dir"], exist_ok=True)
     os.makedirs(paths["backups_dir"], exist_ok=True)
@@ -118,7 +139,7 @@ def create_or_open_save(save_id: str) -> Dict[str, str]:
                 os.remove(temp_db_path)
             raise
     else:
-        with sqlite3.connect(db_path) as conn:
+        with closing(sqlite3.connect(db_path)) as conn:
             columns = {row[1] for row in conn.execute("PRAGMA table_info(save_metadata)")}
             if not columns:
                 raise RuntimeError(

@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-19 DEV14 V1.1工程交付索引
+
+Codex独立分支实现A/B/C/D：统一NativeFieldRegistry、每档控制SQLite、稀疏stage/批准绑定执行/恢复、同批全量来源/M0分域查询/离线对账、最多四档唯一ACTIVE与归档后新generation。见[运行手册](../../docs/DEV14_STATE_IO_RUNBOOK.md)、[实际验收](../../docs/development_reviews/DEV14_ACCEPTANCE.md)、[工程会话记录](development/sessions/20261019_dev14_state_io_engineering.md)。未合并前不称main部署；原生证据继承自现有与Antigravity玩家反馈，本轮仅合成/静态验证，无正式采集、游戏写入、GM V4切换或M3合并。
+
 ## 2026-10-18 玩家最新开发职责：历史线人物定制单独立项，与GM球队经营分离
 
 玩家明确将**符合历史年代逻辑的当前联盟人物特殊能力/属性定制**放到**开发规划模型**，与网页GM五轮以上30队赢球经营/正常交易/教练修改隔离。正式交接：[DEV_HISTORY_GRAVITY_SEPARATION_20261018_V1](../../docs/development_tasks/DEV_20261018_HISTORY_GRAVITY_GM_BOUNDARY_V1.md)。GM最新六维经营：[GM_DATA_TO_DECISION_V1](../manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)。

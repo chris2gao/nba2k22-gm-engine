@@ -2,6 +2,21 @@
   "schema_version": 2,
   "capture_profile": "full_verified_v1",
   "trigger_mode": "PLAYER_INITIATED_ONLY",
+  "deterministic_state_io": {
+    "task": "DEV14_V1.1",
+    "status": "IMPLEMENTED_ON_DEV14_BRANCH_NOT_REAL_PRODUCTION_CAPTURED",
+    "entrypoint": "scripts/gm_state_io.py",
+    "registry": "src/gm_state_io/registry.py",
+    "native_provenance": "config/state_io_native/provenance.json",
+    "observed_source": "state_io_captures/state_io_objects/observed_setting_values",
+    "control_database": "database/saves/<save_id>/gm_control.sqlite (generation paths via save_context)",
+    "capture": "EXISTING_full_verified_v1_SAME_RO_SESSION_ONLY",
+    "consumer": "EXISTING_M0_STATIC_SNAPSHOT_BOUNDED_DOMAINS",
+    "domains": ["world", "gameplay", "tactics", "tendency", "training", "personal_defense"],
+    "capability": "Native write evidence is retained from existing profiles/player-reported Antigravity tests; DEV14 integration was verified synthetically only.",
+    "not_adapted": ["mentor relationship/count/badge grant", "51 unnamed tendency byte semantics", "remaining gameplay/world/curve catalogs not supplied with supported layouts"],
+    "manual": "docs/DEV14_STATE_IO_RUNBOOK.md"
+  },
   "consumer_access": {
     "task": "DEV-20261018-10_V2_M0",
     "entrypoint": "scripts/gm_data_query.py",
@@ -95,6 +110,17 @@
     "player_pool_identity": "Legacy model slot uses calibrated roster root as origin; slot zero is the roster directory. Read descriptor count plus root slot; never stop at a blank name."
   },
   "sources": [
+    {
+      "id": "state_io_native",
+      "status": "IMPLEMENTED_DEV14_BRANCH_PRODUCTION_CAPTURE_NOT_TRIGGERED",
+      "capture_adapter": "gm_state_io.capture_bridge",
+      "capture_mode": "SAME_FULL_VERIFIED_V1_READ_ONLY_SESSION",
+      "required": false,
+      "query_domains": ["world", "gameplay", "tactics", "tendency", "training", "personal_defense"],
+      "source_status": "PER_DOMAIN_OBSERVED_OR_EXPLICIT_NOT_OBSERVED",
+      "legacy_batches": "NOT_BACKFILLED",
+      "approval": "PER_SAVE_INSTANCE_GENERATION_BATCH_DECISION_ACTIONS_DIGEST_EXTERNAL_PLAYER_APPROVAL"
+    },
     {
       "id": "coaching_tactics",
       "status": "FIRST_PRODUCTION_CAPTURED_AND_PUBLISHED",

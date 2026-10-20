@@ -1,5 +1,11 @@
 # NBA2K22 GM project instructions
 
+## DEV14 deterministic state I/O
+
+- Use `docs/DEV14_STATE_IO_RUNBOOK.md`, `docs/development_reviews/DEV14_ACCEPTANCE.md` and docs/34 for the independent DEV14 branch's actual implementation/deployment evidence. New native fields reuse the registry/codecs and per-save control DB; never give models an address/SQL write interface.
+- DEV14 actions bind ACTIVE save_id/save_instance_id/generation_id/source_batch/decision/version/action_ids/digest. Capture remains the existing full_verified_v1; registered saves require explicit loaded-save confirmation and a lifecycle lease spanning capture/export/publication. New CLI has no implicit legacy-shared fallback. Reset archives three DBs/journals before a fresh generation; published careers with no generation-compatible history must use a new save ID.
+- Partial/unfinalized native writes keep the existing host/process lock and block switching/reset; do not auto-unlock. Engine synthetic verification and native Antigravity player-reported evidence do not claim a real production run, save persistence or GM V4 activation.
+
 ## Player development policy
 
 - Follow `docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md`: prioritize excellent implementation within reasonable scope, with proportionate directly relevant verification. Do not make boundaries so strict that checks/tests displace implementation. The player accepts undiscovered bugs that were believed correct at development time, including impactful data-interpretation bugs, for later discovery and repair; do not turn every hypothetical issue into a preventive gate. Preserve explicit game-write authorization and existing read-only/identity protections without expanding validation scope.

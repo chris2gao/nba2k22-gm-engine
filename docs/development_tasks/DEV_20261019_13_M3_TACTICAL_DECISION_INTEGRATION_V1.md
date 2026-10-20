@@ -1,5 +1,7 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
+DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)与[验收](../development_reviews/DEV14_ACCEPTANCE.md)。M3-T读取M0新域的object_key/field_key、registry_version及save_instance_id/generation_id，向gm_state_io stage提交最小稀疏changes，再由玩家批准完整摘要。不得生成裸地址、复制前像或自建执行事务。能力缺失/新档未全量采集则明确未观察；本次仅补依赖说明，没有实施DEV13或启用GM V4。
+
 2026-10-19 · owner: Web Development（决策与审阅） · implementation: Codex（M3集成及源数据接入），Antigravity（原生游戏战术与训练接口的开发及实机验证） · authority: USER approval for all game writes.
 
 **决策：M3A/M3B原工程验收保留，不重做P1–P5、不重跑已经通过的业务接口。不把DEV12直接吞进原M3代码。新增M3-T战术证据、GM诊断约束、提案动作与组合依赖整合层，并在GM V4正式启用前完成最小必需部分。**

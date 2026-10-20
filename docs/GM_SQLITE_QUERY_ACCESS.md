@@ -1,5 +1,7 @@
 # GM SQLite 本地按需查询（DEV-10 V2 / M0）
 
+DEV14增量：新增 world/gameplay/tactics/tendency/training/personal_defense 只读域，支持 --team、--player-identity、--field-key、--side 与原批次分页。默认行含object_key供稀疏提案引用；仍只读密封M0副本、默认20/最多50/约20KB，不读控制库或活动三库。只有后续full_verified_v1实际采得并审计的新批次才有新域；旧M02保持缺失，不据此声称已完成Web连接。见[DEV14手册](DEV14_STATE_IO_RUNBOOK.md)。
+
 状态：`IMPLEMENTED_LOCAL`。玩家在本次开发中明确把三个 Web GPT 的真实连接测试延后：本轮完成实现与 PowerShell 本地验证，连接由玩家以后建立，有问题届时修复。**不标记 `M0_CONSUMER_ACCEPTED`，但这不再阻塞本轮工程交付。** 不进入 M1—M4，不更改现行 GM 轮次数、经营审批或全量采集规则。
 
 ## 安装与数据来源（本地拥有者操作）

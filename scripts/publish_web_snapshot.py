@@ -36,6 +36,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--save-id", type=validate_save_id, required=True)
     args = parser.parse_args()
+    from gm_state_io.lifecycle import operation
+    with operation(args.save_id,'publish'):
+        return publish(args)
+
+
+def publish(args):
     pointer_path = f"published/saves/{args.save_id}/latest.json"
     pointer = json.loads((ROOT / pointer_path).read_text(encoding="utf-8"))
     directory = (ROOT / "published" / pointer["batch_path"]).resolve()
