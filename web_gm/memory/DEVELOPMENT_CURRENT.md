@@ -267,3 +267,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 数据建模：保留`league_state.sqlite` + `player_pool.sqlite`既有正式事实权威与不可变`full_verified_v1`批次；新增本地`gm_control.sqlite`记录Desired变更/用户Approval/执行Run/Shared Byte Preimages/Receipt/Reconciliation；无30队同构物理表，统一按`career/batch/team/player/side/opponent/slot/field`建模并可创建游戏页面视图。全部字段共享版本化NativeFieldRegistry和read/decode/encode_patch，未知不可假补50。
 - Codex三个阶段A:registry+控制库+stage/validate，B:复用既有CoachingBatchExecutor做审批、共享bitfield合并与条件回滚、按已认证适配器整批写入，C:扩充现有玩家触发`run_data_update.ps1`而不是另造capture路径、SQLite双库审计归档/GM分页查询/approved-applied-vs-observed自动对账。模型只提交稀疏字段变更、执行模型只触发获批批次；即使数千字段也靠Python确定性写入，SQLite事务与进程内存非原子必须区分。
 - 本任务只做定向合成测试与既有M02只读副本，禁止无玩家后续审批自动运行正式RW、采集、发布或合并PR。不直接改玩家原始能力/潜力/徽章；个人Tendency/教练/训练/游戏全局仅按字段允许范围与审批。DEV13已添加先消费DEV14底座而不重复开发执行器的说明。
+
+## 2026-10-19 DEV14 V1.1：新增多存档管理与非破坏性重置
+
+- 玩家希望新开档可重置数据，也可能同时保留最多4个世界，但日常只玩一个。评估仓库现有`src/save_context.py`与M0查询代码后，**选择方案二的物理隔离，不清空全库**：已有`database/saves/<save_id>/league_state.sqlite`、`player_pool.sqlite`、各档快照/备份/静态查询，开发成本比30队或多档混表低。
+- [DEV14 V1.1 开发主文档](../../docs/development_tasks/DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)新增第2A节与**DEV14-D（必须做）**：每档`gm_control.sqlite`，本地唯一`active_save.json`及generation身份、最多4个切换工作区但仅一个ACTIVE，`save list/status/create/activate/deactivate/retire/reset`，默认以新save_id从干净模板创建新世界。切档**不**自动加载游戏/采集/内存写；不同存档同名M02/player_id/decision_id永不串档。仅活动档允许执行。
+- 实核技术边界：旧`resolve_context(None)`会fallback到`legacy-shared`；新版DEV14 CLI必须拒绝这种隐式共享，但保留历史工具兼容。原`monthly_snapshots.snapshot_id`不带career，因此多档必须物理分库存储，不能在共享league表中混写同名赛季快照。
+- **危险重置**只在用户确需重复同一save_id时使用，dry-run→精确双确认→旧三库/控制journal的SQLite backup完整归档→准备新generation→持久化激活指针；任何归档或替换失败都保留旧完整generation或阻断，不能混新旧league/pool/control。历史GitHub发布、旧快照和其他档不删；旧审批对新代次无效。若当前`published/latest`代次不支持安全复用同名save_id，宁可BLOCKED，要求新save_id。
+- 目前仅更新开发文档/开发记忆，**尚未运行reset、修改游戏、采集或创建多档工作区**；DEV14开发仍交Codex，Antigravity只负责原生字段接口。需针对两个档同名快照/同球员和切档中执行/重置失败做少量合成定向验收。
