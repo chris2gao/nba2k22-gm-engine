@@ -1,5 +1,7 @@
 # DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1.1
 
+> **2026-10-19 DEV16新增字段范围与家族验证原则**：[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)确认原统一读写机制已实质接入19Coach默认/18Overall和个人防守、68手册槽、4PlayTypes/Initiator、48个具名可写+51个未知只读Tendencies、6队伍/5球员训练、4Gameplay USER/CPU及50World；Codex无需重写。Antigravity补手册Play CRC映射及替换流程、51未知倾向真实语义、按位置训练模板+当前疲劳只读。训练只改模版/强度/B2B恢复，不逐属性微调；已实测的同类codec只需一条代表样本，保留通用值域/原值/对象身份/位域校验。World/Gameplay仍按已有已登记字段执行，未注册的字段只待字典补录，无逐项反复手工测试要求。整体防守+个人防守、换Playbook+编槽位的限制属于顺序依赖，不是禁止同一GM方案。
+
 > **2026-10-19 用户最终决定：DEV15 V2覆盖潜力与综评补偿旧例外限制**：[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)要求`full_verified_v1`采集完毕后且正式commit/SQLite备份/manifest哈希/发布前**自动执行潜力置1后处理**，包括pool/roster数值、JSON、PLAYER raw_struct byte 0x441，并将这类人为遮蔽明确标`NOT_OBSERVED`；同时允许通过特定allowlist为30队GM开放PLAYER 0x440`Intangibles`综评补偿25–99的获批轮换动作，不要求额外研究交易/合同/模拟副作用，仍不准泛化修改其它原始Ability字段。DEV14原A/B/C/D架构无需重构，新开发仅增量添加这两部分。
 
 > **上线前加固（2026-10-19）**：[DEV14-H](DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)须在正式自动执行之前处理第三库`player_pool.sqlite`代次绑定和独立真人审批来源，现PR#5工程完成不等于生产完成。[分批执行顺序](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。新注册`Intangibles`/OVR compensation须按[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)的已确认PLAYER 0x440特殊单字段权限，不属于普通Ability写权限；GM查询输出隐藏真实Potential，但本地原始源保留。
