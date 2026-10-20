@@ -1,6 +1,6 @@
 # DEV13 / M3-T 实现与最小验收
 
-日期2026-10-20，分支codex/dev10-m3-design，原PR #4保持Draft/未合并。状态：M3_T_LOCAL_ENGINEERING_COMPLETE；GM_V4_DRAFT_NOT_ENABLED；REAL_CAPTURE_NOT_TRIGGERED。本页是主线窗口②的交付，不取代DEV14窗口①的原生验收。
+日期2026-10-20，分支codex/dev10-m3-design，原PR #4已由玩家批准，Ready后正式合并至main，合并提交`504a4c0656bad0e890c3783c89c656fca5b2e647`，开发head `7e8ba1a`。正式本地工作区已同步；本次Git收尾没有追加测试。状态：M3_T_ENGINEERING_MAIN_MERGED；GM_V4_DRAFT_NOT_ENABLED；REAL_CAPTURE_NOT_TRIGGERED。本页是主线窗口②的交付，不取代DEV14窗口①的原生验收。
 
 ## 接收和整合
 
@@ -55,4 +55,4 @@
 - 原M1财务、双边交易条款、终稿历史继续保留；交易仍为SPECIFIC_TRADE_INTENT、等待独立实时交易计划。Native OFFLINE_PREPARED仍需匹配ACTIVE和stage、真实玩家批准、实时预检与回读，不等于Desired已写入、更不是实际执行/存盘回执。
 - 实际30队策略仍UNASSESSED、正式研究0队，V3继续生效，V4未启用，M4未启动。没有新生产采集/发布、游戏访问/写入、正式球队档案或GM_CURRENT/赛季INDEX变更。
 
-操作入口：[M3-T手册](../../web_gm/manuals/GM_M3_TACTICAL_WORKBENCH.md)。PR #4仅更新工程实现，保持未合并，由玩家审阅。
+操作入口：[M3-T手册](../../web_gm/manuals/GM_M3_TACTICAL_WORKBENCH.md)。PR #4工程实现已按玩家批准正式合并；合并不授予正式GM运行、生产采集或游戏写入批准。

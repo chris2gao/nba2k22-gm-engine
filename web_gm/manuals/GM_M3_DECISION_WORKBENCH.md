@@ -1,6 +1,6 @@
 # M3B 候选GM决策工作台操作手册
 
-2026-10-20增量：M3-T已在原PR #4接入正式main的DEV14，新增已脱敏原生事实、内部优先诊断、角色/目标分钟、个人防守/球员战术/训练/轮换及本队手册意图。完整新用法见[M3-T手册](GM_M3_TACTICAL_WORKBENCH.md)。新包必须通过potential_v1净化，旧M02与未脱敏缓存不供GM；本页P1–P5与交易协议继续复用。PR #4仍Draft/未合并，V3生效、V4未启用。
+2026-10-20增量：M3-T已在原PR #4接入正式main的DEV14，新增已脱敏原生事实、内部优先诊断、角色/目标分钟、个人防守/球员战术/训练/轮换及本队手册意图。完整新用法见[M3-T手册](GM_M3_TACTICAL_WORKBENCH.md)。新包必须通过potential_v1净化，旧M02与未脱敏缓存不供GM；本页P1–P5与交易协议继续复用。PR #4已按玩家批准合入main（504a4c0），V3生效、V4未启用。
 
 协议ID为 `GM_V4_SINGLE_TRIGGER_INTERNAL_FIVE_PHASES`，状态DRAFT_NOT_ENABLED。当前V3继续生效。本工具在DEVELOPMENT_CANDIDATE模式保存研究和离线交接，不能直接启动正式GM、批准、写游戏或替换W03。分析包操作见[M3A手册](ANALYTICS_M3_WORKBENCH.md)。
 

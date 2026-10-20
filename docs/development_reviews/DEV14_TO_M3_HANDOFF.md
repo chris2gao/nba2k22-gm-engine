@@ -1,6 +1,6 @@
 # DEV14 → M3 实现交接
 
-**窗口②接收回执，2026-10-20：** 玩家已将PR #5合入main：最终开发`f68d75d`、合并`570419a`。M3在原PR #4以`82083b5`整合，原生查询和M3分析查询同时保留；随后完成M3-T消费层与本轮8项最小验收，见[M3-T报告](M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)。PR #4仍Draft/未合并、V4未启用。发现的完整Registry元数据脱敏误判作为底层待办记录，未擅自修改窗口①引擎。下文“未合并”等为窗口①当时交付的历史记录。
+**窗口②接收回执，2026-10-20：** 玩家已将PR #5合入main：最终开发`f68d75d`、合并`570419a`。M3在原PR #4以`82083b5`整合，原生查询和M3分析查询同时保留；随后完成M3-T消费层与本轮8项最小验收，见[M3-T报告](M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)。PR #4已按玩家批准合入main（504a4c0）、正式本地工作区已同步，V4未启用。发现的完整Registry元数据脱敏误判作为底层待办记录，未擅自修改窗口①引擎。下文“未合并”等为窗口①当时交付的历史记录。
 
 2026-10-20。负责窗口①，PR [#5](https://github.com/chris2gao/nba2k22-gm-engine/pull/5)，分支`codex/dev14-state-io`；**未合并，不是main部署**。最新可执行代码提交：[b1452b0da7cc3dff0de3e14e46deaa7791482725](https://github.com/chris2gao/nba2k22-gm-engine/commit/b1452b0da7cc3dff0de3e14e46deaa7791482725)。本交接和开发规范V2随后为文档提交；最终PR head见[PR提交列表](https://github.com/chris2gao/nba2k22-gm-engine/pull/5/commits)及交付回执。它们不再改变该实现。
 

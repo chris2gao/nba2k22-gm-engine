@@ -1,6 +1,6 @@
 # 迭代开发基线提示词
 
-DEV14-H/DEV15工程已随PR#5合入main（570419a）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。M3-T已在原PR#4接入此底座并完成本轮8项最小验收，PR#4仍Draft/未合并；详见文档34、[M3-T交付](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)。基线加载不自动开发、测试或运行游戏，扩展遵守开发规范V2。
+DEV14-H/DEV15工程已随PR#5合入main（570419a）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。M3-T已在原PR#4接入此底座并完成本轮8项最小验收，PR#4已由玩家批准合入main（504a4c0），正式本地工作区已同步；详见文档34、[M3-T交付](development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)。基线加载不自动开发、测试或运行游戏，扩展遵守开发规范V2。
 
 DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多存档生命周期见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md) 和文档34。开发复用 `gm_state_io`、`save_context` 与原 codecs；不要另造字段偏移表、隐式legacy-shared或跨档审批。当前PR/部署、真实观测和限制以文档34/验收为准，不自动运行示例。
 

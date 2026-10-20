@@ -2,7 +2,7 @@
 
 ## 2026-10-20 Codex主线交付指针
 
-DEV14 PR #5已合入main（570419a/f68d75d）；M3窗口②以82083b5接收，M3A/M3B+M3-T工程及本轮8项最小验收已完成，原PR #4保持Draft/未合并。长期Codex状态仍以[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)为准，具体接口、证据与完整目录脱敏待办见[M3-T交付](../../docs/development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM手册](../manuals/GM_M3_TACTICAL_WORKBENCH.md)。本条仅作开发索引；V3生效、V4未启用、真实30队UNASSESSED，不代表正式经营或新数据。
+DEV14 PR #5已合入main（570419a/f68d75d）；M3窗口②以82083b5接收，M3A/M3B+M3-T工程及本轮8项最小验收已完成，原PR #4已按玩家批准合入main（`504a4c0656bad0e890c3783c89c656fca5b2e647`），正式本地工作区已同步，未追加测试或运行。长期Codex状态仍以[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)为准，具体接口、证据与完整目录脱敏待办见[M3-T交付](../../docs/development_reviews/M3_T_IMPLEMENTATION_AND_ACCEPTANCE.md)、[GM手册](../manuals/GM_M3_TACTICAL_WORKBENCH.md)。本条仅作开发索引；V3生效、V4未启用、真实30队UNASSESSED，不代表正式经营或新数据。
 
 ## 2026-10-19 DEV14 V1.1工程交付索引
 
