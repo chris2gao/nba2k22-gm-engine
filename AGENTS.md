@@ -1,5 +1,11 @@
 # NBA2K22 GM project instructions
 
+## BPTI DEV23 read-only research handoff (2026-10-20)
+
+- DEV23 research is delivered on independent `codex/bpti-dev23-playbook-semantics` from main `b3ace72`; see `docs/development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md` and its JSON inventory. Terminal status `BPTI_DEV23_PARTIAL_REQUIRES_PLAYER_DESCRIPTION_TASK_CLOSED`. No active waiting/checkpoint. Three text questions are for a separately player-triggered follow-up.
+- Administrator **read-only** process research observed three own-named books (204 slots, 148 nonzero), 46 current players' ordered PlayTypes/Initiator; archived 47 players remain separate. Static PE labels match 89 distinct CRCs / 111 slots; 37 nonzero labels, all per-play native types/actors/beneficiaries, and actual game execution remain UNKNOWN. Do not promote prefix-based legacy catalog types or CRC matches into native assignment proof. This research is not a formal capture or GM_SANITIZED source and adds no execution authority.
+- Actual `Bulls/Heat/Warriors Playbook` labels fail existing `team_book()` exact whole-label matching (`TEAM_NAMED_BOOK_MISSING_OR_AMBIGUOUS`), despite observed coach IDs matching those books. Research used explicit literal `team.name + ' Playbook'` only to identify read-only records. Do not bypass the business binder; this concrete blocker is documented, not fixed/tested. Any repair needs separate player scope. No B2–B6/DEV24, tests, production capture/publication or game writes followed.
+
 ## BPTI task execution protocol — HARD STOP / NO PAUSED CHECKPOINTS (2026-10-20)
 
 - This instruction applies to subsequent BPTI Codex tasks and supersedes older "wait at gate", "pause for user", "ask then continue" examples. Read latest `docs/development_tasks/DEV_20261020_26_BPTI_GROUPED_CONTINUOUS_DELIVERY_AND_FOUR_FAMILY_EVIDENCE_V1.md` and `DEV_20261020_23_BPTI_CORE_PLAYBOOK_SEMANTICS_CODEX_DISCOVERY_V1.md`.
@@ -9,9 +15,9 @@
 
 ## BPTI B1 system cards (2026-10-20)
 
-- Player explicitly approved merging B0 PR #8; it is merged at e4b397e. B1 is implemented on independent codex/bpti-b1-system-cards from that main, not on the old B0 branch. See docs/BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md and docs/development_reviews/BPTI_B1_IMPLEMENTATION_AND_ACCEPTANCE.md for current code/acceptance/PR evidence; do not assume B1 is merged.
+- Player approved B0 PR #8 (merged e4b397e) and B1 PR #9 (merged f4d615c14f0b541fc9f1395b7035952b01e0e417). B1 was implemented on independent codex/bpti-b1-system-cards; its original acceptance evidence is in docs/BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md and docs/development_reviews/BPTI_B1_IMPLEMENTATION_AND_ACCEPTANCE.md. DEV23 later research status is above.
 - Reuse B0 SystemCard/ResearchIndex/Knowledge.bpti(). system_cards_v1.json contains ten complete research cards plus six pre-cutoff qualitative claim extractions; the original 40 compound claims remain unchanged. Query bpti-system/bpti-systems, default GM with explicit date, bounded summaries and whole-card filtering; report created/research/GM-eligible coverage separately. Research eligibility is not native support, a team assessment or player approval.
-- B1 only authorizes DEV25 T1/T2/T3, no old B0/M3/DEV14 suite reruns or extra tests. Native bindings remain empty/UNKNOWN. After B1 delivery wait for player review; DEV23 is next but requires separate approval, and B2–B6/DEV24/real GM/game access are not authorized.
+- Historical B1 authorized only DEV25 T1/T2/T3, no old B0/M3/DEV14 suite reruns or extra tests. Native bindings remain empty/UNKNOWN. The later separately authorized DEV23 read-only research is recorded above; it grants no B2–B6/DEV24 or real GM authority. All deliveries terminate under the no-checkpoint protocol.
 
 ## BPTI B0 knowledge foundation (2026-10-20)
 

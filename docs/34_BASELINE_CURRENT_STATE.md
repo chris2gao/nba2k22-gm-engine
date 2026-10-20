@@ -1,6 +1,14 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
-## 2026-10-20 BPTI B1：十体系知识卡与有界检索（独立分支，待玩家审核）
+## 2026-10-20 DEV23：三队核心Playbook只读研究部分交付，TASK_CLOSED
+
+从main `b3ace72`独立分支`codex/bpti-dev23-playbook-semantics`交付[研究报告](development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)与[机读库存](development_research/BPTI_DEV23_PLAYBOOK_SEMANTICS_INVENTORY_V1.json)。状态`BPTI_DEV23_PARTIAL_REQUIRES_PLAYER_DESCRIPTION_TASK_CLOSED`；交付后结束，不设置等待玩家检查点。B1 PR #9已合并main，合并提交`f4d615c14f0b541fc9f1395b7035952b01e0e417`；下方旧B1阶段说明不覆盖此事实。
+
+完成静态目录/历史密封SQLite与玩家允许的管理员只读进程调查：CHI/MIA/GSW各68槽，共204槽/148非零；111槽/89个不同CRC与本机PE静态标签精确匹配，37非零槽名UNKNOWN。46名当前球员四有序PlayTypes/Initiator与47条历史名单分来源保留；当前游戏档身份未确认，不绑定旧career。逐战术native type、发起/第一/第二受益人全部UNKNOWN，实际比赛执行未观察。类型覆盖/匹配不得从名字推定，未知时HOLD，不误报STATIC_PLAY_TYPE_UNSERVED。三个必要文字问题在报告末尾，后续口述先标PLAYER_REPORTED_UI。
+
+发现当前`team_book()`不能匹配带` Playbook`后缀的三本实际标签，返回TEAM_NAMED_BOOK_MISSING_OR_AMBIGUOUS；本轮只记录，没有修改/测试或绕过业务入口。已整合的Antigravity读写能力仍按DEV14原限制，名称研究不修复该阻断。没有实现B2–B6/DEV24、没有自动测试/旧测试重跑、正式采集、数据发布、游戏写入或正式GM。研究文件不加载进Knowledge默认视图，也不是GM_SANITIZED源；source_catalog、原生字段registry和执行能力白名单无新增/提权。V3有效、V4未启用，实际30队UNASSESSED。
+
+## 2026-10-20 BPTI B1：十体系知识卡与有界检索（PR #9已合main；下文保留原交付范围）
 
 玩家本次明确授权合并B0，PR #8已合main（e4b397e721a5b2fa91de557db5c1dc339e66f437）。随后从该最新main建立独立codex/bpti-b1-system-cards，实施DEV25：原SystemCard契约下十张完整知识卡、六条开档前机制Claim提取，原40复合Claim保持不变。沿Knowledge.bpti()/ResearchIndex与gm_knowledge新增bpti-system/bpti-systems，按ID/角色/反制有界查询；普通GM整卡来源/时间裁剪后才返回正文，研究全文显式RESEARCH。
 
