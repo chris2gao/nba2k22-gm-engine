@@ -1,5 +1,8 @@
 # BPTI B0 — Knowledge Contract & Architecture Foundation V1
 
+工作包B沿用本契约实现NativeBinding与TeamIdentity查询，新增细粒度机制的安全投影，见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)。未新增DTO写入权限；下方B0/B1范围与“未映射”描述是原阶段证据。
+
+
 日期：2026-10-20。契约版本：BPTI_KNOWLEDGE_V1。
 
 B1增量沿用本契约和TypedDict；新增知识文件/整卡投影/有界检索见[B1手册](BPTI_B1_SYSTEM_CARDS_AND_RETRIEVAL.md)。下文B0范围与历史限制保留原阶段含义；原40复合Claim未升证，六条细粒度提取另存B1知识文件，不改变既有数据契约。

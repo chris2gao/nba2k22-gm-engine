@@ -32,7 +32,12 @@ class Knowledge:
         if card_set['schema_version'] != payload['schema_version'] or card_set['version'] != 'BPTI_SYSTEM_CARDS_V1':
             raise ValueError('BPTI_SYSTEM_CARD_VERSION')
         payload['claims'] += card_set['claims']
-        return ResearchIndex(payload, card_set['cards'])
+        package_path = self.root/'bpti/package_b_v1.json'
+        package = read_json(package_path) if package_path.exists() else None
+        if package:
+            payload['sources'] += package['sources']
+            payload['claims'] += package['claims']
+        return ResearchIndex(payload, card_set['cards'], package)
 
     def play_pool(self):
         """Opt-in shared plays, name-based purpose/fit and archived book references."""

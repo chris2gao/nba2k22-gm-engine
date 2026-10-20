@@ -1,5 +1,8 @@
 # BPTI B1 — 十体系知识卡与有界检索
 
+工作包B当前增量见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)：原卡文件不变；四个NOT_READY整卡仍封闭，但可通过四个早期细粒度mechanism_entries得到GM_ELIGIBLE_MECHANISM_ONLY。当前入口覆盖10/10，完整卡仍6张；原生绑定关联在查询结果native_binding_refs，不能把参考入口当完整行为认证。下表描述B1原阶段。
+
+
 2026-10-20。文件版本 BPTI_SYSTEM_CARDS_V1，复用 BPTI_KNOWLEDGE_V1。
 权威任务：[DEV25](development_tasks/DEV_20261020_25_BPTI_B1_SYSTEM_CARD_IMPLEMENTATION_AND_CODEX_MODEL_GUIDE_V1.md)。
 运行证据与交付状态见[B1验收报告](development_reviews/BPTI_B1_IMPLEMENTATION_AND_ACCEPTANCE.md)。
