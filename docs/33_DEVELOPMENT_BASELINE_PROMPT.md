@@ -1,5 +1,7 @@
 # 迭代开发基线提示词
 
+2026-10-20接收决定：玩家接受DEV23研究，并明确同意[PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)作为“战术知识基础设施”并入main，工程提交88a16ec。实际合并提交/状态以该PR与本地Git为准；下方原Draft/独立分支是交付历史。此次接收不认证未知类型/比赛效果、不修既有缺口、不授权后续B2–B6、测试、采集或游戏写入。
+
 2026-10-20玩家追加开发：已实现[共享战术池/用途适配](GM_SHARED_PLAY_POOL_V1.md)，通过Knowledge.play_pool及现有gm_knowledge的play-*只读入口给GM使用。1392个归档共享标识、1345个静态名称、1335条名称推断用途；精确原生类型成员仍UNKNOWN、候选另列。玩家确认球员四PlayTypes和球队四Freelance均前槽更优先/更多执行；共享条目可被其它球队加入或替换进各自书，保留容量和原DEV14同批全局目录/本队目标/具体批准。此授权只新增知识结构与读取，不等于完成B2或新游戏执行能力；没有新测试/采集/写入。
 
 2026-10-20玩家补充E09/E10：同一战术可跨类型分类，类型匹配后装载；球员四PlayType的1/2主用、3/4偶尔，效果与教练等会影响选择；人类按键指定、CPU自动调用，无固定位置限制。按PLAYER_REPORTED_UI使用，不深究精确频率/AI系数，不把固定受益人当类型匹配前置。操作问题已答完；[手册关联补录](development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md)和34区分球员类型、球队Freelance、POE与ScoringOption。逐CRC类型仍缺证据；文档补录不启动B2或游戏操作。

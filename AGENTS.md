@@ -2,6 +2,8 @@
 
 ## Player-authorized shared play pool / both four-slot priorities (2026-10-20)
 
+- Player accepted DEV23 findings and explicitly approved PR #10 as tactical knowledge infrastructure for main on 2026-10-20. Implementation commit `88a16ec`; PR URL `https://github.com/chris2gao/nba2k22-gm-engine/pull/10` is authoritative for merge status/commit. Earlier Draft/no-auto-merge statements describe delivery before this approval. Acceptance does not certify per-CRC types/gameplay, fix the binder or authorize follow-up work.
+
 - The player explicitly added implementation scope after DEV23: build a shared tactical data structure with types, name-based purpose and player/team suitability, and make it available to GM. This authorizes the knowledge files, pure DTO/reference module and bounded existing-M2 CLI integration in `docs/GM_SHARED_PLAY_POOL_V1.md`; it does not start all B2–B6 or authorize testing/game access/writes. Delivery remains on PR #10, whose final scope includes this follow-up.
 - Both ordered groups (player four PlayTypes and coach four Freelances) prioritize earlier slots and execute them more often (`PLAYER_REPORTED_UI`). Do not copy the player-specific 1/2-vs-3/4 frequency description onto Freelance as a measured ratio. A shared play can appear in many team books; another team may add/replace it in its own book. Do not restrict eligible source CRCs to only the team's old slots or modify another team's book; existing DEV14 same-batch global loaded catalog, own-book target and approval rules remain.
 - `Knowledge.play_pool()` / `gm_knowledge.py play-search/play-show/play-book/play-coverage` opt-in reads `web_gm/knowledge/plays/`. There are 1,392 archived unique references, 1,345 static names, 1,335 name-inferred purposes, 455 shared by books. Exact native type memberships remain UNKNOWN; name-based type candidates/fit are separate and never an approved native mapping. Original loaded-book references are historical, not current save assignment. Native type filters exclude inferred candidates unless explicitly requested.
@@ -9,7 +11,7 @@
 
 ## BPTI DEV23 read-only research handoff (2026-10-20)
 
-- Delivery: Draft PR #10 (`https://github.com/chris2gao/nba2k22-gm-engine/pull/10`), research commit `583b695`; not merged in main.
+- Delivery: PR #10 (`https://github.com/chris2gao/nba2k22-gm-engine/pull/10`), research commit `583b695`, shared-pool implementation `88a16ec`; the player subsequently accepted this tactical knowledge infrastructure and approved its main merge on 2026-10-20. Read live PR state rather than the historical Draft status.
 
 - Player follow-up E09/E10 (2026-10-20, `PLAYER_REPORTED_UI`): plays may occur in multiple type categories; type mismatch cannot load. Player type slots 1/2 dominate automatic calls, 3/4 are occasional; success/context/coach influence selection. No fixed position eligibility gate. Specified calling is human button input, CPU-vs-CPU uses AI automatically. Do not seek exact rates, success thresholds or internal AI coefficients; the player explicitly said operational influence is enough. Do not require a fixed beneficiary certificate for type eligibility, merge same-name native IDs, conflate player four types with coach four Freelances, or interpret POEOffense2/3 as scoring-option ranks. All three follow-up questions are answered; per-CRC native metadata remains unknown. See `docs/development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md` for official PC manual + 2021 first-hand guide references and limits. No new engine proof or write authority.
 

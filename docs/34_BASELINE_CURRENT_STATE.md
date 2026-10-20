@@ -1,5 +1,9 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 DEV23 / PR #10：玩家已接受“战术知识基础设施”并批准main合并
+
+玩家明确接受DEV23研究及共享战术池工程（88a16ec），同意[PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)作为战术知识基础设施并入main。合并提交与实际状态读取PR/Git；下方原Draft/未合并文字为此前交付快照，不再代表玩家审批状态。1392条共享引用、1345个静态名、1335条名称推断用途及GM只读入口在本次接收范围内；精确原生类型仍UNKNOWN、用途适配为定性推断、team_book后缀缺口未修，不将接收升格为比赛效果或执行批准。没有追加测试、采集、数据发布或游戏操作。
+
 ## 2026-10-20 共享战术池：玩家追加授权的数据结构与GM只读检索
 
 沿原Draft PR #10追加实现[共享池手册](GM_SHARED_PLAY_POOL_V1.md)：纯`gm_core/play_pool.py` DTO/引用查询，`Knowledge.play_pool()`按需接现有M2，`gm_knowledge.py`新增play-search/show/book/coverage，离线生成器build_gm_play_pool.py。知识文件在`web_gm/knowledge/plays/`，不是第二个事实数据库。1392个归档独立CRC，1345有静态名，47未知名，1335有名称推断用途，49用途未知，8仅Favorite组；455由多本书引用。用途/角色/球队打法/风险有规范化适配资料，查询时解析给GM，不把名字线索当逐条动作或原生类型认证。
