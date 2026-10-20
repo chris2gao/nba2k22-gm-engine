@@ -2,6 +2,8 @@
 
 2026-10-20 | Web Development | 状态：**IMPLEMENTATION_HANDOFF_PREPARED / PLAYER_STAGE_APPROVAL_REQUIRED**。本文本身不授予开发/测试/PR合并/游戏写入权限。玩家决定阶段开始后，以此分段任务书约束Codex，遵守AGENTS.md和DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md V2。
 
+> **2026-10-20 B0–B6最新依赖决策：** 历史案例库/R1-R2六级调整阶梯已经形成可用的篮球认知闭环，不需要先补齐所有历史案例。**B0/B1立即可进入玩家批准后的工程阶段；关键战术CRC→PlayType/角色语义专项调查[DEV23](DEV_20261020_23_BPTI_CORE_PLAYBOOK_SEMANTICS_CODEX_DISCOVERY_V1.md)对B2/B4高价值，宜在B1核心动作清单明确后、B2关键绑定定稿前由Codex另行专项调查，不要求全量解码；逐场统计/伤病/出场/高级数据源扩展[DEV24](DEV_20261020_24_BPTI_ANTIGRAVITY_GAME_DATA_SOURCE_REQUIREMENTS_V1.md)由Antigravity在玩家授权下并行，优先P0比赛实体/双队/球员箱分与覆盖审计，B0–B3不依赖它完成。**B4可先搭篮球决策框架，没有真实逐场数据时趋势判断`NOT_OBSERVED/HOLD`。不得因这些后置任务无限推迟BPTI开发，也不得以本条自动授权研究、采集或测试。
+
 ## 0. 必读、当前状态与仓库事实
 
 - `docs/development_tasks/DEV_20261020_19_BPTI_BASKETBALL_PHILOSOPHY_AND_TACTICAL_INTELLIGENCE_MASTER_PLAN_V1.md`
