@@ -4,12 +4,14 @@
 
 本文件是本轮用户对此前DEV13/14/15开发边界的**最新权威澄清**，优先于旧文档中将“每个同类型字段都需逐项副作用试验、单项属性训练、全部战术手册实测、所有Gameplay都得改”作为任务的要求。**绝不重做已经实现的DEV14 A/B/C/D**。
 
+> **2026-10-19 最新用户强制运营规则**：详见[GM个人防守与球队专属手册政策](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)。本轮明确**日常GM只用PERSONAL_DEFENSE，OVERALL_DEFENSE只读不写**；**日常GM不主动切换coach.PlaybookID，靠修改本队独占原生Playbook的战术槽经营**；换帅触发手册归属重新核查和本队专属书改造。多个球队引用同一PHI等原生book时禁止任何单队改槽，先交Antigravity核实/实现独立原生书及必要的受控技术绑定。以下较早“先整体再个人/日常切书再改槽”的文字已由此规定取代。
+
 ## 0. 业务定稿（七项）
 
 | 用户确认事项 | 应做 | 明确不做 |
 |---|---|---|
-| 1 教练设置冲突 | 说明并处理“整体防守+个人防守”同批的执行排序、“切换手册+编辑槽位”引用失效，分批/重新预检可解决；同一教练共享位域合并继续使用现有codec | 将篮球体系之间意见不同当成内存错误、让GM不能同时制定个人与整体防守 |
-| 2 战术手册 | Antigravity补充当前Game Play CRC ↔ UI战术名称/所属PlayType/可能发起者/使用位置/战术职责映射、可替换全套战术/槽位、教练ActiveSystem/Playbook匹配；引用现实篮球同类战术的动作与反制做GM知识 | 只看手册68槽CRC就宣称已知道所有战术类型/效果；让Codex重逆向 |
+| 1 教练设置冲突 | **日常GM仅写针对具体对手球员的PERSONAL_DEFENSE**；OVERALL_DEFENSE保留RO，杜绝整体设置覆盖个人配置 | 日常“先整体再个人”的写入流程；将限制当作篮球策略冲突 |
+| 2 战术手册 | **一队独占一本原生手册**，日常GM不切PlaybookID而改本队独占书的68槽；换帅重评与必要受控技术绑定；AG补CRC↔战术类型及安全修改 | 修改多球队共享PHI书、把显示名称当独立原生书、因想换打法随意切书 |
 | 3 球员4个战术类型 | 直接用现有玩家数据的4有序PlayTypes、Initiator、能力、Tendency和球队手册，动态调整 | 仅依据OVR硬匹配；重复开发个人PlayType读取 |
 | 4 球员99项倾向 | 现48个具名字段直接使用；Antigravity补其余51未知位的语义/合法值域，再交统一Registry按同种byte codec入库/启用 | Codex单独重新找99个地址或未解名就写RAW_0x... |
 | 5 球队/个人训练 | 仅开放球队训练强度/自动强度/背靠背休息、球员**位置适用的训练模板/原型、个人强度与恢复相关设置**；GM每批读取球员疲劳/比赛负荷/近期上场数据，决定训练强度和模版；游戏自主成长 | 逐项调整真实投篮/防守属性训练量、直接增加球员Ability/Badge、要求GM管理一百多个单属性训练子项、把导师徽章注入当本项目必需 |
@@ -43,7 +45,7 @@
 
 ### Antigravity — 本地游戏知识/字典补齐（**主要负责A类可读能力**）
 
-- **AG-1 Playbook**：整理实际当前68槽和可用战术目录，解决之前曾出现的替换失败，在本地当前游戏版本上采用已修复的安全替换实现；输出Play CRC/真实战术ID/UI名称/PlayType匹配/适合发起位置/动作说明、可用名单/本目录支持情况、共享手册Owner范围。将主教练熟练体系、ActiveSystem、Playbook适配关系作为标签提供，而不是自动视体系最高Proficiency=必须切换。现实战术知识可用合理篮球动作对应（split action、PnR、handoff、Spain PnR、flare、stagger、pin-down等），实际没有证据证明对应到当前游戏某CRC时标`BASKETBALL_ANALOGY`而非`ENGINE_VERIFIED`。
+- **AG-1 Playbook**：整理实际当前68槽和可用战术目录，解决之前曾出现的替换失败，在本地当前游戏版本上采用已修复的安全替换实现；输出Play CRC/真实战术ID/UI名称/PlayType匹配/适合发起位置/动作说明、可用名单/本目录支持情况、共享手册Owner范围。将主教练熟练体系、ActiveSystem、Playbook适配关系作为标签提供，而不是自动视体系最高Proficiency=必须切换。现实战术知识可用合理篮球动作对应（split action、PnR、handoff、Spain PnR、flare、stagger、pin-down等），实际没有证据证明对应到当前游戏某CRC时标`BASKETBALL_ANALOGY`而非`ENGINE_VERIFIED`。 **新增：证明Team独占的原生Book身份（不是同名）与owner映射；共享Book不准改，先验证可用专属预留/clone和技术性绑定。**
 - **AG-2 Tendencies**：补51字节对应的真正原生行为字段、方向、上下限和玩家UI实际名称；只对能对上名称且位置正确的字段从UNKNOWN→NAMED_FIELD。未识别仍read-only，不能构造“RAW_0x...”意义。
 - **AG-3 Training**：提供真正当前游戏各位置训练模板清单/枚举索引及每模板影响的**成长方向说明**（不做单属性微调或直接变更）；与现有0..8通用`player_type`联系或标为另一个列表；给出`progressive_fatigue_history`/当前疲劳的实际解码与取值方向、最近比赛体力/伤病风险可读信号。只把`fatigue`作为GM只读信息，人物原始Ability和Badge不开放。教练强度已有6+5写接口，重新使用。
 - **AG-4 应交付**：以已存在的`config/state_io_native/...` profile模式提交`playbook_catalog.json`、`tendency_dictionary_extended.json`、`training_template_catalog.json`、`fatigue_read_profile.json`（文件名可调），每条字段明确`exact_original_id/name/range/location/read_codec/write_capability/evidence`；已证原生家族仅提供一例可读/可恢复/可验证证据，不按99项重复手测。先保留Antigravity独立本地工作区，交Codex整理线上，不能绕过用户权限擅自在主项目重写。
@@ -52,20 +54,20 @@
 
 - **CD-1**：已有DEV14-H三库一致性和真人批准来源问题仍按现有任务小修，不因此扩大成大重构。
 - **CD-2**：用现有`Registry`注册并读取AG给出的字段：Playbook catalog、补名倾向、分位置球员训练模板、只读Fatigue。只读字段标read-only，正确识别动态值域并使用统一命令`gm_state_io stage/preflight/apply`；不写第二套原生批处理程序。
-- **CD-3**：战术手册“修改新手册内部槽位”由AG修复的原生替换/定位能力接入统一`PLAYBOOK_SLOT` codec，仍保持`PlaybookID`切换→重新采集/预检槽位→替换的可靠顺序。不得因GM提交一张组合战术方案就把切换与修改误归为业务冲突。
-- **CD-4**：防守OVERALL和PERSONAL按已知安全步骤**明确地创建两个获批有序批次**，相同team/opponent先Overall提交/回读再取得新事实（或允许同一个原始审批方案授权全部动作但生成两个有序独立子计划，均可审计）；如未来AG证实同批安全再解禁。不能把已批准的个人对位在总体动作后悄悄覆盖。
+- **CD-3**：优先将Antigravity已解决的槽位安全替换接入DEV14，但**GM只能修改当前本队独占手册**：原生owner集合必须严格等于本球队，且Book实体/指针独立；共享book报SHARED_PLAYBOOK_MUTATION_BLOCKED。换帅后或建档初始若实际教练绑定共享书，须经玩家另行批准技术性绑定到本队专属原生书（如果AG证明可实现），再重采本队新槽位，GM根据现任教练体系改造。日常不开放直接切PlaybookID。
+- **CD-4**：GM只产生逐名对手球员的PERSONAL_DEFENSE稀疏批量，继续采集/只读Overall，不把Overall+Personal拆成两个日常获批批次；GM整体防守写动作默认拒绝OVERALL_DEFENSE_GM_DISABLED_USE_PERSONAL。个人匹配身份唯一、Gameplan提交与回读/恢复沿用DEV14，无法定位个人时不回退修改整体。
 - **CD-5**：训练业务只给GM`team_training_intensity/rest`、`player_training.position/player_type/intensity/recovery`及真实`fatigue_observed`，加上近期比赛使用量；**不引入单项属性训练输入**。同批可包含多队不同强度与多球员模板/强度，自动分离关联的原生storage block。
 - **CD-6**：DEV13的M3D1-D6决策必须由教练/体系→真实Playbook/个人4Types/Tendency→球员原始技术能力→当前疲劳与训练强度→实际先发/轮换→交易需要这一链条驱动。个人角色、手册可执行性、现实动作模拟知识都必须有来源等级；仍允许HOLD。
 - **CD-7**：世界线当前已登记50项/Gameplay4项按家族批量修改继续使用已完成DEV14，不为未需求的其它Gameplay设置开新项目；尚未登记的其它世界字段如需要后续可在AG统一Profile确认布局后追加，别声称“50=全部100+”。
 - **CD-8**：继续按[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)落实Potential=1自动入库后处理与Intangibles 25–99轮换。潜力脱敏GM库不可用于原生历史新秀注入，游戏本身潜力不得改。
 
-## 4. 如何处理那两种“教练冲突”：明确示例
+## 4. 两类旧执行冲突已由GM业务规则消除
 
-**冲突1（目前工程阻断）**：
-- 假设某owner团队对某opponent设置`overall.ScreenDefenseOnBall=3(SWITCH)`，同批还对特定对手球员设置`personal.ScreenDefenseOnBall=1(GO_OVER)`。**这是篮球上合法的“整体换防、针对该球员特殊绕掩护”**，程序目前阻断`BLOCKED_UNVERIFIED_OVERALL_PERSONAL_ORDER_SPLIT_APPROVED_BATCHES`。保留一份GM篮球方案，但Codex应安排**先整体，再逐人例外**的安全有序执行计划，且每批都预检/回读/身份绑定。禁止把这说成全局配置不兼容。
-**冲突2（目前工程阻断）**：
-- 假设GM希望从Playbook A切到B，同时把B的第8槽替换成另一个与球员PlayTypes一致的Play CRC。代码阻断`PLAYBOOK_SWITCH_AND_SLOT_EDIT_REQUIRE_SEPARATE_ORDERED_APPROVED_BATCHES`。真实安全步骤是**先切B并回读→更新目录和当前B第8槽原值→再按用户批准范围执行槽位替换**。以前AG已有手册替换失败并修复的玩家报告，沿用其实际确认的实现，不能用旧CRC照抄。
-**非冲突**：Coach POE多个共享位域字段在`coach_codec.encode_changes`里按mask合并，DEV14适配器能一次执行；本人PlayTypes/已具名Tendencies互不重叠同原生byte group的可按计划执行。只有同一个字段两条不同值才是业务真正互斥，需要拒绝或让GM明确选择。
+**个人防守**：原版整体防守会覆盖个人设置。新GM仅对匹配的对手球员创建PERSONAL_DEFENSE，可以一个批次按需修改多人多字段，所有整体设置保持只读原值。代码保留原来OVERALL+PERSONAL同批阻断，但普通GM根本不再提交OVERALL；无需“先整体后个人”。不能定位对手球员就标个人对象不可用，不向所有人统一覆盖。
+
+**战术手册**：GM日常只修改本队实际独占书中的68槽，不通过PlaybookID换战术风格。当前游戏如果多位教练引用同一原生PHI书，修改该书会影响所有Owner，**不是靠批准两个Owner就可安全规避的事**。Codex新增独占校验，AG先确认30队各拥有独立Book，必要时专门技术绑定、经用户批准；不能独占时停止手册写入。换帅后重新读取教练和Book关系、确保球队专属书归属，再按新理念和阵容重新改槽，而非随意切换到别队手册。
+
+**工程界限**：一个Coach多个共享bit位域的编码器仍然可以一次安全合并；整体与个人防守的逻辑覆盖、原生Playbook物理共享是业务/资产边界，不要求重构整个内存写入框架。具体授权与实例流程详见[GM运营政策](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)。
 
 ## 5. 任务顺序（匹配Codex额度有限）
 
@@ -78,7 +80,7 @@
 ## 6. 简洁验收清单
 
 - 只运行定向合成/旧M02静态校验；已有PR#5 119项全部复跑不必要。没有新字段来源时标`UNKNOWN`，不能做假的完成报告。
-- 一个coach批次多个不同POE位域可正确合并；一条整体+个人的组合GM方案能拆成安全顺序批次；一本书切换后新的槽位必须重读新事实，不得用旧书slot提交。
+- 一个coach批次多个不同POE位域可正确合并；GM只写PERSONAL不写OVERALL；共享的原生Book禁止单队改槽，独占书修改不得影响另一队；换帅或技术性专属绑定后必须重新采集书槽事实，不得用旧书slot提交。
 - 轮换可以通过Intangibles获批操作，原版ACE仍负责临场，失败可恢复；GM没有真实Ability、Potential、徽章的普通直接写权限。
 - 训练能覆盖球队强度、B2B休息、玩家所需按位置的训练模板和球员强度，疲劳只读；**不新增逐属性训练或徽章直接修改**。
 - 99 Tendency原始位可读，具名部分可写，新补充的51需实际名称/编码后才放开；real-world Play知识来源/CRC映射标可信级别。
