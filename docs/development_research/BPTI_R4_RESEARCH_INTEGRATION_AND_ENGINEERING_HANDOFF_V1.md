@@ -4,6 +4,8 @@
 
 > 本文件整合已经归档的R1、R2-V2、R3成果与现有M0–M4/DEV14工程接口，供玩家决定下一阶段B0–B6的实现任务。**不是自动授权Codex执行、合并PR、游戏写入或新档开局**。R2尚有来源索引缺漏且2K22具体战术CRC/调用机制未全证；R4保留这些未知，不宣称全联盟30队正式可执行策略已通过。
 
+> **来源补录增量：** R2原文中ATL-S1/S2及7处source URL缺口已有[独立补充索引](BPTI_R2_SOURCE_REPAIR_ADDENDUM_V1.md)，其中LAL-S2确切论据仍未恢复，证据状态不得自动升为VERIFIED。Codex阶段化交接文件见[DEV22](../development_tasks/DEV_20261020_22_BPTI_RESEARCH_TO_CODEX_PHASED_HANDOFF_V1.md)。
+
 ## 0. 研究资产与状态（唯一长期入口）
 
 | 研究模块 | GitHub正式文件 | 审阅状态 |
