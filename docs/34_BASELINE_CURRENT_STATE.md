@@ -1,5 +1,13 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 共享战术池：玩家追加授权的数据结构与GM只读检索
+
+沿原Draft PR #10追加实现[共享池手册](GM_SHARED_PLAY_POOL_V1.md)：纯`gm_core/play_pool.py` DTO/引用查询，`Knowledge.play_pool()`按需接现有M2，`gm_knowledge.py`新增play-search/show/book/coverage，离线生成器build_gm_play_pool.py。知识文件在`web_gm/knowledge/plays/`，不是第二个事实数据库。1392个归档独立CRC，1345有静态名，47未知名，1335有名称推断用途，49用途未知，8仅Favorite组；455由多本书引用。用途/角色/球队打法/风险有规范化适配资料，查询时解析给GM，不把名字线索当逐条动作或原生类型认证。
+
+每条types支持多类型成员及各自证据，当前精确类型均UNKNOWN；type_candidates单列，默认类型过滤不含推断，显式开关才能参考候选。原生ID去重，同名异ID不合并；手册保留68槽引用及30/20/10/8分组容量，分页报告归档占用，不宣称是当前存档。两种四槽均按前优先/更多执行的玩家规则保存；共享池中的动作可被其它球队加入/替换进本队手册，不能误解为改其它队书或只允许原来本队的CRC。当前执行器本来就是同批已加载全目录CRC限制，本轮未改变。
+
+本次明确授权知识结构/适配性/GM读取，没有自动扩成整套B2–B6、真实GM或V4启用。执行了无地址归档种子整理及离线构建/构建内一致性读取，未运行新增/旧测试、采集、发布游戏数据或进程访问。source_catalog仍只描述原生产来源，无新原生字段/执行能力可注册；现有Knowledge读取能力及限制在本节更新。team_book后缀缺口仍未修，真实30队UNASSESSED。
+
 ## 2026-10-20 DEV23：三队核心Playbook只读研究部分交付，TASK_CLOSED
 
 交付[Draft PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)，研究提交`583b695`；未合入main，本节描述该独立分支的研究成果。

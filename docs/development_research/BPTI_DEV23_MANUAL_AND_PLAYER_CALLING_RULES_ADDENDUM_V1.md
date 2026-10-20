@@ -1,6 +1,8 @@
 # DEV23补录：终极联盟战术操作规则与手册关联
 
 2026-10-20。状态：`PLAYER_CALLING_RULES_CLARIFIED_CRC_TYPE_METADATA_PENDING_TASK_CLOSED`。
+
+后续玩家又明确补充：球员四PlayTypes与球队四Freelance**均有前槽优先、执行更多**的顺序；存在共享战术池，各队可添加/替换同一动作到自己的有限手册槽。本条记录为PLAYER_REPORTED_UI；新授权的[共享战术池知识结构](../GM_SHARED_PLAY_POOL_V1.md)另行实施，不把两组频率量化，也不改变写其它球队书的禁令。
 属于[Draft PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)的有限文档补录，不重启原DEV23任务、不开发B2、不研究精确AI算法。原报告与机读库存保留此前实测和UNKNOWN；本页解决玩家已经回答的操作层问题。
 
 ## 1. 玩家已经回答的机制（E09/E10，PLAYER_REPORTED_UI）

@@ -1,5 +1,7 @@
 # GM 教练战术操作手册
 
+2026-10-20玩家补充：球员四个PlayTypes和球队四个Freelance槽都按前槽优先、执行更多理解（PLAYER_REPORTED_UI），保持原生顺序但不设固定比例。共享战术池、用途和球员/球队适配已接入[GM共享池入口](../../docs/GM_SHARED_PLAY_POOL_V1.md)；多队可引用同条战术并添加/替换到各自书中，不能把“本队书独占”误读成“战术只能本队使用”。正式目标仍是本队书、CRC来自新同批已加载全目录，仍需具体批准；本补充未修同名书匹配缺口。
+
 2026-10-20工程补充：GM须同时读取[Potential遮蔽与Intangibles规则](GM_POTENTIAL_FOG_AND_ROTATION_BIAS.md)。PR#5底层限制/人工监督review状态查docs/34和DEV14_TO_M3_HANDOFF；旧PlaybookID切换及整体防守示例不是日常GM提案规范。新档本队同名书是用户保证的默认前提，不以克隆/共享专项作为门槛，仅实际异常单动作阻断。
 
 > **2026-10-19 主教练/球队本名战术书规则**：[DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)与[GM个人防守/Book政策](GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)：每队每游戏赛季只有休赛期允许换帅一次（合同竞价/签约另列后续），A队聘B教练后必须在获得玩家批准的技术绑定操作中，将可能继承的B书恢复到**A队同名的真正独占原生Book**，再根据B教练体系与A球员修改A书68槽；B书不得被修改。普通GM不改Overall、不随意切BookID。此处是最新运营政策；实际同名Book唯一性和换帅写入还未完成本局生产验证。

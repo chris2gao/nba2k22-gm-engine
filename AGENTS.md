@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## Player-authorized shared play pool / both four-slot priorities (2026-10-20)
+
+- The player explicitly added implementation scope after DEV23: build a shared tactical data structure with types, name-based purpose and player/team suitability, and make it available to GM. This authorizes the knowledge files, pure DTO/reference module and bounded existing-M2 CLI integration in `docs/GM_SHARED_PLAY_POOL_V1.md`; it does not start all B2–B6 or authorize testing/game access/writes. Delivery remains on PR #10, whose final scope includes this follow-up.
+- Both ordered groups (player four PlayTypes and coach four Freelances) prioritize earlier slots and execute them more often (`PLAYER_REPORTED_UI`). Do not copy the player-specific 1/2-vs-3/4 frequency description onto Freelance as a measured ratio. A shared play can appear in many team books; another team may add/replace it in its own book. Do not restrict eligible source CRCs to only the team's old slots or modify another team's book; existing DEV14 same-batch global loaded catalog, own-book target and approval rules remain.
+- `Knowledge.play_pool()` / `gm_knowledge.py play-search/play-show/play-book/play-coverage` opt-in reads `web_gm/knowledge/plays/`. There are 1,392 archived unique references, 1,345 static names, 1,335 name-inferred purposes, 455 shared by books. Exact native type memberships remain UNKNOWN; name-based type candidates/fit are separate and never an approved native mapping. Original loaded-book references are historical, not current save assignment. Native type filters exclude inferred candidates unless explicitly requested.
+- No new tests or old suites are authorized by this request; only offline seed extraction/build and normal artifact review were performed. No game process, production capture/publisher, BPTI NativeBindings, M3 formal decisions or executor changes follow. The observed team_book suffix blocker remains documented/unfixed. Read the shared-pool manual before interpreting counts, 68-slot groups, inferred fit or archived appearances.
+
 ## BPTI DEV23 read-only research handoff (2026-10-20)
 
 - Delivery: Draft PR #10 (`https://github.com/chris2gao/nba2k22-gm-engine/pull/10`), research commit `583b695`; not merged in main.

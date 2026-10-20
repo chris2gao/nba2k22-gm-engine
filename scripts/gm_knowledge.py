@@ -16,7 +16,16 @@ def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('action', choices=('search', 'show', 'franchise', 'rules',
                                     'bpti-claim', 'bpti-source', 'bpti-contract', 'bpti-validate',
-                                    'bpti-system', 'bpti-systems'))
+                                    'bpti-system', 'bpti-systems',
+                                    'play-search', 'play-show', 'play-book', 'play-coverage'))
+    p.add_argument('--play-id', help='Native CRC (0x...) or 2K22_PLAY_<crc>; a reference identifier')
+    p.add_argument('--play-name', help='Exact static name; ambiguous names require an explicit ID')
+    p.add_argument('--play-type', type=int, help='Native PlayType id 1..15')
+    p.add_argument('--include-inferred-types', action='store_true', help='Include name-inferred candidates, never native type proof')
+    p.add_argument('--team-style', help='Basketball fit text, not an actual team or current-save assessment')
+    p.add_argument('--action-tag', help='Name-based action family or modifier')
+    p.add_argument('--book-id', type=int, help='Archived loaded book enum, not active-save targeting')
+    p.add_argument('--offset', type=int, default=0, help='Bounded reference pagination offset')
     p.add_argument('--system-id')
     p.add_argument('--role', help='BPTI basketball role token or text; not a game enum')
     p.add_argument('--counter', help='BPTI counter condition token or text')
@@ -46,6 +55,19 @@ def run(a):
     k = Knowledge(ROOT/'web_gm/knowledge')
     if not 1 <= a.limit <= 5:
         raise ValueError('KNOWLEDGE_LIMIT_1_TO_5')
+    if a.action.startswith('play-'):
+        pool=k.play_pool()
+        if a.action=='play-coverage':
+            return pool.coverage()
+        if a.action=='play-show':
+            return pool.show(a.play_id or a.play_name,book_limit=a.limit,book_offset=a.offset)
+        if a.action=='play-book':
+            if a.book_id is None:
+                raise ValueError('BOOK_ID_REQUIRED')
+            return pool.book(a.book_id,limit=a.limit,offset=a.offset)
+        return pool.search(text=a.text,role=a.role,team_style=a.team_style,action=a.action_tag,
+                           type_id=a.play_type,include_inferred_types=a.include_inferred_types,
+                           book_id=a.book_id,limit=a.limit,offset=a.offset)
     if a.action.startswith('bpti-'):
         from gm_core.bpti import CONTRACTS, VERSION, HISTORICAL_CUTOFF, validate_bpti_knowledge
         from gm_core.knowledge import read_json
