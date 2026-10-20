@@ -1,5 +1,7 @@
 # DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1.1
 
+> **2026-10-19 开发模型窗口职责（最新）**：[DEV18两个Codex窗口接力](DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)明确本文件的底层工作由**独立DEV14 Codex窗口①/PR#5**负责。M系列Codex窗口②/PR#4只在用户转交`DEV14_TO_M3_HANDOFF.md`和稳定接口后实施GM战术与球队经营，不应在PR#4重复实现数据库、内存编码、潜力脱敏和审批执行器。新档各队本名Playbook为用户确认的默认业务前提，**取消预先研究克隆/共享书冲突的前置开发**；仍保留正常Book Native ID和内存写入回读校验。PR合并和游戏真实变更仍需用户授权。
+
 > **2026-10-19 个人防守与独占战术书新GM写权限（覆盖旧执行依赖）**：[权威GM政策](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)。已有DEV14可以读写OVERALL/PERSONAL及共享Book，但GM最新指令要求**日常仅PERSONAL_DEFENSE写、OVERALL_DEFENSE只读**，不再生成常规先整体后个人批次；**GM日常禁止写coach.PlaybookID**，只编辑本队真实独占Playbook（原生owner严格一个且等于本队）。对共享书（即使owner集合无变化）返回SHARED_PLAYBOOK_MUTATION_BLOCKED，不能让A改Book连带B。换帅/建档技术性专属Book绑定是玩家特别批准、AG原生确认后的例外；若不能形成独占对象即Fail Closed不改槽。实施与最小验收见[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)。此段为**当前用户授权开发的新需求**，PR#5现有代码还未实现完毕。
 
 > **2026-10-19 DEV16新增字段范围与家族验证原则**：[DEV16](DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)确认原统一读写机制已实质接入19Coach默认/18Overall和个人防守、68手册槽、4PlayTypes/Initiator、48个具名可写+51个未知只读Tendencies、6队伍/5球员训练、4Gameplay USER/CPU及50World；Codex无需重写。Antigravity补手册Play CRC映射及替换流程、51未知倾向真实语义、按位置训练模板+当前疲劳只读。训练只改模版/强度/B2B恢复，不逐属性微调；已实测的同类codec只需一条代表样本，保留通用值域/原值/对象身份/位域校验。World/Gameplay仍按已有已登记字段执行，未注册的字段只待字典补录，无逐项反复手工测试要求。整体防守+个人防守、换Playbook+编槽位的限制属于顺序依赖，不是禁止同一GM方案。
