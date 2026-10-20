@@ -1,5 +1,7 @@
 # DEV — NBA2K22 PC MyLEAGUE 原生GM经营能力/内存入口查找清单 V1
 
+> **2026-10-19 玩家职责修订**：本V1中把员工任免、完整Playbook、阵容角色、原生选秀/球探/自由市场UI等交给Antigravity研究的任务分配已被玩家修改。**新的权威分工为[原生控制与外挂市场边界V2](DEV_20261019_MYLEAGUE_NATIVE_GM_CONTROL_DISCOVERY_V2.md)**：员工合同/教练与阵容由Codex开发；签约/休赛期/选秀/球探经营逻辑由外挂GM虚拟市场承担、Codex处理必要游戏结果同步；Antigravity继续训练、导师、疲劳/伤病读数、士气和赛场事件等。V1保留为历史查找目录，不应直接执行旧优先级。
+
 - 2026-10-19；Web Development。**Antigravity调研工作清单，并非所有模块立即开发的授权。** M3 GM V4仍是首要开发任务。玩家确认先前交给Antigravity的**全局设置已全部可实际设置和修改**；以用户已验收成果为起点，不要求重复全局设置扫描。
 - 目标：每项真正的人类终极联盟经营动作都寻找对应内存**对象/配置→决策输入→提交操作或受控写入→业务状态读回**，让GM在每月/休赛期检查点可以通过外挂完成同等或更多操作，而不是只掌握菜单图片。
 - 权威当前能力入口：[当前工程状态](../34_BASELINE_CURRENT_STATE.md)、[GM能力缺口审计](../research/NBA2K22_MYLEAGUE_GM_CAPABILITY_GAP_AND_MONTHLY_TRAINING_V1.md)、[PC玩法手册](../research/NBA2K22_PC_MYLEAGUE_PLAYER_OPERATIONS_AND_SYSTEMS_GUIDE_V1.md)、[已证教练执行](../40_COACHING_EXECUTION_RUNBOOK.md)。M0/M1/M2已合并正式main，30队策略仍未评估/GM V4未启用。普通球员/简单签位交易有限验收；签到自由市场的真实执行与员工、训练/选秀操作未认证。

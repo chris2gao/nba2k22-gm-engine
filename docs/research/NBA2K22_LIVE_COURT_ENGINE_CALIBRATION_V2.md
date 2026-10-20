@@ -1,5 +1,7 @@
 # NBA2K22 PC — 实时3D赛场引擎竞技打磨研究 V2（LIVE COURT ONLY）
 
+> **2026-10-19 玩家再次确定最终技术边界**：本文件曾提出的ACE运行时内存控制、C2临场切换、C3外挂实时教练和ACE算法逆向**不再是项目任务**。用户实机确认原版ACE能叫暂停/动态调整，决定比赛时始终ACE ON、完全接受原版AI自主调整；GM只作赛前人员/战术/个人倾向。我们三方只研究Gameplay赛场环境滑块：Movement、Defense、Offense命中/传球、Attributes、Fouls、全局Tendencies、General/Controller。**现行权威文档：[LIVE_COURT_GAMEPLAY_PARAMETERS_V3](NBA2K22_LIVE_COURT_GAMEPLAY_PARAMETERS_V3.md)**。V2仅保留历史参考。
+
 > 2026-10-19，Web Development。**玩家2026-10-19最新范围裁定**：本项目的竞技引擎调校**只研究实际进入比赛后的3D赛场引擎**，包括USER控制对CPU、CPU对CPU在场上实际比赛。**不研究、不调校MyLEAGUE日历快速模拟/Sim Engine/赛季结果数值引擎。** 旧[竞技调校路线V1](NBA2K22_COMPETITIVE_SIMULATION_CALIBRATION_ROADMAP_V1.md)中对Quick Sim的调校目标已废止；若未来要研究须由玩家另立任务。
 >
 > 任务优先级：**M3 GM V4先完成→这份真实赛场竞技研究的实际调校→球员/媒体世界**。Antigravity在另一条线上定位比赛设置/教练/训练等原生UI与内存，仅已证实的字段进入候选。这里是研究方案，**不批准游戏写入、不直接启动测试**。

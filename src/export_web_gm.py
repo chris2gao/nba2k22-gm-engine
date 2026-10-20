@@ -19,6 +19,7 @@ from data_sync_metadata import stamp_database
 from gm_engine import GMEngine
 from historical_rookies import is_historical_rookie
 from save_context import save_paths
+from gm_state_io.lifecycle import guarded
 from snapshot_integrity import file_sha256, write_json_atomic
 from draft_assets import VERIFIED, trade_window
 
@@ -84,6 +85,7 @@ def compare_rows(before, after, keys):
             "removed": [left[key] for key in sorted(left.keys() - right.keys(), key=repr)], "changed": changed}
 
 
+@guarded('export')
 def export_snapshot(save_id, snapshot_id):
     paths = save_paths(save_id)  # Does not create or reset a career.
     for name in ("db_path", "player_pool_db_path"):
@@ -97,6 +99,8 @@ def export_snapshot(save_id, snapshot_id):
     source_pool_hash = file_sha256(paths["player_pool_db_path"])
     league, pool = connect(paths["db_path"]), connect(paths["player_pool_db_path"])
     try:
+        from player_potential_mask import verify_sanitized_pair
+        potential_mask = verify_sanitized_pair(league,pool,snapshot_id)
         metadata = league.execute("SELECT * FROM monthly_snapshots WHERE snapshot_id=?", (snapshot_id,)).fetchone()
         context = decode_context(metadata["notes"])
         if context.get("career_id", save_id) != save_id:
@@ -107,6 +111,15 @@ def export_snapshot(save_id, snapshot_id):
         data_updated_at = source_manifest.get("data_updated_at", source_manifest["timestamp"])
         batch_id = f"{snapshot_id}_{source_manifest_hash[:12]}_{context_hash}_TS2"
         coaching_files={}
+        state_io_binding={}
+        state_io_summary=source_manifest.get('quality_metrics',{}).get('deterministic_state_io')
+        if state_io_summary:
+            from gm_state_io.capture_bridge import load_from_connection
+            from gm_state_io.common import binding
+            state_source=load_from_connection(league,snapshot_id)
+            if not audit['checks'].get('state_io_registered_fields_and_identities_match_same_session'):
+                raise RuntimeError('STATE_IO_SOURCE_AUDIT_MISSING')
+            state_io_binding=binding(state_source)
         if source_manifest.get('quality_metrics',{}).get('coaching_tactics',{}).get('profile')==1:
             from coaching_source import load_coaching_source,coaching_public_files
             source=load_coaching_source(league,snapshot_id,save_id,data_updated_at)
@@ -136,6 +149,8 @@ def export_snapshot(save_id, snapshot_id):
                               potential=detail['attributes']['potential']['value'],
                               contract_salary_schedule=[detail['contract'][f'contract_year_{i}']['value'] for i in range(1, 7)],
                               full_cba_ledger_verified=False)
+                from player_potential_mask import MARKERS
+                player.update(MARKERS)
         staff = [{"staff_slot": row["staff_slot"], "first_name": row["first_name"], "last_name": row["last_name"],
                   "observed_candidate_team_id": row["raw_team_id"], "team_id": None,
                   "team_mapping_status": row["team_mapping_status"]} for row in league.execute(
@@ -156,6 +171,8 @@ def export_snapshot(save_id, snapshot_id):
         models = []
         for row in pool.execute("SELECT * FROM player_pool ORDER BY slot_id"):
             model = public_row(row)
+            from player_potential_mask import MARKERS
+            model.update(MARKERS)
             if model.get('source_details_json'):
                 model['source_details'] = json.loads(model.pop('source_details_json'))
             model["model_category"] = "HISTORICAL_ROOKIE" if is_historical_rookie(row["raw_struct"]) else "OTHER_UNCLASSIFIED"
@@ -165,6 +182,12 @@ def export_snapshot(save_id, snapshot_id):
         rules = dict(league.execute("SELECT * FROM seasons WHERE season_year=?", (metadata["season_year"],)).fetchone())
         source_catalog = load(ROOT / "config" / "source_catalog.json")
         source_catalog['sources']=[s for s in source_catalog.get('sources',[]) if s['id']!='coaching_tactics']
+        source_catalog['sources']=[s for s in source_catalog['sources'] if s['id']!='state_io_native']
+        source_catalog['sources'].append(dict(id='state_io_native',
+            status='OBSERVED_SAME_BATCH_SOURCE_AUDITED' if state_io_summary else 'NOT_OBSERVED_IN_THIS_BATCH',
+            data_updated_at=data_updated_at if state_io_summary else None,
+            domains=state_io_summary['coverage'] if state_io_summary else {},
+            query_entrypoint='scripts/gm_data_query.py',generation=state_io_binding.get('generation_id')))
         source_catalog['sources'].append(dict(id='coaching_tactics',
             status='VERIFIED_OBSERVED_SAME_BATCH' if coaching_files else 'NOT_OBSERVED_IN_THIS_BATCH',
             data_updated_at=data_updated_at if coaching_files else None,
@@ -268,6 +291,7 @@ def export_snapshot(save_id, snapshot_id):
             files = {path.relative_to(bundle).as_posix(): {"bytes": path.stat().st_size}
                      for path in sorted(bundle.rglob("*")) if path.is_file()}
             manifest = {"schema_version": 2, "sync_mode": "TIMESTAMP_ONLY", "data_updated_at": data_updated_at,
+                        "player_potential_mask":potential_mask,
                         "batch_id": batch_id, "save_id": save_id, "snapshot_id": snapshot_id,
                         "captured_at_utc": source_manifest["timestamp"], "exported_at_utc": datetime.now(timezone.utc).isoformat(),
                         "context": context, "gm_decisions_allowed": context["purpose"] == "production",
@@ -277,6 +301,9 @@ def export_snapshot(save_id, snapshot_id):
                         "archive": {"filename": archive.name, "bytes": archive.stat().st_size, "release_tag": f"data-{batch_id}"},
                         "files": files, "null_policy": "UNOBSERVED_IS_NULL_NOT_ZERO", "game_write_policy": "PLAYER_APPROVAL_REQUIRED",
                         "reader_contract": "Read latest.json, compare data_updated_at/uploaded_at, and use its batch_path. No JSON verification required."}
+            if state_io_summary:
+                manifest['state_io']=dict(**state_io_binding,registry_version=state_source['registry_version'],
+                                          coverage=state_io_summary['coverage'],query_interface='scripts/gm_data_query.py')
             write(bundle / "manifest.json", manifest)
             # M0 query copies reuse this exact audited two-database backup.
             # No new capture, publication, or game execution is triggered here.
@@ -287,6 +314,8 @@ def export_snapshot(save_id, snapshot_id):
         pointer = {"save_id": save_id, "batch_id": batch_id, "batch_path": final_dir.relative_to(PUBLISHED).as_posix(),
                    "data_updated_at": data_updated_at, "uploaded_at": None, "upload_status": "PENDING_UPLOAD",
                    "sync_mode": "TIMESTAMP_ONLY", "game_date": context.get("game_date"), "purpose": context["purpose"]}
+        if state_io_binding:
+            pointer.update(state_io_binding)
         write(pointer_path, pointer)
         index_path = PUBLISHED / "index.json"
         index = load(index_path) if index_path.exists() else {"schema_version": 1, "careers": {}}
@@ -294,6 +323,9 @@ def export_snapshot(save_id, snapshot_id):
                                    "data_updated_at": data_updated_at, "uploaded_at": None,
                                    "game_date": context.get("game_date"), "purpose": context["purpose"]}
         write(index_path, index)
+        if state_io_summary and state_io_binding.get('generation_id'):
+            from gm_state_io.capture_bridge import mark_captured
+            mark_captured(save_id,snapshot_id)
         print(f"[PASS] Exported {batch_id}: {counts}; archive={archive.name}")
         return manifest
     finally:

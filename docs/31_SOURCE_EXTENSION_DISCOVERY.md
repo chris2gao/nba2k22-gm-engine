@@ -1,5 +1,11 @@
 # 数据源扩充：当前实现与未解字段
 
+2026-10-20 DEV14-H/DEV15工程分支：rotation.intangibles唯一PLAYER能力例外，复用fields.PLAYER.intangibles的0x440/1byte/rating和25–99输入；采集安装/hash前自动把所有PLAYER Potential结构化/JSON/0x441镜像净化为1，标NOT_GAME_OBSERVED。Staff不变、未知镜像失败关闭、旧封存档不改。详见[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)及文档34；不是main部署或真实写入证据。
+
+## DEV14 V1.1 原生设置统一投影（2026-10-19，工程分支）
+
+`gm_state_io.registry`复用coach/defense原字典，并归档Antigravity的court/world/settings/training目录与48命名倾向映射，来源见config/state_io_native/provenance.json。99字节倾向区剩余51项保留原值且语义UNKNOWN；新同会话观察表由full_verified_v1安装，M0按域分页，不回填历史批次。原生可读/可写/存盘/GM启用分别登记，导师关系及未提供布局的更多设置保留扩展。实际工程验收与未运行的生产验证见[DEV14手册](DEV14_STATE_IO_RUNBOOK.md)、[验收](development_reviews/DEV14_ACCEPTANCE.md)。这不是新的局部采集任务或属性修改授权。
+
 ## DEV-10 V2/M0：消费层与财务解释（2026-10-18）
 
 新增的是既有同批双库的静态只读消费层，不是新游戏来源，也不改变全量采集或历史观测。入口 `scripts/gm_data_query.py`，详见 [SQLite手册](GM_SQLITE_QUERY_ACCESS.md) 与 [M0验收](development_reviews/DEV_20261018_10_M0_SQLITE_ACCESS_ACCEPTANCE.md)。财务视图保留cash原始uint32，另列signed32解释假设；payroll、cash、各收入字段的原生语义/周期及签约容量不因列名被认证。玩家明确以优秀实现为主，不为当前M0追加现金调研/修复或穷尽测试；未发现bug可后续检查修复。

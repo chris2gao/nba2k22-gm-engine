@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-19 DEV14 V1.1工程交付索引
+
+Codex独立分支实现A/B/C/D：统一NativeFieldRegistry、每档控制SQLite、稀疏stage/批准绑定执行/恢复、同批全量来源/M0分域查询/离线对账、最多四档唯一ACTIVE与归档后新generation。见[运行手册](../../docs/DEV14_STATE_IO_RUNBOOK.md)、[实际验收](../../docs/development_reviews/DEV14_ACCEPTANCE.md)、[工程会话记录](development/sessions/20261019_dev14_state_io_engineering.md)。未合并前不称main部署；原生证据继承自现有与Antigravity玩家反馈，本轮仅合成/静态验证，无正式采集、游戏写入、GM V4切换或M3合并。
+
 ## 2026-10-18 玩家最新开发职责：历史线人物定制单独立项，与GM球队经营分离
 
 玩家明确将**符合历史年代逻辑的当前联盟人物特殊能力/属性定制**放到**开发规划模型**，与网页GM五轮以上30队赢球经营/正常交易/教练修改隔离。正式交接：[DEV_HISTORY_GRAVITY_SEPARATION_20261018_V1](../../docs/development_tasks/DEV_20261018_HISTORY_GRAVITY_GM_BOUNDARY_V1.md)。GM最新六维经营：[GM_DATA_TO_DECISION_V1](../manuals/GM_DATA_TO_DECISION_STANDARD_V1.md)。
@@ -169,3 +173,156 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 新任务清单：[MyLEAGUE原生GM控制缺口发现V1](../../docs/development_tasks/DEV_20261019_MYLEAGUE_NATIVE_GM_CONTROL_DISCOVERY_V1.md)。P0：球队/个人训练与疲劳伤病读数、六职位员工任免、完整Playbook/得分选择/球员战术优先级、激活/首发角色、导师、ACE赛场覆盖；P1：真正合同签约裁员、休赛期阶段机、历史选秀大会选中与新秀归属、球探任务；P2：原生士气人格、逐场比赛/纪录新闻、老板商业、自然成长记录。
 - 每项Antigravity交付须分别记录：真实UI、字段/类型/地址与对象身份、读能力、**实际执行操作及提交机制**、菜单退出/存档重开持久性、AI覆盖、效果证据和已验证范围。仅地址能读/设置页能显示不等于完成经营闭环；新增功能仍由玩家批准交Codex执行，不抢M3。
 - 保留项目政策：不可普通经营性直接修改球员属性、潜力、徽章及倾向；原生训练/导师/招聘是合法的经营输入，球员个人Play Type若对应原始角色倾向需另获审批。旧世界级设置既然玩家已报告成功，不因开发记忆旧证据重开该任务。
+
+## 2026-10-19 玩家纠正Native Control责任分工、M3设计审查
+
+- 用户明确：[Native Control V2权威分工](../../docs/development_tasks/DEV_20261019_MYLEAGUE_NATIVE_GM_CONTROL_DISCOVERY_V2.md) **取代原V1中Antigravity工作分配**；Codex负责员工合同及任免、完整教练战术手册/球员角色/阵容（与已有交易签约教练执行器衔接）；外挂GM自建虚拟市场、球探/选秀/休赛期业务，Codex处理批准后的游戏合同/名单/新秀实际落地；**不要求Antigravity重新实现原生签约、选秀、球探、休赛期UI动作**。Antigravity已经继续找训练/导师/疲劳伤病/士气/赛场信息等原生读写接口，继续即可。
+- 用户指出全真潜力/55项新秀数据会导致外部GM“全知选秀”，将来建议双视图：事实数据库保留真值，GM只看来源/资历/不确定性明确的虚拟球探档案，**尚不是M3工程阻塞**，也不能为了迷雾而修改游戏内球员能力。
+- Codex PR #4（head `c3ce332`）Astra已完成M3A分析包与M3B独立30队GM五阶段/双边同版报价/portfolio冲突/策略状态的设计及15个合成场景，**没有M3运行实现、未在Web验证、正式30队仍UNASSESSED、V3仍生效**。研发侧审查认为可由Sol High按照设计包进入工程实现，重点 q_team_stats 真实来源、30队全员访问证据、双边同版接受、组合执行依赖、离线教练真实批次和持久状态；不为Cash/Web连接/单独引擎测试扩大交付。签约外部虚拟市场的商业逻辑与当前受控签约执行仍须区别，未来逐项接入。
+
+## 2026-10-19 实时3D赛场AI与ACE研究优先顺序
+
+- 最新研究交接：[DEV11球员决策/ACE临场教练调研V1](../../docs/development_tasks/DEV_20261019_11_LIVE_COURT_AI_AND_ACE_DISCOVERY_V1.md)。用户要先让球员AI做出合理投篮、传球、挡拆、跑位选择，**先查AI行为/战术调用与全局Tendency→临场ACE/攻防自动调整→最后调命中/运动/身体对抗**，只限真实3D比赛，不调日历Sim。
+- 已有19默认+18对手教练受控写入，Antigravity不重建静态教练执行器而优先找**ACE实际控制范围**（玩家端/CPU端，自动进攻/防守，临场RUNTIME Coach/Gameplan实例、静态数据与live覆盖，是否每场重置、ACE四模式当前PC枚举）；并记录比赛前、节间、暂停后少量时点的动态状态，允许UNKNOWN，不把社区猜测视为已认证指针。Codex继续完整Playbook/阵容/角色实现。
+- 2022 Operation Sports RES2本世代玩家为维持Play Physical选择关ACE，另一论坛用户指出ACE只作用于USER端，证据互有冲突；**开关不等于提高CPU教练智商**。长期若可受控运行时写入比赛计划，可以研究玩家批准的暂停/节间规则控制器，**目前仅研究不执行**，不承诺逆向/重编ACE内部算法。
+- 当前项目仍不准经营性改个体球员真实倾向/能力/潜力/徽章；全局Gameplay Tendency可作为世界配置研究输入，今后若专项修改个体Tendency需玩家独立批准。用户主观实战体验与定向场上观察为调校主要反馈，M3优先级不变。
+
+## 2026-10-19 用户最终限定实时赛场竞技：ACE原版开启，三方仅调Gameplay
+
+- **最新权威研究：[NBA2K22实时赛场Gameplay全局参数V3](../../docs/research/NBA2K22_LIVE_COURT_GAMEPLAY_PARAMETERS_V3.md)**，覆盖前版Live Court V2中ACE动态控制部分及[DEV11 ACE实时控制探索V1](../../docs/development_tasks/DEV_20261019_11_LIVE_COURT_AI_AND_ACE_DISCOVERY_V1.md)。用户明确**不做C2实时内存改战术、C3外挂临场教练、不逆向修改ACE的决策算法**，无法常驻模型看比赛；已观察原版AI与教练会叫暂停、变更防守，接受其运行；**实时3D比赛ACE全程ON**。
+- GM/Codex负责比赛开始前阵容、原生教练策略、Playbook、球员打法/个人倾向（个体倾向需明确批准设定与能力属性禁改边界）。之后游戏原版AI/ACE全程作场上临场调整。Antigravity不重复原生ACE实时对象逆向，之前已发现的全局GamePlay可读写接口作为来源即可。
+- 用户+Web Development+Antigravity下一个竞技目标是**打磨Gameplay全局环境**：A运动8项上下限+Game Speed；B防守与接触/防守干扰；C投篮判定/覆盖和时机；D传球/控球安全；E Attributes全球作用倍率/疲劳；F犯规；G全球Tendencies（默认HOLD，与GM个人Tendency严格分开）；H真人操作/辅助与投篮模式。优先解决真实场上运动与攻防执行，不匹配赛季快速Sim统计、不先改个体能力/潜力/徽章。
+- 继续采用玩家实时3D打球发现问题→按NBA2K22本世代社区资料定位参数小组→玩家批准差分→保留/回滚的反馈机制，适量试验；无后台监控，没有AI实时比赛干预。GM M3工程继续最高优先级，当前只是后续研究方案。
+
+## 2026-10-19 玩家数十场HOF实时比赛EYE_TEST：实际竞技问题优先级
+
+- 已归档完整原始观测及假设分层：[NBA2K22赛场玩家眼测与首轮针对性A/B](../../docs/research/NBA2K22_LIVE_COURT_USER_EYE_TEST_20261019_V1.md)。玩家打了数十场名人堂NBA2K22实时3D比赛。CPU勇士传切反跑、伦纳德接触强攻表现出彩；没有观察到HoF整体作弊式投篮/速度/抢断篮板，犯规/疲劳/篮板与基本防守总体合理→**这些HOLD，不因为社区要求强行降低难度**。
+- 第一优先问题：**挡拆后两人围住持球人、顺下roll man频繁无人防守形成免费得分**，不能未经实际防守观察断言是SWITCH交接失误还是主动HEDGE/夹击却缺第三人TAG/轮转。先由现有19/18赛前Gameplan的`ScreenDefenseOnBall/Hedge/SwitchRule/StayAttached/PreRotate`做有理由对照，ACE原版ON，不研究实时外挂控制。
+- 第二：普通CPU球员篮下只要有防守便几乎打铁、小后卫还敢正面挑战中锋，拆成不合理出手决策（个人/全球Tendencies、Playbook/RunPlayTendency/进攻调用）与轻接触下命中判定过严（Layup Defense Takeoff/Release、Contact Shot、Inside/Close/Layup、Shot Coverage）；社区2K22 HOF/跨版本玩家亦有类似篮下强干扰失真反馈。**保持球星强终结与防守尺寸差，不全局无脑加成功率**。
+- 第三：勇士已有成功传切而多数球队少流畅组合，优先GM/Codex完善赛前战术手册和球员战术分配。用户之前仅中锋持球月球慢动作，Movement专项留后。
+- V3研究路线已改为以玩家实际问题驱动、先挡拆与篮下，而非预设先8项Movement。短时A/B：3–5个类似挡拆回合+普通/明星轻接触内线终结，按单一参数族、用户批准、保持原版ACE、记录副作用。**待明确几十场HOF究竟是MyCareer单人控制还是MyLeague全队控制**，不能提前断言USER/CPU滑块归属和教练权限。
+
+## 2026-10-19 用户最后确认名人堂原版基线 + 仅接受有来源成功经验
+
+- **权威新调研**：[NBA2K22本世代名人堂赛场参数，已验证玩家经验与证据分级](../../docs/research/NBA2K22_HOF_CURRENT_GEN_PROVEN_SLIDER_RESEARCH_20261019_V1.md)。用户所有几十场打球都是原版Hall of Fame下观察，**必须保留名人堂完整默认参数为唯一差分起点；不改成Pro/All-Star再试**。玩家明确拒绝让模型猜数值后叫自己A/B测试，要求模型**搜索、追踪、对比其他玩家确实用过、改过且反馈改善或失败的方案**。旧Live Court V3/眼测文档的“玩家做3–5回合/模型猜微调数值”方案已标记不再执行。只有来源证据成熟且玩家自主批准后才实施参数。
+- 2022 PS4本世代作者gu8lal8提供默认HoF对照：部分CPU投篮/篮下成功率56，USER48，防守干扰和协防默认为50（仍以Antigravity用户本机实际读取为最终权威）；另一PS4的IrishSalsa案例明确HoF开局并只改列出的参数，但**没有证明其Help Defense=70修复PnR**。
+- 用户进一步明确PnR情况是**弱侧第三人无人补防，至少应该正确换防**。OS 2021本世代CPUvsCPU案例反馈Help Defense=100、Over/Drop、Pre-Rotate甚至关闭ACE仍没修好；2022部分PC用户反馈高防守滑块改善整体防守但未证明能修roll-man的tag。因此**目前没找到可证实的本世代HoF PnR完整成功修复参数，不建议瞎给Help=100或全防守=100**，本来正常的防守和名人堂基线保留。
+- 篮下接触终结方面已有直接反馈改善资料：2022次世代Eccentric作者本人用Inside60/Close55/Contact50认为改善了中锋近筐终结（他自己的套装条件）；H2UKNOW HoF次世代减弱Layup Defense对詹姆斯/字母哥轻接触惩罚；J-Kits PS5 HoF V2.3针对layup干扰反复修订并有实战视频。**这些证据支持参数作用方向，不是PC本世代HoF适用的“已验收最终值”**，不交用户试错。继续只查2021–2022 HoF PC/PS4的可追踪成功结论；若未知明确写UNKNOWN，宁可不推荐。
+- ACE始终ON，不引入实时C2/C3；GM赛前战术与球员倾向由Codex另行接入；M3继续主任务。当前没有新的游戏写入或场上数值。
+
+## 2026-10-19 名人堂Gameplay V1候选（玩家请求实际可输入的单套方案）
+
+- 正式提案文档：[NBA2K22 HOF COURT PROFILE V1](../../docs/research/NBA2K22_HOF_COURT_PROFILE_V1_PROPOSED_20261019.md)。**以PC/PS4 2K22原版HOF为底，只有四种Gameplay滑块发生更改（CPU/USER各侧），不是直接套社区整套Pro/All-Star**：Inside Shot Success USER48→52 CPU56→60；Layup Defense Strength Takeoff和Release USER/CPU原版50→35；Help Defense Strength USER/CPU 50→70。原版ACE开启，所有其余Offense、Defense、Attributes、Movement、Tendencies、Fouls、Controller正常项保持HoF。
+- 依据：gu8lal8 PS4本世代HOF默认表；IrishSalsa PS4 HOF Help70/70；H2UKNOW次世代HOF原作者回复上下Layup防守改35；Eccentric次世代作者明确Inside60改善大个子内线。**这是Web结合不对称HoF默认构成的研究型候选，不是任何来源验证过的整个四项组合**。尤其Help70**不能保证修复两人围持球者+无人tag roll man**，有本世代Help100仍失败的反例。
+- 玩家这轮已明确要自行验证一个有来源的综合方案，区别于此前拒绝研究人员随机给不明数值并长期A/B磨参数。此文档**未写游戏、不自动执行**，待玩家实际观察结果反馈后才评价是否成为正式WORLD profile。
+
+## 2026-10-19 MyLEAGUE全局世界设置/外挂财务研究V1
+
+- **最新候选权威文档**：[2021–22终极联盟30队外挂GM世界规则及全局设置V1](../../docs/research/NBA2K22_EXTERNAL_GM_MYLEAGUE_WORLD_SETTINGS_V1_20261019.md)。2026-10-19根据玩家要求检索本世代/次世代2K22 MyLeague方案与NBA官方真实2021–22薪资/税线，并逐项给出赛制、30队经营自动化、交易/选秀、成长伤病士气、球队财务、3D/日历基础设定。**这只是未执行的研究提案，最终由玩家批准才能写游戏**。旧docs/10_GAME_SETTINGS_AND_SLIDERS.md已贴非认证警示。
+- 2021–22实际联盟财务：Cap112.414M、Tax136.606M、2021版Tax Apron143.002M（**只对特定签约触发硬帽，不能统一设置全联盟HardCap143M**）；SalaryFloor101.173M。游戏SalaryCap ON、HardCap OFF（独立外挂约束）、Tax ON（若可）、Staff Budget ON；直到2026–27现实NBA每年度真实Cap/Tax计划由外挂引用，游戏通胀raw不当成确定年度百分比。
+- 原生经营：Trade ON保持游戏框架、CPU-CPU Trades OFF、CPU Trade Offers OFF、TradeFrequency0、Trade Approval ON；30队Automation交易/签约/选秀/球探/员工OFF，仅训练/伤病应急仍暂ON待替代，ACE进攻/防守ON，比赛中AI自动控制战术调用与实际分钟。外部GM谈判决策、Codex批准后游戏落地，不让2K黑盒评估重写双方意愿。当前签约执行能力仍待正式验收。
+- 自然成长/生态PROPOSED初稿：Progression48、Regression50、Training50、Badge默认50、各能力Growth/Peak年龄曲线保留原版；Injuries总开、ProgressiveFatigue开、SimInjuryFrequency55/Severity40、实机50/50、CareerEnding5；Morale ON Difficulty35 Effects40、Chemistry ON Difficulty/Effects50/50。**没有任何玩家公认最佳值，均需标注来源及提案状态**；继续禁止普通经营性直接改球员能力/潜力/徽章。
+- 原生每队TeamCash保持当前事实且语义未证，不向游戏内存统一注资。外挂另建议按2021Forbes市值排序A60M/B40M/C25M/D15M四档机动经营资金（**全新游戏设计数值，不是真实球队现金**），已有2021合同及税费不追溯，M1财务现金解释和虚拟税务成本未核实时不得作为真实签约容量。真实比赛仍以HoF默认赛场参数为底，另一个HOF Court V1候选独立等待玩家体验，日历SimEngine全部默认。
+
+## 2026-10-19 30队全部玩家经营权评估：建议User-owned，比赛CPU/USER滑块仍需分离
+
+- 用户担心CPU球队自动化改写外挂GM决定，提出新MyLEAGUE将30队都设为**User-controlled franchises**。评估文档：[30队控制权与场上滑块作用范围V1](../../docs/research/NBA2K22_30_TEAM_USER_CONTROL_EVALUATION_V1_20261019.md)。**建议采用**：2K22 PC玩家cdcool已采用全30队控制且每场CPUvsCPU观赛；这样能让外部GM独占交易、签约、员工、选秀等经营，30队Team Automation经营项Manual/Off，但比赛参与Game Participation建议Auto、训练及伤病应急暂Auto、比赛ACE/战术自动调用/换人仍由原版AI负责。
+- **特别澄清**：球队被标为User-controlled仅代表经营权限，不足以证明游戏3D赛场10名球员使用USER Gameplay Sliders。跨版本Operation Sports玩家对CPU/USER作用在AI队友的规则有互相矛盾结论，**当前2K22 PC精确消费路径UNKNOWN**，不要把USER/CPU两栏合并/丢弃。名人堂HoF原始USER Inside48 vs CPU56及独立候选52/60暂都保留，不自动修改为所有队一侧。球场手柄居中CPUvsCPU与真人控单队可能不同，calendar sim是另一引擎。
+- 30队User也不能保证原版实际分钟、伤病自动重排、特定对手教练计划和休赛期提示永远不覆盖；外部GM事实决策与游戏真正的名单/合同写入继续玩家审批。此处只是文档评估，**没有读写游戏或改变正式存档**。
+
+## 2026-10-19 NBA2K22战术生态与球员Tendency战术适配——GM/Codex后续重点
+
+- 新权威机制研究：[NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1](../../docs/research/NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1.md)；给Codex的接入任务书：[DEV_20261019_12_TACTICAL_BEHAVIOR_ENGINE_CODEX_HANDOFF_V1](../../docs/development_tasks/DEV_20261019_12_TACTICAL_BEHAVIOR_ENGINE_CODEX_HANDOFF_V1.md)。这是M系列后GM正式以球员和战术为核心经营必备的篮球知识：教练能力与阵容适配→Preferred/Active体系→Freelance/POE→本内实际PlayID与PlayType→球员4个有序PlayType/PlayInitiator→Touch/Shot/Isolation/Drive/PlayDiscipline等个体Tendencies→实际55只读原始能力→对手整体18+逐人特殊防守→原版ACE运行→比赛输出→内部改善/交易签约。
+- **新授权**：用户明确允许GM调整**球员个人原生Tendencies**以融入赛前球队战术体系，必须是基于原生数据的具体提案、玩家逐项批准、Codex受控执行；**不是一般性获准直接写游戏**，绝不扩大到普通能力/潜力/徽章修改（仍只能历史重力单独批准）。Play Type 4槽是另一类角色输入，不能冒充已有可写能力。
+- 当前已经能够读取执行的教练19默认+每队对其他29队整体防守18字段不变；但本Book具体PlayID目录、球员4槽、完整个体Tendencies、个别防守、主教练属性实际作用等**未完成本局读写验收**。DEV12首批先只读补这些字段+生成PlayType和Playbook静态不匹配/角色受益人冲突报告，下一批Codex实现经批准的个人Tendencies、PlayTypes、个人防守差异、Playbook内部编辑，不在新的DEV重复建19/18执行器。
+- Operation Sports 2K22实际玩家发现：ISO POINT类型不在本队Playbook就会跳过到Play2；Touch与CloseShot的作用出现互相矛盾的玩家观察，2K22有某些硬编码叫战术受益人，不能用统一50和虚假概率公式判断。2022勇士总决赛G5 NBA官方Curry16分0/9三分、Wiggins26分13板，说明次级进攻点与错位攻击/防守对位的合理GM问题，并不等于当局直接改Wiggins能力。
+- **训练旧禁令被用户后续决定覆盖**：Antigravity会单独找到训练类型/强度/疲劳/恢复/导师，交Codex。GM教练手册已加注用户最新授权优先条款，待源认证后再纳入训练与赛场表现的联合诊断。仍不开发实时外挂AI/关闭ACE、锁定精确分钟、擅改CalendarSim全球参数。
+
+## 2026-10-19 DEV12 V2：四期原生战术+GM知识引擎全部由Antigravity完成
+
+- **最新唯一Antigravity开发入口**：[DEV12 V2 Antigravity完整研发任务](../../docs/development_tasks/DEV_20261019_12_V2_ANTIGRAVITY_TACTICAL_ECOSYSTEM_AND_GM_REASONING.md)。**用户明确重新分工：原交Codex的A/B/C/D四期全部由Antigravity负责**；旧[DEV12 V1 Codex交接](../../docs/development_tasks/DEV_20261019_12_TACTICAL_BEHAVIOR_ENGINE_CODEX_HANDOFF_V1.md)已经加废止提示，仅保留历史背景。Antigravity基于main现有教练19默认+18指定对手整体防守接口增量开发，Codex不再承担同一套战术生态实现，除非用户以后另外指定。
+- 任务的**最重要成功条件是GM懂原生战术系统中各字段关系与实际篮球行为**，不是找齐可写地址。A期：Playbook内PlayID/type/角色、每人4 Play Types、原生Touch/Shot/Iso/Drive/PlayDiscipline等Tendencies、教练属性及Proficiency（若真存在）、逐人防守/真实Matchup身份；B期：可解释战术断链、主攻/副攻/防守对策、真实NBA2K22来源证据与知识卡、战术适配诊断和内部调整/交易/HOLD理由；C期：受玩家审批的PlayType/Tendency/Playbook内容/个别防守写入+读回恢复，OVERALL不能覆写PERSONAL；D期：Antigravity原在查的训练/导师/疲劳恢复与球员自然成长机制纳入GM长短期战术决策。
+- **实核源码路径**：`config/coach_tactics_profile.json`（playbook相关pointer/stride与68 slots只是布局线索，不意味内战术已解）、`src/coach_locator.py`、`src/coaching_reader.py`、`src/coaching_overall.py`（有效matchup、defender、8-byte设置，matchup_id与全局player_id对应仍需认证）、`src/coaching_targets.py`、`src/coach_codec.py`、`src/defense_codec.py`、`src/gm_core/coaching_batch.py`、`src/coaching_batch_executor.py`、`scripts/coaching_snapshot.py`/`scripts/coaching_batch.py`，gm手册及执行手册。2026-10-18首次真实同批来源**已经**完成30队19默认+870对手整体采集；旧手册的“尚未正式首采”被`docs/34_BASELINE_CURRENT_STATE.md`后续状态覆盖。
+- 用户已授权GM按赛前战术适配**提出**个人Tendencies修改，真实正式存档仍逐动作经用户批准；不直接改球员原始能力/潜力/徽章/伤病。ACE原版一直ON、不做外挂实时教练、个人精确分钟不锁定。Antigravity可以独立实现，但生产新增来源遵守玩家触发全量`full_verified_v1`同批，不发布错时半套数据。
+- 重点2K22社区证据：玩家实测个人ISO POINT槽若当前Playbook没有对应Type会被跳过；有些内置plays的受益者硬绑定，Touch等单一值不能保证谁得到战术。完整机制关系研究原文：[TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1](../../docs/research/NBA2K22_TACTICAL_ECOSYSTEM_AND_PLAYER_BEHAVIOR_RESEARCH_V1.md)。不建立虚假的角色适配百分比或属性修改捷径。
+
+## 2026-10-19 Antigravity类别2–6：世界规则V2缺口复核
+
+- [新研究：NBA2K22世界线V2类别二至六设置缺口审计](../../docs/research/NBA2K22_WORLD_RULES_V2_GAP_AUDIT_20261019.md)。用户给出Antigravity总结：日历模拟20+、能力成长巅峰衰退100+、30队战术/轮换/训练、历史新秀生成6项、原生交易估值25+。**这只是该摘要而非完整Antigravity raw字段表；SLOT_TRADE/GAMEMODE_SETTINGS_SAVED_PROFILE等具体偏移与CPUAttributeBoost效果仍待原值和实机证据，不能自称已认证。**
+- **类别2 Sim Engine是之前V1真实漏项**，因为30队GM多数赛事日历模拟，且GM根据这些比赛数据进行交易/战术诊断。设2021–22 NBA.com官方标尺PPG110.6、PACE98.8、FG46.1%、3PT35.4%、三分出手占比39.9%、eFG53.2%；**标尺不是Slider raw值**。先保存现有全局sim设置、同批统计核对，不能任意拼DarthRambo11min方案与RealSport101另一套数值；实际3D仍是独立HoF Court Profile。
+- **类别3成长曲线是第二漏项**：V1 Progression48/Regression50仅保留候选，各属性Growth/Peak/Decline和全球Peak年龄原版HOLD直到拿原生实际值/年龄阶段语义；肌体能力先于IQ衰退是经验方向，不直接套2K20 Comduklakis整套Speed12/-5/-30等为2K22最优。GLeague历史有超级成长风险，当前2K22未经证实；训练属DEV12，游戏自然成长严禁经营直接改Ability/Potential/Badge。
+- **类别4已交Antigravity DEV12 V2**，不重复开发。Antigravity声称能直接锁Target Minutes或Crunch Time5，不等于已经证明真实3D游戏AI会始终遵守（以前实际看到分钟被覆盖）。保留原版ACE/AI换人并视实机持续验证；不强制重启锁精确分钟任务。
+- **类别5历史班保护**：DraftClassQuality及随机新秀Potential/Badge/Durability原版HOLD；DraftStorylines若存在优先OFF以避免导入历史球员原值无意随机化，仍需核实关闭后历史原始能力/潜力实际稳定。检查历史1984→2020每班60个选秀名额真实人与generated填充比例，循环名字与ID冲突。
+- **类别6原生交易估值全部HOLD**：Year2–5选秀权贬值、九种PlayerType折价及四种球队资产偏好是原生AI市场权重，30独立GM已代替其决策，原生总开关与CPU自主交易由世界配置负责；不同球队价值哲学/未来选秀权相对价值需要在M3外部GM协议和DEV12技能匹配中形成，不要浪费精力改引擎市场价。提高原生Pick Depreciation raw可能是提高价值保留，不能由字段名臆断。
+- 世界规则下一步更重要的补漏：退役/永久伤退/自动补员/自由球员去向与长期联盟人数守恒、真实Cap/Tax与游戏原生通胀或外挂税款重复、训练疲劳+日历Sim伤病双重扣减、30队User经营自动化与原版CPU市场抑制、固定2021比赛规则不随1984历史班轮回自行变1980年代、世界配置季节版本快照。
+- 本文件只完成研究和GitHub索引，**没有更改真实游戏**。最终全字段数值版需要Antigravity现有设置表的name/current/default/range/type/真实消费路径/读写读回验证，先不要让模型瞎补100+曲线。
+
+## 2026-10-19 紧急更新：M3A/M3B已工程完成，DEV12战术系统需要M3-T整合
+
+- Codex PR [#4](https://github.com/chris2gao/nba2k22-gm-engine/pull/4) 已提交M3A/M3B本地工程，实现head `fa62fb2d371438cd9d8062e1fa842e7c8eede4ad`，Draft/Open/mergeable，未合并、未开启GM V4、30队正式研究仍0/UNASSESSED。已有15项直接测试、真实M02 30队466在队身份和合成30队P1–P5主流程/终稿v2；不应因战术新需求推翻已有M3主干。
+- 玩家报告Antigravity在本机`e:/games/NBA 2K22/antigravityUse/完整战术与球员行为系统/`已研发完整DEV12 A–D（68槽战术本、4PlayTypes、99Tendencies、8教练体系与评级、个人防守、训练联动、受控预检），正在与玩家实机调试；**线上main已含其早期commit `9b4fe87`七文件，但用户报告本地新版更多文件尚未全部入库，不能把旧GitHub 7文件当当前本地完整成果**。
+- **最新决策**：M3必须有战术和训练因果理解，不能只是HOLD/INTERNAL/MARKET叙述能力。已发布[DEV13 M3-T增量集成方案](../../docs/development_tasks/DEV_20261019_13_M3_TACTICAL_DECISION_INTEGRATION_V1.md)，并在PR#4留下集成审阅[discussion](https://github.com/chris2gao/nba2k22-gm-engine/pull/4#issuecomment-6282559304)。保留M3A/M3B现有30队审议/报价/版本/终稿结构；下一步待Antigravity本地新代码由Codex归档线上后，再增量加入同批战术/个人Tendency/训练只读投影、来源索引、D1–D6诊断约束、内外部调整比较、跨交易动作失效、个人字段冲突及审批落地，独立PR；暂不启用GM V4/不操作游戏。
+- **已发现仅在线早期9b4fe87代码风险需在新版本重验**：`tactical_reader.read_team_playbook`目前只输出68槽hex CRC、不含每条Play的Type/目标球员；`tactical_fit_analyzer`凭Pacers名称+Isolation Point特例判UNSERVED并标STATIC_VERIFIED，非真实PlayType交集；Touches≥75/多个创造者、最高教练体系熟练度=最优体系属启发式不可证明胜率；`player_tactics_adapter.execute_single_write`和`matchup_defense_adapter.execute_matchup_write`可接收裸地址/hex写入，函数本身没有career/batch/user approval绑定，正式执行不能直接暴露。**本地新版本是否已经修复未知**，需要Antigravity最新源码、训练导出与实机测试后验证。
+- GM正式经营核心规则：读球员55 Ability（只读）+99行为Tendencies（可逐审批改）+有序4 PlayTypes/真实手册类型/教练体系/逐人防守/训练与疲劳；先判断使用问题、战术缺口和内部修复能否解决，仍缺执行者时再发起经济自洽、对手GM独立接受的交易；原版ACE始终ON，精确分钟不锁定，普通能力值/潜力/徽章严禁直接修改。
+
+## 2026-10-19 新优先级 DEV14：确定性数据库-内存双向I/O底座
+
+- **Codex已获玩家授权开发新DEV14（授权开发不等于授权正式游戏写入）**：[完整开发任务书](../../docs/development_tasks/DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)。DEV14优先于DEV13的M3-T正式接入；M3A/M3B PR #4继续Draft未合并，DEV12由Antigravity在独立本地目录研究原生字段与训练。
+- 数据建模：保留`league_state.sqlite` + `player_pool.sqlite`既有正式事实权威与不可变`full_verified_v1`批次；新增本地`gm_control.sqlite`记录Desired变更/用户Approval/执行Run/Shared Byte Preimages/Receipt/Reconciliation；无30队同构物理表，统一按`career/batch/team/player/side/opponent/slot/field`建模并可创建游戏页面视图。全部字段共享版本化NativeFieldRegistry和read/decode/encode_patch，未知不可假补50。
+- Codex三个阶段A:registry+控制库+stage/validate，B:复用既有CoachingBatchExecutor做审批、共享bitfield合并与条件回滚、按已认证适配器整批写入，C:扩充现有玩家触发`run_data_update.ps1`而不是另造capture路径、SQLite双库审计归档/GM分页查询/approved-applied-vs-observed自动对账。模型只提交稀疏字段变更、执行模型只触发获批批次；即使数千字段也靠Python确定性写入，SQLite事务与进程内存非原子必须区分。
+- 本任务只做定向合成测试与既有M02只读副本，禁止无玩家后续审批自动运行正式RW、采集、发布或合并PR。不直接改玩家原始能力/潜力/徽章；个人Tendency/教练/训练/游戏全局仅按字段允许范围与审批。DEV13已添加先消费DEV14底座而不重复开发执行器的说明。
+
+## 2026-10-19 DEV14 V1.1：新增多存档管理与非破坏性重置
+
+- 玩家希望新开档可重置数据，也可能同时保留最多4个世界，但日常只玩一个。评估仓库现有`src/save_context.py`与M0查询代码后，**选择方案二的物理隔离，不清空全库**：已有`database/saves/<save_id>/league_state.sqlite`、`player_pool.sqlite`、各档快照/备份/静态查询，开发成本比30队或多档混表低。
+- [DEV14 V1.1 开发主文档](../../docs/development_tasks/DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)新增第2A节与**DEV14-D（必须做）**：每档`gm_control.sqlite`，本地唯一`active_save.json`及generation身份、最多4个切换工作区但仅一个ACTIVE，`save list/status/create/activate/deactivate/retire/reset`，默认以新save_id从干净模板创建新世界。切档**不**自动加载游戏/采集/内存写；不同存档同名M02/player_id/decision_id永不串档。仅活动档允许执行。
+- 实核技术边界：旧`resolve_context(None)`会fallback到`legacy-shared`；新版DEV14 CLI必须拒绝这种隐式共享，但保留历史工具兼容。原`monthly_snapshots.snapshot_id`不带career，因此多档必须物理分库存储，不能在共享league表中混写同名赛季快照。
+- **危险重置**只在用户确需重复同一save_id时使用，dry-run→精确双确认→旧三库/控制journal的SQLite backup完整归档→准备新generation→持久化激活指针；任何归档或替换失败都保留旧完整generation或阻断，不能混新旧league/pool/control。历史GitHub发布、旧快照和其他档不删；旧审批对新代次无效。若当前`published/latest`代次不支持安全复用同名save_id，宁可BLOCKED，要求新save_id。
+- 目前仅更新开发文档/开发记忆，**尚未运行reset、修改游戏、采集或创建多档工作区**；DEV14开发仍交Codex，Antigravity只负责原生字段接口。需针对两个档同名快照/同球员和切档中执行/重置失败做少量合成定向验收。
+
+## 2026-10-19 Codex额度优先顺序+新GM潜力遮蔽/OVR轮换机制
+
+- 用户反馈Codex周额度约9%、5小时额度约49%（当时界面状态，不推算能执行多少任务）。推荐单次一阶段：**B0 DEV14-H**三库pool代次/人工审批信任边界小补丁→**B1** PR#5由玩家授权合并、PR#4适配/定向回归 + GM潜力脱敏→**B2** DEV13 M3-T只读数据与GM六维战术诊断→**B3** 经Antigravity原生证据的OVR软轮换反馈。[M系列分批执行总计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。
+- [DEV14-H](../../docs/development_tasks/DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)指出PR#5 `Workspaces.check_databases()`只核league和control却未核pool；pool采集`os.replace(*.capture)`后generation元数据容易丢。CLI用户输入的`--approve-game-writes`、`player-approval-reference`由调用者提供，不构成不可伪造真人批准；模型自动调度不得为自己签授权，同权限操作无法靠同目录HMAC提供强隔离，生产期间保持MANUAL_OPERATOR_TRUST_ONLY。
+- [DEV15](../../docs/development_tasks/DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)：**A P0潜力信息遮蔽必须在GM V4正式分析前实现**。当前M0`q_players/q_pool.attributes`直接JSON暴露原生attributes，PR#4 M3将其解到`decoded_attributes`，市场筛选支持`attributes.<field>.value`，所以GM view需要allowlist、SQL/屏蔽属性测试，新版GM导出不应包含原生Potential；内部私有原始库可保留以支撑自然成长/校验。若GM仍可从GitHub原始SQLite直接读取Potential，则标FOG_NOT_ENFORCED_RAW_SOURCE_ACCESSIBLE，不能声称实现严格信息遮蔽；历史选秀的现实未来成就不能自动当当前世界线确定未来。
+- **B P1 新用户单字段例外**：玩家称原版球员有25–99的综评补偿、能影响显示OVR与AI优先首发/第6人/轮换分钟，非真实投射/传球/防守技能调整。旧2K Intangibles玩家反馈支持方向但对2K22 PC具体效果/合同和Sim副作用未认证；只允许Antigravity确认具体原生字段和能力保护之后，以玩家逐项批准的`PLAYER_ROTATION_OVR_BIAS`引导原版自动换人；继续不做锁定分钟。先把GM`minutes_target_band`、教练BenchDepth、年龄/体系、球员位置、先发和第6人等加入DEV13诊断，依据真实采集校准而不是发明分钟公式。可调整的显示OVR不得直接变成GM球员真实实力/交易价值。
+- 现有DEV13任务文件已加本批新规则与依赖；DEV14原任务V1.1保留但已标新的小补丁及例外。已有M3PR#4 Draft、DEV14PR#5 Open尚未合并；此轮只更新GitHub文档，未执行代码/游戏、更未触发全量采集。
+
+## 2026-10-19 玩家正式修订：Potential强制入库遮蔽与全联盟Intangibles轮换
+
+- **本条覆盖前文DEV15 V1“GM查询层遮蔽即可”和“Intangibles副作用研究必须先做”的早期建议。** [权威DEV15 V2](../../docs/development_tasks/DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)已确认PLAYER `intangibles` offset1088/0x440（rating/1 byte），`potential` offset1089/0x441（1 byte），见`config/memory_field_profile.json`、`src/dump_player_pool.py`。两字段相邻，DEV14例外只允许获批写入Intangibles一个字节，不开放其他Ability/Potential/Badge。
+- **Potential后处理固定为1**：每次`full_verified_v1`原生RO采集完、正式备份/SQLite哈希/manifest/发布前，自动执行确定性`sanitize_player_potential`处理所有在队和球员池记录：`player_pool.potential`、`raw_potential`、`player_pool.source_details_json.attributes.potential`、`player_source_details.details_json.attributes.potential`（raw/value均1）及两边完整PLAYER `raw_struct[0x441]=1`，覆盖新扩展存储的其它Player raw镜像（如`state_io_objects`）；失败阻断发布，哈希须脱敏后计算。**不改游戏真正Potential**，此值是MASKED占位而非观察值，GM不得当作选秀/成长依据。历史已发布潜力可能泄露，单独处理老批隔离或获批的新GM安全副本，不暗改immutable。
+- **Intangibles作为30队GM正常轮换手段**：GM可按首发、第六人、板凳人数、角色目标分钟，提出25–99综评补偿偏置并从真实后续赛场分钟反馈调整；原版ACE自动换人继续ON，不硬锁分钟。用户已放弃额外研究Intangibles对游戏其它模块副作用的要求，Codex不应浪费额度做研究；但确定性身份/字段/写前/写后/回滚和每批游戏修改的玩家批准照旧。
+- **DEV14已有实际整合而非空架构**：PR#5 `registry.py`注册19默认/18整体、个人防守、4PlayTypes/initiator、48可命名可写+51语义未知只读的99Tendencies、68槽本、4Gameplay USER/CPU、50世界设置、6球队+5球员训练并通过NativeSession RO/RW/capture bridge。欠缺其余原生字段/导师关系、正式游戏生产采集验证，以及将战术理解转为M3决策的DEV13。不要再立项重做整个通用采集写入器。
+- [额度友好计划](../../docs/development_tasks/M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)现分B0原加固，B1首先潜力入库后强制脱敏，B2 DEV13战术/训练决策，B3综评补偿动作和反馈；该规则也已写入DEV13与DEV14权威文档。本次仅更新GitHub文档，**Codex代码尚未实现这两项新增修改**。
+
+- **重大新发现：GM脱敏球员池不可用于原生历史选秀注入。** `src/historical_rookies.py.query_historical_draft_class()`返回`player_pool.raw_struct`及`raw_potential/potential`。GM正式采集发布库已按用户决定将PLAYER byte0x441和所有潜力明文置1；**任何利用这份脱敏raw_struct向游戏注入1984–2020历史新秀的脚本，可能把真实原生Potential变成1**，违背游戏人物自然成长规则。历史选秀入游戏必须使用独立权限的未脱敏原生私有注入来源，或每次从真实游戏原生存档正确重读；未提供则报`SANITIZED_PLAYER_POOL_NOT_NATIVE_INJECTION_SOURCE`拒绝导入，而不是用GM发布库冒险。此为数据防污染工程约束，不是用户取消的Intangibles额外副作用研究。已写入DEV15 V2，并在PR#5评论明确。
+
+## 2026-10-19 用户最终补充七项DEV16：教练冲突澄清、战术本、倾向语义和训练范围
+
+- [DEV16授权开发文档](../../docs/development_tasks/DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)：主任务是把已完成的DEV14字段能力交GM用、补缺知识与训练疲劳；不重做已有原生框架。
+- **教练所谓冲突并非球场战术矛盾**：DEV14 plan代码目前拒绝同一owner/opponent同批OVERALL+PERSONAL防守，以及同批coach.PlaybookID切本+PLAYBOOK_SLOT编辑。可以GM提出组合策略，执行器拆为有序可审批子批：整体防守再个人例外；先切新手册并再采新槽位原值后修改。原Coach POE共享位域支持合并。
+- **战术/倾向Antigravity责任**：战术本68槽CRC≠已掌握实际Play Type/使用位置，AG补Play CRC↔UI名称/类别/教练体系/现实篮球动作与替换安全流程；51剩余未知Tendency补真正语义/映射后交Codec家族登记，不要开发第二套读取/写入。
+- **训练范围收敛**：仅队伍主客场强度/自动强度/B2B休息和个人训练位置模板、原型、强度、伤病恢复；不做各单项能力微调、直接加能力或徽章、导师复杂关系作为本期必需。当前`config/state_io_native/training.json`仅能证实通用九类player_types(0..8)，尚未覆盖用户提到每个位置约十套模板的实际UI枚举，AG给位置/模版对应。原生已记录progressive_fatigue_history @0x2F5与count flags，但DEV14 Registry当前只把5个个人训练flags读作设置字段，**疲劳当前值/趋势解码仍未接入可供GM读取的字段**：由AG补ReadOnly fatigue映射，Codex复用统一采集/查询，GM结合比赛分钟/赛程决定训练强度与伤病风险，不把历史字段当实时确定值。
+- **同一家族验证**：用户与AG已验证一类中有代表的单个字段写入成功即可认同一原生编码类别的机制；不要求每个World字段/99个Tendencies反复手工测。仍保留确定性原字段slot/offset/合法值域、唯一球队球员身份、mask和CAS/读回；复杂手册替换因实测曾失败，独立修复。World仅现已注册50、Gameplay当前4项USER/CPU足够，不得将未知未映射项称为已可执行；其他世界字段未来按已证codec加registry即可。
+- DEV15 V2 Potential入库后全部置1和Intangibles 0x440/25–99 30队软轮换规则继续有效，无新增副作用研究。所有游戏修改都需玩家批准。本轮只更新GitHub文档，不运行游戏、合并PR或开始实际代码开发。
+
+## 2026-10-19 GM防守与战术书最终定稿：个人策略、球队独占实体
+
+- [新权威GM运营文档](../manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)及修订[DEV16](../../docs/development_tasks/DEV_20261019_16_M3_NATIVE_COVERAGE_AND_GM_TRAINING_PLAYBOOK_INTEGRATION_V1.md)：玩家最新明确**GM日常完全不修改OVERALL_DEFENSE，仅对对手具体球员按需写PERSONAL_DEFENSE**。用户确认原生整体防守会覆盖所有个人防守；原有“先改Overall后改Personal”经营规则作废。Overall仍可采集/只读，DEV14底层codec保留，非GM维修需要独立授权。无法唯一匹配个人native ID时BLOCKED，不得偷改整体。
+- **战术手册策略**：GM正常经营不得自由改coach.PlaybookID切换书。每队以专属的**物理独立原生Playbook对象**（优先本队同名原生书）为资产，允许在68槽添加/替换内容满足当前教练体系和球员；更换教练是员工/合同事件，需重新采集新任教练与Playbook的原生绑定，必要时经玩家批准做仅用于确保球队独占的技术性绑定，再修改本队专属书槽位。**名称同队名不代表书实体独立**。
+- PR#5的`adapters.py`会识别共享owner集但Registry标记`EXPLICIT_ALL_SHARED_OWNERS_OBSERVED_PLAY_CRC_ONLY`，因此目前共享Book若所有owner身份没有变化仍可能按共享方式被写。**新GM政策必须默认阻止任何包含多Owner原生Playbook的单队编辑**：`SHARED_PLAYBOOK_MUTATION_BLOCKED`，需要`owner_team_ids == [team_id]`且原生指针/实体独立。不能因两教练都使用PHI书而让一队改槽影响另一队。Antigravity负责认证一队一本的真实克隆/预留/技术绑定可行性，不能实现则BOOK槽位保持BLOCKED，GM仍可调球员PlayTypes/Tendency/教练其他字段。
+- 现有DEV14代码尚未完成此新增审批策略；本轮仅发布GitHub规范和开发交接，**无真实游戏修改、PR合并或生产采集**。同步改GM_COACHING_OPERATIONS/DEV13/DEV14/DEV16/额度计划，旧文档中先Overall再Personal或日常切书建议已废止。 
+
+## 2026-10-19 换帅后球队本名书归位、每赛季休赛期一次、Codex主线优先
+
+- [DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)最新规则：A队原A主教练/A手册，聘B教练后可能原生变为A队/B教练/B手册；**玩家批准技术性修改A队新Coach的PlaybookID恢复A队同名独立原生A手册**，其后再根据B教练体系与A队阵容改A书68槽，不能编辑B队书/共享书。新档建库原始本名书绑定也是技术初始化，不等于日常自由切Book。每队每游戏赛季只能在休赛期换帅**一次**；本轮只实现GM赛季/阶段约束及换帅后Book恢复接口，休赛期合同到期、员工竞价、自由市场及阶段控制明确不在本轮开发。
+- **Codex先主线，AG扩展后置**：B0 DEV14-H、B1 Potential=1、B2 用现有DEV14读取/编码/审批及M3流程建设已知字段最低闭环与Book同名索引/恢复、个人防守与Intangibles。AG的CRC真实战术、51未知倾向、各位置训练模板、当前疲劳完整解码均在主线后补，唯独同名Book无法找到独占对象或现有槽位技术无法写入时给AG最小专项。缺数据允许UNKNOWN/HOLD，不伪称完整战术科学已实现。
+- 本轮仅在GitHub更新开发和GM文档，未授权正式换帅/实际修改游戏或合并PR。
+
+## 2026-10-19 用户最终确认：两个独立Codex开发窗口与球队同名书默认不变量
+
+- [DEV18最新两窗口交接](../../docs/development_tasks/DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)覆盖DEV13/16/17早期将B0/B1/B2交给同一个Codex的错误安排。**窗口①DEV14专项Codex**负责PR#5底层：DEV14-H同档三库/真实批准、DEV15 Pot=1自动采集后清洗、Intangibles受控轮换、原生Codec/BookID限制/受控动作、`DEV14_TO_M3_HANDOFF.md`；**窗口②M系列Codex**负责PR#4既有M3A/M3B和DEV13 M3-T、30队GM决策、教练/轮换/训练/个人防守和球队本名Book恢复策略。先①形成PR#5增量交接→用户独立授权合并#5→②将main整合进#4，处理冲突并继续；#4的合并也须单独审批。两个窗口不共享上下文，只通过GitHub commit/接口报告传递。
+- **玩家明确声明新档每支球队有自己队名的独立原生战术手册容器**；默认不存在此前虚构的多队共享书风险，取消为此研究物理克隆/全联盟手册身份验证的立项或主线门禁。换帅导致新教练BookID短暂指向B球队书时，以获批受控动作将**A球队的新教练BookID恢复到A球队同名书**，然后按新教练体系和A队阵容编辑A书，不操作B书。简单保持现有Native ID/原值/CAS/读回；只有真实单一对象异常才Fail Closed，不据此预先研究共享冲突。
+- 换帅每队每赛季仅休赛期一次，完整员工合同/竞价/自由市场系统留后续；GM日常不写OVERALL_DEFENSE，针对球员PERSONAL_DEFENSE；DEV14当前已知教练/68槽/48具名倾向/训练与GAMEPLAY/WORLD统一机制继续复用。AG战术CRC/51未知倾向/位置模板/疲劳为后续扩展，不先阻塞主线。
+- 上述是本轮Github文档改动，两个PR仍独立未合并，未修改游戏或生产事实。

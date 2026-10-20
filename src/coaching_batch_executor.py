@@ -88,6 +88,11 @@ class CoachingBatchExecutor:
             mem.close()
 
     def run(self,batch,snapshot,approval,state_root,rollback=False):
+        from gm_state_io.lifecycle import operation
+        with operation(batch['career_id'],'coaching_apply'):
+            return self._run(batch,snapshot,approval,state_root,rollback)
+
+    def _run(self,batch,snapshot,approval,state_root,rollback=False):
         require_batch_approval(batch,approval)
         isolated=snapshot.get('environment')=='ISOLATED_TEST'
         if isolated and approval.isolated_test_confirmed is not True:

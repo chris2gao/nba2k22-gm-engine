@@ -1,5 +1,9 @@
 # 数据采集基线提示词
 
+DEV15/DEV14-H增量见文档34与DEV15手册：full_verified_v1在暂存安装/hash/导出之前自动净化所有PLAYER Potential=1（MASKED/NOT_GAME_OBSERVED），失败关闭；Staff/游戏内存不改。三库来源与日志须一致，旧未脱敏批次不供GM或直接重发。本分支未自动部署，加载基线不运行流程。
+
+DEV14增量：注册管理的存档先核对唯一ACTIVE、save_instance_id/generation及玩家对实际载入存档的确认；全量入口共享生命周期lease，同RO会话采原生设置/倾向/训练并交原审计、backup与M0。没有新来源专用入口或独立latest，不回填历史；见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md)、文档34。工程已实现不表示本轮生产采集已运行。
+
 版本：v1，2026-10-17。用途：建立一个常驻、轻量的数据任务基线；玩家从该基线另开一次性任务窗口。本文件本身不是采集指令。
 
 DEV10 M3分析/候选GM接口读取既有封存M0快照，不是采集入口；新增球队统计投影复用已有来源。采集仍按最新docs/34的full_verified_v1整批刷新，不能因M3运行自动采集或发布。

@@ -61,6 +61,7 @@ if ($Worker) {
     $isCalibrationOnly = [bool]$request.CalibrationOnly
     $isRescanOnly = [bool]$request.RescanOnly
     $logPath = [string]$request.LogPath
+    if ($request.Dev14LifecycleLease) { $env:NBA2K22_DEV14_LIFECYCLE_LEASE = [string]$request.Dev14LifecycleLease }
 } else {
     $isCalibrationOnly = [bool]$CalibrationOnly
     $isRescanOnly = [bool]$RescanOnly
@@ -79,6 +80,7 @@ if (-not $Worker -and -not (Test-CurrentProcessAdministrator)) {
         CalibrationOnly = $isCalibrationOnly
         RescanOnly = $isRescanOnly
         LogPath = $logPath
+        Dev14LifecycleLease = $env:NBA2K22_DEV14_LIFECYCLE_LEASE
     }
     $request | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath $requestPath -Encoding UTF8
 

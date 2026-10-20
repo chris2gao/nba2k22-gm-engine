@@ -10,7 +10,8 @@ param(
     [switch]$GamesOnDateComplete,
     [switch]$Validation,
     [switch]$Publish,
-    [switch]$NewWindow
+    [switch]$NewWindow,
+    [string]$LoadedSaveConfirmation
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
@@ -25,11 +26,39 @@ if ($NewWindow) {
     if ($GamesOnDateComplete) { $command += ' -GamesOnDateComplete' }
     if ($Validation) { $command += ' -Validation' }
     if ($Publish) { $command += ' -Publish' }
+    if ($LoadedSaveConfirmation) { $command += " -LoadedSaveConfirmation '$($LoadedSaveConfirmation.Replace("'", "''"))'" }
     $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($command))
     Write-Output 'Opening separate data-only terminal; waiting for its result.'
     $window = Start-Process -FilePath 'powershell.exe' -WindowStyle Normal -ArgumentList "-NoProfile -ExecutionPolicy Bypass -EncodedCommand $encoded" -Wait -PassThru
     Write-Output "Data-only terminal finished: PID $($window.Id); exit=$($window.ExitCode)"
     exit $window.ExitCode
+}
+# DEV14 managed careers hold one lifecycle lease across capture, audit, export
+# and optional publication. The native pipeline and full-refresh policy remain.
+$workspaceFile = Join-Path $projectRoot "database\saves\$SaveId\workspace.json"
+if (((Test-Path -LiteralPath $workspaceFile) -or (Test-Path -LiteralPath (Join-Path $projectRoot 'database\active_save.json'))) -and -not $env:NBA2K22_DEV14_LIFECYCLE_LEASE) {
+    if (-not $LoadedSaveConfirmation) { throw 'DEV14 managed update requires player-confirmed save_id:save_instance_id:generation_id via -LoadedSaveConfirmation.' }
+    $forward = [Collections.Generic.List[string]]::new()
+    foreach ($key in $PSBoundParameters.Keys) {
+        if ($key -in @('SaveId','NewWindow','LoadedSaveConfirmation')) { continue }
+        if ($PSBoundParameters[$key] -is [System.Management.Automation.SwitchParameter]) {
+            if ($PSBoundParameters[$key]) { $forward.Add("-$key") }
+        } else {
+            $forward.Add("-$key")
+            $forward.Add([string]$PSBoundParameters[$key])
+        }
+    }
+    $forwardJson = ConvertTo-Json -InputObject @($forward.ToArray()) -Compress
+    $forwardBase64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($forwardJson))
+    $captureArguments = @('-B',(Join-Path $PSScriptRoot 'gm_state_io.py'),'capture','--career',$SaveId,
+        '--approve-capture','--loaded-save-confirmation',$LoadedSaveConfirmation,'--capture-args-base64',$forwardBase64)
+    if ($Publish) { $captureArguments += '--approve-publish' }
+    & python @captureArguments
+    exit $LASTEXITCODE
+}
+if ($env:NBA2K22_DEV14_LIFECYCLE_LEASE) {
+    & python -B (Join-Path $PSScriptRoot 'gm_state_io.py') lease-check --career $SaveId
+    if ($LASTEXITCODE -ne 0) { throw 'DEV14 active save lease invalid.' }
 }
 $mutex = [Threading.Mutex]::new($false, 'Local\NBA2K22_GM_DATA_UPDATE')
 $acquired = $false

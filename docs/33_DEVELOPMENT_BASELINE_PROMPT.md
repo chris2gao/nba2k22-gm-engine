@@ -1,5 +1,9 @@
 # 迭代开发基线提示词
 
+DEV14-H/DEV15工程增量（PR#5，未合并）：每save_id独立目录及三份数据库，复用schema，不再扩展隔离/防伪工程。按玩家2026-10-20决定，信任聊天具体批准的操作者引用，完整tuple/CAS/回读不变，review可选。另有自动Potential=1脱敏、Intangibles单字节例外、个人防守/本队同名书受限动作。详见文档34、[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[给M3交接](development_reviews/DEV14_TO_M3_HANDOFF.md)；不开发M3或自动运行游戏。
+
+DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多存档生命周期见 [DEV14手册](DEV14_STATE_IO_RUNBOOK.md) 和文档34。开发复用 `gm_state_io`、`save_context` 与原 codecs；不要另造字段偏移表、隐式legacy-shared或跨档审批。当前PR/部署、真实观测和限制以文档34/验收为准，不自动运行示例。
+
 版本：v2，2026-10-17。用途：建立常驻开发基线；每次开发任务由玩家另开一次性窗口。读取本文件不代表启动待办开发。
 
 ## 玩家如何使用
@@ -72,6 +76,8 @@
 当前受控v2交易入口为 `scripts/execute_approved_trades.py`；名单计数修复后玩家确认公牛/活塞交易成功，支持范围及历史事故见文档37。签约执行源码为 `src/approved_signing_executor.py` 和 `scripts/execute_approved_signing.py`，未运行/测试，待实际签约时验证，见文档38。本地只执行GM给定的交易和合同结果；不开发报价、谈判或其他经营决策逻辑。
 
 ### 5. 开发执行流程
+
+**玩家2026-10-20追加规则：任何扩展设计和更多测试都必须先询问并等待明确确认。** 先交代新增范围、原因和预计成本；不以完善、安全或必要验证为由自行扩展。原已批准范围直接完成，证据足够即可交付，不额外开测试轮次。
 
 玩家最新开发规范见 [边界优先与范围内验证](DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)：先定义边界、以高质量实现为主、只做直接相关的必要验证；接受后续实际使用发现问题再修复，不为穷尽边缘风险扩大测试或新增交付门槛。未证实语义保留原始值与UNKNOWN，批准/只读/身份边界不变。
 
