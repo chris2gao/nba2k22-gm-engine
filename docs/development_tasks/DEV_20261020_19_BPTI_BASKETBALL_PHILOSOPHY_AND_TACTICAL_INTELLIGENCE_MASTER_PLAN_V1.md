@@ -4,6 +4,8 @@
 
 > 本文件为玩家要求的正式项目开发规划，**不是启动BPTI开发、额外测试、游戏写入或合并PR的授权**。后续各阶段单独立项；任何新增设计或测试须遵守AGENTS.md及PLAYER_DEVELOPMENT_POLICY_V2。篮球理念从真实篮球出发、通过NBA2K22已认证机制执行，M0–M4仍作为数据、经济、知识检索、决策/执行和系统管理的基础。**M系列是经营能力，BPTI是篮球认知。**
 
+> **2026-10-20研发顺序更新（覆盖本V1原先“先Bug/双引擎校准、后BPTI”的开发调度）：** 玩家决定M4工程结束后优先开发BPTI；R1 GPT Deep Research、R2 Gemini Deep Research、R3 Web GPT可立即并行研究，Codex须等研究成果整合后逐阶段实施。Issue #6修复、季后赛数据采集和双引擎校准器可以安排在BPTI工程之后，但**正式新档采集与开档的事实来源前置条件不取消**。具体三方研究分工及Codex前置交接见 [DEV21](DEV_20261020_21_BPTI_THREE_RESEARCH_STREAMS_BEFORE_CODEX_V1.md)，首批证据缺口见 [BPTI R0](../development_research/BPTI_R0_EXISTING_ASSETS_AND_EVIDENCE_GAPS_V1.md)。PR #4现已合并，旧文档记录为编写时历史。
+
 ## 0. 建设目标与开档闸门
 
 项目最终目标：在NBA2K22 PC Current Gen 的终极联盟里，30支球队由有组织连续性的GM独立经营，以真实篮球原理、教练哲学、球员独特技能、战术协作和对手反制生成策略；利用M系列的数据/财务/战术工具检验策略并生成审批后可执行的稀疏动作。不能仅以联盟同一预期效率公式优化30队。真实比赛由游戏引擎完成，不重新发明篮球物理引擎、实时教练AI或胜率预测器。
