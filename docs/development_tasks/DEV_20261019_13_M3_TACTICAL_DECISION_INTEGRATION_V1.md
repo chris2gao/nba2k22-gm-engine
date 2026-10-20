@@ -6,6 +6,8 @@
 
 > **2026-10-19 DEV14底层依赖更新**：正式新增[DEV14确定性状态读写引擎](DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)，Codex先在独立分支实现`NativeFieldRegistry + Observed/Desired/Applied状态隔离 + SQLite控制库 + 批次审批/前值/写入/读回/条件回滚 + 同批采集/对账`。**DEV13只消费其已证状态查询和获批动作合同**，不得自行写第二套内存事务或另建30队数据库表。DEV14完成不自动启用GM V4；Antigravity本地DEV12字段未归档时，能力清单按READ_ONLY/BLOCKED_SOURCE显式保留。`
 
+> **DEV14 V1.1存档隔离前置条件**：DEV14新增每存档私有控制库、唯一活动存档、generation、无损切档与危险reset防护。DEV13所有M3-T球员/战术/训练提案必须带`save_instance_id + generation + source_batch`与玩家批准绑定，**旧档计划不得在新档自动执行**；新档首次`full_verified_v1`后才能形成正式GM分析。详情见[DEV14](DEV_20261019_14_DETERMINISTIC_STATE_IO_ENGINE_V1.md)第2A节与DEV14-D。
+
 ## 0. 核对现状和仓库引用
 
 - [PR #4](https://github.com/chris2gao/nba2k22-gm-engine/pull/4)，head fa62fb2d371438cd9d8062e1fa842e7c8eede4ad；37文件，Draft、Open、未merge；代码存在且M3A/M3B本地工程完成不等于30队实际研究已启动。
