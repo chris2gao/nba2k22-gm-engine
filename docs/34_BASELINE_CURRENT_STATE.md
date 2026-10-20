@@ -2,6 +2,8 @@
 
 ## 2026-10-20 DEV20/M4：系统自我进化工程完成，独立Draft PR待审
 
+独立[Draft PR #7](https://github.com/chris2gao/nba2k22-gm-engine/pull/7)，实现提交`652d10763b7bcfa6db811515f148014db74c609c`，OPEN/Draft，未合并。正式main仍为M3收尾`5a49d71`；M4代码与工作台在已附加开发工作树，不切换正式执行仓库。
+
 状态 **M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED**。玩家正式授权M4工程，从最新main `5a49d71`建立独立`codex/dev10-m4-system-evolution`，不混入已合并PR #4。权威范围为[DEV20](development_tasks/DEV_20261020_20_M4_SYSTEM_EVOLUTION_ENGINE_IMPLEMENTATION_V1.md)，覆盖旧M4“经营效果比较/比赛校准”混合定义。交付见[M4手册](M4_SYSTEM_EVOLUTION_WORKBENCH.md)、[实际验收](development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。本M4尚未合并正式main，不自动上线。
 
 - `gm_development_feedback.py ingest/list/show/triage/export/readiness`：原派生gm_workbench新增development_issues/events，稳定根因/能力/作用域指纹、跨批追加、同事件幂等、玩家决定/CAS/历史、有界SQL分页和引用输出。没有新游戏来源、事实库或内存执行器，也不扫描/自动push/建Issue/唤醒模型/修复Bug。

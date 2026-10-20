@@ -2,6 +2,8 @@
 
 2026-10-20。状态：**M4_ENGINEERING_COMPLETE_AWAITING_PLAYER / GM_V4_NOT_ENABLED**。独立分支 `codex/dev10-m4-system-evolution`，从最新main `5a49d71`开始；此前PR #4已按玩家批准合并，合并SHA `504a4c0656bad0e890c3783c89c656fca5b2e647`，本次不向原PR #4添加代码。M4交付独立Draft PR，不自动合并。
 
+工程实现提交：`652d10763b7bcfa6db811515f148014db74c609c`；独立[Draft PR #7](https://github.com/chris2gao/nba2k22-gm-engine/pull/7)，base为main，创建后核对OPEN/Draft、MERGEABLE/CLEAN。后续仅补交付索引链接，不改实现或重跑验证。
+
 ## 实现范围
 
 - M4-A：在已有派生workbench增量登记M4组件，新增development_issues、development_issue_events两表。稳定根因/能力/作用域指纹、独立事件次数、跨批来源、首次/最近、严重度、负责人建议、状态、玩家决定和不可覆盖历史；复用原事务、路径隔离及revision方式，不另建游戏事实库。
