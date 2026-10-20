@@ -1,5 +1,7 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
+> **2026-10-19 最终窗口分工和Book默认规则（最高优先级）**：[DEV18双Codex窗口交接](DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)：PR#5独立窗口①负责全部DEV14安全IO、自动Potential=1、Intangibles原生字段和受控BookID动作；**本DEV13只交PR#4的M系列Codex窗口②**负责GM分析、战术训练方案、换帅同名书归位。不同窗口必须靠PR#5最终commit+`DEV14_TO_M3_HANDOFF.md`交接，不能把两个模型当同一执行者。用户确定新档30队各自持本队同名Book，换帅归位即可，**不要另建共享书克隆/全联盟逐书验证项目**；保留通常的Native ID/CAS/读回。51未知Tendency、完整战术CRC、训练模板和疲劳知识均是后续Antigravity扩展。正文与此冲突的早期任务描述作废。
+
 > **2026-10-19 赛季换帅与Codex主线优先**：[DEV17](DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)规定：每队每游戏赛季只允许**休赛期换帅一次**。A队换B教练后，将当前教练的PlaybookID从可能的B书**恢复为A队同名且独占原生Book**，再根据B教练理念和A队球员改变A书内部战术，不触碰B书；本轮不开发合同到期/签约/自由市场机制，只做业务政策和确认换帅事件后的Book恢复动作。**Codex先集成已有DEV14与M3字段进行最低闭环**，AG余下CRC语义/倾向/模板/疲劳属于后置扩展，唯独原生Book安全绑定阻塞可提前给AG小任务。
 
 > **2026-10-19 GM防守/Playbook最高优先级新规则（覆盖旧段落）**：[GM个人防守与球队专属战术手册](../../web_gm/manuals/GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)要求：GM正常经营**只写PERSONAL_DEFENSE、OVERALL_DEFENSE只读不改**；**不主动修改coach.PlaybookID切书**，而是在经原生身份验证的**本队独占**Playbook 68槽中增删/替换战术。共享书owner=[A,B]时禁止任何单队写槽；换帅后重新取新教练和手册归属，需要AG认证的技术性球队书绑定时另获用户批准，再按新教练理念改本队书。此前本文件任何“先Overall后Personal/日常先切Book再改Slot”的文字作废，不能继续用旧规则生成M3动作。
@@ -56,7 +58,7 @@
 
 - main版 src/player_tactics_adapter.py 的 execute_single_write(runtime_addr,expected_old,new_val) 在函数入口只做前值CAS+写回读回，**没有在这一入口强制包含career/batch/player identity/field allowlist/玩家批准digest**；preflight有字段白名单但直接write接受任意runtime地址。需要执行时重新验证来源、身份、字段和用户批准；禁止将裸地址写函数暴露给GM外部CLI。
 - main版 src/matchup_defense_adapter.py 的 execute_matchup_write(settings_addr,...) 类似接受裸地址与任意8字节hex；preflight通过位掩码编码new_value但未在这段验证真实原生枚举合法性，可能截断。需复用原有18字段enum合同、实际条目身份/对手/owner绑定与玩家审批。
-- Antigravity本地更新版是否已实现绑定，**以Codex整理进仓后的实际源码和最新测试验证为准**。目前不能宣称生产可安全执行。
+- Antigravity本地更新版是否已实现绑定，以最新实际源码及测试验证为准；**DEV14原生集成交窗口①，不由本M系列窗口复制执行引擎**。目前不能宣称生产可安全执行。
 
 ## 3. M3-T增量架构：先建立源数据与只读GM规则，再接动作
 
@@ -127,7 +129,7 @@ Antigravity交付的gm_tactical_knowledge_v1可做source-grounded规则卡来源
 3. 玩家Touch≥75但球权分布实际合理时不能自动判定TRADE；同样教练最高熟练体系与实际Active不同不能自动改体系；
 4. 同一个球员同一Tendency不同值冲突、不同槽合法组合、重复当前同值幂等；
 5. 同一对手的多个PERSONAL_DEFENSE字段/球员可安全组成一个稀疏批次，默认不产生任何GM整体防守写；整体字段仍保留RO；
-6. 双队共用同一物理Playbook，任一队的单独槽位编辑被阻断；独占各自book时修改A不会影响B。换帅后旧书计划过期必须重新采集、认证归属；交易后个人战术、训练、对位的旧身份目标重新绑定或BLOCKED；
+6. **按用户默认30队各有同名书**，已确认换帅后将当前Coach的BookID恢复到本队已存在同名Book并重新采集本队68槽；只修改当前本队书、其它队数据不动。仅真实读到同名ID缺失/身份异常才阻断该动作，不另开发模拟共享书克隆。交易后个人战术、训练与对位旧目标须重新绑定或BLOCKED；
 7. 未经玩家批准，任何新增动作都不能拿裸运行时地址/8字节hex绕过身份与digest白名单直接写游戏；坏enum、新批、来源过期拒绝；
 8. 原始能力/潜力/徽章保存前后内容不变（只在隔离测试存档核查），训练自然进步只能是游戏后续结果；
 9. 两种比赛路径：3D赛场与CalendarSim无法证明的效果写UNKNOWN，并给赛前可证假设/反例；
@@ -137,7 +139,7 @@ Antigravity交付的gm_tactical_knowledge_v1可做source-grounded规则卡来源
 ## 5. 交付与版本门禁
 
 - M3A/M3B PR#4先保持既有工程成果，提交/合并需要用户另批准；新任务优先在**独立M3-T分支/PR**增量完成，避免干扰正在调试的Antigravity本地专用目录或重复实现DEV12。
-- Antigravity完成本地测试后，Codex先**对照main当前已存在的9b4fe87七文件**，整理完整新版，明确覆盖/新增与已有教练审批机制的区别；同步生产数据源建议，而非盲目复制全套重复的coach_locator。
+- Antigravity扩展在M3主线之后按需提交；本M系列窗口**只从窗口①的DEV14_TO_M3_HANDOFF.md和已合入的PR#5接口消费字段**，不再归并第二套coach_locator/采集器。
 - 短期“最小GM V4启用前门禁”：M3能读同批战术上下文；P1/P2必须有经证据审阅的内部战术替代对照；战术信息不足时不能产生伪证交易结论；动作仍可RESEARCH_ONLY，不必等99倾向每种全写才能开GM分析。
 - 完整功能激活条件：真正有效的Playbook类型映射、个人防守/训练/倾向的有界审批执行器、跨交易依赖和写入后读回以及新一轮可比比赛数据。所有允许修改的人物Tendency需玩家具体批准。
 - 不自动把GM V4从DRAFT_NOT_ENABLED改FORMAL，不自动更改任何球队/游戏/原始SQLite，不合并PR，不启动M4。
