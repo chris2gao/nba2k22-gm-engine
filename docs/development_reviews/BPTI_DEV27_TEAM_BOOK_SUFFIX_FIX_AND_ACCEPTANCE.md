@@ -1,6 +1,6 @@
 # DEV27 — team_book() 名称后缀修复与验收
 
-2026-10-20 | `BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED` | 独立Draft PR，未合main。
+2026-10-20 | `BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED` | 按玩家最新“直接提交即可”，本地提交交付，未创建PR或合main。
 
 ## 修改与边界
 
@@ -26,4 +26,4 @@ T3仅为最小函数级封闭验证，不覆盖完整Stage/Apply/CAS集成；没
 
 没有游戏访问、生产采集/发布、内存写入、存盘或真实GM执行验证。逐CRC原生PlayType、动作受益人和比赛效果仍UNKNOWN；修复不启用GM V4、不评估30队、不启动B2–B6或DEV24。
 
-交付PR与实现commit在发布后补记于此。当前任务完成后终结，Draft审核及合并由玩家另行决定。
+实现提交：`867fe85`（`fix: match independent terminal Playbook labels for own-team books`）。玩家在提交完成后明确“直接提交即可”，因此本次以本地提交交付，不创建Draft PR、不自动合main。当前任务已终结。

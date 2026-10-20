@@ -2,7 +2,7 @@
 
 ## Scoped team_book suffix fix (2026-10-20)
 
-- DEV27 authorizes only the same-name Playbook suffix fix and T1–T3 static checks. `team_book()` additionally compares the exact normalized label after removing an independent terminal `Playbook` word; no fuzzy/prefix matching or identity rewriting. Missing/ambiguous matches retain the same error; native book identity/owner/CAS/approval logic is unchanged. T1–T3 passed once (3 tests, 0.005s); no game access/capture/writes or old suite reruns. See `docs/development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md`. Independent Draft delivery, not merged; status `BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED`. Historical DEV23 "unfixed" entries describe its earlier investigation. No B2 or further feature follows.
+- DEV27 authorizes only the same-name Playbook suffix fix and T1–T3 static checks. `team_book()` additionally compares the exact normalized label after removing an independent terminal `Playbook` word; no fuzzy/prefix matching or identity rewriting. Missing/ambiguous matches retain the same error; native book identity/owner/CAS/approval logic is unchanged. T1–T3 passed once (3 tests, 0.005s); no game access/capture/writes or old suite reruns. See `docs/development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md`. Player's latest instruction is direct commit only: implementation `867fe85`, no Draft PR created or main merge; status `BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED`. Historical DEV23 "unfixed" entries describe its earlier investigation. No B2 or further feature follows.
 
 ## Player-authorized shared play pool / both four-slot priorities (2026-10-20)
 

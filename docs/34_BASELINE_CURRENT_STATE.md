@@ -4,7 +4,7 @@
 
 玩家明确只修名称后缀。在`codex/fix-team-book-suffix`中，`src/gm_state_io/team_book.py:team_book()`保留原精确名称匹配，并将移除独立末尾Playbook标签后的名称同既有name/abbreviation/city+name精确别名比较，因此Bulls可对应Bulls Playbook（Heat/Warriors同理）。不改全局normalized()、不做包含/前缀/模糊查找，不改返回的index/enum_id/unique_id/name；多个匹配仍报TEAM_NAMED_BOOK_MISSING_OR_AMBIGUOUS，不挑第一个。本队归属、身份摘要、CAS及批准路径均保持原实现。
 
-仅目标函数、DEV27授权T1–T3小型静态验证与必要交接文档变更；三项一次通过（3 tests，0.005s），未运行旧套件。验收报告：[DEV27](development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md)。状态`BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED`，独立Draft交付未合main。未打开游戏、采集、发布数据或写内存；没有验证真实执行/存盘。下方DEV23未修记录是原调查快照；原生类型UNKNOWN、其它功能/计划不在本次范围。
+仅目标函数、DEV27授权T1–T3小型静态验证与必要交接文档变更；三项一次通过（3 tests，0.005s），未运行旧套件。验收报告：[DEV27](development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md)。状态`BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED`；按玩家最新“直接提交即可”，本地实现提交`867fe85`，未创建Draft PR或合main。未打开游戏、采集、发布数据或写内存；没有验证真实执行/存盘。下方DEV23未修记录是原调查快照；原生类型UNKNOWN、其它功能/计划不在本次范围。
 
 ## 2026-10-20 DEV23 / PR #10：玩家已接受“战术知识基础设施”并批准main合并
 
