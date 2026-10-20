@@ -1,0 +1,88 @@
+# DEV16 — M3/DEV14/DEV12 统一设置能力收尾与GM运营整合（用户7点定稿）
+
+**2026-10-19 · 文档状态：开发任务正式交接 / 尚未执行 · Codex（公共采集/执行/M3接入）+ Antigravity（原生战术手册、倾向、训练字典补齐） · 任何正式游戏写入仍须玩家批准。**
+
+本文件是本轮用户对此前DEV13/14/15开发边界的**最新权威澄清**，优先于旧文档中将“每个同类型字段都需逐项副作用试验、单项属性训练、全部战术手册实测、所有Gameplay都得改”作为任务的要求。**绝不重做已经实现的DEV14 A/B/C/D**。
+
+## 0. 业务定稿（七项）
+
+| 用户确认事项 | 应做 | 明确不做 |
+|---|---|---|
+| 1 教练设置冲突 | 说明并处理“整体防守+个人防守”同批的执行排序、“切换手册+编辑槽位”引用失效，分批/重新预检可解决；同一教练共享位域合并继续使用现有codec | 将篮球体系之间意见不同当成内存错误、让GM不能同时制定个人与整体防守 |
+| 2 战术手册 | Antigravity补充当前Game Play CRC ↔ UI战术名称/所属PlayType/可能发起者/使用位置/战术职责映射、可替换全套战术/槽位、教练ActiveSystem/Playbook匹配；引用现实篮球同类战术的动作与反制做GM知识 | 只看手册68槽CRC就宣称已知道所有战术类型/效果；让Codex重逆向 |
+| 3 球员4个战术类型 | 直接用现有玩家数据的4有序PlayTypes、Initiator、能力、Tendency和球队手册，动态调整 | 仅依据OVR硬匹配；重复开发个人PlayType读取 |
+| 4 球员99项倾向 | 现48个具名字段直接使用；Antigravity补其余51未知位的语义/合法值域，再交统一Registry按同种byte codec入库/启用 | Codex单独重新找99个地址或未解名就写RAW_0x... |
+| 5 球队/个人训练 | 仅开放球队训练强度/自动强度/背靠背休息、球员**位置适用的训练模板/原型、个人强度与恢复相关设置**；GM每批读取球员疲劳/比赛负荷/近期上场数据，决定训练强度和模版；游戏自主成长 | 逐项调整真实投篮/防守属性训练量、直接增加球员Ability/Badge、要求GM管理一百多个单属性训练子项、把导师徽章注入当本项目必需 |
+| 6 世界线 | DEV14统一读写已支持的50项native字段照原来类型规则批处理；同一编码类别由Antigravity**一项有代表性的玩家实测成功**可作为该家族整体实现的工程验收证据，其余参数再按字段字典检验值域和地址布局 | 对同类的每项参数一一反复手工测试；将未登记布局的剩余世界设置假装已接入 |
+| 7 Gameplay平衡 | 当前4项USER/CPU+Current/Custom已经够用，同族后续按相同codec扩展时共用已验证模式 | 为求“全局完整”盲目把未提出调整的Gameplay其它滑块全设一遍 |
+
+**另沿用最新用户定稿**：
+- `Intangibles`（PLAYER byte0x440，25–99）成为30队GM可建议的轮换影响因子，仍经用户具体批准及DEV14执行，原版AI动态换人，不锁分钟。玩家不要求调查它影响交易/合同/Sim等其它功能。
+- 每次正式采集完成后、正式发布前，所有在队与历史球员池数据库Potential（PLAYER byte0x441、JSON和结构化列）统一置1，元数据标人为遮蔽，游戏原生Potential不改。**GM脱敏raw_struct不得用于历史新秀原生注入**；详见[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)。
+
+## 1. 本次复查证实的真实实现状态（PR#5 head 31f2682）
+
+- `src/gm_state_io/registry.py`实际已经注册：19 Coach默认、18 Overall+Personal防守、4 slot PlayTypes/Initiator、PLAYER Tendency从0x458至0x4BA共99字节（48已命名可写/51 UNKNOWN只读）、68槽当前手册CRC、6项Team Training、5项Player Training、4项Gameplay USER/CPU的原生映射、按`world.json`/`settings.json`现存布局注册的50项World。
+- `src/gm_state_io/adapters.py`中的`NativeSession.capture_objects()`及`src/gm_state_io/plan.py`和`executor.py`已提供源RO捕获、字段计划、物理合并/读回，非“空框架”。Antigravity新增字段只需扩充字典及Adapter，不再开发第二套全量采集。
+- `config/state_io_native/training.json`实际`enums.player_types`**仅有9种已定义训练原型（0..8）**：All-Around、Two-Way、Offensive、Defensive、Athletic、Rebounding、Playmaking、Outside、Inside。用户看到的**“各位置约10套模版”**可能是另一个UI位置专属模版分类；现有字段清单尚未证明9个通用原型与每个位置全部UI模板的对应关系，**交Antigravity补准确的PG/SG/SF/PF/C → UI模板编号、原生枚举与训练成长侧重的映射**。不要自行假设每位置恰有10个，更不能把“player_type=8”写成任意位置第8套相同UI页面。
+- 同份training.json具有`player_training.progressive_fatigue_history @0x2F5`与`flags.progressive_fatigue_history_point_count`等**原生读布局**；但当前DEV14注册和`capture_objects()`仅捕获5项`player_training.flags`写入字段，并**未自动提供可理解的球员实时疲劳状态**。Antigravity提供实际解码/单位/游戏页面对应及可信当前数值，Codex加入只读`PLAYER_FATIGUE`（不可写）；来源仅给历史趋势则标HISTORY_ONLY，不伪称实时疲劳量。比赛负荷从同批场均分钟、近期赛程和训练设置综合输入，超出已观测字段标UNKNOWN。
+- `src/gm_state_io/plan.py`目前明确禁止同批`OVERALL_DEFENSE+PERSONAL_DEFENSE`同一team/opponent、同批`coach.PlaybookID + PLAYBOOK_SLOT`；**这是执行排序/身份失效的保护，不是逻辑上两种战术不能兼容**。原生真实同块多个Coach POE和多个Bitfields已经由编码器合并，没有普遍教练参数冲突。
+- `src/gm_state_io/registry.py`对世界字段基于`slot+offset+type`且只注册有效RVA布局，同时对`CPUAttributeBoost`等语义未证字段暂只读。用户的“家族一次成功代表该类型读写可用”只省去每字段手工实战测试，**不意味着跳过字段正确名称/单位/枚举/slot/位宽验证，或让缺地址的世界字段自动可写**。
+- [DEV14工程PR#5](https://github.com/chris2gao/nba2k22-gm-engine/pull/5)未正式完成生产采集/实际整套游戏落地；[M3 PR#4](https://github.com/chris2gao/nba2k22-gm-engine/pull/4)尚未合并。必须尊重用户的合并审批，不因文本“开工”就合并PR/写游戏。
+
+## 2. 什么叫“同类设置一次实测通过即验收该类”
+
+把验证压缩为**家族级结构验证 + 自动类型校验**：
+1. 每个原生布局家族保持唯一Codec/Resolver，如World`SLOT_TRADE:uint32`、`SLOT_TRADE:float32`、Coach共享位域、Player Tendency uint8、USER/CPU双镜像Gameplay、PlayerTraining flags与Playbook CRC slot。用户已经和Antigravity实测成功的样本归入家族证据。
+2. 对全家族其它字段**不要求重复在游戏里逐项改一个再核查**。通过静态native field定义确认正确slot/offset/type/byte-group/值域/枚举，套同一`decode / encode_patch`，只跑最少的合成边界测试并由正常正式采集覆盖。
+3. **不同编码家族不能彼此替代**：写一个World uint32通过不证明另一个新位置的浮点/位域也一样；单字节倾向通过不证明跨指针的Playbook全套替换（用户已实测后者曾失败，属于必须按新版本适配的不同操作）。
+4. 已有合法字段、程序CAS、变更计划批准、来源身份仍须保留，不允许“因为同类型测过”就把内存定位/原值验证/越界容忍省去。额外效果量化、对非目标系统副作用研究**不是这轮验收门禁**。
+5. 语义没命名的51 Tendencies须Antigravity补真实UI词条或字段字典，不得只因为其物理布局一致就让GM有权猜测其用途并修改。
+
+## 3. 具体开发边界与责任
+
+### Antigravity — 本地游戏知识/字典补齐（**主要负责A类可读能力**）
+
+- **AG-1 Playbook**：整理实际当前68槽和可用战术目录，解决之前曾出现的替换失败，在本地当前游戏版本上采用已修复的安全替换实现；输出Play CRC/真实战术ID/UI名称/PlayType匹配/适合发起位置/动作说明、可用名单/本目录支持情况、共享手册Owner范围。将主教练熟练体系、ActiveSystem、Playbook适配关系作为标签提供，而不是自动视体系最高Proficiency=必须切换。现实战术知识可用合理篮球动作对应（split action、PnR、handoff、Spain PnR、flare、stagger、pin-down等），实际没有证据证明对应到当前游戏某CRC时标`BASKETBALL_ANALOGY`而非`ENGINE_VERIFIED`。
+- **AG-2 Tendencies**：补51字节对应的真正原生行为字段、方向、上下限和玩家UI实际名称；只对能对上名称且位置正确的字段从UNKNOWN→NAMED_FIELD。未识别仍read-only，不能构造“RAW_0x...”意义。
+- **AG-3 Training**：提供真正当前游戏各位置训练模板清单/枚举索引及每模板影响的**成长方向说明**（不做单属性微调或直接变更）；与现有0..8通用`player_type`联系或标为另一个列表；给出`progressive_fatigue_history`/当前疲劳的实际解码与取值方向、最近比赛体力/伤病风险可读信号。只把`fatigue`作为GM只读信息，人物原始Ability和Badge不开放。教练强度已有6+5写接口，重新使用。
+- **AG-4 应交付**：以已存在的`config/state_io_native/...` profile模式提交`playbook_catalog.json`、`tendency_dictionary_extended.json`、`training_template_catalog.json`、`fatigue_read_profile.json`（文件名可调），每条字段明确`exact_original_id/name/range/location/read_codec/write_capability/evidence`；已证原生家族仅提供一例可读/可恢复/可验证证据，不按99项重复手测。先保留Antigravity独立本地工作区，交Codex整理线上，不能绕过用户权限擅自在主项目重写。
+
+### Codex — DEV14/DEV13通用确定性集成（**主要负责B类协议和GM使用**）
+
+- **CD-1**：已有DEV14-H三库一致性和真人批准来源问题仍按现有任务小修，不因此扩大成大重构。
+- **CD-2**：用现有`Registry`注册并读取AG给出的字段：Playbook catalog、补名倾向、分位置球员训练模板、只读Fatigue。只读字段标read-only，正确识别动态值域并使用统一命令`gm_state_io stage/preflight/apply`；不写第二套原生批处理程序。
+- **CD-3**：战术手册“修改新手册内部槽位”由AG修复的原生替换/定位能力接入统一`PLAYBOOK_SLOT` codec，仍保持`PlaybookID`切换→重新采集/预检槽位→替换的可靠顺序。不得因GM提交一张组合战术方案就把切换与修改误归为业务冲突。
+- **CD-4**：防守OVERALL和PERSONAL按已知安全步骤**明确地创建两个获批有序批次**，相同team/opponent先Overall提交/回读再取得新事实（或允许同一个原始审批方案授权全部动作但生成两个有序独立子计划，均可审计）；如未来AG证实同批安全再解禁。不能把已批准的个人对位在总体动作后悄悄覆盖。
+- **CD-5**：训练业务只给GM`team_training_intensity/rest`、`player_training.position/player_type/intensity/recovery`及真实`fatigue_observed`，加上近期比赛使用量；**不引入单项属性训练输入**。同批可包含多队不同强度与多球员模板/强度，自动分离关联的原生storage block。
+- **CD-6**：DEV13的M3D1-D6决策必须由教练/体系→真实Playbook/个人4Types/Tendency→球员原始技术能力→当前疲劳与训练强度→实际先发/轮换→交易需要这一链条驱动。个人角色、手册可执行性、现实动作模拟知识都必须有来源等级；仍允许HOLD。
+- **CD-7**：世界线当前已登记50项/Gameplay4项按家族批量修改继续使用已完成DEV14，不为未需求的其它Gameplay设置开新项目；尚未登记的其它世界字段如需要后续可在AG统一Profile确认布局后追加，别声称“50=全部100+”。
+- **CD-8**：继续按[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)落实Potential=1自动入库后处理与Intangibles 25–99轮换。潜力脱敏GM库不可用于原生历史新秀注入，游戏本身潜力不得改。
+
+## 4. 如何处理那两种“教练冲突”：明确示例
+
+**冲突1（目前工程阻断）**：
+- 假设某owner团队对某opponent设置`overall.ScreenDefenseOnBall=3(SWITCH)`，同批还对特定对手球员设置`personal.ScreenDefenseOnBall=1(GO_OVER)`。**这是篮球上合法的“整体换防、针对该球员特殊绕掩护”**，程序目前阻断`BLOCKED_UNVERIFIED_OVERALL_PERSONAL_ORDER_SPLIT_APPROVED_BATCHES`。保留一份GM篮球方案，但Codex应安排**先整体，再逐人例外**的安全有序执行计划，且每批都预检/回读/身份绑定。禁止把这说成全局配置不兼容。
+**冲突2（目前工程阻断）**：
+- 假设GM希望从Playbook A切到B，同时把B的第8槽替换成另一个与球员PlayTypes一致的Play CRC。代码阻断`PLAYBOOK_SWITCH_AND_SLOT_EDIT_REQUIRE_SEPARATE_ORDERED_APPROVED_BATCHES`。真实安全步骤是**先切B并回读→更新目录和当前B第8槽原值→再按用户批准范围执行槽位替换**。以前AG已有手册替换失败并修复的玩家报告，沿用其实际确认的实现，不能用旧CRC照抄。
+**非冲突**：Coach POE多个共享位域字段在`coach_codec.encode_changes`里按mask合并，DEV14适配器能一次执行；本人PlayTypes/已具名Tendencies互不重叠同原生byte group的可按计划执行。只有同一个字段两条不同值才是业务真正互斥，需要拒绝或让GM明确选择。
+
+## 5. 任务顺序（匹配Codex额度有限）
+
+1. **最先Codex小任务**：DEV14-H + DEV15 V2 Potential入库后统一=1（严格保证GM历史选秀raw_struct不能注入游戏）。若一次无法全部完成，只提交完成子阶段，不重做DEV14。
+2. **并行Antigravity**：AG-1替换战术手册与CRC+PlayType知识、AG-2补51个倾向字段、AG-3训练位置模板与Fatigue read-only资料。**这不消耗Codex开发额度**，按用户已有本地研发流程。
+3. **随后Codex中任务**：DEV14注册新Tendency/Playbook/Training read+write adapters，并完成Intangibles字段动作/反馈。家庭训练无单项属性微操。
+4. **随后M3-T**：M3按同一batch批次使用这些事实，形成可依据对手应对的HOLD/INTERNAL/MARKET，用户批准后利用DEV14执行；世界线/Gameplay已有统一读写不另做。
+5. 不应把每个World字段、99个Tendency字段、每套模板都跑实机A/B作为工程完成门槛；只检查不同原生存储/编解码类型的代表样本与结构完整性。真实GM战术决策可由后续常规比赛反馈渐进校准。
+
+## 6. 简洁验收清单
+
+- 只运行定向合成/旧M02静态校验；已有PR#5 119项全部复跑不必要。没有新字段来源时标`UNKNOWN`，不能做假的完成报告。
+- 一个coach批次多个不同POE位域可正确合并；一条整体+个人的组合GM方案能拆成安全顺序批次；一本书切换后新的槽位必须重读新事实，不得用旧书slot提交。
+- 轮换可以通过Intangibles获批操作，原版ACE仍负责临场，失败可恢复；GM没有真实Ability、Potential、徽章的普通直接写权限。
+- 训练能覆盖球队强度、B2B休息、玩家所需按位置的训练模板和球员强度，疲劳只读；**不新增逐属性训练或徽章直接修改**。
+- 99 Tendency原始位可读，具名部分可写，新补充的51需实际名称/编码后才放开；real-world Play知识来源/CRC映射标可信级别。
+- World同存储家族一条代表样本成立后，所有有认证slot/offset/type的字段走统一读写与自动范围/前值校验，不要求额外逐项手测；Gameplay当前只4项。
+- 实机运行不由本任务自动执行；所有真实批次由玩家单独批准、明确存档、正确hash、实时读回。PR#4/#5不自动合并，GM V4不自动上线。
+
+**成功判据**：30队GM能够在确定性DEV14底座之上，针对真实NBA2K22教练、Playbook、球员使用与倾向、疲劳-训练-比赛负荷进行有证据决策，批次动作可以安全执行；不强迫用户或Codex把已证同类字段重复研究。
