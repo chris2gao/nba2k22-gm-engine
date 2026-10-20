@@ -1,6 +1,8 @@
 # DEV14 — 确定性状态读写引擎（Deterministic State I/O Engine）V1.1
 
-> **上线前加固（2026-10-19）**：[DEV14-H](DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)须在正式自动执行之前处理第三库`player_pool.sqlite`代次绑定和独立真人审批来源，现PR#5工程完成不等于生产完成。[分批执行顺序](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。新注册`Intangibles`/OVR compensation须按[DEV15](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)的特殊单字段权限和Antigravity实际原生验证，不属于普通Ability写权限；GM查询输出隐藏真实Potential，但本地原始源保留。
+> **2026-10-19 用户最终决定：DEV15 V2覆盖潜力与综评补偿旧例外限制**：[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)要求`full_verified_v1`采集完毕后且正式commit/SQLite备份/manifest哈希/发布前**自动执行潜力置1后处理**，包括pool/roster数值、JSON、PLAYER raw_struct byte 0x441，并将这类人为遮蔽明确标`NOT_OBSERVED`；同时允许通过特定allowlist为30队GM开放PLAYER 0x440`Intangibles`综评补偿25–99的获批轮换动作，不要求额外研究交易/合同/模拟副作用，仍不准泛化修改其它原始Ability字段。DEV14原A/B/C/D架构无需重构，新开发仅增量添加这两部分。
+
+> **上线前加固（2026-10-19）**：[DEV14-H](DEV_20261019_14H_DEV14_POST_REVIEW_HARDENING_V1.md)须在正式自动执行之前处理第三库`player_pool.sqlite`代次绑定和独立真人审批来源，现PR#5工程完成不等于生产完成。[分批执行顺序](M_SERIES_20261019_QUOTA_AWARE_EXECUTION_PLAN_V1.md)。新注册`Intangibles`/OVR compensation须按[DEV15 V2](DEV_20261019_15_GM_SCOUTING_FOG_AND_OVR_ROTATION_CONTROL_V1.md)的已确认PLAYER 0x440特殊单字段权限，不属于普通Ability写权限；GM查询输出隐藏真实Potential，但本地原始源保留。
 
 **日期：2026-10-19；执行模型：Codex；原生字段/游戏内存适配来源：Antigravity；需求与审阅：Web Development；游戏修改批准人：玩家。**
 **状态：APPROVED_TO_DEVELOP_BY_PLAYER_REQUEST / GAME_WRITE_NOT_AUTHORIZED / CAPTURE_NOT_TRIGGERED。** 本文件是交付Codex的正式工程任务，不表示任何正式存档已经修改。
