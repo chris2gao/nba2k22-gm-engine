@@ -6,6 +6,7 @@ from typing import TypedDict, get_origin
 from urllib.parse import urlsplit
 
 from .workbench_common import reject_authority, same_source, text_required
+from .bpti_package import PackageBQueries
 
 VERSION = "BPTI_KNOWLEDGE_V1"
 HISTORICAL_CUTOFF = date(2021, 10, 19)
@@ -166,10 +167,10 @@ def publication_upper_bound(value):
     return None
 
 
-class ResearchIndex:
+class ResearchIndex(PackageBQueries):
     """M2 claim/source index. GM is the default, research an explicit mode."""
 
-    def __init__(self, payload, system_cards=None):
+    def __init__(self, payload, system_cards=None, package=None):
         self.payload = deepcopy(payload)
         _no_native_payload(self.payload)
         if payload.get("schema_version") != VERSION:
@@ -190,13 +191,14 @@ class ResearchIndex:
                 raise ValueError("BPTI_SOURCE_VERIFICATION_REFERENCE_REQUIRED")
         for claim in self.claims.values():
             self.validate_claim(claim)
+        self._install_package(package)
         self.system_cards = self._unique(system_cards or [], "system_id")
         if system_cards is not None and set(self.system_cards) != set(SYSTEM_IDS):
             raise ValueError("BPTI_SYSTEM_CARD_COVERAGE_REQUIRED")
         for card in self.system_cards.values():
             validate_bpti_knowledge(card, self, audience="RESEARCH")
-            if card["object_type"] != "SystemCard" or card["native_binding_refs"]:
-                raise ValueError("BPTI_B1_CARDS_ONLY_NO_NATIVE_BINDINGS")
+            if card["object_type"] != "SystemCard" or set(card["native_binding_refs"]) - self.native_bindings.keys():
+                raise ValueError("BPTI_UNREGISTERED_NATIVE_BINDING")
 
     @staticmethod
     def _unique(rows, key):
@@ -306,6 +308,12 @@ class ResearchIndex:
         result = dict(system_id=system_id, audience=audience,
                       availability="NOT_READY" if blocked else "RESEARCH_ONLY" if audience == "RESEARCH" else "GM_ELIGIBLE_REFERENCE",
                       native_support="UNKNOWN_NOT_MAPPED_B1", card=None, evidence=[], blocked_claims=blocked)
+        if self.package:
+            result["native_support"] = "REFERENCE_BINDINGS_NOT_NATIVE_EFFECT_PROOF"
+            result["native_binding_refs"] = [bid for bid, b in self.native_bindings.items() if b["system_id"] == system_id]
+            result["mechanism_entries"] = self._mechanism_entries(system_id, as_of=as_of, audience=audience)
+            if blocked and result["mechanism_entries"]:
+                result["availability"] = "GM_ELIGIBLE_MECHANISM_ONLY"
         if blocked:
             return result
         # Validate the whole DTO before returning any narrative/list field.
@@ -327,9 +335,12 @@ class ResearchIndex:
     def system_coverage(self, *, as_of):
         _date(as_of)
         eligible = [sid for sid in self.system_cards
-                    if self.system(sid, as_of=as_of)["card"] is not None]
+                    if self.system(sid, as_of=as_of)["card"] is not None
+                    or self.system(sid, as_of=as_of).get("mechanism_entries")]
         return dict(created_count=len(self.system_cards), research_query_count=len(self.system_cards),
                     gm_eligible_count=len(eligible), gm_eligible_ids=eligible,
+                    full_card_count=sum(self.system(sid, as_of=as_of)["card"] is not None for sid in self.system_cards),
+                    coverage_scope="FULL_CARD_OR_NARROW_MECHANISM_ENTRY",
                     research_only_ids=[sid for sid in self.system_cards if sid not in eligible],
                     as_of=as_of, historical_cutoff=HISTORICAL_CUTOFF.isoformat(),
                     meaning="REFERENCE_ELIGIBILITY_NOT_TEAM_ASSESSMENT_OR_NATIVE_SUPPORT")
@@ -351,6 +362,10 @@ class ResearchIndex:
             projected = self.system(sid, as_of=as_of, audience=audience)
             card = projected["card"]
             if card is None:
+                if projected.get("mechanism_entries") and not role and not counter:
+                    rows.append(dict(system_id=sid, availability=projected["availability"],
+                                     evidence_claim_ids=[v["claim"]["claim_id"] for v in projected["mechanism_entries"]],
+                                     native_support=projected["native_support"]))
                 continue
             if role and not any(role.casefold() in text.casefold() for text in card["role_requirements"]):
                 continue

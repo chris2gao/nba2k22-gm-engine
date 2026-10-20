@@ -1,5 +1,8 @@
 # 迭代开发基线提示词
 
+2026-10-20 工作包B增量：DEV27已按玩家新授权以80459b4快进合入远端及本地main。B2/B3已在独立codex/bpti-package-b交付知识映射/30队历史seed和四条早期机制；接口与限制见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)、[四项验收](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)及34。仅四项授权检查首次通过；包B待Draft PR审阅，不自动合并或启动B4–B6。V4未启用，真实30队UNASSESSED；下面旧“未合main/未做B2”描述保留原阶段历史。
+
+
 2026-10-20 DEV27局部修复：team_book()仅兼容独立末尾Playbook标签，保留原精确匹配、缺失/歧义报错及原生identity，不改游戏数据或其它功能。授权T1–T3静态检查一次通过（3 tests，0.005s）；按玩家最新“直接提交即可”本地提交867fe85，未创建Draft PR或合main，状态BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED。验收见development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md及34。下方DEV23“未修”保留历史调查含义。
 
 2026-10-20接收决定：玩家接受DEV23研究，并明确同意[PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)作为“战术知识基础设施”并入main，工程提交88a16ec。实际合并提交/状态以该PR与本地Git为准；下方原Draft/独立分支是交付历史。此次接收不认证未知类型/比赛效果、不修既有缺口、不授权后续B2–B6、测试、采集或游戏写入。

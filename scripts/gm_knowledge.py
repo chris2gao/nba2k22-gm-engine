@@ -16,7 +16,8 @@ def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('action', choices=('search', 'show', 'franchise', 'rules',
                                     'bpti-claim', 'bpti-source', 'bpti-contract', 'bpti-validate',
-                                    'bpti-system', 'bpti-systems',
+                                    'bpti-system', 'bpti-systems', 'bpti-binding', 'bpti-bindings',
+                                    'bpti-identity', 'bpti-identities', 'bpti-context',
                                     'play-search', 'play-show', 'play-book', 'play-coverage'))
     p.add_argument('--play-id', help='Native CRC (0x...) or 2K22_PLAY_<crc>; a reference identifier')
     p.add_argument('--play-name', help='Exact static name; ambiguous names require an explicit ID')
@@ -27,6 +28,8 @@ def parser():
     p.add_argument('--book-id', type=int, help='Archived loaded book enum, not active-save targeting')
     p.add_argument('--offset', type=int, default=0, help='Bounded reference pagination offset')
     p.add_argument('--system-id')
+    p.add_argument('--binding-id')
+    p.add_argument('--mapping-status', choices=('SUPPORTED_FIELD_DIRECTION', 'TYPE_MATCHED_ONLY', 'UNKNOWN_NATIVE_BEHAVIOR', 'UNSUPPORTED_ACTION'))
     p.add_argument('--role', help='BPTI basketball role token or text; not a game enum')
     p.add_argument('--counter', help='BPTI counter condition token or text')
     p.add_argument('--claim-id')
@@ -76,6 +79,24 @@ def run(a):
                         contracts={name:list(dto.__annotations__) for name,dto in CONTRACTS.items()},
                         authority='REFERENCE_ONLY_NO_GAME_APPROVAL')
         index = k.bpti()
+        if a.action == 'bpti-binding':
+            if not a.binding_id:
+                raise ValueError('BINDING_ID_REQUIRED')
+            return index.binding(a.binding_id, as_of=a.as_of, audience=a.audience)
+        if a.action == 'bpti-bindings':
+            return index.search_bindings(system_id=a.system_id, field=a.field, mapping_status=a.mapping_status,
+                                         limit=a.limit, offset=a.offset, as_of=a.as_of, audience=a.audience)
+        if a.action == 'bpti-identity':
+            if not a.team:
+                raise ValueError('TEAM_REQUIRED')
+            return index.team_identity(a.team, as_of=a.as_of, audience=a.audience)
+        if a.action == 'bpti-identities':
+            return index.search_identities(team=a.team, system_id=a.system_id, limit=a.limit, offset=a.offset,
+                                           as_of=a.as_of, audience=a.audience)
+        if a.action == 'bpti-context':
+            if not a.system_id:
+                raise ValueError('SYSTEM_ID_REQUIRED')
+            return index.context(a.system_id, team=a.team, limit=a.limit, offset=a.offset, as_of=a.as_of, audience=a.audience)
         if a.action == 'bpti-system':
             if not a.system_id:
                 raise ValueError('SYSTEM_ID_REQUIRED')

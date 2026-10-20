@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## BPTI package B knowledge delivery (2026-10-20)
+
+- Player explicitly authorized DEV27 integration and continuation. Reviewed commits 867fe85/80459b4 were fast-forwarded into remote and local main at 80459b4; the old direct-commit/unmerged notes below are historical. Package B uses independent codex/bpti-package-b and a Draft PR; do not auto-merge it or start package C.
+- B2/B3 reuse Knowledge.bpti and B0 DTOs: 140 reference bindings, 30 historical identities with five claim layers, and four narrow pre-cutoff mechanism entries. See docs/BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md and docs/development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md. Current exact CRC type matching remains UNKNOWN/zero; names never certify types or beneficiaries. Existing M3/DEV14 authority and same-batch GM_SANITIZED requirements do not change.
+- Only B-B1..B-B4 ran, once (4 tests, 0.869s, PASS). GM readable family coverage at 2021-10-19 is 10/10 entries: six full reference cards plus four narrow mechanism claims; original four full research cards stay blocked. All 30 identities are HISTORICAL_SEED_ONLY / NOT_BOUND_TO_ANY_SAVE; actual teams UNASSESSED, V3 active, V4 not enabled. No extra tests, native/game access, production capture or game publication followed.
+
+
 ## Scoped team_book suffix fix (2026-10-20)
 
 - DEV27 authorizes only the same-name Playbook suffix fix and T1–T3 static checks. `team_book()` additionally compares the exact normalized label after removing an independent terminal `Playbook` word; no fuzzy/prefix matching or identity rewriting. Missing/ambiguous matches retain the same error; native book identity/owner/CAS/approval logic is unchanged. T1–T3 passed once (3 tests, 0.005s); no game access/capture/writes or old suite reruns. See `docs/development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md`. Player's latest instruction is direct commit only: implementation `867fe85`, no Draft PR created or main merge; status `BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED`. Historical DEV23 "unfixed" entries describe its earlier investigation. No B2 or further feature follows.

@@ -1,5 +1,14 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 工作包B：B2/B3/四类历史机制已完成，独立Draft交付
+
+DEV27的867fe85与80459b4已按玩家新指令合入远端和本地main（快进到80459b4），本包从该主线建立codex/bpti-package-b。140条分级NativeBinding、30张五层历史TeamIdentity及四条NBA官方早期机制已通过现有Knowledge.bpti / gm_knowledge只读查询接入。用法见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)，证据见[验收报告](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)。
+
+实际仅执行B-B1～B-B4，首次4/4 PASS（0.869s）。截至2021-10-19，普通GM可读10/10家族入口，其中6张完整参考卡、4条狭窄机制；原四张复合研究卡仍阻断，不解锁未来材料。CRC类型匹配为零，原生动作受益人、ACE和精确效果继续UNKNOWN。30个历史seed均未绑定存档，不改变真实30队UNASSESSED。
+
+没有新增游戏来源、source_catalog项或执行能力；OVERALL只读、本队书/新同批CRC/GM_SANITIZED/DEV14审批不变，Potential遮蔽不变。B4/B5/B6与DEV24未开始，V3有效/V4未启用。包B只发布源码Draft PR，不自动合并，不采集/上传游戏事实或写游戏。状态BPTI_PACKAGE_B_COMPLETE_TASK_CLOSED；以下DEV27/DEV23旧状态是历史交付记录。
+
+
 ## 2026-10-20 team_book名称后缀局部修复（独立分支，未合main）
 
 玩家明确只修名称后缀。在`codex/fix-team-book-suffix`中，`src/gm_state_io/team_book.py:team_book()`保留原精确名称匹配，并将移除独立末尾Playbook标签后的名称同既有name/abbreviation/city+name精确别名比较，因此Bulls可对应Bulls Playbook（Heat/Warriors同理）。不改全局normalized()、不做包含/前缀/模糊查找，不改返回的index/enum_id/unique_id/name；多个匹配仍报TEAM_NAMED_BOOK_MISSING_OR_AMBIGUOUS，不挑第一个。本队归属、身份摘要、CAS及批准路径均保持原实现。
