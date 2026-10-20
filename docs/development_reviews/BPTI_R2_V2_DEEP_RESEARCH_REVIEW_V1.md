@@ -44,6 +44,8 @@
 
 **P2 文化置信度不是球队赢球能力**：不允许由“文化VERY HIGH”直接计算胜率/交易价值或给某球队历史特权。高度不确定的组织身份应该是真实表达，可随游戏运营形成新的组织传统。
 
+> **追记：** 为避免修改R2原始607/421行研究文献，已单独发布[来源补录V1](../development_research/BPTI_R2_SOURCE_REPAIR_ADDENDUM_V1.md)：ATL的两个历史参考来源得到了至少部分可比的2021官方资料；LAC/LAL防守/MIA/MIL/SAC相应来源获得可对照URL，**LAL-S2“随机切入”确切出处仍缺**。补录为`MATCH/EQUIVALENT/PARTIAL/MISSING`，不等于所有受影响Claim均已完全认证。此条覆盖上述第4节发布时的未修状态，原审核发现保留供追溯。
+
 ## 5. 决议及下一阶段
 
 R2研究内容**通过作为候选资产**，可以进入R4知识合同与BPTI方案设计；但受影响的历史Claim必须保留`MISSING_SOURCE_URL`、`RETROSPECTIVE_ONLY`、`INFERENCE_ONLY`等状态，不能在Codex生成30队初始身份时把这些记录升格为已认证事实。
