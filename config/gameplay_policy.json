@@ -29,6 +29,22 @@
   },
   "natural_development": "GAME_CONTROLLED",
   "default_player_edits": "FORBIDDEN",
+  "controlled_rotation_bias": {
+    "field_key": "rotation.intangibles",
+    "target_kind": "PLAYER_ROTATION_OVR_BIAS",
+    "native_byte": "0x440",
+    "display_range": [25, 99],
+    "scope": "ALL_30_TEAMS_PROPOSALS_ONLY_UNTIL_SPECIFIC_PLAYER_APPROVAL",
+    "other_ability_potential_badge_writes": "NOT_AUTHORIZED",
+    "exact_minute_locking": "NOT_A_DEVELOPMENT_TARGET"
+  },
+  "gm_player_potential_visibility": {
+    "version": "potential_v1",
+    "persisted_placeholder": 1,
+    "evidence": "NOT_GAME_OBSERVED",
+    "original_game_memory": "UNCHANGED",
+    "old_unsanitized_batches": "EXCLUDED_FROM_GM_NOT_REWRITTEN"
+  },
   "trade_execution": "SPECIFIC_PLAYER_APPROVAL_REQUIRED_NO_ABILITY_BOOSTS",
   "draft_pick_trades": {
     "status": "PLAYER_CONFIRMED",

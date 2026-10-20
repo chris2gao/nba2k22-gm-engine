@@ -1,5 +1,8 @@
 # DEV13 — M3A/M3B × Antigravity DEV12：GM战术决策整合方案 V1
 
+窗口①底层交接见[DEV14_TO_M3_HANDOFF](../development_reviews/DEV14_TO_M3_HANDOFF.md)：DEV14-H/DEV15、rotation域、GM净化访问检查、TEAM_BOOK_REBIND稀疏合同与MANUAL_OPERATOR_TRUST_ONLY。窗口②接准确提交后再做M3策略和回归，不复制数据库/Codec/审批，不把此说明当作已合并。
+
+DEV14工程消费合同：见[实际运行手册](../DEV14_STATE_IO_RUNBOOK.md)与[验收](../development_reviews/DEV14_ACCEPTANCE.md)。M3-T读取M0新域的object_key/field_key、registry_version及save_instance_id/generation_id，向gm_state_io stage提交最小稀疏changes，再由玩家批准完整摘要。不得生成裸地址、复制前像或自建执行事务。能力缺失/新档未全量采集则明确未观察；本次仅补依赖说明，没有实施DEV13或启用GM V4。
 > **2026-10-19 最终窗口分工和Book默认规则（最高优先级）**：[DEV18双Codex窗口交接](DEV_20261019_18_TWO_CODEX_WINDOWS_HANDOFF_AND_BOOK_DEFAULT_V1.md)：PR#5独立窗口①负责全部DEV14安全IO、自动Potential=1、Intangibles原生字段和受控BookID动作；**本DEV13只交PR#4的M系列Codex窗口②**负责GM分析、战术训练方案、换帅同名书归位。不同窗口必须靠PR#5最终commit+`DEV14_TO_M3_HANDOFF.md`交接，不能把两个模型当同一执行者。用户确定新档30队各自持本队同名Book，换帅归位即可，**不要另建共享书克隆/全联盟逐书验证项目**；保留通常的Native ID/CAS/读回。51未知Tendency、完整战术CRC、训练模板和疲劳知识均是后续Antigravity扩展。正文与此冲突的早期任务描述作废。
 
 > **2026-10-19 赛季换帅与Codex主线优先**：[DEV17](DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)规定：每队每游戏赛季只允许**休赛期换帅一次**。A队换B教练后，将当前教练的PlaybookID从可能的B书**恢复为A队同名且独占原生Book**，再根据B教练理念和A队球员改变A书内部战术，不触碰B书；本轮不开发合同到期/签约/自由市场机制，只做业务政策和确认换帅事件后的Book恢复动作。**Codex先集成已有DEV14与M3字段进行最低闭环**，AG余下CRC语义/倾向/模板/疲劳属于后置扩展，唯独原生Book安全绑定阻塞可提前给AG小任务。

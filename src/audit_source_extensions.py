@@ -42,16 +42,20 @@ def audit_extensions(conn, mem, calibration, teams, snapshot_id, simple_draft_as
             raise RuntimeError(f'Staff source differs: {row["staff_slot"]}')
     checks['extended_staff_identity_and_team_links_match_live'] = True
     players = conn.execute('SELECT * FROM player_source_details WHERE snapshot_id=? ORDER BY team_id,roster_slot', (snapshot_id,)).fetchall()
+    from player_potential_mask import masked, mask_raw, mask_details
+    potential_masked = masked(conn,snapshot_id)
     for row in players:
         addr = mem.require_uint64(teams[row['team_id']]['address'] + row['roster_slot'] * 8)
         raw = mem.read_bytes(addr, 0x4f0)
-        if raw is None or raw != row['raw_struct']:
+        if raw is None or (mask_raw(raw) if potential_masked else raw) != row['raw_struct']:
             raise RuntimeError(f'Player source changed: {row["player_name"]}')
         detail = player_details(raw, team_map, game_date)
         index = struct.unpack_from('<H', raw, 0xfc)[0]
         values, _ = stats_record(mem, directory, 'player_stats', index, season_year)
         detail.update(season_totals=values, stats_index=None if index == 65535 else index,
                       stats_source='OBSERVED_CURRENT_SEASON' if values is not None else 'NOT_OBSERVED_NO_STATS_INDEX')
+        if potential_masked:
+            detail = mask_details(detail)
         if json.loads(row['details_json']) != detail:
             raise RuntimeError(f'Player decoded fields differ: {row["player_name"]}')
         monthly = conn.execute('SELECT * FROM player_monthly_stats WHERE snapshot_id=? AND team_id=? AND player_name=? AND face_id=?',
@@ -59,6 +63,10 @@ def audit_extensions(conn, mem, calibration, teams, snapshot_id, simple_draft_as
         if monthly is None or any(monthly[k] != v for k, v in player_statistics(values).items()):
             raise RuntimeError(f'Player statistical calculations differ: {row["player_name"]}')
     checks['extended_player_birth_attributes_contracts_statistics_match_live'] = bool(players)
+    if potential_masked:
+        checks['player_potential_is_masked_world_rule_not_game_observation'] = all(
+            json.loads(row['details_json']) == mask_details(json.loads(row['details_json'])) and row['raw_struct'][0x441] == 1
+            for row in players)
     assets = conn.execute('SELECT * FROM draft_asset_observations WHERE snapshot_id=? ORDER BY asset_slot', (snapshot_id,)).fetchall()
     checks['draft_asset_slots_match_descriptor'] = len(assets) == directory['draft_assets']['count']
     if simple_draft_assets:

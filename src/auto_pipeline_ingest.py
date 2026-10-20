@@ -94,10 +94,32 @@ def migrate_database_schema(conn: sqlite3.Connection):
     quarantine_unverified_coaches(conn)
     ensure_extension_schema(conn)
     ensure_coaching_schema(conn)
+    from gm_state_io.capture_bridge import ensure_schema as ensure_state_io_schema
+    ensure_state_io_schema(conn)
     conn.commit()
 
 
 def run_automated_ingestion(
+    season_year=2022, month_idx=1, month_name="NOV", save_id=None,
+    db_path=None, snapshots_dir=None, player_pool_db_path=None, notes="",
+):
+    """Guard direct callers as well as the monthly-cycle CLI before any handle."""
+    from gm_state_io.lifecycle import operation
+    from gm_state_io.capture_files import require_complete
+    from gm_state_io.workspace import Workspaces
+    context = resolve_context(save_id)
+    with operation(context['save_id'], 'capture'):
+        if Workspaces().path(context['save_id']).exists():
+            for override, key in ((db_path, 'db_path'), (player_pool_db_path, 'player_pool_db_path'),
+                                  (snapshots_dir, 'snapshots_dir')):
+                if override and os.path.normcase(os.path.abspath(override)) != os.path.normcase(os.path.abspath(context[key])):
+                    raise ValueError('MANAGED_CAPTURE_PATH_OVERRIDE_FORBIDDEN')
+        require_complete(context)
+        return _run_automated_ingestion(season_year, month_idx, month_name, save_id,
+                                       db_path, snapshots_dir, player_pool_db_path, notes)
+
+
+def _run_automated_ingestion(
     season_year: int = 2022,
     month_idx: int = 1,
     month_name: str = "NOV",
@@ -112,6 +134,12 @@ def run_automated_ingestion(
     db_path = os.path.abspath(db_path or context["db_path"])
     snapshots_dir = os.path.abspath(snapshots_dir or context["snapshots_dir"])
     player_pool_db_path = os.path.abspath(player_pool_db_path or context["player_pool_db_path"])
+    from gm_state_io.capture_files import prepare_league, install, source_stamp, put_metadata
+    from gm_state_io.workspace import Workspaces
+    from pathlib import Path
+    workspace = Workspaces().active(context['save_id']) if Workspaces().path(context['save_id']).exists() else None
+    capture_paths = dict(context, db_path=db_path, player_pool_db_path=player_pool_db_path)
+    league_stage_path = prepare_league(capture_paths)
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     os.makedirs(snapshots_dir, exist_ok=True)
 
@@ -172,7 +200,7 @@ def run_automated_ingestion(
     # -------------------------------------------------------------------------
     # 步骤 2: 连接数据库并准备表写入
     # -------------------------------------------------------------------------
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(league_stage_path)
     conn.execute("PRAGMA foreign_keys = ON")
     migrate_database_schema(conn)
     conn.execute("BEGIN IMMEDIATE")
@@ -502,6 +530,8 @@ def run_automated_ingestion(
             policy_id='PLAYER_RULES_20261017_V3'),expected_root=pool_root,expected_teams=teams_dict,
             allow_unknown_date=game_context.get('game_date') is None)
         store_coaching_source(conn,snapshot_id,context['save_id'],coaching)
+        from gm_state_io.capture_bridge import capture as capture_state_io, store as store_state_io
+        state_io_summary = store_state_io(conn, capture_state_io(mem, coaching))
     except Exception as exc:
         conn.rollback()
         conn.close()
@@ -549,15 +579,22 @@ def run_automated_ingestion(
     cursor.execute('UPDATE coaching_source_captures SET data_updated_at=? WHERE snapshot_id=?',
                    (data_updated_at,snapshot_id))
     stamp_database(conn, snapshot_id, context["save_id"], data_updated_at)
+    capture_stamp = source_stamp(workspace, snapshot_id, data_updated_at) if workspace else None
+    if capture_stamp:
+        put_metadata(conn, capture_stamp)
     staged_pool = sqlite3.connect(player_pool_stage_path)
     try:
         stamp_database(staged_pool, snapshot_id, context["save_id"], data_updated_at)
+        if capture_stamp:
+            put_metadata(staged_pool, capture_stamp)
+        from player_potential_mask import sanitize_player_potential
+        potential_mask = sanitize_player_potential(conn, staged_pool, snapshot_id)
         staged_pool.commit()
     finally:
         staged_pool.close()
     conn.commit()
     conn.close()
-    os.replace(player_pool_stage_path, player_pool_db_path)
+    install(capture_paths, league_stage_path, player_pool_stage_path, capture_stamp)
     mem.close()
     player_pool_digest = file_sha256(player_pool_db_path)
 
@@ -637,6 +674,8 @@ def run_automated_ingestion(
             "coaching_tactics": {"profile":1,"status":"OBSERVED_SAME_INGESTION_RO_SESSION","teams":30,
                 "default_fields_per_team":19,"coaching_snapshot_id":coaching['snapshot_id'],
                 "observed_at":coaching['observed_at']},
+            "deterministic_state_io": state_io_summary,
+            "player_potential_mask": potential_mask,
             "directory_slot_counts": {key: value['count'] for key, value in directory.items()}
         },
         "batch_binding": {

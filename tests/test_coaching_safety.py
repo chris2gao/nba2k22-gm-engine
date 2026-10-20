@@ -127,8 +127,12 @@ class CodecTests(unittest.TestCase):
             encode_changes(raw,[dict(field="PlaybookID",before_raw=18,after_raw=19)],PROFILE,[18])
     def test_readonly_field_write_denied(self):
         raw,s,p=fixture()
+        # Tempo is now player-approved raw read/write. Exercise a deliberately
+        # read-only fixture rather than reinstate the superseded production gate.
+        readonly=copy.deepcopy(PROFILE)
+        readonly['fields']['Tempo']['writable']=False
         with self.assertRaisesRegex(ValueError,"FIELD_READ_ONLY"):
-            encode_changes(raw,[dict(field="Tempo",before_raw=decode(raw,PROFILE["fields"]["Tempo"]),after_raw=80)],PROFILE,for_write=True)
+            encode_changes(raw,[dict(field="Tempo",before_raw=decode(raw,readonly["fields"]["Tempo"]),after_raw=80)],readonly,for_write=True)
     def test_target_range_does_not_reject_observed_preimage(self):
         raw,s,p=fixture()
         profile=copy.deepcopy(PROFILE)

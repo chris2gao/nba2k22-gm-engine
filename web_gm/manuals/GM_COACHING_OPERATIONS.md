@@ -1,5 +1,7 @@
 # GM 教练战术操作手册
 
+2026-10-20工程补充：GM须同时读取[Potential遮蔽与Intangibles规则](GM_POTENTIAL_FOG_AND_ROTATION_BIAS.md)。PR#5底层限制/人工监督review状态查docs/34和DEV14_TO_M3_HANDOFF；旧PlaybookID切换及整体防守示例不是日常GM提案规范。新档本队同名书是用户保证的默认前提，不以克隆/共享专项作为门槛，仅实际异常单动作阻断。
+
 > **2026-10-19 主教练/球队本名战术书规则**：[DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)与[GM个人防守/Book政策](GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)：每队每游戏赛季只有休赛期允许换帅一次（合同竞价/签约另列后续），A队聘B教练后必须在获得玩家批准的技术绑定操作中，将可能继承的B书恢复到**A队同名的真正独占原生Book**，再根据B教练体系与A球员修改A书68槽；B书不得被修改。普通GM不改Overall、不随意切BookID。此处是最新运营政策；实际同名Book唯一性和换帅写入还未完成本局生产验证。
 
 > **2026-10-19 最新玩家决议（GM运营优先规则）**：[GM个人防守与球队专属手册政策V1](GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md)已生效。**普通GM只使用逐人PERSONAL_DEFENSE策略，不改OVERALL_DEFENSE**；整体18项可继续采集只读，后面旧“修改整体防守”的章节仅供已部署旧执行器的历史技术参考，**不是新的GM提案规范**。**普通GM不通过PlaybookID切换战术手册**，必须使用本队原生独占书、编辑该书68槽；换帅后重取教练和书绑定、按新教练理念修改本队书。如果本队和其他球队共享同一本PHI等原生书，**禁止任何单队修改共享槽位**，需Antigravity确认专属书实体与受控技术绑定，不能仅通过名称伪装独占。用户对新方案仍逐批审批；并不意味着现有DEV14已实现新禁写和独占规则。

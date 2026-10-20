@@ -36,12 +36,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--save-id", type=validate_save_id, required=True)
     args = parser.parse_args()
+    from gm_state_io.lifecycle import operation
+    with operation(args.save_id,'publish'):
+        return publish(args)
+
+
+def publish(args):
     pointer_path = f"published/saves/{args.save_id}/latest.json"
     pointer = json.loads((ROOT / pointer_path).read_text(encoding="utf-8"))
     directory = (ROOT / "published" / pointer["batch_path"]).resolve()
     if not directory.is_relative_to((ROOT / "published/saves" / args.save_id).resolve()):
         raise RuntimeError("Data path is outside the selected career")
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    if manifest.get('player_potential_mask',{}).get('potential_mask_version') != 'potential_v1':
+        raise RuntimeError('UNMASKED_HISTORICAL_GM_BATCH_REPUBLISH_DISABLED_REQUIRES_SEPARATE_AUTHORIZED_CONVERSION')
     config = json.loads((ROOT / "config/github_sync.json").read_text(encoding="utf-8"))
     repository, branch = config["repository"], config["branch"]
     remote = json.loads(command(["gh", "repo", "view", repository, "--json", "nameWithOwner,isPrivate,url"]).stdout)

@@ -81,6 +81,11 @@ class CoachingExecutor:
             raise
 
     def run(self,plan,snapshot,approval,state_root,rollback=False):
+        from gm_state_io.lifecycle import operation
+        with operation(plan['career_id'],'coaching_apply'):
+            return self._run(plan,snapshot,approval,state_root,rollback)
+
+    def _run(self,plan,snapshot,approval,state_root,rollback=False):
         # Every gate above the memory factory is intentional.
         require_approval(plan,approval)
         validation=validate_plan(plan,snapshot,self.profile)

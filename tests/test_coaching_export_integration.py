@@ -52,7 +52,18 @@ class CoachingExportTests(unittest.TestCase):
             store_coaching_source(conn,self.snapshot,self.save,self.source)
             conn.execute('UPDATE coaching_source_captures SET data_updated_at=?',(self.updated,))
         with contextlib.closing(sqlite3.connect(self.pool)) as conn,conn:
-            conn.execute('CREATE TABLE player_pool(slot_id INTEGER, raw_struct BLOB, draft_year INTEGER, full_name TEXT)')
+            from dump_player_pool import init_player_pool_schema
+            init_player_pool_schema(conn)
+            conn.execute('ALTER TABLE player_pool ADD COLUMN source_details_json TEXT')
+            from source_extensions import player_details
+            raw=bytes(0x4f0)
+            detail=json.dumps(player_details(raw))
+            conn.execute('INSERT INTO player_pool(slot_id,raw_struct,draft_year,full_name,raw_potential,potential,source_details_json) VALUES (1,?,1984,\'Synthetic Player\',0,25,?)',(raw,detail))
+        with contextlib.closing(sqlite3.connect(self.db)) as league,league, contextlib.closing(sqlite3.connect(self.pool)) as pool,pool:
+            league.execute('INSERT INTO player_source_details VALUES (?,?,0,1,\'Synthetic Player\',0,NULL,NULL,?,?)',
+                           (self.snapshot,self.source['teams'][0]['team_id'],detail,raw))
+            from player_potential_mask import sanitize_player_potential
+            sanitize_player_potential(league,pool,self.snapshot)
         self.manifest=dict(timestamp=self.updated,data_updated_at=self.updated,quality_metrics={'coaching_tactics':{'profile':1}})
         self.manifest_path=self.snapshots/('ingest_manifest_'+self.snapshot+'.json')
         self.manifest_path.write_text(json.dumps(self.manifest),encoding='utf-8')
@@ -83,7 +94,7 @@ class CoachingExportTests(unittest.TestCase):
                              batch_binding=dict(snapshot_digest_sha256=digest,player_pool_sha256=pool_hash))
         self.manifest_path.write_text(json.dumps(self.manifest),encoding='utf-8')
         self.audit.update(save_id=self.save,database_digest_sha256=digest,player_pool_sha256=pool_hash,
-                          player_pool_records=0,manifest_binding=dict(manifest_sha256=file_sha256(str(self.manifest_path))))
+                          player_pool_records=1,manifest_binding=dict(manifest_sha256=file_sha256(str(self.manifest_path))))
         with contextlib.redirect_stdout(io.StringIO()):return exporter.export_snapshot(self.save,self.snapshot)
     def test_real_export_includes_33_coaching_files_and_only_pending_upload(self):
         result=self.export()
@@ -99,6 +110,12 @@ class CoachingExportTests(unittest.TestCase):
         self.assertEqual(source['data_updated_at'],self.updated)
         self.assertTrue((self.root/'_exports/archives'/result['archive']['filename']).is_file())
         self.assertTrue((self.root/'database/query_snapshots'/self.save/result['batch_id']/'manifest.json').is_file())
+        catalog=json.loads((bundle/'player_catalog/1984_1.json').read_text(encoding='utf-8'))['records'][0]
+        self.assertEqual((catalog['potential'],catalog['raw_potential']),(1,1))
+        self.assertTrue(catalog['player_raw_masked'])
+        from gm_data_access.query import QuerySession
+        with contextlib.closing(QuerySession(self.root/'database/query_snapshots',self.root/'published',self.save,result['batch_id'])) as session:
+            self.assertEqual(session.require_gm_sanitized()['potential_mask_version'],'potential_v1')
     def test_missing_coaching_team_does_not_replace_last_good_pointer_or_bundle(self):
         self.export()
         pointer=self.root/'published/saves'/self.save/'latest.json'
