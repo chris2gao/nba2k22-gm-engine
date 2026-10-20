@@ -2,6 +2,8 @@
 
 日期：2026-10-20。终结状态：**BPTI_DEV23_PARTIAL_REQUIRES_PLAYER_DESCRIPTION_TASK_CLOSED**。
 
+交付：[Draft PR #10](https://github.com/chris2gao/nba2k22-gm-engine/pull/10)，研究提交`583b695`；保持Draft，未合并main。
+
 本次独立研究从main `b3ace72c807dad412a8187fc9563f78ed19f02fb`开始；B1 PR #9已合入main（`f4d615c14f0b541fc9f1395b7035952b01e0e417`）。完整机读清单见[研究库存JSON](BPTI_DEV23_PLAYBOOK_SEMANTICS_INVENTORY_V1.json)。这是DEV23研究交付，不是B2 NativeBinding实现或GM来源安装。
 
 ## 1. 已完成与未完成

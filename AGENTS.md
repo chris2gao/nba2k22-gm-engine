@@ -2,6 +2,8 @@
 
 ## BPTI DEV23 read-only research handoff (2026-10-20)
 
+- Delivery: Draft PR #10 (`https://github.com/chris2gao/nba2k22-gm-engine/pull/10`), research commit `583b695`; not merged in main.
+
 - DEV23 research is delivered on independent `codex/bpti-dev23-playbook-semantics` from main `b3ace72`; see `docs/development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md` and its JSON inventory. Terminal status `BPTI_DEV23_PARTIAL_REQUIRES_PLAYER_DESCRIPTION_TASK_CLOSED`. No active waiting/checkpoint. Three text questions are for a separately player-triggered follow-up.
 - Administrator **read-only** process research observed three own-named books (204 slots, 148 nonzero), 46 current players' ordered PlayTypes/Initiator; archived 47 players remain separate. Static PE labels match 89 distinct CRCs / 111 slots; 37 nonzero labels, all per-play native types/actors/beneficiaries, and actual game execution remain UNKNOWN. Do not promote prefix-based legacy catalog types or CRC matches into native assignment proof. This research is not a formal capture or GM_SANITIZED source and adds no execution authority.
 - Actual `Bulls/Heat/Warriors Playbook` labels fail existing `team_book()` exact whole-label matching (`TEAM_NAMED_BOOK_MISSING_OR_AMBIGUOUS`), despite observed coach IDs matching those books. Research used explicit literal `team.name + ' Playbook'` only to identify read-only records. Do not bypass the business binder; this concrete blocker is documented, not fixed/tested. Any repair needs separate player scope. No B2–B6/DEV24, tests, production capture/publication or game writes followed.
