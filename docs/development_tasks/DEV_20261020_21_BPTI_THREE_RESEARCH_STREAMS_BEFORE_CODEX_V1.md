@@ -4,6 +4,8 @@
 
 > **R1进展（2026-10-20）**：GPT Deep Research R1报告已按原文归档到 [BPTI R1 完整研究](../development_research/BPTI_R1_BASKETBALL_SYSTEMS_DEEP_RESEARCH_V1.md)（607行、10张非互斥SystemCard、R1-S01～S32来源索引）。[R1审核记录](../development_reviews/BPTI_R1_DEEP_RESEARCH_REVIEW_V1.md)结论为 **ACCEPTED_FOR_INTEGRATION**，关键NBA官方数字经抽样核实；原报告ChatGPT临时引用需在R4转换为可持久访问的Claim→SourceID，2K22原生字段映射未完成。**R2 Gemini研究待收，R3映射与R4整合尚未完成，BPTI Codex实现未获本次授权。**
 
+> **2026-10-20三路研究整合进度（覆盖旧“R2待收、R3待完成”描述）：** R1完整报告及独立审核已入库；R2-V2由GPT Deep Research补位Gemini完成，30/30历史档案与结构化表[归档](../development_research/BPTI_R2_30_FRANCHISE_IDENTITIES_AND_EVOLUTION_DEEP_RESEARCH_V2.md)，[审核](../development_reviews/BPTI_R2_V2_DEEP_RESEARCH_REVIEW_V1.md)认可为研究候选，少数[来源缺口已部分补录](../development_research/BPTI_R2_SOURCE_REPAIR_ADDENDUM_V1.md)；R3 [2K22原生机制映射](../development_research/BPTI_R3_NBA2K22_NATIVE_MAPPING_AND_CONFLICTS_V1.md)已完成架构研究；R4 [三路整合与工程规格](../development_research/BPTI_R4_RESEARCH_INTEGRATION_AND_ENGINEERING_HANDOFF_V1.md)已形成。**下一份供玩家批准的Codex阶段入口是[DEV22](DEV_20261020_22_BPTI_RESEARCH_TO_CODEX_PHASED_HANDOFF_V1.md)。R2缺证/2K22战术语义UNKNOWN需保留，BPTI代码未启动，GM V4未启用。**
+
 ## 0. 修订后的优先级与独立上线门
 
 新顺序：M4工程由M系列Codex继续；与此同时GPT Deep Research、Gemini Deep Research、当前Web GPT提前分头完成BPTI调查；三方研究在Codex启动BPTI工程前交叉审阅/整合；**随后由Codex实施BPTI**；Issue #6等底层Bug修复、季后赛逐场/高阶统计采集及3D/Calendar Fast-Sim年度校准工程可安排在BPTI之后。
