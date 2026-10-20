@@ -309,3 +309,9 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **战术手册策略**：GM正常经营不得自由改coach.PlaybookID切换书。每队以专属的**物理独立原生Playbook对象**（优先本队同名原生书）为资产，允许在68槽添加/替换内容满足当前教练体系和球员；更换教练是员工/合同事件，需重新采集新任教练与Playbook的原生绑定，必要时经玩家批准做仅用于确保球队独占的技术性绑定，再修改本队专属书槽位。**名称同队名不代表书实体独立**。
 - PR#5的`adapters.py`会识别共享owner集但Registry标记`EXPLICIT_ALL_SHARED_OWNERS_OBSERVED_PLAY_CRC_ONLY`，因此目前共享Book若所有owner身份没有变化仍可能按共享方式被写。**新GM政策必须默认阻止任何包含多Owner原生Playbook的单队编辑**：`SHARED_PLAYBOOK_MUTATION_BLOCKED`，需要`owner_team_ids == [team_id]`且原生指针/实体独立。不能因两教练都使用PHI书而让一队改槽影响另一队。Antigravity负责认证一队一本的真实克隆/预留/技术绑定可行性，不能实现则BOOK槽位保持BLOCKED，GM仍可调球员PlayTypes/Tendency/教练其他字段。
 - 现有DEV14代码尚未完成此新增审批策略；本轮仅发布GitHub规范和开发交接，**无真实游戏修改、PR合并或生产采集**。同步改GM_COACHING_OPERATIONS/DEV13/DEV14/DEV16/额度计划，旧文档中先Overall再Personal或日常切书建议已废止。 
+
+## 2026-10-19 换帅后球队本名书归位、每赛季休赛期一次、Codex主线优先
+
+- [DEV17](../../docs/development_tasks/DEV_20261019_17_CODEX_FIRST_MAINLINE_TEAM_BOOK_COACH_RULES_V1.md)最新规则：A队原A主教练/A手册，聘B教练后可能原生变为A队/B教练/B手册；**玩家批准技术性修改A队新Coach的PlaybookID恢复A队同名独立原生A手册**，其后再根据B教练体系与A队阵容改A书68槽，不能编辑B队书/共享书。新档建库原始本名书绑定也是技术初始化，不等于日常自由切Book。每队每游戏赛季只能在休赛期换帅**一次**；本轮只实现GM赛季/阶段约束及换帅后Book恢复接口，休赛期合同到期、员工竞价、自由市场及阶段控制明确不在本轮开发。
+- **Codex先主线，AG扩展后置**：B0 DEV14-H、B1 Potential=1、B2 用现有DEV14读取/编码/审批及M3流程建设已知字段最低闭环与Book同名索引/恢复、个人防守与Intangibles。AG的CRC真实战术、51未知倾向、各位置训练模板、当前疲劳完整解码均在主线后补，唯独同名Book无法找到独占对象或现有槽位技术无法写入时给AG最小专项。缺数据允许UNKNOWN/HOLD，不伪称完整战术科学已实现。
+- 本轮仅在GitHub更新开发和GM文档，未授权正式换帅/实际修改游戏或合并PR。
