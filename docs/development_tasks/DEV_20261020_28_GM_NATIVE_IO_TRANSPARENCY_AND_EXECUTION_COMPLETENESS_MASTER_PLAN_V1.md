@@ -93,6 +93,61 @@
 - **PLAY_USABILITY**：战术实际适用的1–4种球员PlayTypes、适合的进攻发起条件、可选受益人与再反制说明；证据分为`NAME_ONLY / TYPE_NATIVE_OBSERVED / ALLOCATION_OBSERVED / IN_GAME_USED`。实际`primary beneficiary`可能随球队分配变化，不能把一条战术固定给某个历史名人。
 - **GM检索与选择**：支持`team current book`、`all selectable plays`、`plays matching given role/type/system`、`available slot for replacement`，返回**完整原生候选ID+显示名+实际可选性+认知质量+HOLD原因**，不是只有CRC序列。
 
+### 3.1A 战术名字、真实类型与游戏2D战术板：最新玩家机制补充（2026-10-20）
+
+> 用户提供的**实际游戏UI经验**：NBA2K22可在战术详情页面看到类似2D动态棋盘的战术演示，五名球员按战术移动；同类别不同战术可能只在走位/动作的局部有差异。名字往往携带战术年代、位置组合、动作（投篮、挡拆、手递手等）线索。**这是PLAYER_REPORTED_UI和名称解释线索，不是本仓库已经验证存在可直接读取的动画脚本/时间轴内存，更不是实机AI已照此执行的证据。**
+
+三个不可混淆的层级与优先次序：
+
+1. **原生PlayType认证（首要技术缺口，Antigravity）**：以实际`play_native_crc`关联当前游戏中战术类型成员关系（可能一个CRC对应多个原生分类），优先寻找游戏战术选择UI/当前进程已读取的原生类型字段、对应对象与枚举；必须明确`play_crc + native_type_id + provenance + save/build`，不能只用`FIST/GIVE/QUICK/数字`猜种类。取得可认证类型之后，GM才能根据球员四个有序PlayTypes和可用书槽做`TYPE_MATCHED_ONLY`分析；**类型匹配≠保证某球员为唯一发起人/最终投篮者**。
+2. **名称语义分析（模型+可信篮球来源）**：分解原始名称中的`formation_token / action_token / numeric_sequence / era_candidate / finish_hint`等候选。用户举例`9015shot`：**仅作假设演示**，“90=90年代、15=一号位和五号位、shot=投篮”；当前尚未找到该具体游戏战术的原生来源，不能写成已证命名文法，更不能从年代代码直接认定每条2K22战术的空间、三分设计。数字可能用于位置、阵型、顺序/动作或游戏内部命名，必须结合**此条战术的原生类别/完整名称/2D演示/同家族其他例子**核验。NBA2K22玩家实际教学将FIST/PnR、QUICK/offball、GIVE/handoff等作为常用命名线索，系社区经验而非游戏官方全部语法（[2K22战术呼叫教程](https://www.reddit.com/r/MyTeam/comments/pnjrwb)、[2K社区战术命名问答](https://www.reddit.com/r/NBA2k/comments/k3wn8m)）。
+3. **游戏2D演示动作证据（高价值的后续观察）**：页面可见演示则优先标注`UI_2D_DEMO_PLAYER_REPORTED`。若现有只读内存或静态原生文件能给出**可靠的战术步骤/动作时序**，可进一步定位`2D_PREVIEW_NATIVE_SEQUENCE`；**不能从“画面可播放”推定必然能提取动画帧、路径脚本、每步球员位置或有简易内存开关**。不能取证时允许玩家文字描述一个核心战术的起始站位→首传/掩护→移动/接应→终结→失败后的第二路线；此前玩家已明确无法提供截图，**不把截图、录屏或当前停在指定画面作为交付门槛**。若需要玩家说明，Codex单次任务交付已完成研究和具体问题、真正TASK_CLOSED，不能等待回答耗额度。
+
+特别区分**三种人物职责**：
+
+- `CALLER/ASSIGNED_PLAYER`：由谁/何种原生角色发起调用或分配此战术。当前已知Player四个有序PlayTypes影响调用资格与优先，不能凭原始名称确定具体谁被AI选中。
+- `ACTION_INITIATOR / SCREEN_PARTNERS`：第一回合动作中哪位持球/传球、谁做掩护/手递手、切入者和接应位置（用户所说“1/5挡拆”等多属这个层次）。
+- `PRIMARY_OPTION / SECONDARY_READ / FINISHER`：实际优先终结机会、对手封堵后第二解法以及真正完成投篮者；可能随站位、战术分支、球队指定球员和赛场AI而变化。
+
+**绝对不固化为一名球员**：战术主体动作可由不同球员在相同位置/角色执行，2D棋子是角色而非真实姓名。完整记录结构可为：
+```yaml
+play_id: "2K22_PLAY_<native_crc>"
+native_types: {status: UNKNOWN, memberships: []}
+raw_name: "NAME_OBSERVED_OR_UNKNOWN"
+name_semantics:
+  tokens: []
+  era_candidate: null
+  positions_candidate: []
+  action_candidate: []
+  provenance: NAME_INFERENCE_ONLY
+preview:
+  available: PLAYER_REPORTED_UI
+  native_steps_readable: UNKNOWN
+  opening_alignment: UNKNOWN
+  action_sequence: []
+  branch_points: []
+  first_advantage: UNKNOWN
+  second_answer: UNKNOWN
+actor_roles:
+  assigned_caller: UNKNOWN
+  initial_ball_handler_role: UNKNOWN
+  screen_partners: []
+  first_option_role: UNKNOWN
+  later_read_roles: []
+evidence:
+  type_level: TYPE_UNKNOWN
+  motion_level: UI_DEMO_NOT_CAPTURED
+  in_game_ai_execution: NOT_OBSERVED
+```
+
+为GM建立**渐进式可用性**：
+- 只有类型认证：可检索、按球员PlayTypes进行**类型兼容**，但战术动作描述仅限候选，不冒充特定受益人或固定篮球效果。
+- 只有名字/社区定义：可供GM研究/备选比较，类型仍UNKNOWN，不得形成经类型筛选的确定性战术写入建议。
+- 2D演示得到可靠动作标注：可描述首优势、协作角色、掩护/手递手、变化、第二解法及与年代篮球空间的差异；这只证明**预览设计**，不等于3D比赛中自动战术调用成功。
+- 真实3D赛场调用被观察：单独升级`IN_GAME_EXECUTION_OBSERVED`，再研究ACE/策略覆盖、角色指派和对手反制；不要求每个1,392条CRC逐项做3D验证。
+
+**优先原则**：原生类型的全池读数优先；然后从30队主要体系挑选有代表性的战术研究2D变化及名字语义，逐渐聚合成可复用家族知识。不要为每条战术手动看完整动画、或在玩家无法提供截图时卡死整个阶段。**“游戏战术板演示”与“比赛实际运行”属于两个不同的证据层**。
+
 ### 3.2 换帅后的技术归位与战术槽更新（Codex，复用DEV14）
 必须把以下**两个单独审批/读写步骤**变成受控、可重复执行的正常业务工作流：
 1. `READ_CURRENT_BINDING`：真实新档或用户确认已换帅，重新读取队/新主教练/Coach PlaybookID/原生本队同名Book对象及owner；根据真实对象身份消解该队同名Book的目标`enum_id`。匹配缺失/多候选不能凭名字任意写；先输出阻断证据。
