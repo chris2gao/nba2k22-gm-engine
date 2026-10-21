@@ -1,5 +1,7 @@
 # NBA2K22 GM project instructions
 
+> [**新网页GPT开发规划/审核窗口长程快照（2026-10-21）**](docs/development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：所有接替模型先读项目宗旨和该快照，再读PROGRESS最新首节及共享状态。六阶段采集→数据分析→Coach（未开发）→Player（未开发）→GM→汇总执行。DEV29仅知识原料；DEV28仅I/O；真人写游戏须批准，未来人格另立项。R07两项源/成熟度修复已提交待独立复验，不自动授权FINAL-CODEX或DEV28。
+
 
 > [**最高优先级：项目意图与任务边界**](docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：每个研究/开发/执行模型都必须先识别所处层级：**DEV29 R系列=游戏机制及可读/可设置数据知识；DEV28=底层采集/查询/合法动作与回读；独立教练/球员人格=以后另行授权的软件任务。** 不得把基于若干Loyalty/Win偏好的确定性决策树、报价规则、固定剧情或R04八个案例当成人格系统，也不能在R/DEV28任务里顺便开发它们。玩家定义的六阶段：采集→数据分析→独立教练（未开发）→独立球员（未开发）→GM（主要已有）→汇总执行（真人批准）。**遇到与此冲突的旧BPTI/DEV29 V3愿景用语、PR #12历史进度，以本文为准。**
 
