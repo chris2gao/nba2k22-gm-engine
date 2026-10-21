@@ -25,4 +25,4 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 
 **视觉材料**：优先记录第三方页面和图片链接、使用位置、图片证据点；确有传播许可或玩家自供的图片才纳入GitHub。不得绕过水印/假定可自由再分发；研究卡片即使没有图片二进制也必须完整可读。
 
-**当前状态（2026-10-20）**：R01-A、R01-B、**R01-C**均已发表实际研究成果；R01整体仍`INCOMPLETE_WITH_OPEN_ITEMS`，主要因尚无**无模组NBA2K22 PC本世代MyLEAGUE**的完整统计菜单、逐场Box列、Game Logs、历史Box留存期独立画面/原生认证。攻略：[K01/K02（§§0–18）](guides/K01_K02_GAME_STATS.md)，来源：[SRC-0004..0028](SOURCES.md)，图证：[VIS-0001..0007](visuals/EXTERNAL_VISUALS.md)（未上传未经授权第三方图片）。**下次按[PROGRESS.md](PROGRESS.md)中的R01-D有界恢复入口继续；PC证据缺失时封存UNKNOWN，不阻挡后续R02–R06研究。**
+**当前状态（2026-10-20）**：**R01-A/B/C/D公开资料研究全部结束**，正式研究终态为 `R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`；这不是NBA2K22 PC原生菜单/内存/历史逐场数据已完全认证。核心攻略：[K01/K02 §§0–22](guides/K01_K02_GAME_STATS.md)，来源登记`SRC-0001..0029`：[SOURCES.md](SOURCES.md)，图证索引`VIS-0001..0007`（本轮无合格新图证）：[EXTERNAL_VISUALS.md](visuals/EXTERNAL_VISUALS.md)。**六大PC22统计UI目标全部保持`UNKNOWN`，未来需从原版PC游戏只读截图或经玩家另行批准的Antigravity/DEV28定向认证**。R01不再重复网上检索，最小4张优先截图需求见[PROGRESS.md](PROGRESS.md)与[图源清单](visuals/EXTERNAL_VISUALS.md)。**下一正式研究轮：R02 Coach/Playbook/攻防体系，目标`guides/K04_COACH_AND_PLAYS.md`；按[PROGRESS](PROGRESS.md)启动。**
