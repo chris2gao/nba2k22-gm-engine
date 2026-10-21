@@ -337,3 +337,35 @@
 - 原生市场可选项词表可以研究，但**DEV29不开发自由市场竞价算法、固定意愿规则、Coach/Player人格或执行器**。研究完成不代表能够更改上述原始字节；用户具体授权与游戏读回永远分开。
 
 **阶段**：`R05_A_RESEARCH_PUBLISHED_WITH_FINANCE_EXECUTION_GAPS`，下一轮R05-B交易/选秀权与球员名单市场规则，未启动。
+
+## DEV29 R05-B — 交易市场、2017 CBA配平、Stepien、原生选秀权与真实名单执行（2026-10-21）
+
+以下**SRC-0129..0144**服务于K07–K09/R05-B。这批同时有**2017 CBA时期可复核规则**、2K22 **PC本世代**一手玩家报告、同版/相邻版本游戏设置及旧版菜单示例。**跨代机制可研究，平台和模式的原生UI未认证不可直接升级**。不得用2023新CBA first/second-apron惩罚冒充2021–22 NBA2K22的规则。
+
+| ID | 来源、时间、版本定位 | 真实提供的机制资料 | 不得推断 |
+|---|---|---|---|
+| **SRC-0129** | [Larry Coon 2017 CBA FAQ](https://www.cbafaq.com/salarycap17.htm) Q85–Q100，2022-11-05修订添加2021–22金额 | 2017 CBA的Trade Salary Matching：**非纳税队**发出$0–6,533,333档175%+$100k，$6,533,334–19.6m档发出+$5m，超过19.6m档125%+$100k；**纳税队**125%+$100k，按交易后状态判断；15人Roster、TPE、双向交易估值、签换及Trade Cash限额；2021–22现实交易现金限制$5.785m；选秀权与Stepien有专章 | **HIGH_AUTHORITY_HISTORIC_2017_CBA_SECONDARY_EXPERT_REFERENCE**，不是NBA2K22实际交易合法性代码，不支持“所有球队统一125%”；页面在2022-11后有小修订，需防比对误差 |
+| **SRC-0130** | [NBA官方：Free Agency Explained / Traded Player Exception](https://www.nba.com/news/free-agency-explained)，当前可检索网页 | 官方解释Non-Tax与Tax匹配两种分支、同时/非同时Trade和例外原则、潜在Sign-and-Trade限制 | **REAL_NBA_CBA_GENERAL_OFFICIAL**，网页2026时可能更新，不能把新规则或工资额直接视为2021有效；精确2021数值以SRC-0129历史版交叉核对 |
+| **SRC-0131** | [RealSport101：NBA2K22 Sliders Game Options](https://realsport101.com/article/nba-2k22-sliders-realistic-settings-gameplay-options-optimized-experience-offense-defense-movement-attributes)，约2021/22发布的2K22社区指南 | 同版交易设置列Trade Logic、Trade Deadline、Recently Signed/Traded/Rookie Restrictions、Financial Trade Rules、Stepien Rule、Trade Override、CPU Trade Offers和CPU-CPU Trades；另Trade Negotiation Difficulty等数值滑块 | **2K22_CROSSGEN_COMMUNITY_MENU_LABELS_AND_SUGGESTED_SETTINGS**，列出的On/Off或难度80是作者主张，不是本项目实际存档选项值/引擎系数 |
+| **SRC-0132** | [Reddit：cannot make trades in MyLeague](https://www.reddit.com/r/NBA2k/comments/vrtew2)，2022-07-05，提问者明确平台**PC** | 玩家表示2K22交易UI确认后人物仍留在原队；评论称CPU-CPU交易可能要求控制双方、另有人建议以3队菜单操作或关某些交易限制绕过 | **SAME_GAME_2K22_PC_CURRENT_GEN_ANECDOTE**；个案/建议未经本项目复现，不能视作任一唯一正确修复，也不自动要求DEV29去改游戏参数 |
+| **SRC-0133** | [Reddit r/2KMyLeague：Stuck on date please help (Current gen 2k22)](https://www.reddit.com/r/2KMyLeague/comments/sc30m8)，2022-01-25 | 2K22本世代玩家游戏12/25却看到“不能交易直到12/15”，回帖建议关闭Recently Signed/Traded选项；作者同时报告月度奖项异常 | **SAME_GAME_CURRENT_GEN_PLAYER_REPORTED_CLOCK_ANOMALY**；没有PC本机存档、没有精确日期内存证据，不能认定每个赛季都有该bug |
+| **SRC-0134** | [Operation Sports：NBA 2K22 MyNBA Trade Discussion Thread](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917608-nba-2k22-mynba-trade-discussion-thread)，2021-09-28起 | 玩家互评三方Ben Simmons和多个2022–25首轮/乐透保护的**假设报价**，展示多人交易、乐透保护选秀权、跨年条件怎样在游戏社区被讨论 | **COMMUNITY_HYPOTHETICAL_TRADE_PACKAGES**；作者写三方交易方案不证明原版2K22菜单真正支持该交易，更不是当期实际交易 |
+| **SRC-0135** | [Reddit：Draft Pick Protections in MyEras](https://www.reddit.com/r/NBA2k/comments/10crgsh)，2023-01-15 | 新世代2K23 MyEras玩家称自己挑选选秀权时未被提示添加保护，显示Unprotected | **NBA2K23_NEXTGEN_MENU_ANECDOTE**，不能得出2K22 PC原版不支持保护或本项目可以执行 |
+| **SRC-0136** | [Reddit：Does anyone know how to swap picks in MyNBA next gen?](https://www.reddit.com/r/NBA2k/comments/zu68zj)，2022-12-24起 | 次世代MyNBA用户讨论Pick Swap Best/Worst、Trade Finder/价值显示是否相反以及PS4/PS5差别 | **2K22_OR_2K23_2022_NEARBY_NEXTGEN_UNCLEAR_VERSION**，不可当PC22确证，也不可给本项目添加已明确禁止的Swap交易 |
+| **SRC-0137** | [CBS Sports：NBA trade deadline 2022 and Stepien Rule](https://www.cbssports.com/nba/news/nba-trade-deadline-2022-how-complex-stepien-rule-decides-which-teams-can-and-cant-deal-first-round-picks/)，2022-02 | 现实2022年球队2022–28首轮权利、禁止连续未来首轮空缺、保护顺延如何限制更多未来选秀权，以及不确定届次的“first allowable”设计 | **REAL_NBA_2022_JOURNALISM**，不代表PC22是否按这一数学式执行；用户目前三年无保护/无交换是独立世界规则 |
+| **SRC-0138** | [NBA 2022交易截止日前瞻和日期引文](https://www.nba.com/news/2022-nba-trade-deadline-explained)，2022年现实赛季；另[2022-01-11 ESP​​N讨论引用](https://www.reddit.com/r/nba/comments/s1ep8l) | 现实2021–22的2022-02-10交易截止日及球队操作示例，旨在解释游戏“Trade Deadline”控制真实世界时间的参考 | **REAL_NBA_DATE_CONTEXT**；第一网址须独立核对可达性/确切原文，不据日期推导本局以后赛季固定截止日 |
+| **SRC-0139** | [Reddit：NBA 2K MyLeague Trading](https://www.reddit.com/r/NBA2k/comments/13wip9g)，2023-05-31 | MyLEAGUE用户报告工资无法配平和超15人提示，回帖建议使用Trade Finder与调整双方收到的人数 | **NBA2K_SERIES_2023_GAME_VERSION_NOT_EXPLICIT**，不是PC22 native执行上限证据，本项目Roster能力需以文档37为准 |
+| **SRC-0140** | [NBA2K旧版Wiki Front Office](https://nba2k.fandom.com/wiki/Front_Office)“Execute Trades” | 描述Player Finder、Propose Trade、Trade Finder三条菜单入口，资产为球员/选秀权，Trade Finder可查看系统列出的对手报价 | **OLDER_MYGM_FRONT_OFFICE_WIKI**，不能证明PC22 MyLEAGUE菜单完整同名与排序，或当前游戏已开放自动GM谈判 |
+| **SRC-0141** | [Operation Sports 2015：Dumb question how to trade picks in MyLeague](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/753574-dumb-question-but-how-do-you-trade-picks-in-myleague)，2015-02-22 | 老本世代MyLEAGUE玩家称选秀权需在交易选人页切换；有人说当年不能做三方交易 | **OLDER_2015_MYLEAGUE_UI**，与2022 PC玩家“三方可解决”不同年代/条件，不可简单选一个当2K22真理 |
+| **SRC-0142** | [NBA2K22 Xbox One MyGM成就交易方法](https://www.trueachievements.com/a338876/maxed-out-achievement)，2021–22时代玩家技巧 | 真实同版Xbox One使用MyGM Game Settings中Trade Override、Financial Rules、Stepien与Recently Signed开关，并进行选秀权交换的操作描述 | **SAME_GAME_OLDGEN_BUT_MYGM_NOT_MYLEAGUE**；它是菜单/开关同代参照，不能把MyGM XP流程映射到离线MyLEAGUE权限 |
+| **SRC-0143** | [NBA2K22 PS4/PC 2022玩家交易故障讨论](https://www.reddit.com/r/NBA2k/comments/vrtew2)，同SRC-0132多回复的操作背景 | 该帖还出现“需要两队都受控/尝试三方交易/Trade Logic关掉仍无变化”等**互相不完全相容的玩家经验**，适合标记交易是否真正生效的额外来源争议 | **NOT_INDEPENDENT_SOURCE_DUPLICATE_THREAD**，与SRC-0132指向同帖不应当成两篇独立复现或新增bug成功样本 |
+| **SRC-0144** | [Reddit r/NBA：2020年选秀保护概念讲解](https://www.reddit.com/r/nba/comments/isqrc0)，2020-09、以及[CBA 2017 FAQ](https://www.cbafaq.com/salarycap17.htm) | 解释现实保护签Top-N/乐透保护、Swap权仅交换顺位、未送达可能顺延/转换；与本项目简化普通所有权交换形成概念对照 | **REAL_NBA_COMMUNITY_EXPLANATION_AND_CBA_REFERENCE**，不是NBA2K22 PC可以设计保护合同的证据；本世界保护/交换政策为NOT_USED |
+
+### GitHub内真实源及其已验范围（不是互联网SRC）
+
+- **[config/draft_asset_profile.json](../../config/draft_asset_profile.json)**：NBA2K22原生取值Getter确认32字节资产槽，三项8-byte指针、元数据；`src/draft_assets.py`要求未来**5届×2轮×30原队=300条**读数整体完整且原队不重复。用户`gameplay_policy.json`只允许**接下来3届**交易，以当前batch确认的下一选秀年份为起点，禁止新保护/交换。**本机能读5届不授权交易5届**。
+- **[config/roster_association_profile.json](../../config/roster_association_profile.json)**＋[doc37](../../docs/37_APPROVED_TRADE_EXECUTOR.md)说明NBA2K22本机**15常规＋2双向＋13活动**、两个独立人数位域以及当前/合同队指针；某些已批准CHI/DET交易从人数遗漏到受控修复，用户最终接受UI。执行器`ownership_transfer_v2`是**有限范围**，没有自动写薪资/税、通用三方、双向、签约/释放和真实CBA完整校验；仍需当前具体玩家批准与readback。
+- **[config/gameplay_policy.json](../../config/gameplay_policy.json)**是本世界权威：`draft_pick_trades={year,round,original,current;next_three;no_protection;no_swaps}`，交易双方自愿≠原生CPU必须接受；游戏世界2022选秀年度≠本次历史1984届标签，避免把未来选秀权当历史球员名。
+- **[docs/14_TRADE_VALUATION_AND_ASSET_POOLS.md](../../docs/14_TRADE_VALUATION_AND_ASSET_POOLS.md)**仍有历史旧版绝对非卖名单、统一10000点评分、全队固定倍率与125%一律薪资匹配假设；**它是历史提案，不是现行用户批准世界规则，也不应作为DEV29的人格/经营指导模型**。2017现实CBA有不同薪资匹配分支，用户已有新的六模型角色分工。DEV29不改旧文件、不额外开发GM价值打分算法。
+
+**R05-B阶段**：`R05_B_RESEARCH_PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS`；**R05-C员工、球探和选秀研究尚未启动**。全新原版PC22交易菜单合格逐像素VIS为0，延后独立授权只读定向实机取证；不开发或运行Agent/DEV28/Codex/执行器，不修改游戏。
