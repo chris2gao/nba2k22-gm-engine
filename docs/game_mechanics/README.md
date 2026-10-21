@@ -25,4 +25,4 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 
 **视觉材料**：优先记录第三方页面和图片链接、使用位置、图片证据点；确有传播许可或玩家自供的图片才纳入GitHub。不得绕过水印/假定可自由再分发；研究卡片即使没有图片二进制也必须完整可读。
 
-**当前状态（2026-10-20）**：R01-A与R01-B两个研究批次均已发布，但R01总体仍为`INCOMPLETE_WITH_OPEN_ITEMS`：目标PC22本世代MyLEAGUE的真实统计表头、独立Game Logs入口及跨赛季Box保存期尚未认证。正式攻略：[K01/K02 Game Stats §§0–13](guides/K01_K02_GAME_STATS.md)；已核对来源：[SOURCES SRC-0004..0025](SOURCES.md)；图文证据及授权状态：[VIS-0001..0006](visuals/EXTERNAL_VISUALS.md)。**下次按[PROGRESS.md](PROGRESS.md)中的R01-C恢复指针继续，绝不可将别的版本的统计菜单当作PC22实测。**
+**当前状态（2026-10-20）**：R01-A、R01-B、**R01-C**均已发表实际研究成果；R01整体仍`INCOMPLETE_WITH_OPEN_ITEMS`，主要因尚无**无模组NBA2K22 PC本世代MyLEAGUE**的完整统计菜单、逐场Box列、Game Logs、历史Box留存期独立画面/原生认证。攻略：[K01/K02（§§0–18）](guides/K01_K02_GAME_STATS.md)，来源：[SRC-0004..0028](SOURCES.md)，图证：[VIS-0001..0007](visuals/EXTERNAL_VISUALS.md)（未上传未经授权第三方图片）。**下次按[PROGRESS.md](PROGRESS.md)中的R01-D有界恢复入口继续；PC证据缺失时封存UNKNOWN，不阻挡后续R02–R06研究。**
