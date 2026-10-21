@@ -136,3 +136,11 @@ NBA2K14/15时期Visual Concepts AI工程师Leftos公开解释[ SRC-0052 ]：旧�
 **R03-A现正式发表；整个R03仍需R03-B**（身体状态/伤病/导师以及PC菜单证据），未来必要时R03-C最后有界UI/结案。下批按PROGRESS恢复，不重复本轮已研究的2K22官方次世代Prep Hub全文。R04仍是完整球员本人属性/全部耐久和Play for Win/Financial Security/Loyalty等合同人格专项；本章不取代它。
 
 **执行边界**：只读GitHub和公开资料、出版研究。没有打开游戏、训练写入、伤病编辑、潜力泄漏、创建Agent或启动DEV28/Codex。凡未知仍明确UNKNOWN。
+
+## 7. R03-A新增官方可读图证：2K22次世代不是PC22
+
+**VIS-0009：官方Individual Training Focus截图**，见[官方新闻原图](https://cdn.prgloo.com/media/2858117e546348dbb3c016b7282e72c3.png?height=663&width=442)。本轮已经实际看过图中像素：上方`SKILL TRAINING FOCUS`，中间`POINT GUARD/SHOOTING GUARD/SMALL FORWARD/POWER FORWARD/CENTER`位置选择、`PLAYER TYPE`和`TRAINING COMPATIBILITY`两列，右侧有球员OVR。可见PG类型组列出了ALL-AROUND、TWO-WAY、OFFENSIVE、DEFENSIVE、ATHLETIC、REBOUNDING、PLAYMAKING、OUTSIDE SCORING、INSIDE SCORING等。**这是一张2K22官方明确属PS5/Xbox Series MyNBA的截图，不是PC22原版字段画面**。图中组合对我们定义`(position, visible_player_type, compatibility)`关系有实际参考价值，但不证明其UI顺序直接对应本机raw 0..8或训练成功率。
+
+**VIS-0010：官方Training Schedule截图**，见[官方新闻原图](https://cdn.prgloo.com/media/eedbfc01c17a465eb26f5093c697ee8b.png?height=663&width=442)，本轮也实际查看像素：顶部`TRAINING SCHEDULE`与跨日期的多格日历，底部有`TEAM SYSTEM`、`TRAINING GOALS`、`TEAM OVERVIEW`三个信息区域，显示练习日与队伍状态的同屏联系。**这不意味着PC本世代有同样逐日练习排班UI**；具体截图像素较小，未逐项认证每个单格训练名/数值/动画，绝不复制为PC菜单完整值域。新闻页还有`MyNBA Prep Hub`图片链接，但本轮该媒体原图链接无法稳定加载，不把它升级为已检视像素的VIS。
+
+两张官方原图具有实质视觉证据、也拥有严格平台边界。本研究仓库只保存链接和逐项核查文字，**没有上传或复制官方受版权保护的截图**。后续若得到PC22真正对应的训练页面，再按实际列与原生`training.json`对照，不强求版本看起来完全一样。
