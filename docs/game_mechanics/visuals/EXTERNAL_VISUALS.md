@@ -127,3 +127,27 @@
 - **历史保持未知**：任何截图能证实**UI菜单是什么**，但不能证明3D比赛真实跑此play或ACE永久保存。同一对手不同时间读数对比/视频必须有明确场次、时间戳与平台；未经同意不推进/模拟正式比赛。
 
 若第三方公开视频无法读取足够清晰的原始菜单画面、没有可信的精确时间戳，统一`VIDEO_FRAME_NOT_VERIFIED`。R02-C若仍无新一手原版图，**保留UNKNOWN并关闭R02公开研究，转R03**；不为一个UI无限重复搜索2K16或在研究期启动DEV28/Antigravity。本文件只有文字索引、没有第三方截图复制。
+
+## DEV29 R02-C — 最后一轮直接图证核查及R02研究结案（2026-10-21）
+
+**原版NBA2K22 PC本世代离线MyLEAGUE Coach/ACE/Playbook/Freelance/Personal Defense可复核完整UI新增：0。** 保留`VIS-0001..0008`既有定位和证据等级，不把本轮检索到的截图容器、文章主图或模拟版MyNBA误记为`PC22_UI_CONFIRMED`。本轮没有获得能完整核实的目标视频帧或准确时间戳；因此**不新增编号式VIS实证**。SRC-0048是MyLEAGUE玩家对Freelance按球队自动保存的**纯文字**一手报告，亦不产生图证。
+
+### 定向公开素材审计
+
+| 链接/检索线索 | 实际来源属性 | 结论 |
+|---|---|---|
+| [NBA2K22 Steam社区](https://steamcommunity.com/app/1644960/screenshots/)及[SteamDB游戏截图](https://steamdb.info/app/1644960/screenshots/) | PC游戏ID是正确的，但目前没有可辨别目标MyLEAGUE赛前Coach页面全部字段的独立原版画面 | **PC game container only**，非原版Coach截图实证 |
+| [官方2K22 MyNBA新功能报告（OS转载）](https://www.operationsports.com/nba-2k22-mynba-details-revealed-mystaff-staff-carousel-prep-hub-attributes-badges-more/) | **PS5 / Xbox Series的MyNBA**；明确含Conditional Coaching和更新后的Coach Gameplan表格 | 可供V3未来条件决策概念参考，**不得认证PC本世代也有该原生命令界面** |
+| [2K22原版PC Remastered UI新闻](https://www.2kspecialist.net/2021/09/nba-2k22-remastered-blog-new-details.html) | 标明移植MyNBA外观的改装PC UI，先前VIS-0005已登记 | 排除，禁止当作vanilla MyLEAGUE |
+| [NBA2K22同发行季MyLEAGUE Freelance保存讨论](https://www.reddit.com/r/NBA2k/comments/qg2amb) / SRC-0048 | 2021-10/12文字，平台未知，玩家表示比赛中改Freelance会为队伍保存 | **TEXT_ONLY_NO_VIS**，不认证PC22保存范围 |
+| [被错误日期误导的“2K22精确分钟”攻略](https://www.magicgameworld.com/how-to-adjust-player-minutes-in-season-mode-in-nba-2k22-myleague/) | 显示2021-04-30早于2K22正式发售，且无可读原版菜单，仅泛化控制叙述 | **REJECT_DATE_PROVENANCE_AND_GAME_AI_CONFLICT**，不单独分配VIS |
+
+### 保留的最小未来只读截图需求（不会阻断R03）
+
+**A：教练设置两页。** 同队原版PC22 MyLEAGUE赛前Coach Gameplan（包含6 POE中的实际项目/下方按键），以及比赛暂停/ACE/进攻设置（如可进入）各1张；记录是否同一支球队和游戏阶段，避免把比赛策略当静态字段。
+
+**B：战术/防守两页。** 本队Book内一条play的完整名称、类型筛选及2D战术板（如果不是同页可追加1张），以及一个指定进攻球员的PERSONAL Defense页面（优先Center与TagOnRoll/PreRotate选项）。可以先只提供有画面的部分，未出现的字段仍UNKNOWN。
+
+身份条件：`NBA2K22 / PC_CURRENT_GEN / VANILLA_UNMODDED / OFFLINE_MYLEAGUE / menu_path / game_date / team / before-or-after-timeout`，且真实表头能清楚阅读；不要求玩家模拟正式比赛或读取内存。**未看见某个字段≠引擎没有该功能。**
+
+**R02官方结案：`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。** 已有原生字段和当前采集能力保留原等级；待以后独立授权的Antigravity/DEV28定向只读取证或玩家偶尔自主截图时，增量升级K04，不重开R02整个网络研究。**下一研究批次R03训练/健康与自然成长。**
