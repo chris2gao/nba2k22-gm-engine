@@ -151,3 +151,24 @@
 身份条件：`NBA2K22 / PC_CURRENT_GEN / VANILLA_UNMODDED / OFFLINE_MYLEAGUE / menu_path / game_date / team / before-or-after-timeout`，且真实表头能清楚阅读；不要求玩家模拟正式比赛或读取内存。**未看见某个字段≠引擎没有该功能。**
 
 **R02官方结案：`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。** 已有原生字段和当前采集能力保留原等级；待以后独立授权的Antigravity/DEV28定向只读取证或玩家偶尔自主截图时，增量升级K04，不重开R02整个网络研究。**下一研究批次R03训练/健康与自然成长。**
+
+## DEV29 R03-A — 训练和负荷的官方可读图证（2026-10-21）
+
+本轮新增**2个已实际查看像素的官方2K22次世代图源**；**NBA2K22 PC本世代离线MyLEAGUE训练菜单合格画面仍为0**。第三方/官方版权图片**只留稳定原图URL/官方出处，不上传到GitHub**。图源版本不可因同为2K22而合并。
+
+| VIS ID | SRC ID/官方页与原图 | 平台、模式、具体可见栏目 | 原生PC22取证资格 | 权利及状态 |
+|---|---|---|---|---|
+| **VIS-0009** | SRC-0049/0050；[2K Newsroom原页](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles)；[Individual Training Focus PNG](https://cdn.prgloo.com/media/2858117e546348dbb3c016b7282e72c3.png?height=663&width=442) | **NBA2K22 PS5/Xbox Series MyNBA**：已看见`SKILL TRAINING FOCUS`、位置列表PG/SG/SF/PF/C、`PLAYER TYPE`、`TRAINING COMPATIBILITY`列及所选球员OVR；PG可见一组all-around/two-way/Offensive/Defensive/Athletic/Rebounding/Playmaking/Outside Scoring/Inside Scoring原型名称 | **不符合PC22_UI_CONFIRMED**；不能凭截图给本机(player.position,player_type)和UI顺序建立1:1 raw映射 | `OFFICIAL_NEXTGEN_SCREEN_PIXEL_REVIEWED`，2K版权，仅文字/外链 |
+| **VIS-0010** | SRC-0049/0050；[官方Newsroom原页](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles)；[Training Schedule PNG](https://cdn.prgloo.com/media/eedbfc01c17a465eb26f5093c697ee8b.png?height=663&width=442) | **2K22次世代MyNBA**：已看见`TRAINING SCHEDULE`日期日历、底部`TEAM SYSTEM`、`TRAINING GOALS`、`TEAM OVERVIEW`三块信息摘要；多日练习/比赛与球队系统显示在同屏 | **不符合PC22_UI_CONFIRMED**；不能证明PC当前局逐日计划、实际疲劳单位、官方建议训练配方；小图中的所有练习格文字未完整验明 | `OFFICIAL_NEXTGEN_SCREEN_PIXEL_REVIEWED`，2K版权，仅文字/外链 |
+
+同页有[Prep Hub原图入口](https://cdn.prgloo.com/media/3d1a4901fc3c49cd8f4a0f65808d1a61.png?height=663&width=442)，**本轮无法可靠取回原图像素**，只作为文字定位，不分配新的已认证VIS。
+
+### PC22 R03未来最小分批只读证据（无需现在提供）
+
+1. **团队训练页（约1–2张）**：原版PC22无模组离线MyLEAGUE，完整主页/客场强度、是否Auto、背靠背前后休息与恢复选项的屏幕、可选值、游戏日与页脚控制提示。
+2. **个人训练页（约1–2张）**：当前人物、Position、可见训练原型/模板列表、强度、Override和伤病恢复，优先一名PG及一名中锋用于发现UI模板按位置变化。不要为了取证擅改正式存档。
+3. **健康和导师页（以后可选）**：在已经自然发生的状态下截玩家fatigue/fatigue history、伤病状态与预计康复、训练师/导师链接，以及徽章发展的显示数据；必须区分“历史条”和“当前值”。
+
+截图可认证**菜单候选/来源身份**，但不能保证训练收益或伤病概率。现有技术目录的`progressive_fatigue_history`尚无本轮实时解码认证，不能以任何截图名词替代。
+
+**R03-A真实图证：VIS-0009..0010为2K22官方次世代**；目标PC22新增UI图证0。后续R03-B继续伤病/恢复/真实负荷来源，不需再次把Prep Hub营销稿当作PC22证据。
