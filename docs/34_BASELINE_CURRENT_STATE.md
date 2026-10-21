@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 R07研究成熟度总目录已发布，等待独立验收
+
+研究入口：[R07七层证据成熟度中文指南](game_mechanics/guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40功能族/10历史生产来源/20缺口JSON](game_mechanics/catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694条7分卷总入口](game_mechanics/catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)与[后续DEV28只读缺口交接](game_mechanics/R07_TO_DEV28_EVIDENCE_HANDOFF.md)。状态`R07_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`，**没有触发新的采集、查询实测、执行或游戏Save**。原R06研究已正式获独立审核通过。40/694等是异质研究对象，不是已可用的Native字段/动作数量；7个成熟度层不能压成一个done。现有生产能力仍以本文件具体证据、最新实际manifest以及37/38/40手册各自已验证范围为准；R07不扩展任何写入白名单，不能通过新目录自动启动DEV28或FINAL-CODEX。旧正文提到“3届Pick”的历史记录被2026-10-21 V4取消规则覆盖；现存旧+3执行守卫仍是未修工程差距。
+
+
+
 ## 2026-10-21 R06独立审核通过：游戏机制研究下一轮R07
 
 权威验收：[DEV29 R06研究独立结案报告](development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)。R06-A/B/C/D网页研究结案接受，`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`；R06-D 26机制关系/20待证缺口/79处引用已经与8份原始JSON逐条比对；R06-B10奖项来源标为`sources=[]`且Eras争议字段改UNKNOWN，定向修复通过但游戏UI仍无实证。R06-C38项含7无直接来源保持待证。**当前下一研究轮R07**只整理所有R系列游戏可观测事实、可设置动作、源证和成熟度；不是开发球员/教练/媒体人格，也非启动DEV28的写入许可。选秀权世界V4旧`+3`代码继续是需要用户另行批准的独立Codex修复任务。
