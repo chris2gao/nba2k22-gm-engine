@@ -200,7 +200,7 @@ NBA2K22同年MyNBA玩家说达拉斯名单缺适合Luka出任SF的行动时，�
 
 - 2021-09-16（2K22发布早期），Operation Sports玩家`Smirkin Dirk`表示，在Gameplan选择Series以及比赛Timeout选Series后，都似乎退回Freelance [SRC-0042]。该帖附玩家签名`2022 ... (XBX)`，**不能直接认证其原版PC22**。原帖标题`Are series not working?`，是一例一手故障报告，不是2K22所有Series不生效的定论。
 - 2021-10-07 Reddit `r/MyTeam`玩家给出**Xbox Series X|S/MyTEAM**的双重操作路径：暂停`Offensive Settings`先选Freelance，再场上右方向键`Gameplan→Run Freelance`，之后右方向键`Freelance→指定set` [SRC-0043]。这特别说明**“配置可选择”与“场上活动set被调用”是两步**；但它只适用于作者的MyTEAM次世代，PC22离线MyLEAGUE是否具有同菜单和自动执行，仍`UNKNOWN`。
-- 在旧2K20 Reddit [SRC-0047]，玩家说比赛中`Offensive Settings`有`Freelance1/2/3`和`Series Order / Repeat`；这是**旧版本玩家分步描述**，不证明本项目4个原生Freelance槽可直接等同这一旧界面上的3个可选项。
+- 在2K21**次世代MyNBA**的OS讨论 [SRC-0047] 中，玩家把`Offensive Settings`里的Freelance与Series、暂停临场菜单、默认战术重置分为不同问题，并报告只能暂停时切Freelance；这是**旧版本、不同平台**的菜单经验，不证明PC22能够从相同入口切换，也不能把项目4个原生Freelance槽等同临场Series。
 
 **研究与GM实务上的诊断顺序**：先确认队伍Book中有对应脚本/Series参考 → 确认教练进攻重点/RunPlays/ACE是否相容 → 区分“被选中”的静态菜单与“已激活”的临场流程 → 在可观察比赛回合查本场跑位。无法看到3D时只保留`CALLABLE_NOT_EXECUTION_CONFIRMED`。不允许以“战术名称在Book”反推CPU必选，更不允许凭玩家按键指南虚构外挂可以实时按键。
 
