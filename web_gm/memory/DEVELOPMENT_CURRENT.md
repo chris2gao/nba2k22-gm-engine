@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 R06-B独立质量审核定向修复与R06-C研究交付
+
+- 已接受[审核报告](../../docs/development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)发现：SRC-0178只证明Past MVPs/Rule Changes/Retired Jerseys和HOF线索，不支持另10项奖项；已修复R06-B JSON 10项`sources=[]`+RESEARCH_CANDIDATE_UNSOURCED，MVP明确仅指历届MVP菜单。31项明确为机制/信息概念，非内存字段；2K23 Eras不能排他证明PC22没有任何Era对象。Bootstrap/README/PROGRESS更正旧启动指针。**修复已提交、自查，仍待独立质量复核结果**。
+- [R06-C K11阶段/存档研究指南](../../docs/game_mechanics/guides/K11_SEASON_SAVE_PERSISTENCE_R06C.md)与[38类机读目录](../../docs/game_mechanics/catalogs/R06C_SEASON_SAVE_PERSISTENCE_RESEARCH_V1.json)已发布；来源SRC-0187..0199共13条；同版PC22 Save/Save as使用和故障有个案、OS 2022年有Offseason多存档建议（部分引用旧2K经验）、2K官方证实MyLeague离线可用，持久化、实际原生GameDate、Autosave和跨年GameLog/Box/奖项/交易存留都未实机认证。本轮PC读回/实际游戏推进/存盘操作/新实机截图0。
+- **DEV29下一轮唯一恢复指针**：`R06_D_CROSS_DOMAIN_SYNTHESIS_AND_GAPS`，其后R07→FINAL-CODEX。研究只交基础游戏事实/设置/可见操作/机制联动，不写角色人格、交易策略、DEV28基础设施，不触碰真实存档；选秀权V4三年旧代码拒绝仍留独立Codex维护。
+
+
 ## 2026-10-21 DEV29 R系列研究最新交接：R06-B已发布，下一轮R06-C
 
 - 依据[PROGRESS](../../docs/game_mechanics/PROGRESS.md)正式断点：R01–R05全为研究结案（原生UI/运行时缺口保留）；R06-A双引擎/86 Registry候选/118菜单参数候选已发布；本次跨窗恢复已发布[R06-B历史奖项媒体指南](../../docs/game_mechanics/guides/K10_HISTORY_AWARDS_MEDIA_R06B.md)、[31类研究目录](../../docs/game_mechanics/catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)、13条来源SRC-0174..0186并同步图证索引。R06-B状态`R06_B_RESEARCH_PUBLISHED_WITH_PC22_UI_AND_HISTORY_GAPS`，非独立审核批准结案；下一轮唯一入口`R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`，之后R06-D/R07/FINAL-CODEX。
