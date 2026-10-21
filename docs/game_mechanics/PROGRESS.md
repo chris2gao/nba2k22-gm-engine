@@ -4,6 +4,10 @@
 
 [独立审核报告](../development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)：跨窗恢复正确、R06-A没有重做、R06-B 31项唯一/13来源/9缺口符合文件统计；研究职责和版本证据边界合格。**R06-B初稿保留，但10项奖项候选均使用不能直接证明该类别的SRC-0178，应在R06-D合并前定向修正来源或降级为未认证候选**；`worldline.native_eras_feature:false`不得被理解为目标PC22已完成排除性实机认证。建议状态`REVIEWED_TARGETED_SOURCE_REPAIR_REQUIRED`，不是R06-B全能力已审定。新网页窗口入口旧R01/R02提示需以本PROGRESS权威新指针覆盖。**R06-C仍为唯一下一轮，允许直接继续**；不启动Codex/DEV28/任何Agent或游戏写入。
 
+## 2026-10-21 R06-B 质量审核Q1/Q2/Q3定向修正
+
+根据[独立审核报告](../development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)，已将R06-B目录10项不被SRC-0178直接支持的奖项类别更正为`RESEARCH_CANDIDATE_UNSOURCED`、`sources=[]`；MVP仅关联Past MVPs历史菜单线索，31项明确为研究功能/信息概念不是31个已采字段。`native_eras_feature`不再使用排他性`false`，改`null`和`UNKNOWN_NOT_NATIVE_VERIFIED`。攻略/Bootstrap/README同步。**这是按审核问题修复并自查，独立审核是否通过仍由外部审核决定。**R06-C的研究任务不受阻断。
+
 ## 2026-10-21 R06-B — 历史纪元、奖项、纪录、媒体与规则历史已发布
 
 **当前最新研究状态：** `R06_B_RESEARCH_PUBLISHED_WITH_PC22_UI_AND_HISTORY_GAPS`。新的唯一下一轮：`R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`；然后R06-D跨域整合，再R07和最终小型FINAL-CODEX。R01–R05已按各自正式状态结案，R06-A保留已出版结论且未重做。此次为DEV29纯网页研究，未启动Codex、DEV28、独立角色人格、游戏内存、存档写入或日历推进。
