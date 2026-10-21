@@ -1,5 +1,7 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+> [**权威研发目标与现行状态区别**](PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：当前研发意图是六阶段各独立模型参与；Coach/Player人格尚未开发。DEV29做游戏原料、DEV28做可读/可执行工具，独立人格另立项。下方旧PR #12待合并记录仅为历史，PR已合并；R05为下一知识研究轮。
+
 ## 2026-10-20 PR#12已合并：DEV29 V2网页GPT研究资料库优先
 
 - GitHub实时确认PR #12 `merged=true,state=closed`（Head原`ded900c`）；先前Draft和dirty/merge conflict说明仅为历史状态，**不再阻断DEV29研究**。GM V3/V4正式启用仍按原批准。
