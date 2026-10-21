@@ -413,7 +413,7 @@
 
 ### R05-D项目原生与业务边界交接
 
-2026-10-21用户明确**取消“选秀权仅未来三届可交易”的世界规则**。已在[权威机读配置](../config/gameplay_policy.json)发布`PLAYER_RULES_20261021_V4`：`draft_pick_trades.maximum_future_drafts=null`、原生资产核对/唯一归属仍必需，**不取代为世界选五届固定上限**；不使用保护和Swap、不修改球员Ability、交易写入需真实玩家具体批准，全部保留。文字权威[文档26](../26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)同步。
+2026-10-21用户明确**取消“选秀权仅未来三届可交易”的世界规则**。已在[权威机读配置](../../config/gameplay_policy.json)发布`PLAYER_RULES_20261021_V4`：`draft_pick_trades.maximum_future_drafts=null`、原生资产核对/唯一归属仍必需，**不取代为世界选五届固定上限**；不使用保护和Swap、不修改球员Ability、交易写入需真实玩家具体批准，全部保留。文字权威[文档26](../26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)同步。
 
 **资料≠实现**：`src/draft_assets.py::trade_window`、`src/gm_core/calculations.py::draft_pick_window`、`src/gm_core/trades.py`、`src/approved_trade_executor.py`尚有三年窗口依赖；旧runtime因此仍可能拦截原生第4/5届。此为未来明确授权的**Codex工程同步缺口**，本轮DEV29不开发/运行修复，严禁谎称5届均已可以执行。
 
