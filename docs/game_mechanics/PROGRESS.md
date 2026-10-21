@@ -1,5 +1,12 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R04独立审核与R05研究范围纠正
+
+- 独立审核已直接读取R04-D 8例互动图谱、双语义侧表与109条主目录并和现有交易/签约工程说明比对：**109项ref无重复且与主目录逐一对应；其中72为有静态Registry/Profile的真实注册字段，37为未认证的研究候选，109项本轮均无current save实时采集值**。R04其余原生99倾向槽位、外部99标签、徽章、动机等是独立研究目录，不能将109宣告成“全游戏字段总数”。签约执行仍保持`approved_signing_v1_unvalidated`。R04的研究交付可结案；本审核未独立检验所有网页链接事实或运行游戏/测试。
+- 用户纠正DEV29职责：**这里只搜集游戏信息、设置/参数/玩法/联动和所有模型需要的原材料**；Coach、Player的独立人格/决策系统尚未开发；角色意志如何模拟和协商由其他任务决定。ATLAS八例不是人格设计、不可作为正式Agent规则。六阶段工作流：**采集→分析→独立教练→独立球员→各队GM→汇总并交执行模型**；实际玩家批准与原生读回始终独立。权威边界：[RESEARCH_INPUTS_VS_AGENT_EXECUTION_BOUNDARY.md](RESEARCH_INPUTS_VS_AGENT_EXECUTION_BOUNDARY.md)。
+- **R05 NEXT，不需要回头返工R04**：集中研究NBA2K20–23合同/薪资帽/预算/Staff/Scouting/Draft/Free Agency/交易及合法游戏操作，给未来角色提供**原始可观察信息与可用动作**；不开发薪资谈判算法/球员决策树、教练性格、媒体行为或执行器，成果按原R05研究方法写GitHub并关闭当前轮。
+
+
 **当前权威状态**：`R04_RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS`（2026-10-21）；DEV29 R04-A/B/C/D研究均已发布。R01/R02已结案，R03已获用户批准结项。
 **当前最新：`R04_RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS`；下一轮 `R05_FINANCE_CONTRACT_STAFF_DRAFT_FREE_AGENCY_RESEARCH`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
