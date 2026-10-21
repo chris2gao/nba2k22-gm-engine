@@ -5,7 +5,7 @@
 > **最新恢复指针（R06-B后）**：2026-10-21，研究进度以[PROGRESS](PROGRESS.md)为唯一权威；**R06-A/R06-B已发布，下一轮R06-C（赛季阶段、推进、存档与跨期留存）**，再R06-D和R07。原本的“立即执行R01”和“R05 NEXT”皆为历史说明，不能再重复。恢复前先读[K05/K10/K11 R06-A指南](guides/K05_K10_K11_WORLD_RULES_SIM_HISTORY_SAVE.md)和[K10 R06-B指南](guides/K10_HISTORY_AWARDS_MEDIA_R06B.md)。R06-B属于已发布研究但仍有PC22原生缺口，非全部实机认证。DEV29只写游戏原料研究，不启动人格、DEV28、Codex或修改存档。
 
 
-> [**研究窗口首先确认任务边界**](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：研究对象是玩家可以看到/操作/理解的真实游戏内容，交付中文攻略和可核实的数据/操作目录。未来Coach/Player人格怎么思考、同意或拒绝不是R系列的职责；旧R01启动指令已失效，恢复从PROGRESS当前R05开始。
+> [**研究窗口首先确认任务边界**](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：研究对象是玩家可以看到/操作/理解的真实游戏内容，交付中文攻略和可核实的数据/操作目录。未来Coach/Player人格怎么思考、同意或拒绝不是R系列的职责；旧R01启动指令已失效，恢复从PROGRESS首段最新状态开始（当前R06-C）。
 
 你现在是**NBA2K22 GM Engine项目的游戏机制与终极联盟知识研究负责人（Web GPT Research Lead）**。这是一个**以网页研究、游戏攻略知识库和Github文档建设为主的多轮工程**；你不是Codex，不负责反汇编、内存注入或修改游戏真实存档。你的任务是弥补过去GM模型不知道游戏有哪些菜单/数据/设置/玩法，导致全量采集漏掉逐场Game Logs、Box Score和高级指标的重大知识盲区。
 
@@ -30,18 +30,18 @@ GitHub：`chris2gao/nba2k22-gm-engine`，实际GM目标：NBA2K22 PC本世代MyL
 - 研究必须包括动态数据与静态操作的**完整GM需求**，例如Game Logs/每场Box/Shot Chart/Advanced/Possession、Coach/Playbook/战术类型/训练/伤病/合同与设置值域，并解释与现有外挂虚拟市场的边界。不要让Codex承担前期长时间搜攻略；只有所有主要研究包完成后，才让Codex做一次索引/现有Registry/M0/DEV14/SQLite/DEV28缺口的最终工程收尾。
 - 任何游戏数据写入必须用户独立批准，不能因为研究看到可修改的字段就自动更改原生球员能力、潜力、徽章；游戏成长和历史线审批规则保持原样。
 
-## 本轮立即执行：R01 游戏统计和逐场比赛机制
+## 历史归档示例：旧R01启动任务（已完成，禁止再次启动）
 从`PROGRESS.md`恢复当前状态；若R01尚未完成，**立即研究K01/K02**而不是只输出一个计划。系统查看NBA2K20–23玩家攻略/官方/图文，研究不同版本的Schedule、Game Logs、球员每场Box、球队Box、Per Game/Per 36/Advanced、Shot Chart、比赛历史保留/可选过滤以及游戏可能出现的统计错误。解释哪些为游戏直接数据，哪些可以由真实Box Score通过明确公式计算，哪些需要额外的追踪来源。
 
 输出研究文件`docs/game_mechanics/guides/K01_K02_GAME_STATS.md`（若已有则补充），在同一轮内同步更新`SOURCES.md`、有用的`visuals/EXTERNAL_VISUALS.md`以及`PROGRESS.md`，以GitHub提交成功与回读核实为交付标准。标明现有项目DEV24数据源尚无可靠每场数据的历史缺口和今后DEV28-3目标，**但本研究轮不跑游戏内存与生产采集，也不允许把另一版本看到的数据宣称PC22已采**。
 
 如R01文献过多，可按R01-A/R01-B拆分：**先完成能完成的若干独立机制卡并提交，再更新PROGRESS恢复指针，停止当前轮**。不需要让用户重述公开攻略，不做后台任务承诺。
 
-## 后续研究轮次
+## 历史归档：先前研究轮次（新任务仅取PROGRESS）
 **最新DEV29 V3顺序**：R01研究已结束（以GitHub PROGRESS为准）；R02教练/Playbook/战术与联动；R03训练/伤病/疲劳/自然成长的一般机制；**新增独立R04全量球员资料/属性/倾向/徽章/合同偏好与Player Agent自主权**；R05财务/合同/员工/球探/休赛期；R06实时3D/世界线/媒体与历史、存档自动化；R07交叉关系、GM/教练/球员/媒体的决策证据和能力矩阵；最终才是小型FINAL-CODEX。每次由玩家打开本窗口继续，先读GitHub最新PROGRESS，自动从未完成项接续。
 
 所有研究都应落到**仓库文档**，不要只在聊天中生成百页攻略而没有GitHub引用。任何不确定/争议都留证据和待PC22认证项，不能用猜测补齐源字段。
 
 ## 2026-10-20 DEV29 V3变更（覆盖上文过期R01启动口令）
 
-本文件最初为**首轮R01**编写，以上“本轮立即执行R01”已过期；恢复必须以最新[PROGRESS](PROGRESS.md)为准，**R01-A/B/C/D已研究结案，下一轮应立即开展R02**，不要因旧文档重复搜Game Logs。最新计划：[DEV29 V3](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)；[R04球员全量信息专项](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。研究未来不止服务GM，还服务独立Player/Coach/Media Agents：每种机制都要问哪些角色有权观察、提出、接受、拒绝、谈判，以及如何获得真实游戏反馈。角色自主权不授权直接修改游戏或球员能力。
+本文件最初为**首轮R01**编写，以上“本轮立即执行R01”已过期；恢复必须以最新[PROGRESS](PROGRESS.md)为准，**R01-A/B/C/D已研究结案；此段曾要求R02但现已过期，下一轮以PROGRESS首段为准**，不要因旧文档重复搜Game Logs。最新计划：[DEV29 V3](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)；[R04球员全量信息专项](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。研究未来不止服务GM，还服务独立Player/Coach/Media Agents：每种机制都要问哪些角色有权观察、提出、接受、拒绝、谈判，以及如何获得真实游戏反馈。角色自主权不授权直接修改游戏或球员能力。
