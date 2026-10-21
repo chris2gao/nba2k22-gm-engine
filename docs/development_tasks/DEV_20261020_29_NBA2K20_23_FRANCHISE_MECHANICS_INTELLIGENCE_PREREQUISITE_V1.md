@@ -1,5 +1,9 @@
 # DEV29 / R0 — NBA2K20–23 终极联盟游戏机制与玩法知识全域研究：DEV28强制前置 V1
 
+## 执行规划版本升级：DEV29 V2（2026-10-20）
+
+**[DEV29 V2（网页GPT多轮研究、图文机制资料库、Codex最终收尾）](DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)已取代本V1中的执行组织和R0-C“Codex早期主责”安排。** V1研究领域、版本比较及数据完整性问题保留作为历史设计；以V2为实施权威。玩家确认PR #12已合并，知识资料库入口：[docs/game_mechanics/README.md](../game_mechanics/README.md)。
+
 > 2026-10-20 / Web Development，基于玩家明确提出的下一阶段开发前置要求。本项是**研究、机制目录、采集/执行需求反向审计**，不是新增的游戏内存写入、编码测试、生产采集或自动启动任务。计划执行时间顺序：**PR #12收尾与玩家合并决定 → DEV29（R0研究基线）→ DEV28（数据/控制透明化实装）→ GM真实运行与质量评估**。任务编号29只是新文档后补编号，**执行顺序上先于28**。
 >
 > 相关长期研究规范：[GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1](../GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)。开发必须主动先查优秀玩家社区、游戏攻略、2K官方手册/开发者说明，再对照真正使用的NBA2K22 PC本世代原生来源。NBA2K22/23次世代资料**允许且应积极使用**，只有具体菜单、偏移、对象和应用机制需在PC22验证。
