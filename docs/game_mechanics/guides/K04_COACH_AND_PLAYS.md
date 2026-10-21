@@ -275,3 +275,66 @@ NBA2K22同年MyNBA玩家说达拉斯名单缺适合Luka出任SF的行动时，�
 **未解决**：PC22原版Coach/ACE/Personal/Freelance与2D预览可读图，战术CRC类别精确ID，ACE下本队四Freelance实际使用概率，Series游戏内执行，Center与TagOnRoll动态覆盖规则。全部`UNKNOWN`或`DEV28_NATIVE_DISCOVERY_REQUIRED`，**不能通过搜索更多2K16–19战术帖子无限外推**。
 
 **下一阶段建议：`R02_C_BOUNDED_ORIGINAL_UI_OR_CLOSE`**。如果玩家下一轮继续R02，应限定一次原版PC22教练/攻防菜单视觉取证，有效证据即增量K04；若仍没有可靠原版画面，则按UNKNOWN封存R02公开研究，转R03训练/疲劳/伤病，不因此启动DEV28或Codex。研究结束只按GitHub PROGRESS推进，不自动做任何游戏写入。
+
+---
+
+# DEV29 R02-C — 原版PC22菜单有界补证、角色能力原料目录与R02结案（2026-10-21）
+
+> **最终公开研究状态：`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。** 本轮依照R02-B停止规则集中查找原版NBA2K22 PC本世代MyLEAGUE Coach Gameplan、ACE、Playbook、Freelance、个人防守和2D战术板视觉证据，未取得**同时具备原版PC、离线MyLEAGUE、完整目标UI可读、真实来源可复核**的菜单画面。研究结案不等于游戏功能已完成原生取证或开发。本轮新资料只保留有直接新增事实的[SRC-0048](../SOURCES.md)：同版MyLEAGUE球员报告比赛中修改Freelance可按本队保存；这属于玩家报告，平台未知且没有截图。
+
+## 18. 目标UI最后一轮认证矩阵
+
+| 对象/目标页 | 现有最强证据 | 本轮新增PC22完整可读原版UI | 需要定向只读验收什么 |
+|---|---|---|---|
+| Coach Gameplan：六POE、BenchDepth、RunPlays、Zone、HelpDefense、体系 | **本项目原生字段/部分隔离局写回回读证据**；旧平台菜单有类比 | **0张** | 原版PC22赛前Coaching栏目、完整页签/筛选/菜单选项，逐字段和同批原生字典比对 |
+| ACE / Offensive/Defensive Playcalling / Timeout | **同版社区有互相冲突的自动重置经验** | **0张** | 静态Coach值与赛中ACE/暂停后策略分开取证；真实CPU-vs-CPU是否触发不能凭菜单确认 |
+| 四个Freelance与Series选定/执行 | **本项目34项native枚举；玩家说四槽有顺序；同年玩家见到Series回到Freelance** | **0张** | 阵型菜单、选中与实际激活路径、同队/跨场保存、原生四槽与现场覆盖的关系 |
+| Book区域、12类选择、战术2D预览 | **已有CRC、68个Book槽及用户界面口述类别** | **0张** | Book真实分类筛选→CRC对应；截1个动作完整名称/棋盘预览即可起步 |
+| 指定球员PERSONAL防守18项及Center/Tag/PreRotate | **本项目原生字段/部分UI配对；其它版本玩家打法解释** | **0张** | 选定对手及个人ID的防守页与OnBall5/Hedge5/Tag/Stay原始标签；OVERALL只读 |
+
+视觉资料审查见[VIS索引](../visuals/EXTERNAL_VISUALS.md)，不把封面、Steam外层View Stats、模组PC MyNBA、2K22次世代MyNBA教练图或MyTEAM临场手柄提示当作PC22原版MyLEAGUE认证。所有字段如果只有原生字典无UI，继续保留`PC22_UI_UNKNOWN`与`PROJECT_NATIVE_KNOWN`**双重事实**，而不是把全机制降级为不存在。
+
+### 18.1 两个容易误采信的结果
+
+- **2021-10至12月同版MyLEAGUE Freelance保存经验**：[SRC-0048] Reddit帖子中提问者先抱怨必须每场重配默认Freelance，后来回答“在比赛中改动后会为该队自动保存”。这至少说明玩家报告**存在另一种保存路径**，可用来挑战“2K22无论如何都不保存”断言；没有平台、完整操作帧、外层save身份与跨赛季测试，不能写成`PC22_NATIVE_PERSISTENCE_VERIFIED`。它还说明教练可能面对**临场Gameplan的不同优先权来源**，不是非得每队同一动作。
+- **网页时间矛盾需排除**：[Magic Game World：How to Adjust Player Minutes in NBA 2K22 MyLeague Season Mode](https://www.magicgameworld.com/how-to-adjust-player-minutes-in-season-mode-in-nba-2k22-myleague/)显示发文`2021-04-30`，**早于2K22在2021-09-10发售**，同时未经验证地声称调整分钟并关闭自动调整即可锁定整个赛季；本项目玩家已经报告AI会重新分配分钟，且不再追求分钟锁定。本轮**不将该文章注册为可信来源，不据此产生任何动作能力**。类似不合理日期的“玩法攻略”不能凭标题作为图证。
+- 2K22官方MyNBA`Conditional Coaching`属于**PS5/Xbox Series平台的专有新增功能**（既有SRC-0026、官方MyNBA报告），应作为系列架构参考/未来教练能力启发，**不得声称PC本世代MyLEAGUE内置同名条件规则执行器**；不要悄悄用它替代外部教练自主决策。
+
+## 19. R02研究真正交给四类角色的原料：事实、选择空间、反馈，而不是处方
+
+已发表K04前面各节解释篮球用途；**下面不是推荐每个角色怎么决定，而是告诉他哪些选择可提出、哪些动作当前游戏接口可承载、怎样知道决策发生了什么**。存档事实与角色思想必须分层，未知原生取证不能为了“涌现”补成虚假动态数据。
+
+| 研究原料/对象 | 原生事实与动态信息（能观察到什么） | 可供角色考虑的非穷尽选择 | 谁能提出/拒绝 | 反馈与边界 |
+|---|---|---|---|---|
+| Coach偏好体系/实际体系 | `PreferredSystem`、`ActiveSystem`本机枚举0..7；真实教练身份、球队阵容需要最新批次 | 沿用理念、逐步改革、要求阵容补强、接受GM提议或坚持反对 | Coach表达个人偏好；GM提出协商、换帅；Player表达适配意见 | 教练心理偏好、承诺是**外部模拟**；体系raw不是角色人格或能力增减 |
+| POE六项/进攻纪律 | Coach默认字段、RunPlayTendency等可按同批原生源读取；ACE临场状态另属UNKNOWN | 自由进攻、加强预设、保护转换、改变主攻方向，或决定本回合不改变 | Coach策略建议；GM可提议；Player可表达角色不满 | 实际赛中调用率/比赛效率仍待真实数据；**不设统一胜率最优阈值** |
+| 本队Book/共享战术池 | Book 68槽/四区、同批原生CRC；既有池1,392条为历史归档，不一定代表现在全部可用；12类CRC关系UNKNOWN | 在本队书保持、增加或替换合法CRC，选择打法或拒绝动作 | Coach主张动作搭配，GM讨论人员/书；Player对自身角色有立场 | 只有玩家另行批准且具备最新同批可执行来源才可能原生写入 |
+| 四个球员PlayTypes/触球与纪律 | PlayTypes四槽有序/原生0..15；Touches与PlayDiscipline需独立来源和许可，不视为“可自由调节人格” | 请求增加持球、改打无球、拒绝被安排在不愿的位置、教练主动使用不同球员 | Player可提出和拒绝；Coach/GM可接受或另拟，发生真实修改还需用户批准 | 普通GM不能通过改Overall/Potential/Badge来实现角色理念；现实原生触球反馈≠人格真值 |
+| 四Freelance/ACE/Series | Freelance四槽有序与34已知名称；ACE覆盖、Series现场与保存仍UNKNOWN | 更偏向运动进攻、空间、三角/高位策应；保留ACE自动调度或希望固定方案 | Coach可偏好临场调整；GM/Player可以质疑和商量 | 演示棋盘和CPU实际打法不同；SRC-0048只证明有人报告按队保存 |
+| 按对手PERSONAL防守 | 18字段已在本机字典；真正球员对位/防守人标识必须源可查 | 单防、包夹、换防/过掩护、护禁区与顾外线等相互有代价的选项 | Coach选择、GM建议，防守者可表达负荷/风险诉求 | 普通GM **OVERALL只读**、PERSONAL稀疏改动需授权；效果因对手比赛策略和ACE变化 |
+| 比赛/历史动态反馈 | R01真实Box/Game Logs与历史保留窗口**尚有PC22 UI缺口**；只有真正入库事实可供角色判断 | 根据新比赛反思、更换偏好、坚持、接受责任，甚至形成错误见解 | 所有角色可形成独立判断；Media只报道可见事实和标明传闻 | **不能在没有GameID/Box数据时生成“实际战术成功率”**，不能让媒体读取其他角色私有动机 |
+
+**特别区分四层状态**：`GAME_NATIVE_OBSERVED`（游戏事实，附版本/时间/对象）→ `ROLE_BELIEF_PRIVATE`（角色对事实的主观看法）→ `ROLE_INTENT_AND_NEGOTIATION`（选择、承诺、拒绝）→ `APPROVED_NATIVE_ACTION_AND_RESULT`（玩家批准后合法执行且读回）。不会把角色想法当真实比赛记录，也不会让模型在建立长期记忆时擅占Native Tempo/Touches/Loyalty等仍参与引擎的字段。
+
+### 19.1 只定义可选范围与冲突，不植入统一最优答案
+
+每个角色可以选择`HOLD`、`PROPOSE`、`COUNTER`、`REJECT`、`WITHDRAW`、`REQUEST_MORE_DATA`、`ACCEPT_RISK`等**外部角色决策标签**，这些仅是将来人格化系统的**候选行为词汇，不是本轮新增游戏原生命令、审批或Agent实现**。角色的个人目标、风险厌恶程度与信息可见性将影响其选择；研究层不能强制“最后一定达成战术共识”。GM可以错误地低估教练、教练可以坚持失败的策略、球员可以对球队胜率不利但符合自身目标地拒绝改打法、媒体也可能猜错原因——只要外部世界事实与传闻保持可区分。
+
+**合同和权限的硬边界不能由模型自由消解**：合同到期/交易合法性/真实球员对象ID/球队手册独占写入约束由已授权执行系统验证，真实玩家始终控制游戏原生修改；该自由选择的层面不包括直接编辑普通球员能力、潜力或徽章。
+
+## 20. 后续DEV28/Antigravity待证输入（不是立即启动任务）
+
+按信息增量排序、最多两组有价值画面，而不是向用户索求整个游戏：
+
+1. **Coach配置和动态冲突（A组）**：原版PC22离线MyLEAGUE的Coach Gameplan页（显示POE、四Freelance/RunPlays任选有清楚字段的页）和同队比赛内的ACE/Offensive Settings各1张。为每张标保存方式、游戏日期、球队/对手、是否模组、时间点、完整按钮提示，不能因“同名”认为一页覆盖另一页。
+2. **战术候选与对手防守（B组）**：本队Book编辑/12类筛选及1条play的2D路线；另选对手一个球员的PERSONAL防守页，优先能看到`ScreenDefenseOnBall5/Hedge5/TagOnRoll/PreRotate`真实菜单标签。可从最容易看到的两页先做，不需要把所有1,392个CRC都截图。**无需把USER操作当CPU战术已执行**。
+3. 若有机会上线更完整只读数据，独立采`coach_pre_game_state`、`coach_timeout_state`、`game_id`、`observed_ai_call`和`actor_visibility`，只在实际观察到后提升到`PROJECT_CAPTURED`、`GM_QUERYABLE`；本轮没有运行这些操作。
+4. 任何只读菜单或内存调查必须是未来另有权限的DEV28/Antigravity流程。R02公开研究不因截图缺失反复延期；未来获得真实PC22素材只**增量更新**K04、SOURCES、VIS和原生映射，不重新展开R02-A/B/C。
+
+## 21. R02研究结案和V3下一轮入口
+
+**R02-A/B/C总体：`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`，研究功能领域已按来源、操作、联动、风险与自主角色权限交付，原版PC22的完整Coach UI与运行时效果仍`UNKNOWN`。** 本次未找到满足认证条件的新目标画面，未上报假视频帧/模组图/猜测类别。项目已知的19 Coach、18项对手防守、34Freelance和68槽Book保留其既有来源等级；战术CRC类别精确映射和ACE/Series实际使用仍需未来单独认证。
+
+**下轮按V3直接启动R03（K06训练/健康/成长）**，优先研究：球队训练计划与个人训练focus、休息/强度/疲劳、伤病和部位Durability、自然能力成长与退化、员工与医疗，比赛/模拟对不同机制是否有差异；从`NBA2K22 PC MyLEAGUE`出发，旧版本/次世代MyNBA明确分级。要交付的是**训练操作选择全集、状态/刷新时间、身体健康与球员拒绝训练的外部角色映射**，不替角色制定永远一致的最优训练方案。R03研究共性训练健康机制，**不会代替R04完整球员档案、全部伤病耐久字段、人格徽章和合同偏好研究**。
+
+R03从GitHub读取[PROGRESS](../PROGRESS.md)、V3、R04专项目录、K04已知Coach/训练联动与本项目训练相关既有开发/操作文档，直接创建或补充`guides/K06_TRAINING_HEALTH_GROWTH.md`。下一轮同样提交GitHub与来源图证回读。**不启动Codex/DEV28或任何游戏存档读写。**
