@@ -1,5 +1,9 @@
 # 迭代开发基线提示词
 
+## 2026-10-20 游戏机制研究先行的持久开发规定
+
+对游戏领域工作，在理解机制前不急于编码。永久规范：[GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1](GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)。先复用项目文档→查**官方NBA2K22手册/开发者说明**→查**玩家社区（Operation Sports、Reddit、Coach2K）和实战攻略**→确认PC本世代适用性及与真实内存/界面数据的对应→写代码与最小授权验证。官方PS5/Xbox Series MyNBA材料不得无证据当作PC MyLEAGUE事实；社区玩法与已证原生地址分级登记。战术分类、教练/训练/个体倾向、赛场AI和动态采集等都适用。玩家允许无法直接通过内存找到的战术分类用游戏截图核查（可几十张分批）；不要求Codex活跃等待。**Git冲突/纯代码任务不做无关网页检索**，原开发边界V2保持。
+
 2026-10-20 工作包B增量：DEV27已按玩家新授权以80459b4快进合入远端及本地main。B2/B3已在独立codex/bpti-package-b交付知识映射/30队历史seed和四条早期机制；接口与限制见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)、[四项验收](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)及34。仅四项授权检查首次通过；包B待Draft PR审阅，不自动合并或启动B4–B6。V4未启用，真实30队UNASSESSED；下面旧“未合main/未做B2”描述保留原阶段历史。
 
 
