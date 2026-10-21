@@ -357,3 +357,25 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 **高价值待证的原版游戏界面/动态来源（不要求本轮立刻验证）**：PC22 Salary Cap/Table+Exceptions、FA合同真实报价/签约后读回、完整交易设置及Year 4/5列表、Staff Pool/聘解约、Scouting/新秀榜单、Draft Class选择/正式选中、跨赛季财务和Draft资产变更。
 
 **证据/工程分界**：政策`PLAYER_RULES_20261021_V4`已在GitHub直接更新，游戏Native执行器仍有三届代码路径待另行授权的Codex同步；有政策≠可执行。R05-D研究关闭于`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`，下一轮R06尚未启动。
+
+## DEV29 R06-A — 3D实时比赛、日历Sim与Normalize菜单视觉证据（2026-10-21）
+
+**本轮新增达到完整“NBA2K22 PC无Mod/本世代离线MyLEAGUE/可读页面标题＋菜单字段＋存档/游戏平台身份”的游戏截图：0**。真实游戏设置的文字证据比此前充实得多：**SRC-0163和SRC-0164均为明确PC22玩家的亲述/手抄设置列表**；这仍不是经游戏菜单逐像素复核的截图。**新增合格VIS ID=0**。
+
+| 候选媒体 | 有效内容与原版本身份 | 认证结论 |
+|---|---|---|
+| [cdcool PC22 CPU-vs-CPU MyLEAGUE实战帖](https://forums.operationsports.com/forums/forum/basketball/nba-2k-pc-forum/918715-cdcool-nba-2k22-cpu-vs-cpu-myleague-sliders)，SRC-0163 | 明确PC版、全控30队、观看所有3D比赛而非Sim；完整文本记录Game Speed、投篮/防守/犯规等 | **PC22_CURRENTGEN_FIRSTHAND_TEXT_NOT_TARGET_MENU_PIXEL**，作者的视频演示和自定义设置不可当当前游戏默认或保存后的读回 |
+| [RES2 PC默认阵容与MyLEAGUE Simulation帖](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917713-res2-2k22-all-star-current-gen-sliders/page3)，SRC-0164 | 玩家问PC/default rosters，作者回答Yes并列Quarter/Simulation各分组选项和值 | **PC22_CURRENTGEN_PLAYER_RECORDED_MENU_LABELS**，无同批原版界面帧精确印证；本人也改动Roster Tendency |
+| [DarthRambo 2021-09 PS4本世代Simulation文档](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917042-2k22-myleague-settings-sliders)，SRC-0165 | 确认PS4 2K22日历模拟各组可见 | **SAME_GAME_PS4_NOT_PC_IMAGE**，取值为玩家调整 |
+| [ShadyMike PC/Console NBA2K22 Slider Showcase](https://www.youtube.com/watch?v=yMGZbgeqqSM)，SRC-0166 | 视频发布页显示2K22 Gameplay、With Ball/Without Ball Movement八项及部分原生场景 | **VIDEO_DESCRIPTION_REVIEWED_FRAMES_NOT_AUTHENTICATED**；不能凭视频标题确定每帧平台或当前PC菜单 |
+| [RealSport101 2K22菜单介绍](https://realsport101.com/article/nba-2k22-sliders-realistic-settings-gameplay-options-optimized-experience-offense-defense-movement-attributes)，SRC-0167 | 公开游戏Setup、Normalize Minutes/Stats、Sim Difficulty及模拟滑块的分类与作者示例 | **MIXED_MYNBA_MYLEAGUE_COMMUNITY_GUIDE**，页面若含图片未独立核实可读字段与平台 |
+| [MyLEAGUE Normalize 比分异常报告](https://www.reddit.com/r/NBA2k/comments/var3vi)，SRC-0170 | 2022同版玩家提供比分从场内到日历极端变化的文字叙述 | **2022_TEXT_INCIDENT_NO_GAME_FRAME**，不能将其例子当2K22 UI原生存储或确定修复方案 |
+
+### 独立定向PC22未来图证最小需求（不要求本轮用户拍照）
+
+1. 原版NBA2K22 PC Offline MyLEAGUE **Setup页**：完整显示Quarter Length、Sim Quarter Length、两个Normalize、Season Length、Playoff Length、Difficulty和Game Speed，若跨页则分别截取对应标题；说明开始时间和版本。
+2. **日历Simulation菜单**：Team Pace/Fast Break、Possession Results、Shot Types/Percentages、Stat Distribution、Fatigue/Recovery所有组的**可读文字/当前合法Min/Max**；每个滑块保存时是否会复位与真实Game Date。
+3. **LIVE 3D USER和CPU对照页**：Offense/Defense/Attributes/Tendencies/Fouls/Movement一共7组，标清手柄受控方和当前CPU-vs-CPU观看模式，不能从“管理30队”判断用哪栏。
+4. **SimCast跳入现场/退出结果**：同一真实GameID的场内比分、完场Box、Calendar记录、Normalize分钟/统计开关；只读记录不进行示例交易或擅自推动正式游戏赛程。
+
+**重要真实技术区分**：仓库`config/state_io_native/settings.json`和`world.json`共86条注册候选；即使登记了原生RVA、偏移和默认值，**并未因此获得本轮现场菜单/内存/持久化验收**。R06-A研究状态`R06_A_RESEARCH_PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS`。R06-B历史纪元/奖项/媒体下一轮，不开发任何人物系统或执行器。
