@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 R07独立审核后A/B机读修正已提交待复验
+
+[独立审核报告](development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)接受R07主体研究，要求两项定向修正；[修复回执](development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)已登记：①R01指南主题`R07.0007/K02.SHOT_ZONES`、`R07.0010/K02.PER36`标为人工检索别名并锚定原章节，不冒称原机器主键；②F21/F22/F23/F26/F27/F32/F39/F40将`model_query_api_status`改为查询事实口径，把原交易/签约/Staff执行、V4+3差距、日期/存档真实性、审批和历史重力约束保存在独立Warning/Prerequisite/世界规则字段。694条7卷、40组86锚点、20原缺口均保留。**状态`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`：尚未正式研究结案或获得FINAL-CODEX授权。** 生产能力和普通球员能力禁改规则不受研究文档修正影响。
+
+
+
 ## 2026-10-21 R07独立审核：研究交付已验证，仍有两项机读字段修正
 
 [DEV29 R07独立审核报告](development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)。R07七卷694项目/682源JSON记录直接匹配/40功能族/86功能锚点/20继承缺口通过静态检查；研究主旨和七维成熟度分离正确。**当前状态`R07_REVIEW_TARGETED_CATALOG_REPAIR_REQUIRED`，不是全面结案或Codex自动开发授权**。两个定向问题：PART_01两个R01人工主题ID需标`GENERATED_GUIDE_TOPIC_ALIAS`及具体章节；矩阵F21/F22/F23/F26/F27/F32/F39/F40的`model_query_api_status`混入写入/审批信息，应恢复为查询状态并另留执行警示。此类修复不意味着PC22真实运行时读回、逐场Box或存盘能力有进展。用户随后可另行触发FINAL-CODEX对账；禁止顺手开发人格/DEV28/游戏写入。
