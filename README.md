@@ -1,5 +1,8 @@
 # NBA 2K22 Antigravity 外部总经理决策引擎 (External GM Engine)
 
+
+> [**项目级开发意图（所有模型先读）**](docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：这里的最终目标不是只有GM最优决策器：六个独立阶段为采集→数据分析→教练→球员→GM→汇总执行。**DEV29 R系列只研究游戏机制/动态事实/静态可选项/作用与联动，DEV28提供原生可用的I/O工具；教练和球员独立人格系统另立任务，不能由研究或接口工程编写规则来冒充人格。** 此文档高于下面旧版运行子流程的历史描述。
+
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Platform Windows](https://img.shields.io/badge/Platform-Windows%20x64-0078D6.svg)](https://microsoft.com)
 [![PyWin32](https://img.shields.io/badge/Memory%20API-PyWin32%20%2B%20ctypes-yellow.svg)]()
