@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-20 PR #12玩家批准审查修复与DEV28全透明开发路线
+
+- 玩家明确授权PR #12/F1–F4**局部修复**，需Codex在原Draft分支完成：蓝图与B5演化修订相符、同存档代次/分支历史引用、B4可执行native动作限制不可误封正常外部MARKET、portfolio只选择VIABLE_CANDIDATE内部动作；直接关联小范围测试后结束任务，合并及V4启用独立授权。
+- 新的后续开发主计划：[DEV28 GM Native I/O透明、动态事实完整性、战术手册真实绑定与执行闭环](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。分D28-0～D28-5：能力缺口盘点、全部Book/Play目录及Coach→Book/slot生命周期修复、世界/教练/个人防守/倾向/训练合法候选枚举与游戏文义、DEV24逐场/球员/球队/身体状态、GM查询/提案/DEV14执行/读回、跨模块可用性报告。用户想让GM知道全部**当前游戏实有的**选择项和真实动态事实，而不是返回生裸值。
+- `team_book()`在DEV27的867fe85只修了末尾独立Playbook后缀的严格名称匹配；用户认为未彻底修复。DEV23实机三队204槽/148非零/111可命名/37未知；原生PlayType、实际发起/受益人和3D使用尚缺。D28-1查全部30队本队已加载Book名单、原生真实引用/Coach当前BookID、CRC及意义，用批准的**两次动作**技术归位→重新来源采集→本队槽写入/读回；不做自由跨队改BookID，正常GM仍改本队书槽。
+- Antigravity继续找原生地址/游戏选项/静态战术名称类型及DEV24动态观测源，Codex唯一接现有M0/Registry/DEV14。外部GM虚拟交易/签约/选秀业务不变，历史新秀Pot遮蔽及玩家批准保留；不存在的原生比赛/疲劳值显示NOT_OBSERVED。**DEV28计划写入并不批准实际游戏修改，也不应污染PR #12范围。**
+
 ## 2026-10-20 M4系统自我进化交付索引
 
 Codex窗口②已从合并M3后的main实现DEV20/M4，状态M4_ENGINEERING_MAIN_MERGED / GM_V4_NOT_ENABLED，PR #7经审核小修正后按玩家批准合入main（`c51fa36080ed39c8305635f1cb4363128475fdf0`）；正式本地main已同步。本次仅定向test_02通过，未扩大测试或处理Issue #6。玩家下次主动触发开发规划时，先读[工程问题CURRENT](../../web_gm/development_feedback/CURRENT.md)、[准备状态](../../web_gm/development_feedback/readiness.json)及必要的每项详情/原证据，再提出最小研究/实现范围、成本和任务书草案，等待玩家批准；不把候选当作已立项任务。长期Codex实态查[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)、[M4验收](../../docs/development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。Issue #6、BPTI、季后赛采集与双引擎校准均仍DEFERRED；M4只管理工程需求，不评价GM篮球经营效果或实现校准器。真实30队UNASSESSED、Web/已脱敏生产消费待证、V3生效。本条仅开发交接指针，不启动后续任务或游戏。
