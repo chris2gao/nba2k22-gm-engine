@@ -2,6 +2,8 @@
 
 > 2026-10-21。**状态：R07研究报告已发布，独立审核待完成；本文不是开发任务、PR说明、游戏采集请求或Codex授权。** R01–R06已研究结案，目标NBA2K22 PC本世代MyLEAGUE。R07给出[40组能力矩阵](catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694条源索引](catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)和[中文指南](guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)。
 
+**R07索引体积与读取约定**：`R07_ITEM_TRACEABILITY_INDEX_V1.json`现在是7卷的JSON清单（694项总计）；不能把清单缺少`items[]`理解为资料丢失。使用`parts[].path`逐卷读取，不要依赖GitHub单个超大Contents API响应。分卷保留原始网页来源和项目Profile/文档依据。
+
 ## 1. 最终工程问题
 
 在不破坏游戏既有自然成长/原生合同/实际比赛规则前提下，确认哪些**已研究的信息**在当前真实存档里已经①有原生来源②被完整读回③同批SQLite/JSON发布④提供模型安全查询⑤属于经过玩家当次批准的有限执行器能力。缺口由后续获批的DEV28或小范围Codex落实，R07不决定具体实现方法、更不触发执行。
