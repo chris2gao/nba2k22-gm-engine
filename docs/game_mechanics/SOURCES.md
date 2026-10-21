@@ -92,3 +92,26 @@
 | 带`NBA 2K22 PC/ MyLeague`标题的网络视频/图像或真实NBA Game Log表格 | 未能同时获得可辨原版PC MyLEAGUE菜单、字段和可靠视频时间戳；部分结果实际是NBA.com、MyCareer、2K23、其它游戏 | **检索标题≠已观看的游戏画面** |
 
 **关闭结论**：R01-D未取得符合五重身份条件（NBA2K22 + PC + 原版无模组 + 离线MyLEAGUE + 可读统计字段）的新图证；记作`NO_NEW_PC22_UI_CONFIRMED`，不等于“无Box Score/无Game Logs”。已完成公开研究`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。未来新截图只增量更新当前指南§20、[VIS TODO](visuals/EXTERNAL_VISUALS.md)和[PROGRESS](PROGRESS.md)，下轮直接研究R02教练与攻防。
+
+## DEV29 R02-A — 教练与攻防机制：2026-10-20新核对资料
+
+以下新增的是**真正有教练/战术作用事实的来源**，并非只按游戏标题扩展检索量。URL在本轮分别打开或审看可访问的对应作者原帖/官方正文；社区数字只是个人经验，主机同代不自动成为PC22实机认证。
+
+| ID | 原始页面与定位 | 版本/平台/模式及时间 | 本轮支持的具体事实 | 证据等级与限制 |
+|---|---|---|---|---|
+| **SRC-0030** | [2K官方新闻：NBA 2K22 Unveils New Gameplay Innovations](https://newsroom.2k.com/news/nbar-2k22-unveils-new-gameplay-innovations)，Defense/Shot IQ段 | 2K22官方，2021-08-31；跨平台新闻，对PC MyLEAGUE菜单无专门字段表 | 2K22官方宣布重新设计干扰投篮、封盖、防守轮转，并重视高质量出手机会 | OFFICIAL_2K22_GAMEPLAY；不认证Coach某个字段的量化效果 |
+| **SRC-0031** | [OS：NBA 2K22 Useful Findings首页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings)，2021-09-18 **#1、#4、#5** | 2K22同年玩家，作者比赛设备/模式并非全部可精确认证 | tcnumba10与jimbo3772对Touches、Shot Tendency、Play Discipline、教练Run Plays和Book/PlayTypes关联提出不同经验；#5发现球员类型与本队书的类型未匹配使该SF得不到合适战术 | COMMUNITY_2021_FIRST_HAND_DISCUSSION；不是官方AI公式；触球50等个人调数值不适用于项目自动建议 |
+| **SRC-0032** | [OS：NBA 2K22 Useful Findings 第10页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings/page10)，2021-10-07 **#136–139** | 2K22玩家，未独立确定其PC/PS5/PS4 | Tynole14声称自动叫战术反复只给魔术两名后卫，改Touches没解决；另一用户观察相反/提供不同替代经验 | COMMUNITY_CONFLICTING_PLAYCALLING_REPORT；不是PC22稳定缺陷，更不构成改球员倾向授权 |
+| **SRC-0033** | [Operation Sports：The Ongoing Help Defense Saga in NBA 2K22 Part 2](https://www.operationsports.com/the-ongoing-help-defense-saga-in-nba-2k22-part-2/)，Chase Becotte，2021-10-18，Help Defense Issues / On Ball vs Off Ball / Gameplan段 | 2K22同年作者亲玩/技术评论，具体PC目标/补丁版本未确证 | 弱侧协防、无球紧贴与轮转问题；暂停Gameplan有说明但某些设置效果受游戏bug/补丁影响 | ORIGINAL_EDITORIAL_GAMEPLAY_CRITIQUE；主观分析+案例，不当作所有游戏版本某按钮无效的定理 |
+| **SRC-0034** | [OS：NBA on TNT 2k22 Realistic Game Play，第1页与#12–14](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/918002-nba-on-tnt-2k22-realistic-game-play-for-me)，2021-10-11至20 | 作者明确 **Xbox One + Xbox Series X**；Player/Gameplan相关，主机本世代类比适用，**非PC实测** | 玩家文字说明Gameplan→Defensive Settings、Pressure、Screen、Hedge、Stay Attached、Post、Double Team；#12指出Pressure合法词是Gap/Moderate/Tight/Smother而非Go Over，#14原作者承认修正 | CURRENT_GEN_XBOX_ONE_TEXT_ANALOGUE；文中具体值是个人设定，非官方最优推荐；页面内标题Image未用作菜单画面认证 |
+| **SRC-0035** | [Reddit：Best playbooks?](https://www.reddit.com/r/NBA2k/comments/r6yxow/best_playbooks/)，2021-12-02 | NBA2K22 **MyNBA次世代**帖子标记MyNBA；非PC MyLEAGUE | 一名用户因达拉斯锋线使用缺适合其角色的战术，在Book加入Cutter、Mid、3PT后反馈球队进攻更顺 | COMMUNITY_NEXT_GEN_EXPERIENCE；不能当作通用必胜配方 |
+| **SRC-0036** | [OS：Questions regarding coach settings](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/862337-questions-regarding-%E2%80%98coach-settings%E2%80%99)（2018-09-10 #1–3）及[ACE Effectiveness](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/903464-ace-effectiveness)（2020-11-22 #1–8） | NBA2K19/21时代（不同作者与平台），非2K22 PC直接证明 | 玩家对于ACE/Auto Playcalling/临场默认Freelance是否自动覆盖、是否重复调用存在分歧；某人认为开ACE会在暂停后重排，另一人称ACE有助动态变化 | COMMUNITY_OLDER_VERSION_CONFLICTS；不可把旧菜单具体开关直接搬到本机 |
+| **SRC-0037** | [OS：Is ACE engine Team or Coach Specific?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/814745-is-ace-engine-team-or-coach-specific)，2016-09-22 | 2K17前后；论坛保存开发者介绍/引文，非2K22官方游戏菜单 | 说明ACE设计意图包括不同阵容、对手与关键时间变化、临场动态攻击策略；“归教练还是队伍所有”原帖本身属于玩家争论 | OLDER_SERIES_DEVELOPER_TEXT_REPRODUCED；不证明2K22 PC当前运行频率/覆盖规则 |
+| **SRC-0038** | [NBA2KW/HoopsGamers：2K22 Controls Guide](https://hoopsgamers.com/nba-2k22-controls-shooting-dribbling-dunking-defense-rebound-offense-guide-xbox-1-x-ps5-ps4)，2021-09-10 | 2K22 **PS4/PS5/Xbox One/Series**操作表，非PC键盘映射 | 正常比赛有On the Fly Coaching(D-pad)、Call Play(L1/LB)、防守换人、协防/包夹等手动操作 | SAME_GAME_CONSOLE_CONTROL_GUIDE；不证明GM网页能向CPU强制实时调用 |
+| **SRC-0039** | [OS：NBA2K22 The Eccentric Edition Realistic NG Slider Set](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917100-nba-2k22-the-eccentric-edition-realistic-ng-slider-set)，EccentricMeat首帖2021-09-15，后续版本于12月更新 | 2K22 **次世代**个人Slider/Coach Settings，非PC MyLEAGUE | 玩家公开将PlayVision=All Plays、PlayVision Display=Full、Offense Playcalling=Auto用于观察更活跃的进攻跑位 | COMMUNITY_NEXT_GEN_USER_SETTINGS；不能把个人值域推荐当PC22默认/实战CPU自动比赛认证 |
+
+### 本轮的内容与图源审核纪律
+
+- 已分别打开2K官方新闻、OS原帖、OS编辑文章、HoopsGamers控制说明和Reddit的MyNBA用户回帖；Coach2K关于Isolation/P&R/Fade/Post/Cutter的旧版术语索引已被本项目12类文档引用，**当前直接URL抓取返回404**，本轮不新增编号，也不把搜索引擎摘要说成完整网页正文。
+- [SRC-0034] 的作者初稿存在“Pressure=Go Over”错误，后续回帖当面改正：这是为什么按字段登记enum，比复制网红一键设置更重要。
+- 原版PC22 Coach/ACE/Freelance的完整操作截图仍未取得；当前项目既有原生字典与用户游戏经验单列“项目事实”，不靠主机截图倒证。外部图像未获再分发许可，不复制到GitHub。
