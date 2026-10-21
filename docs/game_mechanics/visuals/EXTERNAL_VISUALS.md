@@ -274,3 +274,23 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 4. 若未来真要把人格徽章/职业动机导向游戏写入：要由另行授权的原生专项对字段名、来源、原始值、负面副作用进行读前/读后认证，不能仅凭菜单截图判断算法。
 
 **证据总结**：R04-A/B/C/D的原版PC22新增精确像素取证仍为0。本轮没有发布独立的VID/VIS截图编号，也没有复制第三方图片。**`R04_RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS`**是网页研究分工的结案，不意味着本机实时玩家人格/伤病/合同模式已被完整采集或可执行。下一主题R05，未启动。
+
+## DEV29 R05-A — 原生工资帽、合同报价和球队Business界面视觉证据（2026-10-21）
+
+**本轮新增确认NBA2K22 PC无模组离线MyLEAGUE中完整可读的Salary Cap Table、Contract Offer、Cap Holds、Team Finances原始菜单截图：0。** 本轮依据NBA官方文字、2022游戏社区文字以及本项目Native合同Profile与数据库源码进行语义整理，**未将外部新闻/论坛配图视为已核实PC22原生菜单**。
+
+| 图片/界面证据定位 | 实际查到什么 | 版本与视觉认证 |
+|---|---|---|
+| [2022-04 Reddit Flat/Front/Back/Bird合同报价帖](https://www.reddit.com/r/NBA2k/comments/ucf16e) — SRC-0117 | 原贴**含两张附图链接**，2022同版MyNBA玩家回帖逐项解释合同类型、逐年薪资曲线与Bird合同限制 | `2K22_NEXTGEN_COMMUNITY_POST_HAS_IMAGES_NOT_PIXEL_INSPECTED`；图片中的精确菜单标签/按钮及游戏版本未逐像素确认，不赋合格VIS-ID、不冒充PC22 |
+| [2022-04 2K22 Cap Holds / Trade Exception 帖](https://www.reddit.com/r/NBA2k/comments/u7zvde) — SRC-0119 | 同版玩家文字说旧本世代Salary Cap Table与新版MyNBA独立Cap Holds页的区别 | `SAME_GAME_COMMUNITY_UI_PATH_REPORTED_TEXT_ONLY`；作者找不到TPE按钮不代表游戏一定不支持 |
+| [2021–22 PS5 Pistons MyNBA长篇赛季日记](https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/918956-2k22-ps5-mynba-detroit-pistons/page4) — SRC-0126 | 2K22 PS5玩家以截图/文字记载Option、QO、放弃Hold、合同报价与双向人员的实际操作 | `SAME_GAME_NEXTGEN_PLAYER_DIARY_TEXT_REVIEWED_NOT_ORIGINAL_UI_PIXEL_REVIEWED`，文内图片未全部逐帧检视，不用其选人决定或工资代入当前档 |
+| [2K官方次世代MySTAFF文章](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles) — SRC-0128 | 本世代可以复用的员工预算/岗位分工机制参考 | `OFFICIAL_NBA2K22_NEXTGEN_OFFICE_DEPARTMENT_SOURCE`，不能确认PC22全部员工菜单同名同编码 |
+| [旧NBA2K Business Wiki](https://nba2k.fandom.com/wiki/Business) — SRC-0127 | 旧版Facilities/Game Pricing/Team Finances/Owner Goals分类 | `OLDER_MYGM_SERIES_CATEGORY_NOT_PC22_MYLEAGUE_MENU`；不能凭Wiki创建PC22设施原生字段 |
+
+### 将来只读核对最值钱的三组画面
+
+1. `NBA2K22 PC Offline MyLEAGUE / Salary Cap Table`：实际Soft Cap、Luxury Tax、硬帽/apron显示、当前工资、Cap Hold与Renounce、Trade Exception是否真的可选，记录同一Game Date与team_id；**避免只显示现实NBA参考值**。
+2. `Contract Offer/Extensions/Qualifying Offers`：Flat/Front/Back/Bird菜单（若有）、实际合同年数/金额/Player/Team Option/No-trade、原生FA身份/阶段与接受/推进后的readback；与Project原生Contract 17字段逐项对应。
+3. `Front Office / Financials / Business`：总薪、Payroll、Cash、Budget、Staff Budget、Fan Interest/门票定价及真实收入/支出时间范围、是否可以修改、能否存盘保留；**不以菜单显示一个数就断言签约资金真实可用**。
+
+**本轮不请求用户立即进行截图/测试**；保留`PC22_VANILLA_UI_PROOF_PENDING`并继续R05-B交易原料研究。新合格VIS为0，来源以[SRC-0114..0128](../SOURCES.md)为准；无第三方图片上传。
