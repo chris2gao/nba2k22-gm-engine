@@ -171,7 +171,7 @@ NBA2K14/15时期Visual Concepts AI工程师Leftos公开解释[ SRC-0052 ]：旧�
 
 - 2021-11 Operation Sports“**MyLeague Injury Sliders**”[SRC-0060]：作者称其模拟比赛中有伤病，但手打100+场未见伤员；回复的次世代MyNBA玩家说调高sliders后快速模拟出现较多伤病、手打很少，另有玩家报告**某场手打Luka真实受伤动画**。这并不证明手打“永不受伤”，恰恰证明“手打/看CPU三维/快Sim”的`game_execution_mode`必须单独标记。
 - 2022-03 OS“**MyLeague Why are there no injuries**”[SRC-0061]提供同版相反个案：有人长期无现场伤病，也有人遇到鼻骨受伤；有人说降低Durability后立即出现受伤，另一玩家降低Durability并把伤病滑块开满却仍未出现。**这些都是未控制样本的玩家报告**，不能把“Durability=20必受伤”写作规则或操作建议。
-- 2022-09 OS 2K23 MyNBA讨论[ SRC-0063 ]中有玩家**回顾2K22**也出现“预计4–6周，但提前恢复”的状况；讨论触及是否在MyNBA开档时设置Duration、不同赛季长度，以及同一伤病时长字段的不同含义。回忆+另一版本问答不等于PC22具体康复算法，但足以提醒：**事件初始预估、剩余天数、正式恢复日期和复赛日期不是一个字段**。
+- 2022-09 OS 2K23 MyNBA讨论[SRC-0063]中有玩家**回顾2K22**也出现“预计4–6周，但提前恢复”的状况；讨论触及是否在MyNBA开档时设置Duration、不同赛季长度，以及同一伤病时长字段的不同含义。回忆+另一版本问答不等于PC22具体康复算法，但足以提醒：**事件初始预估、剩余天数、正式恢复日期和复赛日期不是一个字段**。
 
 **最小完整伤病事件模型**（未来研究建议的标记，不是新原生DB schema）：`native_player_id / team_id / game_id_or_practice_event / source_time / game_execution_mode / body_part_if_native / diagnosis_if_native / severity_if_native / initial_estimated_absence / observed_remaining_days / expected_return / actual_return / reliability`。没有明确游戏来源的字段必须`NULL/UNKNOWN`，不准媒体创造“膝盖已经重伤”或假恢复时间。
 
@@ -214,7 +214,7 @@ NBA2K14/15时期Visual Concepts AI工程师Leftos公开解释[ SRC-0052 ]：旧�
 | 按季度/赛季查看结果 | 2K21玩家说导师页会看到徽章的渐进变化，也可以比较赛季前后player card[SRC-0065] | 需要真实Badge前/后快照，不能把`progression` raw值当作已经授予徽章 | Coach/Player可满意、失望、重选或坚持 |
 | 出现BUG/不确定 | 2022-01至04**2K22 MyLEAGUE**有人报告设定某些导师会崩溃[SRC-0068]；其它系列版本有人说导师效果微弱甚至看不到 | **没有当前PC官方bug ID或复现条件**，不声明本机一定崩溃 | 角色可请求技术核验；真实外挂不得以修改徽章来掩盖异常 |
 
-**尤其重要**：2K22在线MyLEAGUE 2021–22讨论[SRC-0067A]中，一位用户先认为在线联盟没有Mentorship，2022-02另一位称在Overview里滚动可找到“Change Mentor”。这说明**同一功能是否存在和藏在何处**都可能受模式/入口影响，不能把线上菜单经验直接搬到离线PC，并由此断定导师“不存在”。
+**尤其重要**：2K22在线MyLEAGUE 2021–22讨论[SRC-0070]中，一位用户先认为在线联盟没有Mentorship，2022-02另一位称在Overview里滚动可找到“Change Mentor”。这说明**同一功能是否存在和藏在何处**都可能受模式/入口影响，不能把线上菜单经验直接搬到离线PC，并由此断定导师“不存在”。
 
 **GM玩法承载约束**：即便未来玩家/教练双方同意某导师关系，现行DEV14仍标`mentor.relationship=DISCOVERED, writable=false`；R03不授权直接操纵导师结构或Badge等级。未来只有专门取得本机身份、合法字段与可靠readback、真实玩家批准才可执行师徒操作。球员正常徽章自然变化仍由2K游戏负责。
 
@@ -223,7 +223,7 @@ NBA2K14/15时期Visual Concepts AI工程师Leftos公开解释[ SRC-0052 ]：旧�
 - **员工职能**：PC用户确认本世代可聘Training/Trainer岗位；项目源里的STAFF8类技术位与可任命6岗位不同，不应把Trainer和Assistant Coach或次世代Sports Medicine七岗同一化。
 - **同年官方2K22 MyNBA**明确区分Stamina Trainer、Strength Trainer、Sports Psych、Sports Scientist、Physio、Sleep Doctor及Team Doctor、各自影响健康、体能或球队心理[SRC-0064]，可为**角色谈判与医疗风险知情**提供机制原料，不表示PC本世代有全部职位和原生控制。
 - **2K旧版玩家经验**对Trainer影响伤病避免、恢复、体力及休赛期Training Camps名额看法不一致（R03-A SRC-0058）；不能根据Hire Trainer A级给出“自然能力每月+2”公式。
-- **进步与退步**：2020年玩家[ SRC-0066A ]报告以Very High全季训练却发生OVR下降；环境包括球队阵容、Trainer评分、潜力/年龄和自然进程，**单一训练强度的实际增长函数不可辨识**。身体状态、能力变化、导师徽章也不应合成“训练收益总分”强迫所有角色接受同一计划。
+- **进步与退步**：2020年玩家[ SRC-0071 ]报告以Very High全季训练却发生OVR下降；环境包括球队阵容、Trainer评分、潜力/年龄和自然进程，**单一训练强度的实际增长函数不可辨识**。身体状态、能力变化、导师徽章也不应合成“训练收益总分”强迫所有角色接受同一计划。
 - **外部角色可以有错判**：GM坚持“年轻人应高负荷”，教练更重视争冠，球员担心短期伤痛与长期寿命，训练师提供专业意见，媒体根据公开受伤情况评论；**模型各自可以拒绝**，但真实医学职能与游戏原生信息须有不同可见权限。
 
 ### 12.1 按角色组织健康事件的“可观察世界”
