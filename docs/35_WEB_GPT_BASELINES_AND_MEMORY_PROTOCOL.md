@@ -1,5 +1,9 @@
 # 网页 GPT 三基线分工、Python 分析与持久记忆协议
 
+## 2026-10-20 DEV29 V2网页GPT长期多轮知识工程的职责覆盖
+
+玩家确认PR #12已合并，决定让新网页GPT窗口而非Codex研究NBA2K20–23/MyLEAGUE/MyNBA的实际玩法、设置、每场/高阶统计、图文截图与机制联动；详见[DEV29 V2](development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)。所有研究轮次必须以[docs/game_mechanics/README.md](game_mechanics/README.md)为共用仓库入口，按[PROGRESS](game_mechanics/PROGRESS.md)断点恢复，写入中文实用攻略/原生可选项候选/数据证据要求，并保留源码、图片索引与版本差异。研究主责在网页开发规划/研究GPT；GM/Analytics提供业务判据；Codex仅最终FINAL-CODEX做资料完整性、机器索引、现有数据库与DEV28开发接口的工程收尾。此前V1“R0-C由Codex作为前期资料审计主责”的流程被V2覆盖。无真实原生数据不得将`KNOWN_IN_SERIES`标为`PC22_NATIVE_READ_VERIFIED`。
+
 版本：WEB_GPT_BASELINES_V1；建立日期：2026-10-17。**本文件专供 ChatGPT 网页版（Web GPT）使用，同时供 Codex 了解责任划分。** 不取代 Codex 已有的 `docs/32_DATA_CAPTURE_BASELINE_PROMPT.md`、`docs/33_DEVELOPMENT_BASELINE_PROMPT.md`、`docs/36_EXECUTION_BASELINE_PROMPT.md` 及共用状态 `docs/34_BASELINE_CURRENT_STATE.md`。
 
 ## 1. 项目角色（必须遵守）
