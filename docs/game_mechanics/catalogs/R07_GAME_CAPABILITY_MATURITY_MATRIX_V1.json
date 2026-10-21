@@ -835,14 +835,18 @@
       "prior_project_observation_evidence": "FA_PLANNER_SYNTHETIC_ONLY",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "NOT_PROVEN_FOR_THIS_CAPABILITY",
-      "model_query_api_status": "SIGNING_WRITE_UNVALIDATED",
+      "model_query_api_status": "NOT_CERTIFIED",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G07",
         "D06-G17"
-      ]
+      ],
+      "model_query_api_evidence_note": "No validated current-save end-to-end data query path was established for this capability in R07.",
+      "execution_warning": "SIGNING_WRITE_UNVALIDATED: offline synthetic FA planner does not validate real PC22 free-agent-pool retrieval, signed contract writes, or post-save success.",
+      "reviewed_old_query_value": "SIGNING_WRITE_UNVALIDATED",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F22",
@@ -875,13 +879,17 @@
       "prior_project_observation_evidence": "APPROVED_TRADE_V2_BOUNDED_NATIVE_EVIDENCE",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "PRIOR_SCOPE_REPORTED_CHECK_LATEST_BATCH",
-      "model_query_api_status": "APPROVED_BOUNDED_EXECUTOR",
+      "model_query_api_status": "PRIOR_SQLITE_JSON_REPORTED_SCOPE_ONLY",
       "existing_execution_scope": "BOUNDED_APPROVED_TRADE_V2",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G08"
-      ]
+      ],
+      "model_query_api_evidence_note": "Previously published roster/asset snapshots have reported SQLite/JSON evidence; availability of a dedicated trade proposal/query API and current-save freshness are not certified.",
+      "execution_warning": "APPROVED_BOUNDED_EXECUTOR: prior human-confirmed trade v2 is a limited write/verify path requiring specific approval; it does not certify a model trade-preflight query API or current-save roster snapshot.",
+      "reviewed_old_query_value": "APPROVED_BOUNDED_EXECUTOR",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F23",
@@ -914,13 +922,17 @@
       "prior_project_observation_evidence": "PRIOR_PICKS_300_READ_REPORTED",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "PRIOR_SCOPE_REPORTED_CHECK_LATEST_BATCH",
-      "model_query_api_status": "EXECUTOR_OLD_PLUS3_REJECTION",
+      "model_query_api_status": "PRIOR_SQLITE_JSON_REPORTED_SCOPE_ONLY",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G08"
-      ]
+      ],
+      "model_query_api_evidence_note": "Prior 300 native pick assets covering five future years were reported in a historic batch; current batch-specific ownership read and query must be checked separately; trade executor restriction does not change read coverage.",
+      "execution_warning": "EXECUTOR_OLD_PLUS3_REJECTION: project V4 policy removed artificial three-draft-year limit, but old executor still rejects later picks. Prior native/source report of five future years/300 picks is READ provenance, not present-tradeability or current-save readback.",
+      "reviewed_old_query_value": "EXECUTOR_OLD_PLUS3_REJECTION",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F24",
@@ -1036,13 +1048,17 @@
       "prior_project_observation_evidence": "PRIOR_STAFF_SOURCE_REPORTED",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "PRIOR_SCOPE_REPORTED_CHECK_LATEST_BATCH",
-      "model_query_api_status": "STAFF_HIRE_FIRE_NOT_VALIDATED",
+      "model_query_api_status": "PRIOR_SQLITE_JSON_REPORTED_SCOPE_ONLY",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G17"
-      ]
+      ],
+      "model_query_api_evidence_note": "Existing staff JSON source was reported as published; access to each individual staff field or latest batch is not revalidated in R07.",
+      "execution_warning": "STAFF_HIRE_FIRE_NOT_VALIDATED: previously published staff source/JSON does not constitute any validated hire/fire executor, and does not guarantee every staff field has current query coverage.",
+      "reviewed_old_query_value": "STAFF_HIRE_FIRE_NOT_VALIDATED",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F27",
@@ -1076,13 +1092,17 @@
       "prior_project_observation_evidence": "STATIC_REGISTRY_86_CANDIDATES",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "NOT_PROVEN_FOR_THIS_CAPABILITY",
-      "model_query_api_status": "R07_NO_NEW_WRITE",
+      "model_query_api_status": "NOT_CERTIFIED",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G02"
-      ]
+      ],
+      "model_query_api_evidence_note": "No validated current-save end-to-end data query path was established for this capability in R07.",
+      "execution_warning": "R07_NO_NEW_WRITE: no game mutation in R07; R06A static settings register is not an end-to-end query or approved configuration writer.",
+      "reviewed_old_query_value": "R07_NO_NEW_WRITE",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F28",
@@ -1276,13 +1296,17 @@
       "prior_project_observation_evidence": "PROJECT_DATE_INPUT_READBACK_UNCERTAIN",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "NOT_PROVEN_FOR_THIS_CAPABILITY",
-      "model_query_api_status": "CAPTURE_BATCH_REPORTED_SAVE_DATE_REQUIRES_VERIFICATION",
+      "model_query_api_status": "FIELD_LEVEL_UNKNOWN",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G04"
-      ]
+      ],
+      "model_query_api_evidence_note": "Prior capture-batch metadata exists as a project artifact, but field-level native game date/season phase correlation to current save is UNKNOWN and has not been certified.",
+      "data_integrity_warning": "CAPTURE_BATCH_REPORTED_SAVE_DATE_REQUIRES_VERIFICATION: batch metadata and user-entered/unknown game date may be available, but no PC22-native authoritative GameDate+phase and save_instance identity readback was verified by R07; do not infer that batch query proves game date.",
+      "reviewed_old_query_value": "CAPTURE_BATCH_REPORTED_SAVE_DATE_REQUIRES_VERIFICATION",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F33",
@@ -1569,14 +1593,18 @@
       "prior_project_observation_evidence": "PRIOR_FULL_CAPTURE_AND_PUBLICATION_REPORTED",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "PRIOR_SCOPE_REPORTED_CHECK_LATEST_BATCH",
-      "model_query_api_status": "CURRENT_BATCH_PERMISSION_BOUND",
+      "model_query_api_status": "PRIOR_SQLITE_JSON_REPORTED_SCOPE_ONLY",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G04",
         "D06-G05"
-      ]
+      ],
+      "model_query_api_evidence_note": "Prior full_verified_v1 batch and SQLite/JSON publication are reported; querying requires correct save identity, published valid batch, supported fields, and permitted consumer scope.",
+      "query_prerequisites": "CURRENT_BATCH_PERMISSION_BOUND: only valid user-triggered full_verified_v1 published batch / same-save identity / allowed scope may be queried; historical SQLite/JSON access does not prove a new live capture or role-wide access.",
+      "reviewed_old_query_value": "CURRENT_BATCH_PERMISSION_BOUND",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     },
     {
       "id": "F40",
@@ -1609,13 +1637,17 @@
       "prior_project_observation_evidence": "EXTERNAL_POLICY_NOT_NATIVE_2K23_ERAS",
       "current_save_realtime_readback": "NOT_NEWLY_CHECKED_IN_R07",
       "formal_capture_and_publication": "NOT_PROVEN_FOR_THIS_CAPABILITY",
-      "model_query_api_status": "ABILITY_CHANGES_FORBIDDEN_EXCEPT_SPECIFIC_APPROVAL",
+      "model_query_api_status": "NOT_CERTIFIED",
       "existing_execution_scope": "NO_SAFE_GENERAL_NATIVE_WRITE_VERIFIED",
       "post_save_persistence": "NOT_VERIFIED_FOR_THIS_CAPABILITY_IN_R07",
       "permission_to_act": "NO_NEW_APPROVAL_FROM_R07",
       "unknown_and_handoff_gaps": [
         "D06-G18"
-      ]
+      ],
+      "model_query_api_evidence_note": "No validated current-save end-to-end data query path was established for this capability in R07.",
+      "world_rule_warning": "ABILITY_CHANGES_FORBIDDEN_EXCEPT_SPECIFIC_APPROVAL: ordinary direct changes to ratings/potential/badges forbidden; historical-gravity exceptions require distinct concrete player approval; 1984–2020 external draft worldline is not a PC22/2K23 Eras native query.",
+      "reviewed_old_query_value": "ABILITY_CHANGES_FORBIDDEN_EXCEPT_SPECIFIC_APPROVAL",
+      "classification_repair": "QUERY_STATUS_SEPARATED_FROM_NON_QUERY_LIMITATION_NO_EVIDENCE_UPGRADE"
     }
   ],
   "existing_production_scope_count": 10,
@@ -1959,5 +1991,27 @@
   "game_memory_writes_during_r07": 0,
   "agent_personality_design": false,
   "dev28_start_authorized": false,
-  "next": "R07_INDEPENDENT_REVIEW_THEN_HUMAN_TRIGGERED_FINAL_CODEX_READ_ONLY_COVERAGE_AUDIT"
+  "next": "R07_INDEPENDENT_REVIEW_THEN_HUMAN_TRIGGERED_FINAL_CODEX_READ_ONLY_COVERAGE_AUDIT",
+  "targeted_query_semantics_repair": {
+    "review": "docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md",
+    "date": "2026-10-21",
+    "affected_ids": [
+      "F21",
+      "F22",
+      "F23",
+      "F26",
+      "F27",
+      "F32",
+      "F39",
+      "F40"
+    ],
+    "old_values_preserved_as": "reviewed_old_query_value",
+    "non_query_limits_preserved_in": [
+      "execution_warning",
+      "data_integrity_warning",
+      "query_prerequisites",
+      "world_rule_warning"
+    ],
+    "assertion": "No additional runtime readback, formal capture, role query entitlement, native write approval, or post-save verification was inferred."
+  }
 }
