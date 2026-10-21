@@ -25,4 +25,4 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 
 **视觉材料**：优先记录第三方页面和图片链接、使用位置、图片证据点；确有传播许可或玩家自供的图片才纳入GitHub。不得绕过水印/假定可自由再分发；研究卡片即使没有图片二进制也必须完整可读。
 
-**当前状态（2026-10-20）**：R01-A首批真实研究已写入并发布： [K01/K02 赛程、逐场Box、Game Logs、投篮与高级统计](guides/K01_K02_GAME_STATS.md)；[来源表](SOURCES.md)新增SRC-0004..0015，[外部图源表](visuals/EXTERNAL_VISUALS.md)新增VIS-0001..0003。研究为`INCOMPLETE_WITH_OPEN_ITEMS`：缺PC22本机明确菜单/字段、逐场历史保留期与原生取证，不得称R01或整个资料库完成。**下一轮入口在 [PROGRESS.md](PROGRESS.md) 的 R01-B。**
+**当前状态（2026-10-20）**：R01-A与R01-B两个研究批次均已发布，但R01总体仍为`INCOMPLETE_WITH_OPEN_ITEMS`：目标PC22本世代MyLEAGUE的真实统计表头、独立Game Logs入口及跨赛季Box保存期尚未认证。正式攻略：[K01/K02 Game Stats §§0–13](guides/K01_K02_GAME_STATS.md)；已核对来源：[SOURCES SRC-0004..0025](SOURCES.md)；图文证据及授权状态：[VIS-0001..0006](visuals/EXTERNAL_VISUALS.md)。**下次按[PROGRESS.md](PROGRESS.md)中的R01-C恢复指针继续，绝不可将别的版本的统计菜单当作PC22实测。**
