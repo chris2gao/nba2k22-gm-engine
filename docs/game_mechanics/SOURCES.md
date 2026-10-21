@@ -231,3 +231,26 @@
 - 同版2K22球员导出站显示16个具名Durability，ATD编辑作者自述25个**计数口径未证**；不构造9个不存在的名字/偏移，不把`injury_status`和`durability`合并。
 
 **R04-A范围**：K03/K12§§0–8和两份研究矩阵均属于原料交付，R04-B接全部行为倾向及教练/Book联动，R04-C接合同偏好与人格徽章，R04-D完成角色权利与互动图谱。没有创建任何Agent、启动DEV28/Codex、打开游戏或改存档。
+
+## DEV29 R04-B — 倾向、出手分配、3D/Sim与PlayTypes同版证据（2026-10-21）
+
+本轮新增**SRC-0083..0090**，均只支持其能够证明的行为/界面/来源版本。**重点：2K22同版用户报告Touch与Shot不同作用且彼此冲突；不能选择合自己偏好的那个结论当2K引擎公式。** [R04-B研究目录](catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)保存99个原生slot和独立的99个同版归档导出标签；两组**没有经认证的行序/offset映射**。
+
+| ID | 来源和定位 | 内容如何帮助研究 | 等级与边界 |
+|---|---|---|---|
+| **SRC-0083** | [2kAuction NBA2K22 Anthony Davis · Offseason NBA 2021/09 v91历史存档](https://2kauction.com/mynba/2k22/players/anthony-davis?roster=offseason_nba)；参照[Haliburton 同版页](https://2kauction.com/mynba/2k22/players/tyrese-haliburton?roster=offseason_nba) | 归档人物详细独立标签：`Shot`（含投篮/背身35项）、`Drive / Pass`（含三威胁、左右、连续运球、ISO vs防守等级43项）、`Defense`7项、`Other tendencies`（区域出手）14项，共**99个具名label**。可观察Shot/Tou​​ches/Post, TT/Setups、ISO四级、Play Discipline、防守7类等界面语义；均以第三方导出为研究原料 | **SAME_GAME_THIRD_PARTY_ARCHIVED_ROSTER_HTML**。网页快照值≠本项目当前球员；网页可读条目≠NBA2K22 PC原版滚动截图；**不能据“99”把label逐行对应Registry原生99字节** |
+| **SRC-0084** | [Operation Sports：NBA 2K22 Tendencies — A Better Realism for Roster Creators](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/917138-nba-2k22-tendencies-a-better-realism-for-roster-creators)，Sheitan 2021-09-17 #1，Evtnj与Sheitan 2021-11-25 #9–11 | 作者尝试把3D行为倾向按经验频率/分位数分类，认为极端0或99会使人物行动单一；同月用户明确说`Edit Player→Freelance`有`Touches`和`Shot`及下方ISO防守等级。Sheitan后答`Freelance Shot`主要对应**Sim统计**而非3D，不是场上各类具体投篮动作的同义词 | **2K22_2021_COMMUNITY_DIRECT_ROSTER_DISCUSSION**；个人测试、部分作者PSN/Xbox不详，**不是PC原生effect=0的已证公式**；“避免99”是作者名单设计哲学，角色可不服从 |
+| **SRC-0085** | [OS：NBA 2K22 Useful Findings](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings)，2021-09 #1–7，以及[第10页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings/page10)，2021-10 #136–150 | tcnumba10认为全队降低Touches或主星Shot后3D出手更分散；jimbo3772认为Touches主要用于Freelance、Book/PlayTypes/POE/RunPlays决定叫谁的set；Tynole14报告把Shot调至0仍只给两后卫叫战术。**这是实质互相冲突的同版场上观察** | **COMMUNITY_2K22_FIRST_HAND_CONFLICTING**，同一游戏不同控制模式/角色/战术书/AI设置样本未控制；不得形成“Shot≤80最佳”“Touches都调50”强制规则 |
+| **SRC-0086** | [2kAuction 2K22 Trae Young v91历史人物档案](https://2kauction.com/mynba/2k22/players/trae-young?roster=offseason_nba) | 将`Play Initiator=Yes`与4个**有序PlayTypes**分别列出，并有Touches/Shot等偏好；证明**字段概念独立存在于2K22归档人物展示** | THIRD_PARTY_2021_PLAYER_EXPORT；不可据外站Yes/No认定本项目当前人物，也不能反推出cpu固定控球时长 |
+| **SRC-0087** | [2kAuction NBA2K22 Jayson Tatum Current NBA](https://2kauction.com/mynba/players/jayson-tatum?game=2k22&roster=current_nba)，2021-09历史导出 | `Play Initiator=No`却仍有4个PlayTypes，其中`Pick & roll wing`、`Isolation`、`Three-point screens`、`Handoff`。与Trae对比证明Initiator概念独立于4槽存在；官网字面“Three-point screens”与本机`3 PT`enum**不认定编码相同** | THIRD_PARTY_2K22_EXPORT，非当前GM名单/原生enum逐项已验 |
+| **SRC-0088** | [OS：2K22 MyLeague Settings / Sliders](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917042-2k22-myleague-settings-sliders)，DarthRambo 2021-09-20/21 | 同版MyLEAGUE玩家表示在测试Sim赛季时批量编辑了Foul/3PT/Midrange/Drive Pull-Up等球员倾向，并提供**Sim进球/得分/犯规**的另一组联盟世界滑块；表明原生球员倾向与世界全局权重是**两个对象** | COMMUNITY_CURRENT_GEN_PS_PLAYER_EXPERIENCE；作者按个人风格调整，并非官方“正确数值”；不得改当前世界全局Slider或人物能力 |
+| **SRC-0089** | [OS：Shot Tendency](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-last-gen/471405-shot-tendency)，2012-02-18/19，beast10/youALREADYknow/RyanFitzmagic | 老版用户对总体Shot究竟影响Sim还是3D、Touches/战术类别/球星目标哪个是主要驱动有不同解释。支持“不用单一公式直接计算每场FGA” | **OLDER_SERIES_COMMUNITY_CONFLICTS**；2012不同引擎版本，不能当2K22原生准确机制 |
+| **SRC-0090** | [OS：Tendency Edits That Are Game Changers for Realism? 第84页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/841295-tendency-edits-that-are-game-changers-for-realism/page84)，vannwolfhawk、daveberg、JoFri 2021-09-17至20 | Vannwolfhawk以2K22编辑者身份讨论左右突破、左右后撤步、Flashy Passing对CPU 3D动画选择的影响；同帖用户又对Shot/Shot Location影响Sim或3D提出疑问，另一些答案明确只基于2K19 | **MIXED_CONTEXT_PRIMARY_EDITOR_DISCUSSION**；2021版经验有用，内嵌2K19案例不得当2K22验证或角色统一参数模板 |
+
+### 本轮与本地原生来源的交叉核对
+
+`config/state_io_native/player.json`精确**48个已命名offset**，`src/gm_state_io/registry.py`将`0x458..0x4BA`共**99个1-byte PLAYER_TENDENCY槽**注册为技术`raw_range=[0,100]`，其中**51个`UNKNOWN_RAW_BYTE`只读**；四个PlayType槽是`0x168/0x169`的4×4bit/0..15，Initiator为`0x16A`一个1bit候选。**所有这些原生当前值是否已采、是否具有真实PC菜单精确名字和3D效果是独立事实**。玩家角色是否愿意改、Coach/GM是否反对、真实玩家是否批准也是独立权限，不由`writable=true`自动赋予。
+
+**图证阴性确认**：本轮已检索2K22 PC原版Tendencies、PlayTypes、Initiator截图和Google图片，未获得具有可读滚动菜单、能明确识别原版PC和Offline MyLEAGUE的认证页面。2kAuction为**可读网页数据导出，不是Edit Player原版菜单帧**；见VIS增量。本次新增合格`PC22_UI_CONFIRMED=0`，不说明这些功能不存在。
+
+**R04-B交付**：K03/K12新§§9–16和原生/外部两个99项目录；R04-C继续人格徽章与Loyalty/Financial Security/Play For Win、士气、合同/关系的自主选择；不启动Agent、DEV28/Codex或游戏采集/修改。
