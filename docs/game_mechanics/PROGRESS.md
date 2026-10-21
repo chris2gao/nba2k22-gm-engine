@@ -1,7 +1,7 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
 **当前权威状态**：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`（2026-10-20）。
-**下一研究轮：`R02_COACH_PLAYS_DEFENSE_RESEARCH`，立即具备启动条件。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：[DEV29 V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)。
+**下一研究轮：`R02_COACH_PLAYS_DEFENSE_RESEARCH`，立即具备启动条件。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
 
@@ -12,11 +12,12 @@
 | R01-C | 官方同版次世代Box证据、PS4模拟器参数、PC旧版本质量异常 | PUBLISHED | 同一指南§§14–18；SRC-0026..28、VIS-0007 |
 | **R01-D** | **最后一轮PC22原版公开视觉取证；证据矩阵和精简截图需求** | **`RESEARCH_CLOSED_WITH_PC22_UI_GAPS / TASK_CLOSED`** | **同一指南§§19–22；SRC-0029；本轮合格新VIS为0；来源排除审计已写入图证索引** |
 | **R02** | **教练、攻防、Playbook、Freelance、ACE、战术12分类、Play Discipline** | **NEXT / NOT_STARTED** | 目标新建`guides/K04_COACH_AND_PLAYS.md` |
-| R03 | 球员、训练、疲劳/伤病/成长 | NOT_STARTED | 后续 |
-| R04 | 财务、合同、员工、球探、选秀、休赛期 | NOT_STARTED | 后续 |
-| R05 | 3D比赛设置、世界线、历史与存档 | NOT_STARTED | 后续 |
-| R06 | 跨机制矩阵、GM决策证据、来源查漏 | NOT_STARTED | 后续 |
-| FINAL-CODEX | 索引/既有Registry、M0、DEV14、SQLite对照和DEV28技术缺口 | NOT_STARTED | **只在主要网页研究R01–R06结束后** |
+| R03 | K06 团队与个人训练机制、疲劳、伤病、恢复与自然成长 | NOT_STARTED | 后续；研究共性训练和健康机制，不替代R04全人物字段 |
+| **R04 新增重点** | **K03/K12 完整球员个人资料、全部属性/徽章/倾向、耐久及Play for Win/Financial Security/Loyalty；未来Player Agent自主决策接口** | **NOT_STARTED** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
+| R05（原R04） | 合同、财务、员工、球探、选秀、休赛期、巨星谈判 | NOT_STARTED | 后续；承接R04的球员职业诉求 |
+| R06（原R05） | 3D比赛设置、世界线、历史、媒体与存档 | NOT_STARTED | 后续 |
+| R07（原R06） | 多角色知识矩阵、GM/球员/教练/媒体决策证据及可执行能力查漏 | NOT_STARTED | 后续 |
+| FINAL-CODEX | 源/图索引、已有Registry/M0/DEV14/SQLite与DEV28能力差距收尾 | NOT_STARTED | **只在主要网页研究R01–R07结束后** |
 
 ## R01-D到底新增/没有新增什么
 
@@ -52,3 +53,7 @@
 4. 直接写实际**中文经营与战术攻略**到`docs/game_mechanics/guides/K04_COACH_AND_PLAYS.md`（可拆R02-A/B），同步SOURCES、VIS、PROGRESS及README，提交GitHub回读。**不要先产出仅规划的任务清单。**
 
 > 终态：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS / DEV29_R01_D_TASK_CLOSED / NEXT_R02`。
+
+## 2026-10-20 新增多智能体游戏目标（不改变当前NEXT_R02）
+
+玩家正式提出：项目的最终价值是**自主GM、教练、球员、媒体等角色在真实NBA2K22游戏状态中进行选择、谈判、试错并产生涌现**，而非唯一GM优化器。为此DEV29新增完整球员研究R04，保留R03训练一般机制，原R04/R05/R06顺延为R05/R06/R07。**R02仍为下一轮，R01已结束，无需重新做统计文献搜索**。研究所有信息不仅问“GM能看到和修改什么”，还应问“Player/Coach/Media能够看到、提出、拒绝什么，原生字段是否可安全映射外挂人格、哪些应优先独立SQLite保存”。完整规划见[DEV29 V3](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)。这只是规划更新，R04尚未开始、未修改游戏或角色数据库。
