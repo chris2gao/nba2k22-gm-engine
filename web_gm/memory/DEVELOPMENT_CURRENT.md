@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 DEV29 R系列研究最新交接：R06-B已发布，下一轮R06-C
+
+- 依据[PROGRESS](../../docs/game_mechanics/PROGRESS.md)正式断点：R01–R05全为研究结案（原生UI/运行时缺口保留）；R06-A双引擎/86 Registry候选/118菜单参数候选已发布；本次跨窗恢复已发布[R06-B历史奖项媒体指南](../../docs/game_mechanics/guides/K10_HISTORY_AWARDS_MEDIA_R06B.md)、[31类研究目录](../../docs/game_mechanics/catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)、13条来源SRC-0174..0186并同步图证索引。R06-B状态`R06_B_RESEARCH_PUBLISHED_WITH_PC22_UI_AND_HISTORY_GAPS`，非独立审核批准结案；下一轮唯一入口`R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`，之后R06-D/R07/FINAL-CODEX。
+- R06-B严格区别**原生2021–22起算Game Date/Season**、1984–2020按批准选秀完成推进的**外挂历史Draft Year**、独立参考**历史纪元**。NBA2K23 PS5/XSX原生MyNBA Eras不得当作NBA2K22 PC原生功能；奖项/League News/NBA Records/Social/Power Rankings/Mock Draft/Rule Changes相关报道均按平台与版本分层，大多PC22现存档菜单、运行时值、历史留存仍UNKNOWN。本轮未运行游戏、写内存、启动DEV28/Codex或实现媒体/球员/教练人格。
+- **并行独立工程差距**：V4已取消未来仅三届选秀权规则，但交易、计算、执行旧+3拒绝尚未同步；必须由用户单独授权Codex小范围代码/测试，不阻断DEV29研究，不改成新硬五届。
+
+
 ## 2026-10-21 R04审核通过与六独立模型执行轮：研究只提供游戏原料
 
 - R04-A/B/C/D研究交付独立审核已核对：`PLAYER_FIELD_DUAL_SEMANTIC_R04D_V1.json`实际109条无重复且与主目录109逐条匹配，**72本项目静态Profile+37未映射候选**；109项全部`NO_R04_LIVE_SAVE_CAPTURE`，并非全游戏字段总数/已获真实游戏值。Atlas恰8个用例、来自研究材料，非人格实现；来源到SRC-0113。签约仍`approved_signing_v1_unvalidated`；R04可研究结案，PC22字段/内存仍有明确缺口。
