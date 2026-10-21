@@ -1,5 +1,9 @@
 # Web GPT · 数据整理分析基线当前记忆
 
+## 2026-10-20 DEV29 V3：逐场事实支持GM、球员、教练、媒体各自反馈
+
+最新[DEV29 V3](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)明确目标为**自主多智能体篮球世界**，不只是GM最优方案。Analytics要设计从真实NBA2K22逐场比赛、球员健康/技能/倾向/士气、训练变化、合同与媒体事件生成**按角色授权可见的事实/反馈数据**：Player可判断职业目标和训练适配，Coach可评价战术实际效果，GM可评估合同与球员表现，Media可形成基于来源的报道但传闻必须标记。原生真值、估算指标、对外公开信息、角色自我叙述不能混成一套全知数据。R04新增完整球员原生字段与意图/权限研究，R01仍结案、R02仍为NEXT；统计缺口D28-3未完成，不能用赛季累计伪造单场互动。
+
 ## 2026-10-20 DEV29 V2资料库R01：Game Logs与高级统计优先
 
 - 网页GPT新研究窗口按[DEV29 V2](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)主导NBA2K20–23游戏内容研究；**R01优先研究真实每场Game Logs、赛程、球员/球队Box、Advanced/Shot Chart**，形成`docs/game_mechanics/guides/K01_K02_GAME_STATS.md`及[PROGRESS](../../docs/game_mechanics/PROGRESS.md)的来源/截图证据。Analytics需将其转为GM每个问题的最低基础事实/可派生高阶指标，不把跨版本UI或公式估算冒充生产SQLite。Codex仅在研究全部完成后FINAL-CODEX盘点接口并准备DEV28，而非先替研究模型搜集网页攻略。
