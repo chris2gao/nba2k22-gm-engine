@@ -1,5 +1,8 @@
 # NBA2K20–23 终极联盟游戏机制知识库
-> **独立质量审核（2026-10-21）**：[R06-B跨窗口恢复与来源映射审核](../development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)已发布；新窗口恢复合格，R06-B初稿仍有10项奖项来源要定向核对，不影响立即开始R06-C。以下旧R06-A、R05条目的“下一轮R06-B”等文字仅指对应历史批次，**只以最新PROGRESS决定现在的入口**。
+
+> **最新研究入口（2026-10-21）**：R06-B的10条无关奖项来源映射已修复、仍等待外部复核；[R06-C K11赛季/存档完整研究](guides/K11_SEASON_SAVE_PERSISTENCE_R06C.md)及[38类候选目录](catalogs/R06C_SEASON_SAVE_PERSISTENCE_RESEARCH_V1.json)已发布，SRC-0187..0199，目标PC22实机保存、跨季GameLog与原生UI仍UNKNOWN。**下一轮 R06-D 跨域整合**，只以[PROGRESS](PROGRESS.md)第一节为权威，不再重新启动R01/R02/R05或R06-A/B/C。
+
+> **独立质量审核（2026-10-21）**：[R06-B跨窗口恢复与来源映射审核](../development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)已发布；新窗口恢复合格，R06-B初稿的10项不匹配奖项来源已完成有界修正、待外部复核，不影响立即开始R06-C。以下旧R06-A、R05条目的“下一轮R06-B”等文字仅指对应历史批次，**只以最新PROGRESS决定现在的入口**。
 
 
 > **最新断点（2026-10-21）**：R06-A已发布；**[R06-B历史纪元、奖项、纪录、社交媒体与规则变更研究](guides/K10_HISTORY_AWARDS_MEDIA_R06B.md)**及其[31类目录](catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)已发布，来源SRC-0174..0186，原版PC22完整新图证0。下一轮 `R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`。以[PROGRESS](PROGRESS.md)为准，不重开R01–R05、不重新做R06-A，也不开发人格系统或DEV28执行器。
