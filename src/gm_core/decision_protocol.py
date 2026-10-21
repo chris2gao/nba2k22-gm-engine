@@ -4,6 +4,7 @@ from uuid import uuid4
 from . import market_negotiation as negotiation
 from . import decision_portfolio as portfolio
 from . import decision_handoff as handoff
+from . import bpti_decision, bpti_evolution
 from .analysis_packet import team, validate_refs, require_gm_packet
 from .workbench_common import now, reject_authority, require, text_required
 from .strategy_state import validate as validate_strategy, LIST_FIELDS
@@ -189,17 +190,30 @@ def alternatives(payload, run, analysis):
     return dict(**deepcopy(payload),team_interest_revision=review_row['revision'])
 
 
-def apply(run, analysis, command, payload):
+def apply(run, analysis, command, payload, *, bpti_index=None, previous_evolution=None):
     reject_authority({k:v for k,v in payload.items() if not (command=='respond-offer' and k=='terms_digest')})
     if analysis['source_binding']!=run['source_binding'] or analysis['revision']!=run['analysis_revision']:
         raise ValueError('SOURCE_CHANGE_REBASE_REQUIRED')
     run=deepcopy(run)
     artifacts=[]
-    if command=='record-coach-event':
+    if command=='submit-blueprint':
+        if bpti_index is None:
+            raise ValueError('BPTI_KNOWLEDGE_INDEX_REQUIRED')
+        obj=bpti_decision.prepare(run,analysis,bpti_index,payload); kind,aid='BPTI_BLUEPRINT',str(payload['team_id'])
+    elif command=='record-evolution':
+        row=get(run,'BPTI_BLUEPRINT',payload['team_id'])
+        obj=bpti_evolution.record(run,analysis,row,payload,previous_evolution); kind,aid='BPTI_EVOLUTION',str(payload['team_id'])
+    elif command=='record-coach-event':
         obj=coach_event(run,analysis,payload);kind,aid='COACH_EVENT',payload['event_id']
     elif command=='submit-review':
+        row=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(str(payload['team_id']))
+        if row:
+            payload=bpti_decision.attach_review(payload,row)
         obj=review(payload,analysis); kind,aid='TEAM_REVIEW',str(payload['team_id'])
     elif command=='submit-alternatives':
+        row=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(str(payload['team_id']))
+        if row:
+            payload=bpti_decision.attach_alternatives(payload,row,get(run,'TEAM_REVIEW',payload['team_id']))
         obj=alternatives(payload,run,analysis); kind,aid='ALTERNATIVES',str(payload['team_id'])
     else:
         if not progress(run)['all_teams_ready']:
@@ -245,6 +259,13 @@ def validate(run, analysis, finance=None, coach_snapshot=None, native_artifacts=
         a=run['artifacts'].get('ALTERNATIVES',{}).get(str(tid))
         if not r or not a or a['payload']['team_interest_revision']!=r['revision']:
             issues.append(dict(code='TEAM_RESEARCH_STALE_OR_INCOMPLETE',team_id=tid,effect='BLOCK_FINAL'))
+        b=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(str(tid))
+        if b and any(not x or x['payload'].get('bpti_blueprint_revision')!=b['revision'] for x in (r,a)):
+            issues.append(dict(code='BPTI_BLUEPRINT_REVIEW_STALE',team_id=tid,effect='BLOCK_FINAL'))
+        try:
+            bpti_evolution.current(run,tid)
+        except ValueError as exc:
+            issues.append(dict(code='BPTI_EVOLUTION_STALE',team_id=tid,reason=str(exc),effect='BLOCK_FINAL'))
     valid=prog['all_teams_ready'] and not any(i['effect']=='BLOCK_FINAL' for i in issues)
     generated=handoff.generate(run,selected,analysis,finance,coach_snapshot,native_artifacts) if valid else dict(specific_approval_items=[],research_items=[],generated_artifact_refs=[],finance_evidence={'status':'NOT_EVALUATED'})
     report=dict(report_id=uuid4().hex,decision_run_revision=run['revision']+1,portfolio_revision=p['revision'],
@@ -280,6 +301,7 @@ def coach_event(run,analysis,payload):
 
 def strategy_candidate(run, analysis, t, review_row, final_version):
     tid=t['team_id']; r=review_row['payload']
+    evolution=bpti_evolution.current(run,tid)
     base=next((s for s in run['strategy_bases'] if s['team_id']==tid),None)
     state=deepcopy(base) if base else {key:[] for key in LIST_FIELDS}
     revision=base['revision'] if base else 0
@@ -312,6 +334,15 @@ def strategy_candidate(run, analysis, t, review_row, final_version):
             if a['alternative_id'] in {alt['alternative_id'] for alt in get(run,'ALTERNATIVES',tid)['payload']['alternatives']}])
     if not isinstance(state['change_conditions'],list):
         state['change_conditions']=[state['change_conditions']]
+    b=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(str(tid))
+    e=evolution
+    # A carried strategy base is historical; never inherit its old current BPTI state.
+    state.pop('bpti_reasoning',None)
+    state.pop('bpti_evolution',None)
+    if b:
+        state['bpti_reasoning']=dict(revision=b['revision'],payload=deepcopy(b['payload']))
+    if e:
+        state['bpti_evolution']=dict(revision=e['revision'],payload=deepcopy(e['payload']))
     validate_strategy(state)
     return dict(base_state_id=base['state_id'] if base else None,expected_revision=revision,candidate_state=state,
         reason=state['change_reason'],save_policy='EXPLICIT_M2_SAVE_ONLY')
@@ -323,6 +354,8 @@ def finalize(run, analysis):
     p=get(run,'PORTFOLIO','selected')
     if not v['valid_for_finalization'] or v['decision_run_revision']!=run['revision'] or v['portfolio_revision']!=p['revision']:
         raise ValueError('CURRENT_DETERMINISTIC_VALIDATION_REQUIRED')
+    for tid in run['expected_team_ids']:
+        bpti_evolution.current(run,tid)
     version=run['latest_final_version']+1
     hypotheses=[]; candidates=[]; summaries=[]
     selected_ids={ref['alternative_id'] for ref in p['payload']['selected_internal_action_versions']}
@@ -354,6 +387,8 @@ def finalize(run, analysis):
         specific_approval_items=v['specific_approval_items'],research_items=v['research_items'],holds=p['payload']['holds'],
         alternatives_not_selected=unselected,hypotheses=hypotheses,strategy_candidates=candidates,
         generated_artifact_refs=v['generated_artifact_refs'],supersedes_final_id=run['decision_run_id']+':final:'+str(version-1) if version>1 else None)
+    f['bpti_artifacts']=[dict(kind=k,artifact_id=aid,revision=row['revision'],payload=deepcopy(row['payload']))
+        for k in ('BPTI_BLUEPRINT','BPTI_EVOLUTION') for aid,row in run['artifacts'].get(k,{}).items()]
     run.update(current_final_version=version,latest_final_version=version,phase='P5',status='FINAL_PROPOSED')
     artifacts=[('FINAL','final',f)]
     artifacts.extend(('STRATEGY_CANDIDATE',str(c['candidate_state']['team_id']),c) for c in candidates)

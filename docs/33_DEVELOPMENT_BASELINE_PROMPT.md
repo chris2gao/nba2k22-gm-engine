@@ -1,8 +1,18 @@
 # 迭代开发基线提示词
 
+## 当前权威状态：PR #12 主线冲突整理
+
+已将最新origin/main 5c032a0整合到原codex/bpti-package-c，保留主线官方/社区机制研究先行规范、DEV28和十二类战术/命名/DEV24来源资料，以及包C与F1–F4已完成记录。实际冲突只有AGENTS与本文件开头的新增说明；没有代码冲突或功能重写。F1–F4以2f659138已审查实现为准，旧阶段“待修/尚未开始”只作历史。证据见[验收及冲突交接](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)和[状态34](34_BASELINE_CURRENT_STATE.md)。PR #12保持Draft、未合并，DEV28仍须另行授权；本轮不重跑已通过的测试、不做无关游戏资料研究。
+
+
 ## 2026-10-20 游戏机制研究先行的持久开发规定
 
 对游戏领域工作，在理解机制前不急于编码。永久规范：[GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1](GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)。先复用项目文档→**优先搜索玩家社区（Operation Sports、Reddit、Coach2K）、游戏攻略与官方NBA2K22手册/开发者说明**→形成明确的游戏机制理解→核对真实PC本世代UI、原生枚举及内存来源→写代码与最小授权验证。**同年PS5/Xbox Series次世代MyNBA资料可作为篮球/经营机制的重要参考，不能因平台差异默认排除；只有具体菜单、地址及执行路径要按PC实机认证。**社区玩法与已证原生地址分级登记。战术分类、教练/训练/个体倾向、赛场AI和动态采集等都适用。玩家允许无法直接通过内存找到的战术分类用游戏截图核查（可几十张分批）；不要求Codex活跃等待。**Git冲突/纯代码任务不做无关网页检索**，原开发边界V2保持。
+
+PR #12本轮F1–F4收尾：当前演化必须绑定当前蓝图/来源，旧历史保留但不能进入当前final/strategy；前态须沿同队/career/真实存档实例与连续历史线，缺证据HOLD。无原生可执行动作仅native_action_status=HOLD，市场继续原M3门槛；组合只选INTERNAL/VIABLE_CANDIDATE。结果见[包C验收](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)。后续[DEV28权威规划](https://github.com/chris2gao/nba2k22-gm-engine/blob/main/docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)另行启动，本轮不实施DEV24/DEV28、不合并PR、不启用V4。
+
+
+2026-10-20 工作包C增量：PR #11经玩家批准合并main（04b194a），B4/B5/B6在独立codex/bpti-package-c接入现有M3候选流程。新增submit-blueprint/record-evolution、D1–D6与内部优先比较、同工作台版本历史；详见[B4/B5手册](BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)、本轮验收与34。仅C-C1～C-C5合成验收；正式GM、DEV24、采集/游戏数据发布与写入未触发。文化慢变、技能按当前来源、未知方向HOLD，V3有效/V4未启用、实际30队UNASSESSED。下方包B“未合并/包C未开始”为历史阶段描述。
 
 2026-10-20 工作包B增量：DEV27已按玩家新授权以80459b4快进合入远端及本地main。B2/B3已在独立codex/bpti-package-b交付知识映射/30队历史seed和四条早期机制；接口与限制见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)、[四项验收](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)及34。仅四项授权检查首次通过；包B待Draft PR审阅，不自动合并或启动B4–B6。V4未启用，真实30队UNASSESSED；下面旧“未合main/未做B2”描述保留原阶段历史。
 

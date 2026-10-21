@@ -20,7 +20,7 @@ from gm_analysis import read_input
 
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action',choices=('begin','template','submit-review','submit-alternatives','submit-offer','respond-offer','record-coach-event','select','validate','finalize','show','team','artifact','export'))
+    p.add_argument('action',choices=('begin','template','submit-review','submit-alternatives','submit-offer','respond-offer','record-coach-event','submit-blueprint','record-evolution','select','validate','finalize','show','team','artifact','export'))
     p.add_argument('--workbench',type=Path,default=ROOT/'_exports/dev10_m3/gm_workbench.sqlite')
     p.add_argument('--query-root',type=Path,default=ROOT/'database/query_snapshots')
     p.add_argument('--published-root',type=Path,default=ROOT/'published')
@@ -32,7 +32,7 @@ def parser():
     p.add_argument('--constraints',type=Path,help='Source-bound restrictive player rules with context_evidence; cannot grant approval')
     p.add_argument('--team'); p.add_argument('--players',action='store_true')
     p.add_argument('--limit',type=int,default=20); p.add_argument('--cursor')
-    p.add_argument('--kind',choices=('TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS','COACH_EVENT'))
+    p.add_argument('--kind',choices=('TEAM_REVIEW','ALTERNATIVES','OFFER','RESPONSE','PORTFOLIO','VALIDATION','FINAL','STRATEGY_CANDIDATE','HYPOTHESIS','COACH_EVENT','BPTI_BLUEPRINT','BPTI_EVOLUTION'))
     p.add_argument('--artifact-id'); p.add_argument('--artifact-revision',type=int)
     p.add_argument('--section',help='artifact: dotted stored-object path, including list indices; results remain paginated')
     return p
@@ -106,7 +106,26 @@ def run(a):
                 check_source(a,analysis)
                 updated,artifacts=protocol.finalize(d,analysis)
             else:
-                updated,artifacts=protocol.apply(d,analysis,a.action,read_input(a.input))
+                payload=read_input(a.input)
+                options={}
+                if a.action in ('submit-blueprint','record-evolution'):
+                    try:
+                        check_source(a,analysis)
+                    except (ValueError,OSError,AccessError) as exc:
+                        return dict(status='HOLD',reason=str(exc)[:250],execution_authorized=False)
+                if a.action=='submit-blueprint':
+                    from gm_core.knowledge import Knowledge
+                    options['bpti_index']=Knowledge(ROOT/'web_gm/knowledge').bpti()
+                if a.action=='record-evolution':
+                    ref=payload.get('previous_ref')
+                    if ref:
+                        previous_run=store.load_decision(ref['run_id'])
+                        if previous_run['source_binding']['career_id']!=d['source_binding']['career_id'] or str(ref['artifact_id'])!=str(payload['team_id']):
+                            raise ValueError('BPTI_PREVIOUS_EVOLUTION_CAREER_TEAM_MISMATCH')
+                        options['previous_evolution']=store.artifact_history(ref['run_id'],'BPTI_EVOLUTION',str(ref['artifact_id']),ref['revision'])
+                        # Recover the trusted stored context for pre-F2 immutable artifacts.
+                        options['previous_evolution']['history_branch_context']=previous_run['context'].get('history_branch_context')
+                updated,artifacts=protocol.apply(d,analysis,a.action,payload,**options)
             d=store.save_decision(updated,a.expected_revision,artifacts)
             result=protocol.summary(d)
             if a.action=='validate':
@@ -145,6 +164,8 @@ def run(a):
         check_source(a,analysis)
         files={'index.json':protocol.summary(d),'checkpoint.json':dict(revision=d['revision'],phase_progress=protocol.progress(d),
             artifact_refs=[dict(kind=k,artifact_id=aid,revision=row['revision']) for k,rows in d['artifacts'].items() for aid,row in rows.items()])}
+        files['bpti_artifacts.json']=[dict(kind=k,artifact_id=aid,revision=row['revision'],payload=row['payload'])
+            for k in ('BPTI_BLUEPRINT','BPTI_EVOLUTION') for aid,row in d['artifacts'].get(k,{}).items()]
         if d['current_final_version']:
             f=store.artifact_history(a.run,'FINAL','final',d['current_final_version'])
             files.update({'team_summaries.json':f['team_summaries'],'selected_items.json':dict(specific_approval_items=f['specific_approval_items'],research_items=f['research_items'],holds=f['holds']),
