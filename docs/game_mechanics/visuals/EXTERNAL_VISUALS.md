@@ -319,3 +319,26 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 4. **真实交易生效后读回**：同一人物当前队、合同队、双方15人名单/2双向/13活动人数/选秀权当前持有人/财务条目，同时注明是否已保存重载。本项目已有的外部执行器已完成有限真实玩家验收，不能因此认为所有这些UI自动可观察。
 
 **范围声明**：DEV29只研究、保存来源与设置名称，不能开启游戏、开发Agent、修改真实开关、打包“示范交易”或启动Codex/DEV28。研究结束状态`R05_B_RESEARCH_PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS`；下一轮R05-C员工/球探/选秀，未启动。
+
+
+## DEV29 R05-C — 员工、球探、历史选秀菜单原版视觉审计（2026-10-21）
+
+**本轮新增确认为NBA2K22 PC（非PS5/XSX、无MOD）、离线MyLEAGUE的8种STAFF职位、Edit Staff、Scouting Report、Lottery、Historic Draft Class的像素级菜单截图：0。** 证据来自项目自己的STAFF原生结构与真实读取器、NBA2K22次世代官方图文及原版同年代社区导入攻略。**外部页面展示了图片，不代表已逐像素核对来源平台和本机菜单顺序。新增合格PC22 VIS编号0。**
+
+| 可取得页面与视觉线索 | 本轮有何可读证据 | 图证/平台限制 |
+|---|---|---|
+| [2K 官方2021 MySTAFF新闻稿](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles)；[全文含Staff Carousel、Staff Card及Prep Hub图](https://nba2kw.com/nba-2k22-mynba-full-details-mystaff-training-pre-built-teams-more)，SRC-0145 | **官方次世代**四部门、完整岗位、17个可招名额和Staff Budget、可查看员工卡、球探国内/海外分工 | **NBA2K22_PS5_XBX_MYNBA_OFFICIAL_IMAGE_AND_TEXT**，可以研究功能，但**不能当PC22 vanilla MyLEAGUE确证图证** |
+| [DiamondLobby：NBA2K22 Draft Class教程](https://diamondlobby.com/nba-2k22/how-to-download-a-draft-class-nba/)，SRC-0149 | 2022-04文章嵌入联盟开始/Load/Download/Scouting页面的多张配图，描述Historic/User Created/Scouted Projected OVR/D.E. Rank列 | **2K22_COMMUNITY_GUIDE_WITH_EMBEDDED_IMAGES_NOT_PLATFORM_PIXEL_CERTIFIED**，文章以MyLEAGUE/MyGM合并叙述，不能确认本机PC按钮排列 |
+| [2022 2K22 Online导入选秀班Reddit](https://www.reddit.com/r/NBA2k/comments/tlv74d)，SRC-0150 | 同版用户之后通过Prospect Scouting选新人弹出的选项完成加载，最初问题由后续评论修正 | **ONLINE_MY_LEAGUE_TEXT_WORKAROUND_NOT_PC_OFFLINE_VISUAL** |
+| [2020 MyLEAGUE Staff Roles讨论](https://www.reddit.com/r/NBA2k/comments/gnk1fg)，SRC-0146 | 旧版可见CFO/Assistant GM/Head Coach/Assistant Coach/Scout/Trainer的菜单文字 | **NBA2K20_COMMUNITY_NOT_SAME_GAME_PIXEL** |
+| [2022 MyLEAGUE潜力字母与Edit Player评分区别](https://www.reddit.com/r/NBA2k/comments/wc2bwb)，SRC-0155 | 同版用户明确看见卡片A级潜力和Misc 25–100真实Potential两个不同显示 | **SAME_GAME_2022_FIRST_HAND_TEXT_NOT_VERIFIED_MENU_FRAME**，未来角色不得越权读取游戏真Potential |
+
+**最少但足够有价值的定向本机画面需求，均只读且须另行批准/安排**：
+
+1. **Staff Carousel / Staff Pool / Hire & Fire**：原版PC22离线MyLEAGUE队伍完整岗位列表、当前职位、可聘人员、Staff Salary、Years Left、Staff Budget、雇佣年限/空缺提示。检验8个Profile enum与真实UI的对应，不按PS5的17人自动补职位。
+2. **Scouting / Prospect Scouting**：某届完整报表的Name/Position/Height、Scouted%、Projected OVR、Potential Grade、D.E./2K/NBA.com排序列，自动或手动侦察操作菜单及刷新时点；需要保存`source_game_date/game_save/team/selected_draft_class`，**隐藏GM不可用的游戏真Potential**。
+3. **Load Draft Class / Historic Draft Class / Create/Edit**：启动时和赛季进行中可选菜单、载入后的目标届次、新秀身份/是否复制/同步人名；观察实际是否保持用户提供的历史新秀角色。
+4. **Draft Lottery → Draft Result → Draft Rights**：至少同一选秀年/同一真实保存状态下，资产Year/Original Owner/Current Owner和最后选择Player的关联、Option/新秀合同是否真实自动生成；不能用现实NBA2022 Draft Board替游戏世界选秀结果。
+5. **Business/Staff Budget**：查看Budget/Cash/Staff Salary及解雇/续约的输入栏和值域；含清晰的人员身份与季节。截图本身只能确证可见，不代表工资影响已完成动态因果验证。
+
+不请求用户此刻手动截屏，不开展游戏存档写入或员工聘任测试。**当前原生未认证的不是“功能缺失”，而是缺目标PC22版本、读写接口、真实场上/选秀推进后的反馈。** 研究阶段\`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS\`，下一轮R05-D只做经营知识整合。
