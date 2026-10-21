@@ -403,3 +403,20 @@
 - 本轮不对任何GM作选秀排序、员工招聘建议或球探行为算法；**Staff薪资/合同、Scouting细节、Draft结果未认证的精确菜单和值域仍为UNKNOWN**。机读全目录[`R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json`](catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)，中文指南[§§16–22](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)。
 
 **本轮状态：\`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS\`；下轮R05-D经营全域资料整合，未启动。**
+
+## DEV29 R05-D — 经营全域交叉来源与2026-10-21选秀权政策更新
+
+| 来源ID | 来源及日期 | 具体研究价值 | 证据限界 |
+|---|---|---|---|
+| **SRC-0161** | [Operation Sports：NBA 2K19 MyLEAGUE and MyGM Developer Blog](https://www.operationsports.com/nba-2k19-myleague-and-mygm-developer-blog/)，2018-08-02 | 2K开发者历史说明：2K19从原先可提前交易未来四届选秀权**扩展为五届**，同时拥有每届折旧率等研究对象；说明2K游戏系列可支持与真实NBA不同的未来年份交易限制 | **OFFICIAL_DEVELOPER_2K19_NOT_2K22_NATIVE_PROOF**；不能单凭旧版文章认证PC22全部菜单/值域；本项目Native 5届资产另有独立真实源支持 |
+| **SRC-0162** | [CBS Sports：NBA trade deadline 2022 / Stepien Rule](https://www.cbssports.com/nba/news/nba-trade-deadline-2022-how-complex-stepien-rule-decides-which-teams-can-and-cant-deal-first-round-picks/)，2022-02-10前夕 | 现实2021–22 NBA交易选秀权最长提前七年、未来连续首轮/保护顺延限制；说明真实NBA的七年、2K19设计的五年、本项目曾经三届的外挂限制是**三个不同来源层** | **REAL_NBA_2022_JOURNALISM_ALREADY_CROSS_REFERENCED_SRC-0137**；与SRC-0137同网页，为R05-D“多来源不同层次”索引，不能计作全新独立验证材料 |
+
+### R05-D项目原生与业务边界交接
+
+2026-10-21用户明确**取消“选秀权仅未来三届可交易”的世界规则**。已在[权威机读配置](../config/gameplay_policy.json)发布`PLAYER_RULES_20261021_V4`：`draft_pick_trades.maximum_future_drafts=null`、原生资产核对/唯一归属仍必需，**不取代为世界选五届固定上限**；不使用保护和Swap、不修改球员Ability、交易写入需真实玩家具体批准，全部保留。文字权威[文档26](../26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)同步。
+
+**资料≠实现**：`src/draft_assets.py::trade_window`、`src/gm_core/calculations.py::draft_pick_window`、`src/gm_core/trades.py`、`src/approved_trade_executor.py`尚有三年窗口依赖；旧runtime因此仍可能拦截原生第4/5届。此为未来明确授权的**Codex工程同步缺口**，本轮DEV29不开发/运行修复，严禁谎称5届均已可以执行。
+
+整合机读[R05-D经营全域目录](catalogs/R05D_FRANCHISE_CAPABILITIES_ATLAS_V1.json)收录17合同字段、10财务观察/候选、14名单/选秀权结构、13 Staff字段，共**54条异质资料项**；又收录21市场概念、16交易候选、10球探类别、10Draft类别、6员工管理候选共**63类信息/操作原料**，记录12项相关机制及12项PC22未认证缺口。**不能把54写成54条当前真实游戏数值，也不能把63写成63个已证明可以写入的UI按钮**。见[K07/K08/K09完整中文攻略§§23–29](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)。
+
+**阶段结束**：`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`，保留来源及实机未知，R06下一轮未启动；独立审核交其他模型，不开发Agent/GM竞价规则、DEV28/Codex或修改游戏。
