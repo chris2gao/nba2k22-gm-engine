@@ -1,5 +1,8 @@
 # 本局分工、轮回选秀与球员修改边界
 
+
+> [**六模型长期目标与本规则的层次关系**](PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：本文保留游戏世界线、角色修改与审批的权威细则；更新后的六独立模型目标流程与各开发任务范围见项目意图文档。旧“采集→网页GM→执行”仅是现有已实现子流程，不代表未来Coach/Player人格已经存在，也不应阻止DEV29研究/DEV28底层I/O后续完善。
+
 2026-10-19玩家DEV15 V2决定的窄例外：30队GM可提出Intangibles 25–99轮换偏置，只有PLAYER 0x440由DEV14在具体批准后受控写入，其他普通Ability/Potential/Badge禁令不变。Potential=1仅是采集后GM数据遮蔽，不改游戏潜力，不用于成长/选秀判断；旧公开原始批次禁供GM、历史文件不就地改。正式开发状态见docs/34和[DEV15手册](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)，本规则不启动游戏动作。
 
 本规范记录玩家最新明确规则；与早期玩法文档冲突时，以本规范及文档 22 的真实性/审批要求为准。机器可读版本是 `config/gameplay_policy.json`。这次规则整理不执行任何游戏写入，也不启用 MC 成长故事。
