@@ -566,7 +566,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0014",
@@ -607,7 +609,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0015",
@@ -648,7 +652,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0016",
@@ -689,7 +695,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0017",
@@ -730,7 +738,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0018",
@@ -771,7 +781,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0019",
@@ -812,7 +824,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0020",
@@ -853,7 +867,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0021",
@@ -894,7 +910,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0022",
@@ -935,7 +953,9 @@
       "linked_existing_production_scope": "COACH_PROFILE_EXECUTOR_SCOPE_NEEDS_FIELD_LEVEL_CONFIRMATION",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0023",
@@ -949,10 +969,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -975,7 +997,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0024",
@@ -989,10 +1015,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1015,7 +1043,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0025",
@@ -1029,10 +1061,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1055,7 +1089,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0026",
@@ -1069,10 +1107,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1095,7 +1135,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0027",
@@ -1109,10 +1153,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_PLUS_PLAYER_REPORTED_UI_POSITION_SPECIFIC_MAPPING_UNKNOWN"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_PLUS_PLAYER_REPORTED_UI_POSITION_SPECIFIC_MAPPING_UNKNOWN",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1135,7 +1181,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_PLUS_PLAYER_REPORTED_UI_POSITION_SPECIFIC_MAPPING_UNKNOWN"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0028",
@@ -1149,10 +1199,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1175,7 +1227,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0029",
@@ -1189,10 +1245,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
       "original_catalog_evidence": "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1215,7 +1273,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_REGISTRY_DEFINED_NOT_CURRENT_CAPTURE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0030",
@@ -1229,10 +1291,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_STATIC_LAYOUT_ONLY_NOT_REGISTRY_LIVE_CURRENT_VALUE"
+      ],
       "original_catalog_evidence": "PROJECT_STATIC_LAYOUT_ONLY_NOT_REGISTRY_LIVE_CURRENT_VALUE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1255,7 +1319,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_STATIC_LAYOUT_ONLY_NOT_REGISTRY_LIVE_CURRENT_VALUE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0031",
@@ -1269,10 +1337,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DISCOVERED_LAYOUT_REGISTRY_READONLY_ADAPTER_PENDING"
+      ],
       "original_catalog_evidence": "PROJECT_DISCOVERED_LAYOUT_REGISTRY_READONLY_ADAPTER_PENDING",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1295,7 +1365,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DISCOVERED_LAYOUT_REGISTRY_READONLY_ADAPTER_PENDING"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0032",
@@ -1309,10 +1383,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "GAME_ENGINE_AUTHORITY_R01_GAMELOGS_PC22_UI_GAPS"
+      ],
       "original_catalog_evidence": "GAME_ENGINE_AUTHORITY_R01_GAMELOGS_PC22_UI_GAPS",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1335,7 +1411,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "GAME_ENGINE_AUTHORITY_R01_GAMELOGS_PC22_UI_GAPS"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0033",
@@ -1349,10 +1429,12 @@
       "domain": "TRAINING",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "OFFICIAL_NBA2K22_PS5_XBOX_SERIES_MYNBA_ONLY"
+      ],
       "original_catalog_evidence": "OFFICIAL_NBA2K22_PS5_XBOX_SERIES_MYNBA_ONLY",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1375,7 +1457,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "OFFICIAL_NBA2K22_PS5_XBOX_SERIES_MYNBA_ONLY"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0034",
@@ -1419,7 +1505,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0060",
+        "SRC-0061"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0035",
@@ -1463,7 +1554,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0060",
+        "SRC-0061"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0036",
@@ -1507,7 +1603,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0063",
+        "SRC-0064"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0037",
@@ -1552,7 +1653,13 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0049",
+        "SRC-0052",
+        "SRC-0069"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0038",
@@ -1596,7 +1703,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0061",
+        "SRC-0064"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0039",
@@ -1640,7 +1752,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0064",
+        "SRC-0058"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0040",
@@ -1687,7 +1804,15 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0065",
+        "SRC-0066",
+        "SRC-0067",
+        "SRC-0068",
+        "SRC-0070"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0041",
@@ -1731,7 +1856,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0071",
+        "SRC-0065"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0042",
@@ -1749,7 +1879,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -1777,7 +1908,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0043",
@@ -1795,7 +1932,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -1823,7 +1961,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0044",
@@ -1841,7 +1985,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -1869,7 +2014,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0045",
@@ -1887,7 +2038,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -1915,7 +2067,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0046",
@@ -1933,7 +2091,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -1961,7 +2120,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0047",
@@ -1979,7 +2144,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2007,7 +2173,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0048",
@@ -2025,7 +2197,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2053,7 +2226,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0049",
@@ -2071,7 +2250,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2099,7 +2279,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0050",
@@ -2117,7 +2303,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2145,7 +2332,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0051",
@@ -2163,7 +2356,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2191,7 +2385,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0052",
@@ -2209,7 +2409,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2237,7 +2438,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0053",
@@ -2255,7 +2462,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2283,7 +2491,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0054",
@@ -2301,7 +2515,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2329,7 +2544,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0055",
@@ -2347,7 +2568,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2375,7 +2597,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0056",
@@ -2393,7 +2621,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2421,7 +2650,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0057",
@@ -2439,7 +2674,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2467,7 +2703,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0058",
@@ -2485,7 +2727,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2513,7 +2756,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0059",
@@ -2531,7 +2780,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2559,7 +2809,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0060",
@@ -2577,7 +2833,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2605,7 +2862,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0061",
@@ -2623,7 +2886,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2651,7 +2915,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0062",
@@ -2669,7 +2939,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2697,7 +2968,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0063",
@@ -2715,7 +2992,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2743,7 +3021,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0064",
@@ -2761,7 +3045,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2789,7 +3074,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0065",
@@ -2807,7 +3098,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2835,7 +3127,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0066",
@@ -2853,7 +3151,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2881,7 +3180,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0067",
@@ -2899,7 +3204,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2927,7 +3233,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0068",
@@ -2945,7 +3257,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -2973,7 +3286,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0069",
@@ -2991,7 +3310,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3019,7 +3339,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0070",
@@ -3037,7 +3363,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3065,7 +3392,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0071",
@@ -3083,7 +3416,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3111,7 +3445,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0072",
@@ -3129,7 +3469,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3157,7 +3498,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0073",
@@ -3175,7 +3522,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3203,7 +3551,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0074",
@@ -3221,7 +3575,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3249,7 +3604,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0075",
@@ -3267,7 +3628,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3295,7 +3657,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0076",
@@ -3313,7 +3681,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3341,7 +3710,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0077",
@@ -3359,7 +3734,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3387,7 +3763,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0078",
@@ -3405,7 +3787,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3433,7 +3816,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0079",
@@ -3451,7 +3840,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3479,7 +3869,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0080",
@@ -3497,7 +3893,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3525,7 +3922,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0081",
@@ -3543,7 +3946,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3571,7 +3975,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0082",
@@ -3589,7 +3999,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3617,7 +4028,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0083",
@@ -3635,7 +4052,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3663,7 +4081,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0084",
@@ -3681,7 +4105,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3709,7 +4134,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0085",
@@ -3727,7 +4158,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3755,7 +4187,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0086",
@@ -3773,7 +4211,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3801,7 +4240,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0087",
@@ -3819,7 +4264,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3847,7 +4293,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0088",
@@ -3865,7 +4317,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3893,7 +4346,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0089",
@@ -3911,7 +4370,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3939,7 +4399,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0090",
@@ -3957,7 +4423,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -3985,7 +4452,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0091",
@@ -4003,7 +4476,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4031,7 +4505,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0092",
@@ -4049,7 +4529,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4077,7 +4558,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0093",
@@ -4095,7 +4582,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4123,7 +4611,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0094",
@@ -4141,7 +4635,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4169,7 +4664,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0095",
@@ -4187,7 +4688,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4215,7 +4717,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0073",
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0096",
@@ -4230,11 +4738,12 @@
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "DEV15_PROJECT_PROTECTION"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "PLAYER.attributes.potential",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4258,7 +4767,11 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "DEV15_PROJECT_PROTECTION"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0097",
@@ -4275,7 +4788,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4303,7 +4817,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0098",
@@ -4320,7 +4839,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4348,7 +4868,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0099",
@@ -4365,7 +4890,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4393,7 +4919,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0100",
@@ -4410,7 +4941,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -4438,7 +4970,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     }
   ]
 }
