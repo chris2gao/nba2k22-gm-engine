@@ -1,6 +1,6 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
-**当前权威状态**：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`（2026-10-20）。
+**当前权威状态**：`R04_A_RESEARCH_PUBLISHED_WITH_FIELD_GAPS`（2026-10-21）。R01/R02研究已结案；R03已经用户批准结项。
 **当前最新：用户已批准R03研究结项，`R04_A_RESEARCH_PUBLISHED_WITH_FIELD_GAPS`；下一轮 `R04_B_TENDENCIES_PLAYSTYLE_RESEARCH`。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
@@ -18,7 +18,7 @@
 | **R04-A** | 球员Vitals、39项已登记属性、16项Durability、职业成长、Badge | **PUBLISHED_WITH_OPEN_ITEMS** | [K03/K12指南](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[字段目录](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)、[徽章参考](catalogs/PLAYER_BADGES_R04_A_REFERENCE.json)、SRC-0072..0082 |
 | **R04-B NEXT** | 全99倾向/更多玩家可见类别、四PlayTypes/Initiator与比赛行为联动 | **NEXT / NOT_STARTED** | R04任务书，后续再由用户触发 |
 
-| **R04 新增重点** | **K03/K12 完整球员个人资料、全部属性/徽章/倾向、耐久及Play for Win/Financial Security/Loyalty；未来Player Agent自主决策接口** | **NOT_STARTED** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
+| **R04 整体** | **K03/K12 完整球员职业生命周期、倾向、徽章、人格、合同偏好和选择权** | **IN_PROGRESS: R04-A已交付 / R04-B、C、D尚未研究** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
 | R05（原R04） | 合同、财务、员工、球探、选秀、休赛期、巨星谈判 | NOT_STARTED | 后续；承接R04的球员职业诉求 |
 | R06（原R05） | 3D比赛设置、世界线、历史、媒体与存档 | NOT_STARTED | 后续 |
 | R07（原R06） | 多角色知识矩阵、GM/球员/教练/媒体决策证据及可执行能力查漏 | NOT_STARTED | 后续 |
@@ -126,7 +126,7 @@
 
 **R02学到的完整原料边界**：项目19教练默认设置/18针对对手防守/34原生Freelance/68 Book槽继续保留已建立技术证据；12个战术类别与PlayTypes四槽需要与具体play CRC匹配，当前精确CRC→native type仍UNKNOWN。ACE是否动态覆盖、Series/4Freelance实际被CPU调用及历史保存窗口未实证。本项目日常GM**仅修改经批准的个人防守，不写整体OVERALL；不直接编辑普通球员能力/潜力/徽章**。教练、GM、球员、媒体Agent的独立目标/接受/拒绝/谈判可作为未来模型选择自由，**不是本轮开发的Agent、不是真实2K游戏自带的人格API**。玩家真实批准始终是游戏写入必要条件。
 
-### 下一轮唯一启动入口：R03-A K06训练与健康研究
+### R03-A历史启动入口（已完成；仅保留断点历史）
 
 1. 从GitHub读取本PROGRESS、[DEV29 V3](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)、[R04人物专项](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)、[K04联动](guides/K04_COACH_AND_PLAYS.md)、已有训练开发/运营手册，以及SOURCES/VIS尾部；**不要重开R01/R02**。
 2. 搜官方NBA2K20–23与同年玩家训练操作、MyLEAGUE全队/个人训练、恢复/休息、负荷、疲劳、伤病/身体耐久、医疗员工、赛场 vs 快模拟对成长的影响；按PC22本世代/PS4同代/PS5次世代/其它版本严格分层。不因为有PS5 MySTAFF/Prep Hub照片就冒充PC22。
