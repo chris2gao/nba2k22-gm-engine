@@ -1,5 +1,9 @@
 # Web GPT · 数据整理分析基线当前记忆
 
+## 2026-10-20 DEV29 V2资料库R01：Game Logs与高级统计优先
+
+- 网页GPT新研究窗口按[DEV29 V2](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)主导NBA2K20–23游戏内容研究；**R01优先研究真实每场Game Logs、赛程、球员/球队Box、Advanced/Shot Chart**，形成`docs/game_mechanics/guides/K01_K02_GAME_STATS.md`及[PROGRESS](../../docs/game_mechanics/PROGRESS.md)的来源/截图证据。Analytics需将其转为GM每个问题的最低基础事实/可派生高阶指标，不把跨版本UI或公式估算冒充生产SQLite。Codex仅在研究全部完成后FINAL-CODEX盘点接口并准备DEV28，而非先替研究模型搜集网页攻略。
+
 ## 2026-10-20 DEV29前置：逐场比赛与高级指标来源反向审计
 
 - 玩家确认之前全量采集以已知内存字段为出发点，遗漏逐场比赛、每场球员/球队Box Score、Game Logs、部分高阶指标。现有M02赛季合计/跨批差值不能还原具体对手、球员上场、场次和战术决策，分析模型必须说明`INSUFFICIENT_EVIDENCE`，不可把平均或累计伪装为真实逐场数据。
