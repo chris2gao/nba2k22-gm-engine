@@ -1,6 +1,6 @@
 # K10 — NBA2K22 历史选秀轮回、奖项、纪录、联盟媒体与规则历史（R06-B）
 
-> DEV29 R06-B，2026-10-21；目标为 **NBA2K22 PC 本世代离线 MyLEAGUE**。本文件是纯资料研究，不批准或实现历史重力、媒体人格、奖项人工改判、自动推进赛季、存档/球员/教练写入。旧世代和次世代的功能用于理解，菜单与内存仍需独立认证。伴随机读目录 [R06B_HISTORY_AWARDS_MEDIA_RESEARCH_V1.json](../catalogs/R06B_HISTORY_AWARDS_MEDIA_RESEARCH_V1.json)；外部来源见 [SOURCES](../SOURCES.md) 的 SRC-0174–0185。
+> DEV29 R06-B，2026-10-21；目标为 **NBA2K22 PC 本世代离线 MyLEAGUE**。本文件是纯资料研究，不批准或实现历史重力、媒体人格、奖项人工改判、自动推进赛季、存档/球员/教练写入。旧世代和次世代的功能用于理解，菜单与内存仍需独立认证。伴随机读目录 [R06B_HISTORY_AWARDS_MEDIA_RESEARCH_V1.json](../catalogs/R06B_HISTORY_AWARDS_MEDIA_RESEARCH_V1.json)；外部来源见 [SOURCES](../SOURCES.md) 的 SRC-0174–0186。
 
 ## 7. 三种时间轴不可混同：游戏赛季、历史选秀届、参考历史纪元
 
@@ -24,7 +24,7 @@
 - **赛季竞争与结果**：常规MVP、ROY、DPOY、Sixth Man、MIP、COY；这些是2K系列常见奖项类别，但本轮**未取得PC22目标存档逐项菜单和历季读回**。
 - **球队/联盟荣誉**：NBA冠军、总决赛MVP、All-NBA/All-Defensive/All-Rookie球队、All-Star等；All-Star选入和All-NBA阵容**不等于**获得年度MVP。
 - **长期人物荣誉**：历史MVP、退役球衣、名人堂、球员卡个人获奖次数；获奖次数与每年的逐条获奖记录不是同一种数据。
-- **可能的数据不一致**：2019旧版MyLEAGUE有玩家抱怨总决赛MVP没有出现在球员奖项历史，可能还影响HOF解释（SRC-0183）；不能推广为PC22肯定有此Bug，重要的是不同显示页彼此核对。
+- **可能的数据不一致**：2019旧版MyLEAGUE有玩家抱怨总决赛MVP没有出现在球员奖项历史，可能还影响HOF解释（SRC-0186）；不能推广为PC22肯定有此Bug，重要的是不同显示页彼此核对。
 
 `NBA.com`真实NBA历史奖项**不能直接写进游戏当前赛季**。如果游戏模拟的2022赛季MVP不是现实2022的获奖者，原生游戏赛果是本存档权威事实；现实荣誉只可归为历史对照参考，不应覆盖 `GAME_AWARD`。
 
