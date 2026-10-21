@@ -1,5 +1,10 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 R07独立审核：研究交付已验证，仍有两项机读字段修正
+
+[DEV29 R07独立审核报告](development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)。R07七卷694项目/682源JSON记录直接匹配/40功能族/86功能锚点/20继承缺口通过静态检查；研究主旨和七维成熟度分离正确。**当前状态`R07_REVIEW_TARGETED_CATALOG_REPAIR_REQUIRED`，不是全面结案或Codex自动开发授权**。两个定向问题：PART_01两个R01人工主题ID需标`GENERATED_GUIDE_TOPIC_ALIAS`及具体章节；矩阵F21/F22/F23/F26/F27/F32/F39/F40的`model_query_api_status`混入写入/审批信息，应恢复为查询状态并另留执行警示。此类修复不意味着PC22真实运行时读回、逐场Box或存盘能力有进展。用户随后可另行触发FINAL-CODEX对账；禁止顺手开发人格/DEV28/游戏写入。
+
+
 ## 2026-10-21 R07研究成熟度总目录已发布，等待独立验收
 
 研究入口：[R07七层证据成熟度中文指南](game_mechanics/guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40功能族/10历史生产来源/20缺口JSON](game_mechanics/catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694条7分卷总入口](game_mechanics/catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)与[后续DEV28只读缺口交接](game_mechanics/R07_TO_DEV28_EVIDENCE_HANDOFF.md)。状态`R07_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`，**没有触发新的采集、查询实测、执行或游戏Save**。原R06研究已正式获独立审核通过。40/694等是异质研究对象，不是已可用的Native字段/动作数量；7个成熟度层不能压成一个done。现有生产能力仍以本文件具体证据、最新实际manifest以及37/38/40手册各自已验证范围为准；R07不扩展任何写入白名单，不能通过新目录自动启动DEV28或FINAL-CODEX。旧正文提到“3届Pick”的历史记录被2026-10-21 V4取消规则覆盖；现存旧+3执行守卫仍是未修工程差距。
