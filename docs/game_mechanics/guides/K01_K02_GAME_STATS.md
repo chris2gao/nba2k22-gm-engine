@@ -330,75 +330,75 @@ raw_attempt_coordinates: NOT_OBSERVED
 
 # DEV29 R01-C：NBA2K22 PC原版统计UI证据复核与GM落地边界（2026-10-20）
 
-> **本轮执行性质**：已独立检索2K22 PC/PS4 MyLEAGUE、Reddit、Operation Sports、Steam、官方制作人报告、公开视频与图文结果；只将实际能核实的事实增补。**尚未找到能够逐像素确证“无模组NBA2K22 PC本世代MyLEAGUE”全套统计菜单、Box表头、Game Logs、历史保存期的公开屏幕证据**。这不是游戏没有这些菜单/数据的证明。原生认证仍为\`PC22_UI_PENDING\`，无游戏访问或写入。本节来源\`SRC-0026..0028\`，重用既有\`SRC-0015\`。
+> **本轮执行性质**：已独立检索2K22 PC/PS4 MyLEAGUE、Reddit、Operation Sports、Steam、官方制作人报告、公开视频与图文结果；只将实际能核实的事实增补。**尚未找到能够逐像素确证“无模组NBA2K22 PC本世代MyLEAGUE”全套统计菜单、Box表头、Game Logs、历史保存期的公开屏幕证据**。这不是游戏没有这些菜单/数据的证明。原生认证仍为`PC22_UI_PENDING`，无游戏访问或写入。本节来源`SRC-0026..0028`，重用既有`SRC-0015`。
 
 ## 14. 官方同年份、不同平台的“Box Score界面”证据
 
-2K22次世代MyNBA（**只适用PS5和Xbox Series**）的开发团队在2021-09-08《MyNBA Full Details》官方说明里单列\`COMPACT SPREADSHEETS\`，指出\`roster\`、\`coach gameplan\`及\`box score\`表格改用更紧凑布局，一屏能显示以前两倍以上的行数 [SRC-0026]。同一文稿开头明确此新内容仅介绍次世代MyNBA，而不是PC本世代MyLEAGUE。
+2K22次世代MyNBA（**只适用PS5和Xbox Series**）的开发团队在2021-09-08《MyNBA Full Details》官方说明里单列`COMPACT SPREADSHEETS`，指出`roster`、`coach gameplan`及`box score`表格改用更紧凑布局，一屏能显示以前两倍以上的行数 [SRC-0026]。同一文稿开头明确此新内容仅介绍次世代MyNBA，而不是PC本世代MyLEAGUE。
 
 **实用攻略含义**：
-- \`Box Score\`是开发者明确按名字识别的球队经营表格，不只是比赛直播时的短暂统计提示。
+- `Box Score`是开发者明确按名字识别的球队经营表格，不只是比赛直播时的短暂统计提示。
 - 不得假设PC22会出现该压缩布局、同一行数或相同横向页签；跨世代UI不同会直接影响截图取证与表头识别。
 - “开发者确认存在Box Score表格”不是“每场Box保留多年”或“能按game_id直接导出”。后两者仍未知。
-- [VIS-0007]仅索引该官方图文的\`COMPACT SPREADSHEETS\`标题与相邻**Roster截图**：这张官方示意图**不是Box Score截屏**，不能为Box字段背书。
+- [VIS-0007]仅索引该官方图文的`COMPACT SPREADSHEETS`标题与相邻**Roster截图**：这张官方示意图**不是Box Score截屏**，不能为Box字段背书。
 
 ## 15. PC22 本世代可操作研究：先辨认统计生成机制，再辨认界面
 
-一手同代玩家DarthRambo于2021-09公开其 **NBA2K22 PS4 MyLEAGUE**\`Simulation\`设置文字清单 [SRC-0015]，显示至少存在以下**菜单组名称的玩家抄录**，这是比NBA.com指标表更接近本项目需求的资料：
+一手同代玩家DarthRambo于2021-09公开其 **NBA2K22 PS4 MyLEAGUE**`Simulation`设置文字清单 [SRC-0015]，显示至少存在以下**菜单组名称的玩家抄录**，这是比NBA.com指标表更接近本项目需求的资料：
 
 | 关联统计 | 2K22 PS4玩家记录的设置组/示例 | 对Box和GM判断的意义 | 不能断言的结论 |
 |---|---|---|---|
-| 出场时间 | \`Setup > Quarter Length\` 与\`Simulated Quarter Length\`（玩家均设11分钟） | 实战与模拟应分别记录比赛节长，跨场比较分钟/场均时先分口径 | 11分钟是玩家选择，不是默认或PC22必然值 |
-| 比赛次数与节奏 | \`Simulation > Team Style Factors > Team Pace / Team FastBreak\` | 改变节奏的设置和比赛产生的回合数有关，诊断进攻不能只看单场PTS | 无证据精确导数/百分比 |
-| 回合结果 | \`Simulation > Possession Results > Possessions Per Game, Shots, Assists, Steals, Blocks, Turnovers, Fouls, Injuries\` | **比赛模拟器设置值**不同于已观测的真实球队统计，应在事实层保留设置快照 | 玩家写的\`Possessions Per Game=100\`是滑块值，**不是球队实际100回合** |
-| 投篮类别 | \`Simulation > Shot Types > Dunks, Layups, Shot Close, Shot Medium, Shot Three\` | 可解释不同模拟条件下出手结构为什么可能改变；GM可以看\`3PA/FGA\`或区域聚合 | 不代表\`Shot Chart\`坐标可读取，也不是球员位置热区 |
-| 命中率与归属 | \`Shot Percentages\`及\`Stat Distribution\` | 不同类别的模拟参数与赛后Box、季节统计之间存在**需要验证的关联假设** | 不要把数值50当作50%命中率，或宣称每项都线性影响结果 |
+| 出场时间 | `Setup > Quarter Length` 与`Simulated Quarter Length`（玩家均设11分钟） | 实战与模拟应分别记录比赛节长，跨场比较分钟/场均时先分口径 | 11分钟是玩家选择，不是默认或PC22必然值 |
+| 比赛次数与节奏 | `Simulation > Team Style Factors > Team Pace / Team FastBreak` | 改变节奏的设置和比赛产生的回合数有关，诊断进攻不能只看单场PTS | 无证据精确导数/百分比 |
+| 回合结果 | `Simulation > Possession Results > Possessions Per Game, Shots, Assists, Steals, Blocks, Turnovers, Fouls, Injuries` | **比赛模拟器设置值**不同于已观测的真实球队统计，应在事实层保留设置快照 | 玩家写的`Possessions Per Game=100`是滑块值，**不是球队实际100回合** |
+| 投篮类别 | `Simulation > Shot Types > Dunks, Layups, Shot Close, Shot Medium, Shot Three` | 可解释不同模拟条件下出手结构为什么可能改变；GM可以看`3PA/FGA`或区域聚合 | 不代表`Shot Chart`坐标可读取，也不是球员位置热区 |
+| 命中率与归属 | `Shot Percentages`及`Stat Distribution` | 不同类别的模拟参数与赛后Box、季节统计之间存在**需要验证的关联假设** | 不要把数值50当作50%命中率，或宣称每项都线性影响结果 |
 
 **对本项目的运营政策**：上述玩家改倾向/能力的做法属于其自定义阵容；GM Engine严格遵守**不修改普通球员能力/潜力/徽章**的规则。R01只研究观测与解释，**不批准改模拟器设置**；GAMEPLAY参数是否在本项目已受控支持也应由其它既有能力记录决定，不能由本文授权。
 
 ### 15.1 “UI统计”和“模拟器生成统计”是两套不同对象
 
-\`sim_engine_settings\`（比赛前参数）→\`played_or_simulated_game\`（生成结果）→\`post_game_box\`（当场观察）→\`season_rollup\`（赛季聚合）→\`external_gm_derived_metrics\`（外挂派生）。
+`sim_engine_settings`（比赛前参数）→`played_or_simulated_game`（生成结果）→`post_game_box`（当场观察）→`season_rollup`（赛季聚合）→`external_gm_derived_metrics`（外挂派生）。
 
 箭头是**信息依赖链**，不是对2K内部固定算法或内存对象的证实。若季后赛推进、AI比赛或游戏规则改变，仍须在各层独立记录观察值，不能把赛季平均伪装成历史每场。
 
 ## 16. 历史与场内/场外统计不一致：比“Box是否存在”更关键的质量问题
 
-- **2022年同系列玩家公开诉求**：2022年2月 Operation Sports玩家提出“希望2K23把季后赛统计记录得更详细，并能在球员卡上显示季后赛场均/总量/单场最高”，另一玩家明确区分\`Current Gen MyLeague\`与\`NextGen MyNBA\` [SRC-0027]。这证明2022年玩家认为某些季后赛历史呈现**不足**，但严格说只是**产品建议而非逐个核对已不存在的字段**。
-- **对比更早的PC同系列可复现错误类型**：NBA2K17 PC Steam玩家报告，MyLEAGUE采用“投篮犯规自动给分而非罚球”的联盟规则后，一名球员在场内显示34分，完赛退出Box及赛季统计重新计算只显示27分 [SRC-0028]。这只证明**旧版本/特定规则**曾有屏幕与Box不一致问题；不能声称NBA2K22仍然复现，却证明\`displayed_ingame_pts\`、\`posted_box_pts\`、\`season_rollup_pts\`应在审计时保留三个阶段和差异来源。
+- **2022年同系列玩家公开诉求**：2022年2月 Operation Sports玩家提出“希望2K23把季后赛统计记录得更详细，并能在球员卡上显示季后赛场均/总量/单场最高”，另一玩家明确区分`Current Gen MyLeague`与`NextGen MyNBA` [SRC-0027]。这证明2022年玩家认为某些季后赛历史呈现**不足**，但严格说只是**产品建议而非逐个核对已不存在的字段**。
+- **对比更早的PC同系列可复现错误类型**：NBA2K17 PC Steam玩家报告，MyLEAGUE采用“投篮犯规自动给分而非罚球”的联盟规则后，一名球员在场内显示34分，完赛退出Box及赛季统计重新计算只显示27分 [SRC-0028]。这只证明**旧版本/特定规则**曾有屏幕与Box不一致问题；不能声称NBA2K22仍然复现，却证明`displayed_ingame_pts`、`posted_box_pts`、`season_rollup_pts`应在审计时保留三个阶段和差异来源。
 - 对已有R01-A标准化SimCast问题 [SRC-0008/0009]，**不要合并成同一个“2K22必然错算”结论**：它们分别是本世代赛程数值与场内不一致、次世代线上统计污染、旧版本特殊规则重新结算，触发条件不同。
 
 ### 16.1 将旧R01-A的原始候选字段改成“字段层级字典”（不是已发现的PC22字段）
 
 | 层级 | 首先询问什么 | 最小候选键 | 缺证时的动作 |
 |---|---|---|---|
-| L0比赛身份 | 是否能找到真实唯一Game ID？有主客/赛季/阶段/状态吗 | \`save_instance, season, phase, date, home, away, occurrence, game_id_if_observed\` | 不能靠比分匹配两档世界线 |
-| L1球队Box | 双方比分、球队合计、每节与加时、来源是赛后还是历史详情？ | \`team_game_key, points, fg/3p/ft, reb, assists, tov\` | 原生没有该列即\`UNKNOWN\`，不自己补值当“RAW” |
-| L2球员Box | 实际当场team、分钟是否为标准化后、DNP/首发是否可见？ | \`player_game_key, team_at_game, min_raw, stats_raw, is_dnp_observed\` | 不能把缺行等同DNP，也不能把本队当前归属回填旧场 |
-| L3比赛图 | 游戏能显示\`Shot Chart\`、时段/全场、球员/球队筛选吗？ | \`chart_scope, zones_if_observed, attempts_if_observed\` | 只有外部图片链接但无落点读数，状态\`UI_ONLY\`，不可生成\`attempt_xy\` |
-| L4赛季表 | Per Game、Per36、Advanced页的时间窗、排序、是否反映已打Box？ | \`season, mode, stat_page, native_value, formula_if_derived\` | 排序异常保留原值，外挂重算排序 |
-| L5历史寿命 | 已跨季的Box还能由旧赛程和旧球员卡打开吗？ | \`queried_season, history_source_page, oldest_visible_game\` | \`UNKNOWN\`；不得猜测一年/永久/最近N场 |
+| L0比赛身份 | 是否能找到真实唯一Game ID？有主客/赛季/阶段/状态吗 | `save_instance, season, phase, date, home, away, occurrence, game_id_if_observed` | 不能靠比分匹配两档世界线 |
+| L1球队Box | 双方比分、球队合计、每节与加时、来源是赛后还是历史详情？ | `team_game_key, points, fg/3p/ft, reb, assists, tov` | 原生没有该列即`UNKNOWN`，不自己补值当“RAW” |
+| L2球员Box | 实际当场team、分钟是否为标准化后、DNP/首发是否可见？ | `player_game_key, team_at_game, min_raw, stats_raw, is_dnp_observed` | 不能把缺行等同DNP，也不能把本队当前归属回填旧场 |
+| L3比赛图 | 游戏能显示`Shot Chart`、时段/全场、球员/球队筛选吗？ | `chart_scope, zones_if_observed, attempts_if_observed` | 只有外部图片链接但无落点读数，状态`UI_ONLY`，不可生成`attempt_xy` |
+| L4赛季表 | Per Game、Per36、Advanced页的时间窗、排序、是否反映已打Box？ | `season, mode, stat_page, native_value, formula_if_derived` | 排序异常保留原值，外挂重算排序 |
+| L5历史寿命 | 已跨季的Box还能由旧赛程和旧球员卡打开吗？ | `queried_season, history_source_page, oldest_visible_game` | `UNKNOWN`；不得猜测一年/永久/最近N场 |
 
 为将来数据质量审计预留三个冲突类型（不预设数据库已经建立）：
-\`SCORE_CONFLICT_DISPLAY_VS_BOX\`、\`BOX_VS_SEASON_ROLLUP_MISMATCH\`、\`GAME_EXISTS_BUT_BOX_UNAVAILABLE\`。它们不能互相替代，更不能把“没找到页面”直接判为“游戏没有存”。
+`SCORE_CONFLICT_DISPLAY_VS_BOX`、`BOX_VS_SEASON_ROLLUP_MISMATCH`、`GAME_EXISTS_BUT_BOX_UNAVAILABLE`。它们不能互相替代，更不能把“没找到页面”直接判为“游戏没有存”。
 
 ## 17. 多轮检索结果判定：已支持到哪里，什么资料不能继续当证据
 
 | 目标问题 | R01-C新增资料是否推进 | 最严格可用判断 |
 |---|---|---|
-| PC22原版MyLEAGUE统计菜单、Game Logs独立入口 | 搜索未获得可复核的纯原版PC画面 | **\`PC22_UI_PENDING\`**；绝不声称菜单不存在 |
-| PC22球员/球队Box精确列名及分页 | 官方证实2K22次世代\`box score\`表格存在且新布局；PC布局不同 | **\`KNOWN_IN_SERIES\`**，字段和值未知 |
-| PC22 Per36/Advanced原生选项 | R01-B已证PS5 2K22/老版MyLEAGUE；本轮没有更强PC22证据 | **\`PC22_UI_PENDING\`** |
-| PC22 Shot Chart在历史赛程或赛后可重开 | R01-B已有2K22玩家赛后文字报告；本轮没有PC历史页新证据 | **\`KNOWN_IN_SERIES\`**，回顾能力未知 |
-| PC22旧Box留存跨月/跨赛季 | 2022愿望帖与2020 MyLEAGUE旧Bracket例子都不直接测Box | **\`UNKNOWN\`** |
+| PC22原版MyLEAGUE统计菜单、Game Logs独立入口 | 搜索未获得可复核的纯原版PC画面 | **`PC22_UI_PENDING`**；绝不声称菜单不存在 |
+| PC22球员/球队Box精确列名及分页 | 官方证实2K22次世代`box score`表格存在且新布局；PC布局不同 | **`KNOWN_IN_SERIES`**，字段和值未知 |
+| PC22 Per36/Advanced原生选项 | R01-B已证PS5 2K22/老版MyLEAGUE；本轮没有更强PC22证据 | **`PC22_UI_PENDING`** |
+| PC22 Shot Chart在历史赛程或赛后可重开 | R01-B已有2K22玩家赛后文字报告；本轮没有PC历史页新证据 | **`KNOWN_IN_SERIES`**，回顾能力未知 |
+| PC22旧Box留存跨月/跨赛季 | 2022愿望帖与2020 MyLEAGUE旧Bracket例子都不直接测Box | **`UNKNOWN`** |
 | 数据质量依赖 | 明确同年PS4模拟参数目录、较老PC同系列特殊规则计分BUG | **需要对模式与口径打来源标签**；不得概括为PC22已复现 |
 
-**严禁的错误来源替代**：现实NBA.com、Basketball-Reference展示的\`Game Logs / Shot Chart / Advanced\`是篮球分析方法论，**不是NBA2K22电子游戏UI截图**；同样，\`NBA2K22 PC Remastered\`自定义版的“MyNBA”截图不能认定原版PC22拥有次世代UI [SRC-0025]。外部早期2K12/2K11“Box Score导出工具”和非同系列模拟器不能用作PC22数据留存证明。
+**严禁的错误来源替代**：现实NBA.com、Basketball-Reference展示的`Game Logs / Shot Chart / Advanced`是篮球分析方法论，**不是NBA2K22电子游戏UI截图**；同样，`NBA2K22 PC Remastered`自定义版的“MyNBA”截图不能认定原版PC22拥有次世代UI [SRC-0025]。外部早期2K12/2K11“Box Score导出工具”和非同系列模拟器不能用作PC22数据留存证明。
 
 ## 18. R01-C实际研究交付与下一断点
 
 **可交付知识**：跨世代“Box Score存在与显示布局”的官方证据；与统计结果直接相关的2K22本世代模拟设置标签；季后赛历史视图需求不足的同期玩家反馈；游戏内与赛后Box差异的旧PC案例；基于原始观测层级的最小验收与质量追踪字典。它们能让GM**知道该问哪项数据、为何不能只信赛季排行榜以及何时必须HOLD判断**。
 
-**不能交付并必须透明说明**：没有完成\`PC22_UI_CONFIRMED\`，没有确认2K22 PC全部Box表头，没有证明独立Game Logs页，没有跨赛季历史Box寿命，没有访问游戏进程或生成\`PROJECT_CAPTURED\`数据。研究知识充分不代表工程已能提取这些数据。
+**不能交付并必须透明说明**：没有完成`PC22_UI_CONFIRMED`，没有确认2K22 PC全部Box表头，没有证明独立Game Logs页，没有跨赛季历史Box寿命，没有访问游戏进程或生成`PROJECT_CAPTURED`数据。研究知识充分不代表工程已能提取这些数据。
 
-**下一恢复指针**：\`R01_D_TARGET_PC22_VISUAL_EVIDENCE_OR_CLOSE_UNKNOWN\`。优先复核**原版PC22无UI Mod**从MyLEAGUE内\`Stats\`页以及本队/AI队完赛Box、赛后Shot Chart、历史赛程打开旧Box；如果仍无公开可信屏幕材料，则保持\`UNKNOWN\`并把“需玩家已有只读页面截图”列为一次性证据请求，终止该轮。**不得无限搜索同质文章，也不启动DEV28、采集、模拟比赛或Codex**。
+**下一恢复指针**：`R01_D_TARGET_PC22_VISUAL_EVIDENCE_OR_CLOSE_UNKNOWN`。优先复核**原版PC22无UI Mod**从MyLEAGUE内`Stats`页以及本队/AI队完赛Box、赛后Shot Chart、历史赛程打开旧Box；如果仍无公开可信屏幕材料，则保持`UNKNOWN`并把“需玩家已有只读页面截图”列为一次性证据请求，终止该轮。**不得无限搜索同质文章，也不启动DEV28、采集、模拟比赛或Codex**。
