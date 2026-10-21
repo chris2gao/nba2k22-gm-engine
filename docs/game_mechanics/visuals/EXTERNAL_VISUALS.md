@@ -233,3 +233,22 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 **B：球员战术角色**：`PlayType 1–4`有序菜单与`Play Initiator`、该队Playbook与具体12类Filter/2D Playboard；菜单截图只证明可见性和当次配置，CPU是否自动跑该战术需要独立比赛观测。
 
 **执行边界**：本轮不是催用户截图或启动原生内存调查。未来仅在独立授权后可增量补VIS，`GM_VISIBLE_POTENTIAL_MASKED`规则继续有效。以后需解决3D vs Sim倾向实际效果，也不能仅看静态截图或已有Editor数值。
+
+## DEV29 R04-C — 动机、人格Badge、士气与合同意愿视觉证据（2026-10-21）
+
+**本轮原版NBA2K22 PC无模组离线MyLEAGUE的Motivations/Personality/Morale/Contract Thoughts像素完整可认证新图证：0。** 即使2K22同版第三方历史球员网页完整显示数值，也只按**同版导出字段及静态快照**认定，不伪造`PC22_NATIVE_UI_CONFIRMED`。未复制或上传任何第三方图像，本文提供原网页链接和可观察事实。
+
+| 定位/来源 | 实际已取得的内容 | 证据等级及不能推断 |
+|---|---|---|
+| [2kAuction NBA2K22 Joel Embiid](https://2kauction.com/mynba/2k22/players/joel-embiid?roster=offseason_nba)、[Haliburton](https://2kauction.com/mynba/2k22/players/tyrese-haliburton?roster=offseason_nba)，SRC-0093 | 2K22档案`Motivations`完整三个标签`Loyalty / Playing for a winner / Financial security`，0–100值，可作为**文本源的准确字段证据** | `ARCHIVED_2K22_PLAYER_HTML_NOT_GAME_EDITOR_PIXELS`；没有本机偏移、当前存档真实值和PC原版菜单可读截图 |
+| [OS 2K22 ATD原帖](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/916767-nba-2k22-attention-to-detail-roster-ps4-ps5-xb1-xbsx-pc-switch)，SRC-0092/0103 | 球员人格Badge/职业偏好编辑设计，外部事件生成器的文字描述 | `COMMUNITY_CUSTOM_ROSTER_AND_EXTERNAL_EVENTS`；**不可当官方游戏自带Event Generator画面** |
+| [2K20开发博客：Morale与3项自由市场Badge](https://www.operationsports.com/nba-2k20-franchise-mode-developer-blog-mygm-2-0-myleague-more/)，SRC-0091 | 官方开发解释每个机制用途、大小市场/气候/税务tie-break及士气平衡 | `OFFICIAL_OLDER_FRANCHISE_TEXT`；不是PC22场景截图或本机CPU参数 |
+| [NBA2KW人格词条](https://nba2kw.com/nba-2k-finance-savvy-badge)、[Media Ringmaster](https://nba2kw.com/nba-2k-media-ringmaster-badge)、[Warm Weather Fan](https://nba2kw.com/nba-2k-warm-weather-fan-badge)，SRC-0098 | 可读取人格术语和语义，包括Finance Savvy税务偏好与Financial Security不同 | `CROSS_SERIES_BADGE_GLOSSARY`；本轮没有核对PC22人格Badge编辑菜单所有枚举和原生IDs |
+| [2022 PS4 MyLEAGUE unhappy players](https://www.reddit.com/r/Nba2k22/comments/s1fuk4)，SRC-0094 | 明确PS4作者口述即便设置首发/调整士气仍有转会意愿 | `SAME_GAME_PS4_TEXT_ONLY`；不是动态Morale指标截图，更不是一份确定Bug复现实验 |
+
+### 未来两组最小原版取证，不阻碍R04-D继续
+
+- **A 人格与动机静态页**：NBA2K22 PC离线MyLEAGUE`Edit Player → Vitals/Motivations`真实三个标签和值域（如出现）、人格徽章列表（尤其Media Ringmaster/Warm Weather Fan/Finance Savvy及Alpha Dog）。须记录球员身份、存档日期、菜单路径和是否无模组；不要公开真实Potential或任何私有角色记忆。
+- **B 职业选择动态页**：同一球员在正常已发生的赛季阶段显示其Morale/Status/Extension Thought，以及真实自由市场报价与状态，区分游戏UI上“准备测试FA”与实际已签新队；不为了制造剧情而手动调玩家合同、模拟正式存档或修改人格徽章。
+
+新增VIS编号 **0**。PC原生偏好/真实角色目标区别、21人格徽章的来源分级与角色报价能力详见[K03/K12 §17–23](../guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[R04-C机读目录](../catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json)。待独立授权取得目标本机素材后才增量升级；本研究轮未启动DEV28/Antigravity/Codex。
