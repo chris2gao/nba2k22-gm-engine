@@ -160,6 +160,16 @@ evidence:
 
 证据分别记：`STATIC_LABEL_CRC_JOIN`（游戏静态名字）、`PLAYER_REPORTED_UI`（具体挡拆类型与语法）、`NATIVE_TYPE_VERIFIED`（待内存枚举认证）、`2D_DEMO_OBSERVED`（待演示轨迹）、`IN_GAME_EXECUTION_OBSERVED`（待3D比赛）。演示预览≠游戏已在实战调用。不要直接编辑生成池而不更新种子/生成器；后续D28-1由Codex在版本化原始知识层接入。
 
+### 3.1C 玩家列出的12种战术类别与双类型映射（最新）
+
+**完整研究与调查合同**：[NBA2K22战术类别与内存类型映射V1](../development_research/NBA2K22_PLAYBOOK_12_CATEGORY_AND_NATIVE_TYPE_MAPPING_V1.md)。本次玩家原话依次列出**12项**（逐项计数），不是11项：单打、挡拆战术、挡拆外弹中投、挡拆外弹三分、挡拆战术选项、低位背身单打、高位背身单打、后卫背身单打、中投、三分、手递手、切入。社区Coach2K和2021本世代游戏战术目录提供相应类型与部分实例，**主动检索公开文献是默认前置步骤**，不需要先让玩家逐类口述。
+
+**纠正关键概念**：这份`PLAY_CATEGORY`（战术目录动作分类）与已登记`PLAYER_PLAY_TYPE`（球员四个有序槽位的0–15原生枚举、含None）不是同一个键空间。用户推断单个战术在内存块中有所属类型，可作为高优先级取证假说，但`play_crc→category/type membership`究竟直接存于战术对象、分类索引、UI列表还是多对多表，必须从真实内存布局确认；**不要把名称推断的4/5/6/7作为已认证映射**。用户已确认的`'95 FIST 15 SIDE`类别为挡拆，可标`PLAYER_REPORTED_UI`，但还不能硬指定本机的native_category_id。
+
+**提供给GM的输出必须区分**`native_play_category`、`player_play_type_compatibility`、`name_semantics`、`2D_preview`、`in_game_execution`。附来源等级、当前值及可选全集；目录分类可供研究，但自动生成准确写入需要合法原生ID/CRC/所有权/审批。
+
+**玩家截图回退流程**：Antigravity先从当前目录对象/过滤选择UI及内存布局查找；若未获得可靠类型映射，**允许请求玩家提供截图**，可能需要几十张覆盖各种战术。先明确缺哪几类/哪个页面、形成样例截图批次和已覆盖清单，按需要逐批取证；**不能以“无法截图”为默认结论**，也不能在Codex活动任务中`PAUSED/WAITING`索取资料。需要玩家介入就提交已完成发现、结束任务`TASK_CLOSED`，由玩家下一轮另行触发。
+
 ### 3.2 换帅后的技术归位与战术槽更新（Codex，复用DEV14）
 必须把以下**两个单独审批/读写步骤**变成受控、可重复执行的正常业务工作流：
 1. `READ_CURRENT_BINDING`：真实新档或用户确认已换帅，重新读取队/新主教练/Coach PlaybookID/原生本队同名Book对象及owner；根据真实对象身份消解该队同名Book的目标`enum_id`。匹配缺失/多候选不能凭名字任意写；先输出阻断证据。
