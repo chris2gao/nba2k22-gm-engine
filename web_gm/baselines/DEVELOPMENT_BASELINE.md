@@ -1,5 +1,7 @@
 # WEB GPT 专用基线 02：研发架构、Codex 任务书与独立验收
 
+> [**2026-10-21 新开发规划窗口最新完整交接快照**](../../docs/development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：记录整个长窗口的上下文、六阶段独立模型、研究/底层I-O/人格三层界限、R01–R07状态和后续FINAL-CODEX/DEV28规划。优先核对PROGRESS实时首节，不把R07修复提交当独立审核通过。
+
 > [**开发规划的任务边界**](../../docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：DEV29只整理原生游戏机制、参数/菜单/数据与联动，DEV28才建I/O基础；人格、谈判、角色决策属于未来明确独立授权任务，不能以若干权重阈值冒充人格。
 
 DEV-10 V2/M0的SQLite查询、访问问题与财务语义入口见 [操作手册](../../docs/GM_SQLITE_QUERY_ACCESS.md)；三个Web连接由玩家在实现后建立，不阻塞本轮工程、不冒称实测。后续工程遵守 [玩家开发规范](../../docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)：优秀实现优先，合理边界和适量验证，允许未发现bug后续修复，不以严格检查挤占实现。
