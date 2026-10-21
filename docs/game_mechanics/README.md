@@ -4,13 +4,14 @@
 
 ## 2026-10-21 研究职责纠正：游戏原料不是人格算法
 
-**用户权威[六阶段运行流程与DEV29研究边界](RESEARCH_INPUTS_VS_AGENT_EXECUTION_BOUNDARY.md)**：采集模型→数据分析模型→独立教练模型→独立球员模型→各队GM模型→汇总交执行模型（经玩家批准实际写入）。教练与球员人格系统尚未开发，目前主要已有GM人格系统；**本资料库只解释游戏到底有哪些信息、设定、选择、机制与后果，可以交给不同模型使用**。八个R04虚构互动场景和候选`role_rights`仅是研究资料分类，不是对未来智能体的固定决策、拒绝或谈判规则。球员人格、教练人格、媒体与流程调度是其它开发任务。R04已结案，R05-A/B/C/D经营研究全部已出版；选秀权世界三年上限已取消，R06玩法/世界线/媒体/存档机制为下一轮；严格保持研究与开发职责分开。
+**用户权威[六阶段运行流程与DEV29研究边界](RESEARCH_INPUTS_VS_AGENT_EXECUTION_BOUNDARY.md)**：采集模型→数据分析模型→独立教练模型→独立球员模型→各队GM模型→汇总交执行模型（经玩家批准实际写入）。教练与球员人格系统尚未开发，目前主要已有GM人格系统；**本资料库只解释游戏到底有哪些信息、设定、选择、机制与后果，可以交给不同模型使用**。八个R04虚构互动场景和候选`role_rights`仅是研究资料分类，不是对未来智能体的固定决策、拒绝或谈判规则。球员人格、教练人格、媒体与流程调度是其它开发任务。R04已结案，R05-A/B/C/D已由用户接受研究结案；R06-A全局游戏设置/3D与日历模拟研究已发布，R06-B历史/奖项/媒体下一轮。选秀权世界三年上限已取消，旧代码独立Codex任务不阻塞研究；严格保持研究与开发职责分开。
 
 
 > **研究工作主入口**：面向所有网页GPT、GM、数据分析、Codex和Antigravity。主研究版本为NBA2K22 PC本世代MyLEAGUE；NBA2K20/21/22次世代MyNBA/23系列用于理解机制、攻略、查漏与版本对照。**内容仍处于资料库建立阶段，空缺不等于游戏没有该功能。**
 
 - **[最新正式研究路线（DEV29 V3，多角色自主涌现）](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（[V2网页GPT多轮交付规范](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)继续适用）
 - [研究进度与恢复指针](PROGRESS.md)
+- **[R06-A全局游戏设置、3D比赛与日历模拟中文指南](guides/K05_K10_K11_WORLD_RULES_SIM_HISTORY_SAVE.md)**：新§§0–6；同版PC22玩家实证CPUvsCPU 3D和Calendar Sim不同、Setup/Simulation多级选项与Normalization风险；[86项世界设置Registry候选＋118类菜单/参数研究目录](catalogs/R06A_WORLD_GAMEPLAY_SIMULATION_SETTINGS_V1.json)明确当前存档真实值和原生UI/效果未知。**下一轮R06-B研究历史纪元、奖项/纪录与媒体可观察事实**，不开发任何人格系统。
 - **[R05-D经营机制全域交叉攻略§§23–29](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)**：[54项原生注册/候选数据、63类研究动作、12项跨域机制联动、12项证据/能力缺口机读合集](catalogs/R05D_FRANCHISE_CAPABILITIES_ATLAS_V1.json)。**2026-10-21用户已取消选秀权仅三届交易规则**：权威[政策V4](../../config/gameplay_policy.json)、[文档26](../26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)均已更新；已读5届资产不是新世界上限，旧代码`+3`仍须后续独立授权Codex同步，不是已经可执行5届。R05知识研究已完成，R06下一轮。
 - **[R05-C员工、球探、历史选秀与Draft Class机制攻略](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)**：新§§16–22；8类PC静态员工岗位/13项原生STAFF字段、同版次世代四部门/17员工上限、可见Scouting Report与D.E./2K榜单、Generated/Historic/User Created Draft Class和1984–2020轮回。完整可检索[STAFF/Scouting/Draft机读目录](catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)。**PC22员工聘任与新秀注入仍未获可执行验证，R05-D已完成整合**。
 - **[R05-B真实交易、选秀权与名单原生机制攻略](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)**：新增§§8–15，实际CBA工资匹配非纳税三档、2K22交易开关、PC交易故障玩家报告、原生5届300选秀权和**2026-10-21已撤销的旧三届限制**的分界；[R05-B 16项菜单/操作候选、14项Native结构与选秀政策机读目录](catalogs/R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json)。R05-C和R05-D均已发表；不设计GM交易评分。
@@ -49,4 +50,4 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 
 ## 新增球员系统研究与涌现方向
 
-玩家确定：所有游戏机制知识必须让**GM/球员/教练/媒体作为独立角色**拥有真实可观察状态、合法可选行为、协商权、信息限制与比赛/历史反馈，而非强制产生最优决策。R03仍研究训练/恢复一般机制；**R04独立研究NBA2K20–23的全部球员身份、属性、潜力、倾向、徽章、人格徽章、耐久/伤病、合同偏好（Play for Win/Financial Security/Loyalty）、球员职业自主权及字段双语义**；原经营R04顺延R05，其余后移。详情：[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原生Ability/Potential/Badge仅正常读取观察，自主Agent同意与**真实玩家的存档写入批准**分开；人格记忆优先外挂SQLite，不擅占仍有效的原生字段。**当前R01/R02已结案，R03经用户批准结项，R04-A/B/C/D研究已结案；R05-A/B/C/D全部研究已出版，状态`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；下一轮R06尚未启动**。今后研究窗口只负责各R轮研究交付，独立完整性审核由其他模型负责。
+玩家确定：所有游戏机制知识必须让**GM/球员/教练/媒体作为独立角色**拥有真实可观察状态、合法可选行为、协商权、信息限制与比赛/历史反馈，而非强制产生最优决策。R03仍研究训练/恢复一般机制；**R04独立研究NBA2K20–23的全部球员身份、属性、潜力、倾向、徽章、人格徽章、耐久/伤病、合同偏好（Play for Win/Financial Security/Loyalty）、球员职业自主权及字段双语义**；原经营R04顺延R05，其余后移。详情：[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原生Ability/Potential/Badge仅正常读取观察，自主Agent同意与**真实玩家的存档写入批准**分开；人格记忆优先外挂SQLite，不擅占仍有效的原生字段。**当前R01/R02已结案，R03/R04/R05均已获用户批准研究结案；R05保持`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`。R06-A已发布，下一轮R06-B尚未启动**。今后研究窗口只负责各R轮研究交付，独立完整性审核由其他模型负责。
