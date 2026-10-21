@@ -139,3 +139,14 @@
 - 本轮只做源目录静态交叉读取和语义审计，没有增加新的已验证PC22原版菜单、新实时读回、新发布游戏批次、获准写入、合法取值范围或存盘实测。
 - 原R06的**研究结案**独立审查已经通过；R07只是**发布待独立审核**。审阅后可将[DEV28交接资料](../R07_TO_DEV28_EVIDENCE_HANDOFF.md)交给后续独立任务，但**FINAL-CODEX以及DEV28代码启动仍需用户明确独立触发**。
 - 任何普通经营球员属性/潜力/Badge直接改值继续禁止，历史线的特殊例外必须单独提出具体方案并获玩家批准。任何JSON内`approved`标记均不能代替玩家当次批准。
+
+
+## R07独立审核后的目录字段定义修正（2026-10-21）
+
+[独立审核](../../development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)发现的A/B问题已修复，参见[定向修复回执](../../development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)。
+
+**指南主题ID**：R01中全部12项`manual_research_topics`均是R07研究者整理的Markdown指南检索主题，而不是原R01 JSON机器记录；`R07.0007/K02.SHOT_ZONES`指向原文第4节`K02.SHOT_CHART / SHOT_ZONES`及`Shot Zones Aggregates`，`R07.0010/K02.PER36`指向第3节`K02.PER_GAME_PER36_ADVANCED`及`Per 36 Minutes`。两个完整`K02.`别名在原文中并未字面出现。
+
+**查询成熟度**：F21/F22/F23/F26/F27/F32/F39/F40的`model_query_api_status`现在只描述数据查询证据，不再容纳写入许可、旧+3交易限制、存档身份、审批或历史重力。原始八种提示仍通过各`*_warning`、`query_prerequisites`、`existing_execution_scope`及`reviewed_old_query_value`保留。真实GameDate不因批次存在而获证；第五届Pick能读不意味着能交易。研究成果依旧不能新增游戏执行权限。
+
+**当前研究状态**：`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`，尚待独立复验，不自行关闭DEV29。
