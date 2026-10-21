@@ -1,0 +1,176 @@
+# DEV28 — GM 原生输入/输出全透明、动态数据完备及战术手册完整生命周期：总规划 V1
+
+> 2026-10-20 / Web Development / 玩家提出下一阶段目标并授权审查梳理。**本文件是PR #12之后的开发主计划，不是Codex自动开工、游戏写入、PR合并或V4启用授权。**
+>
+> **先完成PR #12审查修复F1–F4，交付并单独获得合并确认；再按独立已授权工作包执行DEV28。** 对Codex按任务包结束即TASK_CLOSED执行：如需玩家文字协助/决定，只交已完成产物和未决问题，然后彻底结束当前会话；禁止PAUSED/WAITING以消耗额度。
+>
+> 项目 `chris2gao/nba2k22-gm-engine`；游戏 NBA2K22 PC Current Gen MyLEAGUE；GM只用批准后的游戏写入，默认球员普通经营不能直接修改Ability/Potential/Badge，个人Tendency权限遵循当前明确的DEV14/DEV15登记与玩家审批。
+
+## 0. 玩家真正想要什么
+
+**所有游戏中实际存在、GM可能使用的输入设置与业务操作**，不再只呈现一个内部字段名或裸内存值；GM应能知道：①当前对象/状态，②本局实际能选的完整合法值域和战术候选，③该选项用来做什么/适合何种体系或角色，④能否执行以及为何UNKNOWN/阻断，⑤获批执行后游戏真实状态是否变动并持久。
+
+**所有实际能采集到、持续变化且与GM有关的动态事实**（完整赛程、真实单场、个人/球队表现、名单/教练、伤病疲劳、角色、训练成长等）也应可按来源、比赛/赛季时间、球队/球员身份查询。游戏本身不存在或可观察窗口之外的数据不得伪造为“完整”。
+
+**输入全透明 → GM能选/能解释 → 输出真正能应用 → 游戏读回 → 数据源再次确认**，构成闭环；不是把所有内存地址倾倒给GPT，更不是让它直接写裸字节。
+
+### 明确排除
+- 不重新打造第二套业务市场/合同/选秀/球探原生UI：外挂GM仍模拟交易/签约/球队竞争/球探与选秀，Codex只落实玩家批准的真实游戏结果。
+- 不重新研究Antigravity已经实测可修改的全局设置地址；接入统一可选项目录即可。
+- 不因实现本计划而允许日常GM修改所有球员原始能力或潜力，不绕过DEV14针对教练/Playbook/倾向/回合的现行白名单。
+- 不是日历Quick Sim参数调校项目；赛场竞技专项仍只面向实时3D；但是**逐场事实数据可以包括游戏实际产生的各种已完赛场次**。
+- 不启动另一个巨大综合回归平台，按同类编码家族及实际问题做足量而非无限验收。
+
+## 1. 已有事实与证据（避免将“可读/已编码”误写成“GM可用”）
+
+### 已有代码、来源和真实限制
+- `src/gm_state_io/registry.py`现有Coach19默认、个人18防守/整体仅只读、4+1 PlayTypes、99球员Tendency位（48具名、51未知）、68-slot Playbook CRC、球队6/个人5训练参数、Gameplay以及部分World/Settings目录；`gm_enabled`与实际可写范围必须依审批。原生向外接口已经存在，**本计划只补齐缺漏、链接与语义**。
+- `src/gm_data_access/query.py`已有`q_teams/q_team_stats/q_players/q_pool/q_staff/q_coaching/q_defense/q_native_books`及部分`q_native_*`投影；有查询并不等于每个控制项已提供菜单枚举/允许候选/真实身份和业务说明。
+- `src/gm_state_io/team_book.py`已有名称规范化+末尾独立“Playbook”后缀兼容 `team_book()`、`validate_rebind()`、`validate_slot()`，仅匹配本队同名书与身份保护，**不证明全部书目录、coach当前真实绑定链、类型/槽位语义、换帅后重新挂载/槽修改都已实机端到端验证**。
+- `DEV23`实机专项调查读取CHI/MIA/GSW三本书共204槽，148非零；111槽能匹配静态名称、37个非空名称UNKNOWN、56空槽；**89个不同CRC**名称匹配，不代表PlayType、发起人和第一受益人的原生认证；未观察真实比赛中ACE调用。另有232条静态游戏战术候选目录，按名字prefix猜类型只属于研究线索。来源：`docs/development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md`。
+- `DEV24`目前定义完整比赛事实、逐场球员/球队Box Score、GameID/赛程、节次、伤病/疲劳、投篮区域/高级统计的采集来源优先级；`config/source_catalog.json`仍有部分赛季累计而无完整逐场历史。**本计划采用DEV24要求而非再编第二套数据规范**。
+- `DEV27`的`867fe85`是精确后缀名称Bug修复，静态匹配测试，不是完整战术绑定验证；历史政策见`docs/development_tasks/DEV_20261020_27_BPTI_TEAM_BOOK_SUFFIX_MATCH_MINIMAL_FIX_V1.md`。
+- `GM_DEFENSE_AND_TEAM_PLAYBOOK_POLICY_V1.md`现行玩家政策：每队有对应同名Book容器，**多队可以引用同一条共享战术**；正常GM改变本队68槽，不能因为风格变化随便改`coach.PlaybookID`；新档/换帅后可获单独批准进行本队同名书技术归位。整体防守不作为常规GM写入，个人防守按真实对手球员。
+- 现有M3/BPTI `HOLD/INTERNAL/MARKET`、M1财务、M2知识、DEV14生效权限与CAS/字节/身份校验必须复用；不能因本计划再造另一个执行器/审批中心。
+- Antigravity已找到并可修改用户提供的全局菜单参数。后续实际文件与地址由其按项目源文件接入；**用户声明生效与仓库已有发布状态需分开标注，未提交/未同批采集前不能假装M0生产已有此字段**。
+
+## 2. 两种独立透明度：静态控制目录与动态事实
+
+### 2.1 静态“原生选项与能力登记簿”——GM真正能选择
+
+对**全局、Coach默认、单人防守、球队Playbook槽/战术池、球员4 PlayTypes/Initiator、已具名Tendency、球队训练和个人训练、球队角色/阵容、员工/职业合同落地接口**分别登记：
+```json
+{
+  "capability_id": "coach.RunPlayTendency",
+  "category": "COACH_DEFAULT",
+  "scope": "TEAM",
+  "object_selector_contract": "current coach identity of source-bound team",
+  "game_build": "NBA2K22_PC_CURRENT_GEN",
+  "source_batch_id": "CURRENT_VERIFIED_BATCH",
+  "native_field_key": "coach.RunPlayTendency",
+  "current_value": "OBSERVED_VALUE",
+  "options": [{"native_value": "REAL_ENUM", "label": "GAME_DISPLAY_TEXT", "description": "EVIDENCED_USAGE"}],
+  "range_or_enum_provenance": "NATIVE_PROFILE_OR_PLAYER_REPORTED_UI",
+  "basketball_meaning": {"intended_effect": "HYPOTHESIS_OR_VERIFIED_DIRECTION", "confidence": "UNVERIFIED"},
+  "read_status": "SOURCE_OBSERVED",
+  "write_status": "AVAILABLE_WITH_EXPLICIT_APPROVAL",
+  "save_persistence": "UNKNOWN",
+  "cpu_override": "UNKNOWN",
+  "transaction_requirements": ["DEV14_SOURCE_BINDING", "OWN_TEAM", "EXPECTED_OLD_VALUE", "PLAYER_APPROVAL"],
+  "unknowns": [],
+  "registry_version": "VERSION_ID"
+}
+```
+这只是**建议的DTO合同示意**，不能把占位的“REAL_ENUM”等当游戏真实枚举。
+
+必备三个可查询答案：
+1. **Available Controls**：30队/每个玩家/员工/世界当前哪些项目确实可控/只读/被政策禁止/未知？有多少已认证/待研究？
+2. **Allowed Options**：每个项目全部原生真实枚举、值域或当前Book可用CRC+战术名称。**既要提供当前值，也要提供可选的全集，带来源/版本/对象范围**。
+3. **Meaning and Effect**：球员/战术角色语义、优点与代价，严格区分原生UI文字、游戏静态资源、社区篮球经验、BPTI假设和真实3D执行证据。
+
+**GM读的是有界投影/筛选的选项，而不是每次打印所有99个倾向和所有战术、全部内存偏移；可按类型、球队、战术家族、战术名/PlayType/发起角色检索。** 完整目录由Codex本地维护，可按需查询。
+
+当前某字段未能解码/无法合法修改，也要列`UNKNOWN / READ_ONLY / BLOCKED_POLICY / NOT_OBSERVED`，不能从界面省略来假装100%完成。
+
+### 2.2 动态“真实比赛/人物状态”——GM在决策时知道实际发生过什么
+
+复用DEV24定义的game、schedule、player_game_stats、team_game_stats、已观察的shot zones/高级指标、真实首发/DNP/分钟、伤病/疲劳/恢复、coach与playbook实际引用、训练成长差分、阶段/赛程。优先完成真实可观测的P0，P1来源有证据再加；P2赛时Play-by-play/ACE实时行为如果未找到则标UNKNOWN，不因追求理想“全动态”编造缺失。
+
+- 每个事实记录实际`save_id/save_instance_id/generation_id/career_id/batch_id`及对应游戏日期，身份/队伍/对手/阶段，重复采集去重。历史球员换队要沿当场所属球队，而非当前队重新写旧Box Score。
+- 支持`last N games`、`vs opponent`、`before/after change`、`starter/DNP`、`injury/fatigue`、`team & player trends`及`evidence refs`的有界SQL查询。未知累积疲劳不允许指派月度高强度训练。
+- 保留`NATIVE_OBSERVED / DISPLAY_OBSERVED / DERIVED_EXACT / ESTIMATED / UNKNOWN / NOT_OBSERVED`，公式产生的“估算回合/高级指标”不可冒充游戏真实tracking。
+- 兼容玩家仍按月触发`full_verified_v1`完整批次；游戏历史比赛明细如会过期，必须明确游戏实际保留窗口。未经玩家批准不自动常驻监控进程、抢抓实时数据或改变常规触发频率。
+- 真值数据库与GM可见`GM_SANITIZED`继续分开；尤其新秀Potential与历史全知球探问题不能借“全透明”直接透出限制内容。
+
+## 3. 战术书专项：从“字符串匹配”升级为可用的全部原生手册、战术、绑定与执行
+
+这项是**DEV28最先处理的高价值执行缺口**。不再把战术书“名字后缀兼容”误视成全面修复。
+
+### 3.1 建立完整战术实体及身份目录（Antigravity采集实机、Codex统一注册）
+- **BOOK_DIRECTORY**：当前版本当前加载的全部原生Books：`index/enum_id/unique_id/raw_display_name/normalized_name/owner_team_id_or_unknown/native_pointer_identity`；所有30队分别显示`team_id→expected_own_book→observed_coach_binding→actual_book_identity`及重名/改名/不可用情况。**名称只是发现线索，绑定权威是已认证游戏原生对象ID及指针关系。**
+- **PLAY_CATALOG**：从真实已加载战术目录与游戏静态资源取得尽可能完整的`native_crc/CRC32 algorithm+source_text/actual_game_display_name/description/play_type/status`；`PE_STRING_MATCH`与`UI_VISIBLE_NATIVE_TYPE`分级。别名、历史真实NBA/教练战术名称的连接属于知识/语义层，不允许以`FIST`、`GIVE`、`QUICK`前缀直接宣称真实原生PlayType或谁投篮。
+- **TEAM_BOOK_SLOTS**：本队68槽逐一记录`slot_index/section/CRC/linked_play_id/resolution_status/current_coach_binding/source_batch`；空槽单独记录；允许多个球队书引用同一play，不允许普通GM修改另一队书容器。
+- **PLAY_USABILITY**：战术实际适用的1–4种球员PlayTypes、适合的进攻发起条件、可选受益人与再反制说明；证据分为`NAME_ONLY / TYPE_NATIVE_OBSERVED / ALLOCATION_OBSERVED / IN_GAME_USED`。实际`primary beneficiary`可能随球队分配变化，不能把一条战术固定给某个历史名人。
+- **GM检索与选择**：支持`team current book`、`all selectable plays`、`plays matching given role/type/system`、`available slot for replacement`，返回**完整原生候选ID+显示名+实际可选性+认知质量+HOLD原因**，不是只有CRC序列。
+
+### 3.2 换帅后的技术归位与战术槽更新（Codex，复用DEV14）
+必须把以下**两个单独审批/读写步骤**变成受控、可重复执行的正常业务工作流：
+1. `READ_CURRENT_BINDING`：真实新档或用户确认已换帅，重新读取队/新主教练/Coach PlaybookID/原生本队同名Book对象及owner；根据真实对象身份消解该队同名Book的目标`enum_id`。匹配缺失/多候选不能凭名字任意写；先输出阻断证据。
+2. `TEAM_BOOK_REBIND`：在玩家独立批准与已有DEV14身份/CAS限制下，将此队当前教练PlaybookID恢复为其本队书目标。**确认写入地址真实对应当前教练对象**，并能从游戏重读验证`coach.PlaybookID == expected_team_book.enum_id`；若UI/游戏资源重载另需操作，记录实际机制。
+3. `REFRESH_POST_BIND_SOURCE`：**新批次重新读取同一个教练/实际书绑定与68槽的当前指针/CRC**；前一批的旧槽地址、旧目录与旧approval tuple不得重用。
+4. `EDIT_OWN_BOOK_SLOTS`：GM选择真实有名、有合法Native ID/CRC的战术，根据主教练体系与本队球员4 PlayTypes分配到本队68槽；复用已有DEV14稀疏变更和团队独占检查。未知PlayType/CRC语义不做虚构；有认证可用的候选先做。
+5. `VERIFY_EFFECT_AND_PERSISTENCE`：至少区分`write+readback`、关闭编辑页后回读、游戏保存重新加载后仍保留、真实3D场上是否调用（后者是独立后续观察，不应成为所有战术槽更新的前置）。执行回执明确处于哪一档，无法保留的操作不能标为已落地。
+6. `RECOVERY`：只要部分失败，保留原始Coach/Book/slot值和已证读取；能自动恢复的按既有回滚，不可安全恢复则暂停**这一动作**并交玩家处理，**不是在Codex活跃会话等待答复**。
+
+**当前玩家确定的业务规则仍有效**：每队长期保有本队同名书，普通GM不为了换打法切换到别队书；本队手册内容可替换为共享战术池中的其它合法战术。最小修复目标应先验证1队完整链，再扩展30队目录。不要因为需读30队的Book就把每个CRC在3D场上都演示一次，避免无边界测试。
+
+### 3.3 针对目前`team_book()`未完全修复的进一步排查
+
+- 根因不能再限定为“后缀匹配”一种；显式区分`DIRECTORY_NOT_LOADED / NAME_ALIAS_MISMATCH / DUPLICATE_CANDIDATES / TEAM_NATIVE_ID_MISMATCH / COACH_BINDING_DIFFERS / BOOK_OWNER_ID_INVALID / SAVE_OR_GENERATION_CHANGED / SLOT_REBIND_RECAPTURE_REQUIRED / WRITE_NOT_PERSISTED`。
+- 当前`team_book()`返回`identity(index,enum_id,unique_id,name)`；**并不直接证明该Book的当前物理地址、教练挂载与后续槽读写使用同一个对象**。下一任务要从`src/gm_state_io/adapters.py`及`coach_locator`实际观察的运行时关联核对，而不是让字符串归一化承担整个绑定验证。
+- 不能因为某支队名字能匹配就宣称30队已全部可执行；同时用户无需截图。AG/Codex优先静态目录→有授权的只读进程数据→必要时玩家文字描述，任务到问题点交已做成果**并彻底结束**。
+
+## 4. 统一GM输入/输出契约与可验收动作（建议，不另起执行器）
+
+Codex应该给外部GM一个逻辑上统一、可查询的**Capability Catalog + Observed State + Validated Native Target + Execution Receipt**；可以扩展现有M0/Registry/DEV14 CLI而不是强制照搬新命令名。
+
+| 阶段 | GM应取得的产物 | 必须保证 |
+|---|---|---|
+| `DISCOVER` | 按team/coach/role/playtype等列可用功能、合法候选、含义/UNKNOWN | 候选来自当前可用版本/已认证字典，不凭模型捏造 |
+| `OBSERVE` | 当前实际值/绑定/名单/最近N场及资料缺口 | 同存档同批，GM_SANITIZED，有证据与身份 |
+| `REASON` | BPTI体系意图、战术角色、HOLD/INTERNAL/MARKET及财务比较 | 每个可执行目标能反向指向当前可选项 |
+| `PLAN` | 按当前source生成合法稀疏目标、真实原生enum/CRC及审批tuple | 目标值存在于可选全集，限制对象/范围/字节/预期旧值 |
+| `AUTHORIZE` | 玩家单独批准动作/条款、执行窗口绑定 | 文档/媒体/GM AI不能自动批准 |
+| `APPLY` | 统一DEV14或专用受控合同/交易执行器 | 原生游戏确实执行受控操作，非单纯SQL修改 |
+| `VERIFY` | 来源回读、save/重开持久性（按真正可测范围）、副作用、执行状态 | **拒绝把裸内存写成功冒充完成业务** |
+| `FEEDBACK` | 后续正常批次中真实队伍/球员/球队策略变化 | 通过数据反馈并归档来源及不确定度 |
+
+已有采集、执行、签约、交易、教练等专用接口保留，统一的是**契约、状态和审计回执**而非把不同业务执行器强行重写成同一个“万能内存接口”。
+
+## 5. 下一阶段的实际开发包及协作边界
+
+每包独立申请/授权、提交成果并TASK_CLOSED；不在检查点暂停Codex等待玩家发消息；不得连续自动越过人类必须批准的合并、存档修改或真实实机检查。
+
+| 包 | 负责人 | 最小成果 | 验收边界 |
+|---|---|---|---|
+| **D28-0 当前能力与缺口清点** | Codex主、AG提供其当前完成结果 | 逐领域`EXISTING/INCOMPLETE/NOT_OBSERVED/UNKNOWN/POLICY_BLOCKED`台账；与DEV23/DEV24/Registry/M0/DEV14交叉核对，避免重复 | 静态源码和已有证据核对，不需游戏进程 |
+| **D28-1 Playbook目录+绑定完整修复** | AG找真实Book/Play地址及战术名称/描述/类型；Codex做团队映射/工作流及受控执行 | Book/Play/Slot/Coach真实身份，GM能按名称/类型选择、可技术归位/改槽且获得分层回执，明确未解语义 | 先确定性静态/只读、再获批后对一队最小实机验证；不得偷带其它队改动 |
+| **D28-2 其它静态操作语义目录** | AG游戏菜单/内存字典；Codex M0/Registry/BPTI整合 | 覆盖World、Gameplay、Coach、Personal Defense、PlayTypes、Tendency、Training、Roster等的当前值+完整已证合法候选+用途解释+政策边界 | 以一个家族的一次可靠读写/观测证明同编码类复用，不逐枚举全跑游戏；未知仍可查询 |
+| **D28-3 动态事实DEV24扩展** | AG查游戏真实源/历史保留窗口；Codex扩展同批采集/SQLite/M0有界只读投影 | Game/schedule/Box Score、个人与球队战绩、伤病疲劳/发展事件按可见源完整入库、时间线和质量报告 | 保留`full_verified_v1`全量生产更新触发与同批一致性；无源字段NOT_OBSERVED，不追求伪tracking |
+| **D28-4 统一GM选择/规划/执行完整性** | Codex负责，Web GM参与决策回读检查 | 所有已支持动作从`available option→GM提案→DEV14/业务执行器计划→批准→游戏回读`状态对齐；错误有清楚可执行原因 | 不跑全项目大回归，仅每关键动作家族少量链路验收；玩家控制真正游戏写入 |
+| **D28-5 GM可用性与交付整合** | Codex+Web Analytics+GM | 每队可选项/来源/覆盖率报告、文档、示例查询、能力清单、仍BLOCKED列表、真实新档初始化说明 | 有界查询30队、3代表性本队Book、确认不会用UNKNOWN冒充VALIDATED；V4切换另批 |
+
+调度建议：先完成`D28-0`以确认已完成工作，再优先`D28-1`解决当前战术书闭环，再根据Antigravity的真实产出安排`D28-2`和`D28-3`；最后`D28-4/D28-5`。如动态数据先完成，可并行准备接口，但**Codex不能在同一未闭合长任务中等待玩家或AG交付**。每个阶段应能独立完成并归档。
+
+### 各方固定分工
+- **Antigravity**：找游戏真正支持的目录、内存结构、静态战术名称和描述/类型、疲劳/比赛等动态源；标注`RAW_NATIVE`、`UI_OBSERVED`、`STRING_CRC_MATCH`、`PLAYER_REPORTED_UI`、`UNKNOWN`；不要重写既有执行器、假设游戏当前页面可截图。
+- **Codex**：唯一负责原生Source Registry、M0 SQL投影、Book真实身份和教练绑定生命周期、DEV14/专用交易签约受控执行集成、缺失项与最小验收；收到AG成果后校验真实布局并归档，不能仅信“可写”口头声明就覆盖生产字典。
+- **Web Development**：审阅真实覆盖缺口、篮球知识语义等级和BPTI的可用性，提出业务优先级及PR审查，不直接游戏写入。
+- **Web Analytics/GM**：在真实GM_SANITIZED事实与已认证选项上形成分析/选择，不能返回原生未知值；GM不能操作禁止的能力字段。
+- **玩家**：批准模块正式游戏写入、是否合并PR、最终世界设置/V4启用。
+
+## 6. 不变量与完成定义（避免“只有地址，不知道怎么用”）
+
+**静态控制目录完成**：每一项已实机或源字典观察到的可选控制，至少有值域/枚举、显示名称、所属对象、读写策略、用途/未知、来源证明；全量候选目录能按需查询；没有真实语义的不是空白而是`UNKNOWN_RESEARCH`。
+
+**战术书完成**：30队当前加载团队书名单（若30队全部存在）、当前教练与书实际ID/指针绑定、合法的Book→Slot→CRC/名称/已知Type链路可查询；新档/换帅时在现有批准机制下做**绑定→新源回读→槽修改→最终读回**。识别不到/不能稳定保存则明确`BLOCKED`，不能只返回名字匹配成功。
+
+**动态事实完成**：所有经过实机证据确认、游戏内确实留存的比赛/球员/球队/身体状态来源，具备历史键、更新时间、身份、覆盖率、已观察/估算标识；游戏不提供的字段有缺口和退化路径。**不能声称捕捉到没有来源的Play-by-play或赛场AI事件**。
+
+**GM可操作完成**：每条正式支持的GM动作都能从已知选项构成提案，经过确定性校验/实际执行/读回/状态对齐；凡不能生效或存在权限限制，GM得到明确原因并能选择HOLD或已证替代，而不是以为可用却静默失效。
+
+**证据层分级**：`SOURCE_DISCOVERED / RAW_READ_VERIFIED / OPTION_SET_VERIFIED / PLAN_VERIFIED / GAME_WRITE_READBACK / SAVE_RELOAD_VERIFIED / GAMEPLAY_EFFECT_OBSERVED`。只完成前几级不等于达到后几级。游戏中一次实际局部失败允许后续修复，但不准把未测操作写成全面已验收。
+
+**运营底线**：别把成熟的19 Coach、18 Personal Defense、交易/签约、99倾向/PlayTypes、训练字段重复造一份；不要因“追求全透明”暴露新秀隐藏Potential或取消玩家审批；不要修改普通球员能力，保持游戏自然成长和竞技权威。
+
+## 7. 和PR #12及其它旧任务的精确关系
+
+- **PR #12/C仍只修F1–F4**：B5蓝图演化修订一致、前态存档实例隔离、B4不将原生动作缺失错误升级为市场禁用、M3选择不接受BLOCKED/RESEARCH的内部动作。**不要为了本计划在PR #12实现全量Books/DEV24或改变BPTI原生执行白名单**。修完做少量直接测试并申请用户审查/合并。
+- **DEV23**：战术语义基础事实与UNKNOWN清单，不能把89个CRC名称匹配推断成全部类型可写。
+- **DEV24**：动态比赛与高级统计需求来源，是D28-3权威数据字典规划。
+- **DEV27**：保留名字后缀兼容最小修复作为已完成事实，D28-1处理更深层真实绑定/全书目录，不把它撤销或冒充已完成完整生命周期。
+- **DEV16/17/18**：沿用两Codex所有权与“每队同名书+修改本队槽”的业务规范；本计划的D28-1是由真实错误需求驱动的执行接口完善，不要求30队共享Playbook克隆。
+- **M3/M4**：M3负责真正经营与球员战术调整；M4负责工程问题反馈与路线记录，不把本计划重新叫M4、也不重写M4；V3/V4的正式启用仍需玩家。
+- **GM World实时赛场竞技参数调校**：独立未来任务，不以Quick Sim为目标；本计划只是让选项可用、来源可信、执行正确，不承担比赛公平性的长周期实战调参验收。
+
+**交付原则**：先让GM能看懂并正确操控已证明真实存在的功能，再增补没有观察的数据；未知公开列出，不允许“有一个地址”替代完整经营能力，也不允许每个未证假设都把任务变成无限研究。
