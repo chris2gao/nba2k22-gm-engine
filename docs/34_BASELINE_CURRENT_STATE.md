@@ -1,5 +1,7 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+> [**2026-10-21 长窗口交接及后续开发规划快照**](development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：网页GPT开发规划窗口上下文上限前已创建完整快照。研究最新可复核状态是R07两项机读修复已提交**待独立复验**，而不是DEV29正式结案；后续FINAL-CODEX仅待用户另批只读覆盖对账，DEV28实施也待另批；V4 Pick取消固定3届上限但旧代码+3仍待维护。
+
 ## 2026-10-21 R07独立审核后A/B机读修正已提交待复验
 
 [独立审核报告](development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)接受R07主体研究，要求两项定向修正；[修复回执](development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)已登记：①R01指南主题`R07.0007/K02.SHOT_ZONES`、`R07.0010/K02.PER36`标为人工检索别名并锚定原章节，不冒称原机器主键；②F21/F22/F23/F26/F27/F32/F39/F40将`model_query_api_status`改为查询事实口径，把原交易/签约/Staff执行、V4+3差距、日期/存档真实性、审批和历史重力约束保存在独立Warning/Prerequisite/世界规则字段。694条7卷、40组86锚点、20原缺口均保留。**状态`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`：尚未正式研究结案或获得FINAL-CODEX授权。** 生产能力和普通球员能力禁改规则不受研究文档修正影响。
