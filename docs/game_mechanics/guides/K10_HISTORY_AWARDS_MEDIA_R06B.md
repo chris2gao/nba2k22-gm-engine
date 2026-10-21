@@ -20,6 +20,8 @@
 
 2022-07 NBA2K22 MyLEAGUE玩家明确描述在菜单中看到**Past MVPs、Past Rule Changes、Past Retired Jerseys**，但一度找不到名人堂过去入选名单；随后自己表示找到隐藏位置，未给出可靠操作路径（SRC-0178）。因此“2K22存在部分历史奖项/规则/退役球衣可见页”有同版玩家证据；“所有奖项逐年完整、所有球员可回溯、名人堂入口精确位置”依旧 `UNKNOWN`。
 
+**独立审核定向纠正（2026-10-21）**：`SRC-0178`只直接支持“Past MVPs / Past Rule Changes / Past Retired Jerseys”及HOF提问，不支持ROY、DPOY、Sixth Man、MIP、COY、All-NBA、All-Defensive、All-Rookie、All-Star、Champions这10个各自具体菜单。它们保留在研究待证候选目录中，但`sources=[]`、`classification=RESEARCH_CANDIDATE_UNSOURCED`，不以未匹配的来源冒充认证。`MVP`只继承Past MVPs菜单线索，不证明当前本存档MVP结果已采集；目录的31条是**功能/信息概念，非31个内存字段或数据库列**。外部2K23 Eras不构成排他证明“PC22绝无同名隐藏对象”，该项原生证明仍UNKNOWN。
+
 应分层登记候选：
 - **赛季竞争与结果**：常规MVP、ROY、DPOY、Sixth Man、MIP、COY；这些是2K系列常见奖项类别，但本轮**未取得PC22目标存档逐项菜单和历季读回**。
 - **球队/联盟荣誉**：NBA冠军、总决赛MVP、All-NBA/All-Defensive/All-Rookie球队、All-Star等；All-Star选入和All-NBA阵容**不等于**获得年度MVP。
