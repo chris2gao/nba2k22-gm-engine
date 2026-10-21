@@ -1,5 +1,7 @@
 # DEV27 — BPTI本队战术手册名称后缀匹配：最小Bug修复 V1
 
+> **后续实际完整修复范围（2026-10-20）**：玩家已确认虽然DEV27的`867fe85`解决末尾独立Playbook标签的名字匹配，**战术手册总目录、真正挂载/教练ID关联、换帅后恢复同名书及槽内容更新的完整经营工作仍未完成**。上述需求已独立规划到[DEV28 D28-1](DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)；DEV27原T1–T3静态验收仍有效，但不能当作全面战术执行证明。**不在PR #12收尾中顺手扩展此项目。**
+
 2026-10-20 | owner=Web DEVELOPMENT | executor=Codex（玩家新任务触发） | status=**BPTI_DEV27_BUGFIX_COMPLETE_TASK_CLOSED / LOCAL_COMMITTED_NOT_MERGED**。玩家最新指令“直接提交即可”覆盖下文Draft交付要求；实现提交867fe85，未创建PR。实际实现、T1–T3及交付见[验收报告](../development_reviews/BPTI_DEV27_TEAM_BOOK_SUFFIX_FIX_AND_ACCEPTANCE.md)。下文为原批准合同。
 
 > 玩家已批准先修DEV23揭示的`team_book()`后缀Bug，再继续BPTI B2–B6；PR #10已在2026-10-20合并main（merge commit `8c80c7d452a69cdef72eee1c22b39562926af32a`）。本文件是单独Codex工程任务合同；写入规划不等于已实施修复。严格遵守`AGENTS.md`的**TASK CLOSED而非PAUSED**协议以及`PLAYER_DEVELOPMENT_POLICY_V2`。
