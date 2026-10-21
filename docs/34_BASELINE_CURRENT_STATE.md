@@ -1,5 +1,10 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 R05独立审查：研究通过，选秀权V4代码兼容性尚未更新
+
+**权威报告**：[DEV29 R05独立审核及四处Pick窗口工程缺口](development_reviews/DEV29_R05_INDEPENDENT_REVIEW_20261021.md)。DEV29 R05-A/B/C/D的经营机制/游戏原料研究**接受结案**，状态`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；R06下一轮。**当前世界规则`PLAYER_RULES_20261021_V4`不再限制未来三届Pick交易，也没有固定五届规则上限**；本机只读覆盖连续五届共300条，但`src/draft_assets.py::trade_window`及`capture_assets`的`tradeable_draft_years`、`src/gm_core/calculations.py::draft_pick_window`、`src/gm_core/trades.py`、`src/approved_trade_executor.py`仍拒绝第4/5届。**这不是已经修好的执行能力**；由用户将来另批Codex最小同步任务，测试合法性/批准/存档与读回，不把+3换+5新世界规则。不能因R05研究结案或政策更新就执行第4/5届资产交易。其余签约、Staff/Scouting/Draft原生接口缺口继续待认证，DEV29不建人格/执行器。
+
+
 > [**权威研发目标与现行状态区别**](PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：当前研发意图是六阶段各独立模型参与；Coach/Player人格尚未开发。DEV29做游戏原料、DEV28做可读/可执行工具，独立人格另立项。下方旧PR #12待合并记录仅为历史，PR已合并；R05为下一知识研究轮。
 
 ## 2026-10-20 PR#12已合并：DEV29 V2网页GPT研究资料库优先
