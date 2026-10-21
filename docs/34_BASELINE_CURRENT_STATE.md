@@ -1,5 +1,12 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 PR #12审查批准及DEV28下一阶段总规划
+
+- 用户批准PR #12/BPTI C代码审查的F1–F4：蓝图更新下演化stale、跨save/generation历史串线、无native动作不该封锁合法市场、选定BLOCKED/RESEARCH内部动作等局部问题。Codex只在原Draft PR范围内修复和直接测试；PR #12仍由玩家审查合并，V3有效/V4不自动启用。
+- **下一阶段唯一主计划**：[DEV28 GM全部原生设置候选可查、游戏动态事实完善、战术手册全生命周期和输出执行闭环](development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。开发包D28-0（现状盘点）→D28-1（Book/Play/Slot/Coach真实绑定与换帅归位）→D28-2（静态可选项目录）+D28-3（DEV24比赛与人物动态）→D28-4（统一GM提案/执行/反馈）→D28-5（可用性和开档索引）。**所有后续包独立授权，不应夹到当前PR。**
+- DEV27名字后缀修复已完成但是未完成30队全部本队Book目录、真实Coach PlaybookID绑定、Book指针/槽读回以及跨保存持久化；不能将`team_book()`一次成功当完整执行。DEV23三本书共204槽，148非空，111命名、37未知；类型、真实受益人、3D调用仍未认证。现有DEV14/GM权限及全部批准约束保持原样。
+- Antigravity找可读/写原生来源+名字/游戏描述/战术类型，Codex复用M0/Registry/DEV14实现统一可查询合法选项和真实落地；逐场比赛/球员及高级统计以DEV24标准为准，缺失仍NOT_OBSERVED。Codex需要人类说明时**提交现有工作并TASK_CLOSED**而非活跃WAITING。
+
 ## 2026-10-20 工作包B：B2/B3/四类历史机制已完成，独立Draft交付
 
 DEV27的867fe85与80459b4已按玩家新指令合入远端和本地main（快进到80459b4），本包从该主线建立codex/bpti-package-b。140条分级NativeBinding、30张五层历史TeamIdentity及四条NBA官方早期机制已通过现有Knowledge.bpti / gm_knowledge只读查询接入。用法见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)，证据见[验收报告](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)。
