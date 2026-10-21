@@ -71,3 +71,24 @@
 - [SRC-0025] PC自定义`Remastered`新闻：继续作为排除非原版PC截图的重要警示，不能将其“MyNBA”菜单作为本项目证据。
 
 **研究结果的阴性边界**：针对“NBA2K22 PC MyLEAGUE Game Logs/Advanced/Per36菜单截图、每场完整Box表头、赛后Shot Chart、跨年单场Box寿命”做了多组中文/英文和PC/本世代限定检索。返回大量**真实NBA联盟统计网站**、2K次世代官方图文、2K其它玩法、游戏模组或非NBA2K软件；**没有找到足以逐像素确证上述PC22原生页面的独立公开材料**。阴性搜索不等于不存在功能，不给`PC22_UI_CONFIRMED`、`PC22_NATIVE_READ_VERIFIED`或`PROJECT_CAPTURED`升级。2026-10-20只读取公开材料，没有复用/上传外部截图文件。
+
+
+## DEV29 R01-D — 最后一轮有界视觉取证（2026-10-20）
+
+**本批次只登记1项经核查、真正提升PC版本边界的新增一手文本；没有获得满足PC22原版MyLEAGUE统计表头标准的可审查截图。** 来源数不是本轮目标。
+
+| ID | 页面 / 准确定位 | 版本、平台、模式 | 可采信的具体事实 | 证据级别与不可外推范围 |
+|---|---|---|---|---|
+| **SRC-0029** | [Operation Sports — RES2 2K22 All Star Current Gen Sliders，第3页，2022-01-07 #40/#41](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917713-res2-2k22-all-star-current-gen-sliders/page3) | NBA2K22 **PC本世代MyLEAGUE，玩家`res2`文字答复** | 问者询问能否用PC默认阵容；res2答“Yep - PC with default rosters”，转贴自己的MyLeague Setup/Simulation设置：Quarter Length=12、Simulated Quarter Length=11，以及Team Pace/ Possessions Per Game/Shot Types/Shot Percentages/Stat Distribution等项目 | `PC22_COMMUNITY_REPORTED_TEXT`；**不是菜单截图或Stats/Box字段认证**。数值是玩家自选，不是游戏默认/用户当前设置，也不构成编辑授权 |
+
+### R01-D公开检索范围与未采用材料（审查痕迹，不计SRC/VIS）
+
+| 检索类别与网址 | 查核结果 | 为什么不升级PC22 UI |
+|---|---|---|
+| [Steam NBA2K22 Screenshots](https://steamcommunity.com/app/1644960/screenshots/) 和 [NBA2K22社区](https://steamcommunity.com/app/1644960) | 正确游戏PC平台图库，但没有获取到可可靠标记`原版+MyLEAGUE+统计字段可读`的目标屏幕。Steam的“View Stats”是游戏成就页外层UI而非MyLEAGUE中的Player Stats | 画面身份/原始菜单内容不成立 |
+| [GamesKeys — 2K22 MyLeague Player/Position Lock攻略](https://gameskeys.net/how-to-use-player-lock-position-lock-in-nba-2k22/) | 包含带截图的MyLEAGUE操作攻略，目标却是`Options→Position Settings→Player Lock`等操作 | **不显示Game Logs、Box Score、Advanced或Shot Chart的已证列名**；无法凭PS按钮断定PC平台 |
+| [NBA2K22 PC版已知问题Steam指南](https://steamcommunity.com/sharedfiles/filedetails/?id=2796430022) | PC专属指南，但正文聚焦其它问题 | 不含目标统计菜单截图/字段 |
+| [2K22 PC Remastered来源，既有SRC-0025](https://www.2kspecialist.net/2021/09/nba-2k22-remastered-blog-new-details.html) | 非原版UI，前轮已登记 | 排除，不重复新增 |
+| 带`NBA 2K22 PC/ MyLeague`标题的网络视频/图像或真实NBA Game Log表格 | 未能同时获得可辨原版PC MyLEAGUE菜单、字段和可靠视频时间戳；部分结果实际是NBA.com、MyCareer、2K23、其它游戏 | **检索标题≠已观看的游戏画面** |
+
+**关闭结论**：R01-D未取得符合五重身份条件（NBA2K22 + PC + 原版无模组 + 离线MyLEAGUE + 可读统计字段）的新图证；记作`NO_NEW_PC22_UI_CONFIRMED`，不等于“无Box Score/无Game Logs”。已完成公开研究`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。未来新截图只增量更新当前指南§20、[VIS TODO](visuals/EXTERNAL_VISUALS.md)和[PROGRESS](PROGRESS.md)，下轮直接研究R02教练与攻防。
