@@ -303,3 +303,17 @@ OVR是游戏汇总评估，可能和位置、技能加权、Intangibles等互动
 **R04-B仍未完成的对象**：目标PC22无模组完整Edit Player→Tendencies的**具体像素顺序及作用类型**、99外站字段到99原生byte的一对一对照、所有动作具体CPU触发概率、命中/模拟器的区分、人员当期真实动态读值、换教练/换Book后自动调用的可重复案例。这些全部`UNKNOWN`、必要时未来DEV28定向只读；**不因没视频就停止后续R04-C**。
 
 **R04-C下一任务**：独立深入Player Agency：`Loyalty/Play For Win/Financial Security`、全部真正存在的人格徽章、士气/合同/球队角色/明星议价、医疗和训练自主权；区分2K原生意愿（如果存在且有效）与外部人物永久记忆、职业目标、反报价、拒绝与媒体叙事。R04-D再综合完整权限图谱及R05市场接口。**后续研究不由本轮自动启动，不由DEV29执行独立审核**。
+
+### R04-B原始来源编号与恢复码（供下一轮直接检索）
+
+本轮研究事实的**逐项来源键**如下，详情及平台/模式限制均在[SOURCES](../SOURCES.md)：
+- **SRC-0083**：NBA2K22 2021历史人物导出的99个具名倾向标签（独立于Native 99 bytes）。
+- **SRC-0084**：Sheitan/Evtnj讨论三威胁、Shot/Freelance与模拟/3D差别。
+- **SRC-0085**：2021年不同2K22玩家对Touches/Shot/教练叫战术产生矛盾结论。
+- **SRC-0086**：同版Trae Young的Initiator=Yes及四PlayTypes归档字段。
+- **SRC-0087**：同版Tatum的Initiator=No但仍有四PlayTypes归档字段。
+- **SRC-0088**：同版MyLEAGUE玩家的个人倾向编辑与全球模拟滑块各自独立。
+- **SRC-0089**：2012年旧系列总体Shot作用机制争论，仅KNOWN_IN_SERIES。
+- **SRC-0090**：2021年的动作倾向编辑建议与部分2K19经验必须分开。
+
+**正式断点**：`R04_B_RESEARCH_PUBLISHED_WITH_BEHAVIOR_GAPS`；**下一轮`R04_C_PLAYER_MOTIVATIONS_PERSONALITY_RESEARCH`，尚未启动**。下一轮调查人格徽章、Loyalty/Financial Security/Play for Win、情绪、球队/球员谈判与媒体知情范围；**DEV29只研究和发布原料，不担任独立审核、不开发Agent或启动原生写入**。
