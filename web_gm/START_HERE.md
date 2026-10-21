@@ -1,5 +1,7 @@
 # 网页 GPT：从这里开始（角色与数据入口）
 
+> [**网页版所有模型的项目意图**](../docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：先理解采集→分析→Coach→Player→GM→执行六阶段和三层职责：DEV29调查玩法/数据/设置，DEV28提供I/O，未来人格另立项，Coach/Player独立人格尚未上线。
+
 本页专供 ChatGPT 网页版阅读。项目 GitHub：`chris2gao/nba2k22-gm-engine`；仓库目前按玩家授权公开，连接器权限与可读性仍须在任务中实际确认。不要沿用旧版说明中的「仓库必定为私有」或「当前游戏日一定是 2021-11-20」；游戏日期始终取当前 `latest.json` 及玩家明确说明。
 
 ## 第一步：根据任务选择专用基线
