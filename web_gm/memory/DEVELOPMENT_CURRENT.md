@@ -1,5 +1,14 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 DEV29 R07总目录已发布，等待独立验收
+
+- R06正式独立验收已通过：`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`；R06-B 10奖项来源修复正式接受，仍是真实外部证据缺口。R07本轮完成[七层证据与40组成熟度指南](../../docs/game_mechanics/guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40组能力矩阵与10组既有生产证据](../../docs/game_mechanics/catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694条7卷机读索引总清单](../../docs/game_mechanics/catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)、[R07→DEV28后续证据交接](../../docs/game_mechanics/R07_TO_DEV28_EVIDENCE_HANDOFF.md)。
+- **R07状态：`R07_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`**，下一阶段仅等待独立审核/定向修复；审核通过后是否启动FINAL-CODEX或DEV28仍由玩家单独批准。新成果引用原R01–R06研究，不新增SRC/PC22实机UI认证、运行时读回或游戏修改。694条包含候选/指南/静态字段，并非694个验证原生字段；可读取索引为1总清单+7分卷，分卷回读和694身份数量通过。40功能族共86原研究锚点，R07没有逐页复核所有网页语义；引用存在与引用真的支持事实是不同审核层次。
+- 当前真实能力仍依基线34/37/38/40/DEV14手册分别判定：历史全量数据来源、SQLite查询和部分教练/批准普通交易执行可用，但实际签约写入、逐场Box/Shot/GameLog、2K22模式标记、完整Save重载、职业/历年纪录均未被R07新认证。V4选秀权旧+3执行守卫由独立Codex维护审批，不阻碍研究封存。
+- 最重要规则：DEV29研究游戏原料、DEV28建设I/O基础、Coach/Player/Media未来人格单独立项；原生球员普通Ability/Potential/Badge不可修改，游戏写入和数据采集必须获玩家分别明确触发。权威断点：[PROGRESS](../../docs/game_mechanics/PROGRESS.md)。
+
+
+
 ## 2026-10-21 DEV29 R06正式独立验收通过，R07 NEXT
 
 已在[独立审核报告](../../docs/development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)确认R06-A/B/C/D研究可结案，状态`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`。R06D 26关联、20缺口和79/79目录锚点均准确，R06B十类奖项已降级`sources=[]`且Eras平台排除性断言改UNKNOWN；R06C38项中7项无直接来源保留未知。**R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX**为研究唯一NEXT；其责任为对已有K01–K12做游戏可读/可选/作用、证据等级与I/O缺口统一矩阵，不是编写Coach/Player/Media人格、模型决策逻辑或启动DEV28。先后各批的发布状态不代表真实PC22界面/运行时读写/存盘已验；选秀权V4旧+3代码阻断依旧另行Codex维护。
