@@ -106,3 +106,24 @@
 | VIS-TODO-R02-05 | 选定对手具体球员的个人防守页及整体防守页（只读） | 查看18类列及特殊OnBall5/Hedge5/TagOnRoll含义；**日常GM仍不写OVERALL** |
 
 已检索但不当可认证画面：SRC-0034 Xbox One+Series X原帖写了防守选项且作者纠正错误，可给**同代文字**，不自动产出PC22截图；SRC-0039 NG玩家写PlayVision/Auto菜单，不代表其有目标PC UI；SRC-0038按键控制表，不是球队Coach配置图。未来如有玩家自供真实截图且获得允许，可按[视觉材料规范](README.md)在approved/独立保存。**R02-A研究无游戏读写、无第三方图片复制、无虚构视频时间戳。**
+
+## DEV29 R02-B — 菜单真实画面审计与最后一轮PC22截图优先级（2026-10-21）
+
+**新增合格原版NBA2K22 PC MyLEAGUE可读菜单图证：0；VIS-0001..0008原证据等级不变。** 仅有文章正文引用了“视频”“Image”或玩家文字说明菜单，并不能登记为`PC22_UI_CONFIRMED`。没有获取或上传任何版权不明的图片文件。
+
+| 文本/画面线索（本轮新增） | 原始页面 / 来源 | 实际核实到的证据 | 不得声称 |
+|---|---|---|---|
+| 2K22的ACE即使Off，Defensive Settings仍自动切回的报告 | [OS 2022-01 贴文](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/920049-defensive-settings-not-staying-on-custom) / SRC-0040 | 原作者与回复在搜索索引可读；**直接打开因redirect loop失败** | 已看见PC22原版ACE UI/证明一切ACE设置无效 |
+| 2K22 Series选中后回Freelance | [OS 2021-09-16原帖](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917118-are-series-not-working) / SRC-0042 | XBX作者的**文字一手报告**，没有本轮逐帧视频和时间戳 | PC22必然同错，或已经读取Series native ID |
+| Xbox Series X/S **MyTEAM**的Run Freelance菜单步骤 | [Reddit 2K22教程](https://www.reddit.com/r/MyTeam/comments/q36nsh) / SRC-0043 | 作者自报平台与按键、场上两步激活流程；**未提供可复核PC MyLeague页签图** | 相同的PC22按键/自动CPU调用 |
+| 2K16的On Ball Screen (Center)与Hedge (Center)讨论 | [OS 2016 第2页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/806956-on-ball-screen-center-hedge-center/page2) / SRC-0044 | 可读取旧版多位玩家对持球防守者/掩护人/己方大个身份的争论 | PC22 Center字段精确触发、UI顺序或实战执行已实机认证 |
+| 旧版TagOnRoll从Gameplan消失、SimCast仍能访问的报告 | [OS 2018 第2页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/865843-defensive-settings-discussion/page2) / SRC-0045 | 玩家文字明确表示**没有验证SimCast改动效果** | PC22一定隐藏或SimCast能执行 |
+| PC版CPU-vs-CPU MyLeague实际玩家生态 | [OS NBA2K PC Forum](https://forums.operationsports.com/forums/forum/basketball/nba-2k-pc-forum/918715-cdcool-nba-2k22-cpu-vs-cpu-myleague-sliders) / SRC-0046 | 原帖实际自报PC、控制所有队、逐场看3D不快Sim | 已经找到本机PC22 Coach菜单像素/默认数值 |
+
+### R02-C仅一次目标视觉补证，优先2组少量截图
+
+- **组A（控制入口，优先2–3张）**：现有原版PC22离线MyLEAGUE Coach Gameplan中的POE/Coach Settings/Freelance四槽、ACE/自动叫战术菜单（若出现）。要求画面包含完整栏目、可选值、上下文与底部按键说明；需分清赛前静态 vs 暂停临场，两者若不同分别标注。
+- **组B（战术内容/对手方案，优先2–3张）**：Book编辑内Regular/Bench/Endgame/Favorite、12类别筛选、某条具体动作的2D动态棋盘；以及选定对手某持球者后的PERSONAL Defense页中`OnBallScreen(Center)/Hedge(Center)/TagOnRoll/PreRotate`（已有页面能看见哪些就截哪些）。
+- **历史保持未知**：任何截图能证实**UI菜单是什么**，但不能证明3D比赛真实跑此play或ACE永久保存。同一对手不同时间读数对比/视频必须有明确场次、时间戳与平台；未经同意不推进/模拟正式比赛。
+
+若第三方公开视频无法读取足够清晰的原始菜单画面、没有可信的精确时间戳，统一`VIDEO_FRAME_NOT_VERIFIED`。R02-C若仍无新一手原版图，**保留UNKNOWN并关闭R02公开研究，转R03**；不为一个UI无限重复搜索2K16或在研究期启动DEV28/Antigravity。本文件只有文字索引、没有第三方截图复制。
