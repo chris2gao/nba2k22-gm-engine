@@ -1,5 +1,14 @@
 # DEV28 — GM 原生输入/输出全透明、动态数据完备及战术手册完整生命周期：总规划 V1
 
+## 2026-10-20 DEV29 V3更新：世界级多角色事实/行动接口（最高优先级规划修订）
+
+玩家澄清外挂长期目标为**GM、教练、球员、媒体等自主角色共同参与篮球世界，靠真实比赛/合同/历史反馈试错涌现**，不是仅GM选择最优队伍。DEV28原先的“GM全面输入/输出”继续作为核心交付，但**未来接口需求不应限定为GM所有/单方批准**，改为`Actor-Aware World State + Capability Catalog + Negotiated Action + User-Approved Execution Receipt`的可扩展世界层。任何角色可观察哪些事实、提出/反报价/拒绝哪些原生动作，以及执行后如何影响角色历史，必须从DEV29 V3/R04/R07知识矩阵获得。
+
+- 新[DEV29 V3](DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)将R04单独定为**完整球员身份/全部属性/倾向/徽章/疲劳伤病/Play for Win、Loyalty、Financial Security及Player Agent行动信息研究**，并形成[完整专项任务书](DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原经营、世界与整合研究后移为R05–R07；R01结束，R02仍NEXT。其研究及多角色交付先于DEV28正式开发。
+- DEV28数据能力盘点须记录球员/球队/教练/媒体分别**有权读取什么、可执行候选全集、可提案/否决什么、同意链与玩家授权是否满足**。不以一个`gm_enabled`布尔字段替代角色所有权语义；可在既有权限层增补，不要重造DEV14或业务执行器。
+- 外部人格/记忆/关系/荣誉执念/约定优先独立SQLite持久化，游戏Player原生字段保留其比赛/训练/合同功能。玩家提出“把一些原生字段转作外挂专用参数”是未来可研究的选择，**在验证原生作用、持久化、存档/比赛/合同副作用并得到用户专项批准前禁止重用**。普通球员Ability/Potential/Badge无特殊批准不得直改；模拟球员对Tendency/训练同意是额外业务条件，无法替代用户现实写入审批。
+- DEV28不是当前即启用Player Agent、自动新闻、联赛虚拟市场系统的授权。先用研究成果完整展示**每个角色可观察/可选择的游戏原料及证据等级**，再分阶段开发实际多智能体运行、记忆、谈判与效果反馈。
+
 ## DEV29 V2交付结构及执行顺序覆盖（2026-10-20）
 
 **玩家最新决定**：PR #12已合并，接下来**网页GPT新独立开发规划/研究窗口**主导[DEV29 V2游戏万事通知识库](DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)，按R01–R06多轮搜社区/攻略/官方资料和图文，成果持续写入[docs/game_mechanics/](../game_mechanics/README.md)。**Codex不主导前期全网攻略搜集**，仅在网页研究完成后做FINAL-CODEX的来源/索引/机读目录/现有Registry与M0/DEV14能力对照，输出本DEV28具体实施缺口。旧DEV29 V1的R0-A/B/C角色安排以V2覆盖。截图先登记网页来源、版本/菜单/可见事实，网络第三方版权未明的图片不得未经许可批量复制到GitHub；玩家可按需提供实机截图。真正DEV28原生采集/写入仍需独立授权。
