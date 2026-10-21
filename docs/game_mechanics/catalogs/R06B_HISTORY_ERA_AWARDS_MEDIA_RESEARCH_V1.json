@@ -225,7 +225,7 @@
       "classification": "CROSS_VERSION_DISCUSSION",
       "version_scope": "NBA2K19",
       "sources": [
-        "SRC-0183"
+        "SRC-0186"
       ],
       "target_pc22_current_value": null,
       "pc22_native_read_verified_in_R06B": false,
@@ -471,7 +471,8 @@
     "SRC-0182",
     "SRC-0183",
     "SRC-0184",
-    "SRC-0185"
+    "SRC-0185",
+    "SRC-0186"
   ],
   "gaps": [
     "PC22_HISTORY_MENUS_PIXEL_AND_CONTROLLER_NOT_CONFIRMED",
