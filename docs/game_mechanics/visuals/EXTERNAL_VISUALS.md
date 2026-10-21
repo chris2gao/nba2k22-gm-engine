@@ -296,3 +296,26 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 3. `Front Office / Financials / Business`：总薪、Payroll、Cash、Budget、Staff Budget、Fan Interest/门票定价及真实收入/支出时间范围、是否可以修改、能否存盘保留；**不以菜单显示一个数就断言签约资金真实可用**。
 
 **本轮不请求用户立即进行截图/测试**；保留`PC22_VANILLA_UI_PROOF_PENDING`并继续R05-B交易原料研究。新合格VIS为0，来源以[SRC-0114..0128](../SOURCES.md)为准；无第三方图片上传。
+
+## DEV29 R05-B — 交易菜单、选秀权、截止日与原生执行器视觉证据（2026-10-21）
+
+**本轮新确证的 NBA2K22 PC无模组离线MyLEAGUE 原版 Trade Logic/Propose Trade/Stepien/选秀权保护、薪资匹配与完整交易后名单双方界面截图：0。** 已发现**同版PC玩家2022-07一手文字报告**，不是原版目标菜单逐像素核对；也没有对其它用户的游戏实施交易。**新合格VIS编号：0**，不得将`页面包含图片链接`等同`亲自读过截图文本`。
+
+| 研究素材 | 具体得到的内容 | 是否满足目标原版PC22图证 |
+|---|---|---|
+| [2K22交易设置攻略](https://realsport101.com/article/nba-2k22-sliders-realistic-settings-gameplay-options-optimized-experience-offense-defense-movement-attributes) SRC-0131 | 同版攻略文字列`Trade Logic/Deadline/Financial Trade Rules/Recently Signed/Stepien/Override/CPU Offers/CPU-CPU Trades`等菜单候选 | `2K22_CROSS_GEN_GUIDE_TEXT_NOT_VANILLA_PC_MENU_CAPTURE`；原指南设置建议不是本机值 |
+| [2022 PC MyLeague交易确认却不转队](https://www.reddit.com/r/NBA2k/comments/vrtew2) SRC-0132/0143 | **一手PC目标平台**报告按“YES”后两队人物不动；评论列全队控制与三方等不同解决经验 | `PC22_FIRST_HAND_TEXT_REPORT_NO_READBACK_IMAGE`；不能认定本项目交易器故障或唯一修法 |
+| [2022本世代日期锁定异常](https://www.reddit.com/r/2KMyLeague/comments/sc30m8) SRC-0133 | 声称12/25仍因12/15限制不能交易，和Recently Signed开关可能有关 | `2K22_CURRENTGEN_ANECDOTE_NOT_VERIFIED_PC_SCREEN` |
+| [2022 MyNBA假想多队Ben Simmons交易讨论](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917608-nba-2k22-mynba-trade-discussion-thread) SRC-0134 | 玩家草拟三队多人/选秀权/保护条款的文字报价 | `HYPOTHETICAL_COMMUNITY_TRADE_NOT_EXECUTED_UI`；不能把三队proposal当游戏菜单已真实执行 |
+| [2022 Xbox One MyGM交易成就教程](https://www.trueachievements.com/a338876/maxed-out-achievement) SRC-0142 | 同代老世代玩家叙述Trade Override/Financial Rules/Stepien等UI操作 | `SAME_GAME_OTHER_MODE_MYGM_TEXT`；不能偷换为PC22 MyLEAGUE的菜单执行能力 |
+| [CBA2017历史交易规则](https://www.cbafaq.com/salarycap17.htm) SRC-0129 | 大小薪资匹配档、TPE/Stepien与15人名单等真实NBA制度 | `REAL_NBA_FINANCIAL_TEXT_NOT_GAME_MENU`；没有NBA2K22 PC经认证的真实交易工资判断截图 |
+| [本机真实已批准转队技术记录](../../37_APPROVED_TRADE_EXECUTOR.md) | CHI/DET人数不一致后修复、名单与选秀权读回，用户接受某一游戏UI结果 | `PROJECT_NATIVE_OPERATION_LOG_AND_PLAYER_ACCEPTANCE_NOT_PUBLISHED_SCREENSHOT`；不可给这里新增游戏截图/跨季全部功能确认 |
+
+### 后续可选的最少目标PC22只读取证（无需用户立即操作）
+
+1. NBA2K22 PC MyLEAGUE **Trade Sliders完整页**，先确认每个选项实际存在、当前值、是否在重启后保留。界面需识别当前游戏模式/无mod，不能拿MyGM次世代图顶替。
+2. **Propose Trade/Trade Finder/Trade Block**完整操作页，含球员/选秀权切换、可选资产年份、2队/3队输入槽、选秀权保护/交换菜单如果存在；截屏不能直接证明交易已经落地。
+3. **真实工资/合法性错误、日期限制**：当一个本局真实合法的只读候选被游戏判Illegal时记录具体消息与GAME_DATE（非游戏外日期），与财政/交易规则当前实际开关对应；不能为了提供截图修改正式存档。
+4. **真实交易生效后读回**：同一人物当前队、合同队、双方15人名单/2双向/13活动人数/选秀权当前持有人/财务条目，同时注明是否已保存重载。本项目已有的外部执行器已完成有限真实玩家验收，不能因此认为所有这些UI自动可观察。
+
+**范围声明**：DEV29只研究、保存来源与设置名称，不能开启游戏、开发Agent、修改真实开关、打包“示范交易”或启动Codex/DEV28。研究结束状态`R05_B_RESEARCH_PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS`；下一轮R05-C员工/球探/选秀，未启动。
