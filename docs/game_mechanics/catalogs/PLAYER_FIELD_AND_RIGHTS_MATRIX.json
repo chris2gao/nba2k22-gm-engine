@@ -3898,7 +3898,7 @@
     },
     {
       "field_key": "RESEARCH_CANDIDATE.loyalty",
-      "native_label": "loyalty",
+      "native_label": "Loyalty",
       "field_family": "contract_preference",
       "source_profile": "THIRD_PARTY_2K22_SNAPSHOT_AND_V3_REQUIREMENTS",
       "native_byte_offset_decimal": null,
@@ -3906,17 +3906,25 @@
       "native_storage_bytes": null,
       "native_conversion": null,
       "game_versions": [
-        "NBA2K22_MULTIPLATFORM_OR_MY_NBA_CONCEPT"
+        "NBA2K22_THIRD_PARTY_ARCHIVED_ROSTER",
+        "NBA2K22_COMMUNITY_ROSTER",
+        "OLDER_FRANCHISE_COMMUNITY_EXPERIMENT"
       ],
-      "pc22_read_status": "NOT_VERIFIED_IN_THIS_PROJECT_NATIVE_FIELD_PROFILE",
+      "pc22_read_status": "2K22_ARCHIVED_PROFILE_LABEL_VERIFIED_PC22_NATIVE_OFFSET_AND_LIVE_CURRENT_STATE_UNKNOWN",
       "live_game_value": null,
-      "native_semantic": "Candidate documented in NBA2K22 source or R04 scope; exact target memory, actual visibility and storage unknown",
+      "native_semantic": "Preference for continuity and former team, distinct from private relationship trust",
       "source_ids": [
-        "SRC-0074",
-        "SRC-0075"
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096",
+        "SRC-0097"
       ],
-      "known_legal_values": null,
-      "effect_confidence": "SEMANTIC_CANDIDATE_NOT_NATIVE_CODEC_CONFIRMED",
+      "known_legal_values": {
+        "min": 0,
+        "max": 100,
+        "note": "Observed 2K22 archived export display range; native PC bit codec and practical write range not verified"
+      },
+      "effect_confidence": "SOURCE_BOUNDED_FRANCHISE_CONTRACT_PREFERENCE_PC22_EXACT_WEIGHT_UNKNOWN",
       "agent_observer_roles": [
         "PLAYER_IF_AVAILABLE",
         "GM_IF_PUBLIC_OR_AUTHORIZED",
@@ -3924,16 +3932,19 @@
         "MEDIA_PUBLIC_ONLY"
       ],
       "agent_action_rights": [
-        "RESEARCH_CANDIDATE_ONLY; NO_ACTION_AUTHORIZED"
+        "PLAYER_MAY_PROPOSE_COUNTER_REJECT",
+        "GM_MAY_PROPOSE_OR_REJECT",
+        "REAL_PLAYER_HUMAN_APPROVAL_FOR_EVERY_NATIVE_WRITE"
       ],
-      "native_write_policy": "NO_WRITE_AUTHORIZED_FROM_RESEARCH_CANDIDATE",
-      "external_storage_recommendation": "EXTERNAL_SQLITE_CANONICAL_FOR_ROLE_GOALS_AND_LONG_TERM_MEMORY",
+      "native_write_policy": "NO_NATIVE_EDIT_ALLOWED_FROM_THIS_RESEARCH; HUMAN_APPROVAL_AND_PLAYER_CONSENT_NECESSARY_NOT_SUFFICIENT",
+      "external_storage_recommendation": "NATIVE_VS_EXTERNAL_STRICT: STORE_GOALS_MEMORIES_PROMISES_IN_EXTERNAL_SQLITE_NOT_THIS_GAME_FIELD",
       "attribute_repurpose_candidate": "UNKNOWN_UNSAFE_UNTIL_NATIVE_SIDE_EFFECT_PROOF",
-      "research_batch": "R04-A_SEED_FOR_NEXT_BATCHES"
+      "research_batch": "R04-A_SEED_FOR_NEXT_BATCHES",
+      "r04c_research_companion": "docs/game_mechanics/catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json"
     },
     {
       "field_key": "RESEARCH_CANDIDATE.play_for_win",
-      "native_label": "play_for_win",
+      "native_label": "Playing for a Winner",
       "field_family": "contract_preference",
       "source_profile": "THIRD_PARTY_2K22_SNAPSHOT_AND_V3_REQUIREMENTS",
       "native_byte_offset_decimal": null,
@@ -3941,17 +3952,24 @@
       "native_storage_bytes": null,
       "native_conversion": null,
       "game_versions": [
-        "NBA2K22_MULTIPLATFORM_OR_MY_NBA_CONCEPT"
+        "NBA2K22_THIRD_PARTY_ARCHIVED_ROSTER",
+        "NBA2K22_COMMUNITY_ROSTER",
+        "OLDER_FRANCHISE_COMMUNITY_EXPERIMENT"
       ],
-      "pc22_read_status": "NOT_VERIFIED_IN_THIS_PROJECT_NATIVE_FIELD_PROFILE",
+      "pc22_read_status": "2K22_ARCHIVED_PROFILE_LABEL_VERIFIED_PC22_NATIVE_OFFSET_AND_LIVE_CURRENT_STATE_UNKNOWN",
       "live_game_value": null,
-      "native_semantic": "Candidate documented in NBA2K22 source or R04 scope; exact target memory, actual visibility and storage unknown",
+      "native_semantic": "Prioritization of competing for championships; not a guaranteed salary discount",
       "source_ids": [
-        "SRC-0074",
-        "SRC-0075"
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096"
       ],
-      "known_legal_values": null,
-      "effect_confidence": "SEMANTIC_CANDIDATE_NOT_NATIVE_CODEC_CONFIRMED",
+      "known_legal_values": {
+        "min": 0,
+        "max": 100,
+        "note": "Observed 2K22 archived export display range; native PC bit codec and practical write range not verified"
+      },
+      "effect_confidence": "SOURCE_BOUNDED_FRANCHISE_CONTRACT_PREFERENCE_PC22_EXACT_WEIGHT_UNKNOWN",
       "agent_observer_roles": [
         "PLAYER_IF_AVAILABLE",
         "GM_IF_PUBLIC_OR_AUTHORIZED",
@@ -3959,16 +3977,19 @@
         "MEDIA_PUBLIC_ONLY"
       ],
       "agent_action_rights": [
-        "RESEARCH_CANDIDATE_ONLY; NO_ACTION_AUTHORIZED"
+        "PLAYER_MAY_PROPOSE_COUNTER_REJECT",
+        "GM_MAY_PROPOSE_OR_REJECT",
+        "REAL_PLAYER_HUMAN_APPROVAL_FOR_EVERY_NATIVE_WRITE"
       ],
-      "native_write_policy": "NO_WRITE_AUTHORIZED_FROM_RESEARCH_CANDIDATE",
-      "external_storage_recommendation": "EXTERNAL_SQLITE_CANONICAL_FOR_ROLE_GOALS_AND_LONG_TERM_MEMORY",
+      "native_write_policy": "NO_NATIVE_EDIT_ALLOWED_FROM_THIS_RESEARCH; HUMAN_APPROVAL_AND_PLAYER_CONSENT_NECESSARY_NOT_SUFFICIENT",
+      "external_storage_recommendation": "NATIVE_VS_EXTERNAL_STRICT: STORE_GOALS_MEMORIES_PROMISES_IN_EXTERNAL_SQLITE_NOT_THIS_GAME_FIELD",
       "attribute_repurpose_candidate": "UNKNOWN_UNSAFE_UNTIL_NATIVE_SIDE_EFFECT_PROOF",
-      "research_batch": "R04-A_SEED_FOR_NEXT_BATCHES"
+      "research_batch": "R04-A_SEED_FOR_NEXT_BATCHES",
+      "r04c_research_companion": "docs/game_mechanics/catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json"
     },
     {
       "field_key": "RESEARCH_CANDIDATE.financial_security",
-      "native_label": "financial_security",
+      "native_label": "Financial Security",
       "field_family": "contract_preference",
       "source_profile": "THIRD_PARTY_2K22_SNAPSHOT_AND_V3_REQUIREMENTS",
       "native_byte_offset_decimal": null,
@@ -3976,17 +3997,24 @@
       "native_storage_bytes": null,
       "native_conversion": null,
       "game_versions": [
-        "NBA2K22_MULTIPLATFORM_OR_MY_NBA_CONCEPT"
+        "NBA2K22_THIRD_PARTY_ARCHIVED_ROSTER",
+        "NBA2K22_COMMUNITY_ROSTER",
+        "OLDER_FRANCHISE_COMMUNITY_EXPERIMENT"
       ],
-      "pc22_read_status": "NOT_VERIFIED_IN_THIS_PROJECT_NATIVE_FIELD_PROFILE",
+      "pc22_read_status": "2K22_ARCHIVED_PROFILE_LABEL_VERIFIED_PC22_NATIVE_OFFSET_AND_LIVE_CURRENT_STATE_UNKNOWN",
       "live_game_value": null,
-      "native_semantic": "Candidate documented in NBA2K22 source or R04 scope; exact target memory, actual visibility and storage unknown",
+      "native_semantic": "Preference for guaranteed contract security; not same as Finance Savvy tax/location preference",
       "source_ids": [
-        "SRC-0074",
-        "SRC-0075"
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096"
       ],
-      "known_legal_values": null,
-      "effect_confidence": "SEMANTIC_CANDIDATE_NOT_NATIVE_CODEC_CONFIRMED",
+      "known_legal_values": {
+        "min": 0,
+        "max": 100,
+        "note": "Observed 2K22 archived export display range; native PC bit codec and practical write range not verified"
+      },
+      "effect_confidence": "SOURCE_BOUNDED_FRANCHISE_CONTRACT_PREFERENCE_PC22_EXACT_WEIGHT_UNKNOWN",
       "agent_observer_roles": [
         "PLAYER_IF_AVAILABLE",
         "GM_IF_PUBLIC_OR_AUTHORIZED",
@@ -3994,12 +4022,17 @@
         "MEDIA_PUBLIC_ONLY"
       ],
       "agent_action_rights": [
-        "RESEARCH_CANDIDATE_ONLY; NO_ACTION_AUTHORIZED"
+        "PLAYER_MAY_PROPOSE_COUNTER_REJECT",
+        "GM_MAY_PROPOSE_OR_REJECT",
+        "REAL_PLAYER_HUMAN_APPROVAL_FOR_EVERY_NATIVE_WRITE"
       ],
-      "native_write_policy": "NO_WRITE_AUTHORIZED_FROM_RESEARCH_CANDIDATE",
-      "external_storage_recommendation": "EXTERNAL_SQLITE_CANONICAL_FOR_ROLE_GOALS_AND_LONG_TERM_MEMORY",
+      "native_write_policy": "NO_NATIVE_EDIT_ALLOWED_FROM_THIS_RESEARCH; HUMAN_APPROVAL_AND_PLAYER_CONSENT_NECESSARY_NOT_SUFFICIENT",
+      "external_storage_recommendation": "NATIVE_VS_EXTERNAL_STRICT: STORE_GOALS_MEMORIES_PROMISES_IN_EXTERNAL_SQLITE_NOT_THIS_GAME_FIELD",
       "attribute_repurpose_candidate": "UNKNOWN_UNSAFE_UNTIL_NATIVE_SIDE_EFFECT_PROOF",
-      "research_batch": "R04-A_SEED_FOR_NEXT_BATCHES"
+      "research_batch": "R04-A_SEED_FOR_NEXT_BATCHES",
+      "r04c_research_companion": "docs/game_mechanics/catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json"
     }
-  ]
+  ],
+  "r04c_companion_path": "docs/game_mechanics/catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json",
+  "r04c_notice": "Three motivations confirmed on 2K22 archived HTML 0-100, but exact PC22 native bytes/effects and live captures are UNKNOWN; all external personality memories separate; 21 badge references not native IDs."
 }
