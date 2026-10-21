@@ -1,5 +1,14 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R06-B — 历史纪元、奖项、纪录、媒体与规则历史已发布
+
+**当前最新研究状态：** `R06_B_RESEARCH_PUBLISHED_WITH_PC22_UI_AND_HISTORY_GAPS`。新的唯一下一轮：`R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`；然后R06-D跨域整合，再R07和最终小型FINAL-CODEX。R01–R05已按各自正式状态结案，R06-A保留已出版结论且未重做。此次为DEV29纯网页研究，未启动Codex、DEV28、独立角色人格、游戏内存、存档写入或日历推进。
+
+交付：[K10历史/奖项/媒体中文机制攻略](guides/K10_HISTORY_AWARDS_MEDIA_R06B.md)；[31项机读目录](catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)；[SRC-0174..0186](SOURCES.md)共13个有版本限制的来源；[视觉索引](visuals/EXTERNAL_VISUALS.md)本轮新增合格原版PC22菜单截图为0。新资料覆盖历史Draft Class/1984–2020外挂选秀轮回与2K23 Eras的**不可等同**、历季奖项与退役球衣、NBA/球队/单季/生涯/季后赛纪录、MyLEAGUE社会媒体/Power Rankings/Mock Draft文字资源、休赛期Rule Changes的旧版参考。**31项不代表31项当前存档已采集或可写**。
+
+重要结论：原生奖项/纪录/媒体播报 ≠ 真人现实历史结果，也 ≠ 外挂可修改历史冠军/球员能力；2019和2023的相关用户讨论只能跨代辅助认识。R06-C专门研究真实赛季阶段、Autosave/手动Save、重启与跨季留存，不在R06-B提前假定历史记录持久性。
+
+
 ## 2026-10-21 R05-A/B/C/D独立审核：接受研究结案，选秀权V4执行代码待同步
 
 独立审核报告：[DEV29 R05审核与V4工程差距](../development_reviews/DEV29_R05_INDEPENDENT_REVIEW_20261021.md)。**R05研究结案正式接受**，保留原状态`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`。审计核对D目录54数据候选、63操作研究项、12联动、12缺口无重复标识；63项中**53个合法选项范围仍UNKNOWN**，来源到SRC-0162（包含与旧SRC-0137同一网页的交叉引用），这不是PC22 UI/实时读数/真实执行的全部认证。**不需要R05返工**，R06仍NEXT且不开发媒体/球员/教练人格。
