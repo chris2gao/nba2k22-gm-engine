@@ -193,3 +193,24 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 4. **PC本世代Trainer与个人训练原型**：训练师原生UI属性、球员Training中的Position+Player Type原型与Intensity、是否显示Recovery等，和现有Registry逐项映射。
 
 研究完结时的图证状态：`R03_RESEARCH_COMPLETE_WITH_NATIVE_DATA_GAPS`、`PC22_HEALTH_UI_FULL_VERIFIED=0`。**不能据此说原版游戏没有健康菜单，只是当前公开材料无法完成源级认证**。R04完整身体部位Durability的研究会独立展开，在用户审核R03后方可启动。
+
+## DEV29 R04-A — 原版2K22球员资料与Badge视觉证据登记（2026-10-21）
+
+本轮检索NBA2K22本世代MyLEAGUE原始**Edit Player / Vitals / Attributes / Durability / Badge / Personality / Development**菜单，以及同年PS5 MyNBA的可借鉴画面。研究取得**版本指向明确的详细球员字段页面**，但没有逐帧/像素确认`vanilla_PC22_Offline_MyLEAGUE`中同样分组和完整标签的可读截图，**不新增`PC22_UI_CONFIRMED`或已认证正式VIS编号**。本页保留稳定网页索引和未来最小证据请求，供R04后续研究使用。
+
+| 原网页/视觉线索 | 真实性与这次具体获得什么 | 视觉审查结论 |
+|---|---|---|
+| [2kAuction：NBA2K22 Joel Embiid](https://2kauction.com/mynba/2k22/players/joel-embiid?roster=offseason_nba) 和 [Marques Johnson](https://2kauction.com/mynba/2k22/players/marques-johnson) | 页面以原站文字版分栏输出`Attributes/Badge/Bio/Development/Contract/Injuries`，每个字段具体存在并配一个导出玩家数据样例 | **THIRD_PARTY_GAME_SNAPSHOT_HTML_NOT_GAME_MENU_PIXEL_VERIFIED**：可作字段清单和示例来源，不是原版游戏菜单截图、不是本项目当前save |
+| [OS：NBA 2K22 All Player Ratings第2页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/916765-nba-2k22-all-player-ratings/page2) | 页面玩家贴`Jordan Clarkson 2K22 Player Edit`内容，有嵌入的YouTube链接`https://www.youtube.com/watch?v=RWGYk4y_i2M` | **VIDEO_LINK_LOCATED_NOT_FRAME_REVIEWED**：可后续核对版别/菜单，不能填写看见的完整UI字段或视频时间戳 |
+| [OS：2021 2K22 ATD编辑报道](https://www.operationsports.com/nba-2k22-attention-to-detail-roster-from-celticlg-and-crew/) | 编辑内容涉及Durability、Attributes、Badge、Peak及Personality；2021-12 PC名单尚处WIP | **CUSTOM_ROSTER_RESEARCH_TEXT**，非vanilla PC本局的真实数值 |
+| [2K Film Room：2K22 Badge Cheat Sheet](https://2kfilmroom.com/cheat-sheets/2k22) | 可读取80项当代Badge标签文字，20/20/20/20四类分布 | **TEXTUAL_BADGE_REFERENCE**，不是MyLEAGUE PC Edit Badges原生截图，MyPLAYER解锁条件不能用于本局成长公式 |
+| [2K22 PS5历史新秀Boom/Bust讨论](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/916715-jb-s-2k22-ps5-fictional-draft-classes/page6) | 一手作者说明Vitals中最低/最高潜力、Boom/Bust概率和峰值年龄 | **NEXTGEN_PLAYER_REPORTED_TEXT**，不冒充PC原版Vitals图或算法实测 |
+
+### 下一轮最少的定向真实菜单证据（不要求立即用户操作）
+
+1. **人物Vitals 1–2张**：在NBA2K22 PC无模组离线MyLEAGUE下，当前球员姓名/主副位置/生日/身高臂展/选秀和Peak Start/End、Boom/Bust如果有。记录`game_date`和保存版本，避免把同名历史人物当同一ID。
+2. **Attributes与Durability 1–2张**：左侧分类和真正可见全部字段，尤其**耐久是否恰为16还是还有其它类别**；截图能证UI列名、不能从一次数值推演伤病概率。
+3. **Skill与Personality Badges 1–2张**：徽章组、实际标签、数量和层级，区分赛季自然变化、手工编辑页、MyPLAYER构建页；同版网页清单中的名字不等于本机native badge ID。
+4. **人物Development/Contract 1–2张**：`Peak`/可见潜力类设置要严格保密，**不要拍摄或上传会向普通GM/媒体泄露真实Potential的页面**。可仅由授权隔离人员做字段名/选项范围检验并遮蔽真实值。
+
+**版权**：本轮无第三方图像复制或上传。文字研究用`SRC-0072..0082`追溯，新增机读目录`PLAYER_FIELD_AND_RIGHTS_MATRIX.json`和`PLAYER_BADGES_R04_A_REFERENCE.json`对应R04-A，PC可读菜单和完整人物Agent权限以后分R04-B/C/D逐项补齐。
