@@ -41,839 +41,6 @@
     "comment": "PICK_FIFTH_YEAR_NATIVE_READ_IS_NOT_BUSINESS_RULE_CEILING; CODE_STILL_LIMITS_THREE",
     "three_year_rule_removed": true
   },
-  "known_native_fact_rows": 54,
-  "native_fact_rows": [
-    {
-      "id": "PLAYER.contract.bird_years",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x356",
-        "bit_start": 6,
-        "width": 4
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.original_contract_years",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x341",
-        "bit_start": 4,
-        "width": 3
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.years_left_on_contract",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x32E",
-        "bit_start": 2,
-        "width": 4
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_option",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x317",
-        "bit_start": 4,
-        "width": 2
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.no_trade",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x346",
-        "bit_start": 4,
-        "width": 1
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.extension_length",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x341",
-        "bit_start": 7,
-        "width": 3
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.extension_option",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x342",
-        "bit_start": 2,
-        "width": 2
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.extension_no_trade",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x31C",
-        "bit_start": 5,
-        "width": 1
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_year_1",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x1A4",
-        "bit_start": 0,
-        "width": 31
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_year_2",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x1A8",
-        "bit_start": 0,
-        "width": 31
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_year_3",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x1AC",
-        "bit_start": 0,
-        "width": 31
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_year_4",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x1B0",
-        "bit_start": 0,
-        "width": 31
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_year_5",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x1B4",
-        "bit_start": 0,
-        "width": 31
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_year_6",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x1B8",
-        "bit_start": 0,
-        "width": 31
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.contract_type",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x344",
-        "bit_start": 3,
-        "width": 3
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.euro_stash_years_left",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x293",
-        "bit_start": 5,
-        "width": 2
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "PLAYER.contract.two_way_days_left",
-      "domain": "K07_PLAYER_CONTRACT",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json",
-      "status": "REGISTERED_NO_R05_REALTIME_READ",
-      "current_value": null,
-      "format": {
-        "offset": "0x15F",
-        "bit_start": 2,
-        "width": 6
-      },
-      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
-      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.total_salary",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_NATIVE_READ_CANDIDATE",
-      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
-      "status": "TEAM_NATIVE_CANDIDATE_NATIVE_READ_REPORTED",
-      "current_value": null,
-      "format": {
-        "offset": "0xCBC"
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.payroll",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_NATIVE_READ_CANDIDATE",
-      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
-      "status": "TEAM_NATIVE_CANDIDATE_NATIVE_READ_REPORTED",
-      "current_value": null,
-      "format": {
-        "offset": "0xFF4"
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.cash",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_NATIVE_READ_CANDIDATE",
-      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
-      "status": "TEAM_NATIVE_CANDIDATE_ENCODING_UNVERIFIED",
-      "current_value": null,
-      "format": {
-        "offset": "0x1010"
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.budget",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_NATIVE_READ_CANDIDATE",
-      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
-      "status": "TEAM_NATIVE_CANDIDATE_UNIT_UNVERIFIED",
-      "current_value": null,
-      "format": {
-        "offset": "0x1014"
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.staff_budget",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
-      "source": "src/gm_core/finance.py",
-      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
-      "current_value": null,
-      "format": {
-        "offset": null
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.fan_interest",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
-      "source": "src/gm_core/finance.py",
-      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
-      "current_value": null,
-      "format": {
-        "offset": null
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.ticket_courtside",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
-      "source": "src/gm_core/finance.py",
-      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
-      "current_value": null,
-      "format": {
-        "offset": null
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.ticket_lower",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
-      "source": "src/gm_core/finance.py",
-      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
-      "current_value": null,
-      "format": {
-        "offset": null
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.ticket_upper",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
-      "source": "src/gm_core/finance.py",
-      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
-      "current_value": null,
-      "format": {
-        "offset": null
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM_FINANCE.monthly_gate_revenue",
-      "domain": "K07_TEAM_FINANCE",
-      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
-      "source": "src/gm_core/finance.py",
-      "status": "PROJECT_FINANCE_MODULE_FIELD_WINDOW_UNVERIFIED",
-      "current_value": null,
-      "format": {
-        "offset": null
-      },
-      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
-      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
-      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
-    },
-    {
-      "id": "TEAM.roster.regular_ptr_array",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x00",
-        "storage": "15 * uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.regular_count",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0xCB1",
-        "storage": "uint8"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.two_way_ptrs",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0xA8 and 0xB0",
-        "storage": "2 * uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.two_way_count",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x1047 low 2 bits",
-        "storage": "2bit"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.active_ptr_array",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0xD0",
-        "storage": "13 * uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.active_count",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x1047 high 4 bits",
-        "storage": "4bit"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.reserved",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x78..0xA7",
-        "storage": "6 * uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "TEAM.roster.other_lineup_refs",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0xD28..0xE67",
-        "storage": "40 * uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "PLAYER.current_team_ptr",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x60",
-        "storage": "uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "PLAYER.contract_team_ptr",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0xA8",
-        "storage": "uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "DRAFT_ASSET.current_owner_ptr",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x00",
-        "storage": "uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "DRAFT_ASSET.original_owner_ptr",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x08",
-        "storage": "uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "DRAFT_ASSET.assigned_player_ptr",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x10",
-        "storage": "uint64"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "DRAFT_ASSET.metadata",
-      "domain": "K07_K08_ROSTER_AND_PICKS",
-      "type": "PROJECT_NATIVE_LAYOUT",
-      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
-      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
-      "current_value": null,
-      "format": {
-        "offset": "0x1C",
-        "storage": "uint32"
-      },
-      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
-      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
-      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.position",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x10E",
-        "bit_start": 2,
-        "width": 3
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.years_left",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x112",
-        "bit_start": 0,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.salary",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0xF8",
-        "bit_start": 0,
-        "width": 24
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.offense",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x100",
-        "bit_start": 0,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.defense",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x100",
-        "bit_start": 4,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.potential",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x108",
-        "bit_start": 4,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.contracts",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x102",
-        "bit_start": 0,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.trading",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x102",
-        "bit_start": 4,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.scouting",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x101",
-        "bit_start": 4,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.training",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x101",
-        "bit_start": 0,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.business",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x103",
-        "bit_start": 0,
-        "width": 4
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.preferred_system",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x10A",
-        "bit_start": 0,
-        "width": 3
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    },
-    {
-      "id": "STAFF.active_system",
-      "domain": "K09_STAFF",
-      "type": "STATIC_NATIVE_REGISTERED",
-      "source": "config/memory_field_profile.json AND src/source_extensions.py",
-      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
-      "current_value": null,
-      "format": {
-        "offset": "0x10B",
-        "bit_start": 4,
-        "width": 3
-      },
-      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
-      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
-      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
-    }
-  ],
   "studied_action_rows": 63,
   "action_research_rows": [
     {
@@ -1940,5 +1107,839 @@
     "specific_game_write_approval": "MANDATORY",
     "no_cpu_personality_talk_models": "NO_AGENT_DESIGN"
   },
-  "next_topic": "R06_K05_K10_K11_GAMEPLAY_RULES_HISTORY_MEDIA_SAVE_MECHANICS_RESEARCH_NOT_STARTED"
+  "next_topic": "R06_K05_K10_K11_GAMEPLAY_RULES_HISTORY_MEDIA_SAVE_MECHANICS_RESEARCH_NOT_STARTED",
+  "observed_or_candidate_data_rows": 54,
+  "data_research_rows": [
+    {
+      "id": "PLAYER.contract.bird_years",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x356",
+        "bit_start": 6,
+        "width": 4
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.original_contract_years",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x341",
+        "bit_start": 4,
+        "width": 3
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.years_left_on_contract",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x32E",
+        "bit_start": 2,
+        "width": 4
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_option",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x317",
+        "bit_start": 4,
+        "width": 2
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.no_trade",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x346",
+        "bit_start": 4,
+        "width": 1
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.extension_length",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x341",
+        "bit_start": 7,
+        "width": 3
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.extension_option",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x342",
+        "bit_start": 2,
+        "width": 2
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.extension_no_trade",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x31C",
+        "bit_start": 5,
+        "width": 1
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_year_1",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x1A4",
+        "bit_start": 0,
+        "width": 31
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_year_2",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x1A8",
+        "bit_start": 0,
+        "width": 31
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_year_3",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x1AC",
+        "bit_start": 0,
+        "width": 31
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_year_4",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x1B0",
+        "bit_start": 0,
+        "width": 31
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_year_5",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x1B4",
+        "bit_start": 0,
+        "width": 31
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_year_6",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x1B8",
+        "bit_start": 0,
+        "width": 31
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.contract_type",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x344",
+        "bit_start": 3,
+        "width": 3
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.euro_stash_years_left",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x293",
+        "bit_start": 5,
+        "width": 2
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "PLAYER.contract.two_way_days_left",
+      "domain": "K07_PLAYER_CONTRACT",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json",
+      "status": "REGISTERED_NO_R05_REALTIME_READ",
+      "current_value": null,
+      "format": {
+        "offset": "0x15F",
+        "bit_start": 2,
+        "width": 6
+      },
+      "effects": "GAME_CONTRACT_EFFECTS_REQUIRE_VALIDATION",
+      "menu_or_executability": "SIGNING_EXECUTOR_UNVALIDATED",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.total_salary",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_NATIVE_READ_CANDIDATE",
+      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
+      "status": "TEAM_NATIVE_CANDIDATE_NATIVE_READ_REPORTED",
+      "current_value": null,
+      "format": {
+        "offset": "0xCBC"
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.payroll",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_NATIVE_READ_CANDIDATE",
+      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
+      "status": "TEAM_NATIVE_CANDIDATE_NATIVE_READ_REPORTED",
+      "current_value": null,
+      "format": {
+        "offset": "0xFF4"
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.cash",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_NATIVE_READ_CANDIDATE",
+      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
+      "status": "TEAM_NATIVE_CANDIDATE_ENCODING_UNVERIFIED",
+      "current_value": null,
+      "format": {
+        "offset": "0x1010"
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.budget",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_NATIVE_READ_CANDIDATE",
+      "source": "docs/development_reviews/DEV_20261017_04_OFFSEASON_FA_P0_RESEARCH.md",
+      "status": "TEAM_NATIVE_CANDIDATE_UNIT_UNVERIFIED",
+      "current_value": null,
+      "format": {
+        "offset": "0x1014"
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.staff_budget",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
+      "source": "src/gm_core/finance.py",
+      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
+      "current_value": null,
+      "format": {
+        "offset": null
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.fan_interest",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
+      "source": "src/gm_core/finance.py",
+      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
+      "current_value": null,
+      "format": {
+        "offset": null
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.ticket_courtside",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
+      "source": "src/gm_core/finance.py",
+      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
+      "current_value": null,
+      "format": {
+        "offset": null
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.ticket_lower",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
+      "source": "src/gm_core/finance.py",
+      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
+      "current_value": null,
+      "format": {
+        "offset": null
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.ticket_upper",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
+      "source": "src/gm_core/finance.py",
+      "status": "PROJECT_FINANCE_MODULE_FIELD_CAPTURE_PER_BATCH_UNKNOWN",
+      "current_value": null,
+      "format": {
+        "offset": null
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM_FINANCE.monthly_gate_revenue",
+      "domain": "K07_TEAM_FINANCE",
+      "type": "PROJECT_DERIVED_OR_UNVERIFIED_CANDIDATE",
+      "source": "src/gm_core/finance.py",
+      "status": "PROJECT_FINANCE_MODULE_FIELD_WINDOW_UNVERIFIED",
+      "current_value": null,
+      "format": {
+        "offset": null
+      },
+      "effects": "FINANCIAL_METRIC_NOT_SPENDABLE_SALARY_CAP_SPACE",
+      "menu_or_executability": "CURRENT_GAME_FINANCE_REFRESH_AND_VALIDITY_UNKNOWN",
+      "original_source_catalog": "R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json"
+    },
+    {
+      "id": "TEAM.roster.regular_ptr_array",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x00",
+        "storage": "15 * uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.regular_count",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0xCB1",
+        "storage": "uint8"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.two_way_ptrs",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0xA8 and 0xB0",
+        "storage": "2 * uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.two_way_count",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x1047 low 2 bits",
+        "storage": "2bit"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.active_ptr_array",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0xD0",
+        "storage": "13 * uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.active_count",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x1047 high 4 bits",
+        "storage": "4bit"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.reserved",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x78..0xA7",
+        "storage": "6 * uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "TEAM.roster.other_lineup_refs",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0xD28..0xE67",
+        "storage": "40 * uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "PLAYER.current_team_ptr",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x60",
+        "storage": "uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "PLAYER.contract_team_ptr",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0xA8",
+        "storage": "uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "DRAFT_ASSET.current_owner_ptr",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x00",
+        "storage": "uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "DRAFT_ASSET.original_owner_ptr",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x08",
+        "storage": "uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "DRAFT_ASSET.assigned_player_ptr",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x10",
+        "storage": "uint64"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "DRAFT_ASSET.metadata",
+      "domain": "K07_K08_ROSTER_AND_PICKS",
+      "type": "PROJECT_NATIVE_LAYOUT",
+      "source": "config/roster_association_profile.json OR config/draft_asset_profile.json",
+      "status": "NATIVE_PROFILE_PARTLY_LIVE_ACCEPTED_BOUNDED_OPERATIONS",
+      "current_value": null,
+      "format": {
+        "offset": "0x1C",
+        "storage": "uint32"
+      },
+      "effects": "MUST_PRESERVE_ROSTER_COUNTS_CURRENT_CONTRACT_TEAM_AND_PICK_OWNER",
+      "menu_or_executability": "SOME_BOUNDED_APPROVED_TRADES_ONLY",
+      "original_source_catalog": "R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.position",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x10E",
+        "bit_start": 2,
+        "width": 3
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.years_left",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x112",
+        "bit_start": 0,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.salary",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0xF8",
+        "bit_start": 0,
+        "width": 24
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.offense",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x100",
+        "bit_start": 0,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.defense",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x100",
+        "bit_start": 4,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.potential",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x108",
+        "bit_start": 4,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.contracts",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x102",
+        "bit_start": 0,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.trading",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x102",
+        "bit_start": 4,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.scouting",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x101",
+        "bit_start": 4,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.training",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x101",
+        "bit_start": 0,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.business",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x103",
+        "bit_start": 0,
+        "width": 4
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.preferred_system",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x10A",
+        "bit_start": 0,
+        "width": 3
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    },
+    {
+      "id": "STAFF.active_system",
+      "domain": "K09_STAFF",
+      "type": "STATIC_NATIVE_REGISTERED",
+      "source": "config/memory_field_profile.json AND src/source_extensions.py",
+      "status": "STAFF_SOURCE_READER_EXISTS_ACTUAL_CURRENT_POOL_NOT_IN_R05",
+      "current_value": null,
+      "format": {
+        "offset": "0x10B",
+        "bit_start": 4,
+        "width": 3
+      },
+      "effects": "EXACT_GAMERULE_IMPACT_UNVERIFIED",
+      "menu_or_executability": "HIRES_FIRES_CONTRACT_WRITES_NOT_CERTIFIED",
+      "original_source_catalog": "R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json"
+    }
+  ],
+  "data_evidence_note": "54 heterogeneous observed/registered/candidate rows: 17 PLAYER CONTRACT static, 10 finance known/candidate, 14 roster/pick native profiles, 13 STAFF static; not all 54 are verified live game facts."
 }
