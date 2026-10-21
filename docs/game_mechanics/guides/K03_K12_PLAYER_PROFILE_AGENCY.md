@@ -162,3 +162,144 @@ OVR是游戏汇总评估，可能和位置、技能加权、Intangibles等互动
 4. R04-C再专项研究全部Personality徽章、`Play for Win/Financial Security/Loyalty`、情绪、媒体与人物价值，R04-D完成完整字段权利图谱；**本轮没有创建任何Agent**。
 
 **权威进度**：`R04_A_RESEARCH_PUBLISHED_WITH_FIELD_GAPS`，下一轮为`R04_B_TENDENCIES_PLAYSTYLE_RESEARCH`，尚未启动。DEV29的发布资料不代表当前player_pool里所有字段真实存在或允许写入。
+
+
+---
+
+# DEV29 R04-B — 球员行为倾向、PlayTypes、发起权与实际3D/Sim选择机制（2026-10-21）
+
+> **阶段状态：`R04_B_RESEARCH_PUBLISHED_WITH_BEHAVIOR_GAPS`。** 继续遵守V3：游戏原料用于未来角色自主选择，而不是GM强制每人选择一条“最优倾向”。**新[99字节原生目录＋99条独立同版导出倾向目录](../catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)**，源码和来源见[SOURCES](../SOURCES.md) SRC-0083..0090，核心既有来源SRC-0031/0032、SRC-0072、K04。不采集游戏、不调能力、不生成任何执行动作。
+
+## 9. 倾向（Tendency）究竟是什么：能力与频率选择不能混为一谈
+
+如果球员的`3pt_shot`属性很高但`Spot Up 3PT`和`Off Screen 3PT`倾向很低，游戏可以让他**具备命中能力而较少主动选择该动作**；相反极高出手倾向、低命中属性也不保证真实每场投进球。倾向描述某种处境中AI**更愿意考虑的行动**，还受球队战术与回合情境影响；它不是实际犯规/出手/运球次数，更不是“玩家人格强制值”。
+
+完整决策框架按现有K04分为：
+
+`阵容角色/真实属性/徽章` → `教练POE、RunPlayTendency、ACE、Freelance` → `本队Playbook的适用战术候选` → `球员四个有序PlayTypes/Initiator` → `攻防情境中的某个Tendency候选` → `游戏3D执行或FastSim` → `比赛/事件的真实反馈`。
+
+**顺序只是因果检查框架，不是经反编译认证的程序调用栈。** 即使技术上能写一个合法的Tendency字节，也不保证2K CPU本场从该点做动作；尤其CPU自动换阵、ACE动态战术和模拟器可能各用不同权重。球员提出训练/打法改变与GM支持的实际原生写入必须分离。
+
+## 10. 当前真正掌握的48项倾向、51项UNKNOWN与独立导出的99种外部标签
+
+### 10.1 本项目原生结构的事实和合法性
+
+- `src/gm_state_io/registry.py`针对`PLAYER[0x458..0x4BA]`建立连续**99个1-byte槽**，技术字典范围`raw_range=[0,100]`。
+- `config/state_io_native/player.json`的`TENDENCY_OFFSETS`精确命名**48个offset**，其余**51个`RAW_0x...`仅能保留未知身份**，`UNKNOWN_RAW_BYTE`不因本章发现相似英文就转成可写。
+- Registry对48项设置`writable=true`，这是**原生动作候选的技术标志**，不等于普通GM本轮获得统一编辑球员个人偏好的许可。任何将来动作还需要字段当前批次与人员身份、球员独立同意/不同意、原项目允许的类型、**真实玩家批准**、游戏写后回读；51项不写。
+- **48/51的计数是已登记的*字节*，而不是游戏可见倾向菜单数**：UI可能有更广的对象、不同编码、跨页或隐藏字段；不因99这个数字碰巧相同就把两份目录逐行对齐。
+
+### 10.2 48项已命名原生字段完整概览（每项精确字节见JSON）
+
+| 游戏情境 | 全部当前已命名字段（原生英文与篮球语义） |
+|---|---|
+| 总出手与篮下终结（14项） | `SHOT_TENDENCY`总出手候选；`DRIVING_LAYUP_TENDENCY`突破上篮；`STANDING_DUNK_TENDENCY`原地扣篮；`DRIVING_DUNK_TENDENCY`突破扣篮；`FLASHY_DUNK_TENDENCY`花式扣篮；`ALLEY_OOP_TENDENCY`空接终结；`PUTBACK_TENDENCY`补篮；`CRASH_TENDENCY`冲抢进攻篮板；`SPIN_LAYUP_TENDENCY`转身上篮；`HOP_STEP_LAYUP_TENDENCY`跳步；`EURO_STEP_LAYUP_TENDENCY`欧洲步；`FLOATER_TENDENCY`抛投；`STEP_THROUGH_SHOT_TENDENCY`跨步晃后出手；`SHOT_UNDER_BASKET_TENDENCY`篮框下出手 |
+| 距离和投篮动作（15项） | `SHOT_CLOSE_TENDENCY`近距离；`SHOT_MID_RANGE_TENDENCY`中投；`SPOT_UP_SHOT_MID_RANGE`中投定点接球；`OFF_SCREEN_SHOT_MID_RANGE`绕掩护中投；`SHOT_THREE_TENDENCY`三分；`SPOT_UP_SHOT_THREE`定点三分；`OFF_SCREEN_SHOT_THREE`绕掩护三分；`CONTESTED_JUMPER_THREE`受干扰三分；`CONTESTED_JUMPER_MID_RANGE`受干扰中投；`STEPBACK_JUMPER_THREE`后撤三分；`STEPBACK_JUMPER_MID_RANGE`后撤中投；`SPIN_JUMPER_TENDENCY`转身跳投；`TRANSITION_PULL_UP_THREE`转换追身三分；`DRIVE_PULL_UP_THREE`突破急停三分；`DRIVE_PULL_UP_MID_RANGE`突破急停中投 |
+| 持球、球权与战术角色（10项） | `DRIVE_TENDENCY`突破；`SPOT_UP_DRIVE_TENDENCY`定点后攻框；`OFF_SCREEN_DRIVE_TENDENCY`绕掩护后突破；`ATTACK_STRONG_ON_DRIVE`强硬攻框；`DISH_TO_OPEN_MAN_TENDENCY`分空位；`TOUCHES_TENDENCY`球权接触倾向；`POST_UP_TENDENCY`低/高位背打意愿；`ROLL_VS_POP_TENDENCY`挡拆顺下/外弹取舍；`TRANSITION_SPOT_UP`快攻中拉开接球；`PLAY_DISCIPLINE_TENDENCY`战术纪律/是否依从动作的候选 |
+| 传球与防守（9项） | `FLASHY_PASS_TENDENCY`花式传球；`ALLEY_OOP_PASS_TENDENCY`空接传球；`PASS_INTERCEPTION_TENDENCY`预判传球路线；`TAKE_CHARGE_TENDENCY`造进攻犯规；`ON_BALL_STEAL_TENDENCY`持球掏抢；`CONTEST_SHOT_TENDENCY`干扰出手；`BLOCK_SHOT_TENDENCY`封盖尝试；`FOUL_TENDENCY`犯规；`HARD_FOUL_TENDENCY`强硬犯规 |
+
+**校正与数量提示**：分组只是篮球分类而非Memory连续分区；**精确48项 =14项篮下终结 + 15项中远距离投篮 + 10项持球/球权 + 9项传球/防守。** 实际原生偏移按JSON中唯一offset定位，不依赖段落顺序。。全部字段从`player.json`直接生成机器目录，未用文字推测新的偏移。**篮球解释只是一种合理使用语义，不是固定概率函数。**
+
+### 10.3 2K22原始导出页面提供的另外99个“有名字的可见数据”——不与原生Byte强配
+
+[SRC-0083]是第三方2kAuction明确标记`NBA2K22 v91 / Sep 10, 2021`的历史球员快照，展示包括`### Shot`、`### Drive / Pass`、`### Defense`、`### Other tendencies`。经过逐项抄录、独立编目，当前共：
+
+| 同版导出分组 | 已有可见英文标签数 | 典型本仓库缺名但导出有名的**候选概念** |
+|---|---:|---|
+| Shot（投篮+背身） | 35 | Use Glass打板、Post Shimmy/Face Up/Back Down/Aggressive Backdown、Post Hook Left/Right、Post Fade Left/Right、Up and Under、Post Stepback、Drop Step等 |
+| Drive / Pass（突破、三威胁、持球、传球、单打） | 43 | Drive Right、TT Pump Fake/Jab Step/Idle/Shoot、Setup Sizeup/Hesitation/No Setup、Driving Crossover/Spin/Stepback/Half Spin/Double Cross/Behind Back/Hesi/In-and-Out/No Move、ISO vs Elite/Good/Average/Poor |
+| Defense（防守） | 7 | Pass Interception、Take Charge、On-Ball Steal、Contest Shot、Block Shot、Foul、Hard Foul |
+| Other tendencies（存档导出特殊区域数据） | 14 | 三分区域5档、近框3档、中投5档及篮下区域候选；例如`shot 3pt left center t` |
+| **总计** | **99** | **99是该第三方导出页面的条目数，不是对`PLAYER[0x458..0x4BA]`99字节一一对应的证明** |
+
+这是一项**比只看48个已命名字段更丰富的研究发现**：第三方同版球员资料明确给出了长串具有篮球含义的**三威胁与持球连续动作、背身左右方向、按对手防守等级的单打倾向、不同投篮区域**等可用原料。未来球员可以有偏爱右路、依赖后撤步、愿意分球、不想承担强硬犯规等风格选择，但**不能在本轮先把这些候选名称强行填入51个UNKNOWN的raw bytes**。即使同版网站输出某个具体球员的数字，仍只是第三方历史快照，与本用户游戏和未来2000年代历史选秀世界线无关。
+
+[机读目录](../catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)将**99个原生slot**与**99个外部导出label**分别保存、来源和对象状态独立，原生已命名项有实际Offset，外部标签的`native_offset=null`，不会制造错误的一对一。
+
+## 11. AI出手最关键的三种混淆：Touches、Shot与Play Discipline
+
+### 11.1 同是2K22一手测试，也存在相互矛盾的解释
+
+| 同时代观点 | 来源 | 对GM、Coach、Player真正意味着什么 |
+|---|---|---|
+| `Touches`主要影响没有执行固定战术的**Freelance接触球权**，教练Run Plays高时战术目标更多由教练POE、PlayTypes、Book确定 | 2021-09 jimbo3772；K04已登记SRC-0031，[SRC-0085]带完整上下文 | **合理可检验假说**，不是唯一正确函数 |
+| 对全队平均降低Touches，可让Tatum/Brown之外角色得到更多进攻机会，电脑出手分配更丰富 | 2021-09 tcnumba10，同帖[SRC-0085] | **个人体验**；不能让所有球员都改50并宣称已获球员同意 |
+| `Freelance Shot`/总体`Shot`主要用于模拟数据，3D投篮更多由Spot-Up/Off-Screen/Stepback/Drive Pull-Up等具体动作决定 | 2021-11 Sheitan、Evtnj直接讨论[SRC-0084] | 可能存在**快Sim专用或主要效果**，但没有官方引擎证明其对3D完全为0 |
+| 2K22比赛里降低最高`Shot Tendency`后，CPU阵地出手分配改善；但别的用户改后仍只给某两个后卫叫战术 | 2021-10分歧个案[SRC-0032/0085] | **总体出手倾向可能间接作用**，不同试验方法和球队配置不能合成万能法则 |
+| 老NBA2K系列中，总`Shot`主要影响Sim，临场会考虑位置分布、Playbook和角色优先级 | 2012/2018 OS不同玩家[SRC-0089/0090] | 仅**KNOWN_IN_SERIES**，不能拿老版玩家的数学式替PC22确定算法 |
+
+**研究必须保留的独立数据维度**：`shot_in_sim`、`shot_in_cpu_vs_cpu_3D`、`shot_in_user_vs_cpu_3D`以及`team_runplays`、`touches`、`shot_tendency`、`play_discipline`、`play_type_order`、`book_compatibility`。不把任何一项直接命名“真实球权使用率”或“每100回合的绝对出手概率”。
+
+### 11.2 为什么一种球员会在快Sim得分高、3D却几乎不持球？
+
+四种可验证机制层——不是保证都已发生：
+1. 快Sim可能用总体Shot/位置投篮倾向来分配总体FGA，3D更依赖球场位置、具体动作与球的流动；社区对这一点有不同意见。
+2. 高频Run Plays、POE核心偏好、球队的有效Playbook CRC可能将动作分配给另外的球员；某前锋如果4个PlayTypes没有在本队Book里匹配的类别，可以有极高射术却没有专门为他叫的进攻战术。
+3. 某人`Play Discipline`、单打倾向可能导致或抑制自行提前终结，但作用方向和游戏AI的具体状态转移尚不知；也可能因为防守换防、赛程或个人技能等别的因素无法执行。
+4. 当且仅当有真实GameID、各球员出场、FGA/3PA、所跑回合、Playbook与当前coach设置，才能对“为什么没参与”形成有事实约束的解释；若这些数据没有捕获，就只是角色自己的**信念假说**。
+
+## 12. PlayTypes四槽 + Initiator一位：不是五个独立战术或教练全权控制
+
+本项目Registry使用：
+- `playtype.slot1..4`：从`PLAYER[0x168]`至`0x169`的4个**半字节（4bit）**，有顺序；每项0..15。**四槽有序的事实可认证，1号总比2号多被调用多少次仍UNKNOWN**。
+- `playtype.initiator`：`PLAYER[0x16A]`中`start_bit=2,width=1`，布尔原生候选，表示是否具备Play Initiator身份；*候选描述不等于此布尔值使球员固定变成持球后卫*。
+- 16个项目enum逐一是：`None(0)`、`Isolation(1)`、`Isolation Point(2)`、`Isolation Wing(3)`、`P&R Ball Handler(4)`、`P&R Point(5)`、`P&R Wing(6)`、`P&R Roll Man(7)`、`Post Up Low(8)`、`Post Up High(9)`、`Guard Post Up(10)`、`Cutter(11)`、`Handoff Receiver(12)`、`Handoff Passer(13)`、`Mid Range(14)`、`3 PT(15)`。
+
+要避免三个错误映射：
+- `player.4 PlayTypes`不等于`球队Book里68条CRC`，也不等于`12类Play目录`。一条有P&R类型的CRC可以有多个发起/终结角色，先查实际类型匹配才谈战术频率。
+- `playtype.initiator=true`不等于`Touches=100`，更不等于教练`RunPlayTendency=100`；**角色可以是发起人，却在球队book没有对应球员目标动作**。
+- 2021年2K22导出资料同时列出了`Play initiator = Yes/No`与4个类型，例如Trae Young标Yes、Tatum标No，各自仍有4个战术类型[SRC-0086/0087]。**只作为同版外部历史快照的字段独立性佐证**，不代表本项目当前球员值，也不能从字面将外站的“Three-point screens”与本项目`3 PT(15)`宣布为同一原生enum。
+
+### 12.1 Roll vs Pop与P&R Roll Man不同：球员可以想要另一种角色
+
+`P&R Roll Man`是**球员战术类别**，`ROLL_VS_POP_TENDENCY`是原生Player Tendency中**掩护后顺下/外弹选择的倾向**，`FIST...`则是球队Book具体CRC；三个对象并不互相替代。一个可以外弹但PlayTypes/Book没有适配动作的内线，教练不会因为修改一个`ROLL_VS_POP`就自然创造出所有适合他的三分战术。未来中锋球员可以**要求**扮演射手型内线，教练可反对，GM可补外线教练体系或不同人员；技能成长仍由游戏自身决定、不能因为人物立志转型直接增加三分能力。
+
+## 13. 三威胁、持球运球、单打等级与区域投篮：新增行动原料的具体篮球意义
+
+同版2kAuction快照列出以下在项目48个命名字段**尚未完整涵盖**的行为候选[SRC-0083]：
+
+- **三威胁`TT Pump Fake / Jab Step / Shoot / Idle`**：拿球后假投、试探步、就地投、暂不发动。它们可以塑造谨慎侧翼、喜欢试探的得分手与快速决策球员，但这些名字**不等于已知原生raw位置**。
+- **持球启动`Setup Sizeup / Hesitation / No Setup`**与**突破动作`Driving Crossover/Spin/Step Back/Half Spin/Double Cross/Behind Back/Hesi/In-and-Out/No Driving Move`**：拿球后用何种节奏摆脱守方。球员可能偏爱持球创造，教练可能觉得拖慢进攻；外部模型可以形成不同价值判断，而不修改运控属性。
+- **单打对手质量`vs Elite / Good / Average / Poor`**：对不同防守等级选择单打的候选，这是非常适合构成**“球员遇到怎样的防守人愿不愿独立处理”**的原料；具体游戏采用什么防守评价阈值/哪一项属性、是否直接参与3D仍UNKNOWN。
+- **背身动作/方向`Post Hook Left/Right / Fade Left/Right / Face Up / Aggressive Backdown / Drop Step`**：细分左/右路、转身脚步和面对不同体型防守者的自主动手段。
+- **投篮落点**：`Other tendencies`的三分5区、中投5区、近框3区和篮下条目，是研究球员更偏爱左底角或弧顶接球的潜在输入，但不能等同于R01真实Shot Chart，**导出倾向只是预设、真实出手热区必须看场上数据**。
+- **外观动作包/Animations**仍是另一家族：球员的实际签名运球包、投篮动作、扣篮包在导出页单独存在；不能用有`Driving Step Back`倾向就推断一定拥有指定的Curry动画或跳投速度。球员人格可以珍视个人标志性动作，但是否允许修改外观动作需项目另行审核。
+
+**关于动作倾向的0/99**：同年Sheitan认为极端值让电脑选择过于机械，提出按分位数分配人物行为[SRC-0084]。这属于**社区名单设计者的一种建模哲学**，不是游戏官方0/99是否有概率绝对性的数学证明。未来自由角色系统可以选择极端专精、也允许不合理偏好；DEV29不能把“建议避免99”变成强制球员人格趋同。
+
+## 14. 同样的Tendency在三种执行方式下如何判定结果
+
+| 游戏执行方式 | 实际可研究的数据 | 什么证据不能复用 | 对多角色的意义 |
+|---|---|---|---|
+| `FAST_SIM` 快速模拟 | 真实赛季FGA/3PA/回合、分钟、出场和世界滑块（若已采） | 不把UI里具体后撤步出手偏好等同已被模拟器逐帧使用 | 球员对自己的数据表现可能不满，Coach/GM对战略影响的解释可能互相争执 |
+| `CPU_VS_CPU_RENDERED` CPU观战 | 同一场具体持球者、动作时点、传球路径、实际所跑战术的录像/追踪，真实Box | 不把某人外站历史“Shot=90”当本局主动球权 | 教练可能观察到球员偏离战术、球员反驳是防守改变了选择 |
+| `USER_VS_CPU_RENDERED` 玩家打AI | AI一方真实CPU行为、人物移动、手动/自动Playcalling区分 | 不能用玩家直接手控的投篮当角色原生AI自主决定 | 球员独立偏好只能研究AI控制的一侧，用户操控需另标 |
+| `COACH_MENU_ONLY` 静态/临场菜单 | 当前coach/Playtype/倾向可选读数、数据批次 | **不当作真正执行过的战术或球权** | 角色有了可选择的对象，但没有真实结果前需提出更多信息请求 |
+
+任何“改变Touches会使A每场少投5次”的定量结论，必须同保存、版本、阵容、教练、Book、比赛模式、赛程/上场、球员已批准意向一致做多次对比；本轮没有此类验证，所以数值效应保持`UNQUANTIFIED`。**角色可以做错决定而后悔，但世界日志不能伪造已经发生的比赛事件。**
+
+## 15. 交给角色的真实选择菜单，而不是全联盟统一倾向处方
+
+| 情境 | 可真实观察的状态（须来源/权限） | Player自由选择 | Coach、GM可独立回答 | Media能够发布的事实及争议 |
+|---|---|---|---|---|
+| 高使用率核心与低参与替补 | 真实FGA、分钟、PlayTypes、Book和Coach现值、批次 | 维持单打、要求更多/更少持球、改无球动作、拒绝团队期望 | Coach可支持单核、要求分享球；GM可增援或拒绝；同意之外不得随意改普通倾向 | 公开真实出手与胜负；不能把未知内心“自私”当原生客观属性 |
+| 中锋希望转型外弹 | 3PT属性/真实3PA，P&R Roll Man类别、Roll vs Pop、训练计划 | 要求Outside训练/改战术角色或保持内线打法 | Coach提出战术书和空间要求；GM有成本约束 | 评论外弹选择与球队效率，不能宣布3PT能力自动上涨 |
+| 喜欢高风险抢断的球员 | `ON_BALL_STEAL`、`FOUL`、真实犯规/断球（有批次才可用） | 维持积极压迫、同意减少掏抢、或拒绝教练要求 | 教练权衡犯规/防守体系；GM可换防守人员 | 不能根据一个倾向值报道“球员已故意伤害对手” |
+| 战术纪律低的天赋球员 | Play Discipline、Touches、真实战术执行片段（缺失则UNKNOWN） | 想保持创造空间、接受教练条件、在不满时要求交易 | 教练能争论自由与体系的边界；GM可支援或换教练 | 只能就公开赛后采访/比赛事实发表评论 |
+| 侧翼不想改变投篮动作 | 签名动画包与实际shot attempt（如果已采） | 拒绝替换动作、要求个人训练而非换习惯 | 教练可调整围绕其动作的战术，也可否决球权诉求 | 个体风格与表现可公开评价，私有承诺只能在本人允许后披露 |
+
+**ROLES与权限**：未来`Player.PROPOSE/COUNTER/REJECT`和`Coach.PROPOSE/REJECT`只是可供人格系统推理的行为词汇，**不是NBA2K22内置球员同意API**。球员倾向本身可能还影响模拟比赛，所以**不允许把这些仍有原生效果的raw bytes重新用来保存秘密人格、忠诚或承诺**。普通球员能力/Potential/徽章仍不可编辑；倾向/PlayTypes若未来允许经两角色协商更新，仍须**真实玩家批准**及现有合法原生执行边界。
+
+## 16. R04-B本轮结论与R04-C直接研究断点
+
+**本轮已发表**：
+- 真实99个原生倾向byte：48已经命名，51未知保留只读；
+- 另外99项**来自NBA2K22 2021快照的具名倾向标签**，完整分组/排序和字段来源独立入库，**不按“99=99”擅自赋raw offset**；
+- 个人四有序PlayTypes（原生0..15）与1 bit Initiator、12战术类别、球队本队Playbook、Coach/ACE/Run Plays相互关系；
+- 同年玩家对Touches、Shot、Play Discipline、3D vs Fast Sim的冲突实测及不承诺公式的解释；
+- 三威胁/持球、单打对位、背身左右方向、Shot区域分布等未完整映射的候选行为；
+- 四类人物能观察、提议、拒绝、长期学习什么，保持隐私和玩家原生写入权限。
+
+**R04-B仍未完成的对象**：目标PC22无模组完整Edit Player→Tendencies的**具体像素顺序及作用类型**、99外站字段到99原生byte的一对一对照、所有动作具体CPU触发概率、命中/模拟器的区分、人员当期真实动态读值、换教练/换Book后自动调用的可重复案例。这些全部`UNKNOWN`、必要时未来DEV28定向只读；**不因没视频就停止后续R04-C**。
+
+**R04-C下一任务**：独立深入Player Agency：`Loyalty/Play For Win/Financial Security`、全部真正存在的人格徽章、士气/合同/球队角色/明星议价、医疗和训练自主权；区分2K原生意愿（如果存在且有效）与外部人物永久记忆、职业目标、反报价、拒绝与媒体叙事。R04-D再综合完整权限图谱及R05市场接口。**后续研究不由本轮自动启动，不由DEV29执行独立审核**。
