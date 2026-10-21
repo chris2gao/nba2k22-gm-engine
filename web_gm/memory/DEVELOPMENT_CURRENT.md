@@ -1,5 +1,7 @@
 # Web GPT · 开发规划基线当前记忆
 
+> [**2026-10-21 长窗口开发规划完整交接**](../../docs/development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：原开发规划聊天将达长度上限。新窗口先读快照及PROGRESS首节，最新R07状态为研究主体通过、两项定向目录修复已提交待独立复验；不得自动宣布DEV29结案或启动FINAL-CODEX/DEV28。六阶段/世界线/选秀权V4旧+3技术差距/人格独立任务均在快照中。
+
 ## 2026-10-21 R07独立审核后两项机读目录定向修正
 
 - 玩家独立审核结论：[R07独立审核](../../docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)主体通过，正式结案须先修A/B。现已提交[修复回执](../../docs/development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)并自检，状态`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`，**等待独立简短复验，不能自行宣布DEV29结案或启动FINAL-CODEX**。
