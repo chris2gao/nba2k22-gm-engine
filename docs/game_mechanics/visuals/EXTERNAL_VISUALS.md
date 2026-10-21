@@ -277,7 +277,9 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 
 ## DEV29 R05-A — 原生工资帽、合同报价和球队Business界面视觉证据（2026-10-21）
 
-**本轮新增确认NBA2K22 PC无模组离线MyLEAGUE中完整可读的Salary Cap Table、Contract Offer、Cap Holds、Team Finances原始菜单截图：0。** 本轮依据NBA官方文字、2022游戏社区文字以及本项目Native合同Profile与数据库源码进行语义整理，**未将外部新闻/论坛配图视为已核实PC22原生菜单**。
+**本轮新增确认NBA2K22 PC无模组离线MyLEAGUE中完整可读的Salary Cap Table、Contract Offer、Cap Holds、Team Finances原始菜单截图：0。**
+
+**结论：没有新合格PC22原版菜单图证**。外部2K22次世代含图论坛只算未逐像素认证的视觉线索；不能升级为本项目PC菜单确证。 本轮依据NBA官方文字、2022游戏社区文字以及本项目Native合同Profile与数据库源码进行语义整理，**未将外部新闻/论坛配图视为已核实PC22原生菜单**。
 
 | 图片/界面证据定位 | 实际查到什么 | 版本与视觉认证 |
 |---|---|---|
