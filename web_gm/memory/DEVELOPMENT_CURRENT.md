@@ -1,5 +1,11 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-20 DEV29 V2组织改为网页GPT多轮攻略研究，PR #12已合并
+
+- GH核对PR #12已`CLOSED/MERGED`、原head`ded900c`，原“冲突处理中/等待合并”已过期。**DEV29 V2**取代V1具体前期执行组织：[规划](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)，[游戏机制资料库](../../docs/game_mechanics/README.md)，[研究进度](../../docs/game_mechanics/PROGRESS.md)，[新研究窗口启动提示词](../../docs/game_mechanics/NEW_GPT_WINDOW_BOOTSTRAP.md)。
+- 主责是新网页GPT开发规划研究窗口，分R01–R06多轮研究NBA2K20–23终极联盟完整机制、社区/官方/游戏攻略及网页截图；每轮在GitHub提交中文机制卡、逐场动态数据/全部静态可选项/相互作用、`SOURCES`/图证索引/断点PROGRESS。**Codex不在研究阶段做大量资料搜集**，只在研究结束做一次FINAL-CODEX源/图/机器索引完整性与现有Registry/M0/DEV14/SQLite对应的工程收尾，形成DEV28具体缺口。
+- 研究允许图片来源链接、分批参考必要的游戏截图；第三方截图版权许可不明者默认只保存URL和可见证据，不把带水印/未获授权图批量复制进公开仓库。用户可提供游戏截图。正式NBA2K22 PC原生地址/执行状态另行认证，原游戏修改仍需玩家逐项批准。
+
 ## 2026-10-20 玩家调整顺序：DEV29全系列游戏机制知识先于DEV28开发
 
 - 玩家要求首先系统理解**NBA2K20/21/22/23系列与终极联盟游戏机制、菜单、全部可见数据、全部可选设置、最佳玩家攻略**，再推进DEV28的原生I/O全透明开发。指出原全量采集连逐场比赛/Box Score及高级指标基础都没准备好，先找内存→后定数据需求的开发方法必须改为**GM业务决策证据需求→游戏全域功能目录→来源/采集/查询/执行差距审计→Codex/Antigravity针对性补齐**。
