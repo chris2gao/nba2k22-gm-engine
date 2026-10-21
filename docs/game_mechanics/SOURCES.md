@@ -38,3 +38,21 @@
 - **截图已知存在 ≠ 本轮已逐像素核对**。参见 `VIS-0001`，未许可图片不复制。
 - `Basketball-Reference` 和 `NBA.com` 是解释篮球计算和数据粒度的参照，不是2K菜单或内存结构的证据。
 - 各行的研究核查日期均为2026-10-20；一旦有PC22本机画面，优先新增独立实机证据而非覆写原跨代引文。
+
+
+## DEV29 R01-B：2026-10-20 新增版本交叉证据（全部保留适用边界）
+
+| ID | 可复核的原始来源与日期 | 游戏/平台/模式 | 核实的操作或风险 | 证据与限制 |
+|---|---|---|---|---|
+| SRC-0016 | [Operation Sports: NBA 2K22 Useful Findings，第7页，帖#93与#96](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings/page7?t=992582)，2021-09-24 | NBA2K22，OS玩家讨论；具体平台/离线模式未认证 | tcnumba10报告赛后Shot Chart可与Stats Summary比较，某些禁区外中投被算入PIP | COMMUNITY_FIRST_HAND_TEXT; **页面未提供本站可像素核对的PC22截图**，不证明内存/历史保留 |
+| SRC-0017 | [Reddit: r/NBA2k 2K22 Feedback Vol.1，2021-09-10回帖](https://www.reddit.com/r/NBA2k/comments/plmeto) | NBA2K22 **PS5 MyNBA** | player stats按Triangle切换per-36；PAPG与plus/minus排序被玩家报告有问题 | COMMUNITY_DIRECT_BUG_REPORT，不能用于PC22按钮认证 |
+| SRC-0018 | [Operation Sports: NBA2K16 MyGM/MyLEAGUE Thread，第33页，#485–486](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/780313-nba-2k16-mygm-myleague-thread/page33?postcount=238)，2015-10-21 | NBA2K16 MyLEAGUE；PS/Xbox按键 | 统计页按Triangle/Y切换普通、per36、advanced；问题讨论PER与Points per Possession | COMMUNITY_OLDER_MY_LEAGUE_FIRST_HAND，**不证明PC22完整字段** |
+| SRC-0019 | [Reddit: How can I look at My Career stats on next gen?](https://www.reddit.com/r/NBA2k/comments/103i5j5)，2023-01-04 | NBA2K23 **MyCareer次世代** | MyCareer→Stats→League Leaders，按Y切total/per-game/per36/advanced | COMMUNITY_OTHER_MODE，不能当MyLEAGUE直接菜单 |
+| SRC-0020 | [Gamepur: NBA 2K22 — How to find a player's hot zones](https://www.gamepur.com/GUIDES/NBA-2K22-HOW-TO-FIND-A-PLAYERS-HOT-ZONES)，2021–2022文章 | NBA2K22 **MyCareer/MyTeam** | MyCareer暂停→Stats→Roster→R3→RT/R2到Hot Zones；红蓝灰区域意义和MyTeam不同入口 | GAME_GUIDE_SCREENSHOT_PAGE; 图像元信息存在，但本轮未核对原图像素；**不证明PC22 MyLEAGUE Shot Chart** |
+| SRC-0021 | [Operation Sports: MyLeague Viewing past Playoff Bracket?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/889354-myleague-viewing-past-playoff-bracket)，2020-02-23，Coach2K #2 | 2020年MyLEAGUE（当时2K20系列） | 旧赛季Bracket不可回看，前赛季Standings能查 | COMMUNITY_OLDER_MY_LEAGUE，**并未回答单场Box是否删除** |
+| SRC-0022 | [Operation Sports: Playing MyEras — any chance to access old stats?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/954313-playing-myeras-any-chance-to-access-old-stats)，2025-03至04，帖#1–3 | 后期MyEras次世代（具体版本/平台没有可靠锁定） | 用户报告旧季详细统计访问困难，另有用户认为年分统计可看，**意见不完全一致** | CONFLICTING_LATER_VERSION_TESTIMONY，不可推成PC22一年留存 |
+| SRC-0023 | [Reddit: Is there a way to view season and game records in 2k23 my career current gen?](https://www.reddit.com/r/NBA2k/comments/102td0m)，2023-02回帖 | NBA2K23 **本世代MyCareer** | Play Next Game赛程向过去滚动能打开前面比赛Box；另有玩家表示已找到 | COMMUNITY_OTHER_MODE，**跨季历史未证明** |
+| SRC-0024 | [Reddit: Major Bugs of MyNBA Online](https://www.reddit.com/r/NBA2k/comments/xk44uu)，2022-09-21 | NBA2K22/23 **线上MyLEAGUE/MyNBA**多平台 | 发帖人报告部分已打比赛未保存，提及50余场未记录及截图；仅作在线模式质量风险 | COMMUNITY_UNVERIFIED_BUG_REPORT，**不等于PC22离线会丢存档** |
+| SRC-0025 | [2KSpecialist: NBA 2K22 Remastered — UI overhaul](https://www.2kspecialist.net/2021/09/nba-2k22-remastered-blog-new-details.html)，2021 | NBA2K22 **PC第三方Remastered模组** | 作者公开展示修改界面并将“MyNBA”样式引入PC；说明网络截图需辨模组 | MODDED_UI_PROVENANCE_WARNING；不用于原生菜单认证 |
+
+**R01-B 文献边界审计（2026-10-20）**：独立打开OS#485-486及2020旧Bracket讨论正文；其余以可访问的原帖/全文检索段核对。图文仅按“页面存在或发帖人声称附图”登记，**不把未逐像素看到的第三方截图当作`PC22_UI_CONFIRMED`**。第三方资料链接不等于再发布图像许可。NBA2K22 PS5≠NBA2K22 PC本世代，NBA2K23 MyCareer≠MyLEAGUE，2025 MyEras≠2021版游戏。最终仍需目标平台独立取证。
