@@ -1,5 +1,11 @@
 # Web GPT · GM 基线当前记忆
 
+## 2026-10-20 DEV29 V3：GM是自主参与者而非全联盟最优优化器
+
+玩家将最终目标调整为**多个具有独立目标、偏好、信息、记忆与选择/拒绝/谈判权的GM、教练、球员、媒体角色共同游戏并根据NBA2K22原生比赛反馈涌现**。单GM不应单方面替球员决定其倾向/训练，不应因篮球哲学模型推断的所谓最优收益强制角色接受所有交易；应让模型按角色利益自主选择，保留合同与资产约束、多人独立双边谈判、已批准真实游戏写入及原生比赛裁决。
+
+[DEV29 V3](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)、[R04球员全量原料研究](../../docs/development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)已经纳入研究计划；R01完成、R02 NEXT，R03训练，R04球员个体身份/属性/倾向/徽章/耐久/健康、Play for Win/Financial Security/Loyalty与独立Agent授权，R05市场，R06世界与媒体，R07共用矩阵，FINAL-CODEX后置。长程偏好与关系应由外部SQLite保存，原生字段首要服务真实2K场上/合同机制。Agent同意不等于玩家游戏写入批准；不允许普通球员能力/潜力/徽章直接改值。此变更仅研究规划，不是已上线新Player Agent。
+
 ## 2026-10-20 DEV29 V2网页GPT游戏机制资料库与决策基础
 
 - GM后续应以[docs/game_mechanics游戏机制资料库](../../docs/game_mechanics/README.md)和[DEV29 V2](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)作为长程知识入口：新网页GPT按R01–R06多轮整理NBA2K20–23/MyLEAGUE/MyNBA/次世代有价值的菜单、赛场/经营机制、攻略、截图证据及相互作用，全部写GitHub；Codex最终才做目录/工程能力对应。旧DEV29 V1中由Codex先行R0-C已被V2更改。正式GM仍不得把赛季合计当具体逐场证据，数据缺口`INSUFFICIENT_EVIDENCE`。本次只是资料库骨架，不是已完成攻略或已有新比赛来源。
