@@ -416,7 +416,7 @@ raw_attempt_coordinates: NOT_OBSERVED
 
 结论：**公开可复核材料没有同时满足五项的目标统计页。R01-D新增PC22统计菜单视觉认证为0。** 这一判断不是“经过证明游戏没有此功能”，也不是整个网络必然不存在该图片。
 
-**本轮唯一新增、对PC22确实有所增益的文字资料**：[SRC-0029] Operation Sports `RES2 2K22 All Star Current Gen Sliders` 第3页，2022-01-07玩家`res2`对“是否可用于PC默认阵容”明确答`Yep - PC with default rosters`，并贴出`My League`的Setup/Simulation配置，包括Quarter Length=12min、Simulated Quarter Length=11min、Team Pace、Possessions Per Game、Shot Types、Stat Distribution等。证明**PC玩家在2022年讨论并使用这些MyLEAGUE模拟设置类别**，而非证明Stats页面、Box表头或默认数值。数值是作者自定义，不代表本项目当前设置，不建议改动。[SRC-0029]
+**本轮唯一新增、对PC22确实有所增益的文字资料**：[SRC-0029] Operation Sports `RES2 2K22 All Star Current Gen Sliders` 第3页，2022-01-07玩家`res2`对“是否可用于PC默认阵容”明确答`Yep - PC with default rosters`，并贴出`My League`的Setup/Simulation配置，包括Quarter Length=12min、Simulated Quarter Length=11min、Team Pace、Possessions Per Game、Shot Types、Stat Distribution等。证明**PC玩家在2022年公开了MyLEAGUE设置模板**；但原帖首页§Mode and Roster Notes明确说作者本人主要玩`Season Mode`、自定义球队，其MyLeague配置部分取自另一玩家并作调整，**不能直接断言作者在PC MyLEAGUE实机逐项检视过所有设置**。更不能证明Stats页面、Box表头或默认数值。数值是作者自定义，不代表本项目当前设置，不建议改动。[SRC-0029]
 
 **认真排除的近似结果**：
 - [Steam NBA2K22 Screenshots](https://steamcommunity.com/app/1644960/screenshots/) 属于正确PC游戏容器，但可找到的页面或索引没有满足原版MyLEAGUE**统计菜单表头**的具体可审查画面；**Steam页面写着`View Stats`通常是成就统计，不是游戏内Stats菜单**。
