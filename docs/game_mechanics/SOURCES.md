@@ -134,3 +134,21 @@
 **外部视觉审核结果**：寻找PC22 MyLEAGUE无模组Coach/ACE/Defense/Book、2D战术板与视频精确帧，未找到足以同时辨认平台、原版、模式与完整菜单/字段的材料；**本轮新增`PC22_UI_CONFIRMED=0`，不等于功能不存在**。有标题的YouTube视频、OS文章“Image”、Xbox MyTEAM文字教程均不冒充PC22像素认证。未复制/公开再分发第三方截图。
 
 **R02-B主要新研究值**：把ACE是否重置、Series是否被调用、Center个人防守的“谁掩护/谁防”角色视角、SimCast旧版字段可见性和本世代PC CPU-vs-CPU玩法分别登记，构建可证伪的对象/时点/角色观测合同，而非“建议统一设置某个数值”。
+
+## DEV29 R02-C — 原版PC22菜单的有界补证与V3研究结案（2026-10-21）
+
+本轮只登记**1项确有新增信息的同版MyLEAGUE玩家经历**。没有为了凑来源数量登记Steam封面、重构UI Mod、2K20/21旧截图或没有目标菜单画面的攻略。
+
+| ID | 原始链接与准确位置 | 游戏/平台/模式 | 已核对的具体新增事实 | 不能认证的内容 |
+|---|---|---|---|---|
+| **SRC-0048** | [Reddit r/NBA2k — Saving coaching strategy](https://www.reddit.com/r/NBA2k/comments/qg2amb)，主帖2021-10-26；2021-12-19原提问者追问后回覆 | 发帖时间属于NBA2K22发行季，原帖写MyLEAGUE；**平台不明**，没有可逐像素审查的页面 | 提问者起初不知道如何持续保存默认Freelance，每场似乎要重新设置；后续明确表示，在比赛中修改后会按**该球队**自动保存。这与另一玩家报告Series/Freelance被覆盖并不直接矛盾——两者可能涉及不同入口、游戏阶段或其他条件 | `COMMUNITY_2K22_ERA_MYLEAGUE_REPORTED_PERSISTENCE`；不能升级`PC22_UI_CONFIRMED`、`PC22_NATIVE_READ_VERIFIED`或跨赛季确定保存；不能当作ACE/CPU vs CPU原生覆盖公式 |
+
+### R02-C检索排除和版本警告
+
+- 定向核查NBA2K22 PC原版MyLEAGUE `Coach Gameplan / ACE / Offensive Settings / Defensive Settings / Edit Playbook / Freelance / 2D Play Diagram`，包含Steam社区截图、公开视频标题、图片检索、PS4/Xbox One同代图文。返回的2K22 MyNBA Conditional Coaching官方说明[既有SRC-0026](https://www.operationsports.com/nba-2k22-mynba-details-revealed-mystaff-staff-carousel-prep-hub-attributes-badges-more/)明确限PS5/Xbox Series，不能冒充PC22“赛中规则代理”。
+- [Magic Game World：2K22 MyLEAGUE固定轮换分钟文章](https://www.magicgameworld.com/how-to-adjust-player-minutes-in-season-mode-in-nba-2k22-myleague/)显示发表2021-04-30，**在NBA2K22 2021-09-10发售前**；未提供真实PC22游戏菜单/实验，声称固定分钟能持续整季与项目用户已观察AI重新分配分钟不符。**不采信，不分配SRC-####**。
+- [NBA2K22 PC SteamDB截图页](https://steamdb.info/app/1644960/screenshots/)与[Steam Community截图页](https://steamcommunity.com/app/1644960/screenshots/)可确认目标游戏容器，但主要是平台商店图像/非可识别MyLEAGUE菜单；不可把外层`View Stats`当游戏内Coach/Stats界面。
+- [2K22官方MyNBA Conditional Coaching](https://www.operationsports.com/nba-2k22-mynba-details-revealed-mystaff-staff-carousel-prep-hub-attributes-badges-more/)报告让玩家在模拟时设置条件指令，这是**2K22次世代官方机制**而不是PC MyLEAGUE证据；R03可参考其中训练内容但仍不得迁移为本机字段。
+- 其它版本MyLEAGUE和主机MyTEAM的菜单文章已在SRC-0030..0047登记。**本轮没有新增符合NBA2K22 + PC + 无模组 + 离线MyLEAGUE + 目标菜单字段可读五条件的画面，`NEW_PC22_UI_CONFIRMED=0`**。不意味着功能缺失；不虚构截图、字段枚举或视频时间戳。
+
+**结案**：`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。已编写教练、GM、球员和媒体的`OBSERVABLE/ACTIONABLE/MECHANISM/OWNER`研究原料与权限矩阵于[K04 §19–21](guides/K04_COACH_AND_PLAYS.md)；PC22 UI和赛中引擎覆盖待日后定向只读证据。**下一轮R03训练、健康、自然成长；不重启R02网络搜证，不启动DEV28/Codex/游戏改动。**
