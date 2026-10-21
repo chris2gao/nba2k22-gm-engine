@@ -1,4 +1,8 @@
 # NBA2K20–23 终极联盟游戏机制知识库
+
+> **最新R07修复断点（2026-10-21）**：研究已按[独立审核](../development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)完成A/B两项定向修正并[提交自检回执](../development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)，状态`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`。两个R01目录ID现明示为人工指南主题别名，8个能力组的模型查询层已与执行/审批/存档真实性分开。**正在等待独立简短复验，不能自行声称DEV29研究已经正式结案。**
+
+
 > **R07最新交付（2026-10-21，待独立审核）**：[R07七层证据成熟度指南](guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40组能力矩阵](catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694项分卷索引总入口](catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)及[DEV28研究交接](R07_TO_DEV28_EVIDENCE_HANDOFF.md)已提交。索引采用**7卷可读JSON**，勿当694个原生字段；40组有86处原目录锚点，另单列10组历史生产证据。新游戏读回与执行0。**当前应做R07独立审核，而不是自动启动FINAL-CODEX或DEV28。** R06已经按[正式验收报告](../development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)结案。旧章节中的“R06待审核/下轮R07”仅为历史状态，以[PROGRESS](PROGRESS.md)最新顶部为准。
 
 
