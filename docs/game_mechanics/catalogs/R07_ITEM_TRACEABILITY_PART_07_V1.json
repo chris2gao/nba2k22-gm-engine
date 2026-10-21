@@ -49,7 +49,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0602",
@@ -92,7 +97,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0603",
@@ -135,7 +145,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0604",
@@ -178,7 +193,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0605",
@@ -221,7 +241,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0606",
@@ -264,7 +289,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0607",
@@ -307,7 +337,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0608",
@@ -350,7 +385,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0609",
@@ -393,7 +433,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0610",
@@ -436,7 +481,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0611",
@@ -479,7 +529,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0612",
@@ -522,7 +577,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0613",
@@ -565,7 +625,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0614",
@@ -608,7 +673,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0615",
@@ -651,7 +721,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0616",
@@ -694,7 +769,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0617",
@@ -737,7 +817,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0618",
@@ -780,7 +865,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0619",
@@ -823,7 +913,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0620",
@@ -866,7 +961,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0621",
@@ -909,7 +1009,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0622",
@@ -952,7 +1057,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0623",
@@ -995,7 +1105,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0624",
@@ -1038,7 +1153,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0625",
@@ -1081,7 +1201,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0626",
@@ -1124,7 +1249,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0174"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0627",
@@ -1138,10 +1267,12 @@
       "domain": "HISTORY_AWARDS_MEDIA",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_RULES_20261021_V4"
+      ],
       "original_catalog_evidence": "PROJECT_POLICY",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -1165,7 +1296,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_RULES_20261021_V4"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0628",
@@ -1208,7 +1343,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0176"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0629",
@@ -1251,7 +1390,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0176"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0630",
@@ -1294,7 +1437,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0178"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0631",
@@ -1337,7 +1484,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0178"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0632",
@@ -1380,7 +1531,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0178"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0633",
@@ -1423,7 +1578,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0178"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0634",
@@ -1466,7 +1625,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0178"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0635",
@@ -1507,7 +1670,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0636",
@@ -1548,7 +1713,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0637",
@@ -1589,7 +1756,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0638",
@@ -1630,7 +1799,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0639",
@@ -1671,7 +1842,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0640",
@@ -1714,7 +1887,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0186"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0641",
@@ -1755,7 +1932,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0642",
@@ -1796,7 +1975,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0643",
@@ -1837,7 +2018,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0644",
@@ -1878,7 +2061,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0645",
@@ -1919,7 +2104,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0646",
@@ -1962,7 +2149,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0179"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0647",
@@ -2005,7 +2196,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0180"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0648",
@@ -2048,7 +2243,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0180"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0649",
@@ -2091,7 +2290,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0180"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0650",
@@ -2134,7 +2337,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0180"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0651",
@@ -2177,7 +2384,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0181"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0652",
@@ -2220,7 +2431,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0181"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0653",
@@ -2263,7 +2478,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0181"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0654",
@@ -2306,7 +2525,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0182"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0655",
@@ -2349,7 +2572,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0183"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0656",
@@ -2392,7 +2619,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0174"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0657",
@@ -2436,7 +2667,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0189"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0658",
@@ -2480,7 +2715,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0199"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0659",
@@ -2524,7 +2763,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0199"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0660",
@@ -2568,7 +2811,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0189"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0661",
@@ -2585,7 +2832,7 @@
       "project_refs": [],
       "original_catalog_evidence": "ACTION_RESEARCH_CANDIDATE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -2610,7 +2857,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0662",
@@ -2654,7 +2903,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0199"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0663",
@@ -2671,7 +2924,7 @@
       "project_refs": [],
       "original_catalog_evidence": "GAME_PHASE_CANDIDATE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -2696,7 +2949,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0664",
@@ -2740,7 +2995,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0199"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0665",
@@ -2784,7 +3043,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0666",
@@ -2828,7 +3091,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0198"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0667",
@@ -2872,7 +3139,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0668",
@@ -2916,7 +3187,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0669",
@@ -2933,7 +3208,7 @@
       "project_refs": [],
       "original_catalog_evidence": "UNVERIFIED_CANDIDATE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -2958,7 +3233,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0670",
@@ -3002,7 +3279,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0671",
@@ -3046,7 +3327,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0672",
@@ -3090,7 +3375,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0673",
@@ -3134,7 +3423,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0190"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0674",
@@ -3178,7 +3471,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0188"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0675",
@@ -3195,7 +3492,7 @@
       "project_refs": [],
       "original_catalog_evidence": "GAME_PHASE_CANDIDATE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -3220,7 +3517,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0676",
@@ -3264,7 +3563,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0191"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0677",
@@ -3308,7 +3611,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0191"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0678",
@@ -3325,7 +3632,7 @@
       "project_refs": [],
       "original_catalog_evidence": "RESEARCH_CANDIDATE_UNSOURCED",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -3350,7 +3657,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0679",
@@ -3394,7 +3703,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0191"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0680",
@@ -3438,7 +3751,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0192"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0681",
@@ -3482,7 +3799,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0193"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0682",
@@ -3526,7 +3847,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0197"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0683",
@@ -3570,7 +3895,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0187"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0684",
@@ -3614,7 +3943,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0195"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0685",
@@ -3658,7 +3991,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0196"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0686",
@@ -3702,7 +4039,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0196"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0687",
@@ -3746,7 +4087,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0196"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0688",
@@ -3763,7 +4108,7 @@
       "project_refs": [],
       "original_catalog_evidence": "RESEARCH_CANDIDATE_UNSOURCED",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -3788,7 +4133,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0689",
@@ -3805,7 +4152,7 @@
       "project_refs": [],
       "original_catalog_evidence": "RESEARCH_CANDIDATE_UNSOURCED",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "NO_DIRECT_SOURCE_IN_ORIGIN",
+      "source_audit": "ORIGINAL_SOURCES_EMPTY_RESEARCH_CANDIDATE",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "RESEARCH_CONCEPT_WITHOUT_DIRECT_SOURCE",
@@ -3830,7 +4177,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0690",
@@ -3874,7 +4223,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0195"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0691",
@@ -3888,10 +4241,12 @@
       "domain": "SEASON_SAVE_PERSISTENCE",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_24"
+      ],
       "original_catalog_evidence": "PROJECT_SOURCE_CANDIDATE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3916,7 +4271,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_24"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0692",
@@ -3930,10 +4289,12 @@
       "domain": "SEASON_SAVE_PERSISTENCE",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DEV14_RUNBOOK"
+      ],
       "original_catalog_evidence": "PROJECT_ARCHITECTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3958,7 +4319,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DEV14_RUNBOOK"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0693",
@@ -3972,10 +4337,12 @@
       "domain": "SEASON_SAVE_PERSISTENCE",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_27"
+      ],
       "original_catalog_evidence": "PROJECT_ARCHITECTURE",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4000,7 +4367,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_27"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0694",
@@ -4014,10 +4385,12 @@
       "domain": "SEASON_SAVE_PERSISTENCE",
       "knowledge_type": "GAME_INFORMATION_OR_MECHANISM",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_RULES_V4"
+      ],
       "original_catalog_evidence": "PROJECT_POLICY",
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4042,7 +4415,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_RULES_V4"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     }
   ]
 }
