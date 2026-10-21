@@ -1,5 +1,8 @@
 # 新网页 GPT 研究窗口启动提示词（DEV29 V2）
 
+> **R06-D后唯一研究入口（2026-10-21）**：先读[PROGRESS](PROGRESS.md)；R06-A/B/C/D均为已发布研究，**R06-D待独立审核，下一轮R07统一角色观察/选择候选/证据/机制权限矩阵**。见[R06-D中文报告](guides/K05_K10_K11_CROSS_DOMAIN_INTEGRATION_R06D.md)和[26+20机读目录](catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)。不可误启动下文任何旧R01/R02/R05/R06-C历史口令；不开发人格、媒体代理、调度程序或DEV28执行器、不自动操作游戏。
+
+
 > **R06-C后最新断点（2026-10-21）**：[PROGRESS](PROGRESS.md)为唯一权威，当前任务`R06_D_CROSS_DOMAIN_SYNTHESIS_AND_GAPS`，然后R07和FINAL-CODEX。R06-B奖项10条来源已完成定向修复待外部复核；R06-C已发布[指南](guides/K11_SEASON_SAVE_PERSISTENCE_R06C.md)与[38类目录](catalogs/R06C_SEASON_SAVE_PERSISTENCE_RESEARCH_V1.json)。下方任何“启动R01/R02/R05/R06-C”的旧语句均属历史内容，禁止执行。只研究资料，不启动人格、DEV28、游戏推进或存档写入。
 
 > **当前恢复优先级（2026-10-21）：本文件部分R01/R02启动文字是历史示例，不得按字面执行。所有新窗口必须先从 [PROGRESS.md](PROGRESS.md) 的第一节取当前最新唯一任务。R06-A旧窗口成果与R06-B新窗口初稿均已发布；下一正式研究轮为 `R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`，接着R06-D/R07。R06-B独立审核发现10项奖项候选的来源映射需要有界修正，可在R06-C后/R06-D前完成，见[审核报告](../development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)。不得重启已结案R01–R05或重做R06-A。**
