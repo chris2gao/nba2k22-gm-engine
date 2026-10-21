@@ -470,3 +470,26 @@
 | **SRC-0186** | [OS NBA2K19 MyLeague Finals MVP Awards History缺失 2019-11](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/885237-gripe-finals-mvp-s-aren-t-listed-under-players-award-history-in-myleague) | 旧版单玩家获奖菜单遗漏问题，不能当PC22肯定仍有同Bug |
 
 详见 [R06-B K10中文攻略](guides/K10_HISTORY_AWARDS_MEDIA_R06B.md) 与 [31类机读目录](catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)。**R06-B仅公开研究结案**，新的已确认原版PC22完整菜单像素截图、当前存档运行时历史奖项/纪录读回、跨季持久化和全部菜单合法枚举均为0；这些是待独立验证缺口，绝不可报为已实现。
+
+
+## DEV29 R06-C — 赛季阶段、游戏存档与跨期历史保留（2026-10-21）
+
+本批只登记同版玩家证据、跨模式/旧版问题线索与官方平台支持边界；不把故障个例认定全平台普遍问题，保留任何目标存档原生UI和GameDate取证UNKNOWN。
+
+| ID | 直接来源 | 所支持的事实及不能越界的解释 |
+|---|---|---|
+| **SRC-0187** | [2K官方Online Services Status（NBA2K22）](https://support.2k.com/hc/en-us/articles/33058906107667-2K-Online-Services-Status) | 2K22在线服务2023-12-31终止；MyLeague/MyNBA列离线可玩。官方支持说明，非Steam云端及存档实时持久化认证 |
+| **SRC-0188** | [OS Thunder Up Rebuild NBA2K22 2022-07休赛期多存档建议](https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/923062-thunder-up-rebuild-in-okc-nba-2k22/page10?postcount=314) | 2022同版讨论明确阶段Save推荐；部分来自旧MyLeague经验，Staff Draft锁定等不证明2K22原生 |
+| **SRC-0189** | [DiamondLobby NBA 2K22 MyLeague Fantasy Draft设置](https://diamondlobby.com/nba-2k22/set-up-fantasy-draft-nba-2k22-myleague/) | 同版MyLeague Start in Regular Season / Setup Options；个人范例，不是用户当前存档读回 |
+| **SRC-0190** | [DiamondLobby 2K22 MyLeague自由市场报价](https://diamondlobby.com/nba-2k22/create-a-superteam-nba-2k22-myleague/) | 同版Free Agency报价Offers和Expected列、谈判；数值公式不明 |
+| **SRC-0191** | [Reddit NBA2K22 PC Steam Save与Save as均未持久](https://www.reddit.com/r/NBA2k/comments/w6rgfl) | 2022-07同版PC单人问题报告，证明当事用户用过Save/Save as，不证明普遍失效 |
+| **SRC-0192** | [Reddit 2K22 PC MyGM卡VC saving与MyLeague文件消失](https://www.reddit.com/r/NBA2k/comments/tgmbpi) | 2022-03跨模式单人故障报告，不能推广到所有离线MyLeague |
+| **SRC-0193** | [Reddit 2K22 PC存档限制猜测](https://www.reddit.com/r/NBA2k/comments/tl3h4l) | 2022-03保存故障与网友推测总文件/下载球队过多；未验证上限 |
+| **SRC-0194** | [Reddit NBA2K22 2022跨平台反馈线程](https://www.reddit.com/r/NBA2k/comments/tz5gx4) | 2022玩家报告PS5 MyNBA推进/休赛期Bug；未验证PC本世代同缺陷 |
+| **SRC-0195** | [Reddit 2020前代MyLeague统计错季/奖项缺失](https://www.reddit.com/r/NBA2k/comments/j0maya) | 旧版本球员前季数据混乱第一手，作为检查风险非2K22实证 |
+| **SRC-0196** | [Reddit 2019更早MyLeague历史选秀/交易/退休记录疑问](https://www.reddit.com/r/NBA2k/comments/ckc80q) | 提问不等于证明2K22历史留存范围 |
+| **SRC-0197** | [2K官方2026 Steam云端备份恢复通用指南](https://support.2k.com/hc/en-us/articles/53087390841491-Restoring-Saves-from-the-Cloud) | SteamCloud同步依赖客户端及游戏支持；2026通用平台说明，非2K22原版存档机制证明 |
+| **SRC-0198** | [OS 2K22退役球员转教练教程](https://www.operationsports.com/heres-how-to-make-any-player-become-a-coach-in-nba-2k22/) | 同版退休页面与未来员工候选线索；教程涉及改年龄/能力，本项目禁止照做 |
+| **SRC-0199** | [OS 2K22 PS4 Orlando Magic Dynasty设置](https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/916690-the-orlando-magic-dynasty) | 2K22 PS4本世代玩家公开82赛季/BO7、真实与Sim、Normalize设置；个人配置不代表PC默认 |
+
+[R06-C中文攻略](guides/K11_SEASON_SAVE_PERSISTENCE_R06C.md)及[38类候选机读目录](catalogs/R06C_SEASON_SAVE_PERSISTENCE_RESEARCH_V1.json)均为**研究原料，不是38项已测本机原生偏移**。本轮不进行游戏推进/存档/重启实验，不开发Agent或DEV28。
