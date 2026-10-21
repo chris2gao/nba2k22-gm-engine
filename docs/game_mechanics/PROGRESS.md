@@ -1,7 +1,7 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
 **当前权威状态**：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`（2026-10-20）。
-**当前权威研究进度：`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`；下一轮：`R03_TRAINING_HEALTH_GROWTH_RESEARCH`（未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
+**当前最新：用户已批准R03研究结项，`R04_A_RESEARCH_PUBLISHED_WITH_FIELD_GAPS`；下一轮 `R04_B_TENDENCIES_PLAYSTYLE_RESEARCH`。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
 
@@ -14,7 +14,9 @@
 | **R02-A** | **教练、攻防、Book/PlayTypes/Freelance/ACE基本语义、原生已有接口与权限** | **PUBLISHED_WITH_OPEN_ITEMS** | [K04第一批中文攻略](guides/K04_COACH_AND_PLAYS.md)；SRC-0030..39、VIS-0008 | 
 | **R02-B** | **ACE自动覆盖与Series/Freelance、Center双挡拆字段与TagOnRoll旧版可见性、CPU-vs-CPU差异、多角色权利** | **PUBLISHED_WITH_OPEN_ITEMS / TASK_CLOSED** | [K04 §§11–17](guides/K04_COACH_AND_PLAYS.md)，SRC-0040..47；新合格PC菜单图证0 |
 | **R02-C** | **有界原版PC22教练、ACE、Book、个人防守UI搜证；封存UNKNOWN，四角色能力原料目录** | **`RESEARCH_CLOSED_WITH_PC22_UI_GAPS / TASK_CLOSED`** | [K04 §§18–21](guides/K04_COACH_AND_PLAYS.md)，SRC-0048；[角色能力研究JSON](catalogs/K04_ROLE_CAPABILITY_RESEARCH_V1.json)；新合格PC22 UI图证0 |
-| **R03 NEXT** | **K06训练计划、疲劳、伤病、医疗、自然成长与自主训练选择** | **NEXT / NOT_STARTED** | 目标`guides/K06_TRAINING_HEALTH_GROWTH.md`；研究角色原料，不开发Agent |
+| **R03** | 训练、健康、伤病、自然成长 | **APPROVED_RESEARCH_CLOSED_WITH_NATIVE_DATA_GAPS** | [K06](guides/K06_TRAINING_HEALTH_GROWTH.md)与[R03交付断点](R03_COMPLETION_REVIEW_CHECKPOINT.md)，用户已批准结项 |
+| **R04-A** | 球员Vitals、39项已登记属性、16项Durability、职业成长、Badge | **PUBLISHED_WITH_OPEN_ITEMS** | [K03/K12指南](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[字段目录](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)、[徽章参考](catalogs/PLAYER_BADGES_R04_A_REFERENCE.json)、SRC-0072..0082 |
+| **R04-B NEXT** | 全99倾向/更多玩家可见类别、四PlayTypes/Initiator与比赛行为联动 | **NEXT / NOT_STARTED** | R04任务书，后续再由用户触发 |
 
 | **R04 新增重点** | **K03/K12 完整球员个人资料、全部属性/徽章/倾向、耐久及Play for Win/Financial Security/Loyalty；未来Player Agent自主决策接口** | **NOT_STARTED** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
 | R05（原R04） | 合同、财务、员工、球探、选秀、休赛期、巨星谈判 | NOT_STARTED | 后续；承接R04的球员职业诉求 |
@@ -133,3 +135,7 @@
 5. 随后按V3：R04全量球员、R05经营与谈判、R06世界与媒体、R07全角色交叉矩阵，最后FINAL-CODEX；**DEV28/Antigravity只在另行授权后定向原生取证，不是本轮启动**。
 
 > **DEV29 R02结案与权限**：研究发布后无任何DEV28、Codex、游戏进程、真实存档或人物属性变更。新PC22截图以后仅增量补R02相关UNKNOWN，不导致重新开启R02公共资料无限检索。
+
+## R04-A（2026-10-21）：球员档案首批研究交付
+
+R03已由用户批准结项；独立审核未来由其他模型负责，DEV29研究窗口只发布研究。R04-A发表[K03/K12](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)，注册55个本机属性（39非耐久+16耐久）与17个合同原生字段，另37项候选个人档案/成长/人格和80项Gameplay徽章、20项人格标签候选；每类标真正来源等级和可写权限。新增SRC-0072..0082和R04-A图证审计（无已认证原版PC22菜单）。下一轮R04-B完整倾向与场上行为，由用户再触发；不开发Agent、不修改游戏。
