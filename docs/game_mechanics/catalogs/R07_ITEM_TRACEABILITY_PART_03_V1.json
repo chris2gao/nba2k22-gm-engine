@@ -49,7 +49,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0202",
@@ -92,7 +94,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0203",
@@ -135,7 +139,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0204",
@@ -178,7 +184,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0205",
@@ -221,7 +229,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0206",
@@ -264,7 +274,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0207",
@@ -307,7 +319,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0208",
@@ -350,7 +364,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0209",
@@ -393,7 +409,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0210",
@@ -436,7 +454,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0211",
@@ -479,7 +499,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0212",
@@ -522,7 +544,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0213",
@@ -565,7 +589,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0214",
@@ -608,7 +634,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0215",
@@ -651,7 +679,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0216",
@@ -694,7 +724,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0217",
@@ -737,7 +769,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0218",
@@ -780,7 +814,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0219",
@@ -823,7 +859,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0220",
@@ -866,7 +904,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0221",
@@ -909,7 +949,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0222",
@@ -952,7 +994,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0223",
@@ -995,7 +1039,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0224",
@@ -1038,7 +1084,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0225",
@@ -1081,7 +1129,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0226",
@@ -1124,7 +1174,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0227",
@@ -1167,7 +1219,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0228",
@@ -1210,7 +1264,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0229",
@@ -1253,7 +1309,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0230",
@@ -1296,7 +1354,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0231",
@@ -1339,7 +1399,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0232",
@@ -1382,7 +1444,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0233",
@@ -1425,7 +1489,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0234",
@@ -1468,7 +1534,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0235",
@@ -1511,7 +1579,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0236",
@@ -1554,7 +1624,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0237",
@@ -1597,7 +1669,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0238",
@@ -1640,7 +1714,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0239",
@@ -1683,7 +1759,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0240",
@@ -1726,7 +1804,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0241",
@@ -1769,7 +1849,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0242",
@@ -1812,7 +1894,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0243",
@@ -1855,7 +1939,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0244",
@@ -1898,7 +1984,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0245",
@@ -1941,7 +2029,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0246",
@@ -1984,7 +2074,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0247",
@@ -2027,7 +2119,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0248",
@@ -2070,7 +2164,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0249",
@@ -2113,7 +2209,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0250",
@@ -2159,7 +2257,14 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096",
+        "SRC-0097"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0251",
@@ -2204,7 +2309,13 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0252",
@@ -2249,7 +2360,13 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0253",
@@ -2293,7 +2410,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0098"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0254",
@@ -2337,7 +2459,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0098"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0255",
@@ -2381,7 +2508,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0091",
+        "SRC-0098"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0256",
@@ -2425,7 +2557,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0257",
@@ -2469,7 +2606,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0091",
+        "SRC-0098"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0258",
@@ -2513,7 +2655,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0259",
@@ -2557,7 +2704,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0098"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0260",
@@ -2601,7 +2753,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0261",
@@ -2645,7 +2802,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0262",
@@ -2689,7 +2851,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0263",
@@ -2733,7 +2900,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0264",
@@ -2777,7 +2949,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0265",
@@ -2821,7 +2998,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0266",
@@ -2865,7 +3047,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0267",
@@ -2909,7 +3096,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0268",
@@ -2953,7 +3145,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0269",
@@ -2997,7 +3194,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0270",
@@ -3041,7 +3243,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0271",
@@ -3085,7 +3292,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0272",
@@ -3129,7 +3341,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0098",
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0273",
@@ -3173,7 +3390,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0091",
+        "SRC-0098"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0274",
@@ -3214,7 +3436,13 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0091",
+        "SRC-0094",
+        "SRC-0100"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0275",
@@ -3255,7 +3483,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0091",
+        "SRC-0100"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0276",
@@ -3296,7 +3529,13 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0094",
+        "SRC-0095",
+        "SRC-0100"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0277",
@@ -3337,7 +3576,11 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0105"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0278",
@@ -3351,10 +3594,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.position",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3378,7 +3624,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0279",
@@ -3392,10 +3643,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.years_left",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3419,7 +3673,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0280",
@@ -3433,10 +3692,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.salary",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3460,7 +3722,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0281",
@@ -3474,10 +3741,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.offense",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3501,7 +3771,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0282",
@@ -3515,10 +3790,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.defense",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3542,7 +3820,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0283",
@@ -3556,10 +3839,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.potential",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3583,7 +3869,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0284",
@@ -3597,10 +3888,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.contracts",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3624,7 +3918,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0285",
@@ -3638,10 +3937,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.trading",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3665,7 +3967,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0286",
@@ -3679,10 +3986,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.scouting",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3706,7 +4016,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0287",
@@ -3720,10 +4035,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.training",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3747,7 +4065,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0288",
@@ -3761,10 +4084,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.business",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3788,7 +4114,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0289",
@@ -3802,10 +4133,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.preferred_system",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3829,7 +4163,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0290",
@@ -3843,10 +4182,13 @@
       "domain": "STAFF_PROFILE",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "STAFF.active_system",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3870,7 +4212,12 @@
       "linked_existing_production_scope": "PUBLISHED_STAFF_SOURCE_SCOPE_NEEDS_PER_FIELD_TRACE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "config/memory_field_profile.json",
+        "src/source_extensions.py"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0291",
@@ -3885,11 +4232,14 @@
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
       "project_refs": [
-        "config/roster_association_profile.json"
+        "config/roster_association_profile.json",
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
       ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.regular_ptr_array",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3913,7 +4263,14 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE",
+        "config/roster_association_profile.json"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0292",
@@ -3927,10 +4284,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.regular_count",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3954,7 +4315,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0293",
@@ -3968,10 +4335,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.two_way_ptrs",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -3995,7 +4366,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0294",
@@ -4009,10 +4386,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.two_way_count",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4036,7 +4417,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0295",
@@ -4050,10 +4437,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.active_ptr_array",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4077,7 +4468,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0296",
@@ -4091,10 +4488,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.active_count",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4118,7 +4519,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0297",
@@ -4132,10 +4539,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.reserved",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4159,7 +4570,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0298",
@@ -4173,10 +4590,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "TEAM.roster.other_lineup_refs",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4200,7 +4621,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0299",
@@ -4214,10 +4641,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "PLAYER.current_team_ptr",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4241,7 +4672,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     },
     {
       "ref_id": "R07.0300",
@@ -4255,10 +4692,14 @@
       "domain": "TRADE_ROSTER_LAYOUT",
       "knowledge_type": "TECHNICAL_NATIVE_CANDIDATE",
       "source_ids": [],
-      "project_refs": [],
+      "project_refs": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "CITATION_PRESENCE_NOT_INDIVIDUAL_SEMANTIC_RECHECKED",
+      "source_audit": "PROJECT_OR_OTHER_REFERENCE_ONLY_NOT_EXTERNAL_DIRECT_PROOF",
       "native_field_key_candidate": "PLAYER.contract_team_ptr",
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -4282,7 +4723,13 @@
       "linked_existing_production_scope": "APPROVED_TRADE_V2_BOUNDED_SCOPE",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "PROJECT_DOC_37",
+        "PROJECT_PROFILE_ASSOCIATION",
+        "PROJECT_DRAFT_ASSET_PROFILE"
+      ],
+      "source_lineage_scope": "PROJECT_OR_NONSTANDARD_REF_ONLY"
     }
   ]
 }
