@@ -4,6 +4,7 @@
 
 - **[最新正式研究路线（DEV29 V3，多角色自主涌现）](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（[V2网页GPT多轮交付规范](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)继续适用）
 - [研究进度与恢复指针](PROGRESS.md)
+- **[R03-A最新研究断点补充（因PROGRESS.md本轮写入受阻）](R03_A_PROGRESS_CHECKPOINT.md)**：R03-A已发表、下一轮R03-B；原主进度文件待合并
 - [可追溯的资料来源登记](SOURCES.md)
 - [机制卡片写作模板](MECHANISM_CARD_TEMPLATE.md)
 - [游戏截图及媒体资料规范](visuals/README.md)
