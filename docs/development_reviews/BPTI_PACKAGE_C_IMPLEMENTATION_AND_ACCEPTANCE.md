@@ -79,3 +79,13 @@ main新规范、DEV28、十二类战术研究、共享池命名规则、DEV24来
 终结状态BPTI_PACKAGE_C_MERGE_CONFLICT_RESOLVED_TASK_CLOSED。保留原PR #12、Draft，不自动合入main；下一阶段由玩家另行决定。
 
 初次c68cb81快照的直接检查：python -B <临时目录>/check_merge.py为PASS；未解决index/冲突标记均0，src/scripts/tests对2f659138无差异，main独有9份文件及PR独有11份文件的Git内容保持一致，新增27个仓库文档链接均存在。本轮手动整理文件的git diff --cached --check通过；全量check显示的3个末尾空行均与main既有差异完全相同（DEV23研究、DEV28计划、DEVELOPMENT_CURRENT），保持主线原样，不扩展清理。玩家随后补充规范更新，最终仍将继续fetch并整合执行时最新main，以下此快照不代表最终main SHA。
+
+### 玩家补充后最终主线：5c032a0
+
+初次冲突保存为merge 1899d1a8da0ac91f4f43b7ca449f35f8f042e54a后，再次fetch得到最新main **5c032a0bdb8885cc34d1421952527457251522a9**，继续merge --no-ff --no-commit。增量只更新规范/交接文档；实际只有AGENTS标题相邻处再次content冲突，保留PR交付摘要并采用最新主线规范标题与完整正文；docs/33及其余规范自动合并。
+
+最终保留的规范明确：先社区/攻略/官方手册理解游戏机制，次世代资料是高价值参考；具体PC菜单/枚举/对象/内存及执行路径再按PC原生来源核实。本轮仍纯Git/文档，不展开游戏资料检索、机制开发或DEV28。c68cb81段落是本轮第一次抓取快照，当前权威main为5c032a0。最新规范全文与主线一致，当前AGENTS/33/34的顶部交付说明同步更新。
+
+最终5c032a0直接检查同样PASS：git ls-files -u为空；相关文件无冲突标记；git diff --exit-code 2f659138 -- src scripts tests为0，覆盖B4/B5→M3调用、F1当前演化版本/来源、F2存档/分支隔离、F3原生HOLD与市场分离、F4可行状态门槛的完整已审查源码。main独有9份、PR独有11份文件Git内容与各自来源一致；新增27个仓库文档链接目标均存在。手动整理文件git diff --cached --check通过；全量相对2f659138的3个EOF空行警告与04b194a→最新main的既有警告完全一致，未改主线原文。这些是本次Git/文档直接检查，不是重新认证比赛机制或重跑已有合成验收。
+
+实际命令包括git fetch origin main codex/bpti-package-c、git merge-base、git diff --name-status、两次git merge --no-ff --no-commit origin/main，以及python -B <临时目录>/check_merge.py执行上述保留/链接/标记检查。后续正常push原分支，不force、不改写PR历史；GitHub合并状态以推送后的实时PR回执为准。
