@@ -98,5 +98,18 @@
   ],
   "read_verification": "ALL_SEVEN_SHARDS_READBACK_VERIFIED_AFTER_INITIAL_SPLIT",
   "source_lineage_update": "Each shard now preserves original raw references as well as SRC-#### and project/other source paths; seven R06C originals with sources=[] remain distinct from project-only references",
-  "quality_note": "Some entry source IDs are syntactically present in SOURCES.md but not re-verified for direct semantic support; do not promote to TARGET_PC22_UI or RUNTIME VERIFIED."
+  "quality_note": "Some entry source IDs are syntactically present in SOURCES.md but not re-verified for direct semantic support; do not promote to TARGET_PC22_UI or RUNTIME VERIFIED.",
+  "manual_topic_identity_semantics": {
+    "total_manual_guide_topics": 12,
+    "literal_guide_topic_mentions": 10,
+    "generated_guide_topic_aliases": 2,
+    "generated_alias_ref_ids": [
+      "R07.0007",
+      "R07.0010"
+    ],
+    "authoritative_locations": "Each generated alias in R07_ITEM_TRACEABILITY_PART_01_V1.json carries origin_guide_heading, origin_guide_section_number, and origin_verbatim_topic_term.",
+    "not_native_field_or_source_json_primary_key": true,
+    "source_review": "docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md"
+  },
+  "targeted_catalog_repair_status": "SUBMITTED_FOR_INDEPENDENT_RECHECK_NOT_FINAL_ACCEPTANCE"
 }
