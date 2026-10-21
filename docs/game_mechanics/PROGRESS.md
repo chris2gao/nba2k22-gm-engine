@@ -1,5 +1,12 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R05-A/B/C/D独立审核：接受研究结案，选秀权V4执行代码待同步
+
+独立审核报告：[DEV29 R05审核与V4工程差距](../development_reviews/DEV29_R05_INDEPENDENT_REVIEW_20261021.md)。**R05研究结案正式接受**，保留原状态`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`。审计核对D目录54数据候选、63操作研究项、12联动、12缺口无重复标识；63项中**53个合法选项范围仍UNKNOWN**，来源到SRC-0162（包含与旧SRC-0137同一网页的交叉引用），这不是PC22 UI/实时读数/真实执行的全部认证。**不需要R05返工**，R06仍NEXT且不开发媒体/球员/教练人格。
+
+**G04工程阻断（不阻断研究结案）**：V4已于`config/gameplay_policy.json`撤销原三届人为上限，现行`src/draft_assets.py`（含`capture_assets()`对外返回旧`tradeable_draft_years`）、`src/gm_core/calculations.py`、`src/gm_core/trades.py`、`src/approved_trade_executor.py`尚有+3/三年拒绝逻辑；第4/5届即使有原生5年300条实证也未能合法执行。留给以后用户单独授权的**Codex有界代码/测试同步任务**，不得机械改成固定5年上限，不改旧快照、不自动执行游戏交易。
+
+
 > [**R05及所有后续轮次的范围前提**](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：本项目六阶段模型流程和DEV29边界以项目级文档为准。本知识库只提供原生游戏事实、玩法、参数和作用，不开发未来Coach/Player人格或固定决策程序。R04研究已结案，R05-A工资帽/合同和R05-B交易机制研究均已发布，R05-A/B/C/D经营研究均已出版，R05完成网页资料研究；下一轮R06规则/历史/媒体/存档研究尚未启动。选秀权三届世界上限于2026-10-21取消。
 
 ## 2026-10-21 R04独立审核与R05研究范围纠正
