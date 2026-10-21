@@ -1,5 +1,9 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 R06独立审核通过：游戏机制研究下一轮R07
+
+权威验收：[DEV29 R06研究独立结案报告](development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)。R06-A/B/C/D网页研究结案接受，`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`；R06-D 26机制关系/20待证缺口/79处引用已经与8份原始JSON逐条比对；R06-B10奖项来源标为`sources=[]`且Eras争议字段改UNKNOWN，定向修复通过但游戏UI仍无实证。R06-C38项含7无直接来源保持待证。**当前下一研究轮R07**只整理所有R系列游戏可观测事实、可设置动作、源证和成熟度；不是开发球员/教练/媒体人格，也非启动DEV28的写入许可。选秀权世界V4旧`+3`代码继续是需要用户另行批准的独立Codex修复任务。
+
 ## 2026-10-21 R05独立审查：研究通过，选秀权V4代码兼容性尚未更新
 
 **权威报告**：[DEV29 R05独立审核及四处Pick窗口工程缺口](development_reviews/DEV29_R05_INDEPENDENT_REVIEW_20261021.md)。DEV29 R05-A/B/C/D的经营机制/游戏原料研究**接受结案**，状态`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；R06下一轮。**当前世界规则`PLAYER_RULES_20261021_V4`不再限制未来三届Pick交易，也没有固定五届规则上限**；本机只读覆盖连续五届共300条，但`src/draft_assets.py::trade_window`及`capture_assets`的`tradeable_draft_years`、`src/gm_core/calculations.py::draft_pick_window`、`src/gm_core/trades.py`、`src/approved_trade_executor.py`仍拒绝第4/5届。**这不是已经修好的执行能力**；由用户将来另批Codex最小同步任务，测试合法性/批准/存档与读回，不把+3换+5新世界规则。不能因R05研究结案或政策更新就执行第4/5届资产交易。其余签约、Staff/Scouting/Draft原生接口缺口继续待认证，DEV29不建人格/执行器。
