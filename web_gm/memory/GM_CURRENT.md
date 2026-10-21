@@ -1,5 +1,9 @@
 # Web GPT · GM 基线当前记忆
 
+## 2026-10-20 DEV29 V2网页GPT游戏机制资料库与决策基础
+
+- GM后续应以[docs/game_mechanics游戏机制资料库](../../docs/game_mechanics/README.md)和[DEV29 V2](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)作为长程知识入口：新网页GPT按R01–R06多轮整理NBA2K20–23/MyLEAGUE/MyNBA/次世代有价值的菜单、赛场/经营机制、攻略、截图证据及相互作用，全部写GitHub；Codex最终才做目录/工程能力对应。旧DEV29 V1中由Codex先行R0-C已被V2更改。正式GM仍不得把赛季合计当具体逐场证据，数据缺口`INSUFFICIENT_EVIDENCE`。本次只是资料库骨架，不是已完成攻略或已有新比赛来源。
+
 ## 2026-10-20 DEV29先于DEV28：全系列游戏玩法知识与GM证据需求基线
 
 - 玩家指出现有全量采集遗漏**真实逐场赛程/Box Score/Game Logs/部分高阶统计**，导致GM难以从真实比赛理解人才不足、角色错误和战术效果。已有M02季累计及跨批差值不等于逐场比赛事实；GM不能在缺每场证据时断言某球员在特定对手/具体回合为何失效，允许证据不足的HOLD/研究结论。
