@@ -1,5 +1,7 @@
 # ChatGPT 网页版专用：三类基线入口
 
+> [**所有网页版基线共同宗旨**](../../docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：研究/开发目标是完整游戏原料和可靠工具，不是在R系列或DEV28中制造固定行为程序充当人格；六阶段独立模型与真实玩家审批边界以项目级文档为准。
+
 > **只适用于 Web GPT（ChatGPT 网页/连接 GitHub 的聊天）。** 请勿与 Codex 的 `docs/32_DATA_CAPTURE_BASELINE_PROMPT.md` / `docs/33_DEVELOPMENT_BASELINE_PROMPT.md` 混用。角色与持久记忆协议：`docs/35_WEB_GPT_BASELINES_AND_MEMORY_PROTOCOL.md`。
 
 ## 选择基线
