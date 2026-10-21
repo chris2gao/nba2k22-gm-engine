@@ -133,7 +133,7 @@ NBA2K14/15时期Visual Concepts AI工程师Leftos公开解释[ SRC-0052 ]：旧�
 | 2K22次世代高级训练 | 官方明确有Prep Hub、3周计划、Load Management/球员降强度 | PC本世代是否存在及操作/智能安排**UNKNOWN** | 不外推；仅供未来教练/球员自主决策原料启发 |
 | 生涯自然成长 | 游戏引擎负责，OS多时代玩家有不确定且冲突经验 | 真实变化窗口、比赛/训练/员工/潜力独立因果未证 | R03-B继续研究伤病模型、康复与不同模式、成长差分，R04负责全属性/徽章/耐久字段 |
 
-**R03-A现正式发表；整个R03仍需R03-B**（身体状态/伤病/导师以及PC菜单证据），未来必要时R03-C最后有界UI/结案。下批按PROGRESS恢复，不重复本轮已研究的2K22官方次世代Prep Hub全文。R04仍是完整球员本人属性/全部耐久和Play for Win/Financial Security/Loyalty等合同人格专项；本章不取代它。
+**历史研究记录（R03-A当时的下一步，现已执行完毕）**：R03-A首先发表，随后R03-B补健康/导师、R03-C审核结案；**当前最终状态以§§13–15及[R03审核报告](../reviews/R03_COMPLETENESS_AUDIT_V1.md)为准**。下批按PROGRESS恢复，不重复本轮已研究的2K22官方次世代Prep Hub全文。R04仍是完整球员本人属性/全部耐久和Play for Win/Financial Security/Loyalty等合同人格专项；本章不取代它。
 
 **执行边界**：只读GitHub和公开资料、出版研究。没有打开游戏、训练写入、伤病编辑、潜力泄漏、创建Agent或启动DEV28/Codex。凡未知仍明确UNKNOWN。
 
