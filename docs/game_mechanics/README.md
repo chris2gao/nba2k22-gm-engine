@@ -5,6 +5,7 @@
 - **[最新正式研究路线（DEV29 V3，多角色自主涌现）](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（[V2网页GPT多轮交付规范](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)继续适用）
 - [研究进度与恢复指针](PROGRESS.md)
 - **[R04-A 球员个人资料、能力、耐久、徽章和自然成长中文指南](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)**：39项当前已命名非耐久属性、16项身体部位耐久，以及职业档案和成长机制；[72项原生+37项候选字段与权限矩阵](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)、[80技能徽章+20人格候选参考目录](catalogs/PLAYER_BADGES_R04_A_REFERENCE.json)。
+- **[R04-B 球员倾向、PlayTypes、AI打法与快模拟机制研究](guides/K03_K12_PLAYER_PROFILE_AGENCY.md#dev29-r04-b--球员行为倾向playtypes发起权与实际3dsim选择机制2026-10-21)**：精确记录48已命名+51未命名原生Byte、99项独立的2K22归档导出名称，及[原生与外站双目录](catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)；三维/快Sim/T​​ouches/Shot作用保留同年玩家争议，不强制统一球员倾向。
 - [R03-A/B/C历史研究结项](R03_COMPLETION_REVIEW_CHECKPOINT.md)：用户已批准研究结项，原生健康数据欠账继续保留；当前进度以已成功更新的[PROGRESS](PROGRESS.md)为准。
 - [R03-A历史断点](R03_A_PROGRESS_CHECKPOINT.md)：保留首次训练研究与用户跨代复用的原始记载
 - [可追溯的资料来源登记](SOURCES.md)
@@ -31,8 +32,8 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 **视觉材料**：优先记录第三方页面和图片链接、使用位置、图片证据点；确有传播许可或玩家自供的图片才纳入GitHub。不得绕过水印/假定可自由再分发；研究卡片即使没有图片二进制也必须完整可读。
 
 **当前权威研究状态（2026-10-21）**：**R01与R02公开资料研究均已结案，PC22原版UI缺口封存，不是原生游戏数据/执行器已全面认证**。R01：[K01/K02 §§0–22](guides/K01_K02_GAME_STATS.md)，`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`；R02：[K04 教练、攻防、Playbook、Freelance、ACE及角色原料 §§0–21](guides/K04_COACH_AND_PLAYS.md)，`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。研究来源登记至**SRC-0048**：[SOURCES](SOURCES.md)，视觉索引为**VIS-0001..0008**：[EXTERNAL_VISUALS](visuals/EXTERNAL_VISUALS.md)（其中没有被认证为目标原版PC22全部Coach菜单的新增图证）。**新增纯研究、不可执行的多角色能力原料目录**：[K04_ROLE_CAPABILITY_RESEARCH_V1.json](catalogs/K04_ROLE_CAPABILITY_RESEARCH_V1.json)；只描述观察/候选选择/角色拥有者/权限/反馈来源，不开发Agent、不产生游戏写入许可。**R03-A/B/C全系列研究已由用户批准结项**：[K06中文攻略 §§0–15](guides/K06_TRAINING_HEALTH_GROWTH.md)、[R03审核报告](reviews/R03_COMPLETENESS_AUDIT_V1.md)；来源SRC-0049..0071，VIS-0009/0010；[11项训练原料目录](catalogs/K06_TRAINING_ROLE_INPUTS_RESEARCH_V1.json)及[8项健康事件目录](catalogs/K06_HEALTH_EVENTS_AND_ROLE_RIGHTS_V1.json)。**原生健康动态数据与Agent执行层仍未就绪**；用户已批准开始R04-A，并已正式发表，具体接力与停止条件见[PROGRESS](PROGRESS.md)。
-**R04-A已提交**：SOURCES新增SRC-0072..0082、VIS登记目标版菜单待取证；同世代球员资料/徽章/耐久可复用，PC内存与GM发布批次继续单独标证。详见上方K03/K12和PROGRESS，R04-B为下一研究轮。
+**R04-A与R04-B均已提交**：SOURCES累计至SRC-0090；R04-B聚焦99 native bytes/99归档导出倾向，PlayTypes/Initiator和不同比赛模式；VIS保留PC22菜单UNKNOWN。**下一轮R04-C：球员人格徽章、Loyalty/Financial Security/Play for Win与职业目标/团队谈判**，见[PROGRESS](PROGRESS.md)。
 
 ## 新增球员系统研究与涌现方向
 
-玩家确定：所有游戏机制知识必须让**GM/球员/教练/媒体作为独立角色**拥有真实可观察状态、合法可选行为、协商权、信息限制与比赛/历史反馈，而非强制产生最优决策。R03仍研究训练/恢复一般机制；**R04独立研究NBA2K20–23的全部球员身份、属性、潜力、倾向、徽章、人格徽章、耐久/伤病、合同偏好（Play for Win/Financial Security/Loyalty）、球员职业自主权及字段双语义**；原经营R04顺延R05，其余后移。详情：[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原生Ability/Potential/Badge仅正常读取观察，自主Agent同意与**真实玩家的存档写入批准**分开；人格记忆优先外挂SQLite，不擅占仍有效的原生字段。**当前R01/R02已结案，R03研究经用户批准结项，R04-A已发表，下一轮R04-B待用户触发**。今后研究窗口只负责各R轮研究交付，独立完整性审核由其他模型负责。
+玩家确定：所有游戏机制知识必须让**GM/球员/教练/媒体作为独立角色**拥有真实可观察状态、合法可选行为、协商权、信息限制与比赛/历史反馈，而非强制产生最优决策。R03仍研究训练/恢复一般机制；**R04独立研究NBA2K20–23的全部球员身份、属性、潜力、倾向、徽章、人格徽章、耐久/伤病、合同偏好（Play for Win/Financial Security/Loyalty）、球员职业自主权及字段双语义**；原经营R04顺延R05，其余后移。详情：[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原生Ability/Potential/Badge仅正常读取观察，自主Agent同意与**真实玩家的存档写入批准**分开；人格记忆优先外挂SQLite，不擅占仍有效的原生字段。**当前R01/R02已结案，R03研究经用户批准结项，R04-A与R04-B已发表，R04-C待用户下一次触发**。今后研究窗口只负责各R轮研究交付，独立完整性审核由其他模型负责。
