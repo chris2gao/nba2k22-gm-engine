@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## DEV29 V2研究窗口与知识资料库：网页GPT主导（2026-10-20）
+
+- PR #12/BPTI C已合入`main`。下一阶段为**[DEV29 V2 NBA2K20–23终极联盟游戏万事通知识研究](docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)**，必须先于DEV28的全透明原生I/O开发。新资料库：[docs/game_mechanics/README.md](docs/game_mechanics/README.md)，断点恢复：[PROGRESS](docs/game_mechanics/PROGRESS.md)。
+- **主要研究者是新网页GPT开发规划/研究窗口**，分R01–R06多轮搜玩家社区/优秀攻略/官方手册、图文和必要截图，输出中文机制使用指南、全可选项与完整动态数据候选、与其它设置的联动、GM要什么证据、未验证PC22来源；每轮将成果与来源图证写GitHub，更新进度。**不要派Codex搜索整理数百篇攻略。**
+- **Codex仅在研究主体完成后进入FINAL-CODEX收尾**：校验GitHub文档/图源和机读能力矩阵，核对已有`source_catalog/Registry/M0/DEV14`与研究列出的GM数据/可选项需求，向DEV28提供有界工程缺口和具体待发现源；不自动启动实际游戏逆向/数据采集/受控执行。Antigravity后续定向找PC22原生事实，必要时玩家按批次提供截图。
+- 源来源许可明确，公开GitHub对第三方未经授权的截图默认只索引网页链接与实际可见证据，不批量复制图片/移除水印；用户截图/许可素材才能纳入approved。研究可用NBA2K20–23和次世代机制资料，执行本机PC22接口要重新认证。玩家审批游戏写入、GM V4启用、潜力遮蔽等原规则不变。
+
 ## PR #12 current integration handoff (2026-10-20)
 
 - Latest origin/main 5c032a0bdb8885cc34d1421952527457251522a9 is integrated into the original codex/bpti-package-c with a history-preserving merge. Actual conflicts were only the introductory additions in AGENTS.md and docs/33; retain both sides, including the main research-first policy/DEV28 and the implemented package C/F1-F4 records below.
