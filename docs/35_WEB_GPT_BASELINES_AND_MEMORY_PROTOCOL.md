@@ -1,5 +1,13 @@
 # 网页 GPT 三基线分工、Python 分析与持久记忆协议
 
+## 2026-10-20 DEV29 V3：多角色自主涌现和R04全量球员原生数据研究
+
+玩家确定最终系统是**30队GM、教练、球员、媒体等独立模型参与真实NBA2K22虚拟联盟**，依照各自身份、目标、记忆、风险偏好，自行选择/拒绝/谈判并根据比赛反馈不断改变；不是单一GM模型的最优策略执行机。旧BPTI篮球哲学/角色规则作为参考资料，不可剥夺独立角色的决策权。[DEV29 V3权威计划](development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)；[R04完整球员系统研究任务书](development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。
+
+研究职责增加：GM模型反推独立GM的观察、谈判与经营行动；Analytics仍负责完整逐场数据与玩家表现反馈；研究窗口收集NBA2K20–23球员个人档案、全部属性、倾向、徽章/人格徽章、伤病耐久、训练偏好、Play for Win/Loyalty/Financial Security及其玩法用途；开发基线负责Agent资料来源/读写权限/DEV28完整能力矩阵；Codex仍只做研究结束的工程索引和确定性接口交付。保持R01已结束、R02 NEXT、R03训练、R04球员、R05经营、R06世界与媒体、R07整合。
+
+角色在游戏世界中的同意/拒绝/承诺/谈判是业务模拟，**所有现实游戏写入仍须玩家单独批准**；外部人格长期记忆优先外部SQLite，不安全重用原生字段。普通球员能力/徽章/潜力的直接修改禁令保留；只在获批的历史世界线例外中可能改变。原游戏自然成长为权威。
+
 ## 2026-10-20 DEV29 V2网页GPT长期多轮知识工程的职责覆盖
 
 玩家确认PR #12已合并，决定让新网页GPT窗口而非Codex研究NBA2K20–23/MyLEAGUE/MyNBA的实际玩法、设置、每场/高阶统计、图文截图与机制联动；详见[DEV29 V2](development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)。所有研究轮次必须以[docs/game_mechanics/README.md](game_mechanics/README.md)为共用仓库入口，按[PROGRESS](game_mechanics/PROGRESS.md)断点恢复，写入中文实用攻略/原生可选项候选/数据证据要求，并保留源码、图片索引与版本差异。研究主责在网页开发规划/研究GPT；GM/Analytics提供业务判据；Codex仅最终FINAL-CODEX做资料完整性、机器索引、现有数据库与DEV28开发接口的工程收尾。此前V1“R0-C由Codex作为前期资料审计主责”的流程被V2覆盖。无真实原生数据不得将`KNOWN_IN_SERIES`标为`PC22_NATIVE_READ_VERIFIED`。
