@@ -16,8 +16,8 @@
 - **R05按A/B/C/D分批研究、不需要回头返工R04**：集中研究NBA2K20–23合同/薪资帽/预算/Staff/Scouting/Draft/Free Agency/交易及合法游戏操作，给未来角色提供**原始可观察信息与可用动作**；不开发薪资谈判算法/球员决策树、教练性格、媒体行为或执行器，成果按原R05研究方法写GitHub并关闭当前轮。
 
 
-**当前权威研究状态**：`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`（2026-10-21）；R05-A/B/C/D研究已全部交付，等待用户安排的外部模型审核（本窗口不做），R04-A/B/C/D仍获用户批准结案。最新选秀权政策为`PLAYER_RULES_20261021_V4`。
-**当前最新：`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；下一轮 `R06_K05_K10_K11_GAMEPLAY_HISTORY_MEDIA_SAVE_RESEARCH`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
+**当前权威研究状态**：`R06_A_RESEARCH_PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS`（2026-10-21）。R05-A/B/C/D已由用户最终批准研究结案，保持`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；R04保持批准结案，选秀权V4代码同步留独立Codex任务，不阻断R06研究。
+**当前最新：`R06_A_RESEARCH_PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS`；下一轮 `R06_B_HISTORY_ERA_AWARDS_MEDIA_MECHANICS_RESEARCH`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
 
@@ -41,7 +41,10 @@
 | **R05-B** | **16项交易菜单/市场候选、2021–22 CBA工资匹配分档、原生5年300条未来签；**旧三届世界限制已于2026-10-21撤销**、15常规＋2双向＋13活动名额和有界交易器** | **PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS / TASK_CLOSED** | [K07/K08/K09 §§8–15](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、[R05-B机读目录](catalogs/R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json)、SRC-0129..0144、VIS有界审计 |
 | **R05-C** | **员工8岗13字段、次世代四部门17人名额、球探报告/估计/榜单/侦察进度、Draft Class菜单与1984–2020历史班真实源** | **PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS / TASK_CLOSED** | [K07/K08/K09 §§16–22](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、[R05-C机读目录](catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)、SRC-0145..0160 |
 | **R05-D** | **54项原生注册/候选信息、63类菜单/市场操作候选、12项跨领域机制联动、12项PC22原生缺口；更新选秀权世界规则取消三年限制** | **PUBLISHED / RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS** | [K07–09 §§23–29](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、[R05-D机读全集](catalogs/R05D_FRANCHISE_CAPABILITIES_ATLAS_V1.json)、[政策V4](../../config/gameplay_policy.json)、SRC-0161..0162 |
-| **R06 NEXT（原R05）** | **K05玩法/模拟器、K10世界线/历史纪元/规则/媒体、K11存档状态与跨期覆盖** | **NEXT / NOT_STARTED** | R05研究结案后由玩家触发，DEV29只搜集游戏原料 |
+| **R06-A** | **全局设置、LIVE 3D USER/CPU与CPU/CPU、Calendar Sim独立参数、Normalize统计与原生Registry证据分级** | **PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS / TASK_CLOSED** | [K05/K10/K11世界指南§§0–6](guides/K05_K10_K11_WORLD_RULES_SIM_HISTORY_SAVE.md)、[86注册候选+118项菜单研究](catalogs/R06A_WORLD_GAMEPLAY_SIMULATION_SETTINGS_V1.json)、SRC-0163..0173 |
+| **R06-B NEXT** | **历史纪元、联盟规则改变、奖项/纪录、媒体可观察信息；和2026世界线切换分开** | **NEXT / NOT_STARTED** | R06研究下一独立批次，仅知识原料，不开发媒体Agent |
+| **R06-C PLANNED** | **常规赛/季后赛/休赛期推进、Autosave和Save Slot、跨期数据留存及可靠恢复** | **PLANNED** | R06-B后继续 |
+| **R06-D PLANNED** | **K05/K10/K11资料联动、原生可读/可改/UNKNOWN和最终领域知识目录** | **PLANNED** | R06-C后继续 |
 | R07（原R06） | 多角色知识矩阵、GM/球员/教练/媒体决策证据及可执行能力查漏 | NOT_STARTED | 后续 |
 | FINAL-CODEX | 源/图索引、已有Registry/M0/DEV14/SQLite与DEV28能力差距收尾 | NOT_STARTED | **只在主要网页研究R01–R07结束后** |
 
@@ -277,4 +280,18 @@ R03已由用户批准结项；独立审核未来由其他模型负责，DEV29研
 4. **来源分层**：2K19游戏开发者历史资料已说明该游戏扩展至五年（SRC-0161），现实NBA2022交易七年上限与Stepien（SRC-0162，和旧SRC-0137为同源交叉引用）；它们均不自动升级为PC22本局的UI枚举或世界年限。球队薪资帽、员工Staff Budget、合同Option、市场报价、Draft结果、球探错误概率继续保留当前PC22真实性/时间/持久化UNKNOWN。
 5. **工作分工**：经营研究仅提出哪些实际/候选游戏资料、哪些可选操作、已知引擎语义和缺口；没有决定GM怎样交易、员工怎样获聘、球员怎样谈判或历史巨星怎样成长。不运行游戏、不编写人格、不开放签约/历史新秀注入/员工执行器，不修改任何现实NBA2K存档和人物能力。
 6. **R06单一下一入口**：K05/ K10/ K11 游戏规则、3D与Sim设置、赛季和各阶段推进/保存、历史纪元/奖项/媒体事件及事实公开性。按DEV29 V3从旧研究资料和NBA2K20–23真实来源获得游戏中可观察数据/可选设置/原生效果/证据并发布新的中文攻略＋机读目录＋SOURCES/VIS/PROGRESS/README，仍禁止设计媒体Agent或自动推动游戏时间。R06此刻**NOT_STARTED**。
+
+
+## R06-A（2026-10-21）— 游戏全局设置、3D比赛与日历模拟机制研究正式交付
+
+**本批状态**：`R06_A_RESEARCH_PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS / TASK_CLOSED`；**R06系列未结案**，下一轮`R06_B_HISTORY_ERA_AWARDS_MEDIA_MECHANICS_RESEARCH`尚未启动。R05-A/B/C/D根据用户最终审核**已接受研究结案**，永久保持`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`，不因4/5届选秀权代码未同步返工。该代码修改归独立Codex维护任务，本轮未启动。R04状态亦不变。
+
+**新交付**：[K05/K10/K11中文研究指南§§0–6](guides/K05_K10_K11_WORLD_RULES_SIM_HISTORY_SAVE.md)、[R06-A注册/菜单研究目录](catalogs/R06A_WORLD_GAMEPLAY_SIMULATION_SETTINGS_V1.json)；新增[SRC-0163..0173](SOURCES.md)共11条PC22/PS4/PS5及旧版来源；[VIS](visuals/EXTERNAL_VISUALS.md)增加来源/平台审计（新增合格PC22原版逐像素图证0）。README同步入口，直接GitHub回读完成后收尾。
+
+1. **本世代同版新证据明确了两个比赛引擎**：2021-11 PC22 MyLEAGUE玩家**30队全控但观看3D CPUvsCPU每场、不是日历Sim**；2022-01 PC22默认阵容玩家明确Setup Quarter与Simulated Quarter可不同，**Simulation**又细分Player Fatigue、Team Pace/Fastbreak、Possession Results、Shot Types、Shot Percentages、Stat Distribution。和2021-09 PS4 MyLeague本世代互证，但作者自定义数值与改变Player Tendencies不代表PC原版默认/引擎数学公式。
+2. 机读目录把**项目静态Registry中的86个记录候选**逐条保存：`settings.json`有49项，`world.json`有37项；**可能跨目录共享Native Slot/Offset，不是86个互不重叠UI按钮或当前已读游戏值**。`src/gm_state_io/registry.py`确实会自动纳入WORLD_SETTING，但软件可登记、旧静态RVA代码、可计划写入，不等于当前PC22 UI+原值+写后读回+存盘验收。另`court.json`有较窄4项Gameplay受限项目定义。
+3. 游戏菜单研究**118项候选**：Setup13、Calendar Simulation32、3D Gameplay73，来自明确来源的项目分类研究；都保留`current_value=null`及对应具体版本标签，**不是本游戏全套原版字段已逐帧认证**。尤其`Simulation Shot Three`≠3D`3PT Shot Success`≠Player个人`Take 3PT Tendency`。
+4. 玩家/社区已报的**Normalize伪数据风险**：2022-06 2K22 MyLeague用户场内126:116后日历显示304:287及球员统计变化，有用户认为与Norm开关有关；2021旧MyLeague有Stats变而Minutes未变的报告，不可当目标版普适公式。当前`settings.json`的`simulation.normalize_stats`**不能代表“分钟”与“统计”两个独立开关都已找到**。同一GameID要区分场内比分、赛后Box、日历结果与季节聚合。
+5. **GPU/USER/CPU与模式**：一队被指定User-controlled仅是经营所属，比赛控制器、USER/CPU Gameplay Slider消费、CPU-vs-CPU/SimCast和ACE应分别记状态；2017旧版本论坛观点不认证PC22行为。用户HoF实际观察保留，**不在R06-A建议改变其当前游戏设置**，不关闭ACE，不自动改球员能力/潜力/徽章。
+6. **后续顺序**：R06-B研究历史纪元/规则提案/奖项/纪录/媒体的原生可见事实；R06-C研究赛季阶段、保存/重启、真实Game Date和历史单场数据保留；R06-D跨领域整合。所有研究只交原料、不开发媒体人格/运行流程、不调用PC游戏、不修改游戏存档；每次更新GitHub资料并回读。
 
