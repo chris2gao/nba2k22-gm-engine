@@ -1,7 +1,7 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
-**当前权威状态**：`R04_B_RESEARCH_PUBLISHED_WITH_BEHAVIOR_GAPS`（2026-10-21）。R01/R02研究已结案；R03已经用户批准结项。
-**当前最新：`R04_B_RESEARCH_PUBLISHED_WITH_BEHAVIOR_GAPS`；下一轮 `R04_C_PLAYER_MOTIVATIONS_PERSONALITY_RESEARCH`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
+**当前权威状态**：`R04_C_RESEARCH_PUBLISHED_WITH_NATIVE_MOTIVATION_GAPS`（2026-10-21）。R01/R02已结案，R03已获用户批准结项。
+**当前最新：`R04_C_RESEARCH_PUBLISHED_WITH_NATIVE_MOTIVATION_GAPS`；下一轮 `R04_D_PLAYER_AGENT_DUAL_SEMANTICS_AND_INTERACTION_ATLAS`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
 
@@ -17,9 +17,10 @@
 | **R03** | 训练、健康、伤病、自然成长 | **APPROVED_RESEARCH_CLOSED_WITH_NATIVE_DATA_GAPS** | [K06](guides/K06_TRAINING_HEALTH_GROWTH.md)与[R03交付断点](R03_COMPLETION_REVIEW_CHECKPOINT.md)，用户已批准结项 |
 | **R04-A** | 球员Vitals、39项已登记属性、16项Durability、职业成长、Badge | **PUBLISHED_WITH_OPEN_ITEMS** | [K03/K12指南](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[字段目录](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)、[徽章参考](catalogs/PLAYER_BADGES_R04_A_REFERENCE.json)、SRC-0072..0082 |
 | **R04-B** | 99原生倾向字节/99同版独立导出标签、四PlayTypes/Initiator、Touches与Shot/Discipline以及Sim vs 3D分歧 | **PUBLISHED_WITH_BEHAVIOR_GAPS / TASK_CLOSED** | [K03/K12 §9–16](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[99+99研究目录](catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)，SRC-0083..90 |
-| **R04-C NEXT** | 2K22全部人格徽章与合同偏好Loyalty/Financial Security/Play For Win、情绪、职业自主与角色沟通 | **NEXT / NOT_STARTED** | R04任务书，继续K03/K12与人物权利目录 |
+| **R04-C** | 三项合同职业动机、人品徽章候选、Morale/Chemistry、自由市场个人偏好、士气与角色自由谈判 | **PUBLISHED_WITH_NATIVE_MOTIVATION_GAPS / TASK_CLOSED** | [K03/K12 §§17–23](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[R04-C动机/人格目录](catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json)、SRC-0091..0105 |
+| **R04-D NEXT** | 全部Player字段双语义/权利交互图谱，跨GM/Coach/Player/Media的候选可观察行动与真实执行边界 | **NEXT / NOT_STARTED** | 汇总R04-A/B/C全源、生成Player Agent Interaction Atlas，完成R04研究 |
 
-| **R04 整体** | **K03/K12 完整球员职业生命周期、倾向、徽章、人格、合同偏好和选择权** | **IN_PROGRESS: R04-A、R04-B已交付 / R04-C、D尚未研究** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
+| **R04 整体** | **K03/K12 完整球员职业生命周期、倾向、徽章、人格、合同偏好和选择权** | **IN_PROGRESS: R04-A/B/C已交付 / R04-D尚未研究** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
 | R05（原R04） | 合同、财务、员工、球探、选秀、休赛期、巨星谈判 | NOT_STARTED | 后续；承接R04的球员职业诉求 |
 | R06（原R05） | 3D比赛设置、世界线、历史、媒体与存档 | NOT_STARTED | 后续 |
 | R07（原R06） | 多角色知识矩阵、GM/球员/教练/媒体决策证据及可执行能力查漏 | NOT_STARTED | 后续 |
@@ -156,3 +157,22 @@ R03已由用户批准结项；独立审核未来由其他模型负责，DEV29研
 **本轮精确遗留**：99个外部标签怎样对应51未命名raw/游戏其它字段、PC22原生全页签与合法值、3D vs FastSim引擎分别使用何种倾向与指令、PlayType/Initiator对本队Book实际调用概率、当前存档球员真实性和角色独立同意，都仍`UNKNOWN`。允许未来独立授权的DEV28对原生资料增量补证，**不因缺截图无限重复网页检索，也不启动DEV28或Codex**。
 
 **R04-C唯一后续任务**：重点Loyalty/Financial Security/Play for Win、全部人格徽章的真实源级语义、士气/球队角色/承诺与职业谈判、金钱/冠军/个人荣誉冲突及玩家可见设置和球员外部目标的分离；继续更新K03/K12、人格字段/双语义目录、SOURCES、VIS、PROGRESS、README并提交GitHub回读。R04-D再完成完整Agent交互/权限图谱；**本轮不实现任何Agent或修改游戏数据**。
+
+## R04-C（2026-10-21）— 球员职业诉求、人格徽章、士气与独立谈判研究交付
+
+**状态：`R04_C_RESEARCH_PUBLISHED_WITH_NATIVE_MOTIVATION_GAPS / TASK_CLOSED`**。R04整体仍未结案，下一轮`R04_D_PLAYER_AGENT_DUAL_SEMANTICS_AND_INTERACTION_ATLAS`尚未启动。DEV29研究窗口只负责研究交付；独立审核由其他模型负责。
+
+- [K03/K12指南 §§17–23](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)：NBA2K22同版导出`Loyalty/Playing for a Winner/Financial Security`独立0–100职业偏好、2015 MyGM试验分歧、2020 MyLeague人员去留不确定；**同版存在字段≠PC22 native offset已找到，也≠签约概率公式**。
+- NBA2K20**开发者原文**确认Morale与Team Chemistry动态平衡以及Media Ringmaster大市场、Warm Weather Fan气候、Finance Savvy税务的**自由市场tie-breaker**设计；本轮积极复用其跨世代经营机制价值，仍保留PC22引擎实际权重/像素和当前值`UNKNOWN`。
+- 20个人格候选新增遗漏的`Warm Weather Fan`，在[R04-C独立人格与动机目录](catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json)共**21名候选**，其中3项有开发者明确的市场偏好语义；**21项并非已核实完整PC22原生人格Badge列表，也没有强加人格等于决定的刻板规则**。
+- 2K22 **PS4 MyLEAGUE**一手玩家报告：即使给球员首发/队内第三得分位置、尝试调整忠诚/士气，他仍可能想走；2K22次世代MyNBA玩家报告竞价与球员出价回应不对称。记录为个案与待证异常，不把人物的拒绝解释成绝对“贪财/不忠”或一项控制必然失败。
+- **重要排除**：2K22 ATD作者声称人格Badge能触发其200+场景，场景来自**社区自制MyNBA Event Generator**，不是NBA2K22自带原生Agent事件。`Finance Savvy`税务偏好≠`Financial Security`总薪资保障偏好；二者在机读目录单列。
+- 同步[全字段与权限矩阵](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)：把三项偏好研究候选补全为同版0–100证据、原生偏移NULL、不可直接获批改动、外部人物记忆另存SQL；[SOURCES](SOURCES.md)新增**SRC-0091..0105**，[VIS索引](visuals/EXTERNAL_VISUALS.md)记录原版PC22 Motivations/Morale/人格Badge菜单**合格新图证为0**，不意味着游戏没有这些功能。
+- 外部角色的目标、承诺、谈判、反报价、拒绝、错误与关系历史为未来多模型自主选择的**可能行为原料**；它们不是原生游戏带有的NPC谈判按钮。游戏普通人物能力/潜力/徽章不可直接改；真实交易/签约/训练等变更仍需合法执行器、角色协商边界及**玩家实际批准**。
+
+### 下一轮R04-D的最短恢复入口
+
+1. 先从GitHub读本PROGRESS、[K03/K12 §§0–23](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，以及三份机读原料：[PLAYER_FIELD_AND_RIGHTS](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)、[R04B_TENDENCY](catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)、[R04C_MOTIVATIONS](catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json)；不重做R04-A/B/C。
+2. 聚焦跨期玩家身份、数据可见权限/时间戳、Game Native vs External Role memory、原生偏好复用与双重作用风险、合同/交易/训练合法控制、人物⇄GM⇄Coach⇄Media冲突和拒绝；生成`docs/game_mechanics/catalogs/PLAYER_AGENT_INTERACTION_ATLAS.md`完整具体用例，并在主字段矩阵中统一来源与权利，**不能把研究记录当可执行API**。
+3. 检查R04任务书8类资料是否都有来源或清晰`UNKNOWN`；只做DEV29研究成果交付，不做独立审核。R04-D之后按用户确认/后续调用转R05市场财务研究。
+4. 网页与GitHub文档研究、更新SOURCES/VIS/PROGRESS/README并回读。**不启动DEV28/Codex/Agent，不修改游戏存档/球员能力**。
