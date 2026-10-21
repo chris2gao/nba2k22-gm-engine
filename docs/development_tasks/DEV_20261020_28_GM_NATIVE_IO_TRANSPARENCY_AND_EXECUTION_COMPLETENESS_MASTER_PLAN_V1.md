@@ -156,7 +156,7 @@ evidence:
 
 这不是泛泛臆测名字，而是**有实际用途的命名语法**。GM应解析`era/action/position_actors/location/finish`，识别其他战术家族中的变体；在明确以投篮终结为计划的命名中，第二位置还可能表示预定终结投篮者，不能机械解释为挡拆人。**预设计划与实际场上选择不同**：球员可能因防守失位提前传球、投篮或改变机会。
 
-重要执行因素：球员`Play Discipline`（战术纪律性倾向）与教练`Run Plays`等战术调用设置协同影响执行既定跑位与自由进攻；NBA2K22社区亦讨论纪律、Touches、Shot、PlayTypes和Playbook共同作用，但不能假造固定阈值和概率公式。见 [Operation Sports](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings)。读写前需从原生字段字典核对精准名称/类型并遵守玩家审批。
+重要执行因素：球员`Play Discipline`（战术纪律性倾向）与教练`Run Plays`等战术调用设置协同影响执行既定跑位与自由进攻；NBA2K22社区亦讨论纪律、Touches、Shot、PlayTypes和Playbook共同作用，但不能假造固定阈值和概率公式。见 [Operation Sports](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings)。**字段已在现行项目中确定**：`config/state_io_native/player.json`包含`PLAY_DISCIPLINE_TENDENCY`的偏移**1185/0x4A1**，教练配置包含`RunPlayTendency`。下一步是接入GM对这两项的可解释查询和业务判断、验证实际临场交互，而不是重复寻找已经登记的球员纪律性偏移。个人Tendency调整遵守本项目现行的具体提案、玩家逐项批准与Codex受控执行政策，绝不擅自改原始Ability/Potential/Badge。
 
 证据分别记：`STATIC_LABEL_CRC_JOIN`（游戏静态名字）、`PLAYER_REPORTED_UI`（具体挡拆类型与语法）、`NATIVE_TYPE_VERIFIED`（待内存枚举认证）、`2D_DEMO_OBSERVED`（待演示轨迹）、`IN_GAME_EXECUTION_OBSERVED`（待3D比赛）。演示预览≠游戏已在实战调用。不要直接编辑生成池而不更新种子/生成器；后续D28-1由Codex在版本化原始知识层接入。
 
