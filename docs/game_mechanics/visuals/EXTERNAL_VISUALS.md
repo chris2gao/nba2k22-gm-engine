@@ -20,3 +20,24 @@
 | `VIS-TODO-PC22-06` | League Settings中Quarter Length、Simulated Quarter Length、Normalize | 实际选项名称、当前值、开关、对应游戏模式 |
 
 **使用方式**：图源仅说明到何处核查。除`VIS-0002`外，本轮没有逐像素确认可引用的截图字段，公开攻略不得写成“已有PC22原生截图”。图证补全后可以按此编号推进；玩家私有实机截图遵守`visuals/README.md`的授权路径。
+
+
+## DEV29 R01-B 图文与菜单证据增量（2026-10-20）
+
+> 新索引的外部页面图片仍然**只做网页定位**，除非可读到图中像素和真实菜单，不得声称已认证任意PC22原生UI。数字ID与R01-A保留，不覆盖旧条目。
+
+| VIS ID | SRC ID / 原始链接 | 对应版本/状态 | 图/文字所在位置与证明了什么 | 目前未证明什么 | 图像版权 |
+|---|---|---|---|---|---|
+| VIS-0004 | SRC-0020 / [Gamepur 2K22 Hot Zones攻略](https://www.gamepur.com/GUIDES/NBA-2K22-HOW-TO-FIND-A-PLAYERS-HOT-ZONES) | NBA2K22 MyCareer/MyTeam，文章标“Screenshot by Gamepur” | 页面中Hot Zone图/说明；原文给MyCareer暂停→Stats→Roster→R3→RT/R2切换Hot Zones | 截图像素未独立核对，**不是MyLEAGUE菜单图证** | 网站第三方，链接-only |
+| VIS-0005 | SRC-0025 / [2K22 PC Remastered UI展示](https://www.2kspecialist.net/2021/09/nba-2k22-remastered-blog-new-details.html) | **MODDED_PC22_NOT_VANILLA** | “Main Menu Overhaul”及自定义PC版MyNBA样式截图所在版块，用来排除误用修改版界面 | 不可作为PC22原生统计页/Hot Zone/Box确证 | 第三方模组作者，链接-only |
+| VIS-0006 | SRC-0024 / [NBA2k线上未保存比赛BUG报告](https://www.reddit.com/r/NBA2k/comments/xk44uu) | 2K22/23线上模式跨平台，不属于目标PC离线 | 发帖文字称附50多场未存比赛的截图；定位到正文第2个“Bug”段落；本轮**未核对图片像素** | 并无PC22离线Game Log历史留存证据 | 玩家图片，只留原帖链接 |
+
+### 重要的“只有文字，没有截图”的索引
+
+- [SRC-0016 OS 2K22 Useful Findings 第7页 #93/#96](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings/page7?t=992582)：玩家**用文字**指出游戏结束后Shot Chart可与Stats Summary/PIP比对；这是一手报告，但**不是截图认证**。
+- [SRC-0017 Reddit 2K22 Feedback](https://www.reddit.com/r/NBA2k/comments/plmeto)：PS5玩家**用文字**指出Triangle切到Per36和该页排序异常；无本轮独立核对的PC22表格截图。
+- [SRC-0021 OS 2020 MyLEAGUE历史Bracket](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/889354-myleague-viewing-past-playoff-bracket)：Coach2K仅文本回答，没有确认旧单场Box留存范围。
+
+### 下阶段最有价值的截图集合（保留R01-A的六位TODO）
+
+优先序：`VIS-TODO-PC22-03` (Stats页面完整表头、Triangle/Y真实按键) → `VIS-TODO-PC22-02` (当前赛季主客Box、球员列和球队列) → `VIS-TODO-PC22-01` (同日不同比赛日历与进入Box方式) → `VIS-TODO-PC22-05` (赛后Shot Chart及历史查询) → `VIS-TODO-PC22-04` (球队/球员Advanced、Per36所有列) → `VIS-TODO-PC22-06` (实战模拟分钟与标准化参数)。额外需要**跨赛季的只读存档画面**验证旧Bracket/Box是否能调出，不能为了取证擅自推进正式世界线。
