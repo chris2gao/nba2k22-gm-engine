@@ -1,5 +1,11 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R06-A/B/C/D独立审核通过：R07正式下一轮
+
+正式独立审核：[DEV29 R06四轮研究验收报告](../development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)。R06-A/B/C/D研究**批准结案**，总状态`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`。实际核验R06-D **26关系ID唯一、20缺口ID唯一、79/79跨8目录原始条目引用存在**；R06-B原先Q1/Q2/Q3均已按证据边界修复（十类奖项仍无直接来源，不是目标游戏已认证）；R06-C 38概念中7项未有直接来源仍保持UNKNOWN。此为文档/机读目录独立审查，不是PC22游戏UI、数据采集或存盘读回验收。
+
+**新的唯一研究下一轮：`R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX`**。汇总R01–R06全部原生可见信息、设置候选、作用机制、模式/时点和证据等级，明确哪些已在项目技术Registry登记、哪些实时已读/可查询/经批准可执行、哪些只是待证；不得将异质数量相加当游戏字段总数、不得替教练/球员/媒体开发人格或模型编排，也不启动DEV28/Codex/存档写入。并行待修：选秀权V4旧三届代码拒绝，由玩家以后独立授权Codex。保留R06-D原始`PENDING_INDEPENDENT_REVIEW`作为发布时历史状态，以本段独立审核结论为最终研究状态。
+
 ## 2026-10-21 R06-D — 游戏运行、历史、媒体与存档跨领域整合已发布
 
 **当前最新研究状态：`R06_D_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`；建议下一轮唯一入口 `R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX`（需保留R06-D独立审核前提）。** R06-A/B/C/D均已完成网页研究发布，但PC22当前存档原生功能认证缺口依旧存在；并不自行将R06系列宣布为独立审核已批准结案。
