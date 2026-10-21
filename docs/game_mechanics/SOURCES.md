@@ -62,12 +62,12 @@
 
 | ID | 来源及直接定位 | 版本、时间、作者 | 支持的具体事实 | 严格限制 |
 |---|---|---|---|---|
-| SRC-0026 | [2K22 MyNBA官方开发团队说明：MyNBA Full Details](https://hoopsgamers.com/nba-2k22-mynba-full-details-mystaff-training-pre-built-teams-more)，§\`COMPACT SPREADSHEETS\`（[2K原始页面](https://nba.2k.com/courtside-report/nba-2k22-mynba)） | 2021-09-08，Visual Concepts开发团队，经NBA2KW/HoopsGamers转载；**PS5/Xbox Series MyNBA** | 官方文字列\`roster, coach gameplan, box score\`三类压缩表格，每屏显示行数超过此前两倍；图文页面旁有MySTAFF Roster截图 | OFFICIAL_AUTHOR_REPRINT_VERIFIED_TEXT，**不是PC/PS4 MyLEAGUE界面证明**；未取得可核验的Box本体截图；原站可能403 |
-| SRC-0027 | [Operation Sports：What are some new things you want to see in 2K23 MYleague?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/920627-what-are-some-new-things-you-want-to-see-in-2k23-myleague)，2022-02-02/10，#6与#9 | NBA2K22时期玩家讨论（当前世代MyLeague与次世代MyNBA混合） | #6直接区别\`Current Gen MyLeague\`和\`NextGen MyNBA\`；#9希望将季后赛统计及单场最高放入球员卡并增强历史跟踪 | COMMUNITY_CONCURRENT_WISHLIST；**期待改进≠已验证PC22功能不存在、也≠存档无Box历史** |
+| SRC-0026 | [2K22 MyNBA官方开发团队说明：MyNBA Full Details](https://hoopsgamers.com/nba-2k22-mynba-full-details-mystaff-training-pre-built-teams-more)，§`COMPACT SPREADSHEETS`（[2K原始页面](https://nba.2k.com/courtside-report/nba-2k22-mynba)） | 2021-09-08，Visual Concepts开发团队，经NBA2KW/HoopsGamers转载；**PS5/Xbox Series MyNBA** | 官方文字列`roster, coach gameplan, box score`三类压缩表格，每屏显示行数超过此前两倍；图文页面旁有MySTAFF Roster截图 | OFFICIAL_AUTHOR_REPRINT_VERIFIED_TEXT，**不是PC/PS4 MyLEAGUE界面证明**；未取得可核验的Box本体截图；原站可能403 |
+| SRC-0027 | [Operation Sports：What are some new things you want to see in 2K23 MYleague?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/920627-what-are-some-new-things-you-want-to-see-in-2k23-myleague)，2022-02-02/10，#6与#9 | NBA2K22时期玩家讨论（当前世代MyLeague与次世代MyNBA混合） | #6直接区别`Current Gen MyLeague`和`NextGen MyNBA`；#9希望将季后赛统计及单场最高放入球员卡并增强历史跟踪 | COMMUNITY_CONCURRENT_WISHLIST；**期待改进≠已验证PC22功能不存在、也≠存档无Box历史** |
 | SRC-0028 | [Steam：NBA2K17 PC MyLEAGUE特殊联盟规则下场内与Box得分不一致](https://steamcommunity.com/app/385760/discussions/0/1290691308577544770/)，2017-05-26，Ray原帖 | NBA2K17 **PC MyLEAGUE** | 玩家指出“罚球自动给分”规则下，场内统计34分，赛后Box/赛季重新结算只计27分；说明一些游戏规则可能造成统计阶段不一致 | COMMUNITY_FIRST_HAND_OLDER_PC；**不是NBA2K22仍有此BUG的证据**，仅用来定义质量风险和分层来源 |
 
 ### 本轮保留而不重复计数的来源
-- [SRC-0015] 2K22 PS4本世代MyLEAGUE **DarthRambo #1–#2**：再次直接核对原文中\`Quarter Length\`, \`Simulated Quarter Length\`, \`Team Style Factors\`, \`Possession Results\`, \`Shot Types\`, \`Shot Percentages\`, \`Stat Distribution\`栏目；11分钟和各数值是**作者个人设置**而非PC默认/游戏中的现实回合数。
-- [SRC-0025] PC自定义\`Remastered\`新闻：继续作为排除非原版PC截图的重要警示，不能将其“MyNBA”菜单作为本项目证据。
+- [SRC-0015] 2K22 PS4本世代MyLEAGUE **DarthRambo #1–#2**：再次直接核对原文中`Quarter Length`, `Simulated Quarter Length`, `Team Style Factors`, `Possession Results`, `Shot Types`, `Shot Percentages`, `Stat Distribution`栏目；11分钟和各数值是**作者个人设置**而非PC默认/游戏中的现实回合数。
+- [SRC-0025] PC自定义`Remastered`新闻：继续作为排除非原版PC截图的重要警示，不能将其“MyNBA”菜单作为本项目证据。
 
-**研究结果的阴性边界**：针对“NBA2K22 PC MyLEAGUE Game Logs/Advanced/Per36菜单截图、每场完整Box表头、赛后Shot Chart、跨年单场Box寿命”做了多组中文/英文和PC/本世代限定检索。返回大量**真实NBA联盟统计网站**、2K次世代官方图文、2K其它玩法、游戏模组或非NBA2K软件；**没有找到足以逐像素确证上述PC22原生页面的独立公开材料**。阴性搜索不等于不存在功能，不给\`PC22_UI_CONFIRMED\`、\`PC22_NATIVE_READ_VERIFIED\`或\`PROJECT_CAPTURED\`升级。2026-10-20只读取公开材料，没有复用/上传外部截图文件。
+**研究结果的阴性边界**：针对“NBA2K22 PC MyLEAGUE Game Logs/Advanced/Per36菜单截图、每场完整Box表头、赛后Shot Chart、跨年单场Box寿命”做了多组中文/英文和PC/本世代限定检索。返回大量**真实NBA联盟统计网站**、2K次世代官方图文、2K其它玩法、游戏模组或非NBA2K软件；**没有找到足以逐像素确证上述PC22原生页面的独立公开材料**。阴性搜索不等于不存在功能，不给`PC22_UI_CONFIRMED`、`PC22_NATIVE_READ_VERIFIED`或`PROJECT_CAPTURED`升级。2026-10-20只读取公开材料，没有复用/上传外部截图文件。
