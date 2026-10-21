@@ -296,3 +296,155 @@ NBA官方2021-08-02新闻[SRC-0114]：
 6. 全部资料按现实2021 CBA、2K22同版社区、其它模式/年度、Native已知和当前存档UNKNOWN分级；仍**没有完整PC22原版交易设置/限制页面逐像素认证**。
 
 **下一轮R05-C**：K09员工与Scouting、选秀前可见/未知信息、Scouting Reports、Prospect/历史Draft Class与真实选秀结果/权利、职位/Staff工资与球队Business，要求同样的游戏信息/可选项/效果目录。R05-D最后整合经营领域资料，**不设计/训练/部署GM/Coach/Player人格，不写交易规则决策程序，也不在DEV29独立审核**。R05-B没有触发任何游戏进程、采集、真实GM交易、DEV28/Codex或执行修改。
+
+
+---
+
+# DEV29 R05-C — 制服组、球探、新秀选秀与球队经营资源（2026-10-21）
+
+> **状态：\`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS\`。** R05-A已研究财务合同、R05-B已研究交易与选秀权，本轮研究K09员工与球探、Draft Class/Scouting/Draft、选秀前可见信息、游戏现有人员原生数据能力及球队Staff Budget。**只交游戏原料，绝不设计Coach/Player/GM人物思想、评分/行为模型、自动球探算法或选秀注入执行器。** 证据SRC-0145..0160，[R05-C机读目录](../catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)。
+
+## 16. 员工研究的三个不同版本与数据层
+
+**本项目本机NBA2K22 PC MyLEAGUE原生读取**和**2K22次世代PS5/XSX MyNBA官方开发说明**要并排列，不是后一套替代前一套。
+
+| 来源和平台 | 确实知道什么 | 不能由此认定 |
+|---|---|---|
+| 本项目\`config/memory_field_profile.json\` STAFF | 8个\`position\`合法enum（0..7）、\`years_left\`、\`salary\`及10项能力/体系字段，共**13项当前静态注册字段**；\`source_extensions.staff_details\`可从真实STAFF结构读取⟦role/team/姓名/fields⟧、通过球队指针反向核验岗位身份 | **13项只是已注册，不是游戏完整员工资料**；\`position=TRAINER\`不证明有7类专科医师或可写完整次世代岗位 |
+| NBA2K20 MyLEAGUE玩家<SRC-0146> | CFO、Assistant GM、Head Coach、Assistant Coach、Head Scout、Trainer是当年旧本世代常见六类岗位；玩家对其效果本身有分歧 | 旧版职位及玩家自答不能认证PC22没有Governor/其它岗位，也不能把“A scout increases training camp slots”的发言当代码公式 |
+| NBA2K22 **次世代MyNBA官方**<SRC-0145> | MySTAFF明确四部门、列出多种专科岗位，**最多17个可实际聘任名额**，必须雇前台岗位和各部门Head，员工预算是取舍；Coach/Scout/Medical各有不同职责 | **官方只对PS5/Xbox Series平台声明了新的MySTAFF架构**；PC22离线MyLEAGUE原版具体职位、部门、总人数上限及同名属性不能未经独立认证直接沿用 |
+| 2021-09 2K22玩家实测<SRC-0147/0148> | 有用户在MyNBA招聘后发现17槽争抢和预算不足、训练医疗或教练的试跑结果看似不同；也有开档发现部门空缺/预算不足的报告 | 这些是少数玩家主观体验（平台可能次世代），不是已量化的“聘某教练+2，某医生伤病-20%”算法。用户报告同名“MyLeague”**不等于**PC22已证。 |
+
+### 16.1 本项目8种本机静态注册岗位（逐一）
+
+项目\`STAFF.position\`注册于结构⟦+0x10E bit2 width3⟧，允许0..7八种身份代码：
+
+| 原始代码 | 职位Enum（项目当前字典原文） | 最直接的游戏系统接口 |
+|---:|---|---|
+| 0 | HEAD_COACH | 主教练；K04/教练体系与比赛设置 |
+| 1 | ASSISTANT_COACH | 助理教练；具体赛季影响仍要看2K22效果证据 |
+| 2 | HEAD_SCOUT | 首席球探；球探报告/选秀信息准确度候选，不是已认证个人潜力真值 |
+| 3 | TRAINER | 训练师；R03已覆盖训练/健康与自然成长，效果系数未认证 |
+| 4 | GM | 总经理；现实球队经营/球队关系，但这个Staff枚举不等于已开发30个GM Agent |
+| 5 | GOVERNOR | 球队负责人/管理人员；区别\`GM\`，不强推老板AI干预 |
+| 6 | CFO | 财务主管；职工Business/财务候选，不能假设直接带来具体收入 |
+| 7 | ASSISTANT_GM | 助理总经理；合同/交易能力候选，不是固定签约打折系统 |
+
+**内部员工字段13项完整计数**：
+\`position\`、\`years_left\`、\`salary\`、\`offense\`、\`defense\`、\`potential\`、\`contracts\`、\`trading\`、\`scouting\`、\`training\`、\`business\`、\`preferred_system\`、\`active_system\`。
+
+- ⟦salary⟧ +0xF8、24bit；⟦years_left⟧+0x112低4bit，取值是位域0..15，但不代表合同允许签15年；该Staff字段上的单位/总值合法范围**还缺少PC22可写UI交叉证明**。
+- 八项评分：⟦offense/defense/potential/contracts/trading/scouting/training/business⟧**实际共8项**，均4bit离散\`F .. A+\`共13个字典标签（原始0..12）。**\(13等级\)不是现实比例，\`A+\`也不保证CPU选秀报告绝对正确**。
+- ⟦preferred_system⟧与⟦active_system⟧各3bit、0..7；\`Balanced/Grit & Grind/Pace & Space/Perimeter Centric/Post Centric/Triangle/Seven Seconds/Defense\`与K04球队体系同名，但“教练偏好”和“当前使用”是两组字段，不可互相替代。
+- **上面是位域编码空间，不是将每一项默认开放给DEV29写入**。精确offset/bit/每个枚举键由[机读目录](../catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)直接保存原生Profile值；没有变更任何STAFF字节。
+
+### 16.2 已有真正员工原生源，不是网页纯猜测
+
+\`src/source_extensions.py::staff_details()\`从被校准的员工Name Anchor前0x30开始读取0x160字节。解析\`STAFF.position\`、当前聘用队指针\`STAFF +0x18\`，并要求该队相应职位槽位引用**指回同一个员工结构体**，成功才标\`VERIFIED_RECIPROCAL_TEAM_ROLE\`；否则保留\`UNMAPPED_NOT_ASSUMED_FREE_AGENT\`，**绝不可因为找不到球队就把人当已认证自由雇员**。现有正式存档批次路径确实包含\`staff.json\`，但本次没有逐项加载其全部员工或确认最新游戏日期，因此不能说当期某GM可以立即聘任某一具体人员。员工池**有数据读取能力**≠**已验原生聘解约写入能力**。
+
+## 17. 官方2K22次世代MySTAFF四部门完整职位原料——和PC原生八码并列
+
+2K2021-09-08开发说明<SRC-0145>确切列出下述全部“职位名称”，并称Front Office要全部填满、各部门须有Head、总计可填**17个员工位置**。但可选岗位总数**大于**17：
+
+| 部门 | 官方列出的具体岗位 | 可用机制原料（不编造具体数值） |
+|---|---|---|
+| Front Office | Governor、GM、Assistant GM、CFO | 管理、经营、签约与业务评分；合同预算分配 |
+| Coaching | Head Coach、Shot Doctor、Bigman Coach、Post Defense Coach、Perimeter Defense Coach、Guard Guru、Wing Whisperer | 对应细分投篮、内线、后卫、锋线及防守指导能力；真实成长效果待实测 |
+| Scouting | Head Scout、4 Domestic Scouts、2 Foreign Scouts | 一队可分配国内/海外球探覆盖；**名额候选**≠PC22已采6名球探或真实海外准确率 |
+| Sports Medicine | Team Doctor、Strength Trainer、Stamina Trainer、Sports Psych、Sports Science、Physio、Sleep Doctor | 不同康复/健康/体能/心理岗位；详见R03。不能从名词推出统一伤病降低百分比 |
+
+**职位可用性是多模式比较维度**：PC22本机已注册8类；次世代官方已宣告4部门及上述职位，并可以在17个位置/员工预算内取舍；2K20旧本世代只列六个基础岗位。**不要将这些候选合并成“PC22已经有22名员工”或“PC22总上限17”**。不同图文产品的标题里写MyNBA，目标PC依然MyLEAGUE，只有本机完整菜单/岗位交叉取证才可升级。
+
+开发说明有Updated Staff Card，员工技能徽章及具体职位适配度。此处特别区分：**员工徽章≠球员Badge**；官方只说超过旧版双倍的员工徽章，不提供本研究核准的完整ID/value列表，绝不自行制造“全员徽章枚举”。
+
+## 18. Scouting：球探侦察报告、可见预估与真实潜力的界线
+
+### 18.1 可观察报告类型：是一个“不完全知道”的体系
+
+**同版2K22离线MyLEAGUE操作文章<SRC-0149>**给出\`Scouting → Prospect Scouting\`菜单、用户自建或历史Draft Class加载、按球探预计Overall排序、\`D.E. Rank\`（DraftExpress预测排序）、\`2K\`及\`NBA.com\`等排名列的文字及图片。**这证明同版文章报告了这些信息类别，但它不是本机PC原版滚动菜单逐像素认证。**
+
+研究上要将以下对象分开：
+- **SCOUTED_PERCENT / COVERAGE**：报告完成度，实际可读的当前\`scouted 40%\`、\`100%\`是不同已完成的信息状态；**并不等于预测能力100%正确**。
+- **SCOUT_GRADE / PROJECTED_OVR / PROJECTED_POTENTIAL**：是球探报告对能力和前景的估计，受球探是否完成、可能误判及使用版本影响。<SRC-0151>同代玩家解释Auto一般先选热门/己队顺位附近人，但可能未达到100%，不是官方算法。
+- **MOCK_DRAFT / D.E. RANK / 2K RANK / NBA.com RANK**：不同媒体/算法或球探榜单，**不是人类GM必须接受的“真顺位”**；现实NBA2022分析网站也分别维护Big Board（天赋排序）、Mock Draft（预测球队）、当期选秀结果。<SRC-0157/0158>
+- **TRUE_GAME_PLAYER_ABILITY/POTENTIAL**：本项目源代码可能在受限的历史原始游戏结构中含真实值，**它不是普通GM通过球探应当知道的资料**。本局原生潜力自动遮蔽后向GM只提供⟦Potential=1⟧占位，决不能拿这个1作为现实评级；真实潜力不能通过GM SQL/公开Draft Class补回。
+- **DRAFT_RESULT / PICK_OWNER**：真正选秀之后，才能把当年选中队、轮次、顺位和真实球员身份当世界事实；Mock Draft不是实际选秀结果。
+
+### 18.2 球探到底能做什么/什么时候刷新？
+
+| 候选动作/入口 | 同版/邻近资料 | 保留未知 |
+|---|---|---|
+| 自动侦察 Auto Scouting | 2021-08 MyLEAGUE玩家说自动会优先高排名和己方可能选的球员，但未必100%<SRC-0151> | 发帖时间早于2K22发售，**仅旧系列同代经验**；PC22当前开关与刷新节奏未知 |
+| 手动选人／优先项目 | 2022-12 MyLEAGUE玩家报告新秀列表中40%侦察状态，回复建议Auto/Manual与定向球员<SRC-0152> | **2K22/23同代版本标签不够清晰**；当前PC22原版菜单最多同时选择几人/周期未证 |
+| Scouting Trips | **2015 Leftos开发人员**称旧MyLEAGUE自11/15开始每15天有Scout；每次玩家选若干人<SRC-0153> | 这直接是2015游戏，不是2022 PC必然的15天间隔。也不能拿旧版“2次100%”当当前绝对规则 |
+| 聘更好的Head Scout | 本机STAFF.scouting有F到A+档级，角色身份可读 | **有字段、有分级≠提高多少侦察效率或预估准确率的引擎公式已证** |
+| Domestic / Foreign Scout | 2K22次世代官方每队候选4名国内与2名外国<SRC-0145> | **严格为4国内+2国际球探职位候选**；PC22本机未分出6套独立员工字段 |
+
+**反例**：2022-11邻近MyNBA一手问答<SRC-0154>有人已100%侦察仍不确定不同Potential Grade对应何种真实原始潜力，帖子没有可靠的官方数学答案。**不能从⟦A+⟧推断POTENTIAL=95，也不能从⟦100%⟧推断“侦察无误差”**。2022-07确有2K22 MyLEAGUE玩家明确区分卡面潜力字母等级和Edit Player的25..100基础Potential<SRC-0155>，这证明它们在信息层上可分开，但并不授权普通GM去Edit Player“作弊获取”隐藏真值。
+
+## 19. Draft Class：真实世界的“历史选秀年”和游戏内选秀年度必须严格分开
+
+**本世界业务**：开档2021–22，接下来第一次真正完成的Draft使用**1984**历史新秀班，后续1985…2020，下一轮再1984；只有**玩家确认一届选秀已经真正结束**才推进历史班计数。游戏内有2022年资产、真实历史班1984、历史新秀人物原始\`draft_year=1984\`，三者不是同一外键。
+
+### 19.1 已有历史克隆读取与候选筛选（不是可运行注入）
+
+\`docs/20_HISTORICAL_DRAFT_POOL_AND_INJECTION_SPEC.md\`、\`src/historical_rookies.py\`的现有独立查询：
+
+- 每条Player Pool原始长度**0x4F0=1264字节**；\`raw_struct[0x70] & 0xE0 == 0xE0\`是该项目与艾弗森/科比克隆交叉验证的历史新秀类型标签；**只有同标签且DraftYear匹配、身份/顺位去重，才能作为可导入候选**。
+- 现有历史档**3320**个原始槽，包含不同同名/年龄/历史版本克隆，不是“3320历史新秀”；旧文报告1984原始匹配7人、1996匹配14人只是**旧批次示例**，不能保证新抓取仍完全相同或每届都有60人。
+- 每届目标选秀临时60槽是**目标容量/待确认的游戏场景布局**；现有\`src/historical_rookies.py\`能筛选历史新人、\`DraftEngine.get_draft_class\`能给候选；**目标临时球员槽位位置、字段映射与存盘读回尚未完成PC22实机认证**。
+- \`src/extract_live_draft_class.py\`使用NBA2K22 Tools内存扫描的旧**试验性代码**，并以固定指针区间、姓名聚类猜测目标数据；**不能冒充已完成当前PC版本校准或跑它进行正式抓取**。
+- 用户\`config/gameplay_policy.json\`明确缺少合格历史新秀模型时**保留游戏生成的新秀**，不补现役/巅峰克隆，不伪造属性；普通经营不能直接修改技能潜力/徽章。
+- **GM现实潜力保密风险**：DEV15资料明确GM发布库将Potential覆盖为1；\`historical_rookies\`源池可能包含已遮蔽的\`raw_struct[0x441]\`。如果用GM公开库直接做游戏原始选秀注入，会把某些新秀的真潜力错误写成1。**只有另行授权、校验且隔离的原生真实注入源才能用于游戏写入**；本轮绝不调用。
+
+### 19.2 2K22真的有哪些Draft Class菜单选择？
+
+2K22同版4月攻略<SRC-0149>明确描述在创建联盟后/进入Scouting菜单可选择：
+- 系统**自动生成Draft Class**；
+- **Historic Draft Class**，如1984/2003；
+- **User-Created Draft Class**，本地保存或社区下载，正式离线模式可在Scouting页重选；
+- **Create/Edit Draft Class**，从历史人物或已导出DNA建立新的新人模板；
+- 若载入用户自建名单可存在不同能力/潜力平衡尺度及玩家主观评分，**不等于原始NBA2K22官方保证所有历史新秀覆盖**。
+
+同版2022 Online MyLEAGUE玩家<SRC-0150>先认为找不到导入入口，后来在\`Scouting → Prospect Scouting →选人\`下找到“Import Draft Class”。**这是Online玩家自我纠正的菜单路径，不能反推Offline一定没有该功能或每季自动重选成功**。
+
+老版2K20–21的\`Export Player DNA/Import Player DNA\`以及2K22用户2022报告自己复制历史新秀的方式<SRC-0156>说明**已存在可研究的角色外观/能力复制工具**，但**这不是本项目普通经营的自由改Ability许可**。历史选秀注入需要身份标记、新秀年龄/Years Pro、原始Badge/Skill结构与目标槽逐项认证。
+
+**Draft Class内容变化≠Draft Pick ownership变化**：改变候选新秀名单不会自动修改某支球队拥有的2022年首轮选秀权；本项目R05-B的32byte未来选秀权具有独立\`owner/original/year/round\`，另需读取真正Draft Result才能确定谁选中哪个人物。
+
+## 20. Draft过程可观察对象、现实制度与PC22技术断点
+
+| 对象 | 有来源的真实内容 | 目前缺少的游戏证据 |
+|---|---|---|
+| Lottery / Draft Order | 2021–22现实NBA使用乐透、2022 NBA实际选秀的官方Draft Board列出第1轮和第2轮、球队及球员<SRC-0157> | 当前PC22默认真实Lottery权重、当前世界抽签结果、真实Draft Order变化的可认证内存位置和readback |
+| Mock Draft / Draft Board | 同版2K22攻略显示多个模拟榜单列及Scouted Projected OVR，现实Draft Big Board与Mock区分<SRC-0149/0158> | 当前各队GM能看到的实时预测版本和是否每月更新、榜单在临近选秀如何变动 |
+| Prospect Biographical Info | 身高体重、位置、年龄、大学或国家等候选球员卡<SRC-0149>；实际历史新秀池有姓名、年份、轮次、顺位、面补ID | 此时\`current draft year\`对应的真实60个新秀目标身份是否已经稳定，未来世界同名克隆是否冲突 |
+| Scouting Report / Potential Grade | 0–100进度与字母等级观察，个人球探能力可能有关 | 完整PC22字段列表、误差模型、是否有隐藏信息及部分报告是否对不同GM可见 |
+| Player Workouts / Combine | 现实2022 Draft Combine/体测真实存在<SRC-0159>，旧游戏系列有预选秀操作参考 | **未找到目标PC22真实MyLEAGUE独立Workouts可配置动作完整菜单和原生效果，不能擅自新增** |
+| Rookie Contract / Draft Rights | NBA现实前两轮新秀合同制度；本机PLAYER已有合同Option/合同类型、选秀权资产独立存储 | **Draft Choice → 选中球员 → 所属球队/合同年份的PC22完整原生签约动作尚未实机认证**；尤其Euro Stash和Two Way的实际赛季转换 |
+| Season Progression | 1984–2020历史班随真实已完成选秀推进，本项目已有候选查询 | 自动识别“选秀已结束”、历史班计数稳定持久化、下一赛季Draft Result必须从当前存档确认 |
+
+**特别注意：外部篮球媒体榜单是现实2022年资料，不是游戏世界中已经发生的选秀顺位。** NBA.com真实2022榜单不能直接宣称本局2022年乔丹一定被魔术选中，也不能因观察到历史中新秀成名，提前把其Potential真值泄漏给GM。
+
+## 21. Staff Budget、员工聘任和球队经营：可选控制的归属与副作用
+
+本项目R05-A已经将⟦staff_budget/cash/budget/payroll⟧分为不同经济对象。**STAFF.salary 24bit不是球队工资帽的一部分的自动证明**；员工合同薪水应和球队Staff Budget以及Coach/Scout/Trainer岗位是否有合法空位分别检查，而不是“球员有Cap Space所以可雇球探”。
+
+真实员工操作候选包括：**Hire、Fire、Extend/Renew、Change Position、View Staff Pool、View Staff Contract/Staff Budget、Edit Staff、Allocate Staffing Slots**。**只有查看和本机STAFF读源已有明确结构**；其它选项来自2K22次世代官方与旧本世代讨论，不证明PC22已认证每一个按钮、选项可用年限、解雇费用/雇佣天数和执行效果。
+
+同版2K22次世代少数玩家<SRC-0147/0148>报告Budget不足、17个Staff slots抢占及调整医疗配置后觉得伤病恢复较快；**不应由此推断“所有球队必须优先医务组、医疗员工每人回归提速50%”**。另一组2022社区玩家比较不同教练/特殊训练员工是否有作用时还有直接矛盾叙述<SRC-0160>；真实效应、适用模式和刷新时点仍待真实比赛/成长/伤情联动证明。
+
+本项目早期\`docs/05_STAFF_AND_PLAYER_GROWTH.md\`与\`docs/12_NATIVE_MENTORSHIP_AND_STAFF_GUIDE.md\`含“聘任某名医固定减伤”、“训练师直接给乔丹加3PT”、“某教练必须最佳”等未经证实的旧计划与后已取消的自动属性编辑。**现行游戏政策明确禁止这种默认改值**，这些文档仅能当旧版本背景，不作为R05-C事实依据。
+
+## 22. R05-C研究目录的交付内容与目前实际断点
+
+本轮把下列项目变成有精确来源的**知识原料**：
+
+1. **8种PC项目Static Native岗位、13个STAFF字段**，含薪酬、年限、8个字母级属性、两套3bit战术体系。已经存在\`STAFF +0x18\`聘用球队双向指针校验及正式源\`staff.json\`；**实际聘任/转职/解聘/续约可写接口未经认证**。
+2. **NBA2K22次世代官方四部门和17人聘用上限**，同时保留与PC注册岗位不一致的版本事实，不偷换。
+3. **Scouting可观察候选**：Scouted %、Projected OVR/Potential、多个模拟榜单/D.E.排序、Auto/Manual、Head Scout评分、国内/国际球探覆盖；它们与真正球员潜力、Draft结果独立。
+4. **历史选秀1984–2020循环**、Player Pool 0x4F0/标记0x70类型高三位、3320槽、候选缺额保留生成新秀、当前写入目标无PC实机认证；公开Potential=1绝不回流为真实Game Potential。
+5. **Draft菜单**：Generated/Historic/User-Created/Create/Edit/Import DNA等候选，部分同版2K22与跨代明确。NBA彩票/顺位、签新秀、Euro Stash、Mock/Big Board及可选工作坊全链条仍需PC22 UI取证。
+6. **业务权限**：研究原料不等于有PC游戏修改许可；玩家单独批准后再由独立执行者落实原生可验证动作。没有创建任何球员/Coach/GM人格、选秀决策程序、员工雇佣AI或模型间工作流。
+
+**状态**：\`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS\`；**R05-D经营资料来源与全部操作目录整合尚未启动**，由用户下次明确触发。R04维持批准结案。本轮不启动游戏、Codex、DEV28、历史新秀真实注入或原生写入。
