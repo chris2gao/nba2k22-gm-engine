@@ -15,6 +15,8 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 ## 每轮工作原则
 研究窗口在每轮任务中**先搜索玩家社区/攻略及官方游戏说明**，核对所引用材料的2K版本/平台/模式；从已有资料链接与图文截取准确事实，用自己中文文字解释**是什么、怎么操作、为什么有效、联动什么、GM怎样决策、需要什么输入与输出**。每轮将新增的主题文档保存到`guides/`，使用稳定`K##`能力标识和可追溯`SRC-####`、`VIS-####`来源/图片ID；更新本页/PROGRESS/SOURCES后完成当前轮，不在未完成研究中等待用户。
 
+**跨世代研究原则（用户2026-10-21确认）**：终极联盟类机制在NBA2K22次世代与PC本世代之间大体可复用，尤其训练、经营、教练、球员发展和角色可选行为；**优先采纳次世代资料作为机制与角色原料**，而不是一概排除。具体新增页面、精确菜单、游戏原生字段、数值和执行能力仍分别核实；物理/比赛引擎差异另行研究。
+
 **不要从“已经拿到的内存字段”反向定义整个游戏功能全集。** 原生字段认证与“可看见/可选/可写/可保存”是独立状态；没采到逐场比赛≠游戏没有逐场比赛。旧版本和次世代可用于机制理解，不自动证明PC22内存相同。
 
 新研究文档必须能帮助：
@@ -25,7 +27,7 @@ K01逐场比赛/赛程；K02球队和球员普通/高级统计；K03球员和名
 
 **视觉材料**：优先记录第三方页面和图片链接、使用位置、图片证据点；确有传播许可或玩家自供的图片才纳入GitHub。不得绕过水印/假定可自由再分发；研究卡片即使没有图片二进制也必须完整可读。
 
-**当前权威研究状态（2026-10-21）**：**R01与R02公开资料研究均已结案，PC22原版UI缺口封存，不是原生游戏数据/执行器已全面认证**。R01：[K01/K02 §§0–22](guides/K01_K02_GAME_STATS.md)，`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`；R02：[K04 教练、攻防、Playbook、Freelance、ACE及角色原料 §§0–21](guides/K04_COACH_AND_PLAYS.md)，`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。研究来源登记至**SRC-0048**：[SOURCES](SOURCES.md)，视觉索引为**VIS-0001..0008**：[EXTERNAL_VISUALS](visuals/EXTERNAL_VISUALS.md)（其中没有被认证为目标原版PC22全部Coach菜单的新增图证）。**新增纯研究、不可执行的多角色能力原料目录**：[K04_ROLE_CAPABILITY_RESEARCH_V1.json](catalogs/K04_ROLE_CAPABILITY_RESEARCH_V1.json)；只描述观察/候选选择/角色拥有者/权限/反馈来源，不开发Agent、不产生游戏写入许可。**下一研究轮R03-A：K06团队与球员训练、疲劳、伤病、恢复、自然成长**，具体接力与停止条件见[PROGRESS](PROGRESS.md)。
+**当前权威研究状态（2026-10-21）**：**R01与R02公开资料研究均已结案，PC22原版UI缺口封存，不是原生游戏数据/执行器已全面认证**。R01：[K01/K02 §§0–22](guides/K01_K02_GAME_STATS.md)，`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`；R02：[K04 教练、攻防、Playbook、Freelance、ACE及角色原料 §§0–21](guides/K04_COACH_AND_PLAYS.md)，`R02_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。研究来源登记至**SRC-0048**：[SOURCES](SOURCES.md)，视觉索引为**VIS-0001..0008**：[EXTERNAL_VISUALS](visuals/EXTERNAL_VISUALS.md)（其中没有被认证为目标原版PC22全部Coach菜单的新增图证）。**新增纯研究、不可执行的多角色能力原料目录**：[K04_ROLE_CAPABILITY_RESEARCH_V1.json](catalogs/K04_ROLE_CAPABILITY_RESEARCH_V1.json)；只描述观察/候选选择/角色拥有者/权限/反馈来源，不开发Agent、不产生游戏写入许可。**R03-A已发表**：[K06训练、健康与自然成长](guides/K06_TRAINING_HEALTH_GROWTH.md)，来源SRC-0049..0059，官方次世代训练截图VIS-0009/0010及[11类角色训练能力目录](catalogs/K06_TRAINING_ROLE_INPUTS_RESEARCH_V1.json)。**下一研究轮R03-B：疲劳当前状态、伤病、康复与导师联动**，具体接力与停止条件见[PROGRESS](PROGRESS.md)。
 ## 新增球员系统研究与涌现方向
 
-玩家确定：所有游戏机制知识必须让**GM/球员/教练/媒体作为独立角色**拥有真实可观察状态、合法可选行为、协商权、信息限制与比赛/历史反馈，而非强制产生最优决策。R03仍研究训练/恢复一般机制；**R04独立研究NBA2K20–23的全部球员身份、属性、潜力、倾向、徽章、人格徽章、耐久/伤病、合同偏好（Play for Win/Financial Security/Loyalty）、球员职业自主权及字段双语义**；原经营R04顺延R05，其余后移。详情：[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原生Ability/Potential/Badge仅正常读取观察，自主Agent同意与**真实玩家的存档写入批准**分开；人格记忆优先外挂SQLite，不擅占仍有效的原生字段。**当前R01/R02均已结案，下一批R03训练健康；R04完整球员自主研究仍按V3排期**。
+玩家确定：所有游戏机制知识必须让**GM/球员/教练/媒体作为独立角色**拥有真实可观察状态、合法可选行为、协商权、信息限制与比赛/历史反馈，而非强制产生最优决策。R03仍研究训练/恢复一般机制；**R04独立研究NBA2K20–23的全部球员身份、属性、潜力、倾向、徽章、人格徽章、耐久/伤病、合同偏好（Play for Win/Financial Security/Loyalty）、球员职业自主权及字段双语义**；原经营R04顺延R05，其余后移。详情：[R04专项任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。原生Ability/Potential/Badge仅正常读取观察，自主Agent同意与**真实玩家的存档写入批准**分开；人格记忆优先外挂SQLite，不擅占仍有效的原生字段。**当前R01/R02已结案，R03-A已发表、R03-B待启动；R04球员自主研究按V3排期**。
