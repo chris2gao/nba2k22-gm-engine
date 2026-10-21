@@ -1,5 +1,11 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-20 玩家调整顺序：DEV29全系列游戏机制知识先于DEV28开发
+
+- 玩家要求首先系统理解**NBA2K20/21/22/23系列与终极联盟游戏机制、菜单、全部可见数据、全部可选设置、最佳玩家攻略**，再推进DEV28的原生I/O全透明开发。指出原全量采集连逐场比赛/Box Score及高级指标基础都没准备好，先找内存→后定数据需求的开发方法必须改为**GM业务决策证据需求→游戏全域功能目录→来源/采集/查询/执行差距审计→Codex/Antigravity针对性补齐**。
+- 新权威[DEV29/R0全系列玩法知识前置规划](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V1.md)和已更新[DEV28开头的前置门槛](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。程序包按R0-A官方/社区百科与菜单图谱、R0-B GM和Analytics反向证据设计、R0-C Codex现有工程能力矩阵，**全部在D28-0之前**。这是研究计划已发布，不是所有机制已研究完成。
+- 所有模型共用`FRANCHISE_MECHANICS_ATLAS`、`FEATURE_DATA_CONTROL_MATRIX`、`GM_DECISION_TO_EVIDENCE_MATRIX`，按照游戏版本/模式、官方与社区来源、真实菜单/内存、现行采集与GM可用性分层；缺少Game Logs不可做逐场因果分析。次世代MyNBA/2K23 Eras可参考机制，不得直接冒充PC22原生API。PR #12尚在Codex处理冲突，不因计划修改它的分支；不新开实际开发、不合并PR或修改游戏。
+
 ## 2026-10-20 PR #12玩家批准审查修复与DEV28全透明开发路线
 
 - 玩家明确授权PR #12/F1–F4**局部修复**，需Codex在原Draft分支完成：蓝图与B5演化修订相符、同存档代次/分支历史引用、B4可执行native动作限制不可误封正常外部MARKET、portfolio只选择VIABLE_CANDIDATE内部动作；直接关联小范围测试后结束任务，合并及V4启用独立授权。
