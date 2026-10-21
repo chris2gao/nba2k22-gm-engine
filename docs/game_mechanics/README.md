@@ -1,5 +1,10 @@
 # NBA2K20–23 终极联盟游戏机制知识库
 
+## 2026-10-21 研究职责纠正：游戏原料不是人格算法
+
+**用户权威[六阶段运行流程与DEV29研究边界](RESEARCH_INPUTS_VS_AGENT_EXECUTION_BOUNDARY.md)**：采集模型→数据分析模型→独立教练模型→独立球员模型→各队GM模型→汇总交执行模型（经玩家批准实际写入）。教练与球员人格系统尚未开发，目前主要已有GM人格系统；**本资料库只解释游戏到底有哪些信息、设定、选择、机制与后果，可以交给不同模型使用**。八个R04虚构互动场景和候选`role_rights`仅是研究资料分类，不是对未来智能体的固定决策、拒绝或谈判规则。球员人格、教练人格、媒体与流程调度是其它开发任务。R04已结案，R05 NEXT：合同/财务/员工/球探/选秀游戏知识研究，严格保持研究与开发职责分开。
+
+
 > **研究工作主入口**：面向所有网页GPT、GM、数据分析、Codex和Antigravity。主研究版本为NBA2K22 PC本世代MyLEAGUE；NBA2K20/21/22次世代MyNBA/23系列用于理解机制、攻略、查漏与版本对照。**内容仍处于资料库建立阶段，空缺不等于游戏没有该功能。**
 
 - **[最新正式研究路线（DEV29 V3，多角色自主涌现）](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（[V2网页GPT多轮交付规范](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)继续适用）
