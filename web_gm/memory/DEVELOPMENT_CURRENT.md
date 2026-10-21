@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 DEV29 R06正式独立验收通过，R07 NEXT
+
+已在[独立审核报告](../../docs/development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)确认R06-A/B/C/D研究可结案，状态`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`。R06D 26关联、20缺口和79/79目录锚点均准确，R06B十类奖项已降级`sources=[]`且Eras平台排除性断言改UNKNOWN；R06C38项中7项无直接来源保留未知。**R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX**为研究唯一NEXT；其责任为对已有K01–K12做游戏可读/可选/作用、证据等级与I/O缺口统一矩阵，不是编写Coach/Player/Media人格、模型决策逻辑或启动DEV28。先后各批的发布状态不代表真实PC22界面/运行时读写/存盘已验；选秀权V4旧+3代码阻断依旧另行Codex维护。
+
 ## 2026-10-21 R06-D跨领域整合已发布：下一研究候选R07
 
 - DEV29最新研究报告：[R06-D K05/K10/K11跨域中文指南](../../docs/game_mechanics/guides/K05_K10_K11_CROSS_DOMAIN_INTEGRATION_R06D.md)和[26机制关系＋20 PC22资料缺口目录](../../docs/game_mechanics/catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)均已发布。关系ID关联K04/K06/R04B/R05D/R06A/B/C源目录ID并在提交前作存在性检查；**不是26条实机验证因果公式**。20缺口是资料与DEV28未来可参考需求，不是自动授权Codex。
