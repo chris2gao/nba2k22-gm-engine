@@ -413,3 +413,8 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 **本轮新增原版NBA2K22 PC完整UI逐像素验收VIS = 0；新增外部SRC = 0。** R06-D为既有研究卡交叉索引，不把旧3D滑块帖/PS4/PS5截图/模组演示升级为当前存档UI、原生读数或游戏引擎因果证据。历史、纪录、合同、选秀及Save等仍按R01–R06-C视觉索引保留各自的PC22取证缺口。
 
 详细机读逐项回链见[26关联与20项缺口](../catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)；不重复抓取第三方图片，也不要求玩家当前立即进入游戏测试。
+
+
+## DEV29 R07 — 知识/可观察/可执行性总目录视觉证据边界（2026-10-21）
+
+本轮仅静态归并R01–R06来源目录、项目已报告生产覆盖和旧VIS索引。**新PC22实机原版完整菜单视觉认证 = 0，新外部SRC = 0，新实时游戏读回 = 0。** R07对40组功能族的模式/版本适用性维持R01–R06原文；不把原有PS4/2K23截图提升为本机PC22现场证明。索引：[R07七层成熟度指南](../guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40组能力与证据目录](../catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)。未来要取的原版图片与实机样本沿用旧VIS清单，需用户批准的独立测试档才能进行。
