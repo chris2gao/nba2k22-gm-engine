@@ -114,7 +114,7 @@ def prepare(run, analysis, index, payload):
         'D6_TEAM_IDENTITY_AND_MONITORING': context['identity_role_tradeoff'],
     }
     return dict(version=VERSION, team_id=t['team_id'], source_binding=deepcopy(analysis['source_binding']),
-                status='DRAFT_UNAPPROVED' if supported_actions else 'HOLD',
+                status='DRAFT_UNAPPROVED', native_action_status='DRAFT_UNAPPROVED' if supported_actions else 'HOLD',
                 blueprint=deepcopy(blue), why_this_basketball=payload['why_this_basketball'],
                 primary_secondary_system=dict(primary=blue['primary_system'], secondary=blue['secondary_systems']),
                 first_advantage=blue['first_advantage'], opponent_counter=blue['opponent_counter'], second_answer=blue['second_answer'],
@@ -122,7 +122,8 @@ def prepare(run, analysis, index, payload):
                 identity_application=deepcopy(identity), identity_reference=seed,
                 dimension_links=dimensions, alternative_implications=deepcopy(implications),
                 native_support_and_unknowns=dict(bindings=support, blocked=blocked, effects='UNKNOWN_NOT_PREDICTED'),
-                supported_actions=supported_actions, hold_reasons=[] if supported_actions else ['NO_SUPPORTED_NATIVE_ACTION'],
+                supported_actions=supported_actions, hold_reasons=[],
+                native_hold_reasons=[] if supported_actions else ['NO_SUPPORTED_NATIVE_ACTION'],
                 observation_limits=['NO_BOX_SCORE_TRENDS_OR_WIN_RATE_EFFECT_CLAIMED', 'AI_CAN_OVERRIDE_MINUTE_BANDS',
                                     'POTENTIAL_MASKED_INTANGIBLES_NOT_SCOUTING_SKILL'],
                 actual_team_assessment='UNASSESSED', authority='DEVELOPMENT_CANDIDATE_NO_GAME_AUTHORITY')
@@ -150,10 +151,14 @@ def attach_alternatives(payload, row, review):
     obj, prepared = deepcopy(payload), row['payload']
     known = {a['action_id']: a for a in prepared.get('supported_actions', [])}
     for alt in obj['alternatives']:
-        if alt.get('action') and (alt['category'] != 'INTERNAL' or alt['action'] != known.get(alt['action']['action_id'])):
-            raise ValueError('BPTI_ACTION_MUST_MATCH_SUPPORTED_INTERNAL_CANDIDATE')
-        if prepared['status'] == 'HOLD' and alt['category'] != 'HOLD':
+        if alt['category'] == 'INTERNAL' and alt.get('action') and alt['action'] != known.get(alt['action']['action_id']):
+            # Retain the unsupported hypothesis for research; it cannot be selected.
             alt['status'] = 'BLOCKED'
+            alt['bpti_native_status'] = 'HOLD_UNSUPPORTED_NATIVE_ACTION'
+        if prepared['status'] == 'HOLD' and alt['category'] == 'INTERNAL':
+            alt['status'] = 'BLOCKED'
+        # MARKET is governed by M3's gap/internal comparison, finance and negotiation,
+        # not by the availability of a native tactical write.
         effect = prepared.get('alternative_implications', {}).get(alt['category'])
         if effect:
             alt['proposed_means'] += ' | BPTI: ' + effect['means']

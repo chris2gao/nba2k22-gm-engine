@@ -44,3 +44,22 @@
 实现提交：da8a645d95602eb6cc244559599ebab66fa55231。
 
 Draft PR：[PR #12](https://github.com/chris2gao/nba2k22-gm-engine/pull/12)，base main，head codex/bpti-package-c。未合并；后续仅补交付链接，不修改实现或追加测试。
+
+## PR #12 玩家批准 F1–F4 最终修复（2026-10-20）
+
+本节覆盖上方“后续仅补链接”的原交付结束点。已读取PR #12最新两条Web Development审查（UTC 2026-10-21 03:41:42 / 04:07:20，均针对9071cae）、磁盘AGENTS和相关M3源码。仅在原codex/bpti-package-c完成F1–F4，不引入DEV24/DEV28或新审批系统。
+
+| 修复 | 实际实现和证据 |
+|---|---|
+| F1 | bpti_evolution.current统一检查当前蓝图revision/来源/球队/演化状态；validate给BPTI_EVOLUTION_STALE/BLOCK_FINAL，finalize和strategy_candidate再次拒绝陈旧演化。策略基底原BPTI当前字段先清除。合成完整路径：蓝图r1/演化r1→蓝图r2→r2评审/备选→validate失败、不能final/strategy→重新记录r2演化→validate/final成功，旧r1历史内容未变。 |
+| F2 | 原前态同team/career检查保留，另核对齐全非空且相同的save_id/save_instance_id/generation_id及连续history_branch_context。CLI从原已存run恢复旧记录分支上下文；新记录自带该上下文。批次、snapshot、赛季变化允许；各身份冲突/缺失/不同分支HOLD。没有新增跨实例血缘桥接；同名标签本身不能认证世界线。 |
+| F3 | 有效蓝图的DRAFT_UNAPPROVED与native_action_status分开；无支持动作只原生HOLD，MARKET不再自动BLOCKED。不支持的INTERNAL具体动作标BLOCKED/native HOLD；原M3内部人才缺口、财务引用/执行检查和双边同版谈判均未改。合成无动作与未知Tempo方向后，有GAP_REMAINS/内部比较证据的市场方案仍可提交offer，未回应仍NEGOTIATING；撤掉缺口证据继续被原门槛拒绝。 |
+| F4 | decision_portfolio.resolve仅接纳category=INTERNAL、status=VIABLE_CANDIDATE且有具体action/当前备选版本的选定内部动作。BLOCKED/RESEARCH/NOT_APPLICABLE拒绝；inspect及select/validate复用该函数。研究引用和HOLD继续保留，无隐藏值补写。 |
+
+针对性命令为python -B tests/test_bpti_pr12_fixes.py。首次入口直接导入了旧PackageCChecks类，unittest意外额外收集C-C1～C-C5：**实际Ran 9 tests in 42.500s，8通过，F3失败**。F1/F2/F4已通过，旧五项均通过；F3失败是新断言把原bilateral的NEGOTIATING误写为AWAITING_RESPONSES，未发现市场实现故障。随后改为模块引用以消除额外收集，并按原状态修正断言。
+
+只复验失败的F3：python -B tests/test_bpti_pr12_fixes.py PR12FixChecks.test_F3_native_hold_does_not_veto_evidenced_market；**Ran 1 test in 17.169s — OK**。因此F1–F4均有对应通过证据；没有重跑已通过的F1/F2/F4，没有完整项目回归或游戏测试。原test_bpti_package_c中两个原生HOLD断言同步改用native_action_status，保留与F3新语义一致；本轮额外旧五项运行已如实记载，不能声称“仅运行四项”。
+
+本轮只验证合成派生工作台，不证明实际生产GM、比赛、交易/签约执行、存盘或真实数据完整。当前没有可认证的跨实例历史桥接；实例/代次不符或证据不足时保持HOLD，不能凭career同名连接。无新数据库/审批/执行器、无游戏数据改动；V3有效/V4未启用、真实30队UNASSESSED。
+
+后续权威规划为[DEV28主计划](https://github.com/chris2gao/nba2k22-gm-engine/blob/main/docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)：全量控制目录/合法值、实际Coach/Book/换帅归位/68槽、DEV24动态事实和完整执行读回均需下一独立玩家任务；本轮不实施，也不自动合并PR #12。

@@ -1,5 +1,8 @@
 # 迭代开发基线提示词
 
+PR #12本轮F1–F4收尾：当前演化必须绑定当前蓝图/来源，旧历史保留但不能进入当前final/strategy；前态须沿同队/career/真实存档实例与连续历史线，缺证据HOLD。无原生可执行动作仅native_action_status=HOLD，市场继续原M3门槛；组合只选INTERNAL/VIABLE_CANDIDATE。结果见[包C验收](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)。后续[DEV28权威规划](https://github.com/chris2gao/nba2k22-gm-engine/blob/main/docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)另行启动，本轮不实施DEV24/DEV28、不合并PR、不启用V4。
+
+
 2026-10-20 工作包C增量：PR #11经玩家批准合并main（04b194a），B4/B5/B6在独立codex/bpti-package-c接入现有M3候选流程。新增submit-blueprint/record-evolution、D1–D6与内部优先比较、同工作台版本历史；详见[B4/B5手册](BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)、本轮验收与34。仅C-C1～C-C5合成验收；正式GM、DEV24、采集/游戏数据发布与写入未触发。文化慢变、技能按当前来源、未知方向HOLD，V3有效/V4未启用、实际30队UNASSESSED。下方包B“未合并/包C未开始”为历史阶段描述。
 
 2026-10-20 工作包B增量：DEV27已按玩家新授权以80459b4快进合入远端及本地main。B2/B3已在独立codex/bpti-package-b交付知识映射/30队历史seed和四条早期机制；接口与限制见[B2/B3手册](BPTI_B2_B3_NATIVE_BINDINGS_AND_TEAM_IDENTITIES.md)、[四项验收](development_reviews/BPTI_PACKAGE_B_IMPLEMENTATION_AND_ACCEPTANCE.md)及34。仅四项授权检查首次通过；包B待Draft PR审阅，不自动合并或启动B4–B6。V4未启用，真实30队UNASSESSED；下面旧“未合main/未做B2”描述保留原阶段历史。

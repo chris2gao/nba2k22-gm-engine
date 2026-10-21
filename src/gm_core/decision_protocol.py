@@ -262,6 +262,10 @@ def validate(run, analysis, finance=None, coach_snapshot=None, native_artifacts=
         b=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(str(tid))
         if b and any(not x or x['payload'].get('bpti_blueprint_revision')!=b['revision'] for x in (r,a)):
             issues.append(dict(code='BPTI_BLUEPRINT_REVIEW_STALE',team_id=tid,effect='BLOCK_FINAL'))
+        try:
+            bpti_evolution.current(run,tid)
+        except ValueError as exc:
+            issues.append(dict(code='BPTI_EVOLUTION_STALE',team_id=tid,reason=str(exc),effect='BLOCK_FINAL'))
     valid=prog['all_teams_ready'] and not any(i['effect']=='BLOCK_FINAL' for i in issues)
     generated=handoff.generate(run,selected,analysis,finance,coach_snapshot,native_artifacts) if valid else dict(specific_approval_items=[],research_items=[],generated_artifact_refs=[],finance_evidence={'status':'NOT_EVALUATED'})
     report=dict(report_id=uuid4().hex,decision_run_revision=run['revision']+1,portfolio_revision=p['revision'],
@@ -297,6 +301,7 @@ def coach_event(run,analysis,payload):
 
 def strategy_candidate(run, analysis, t, review_row, final_version):
     tid=t['team_id']; r=review_row['payload']
+    evolution=bpti_evolution.current(run,tid)
     base=next((s for s in run['strategy_bases'] if s['team_id']==tid),None)
     state=deepcopy(base) if base else {key:[] for key in LIST_FIELDS}
     revision=base['revision'] if base else 0
@@ -330,7 +335,10 @@ def strategy_candidate(run, analysis, t, review_row, final_version):
     if not isinstance(state['change_conditions'],list):
         state['change_conditions']=[state['change_conditions']]
     b=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(str(tid))
-    e=run['artifacts'].get('BPTI_EVOLUTION',{}).get(str(tid))
+    e=evolution
+    # A carried strategy base is historical; never inherit its old current BPTI state.
+    state.pop('bpti_reasoning',None)
+    state.pop('bpti_evolution',None)
     if b:
         state['bpti_reasoning']=dict(revision=b['revision'],payload=deepcopy(b['payload']))
     if e:
@@ -346,6 +354,8 @@ def finalize(run, analysis):
     p=get(run,'PORTFOLIO','selected')
     if not v['valid_for_finalization'] or v['decision_run_revision']!=run['revision'] or v['portfolio_revision']!=p['revision']:
         raise ValueError('CURRENT_DETERMINISTIC_VALIDATION_REQUIRED')
+    for tid in run['expected_team_ids']:
+        bpti_evolution.current(run,tid)
     version=run['latest_final_version']+1
     hypotheses=[]; candidates=[]; summaries=[]
     selected_ids={ref['alternative_id'] for ref in p['payload']['selected_internal_action_versions']}

@@ -123,6 +123,8 @@ def run(a):
                         if previous_run['source_binding']['career_id']!=d['source_binding']['career_id'] or str(ref['artifact_id'])!=str(payload['team_id']):
                             raise ValueError('BPTI_PREVIOUS_EVOLUTION_CAREER_TEAM_MISMATCH')
                         options['previous_evolution']=store.artifact_history(ref['run_id'],'BPTI_EVOLUTION',str(ref['artifact_id']),ref['revision'])
+                        # Recover the trusted stored context for pre-F2 immutable artifacts.
+                        options['previous_evolution']['history_branch_context']=previous_run['context'].get('history_branch_context')
                 updated,artifacts=protocol.apply(d,analysis,a.action,payload,**options)
             d=store.save_decision(updated,a.expected_revision,artifacts)
             result=protocol.summary(d)

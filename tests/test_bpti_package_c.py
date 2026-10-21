@@ -145,7 +145,7 @@ class PackageCChecks(unittest.TestCase):
         unknown=deepcopy(p);unknown['native_actions'][0]['changes'][0]['field_key']='coach.Tempo'
         unknown['blueprint']['native_binding_refs']=['B2-MOTION_READ_REACT-TEMPO']
         held=b4.prepare(d,a,self.index,unknown)
-        self.assertEqual(held['status'],'HOLD');self.assertEqual(held['native_support_and_unknowns']['effects'],'UNKNOWN_NOT_PREDICTED')
+        self.assertEqual(held['native_action_status'],'HOLD');self.assertEqual(held['native_support_and_unknowns']['effects'],'UNKNOWN_NOT_PREDICTED')
         self.assertNotIn('win_rate',held);self.assertNotIn('box_score_prediction',held)
         spec=importlib.util.spec_from_file_location('bpti_c_cli',ROOT/'scripts/gm_decision.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
         with Store(self.root/'c4/gm_workbench.sqlite') as s:
@@ -163,7 +163,7 @@ class PackageCChecks(unittest.TestCase):
         self.assertEqual(self.source,before);self.assertNotIn('approved',out['intent'])
         for field in ('ability.potential','ability.overall','badge.test','tendency.UNKNOWN51','coach.PlaybookID','playbook.slot'):
             bad=deepcopy(p);bad['native_actions'][0]['changes'][0]['field_key']=field
-            self.assertEqual(b4.prepare(d,a,self.index,bad)['status'],'HOLD',field)
+            self.assertEqual(b4.prepare(d,a,self.index,bad)['native_action_status'],'HOLD',field)
         forged=deepcopy(p);forged['approved']=True
         with self.assertRaisesRegex(ValueError,'AUTHORITY'):dp.apply(d,a,'submit-blueprint',forged,bpti_index=self.index)
         with Store(self.root/'c5/gm_workbench.sqlite') as s:

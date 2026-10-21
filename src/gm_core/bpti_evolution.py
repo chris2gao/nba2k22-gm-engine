@@ -7,6 +7,38 @@ LEVELS = ('ROLE_TWEAK', 'SECONDARY_BRANCH', 'CO_PRIMARY_SYSTEM', 'TACTICAL_REBAS
           'COACH_ALIGNMENT_CHANGE', 'ORGANIZATIONAL_REIDENTIFICATION')
 
 
+def current(run, team_id):
+    """Return only an evolution bound to this run's current blueprint/source."""
+    key=str(team_id)
+    row=run['artifacts'].get('BPTI_EVOLUTION',{}).get(key)
+    if row is None:
+        return None
+    blue=run['artifacts'].get('BPTI_BLUEPRINT',{}).get(key)
+    value=row['payload']
+    if (not blue or value.get('bpti_blueprint_revision')!=blue['revision']
+            or value.get('team_id')!=team_id or value.get('source_binding')!=run['source_binding']
+            or value.get('status')!='DRAFT_UNAPPROVED'):
+        raise ValueError('BPTI_EVOLUTION_STALE_RECORDED_CURRENT_BLUEPRINT_REQUIRED')
+    return row
+
+
+def continuity_error(previous, binding, history_context):
+    """Use existing native save identity; batch and season are intentionally excluded.
+
+    A career name or manually repeated history label alone is not lineage proof.
+    There is no certified cross-instance bridge in the existing M3 packet contract.
+    """
+    old=previous['source_binding']
+    for key in ('save_id','save_instance_id','generation_id'):
+        if not isinstance(old.get(key),str) or not old[key] or not isinstance(binding.get(key),str) or not binding[key]:
+            return 'BPTI_PREVIOUS_SAVE_IDENTITY_UNPROVEN'
+        if old[key]!=binding[key]:
+            return 'BPTI_PREVIOUS_SAVE_IDENTITY_MISMATCH:'+key
+    if previous.get('history_branch_context')!=history_context:
+        return 'BPTI_PREVIOUS_HISTORY_BRANCH_UNPROVEN_OR_DIFFERENT'
+    return None
+
+
 def record(run, analysis, row, payload, previous=None):
     reject_authority(payload)
     require(payload, ('team_id', 'source_binding', 'bpti_blueprint_revision', 'level',
@@ -31,6 +63,10 @@ def record(run, analysis, row, payload, previous=None):
     if previous:
         if previous['team_id'] != t['team_id'] or previous['source_binding']['career_id'] != run['source_binding']['career_id'] or previous['status'] != 'DRAFT_UNAPPROVED':
             raise ValueError('BPTI_PREVIOUS_TEAM_CAREER_OR_STATUS_MISMATCH')
+        error=continuity_error(previous,run['source_binding'],run['context'].get('history_branch_context'))
+        if error:
+            return dict(team_id=t['team_id'],source_binding=deepcopy(analysis['source_binding']),status='HOLD',
+                        reason=error,previous_ref=deepcopy(payload['previous_ref']),bpti_blueprint_revision=row['revision'])
         old_culture = previous['proposed_culture']
         if payload['retained_culture'] != old_culture:
             raise ValueError('BPTI_RETAIN_PREVIOUS_CULTURE_BEFORE_CHANGE')
@@ -62,7 +98,8 @@ def record(run, analysis, row, payload, previous=None):
         text_required(context['management_reference'], 'management_reference')
         text_required(context['why_tactics_or_coach_alone_insufficient'], 'culture_change_reason')
     return dict(version='BPTI_EVOLUTION_V1', team_id=t['team_id'], source_binding=deepcopy(analysis['source_binding']),
-                season=run['context']['season'], status='DRAFT_UNAPPROVED', level=payload['level'],
+                season=run['context']['season'], history_branch_context=deepcopy(run['context'].get('history_branch_context')),
+                status='DRAFT_UNAPPROVED', level=payload['level'],
                 previous_ref=deepcopy(payload['previous_ref']), previous_system=deepcopy(previous.get('proposed_system')) if previous else None,
                 previous_culture=deepcopy(old_culture), observed_changes=deepcopy(changes),
                 proposed_system=deepcopy(b['primary_secondary_system']), proposed_culture=deepcopy(payload['proposed_culture']),

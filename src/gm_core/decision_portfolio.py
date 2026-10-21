@@ -24,8 +24,10 @@ def resolve(portfolio, artifacts, analysis):
         if not row or row['revision']!=ref['revision']:
             raise ValueError('SELECTED_ALTERNATIVE_VERSION_NOT_CURRENT')
         matches=[a for a in row['payload']['alternatives'] if a['alternative_id']==ref['alternative_id']]
-        if len(matches)!=1 or matches[0]['category']=='HOLD' or not matches[0].get('action'):
+        if len(matches)!=1 or matches[0]['category']!='INTERNAL' or not matches[0].get('action'):
             raise ValueError('SPECIFIC_INTERNAL_ACTION_REQUIRED')
+        if matches[0]['status']!='VIABLE_CANDIDATE':
+            raise ValueError('SELECTED_INTERNAL_ALTERNATIVE_NOT_VIABLE')
         action=deepcopy(matches[0]['action']); action['team_id']=ref['team_id']
         action['alternative_ref']=ref
         actions.append(action)

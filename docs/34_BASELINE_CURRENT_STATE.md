@@ -1,5 +1,16 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## PR #12 最终局部修复 F1–F4（玩家2026-10-20批准）
+
+当前演化版本/来源与蓝图不一致会BLOCK_FINAL，final/strategy均核对；从旧策略基底继承的BPTI当前字段先清除，历史表不改。前态要求同队/career且save_id/save_instance_id/generation_id齐全相同，已记载history_branch_context连续；批次/赛季可变化，缺失或不同实例/代次/分支HOLD，无新增跨实例认证机制。
+
+有效篮球蓝图与原生可执行状态分开：无支持动作时native_action_status=HOLD，MARKET继续由M3内部比较/GAP_REMAINS/财务/双边同版谈判决定。未支持的内部动作BLOCKED，只有INTERNAL+VIABLE_CANDIDATE可进入执行组合。此修复覆盖下方原“蓝图HOLD阻断市场”的旧行为。
+
+四项直接合成检查均有通过证据：F1/F2/F4首次通过，F3改正原谈判状态断言后单项通过（17.169s）。首次入口意外额外收集了原C-C1～C-C5，9项/42.500s中8通过、F3断言失败；已改为模块引用，随后只复验F3，未运行完整项目回归。细节见[包C实施及验收](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)。
+
+修复提交仍在原PR #12，不自动合并；V3有效、V4未启用、真实30队UNASSESSED，无真实数据/游戏操作。下一阶段权威为main上的[DEV28](https://github.com/chris2gao/nba2k22-gm-engine/blob/main/docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)：控制目录、真实Coach/Book/68槽生命周期、DEV24动态事实和完整执行读回另行授权，不在本轮实现。
+
+
 源码交付：[Draft PR #12](https://github.com/chris2gao/nba2k22-gm-engine/pull/12)，实现da8a645；工作包C独立分支已推送，未合并main。实际验收与边界见紧随其后的包C记录。
 
 
@@ -9,7 +20,7 @@
 
 只运行C-C1～C-C5及直接失败项修正/复验，最终5/5 PASS（17.700s），未重跑旧B0/B1/B/M3/DEV14套件。修正合成蓝图必填状态、动作类型及测试导入路径，没有扩大测试。三队示例和跨队历史姓名/教练适配均为合成工程证据，不评定真实球队，也不认证比赛效果或存盘。
 
-新增gm_decision submit-blueprint/record-evolution：CLI重新核对同批GM_SANITIZED，知识按游戏日期过滤；角色绑定当前可见技能，HOLD阻断不可支持动作/市场方案，蓝图修订要求重新评审/比较。BPTI_BLUEPRINT/BPTI_EVOLUTION沿原decision_artifacts/CAS/history/export，不新增数据库或审批。演化保留前态体系/文化，文化重构需跨季与管理层语境，不能由单月成绩或历史人名决定。
+新增gm_decision submit-blueprint/record-evolution：CLI重新核对同批GM_SANITIZED，知识按游戏日期过滤；角色绑定当前可见技能，原生HOLD只限制不支持的内部动作，市场继续原M3门槛；蓝图修订要求重新评审/比较并刷新当前演化。BPTI_BLUEPRINT/BPTI_EVOLUTION沿原decision_artifacts/CAS/history/export，不新增数据库或审批。演化保留前态体系/文化，文化重构需跨季与管理层语境，不能由单月成绩或历史人名决定。
 
 本包无新游戏来源、source_catalog项、原生registry字段或执行能力；第8节原执行能力表继续适用。OVERALL/Potential/Ability/Badge/unknown51及自由PlaybookID不开放；同批身份、本队书/全目录CRC、DEV14批准元组与CAS不变。Tempo含义/CRC类型/AI效果UNKNOWN，不能补造趋势或胜率。V3有效、GM_V4_NOT_ENABLED、真实30队UNASSESSED；DEV24、正式GM、采集/事实发布、新存档和游戏操作未启动。状态BPTI_PACKAGE_C_COMPLETE_TASK_CLOSED，源码Draft供玩家独立审阅/合并，不自动跟进。
 

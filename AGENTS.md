@@ -1,5 +1,13 @@
 # NBA2K22 GM project instructions
 
+## PR #12 scoped final fixes F1-F4 (2026-10-20)
+
+- Player approved only the two latest Web Development reviews on PR #12 (head 9071cae): F1 current evolution/blueprint consistency, F2 real save-instance/history continuity, F3 separate native action HOLD from M3 market judgment, F4 select only VIABLE_CANDIDATE INTERNAL actions. Implemented on the original codex/bpti-package-c branch; keep PR unmerged.
+- Current evolution must match current blueprint revision/source before validation/final/strategy; immutable old history stays readable and inherited strategy BPTI fields are cleared. Previous evolution requires same team/career plus nonempty matching save_id/save_instance_id/generation_id and continuous recorded history_branch_context; batch/season may differ. Missing or conflicting native identity stays HOLD; no new cross-instance lineage/approval system.
+- A valid blueprint may have native_action_status=HOLD while MARKET continues through original M3 internal gap, finance and bilateral gates. Unsupported internal actions remain BLOCKED/research; portfolio execution selection requires INTERNAL + VIABLE_CANDIDATE. See the updated package C manual and acceptance report for actual targeted test results, including accidental collection of five old checks in the first command and the F3-only rerun.
+- DEV28 master plan is on main at docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md; it is the next independent player-triggered phase, not this fix. No DEV24/DEV28 work, production capture/publication, game writes or V4 activation follows. Real 30 teams remain UNASSESSED. Finish source/PR handoff and close.
+
+
 ## BPTI package C integration (2026-10-20)
 
 - Player approved PR #11 merge: main base 04b194ab8b4644161242391e964051d3d9f9520a. Separately triggered package C implements B4 → B5 → B6 on codex/bpti-package-c with a Draft PR, not automatic merge. Read docs/BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md and its package C acceptance report; older package B/unstarted-C notes below are historical.

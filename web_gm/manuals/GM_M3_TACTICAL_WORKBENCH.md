@@ -1,5 +1,8 @@
 # M3-T 战术、角色、训练和轮换工作台
 
+PR #12 F1–F4：有效蓝图无原生动作时只标native_action_status=HOLD，市场仍需原内部优先/人才缺口/财务/双方谈判；执行组合仅可选INTERNAL+VIABLE_CANDIDATE。当前演化须匹配蓝图版本/来源，旧历史不能照搬为当前策略；前态存档身份或历史线不能确认时HOLD。详见[B4/B5手册](../../docs/BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)。
+
+
 BPTI工作包C新增按需的篮球理由与球队演化：[B4/B5操作契约](../../docs/BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)。使用原gm_decision的submit-blueprint/record-evolution，之后沿现有评审/备选/定稿；同批GM_SANITIZED、当前蓝图版本和既有DEV14权限不变。HOLD/内部优先/市场成本必须与体系角色相连，文化不随单月输赢重写。候选历史不会自动成为正式GM、玩家批准或游戏动作。
 
 共享战术知识入口见[GM共享战术池](../../docs/GM_SHARED_PLAY_POOL_V1.md)：按名称/用途/球员职责/球队打法查共享条目，完整卡含类型状态、用途、适配及风险；球队手册是有限槽位对池的引用，同条可被多队使用。球员四PlayTypes和教练四Freelance都前槽优先、执行更多（玩家说明），但两组并非同一配置，也没有固定百分比。精确原生类型未知时不拿名称推断冒充匹配；归档在哪本书出现不证明当前档所属，正式源与批准照旧。
