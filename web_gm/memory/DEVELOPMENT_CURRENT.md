@@ -364,9 +364,9 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - Antigravity首先从内存找类型。如果找不到**可以向玩家请求截图**，哪怕需要按类别分批几十张；不必要求一次全部提交，任务到用户介入点要彻底TASK_CLOSED，禁止WAITING消耗额度。玩家此前无法提供某个任务的截图不等于以后永远禁止按需截图。
 - PR #12最新修复`2f659138`静态复审发现F1–F4代码均已落地且有四项合成通过证据；**GitHub当前mergeable=false / mergeable_state=dirty**，分支落后main并与main冲突，不能宣称当前可直接合并。PR依旧Draft，V3有效/V4尚未启用。先让Codex有界解决合并冲突、保留main DEV28新文档并针对受影响文件作检查，随后玩家另外授权merge；不扩大PR到DEV28开发。
 
-## 2026-10-20 用户批准“官方手册+玩家社区”研究先行开发规范
+## 2026-10-20 用户批准“官方手册+玩家社区”研究先行开发规范及次世代适用修订
 
-- 已发布长期[GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1](../../docs/GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)，并载入AGENTS、开发边界V2及开发规划基线。未来Codex凡涉及NBA2K22 PC本世代MyLEAGUE游戏机制、字段意义、战术、教练、训练/倾向、数据采集与可操作性，应**先查原仓库材料、2K官方手册/开发者说明、Operation Sports/Reddit/Coach2K社区及攻略**，再按真实PC内存证据区分已证/推论；不能让用户逐条解释网络已有知识。新旧版本/PS5-次世代MyNBA不混淆。纯Git/机械Bug不需要无关网页检索。
+- 已发布长期[GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1](../../docs/GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)，并载入AGENTS、开发边界V2及开发规划基线。未来Codex凡涉及NBA2K22 PC本世代MyLEAGUE游戏机制、字段意义、战术、教练、训练/倾向、数据采集与可操作性，应**先查原仓库材料、**主动优先检索Operation Sports/Reddit/Coach2K玩家社区、游戏攻略及2K官方手册/开发者说明**，先理解机制再开发；**PS5/Xbox Series次世代MyNBA资料也可作为共通篮球与经营机制参考**，但具体PC菜单、枚举与内存执行依旧以当前实机为准；不能让用户逐条解释网络已有知识。不因次世代版本不同就排除高价值机制资料，也不把不同版本UI或具体内存地址混淆。纯Git/机械Bug不需要无关网页检索。
 - 玩家允许Antigravity在无法确认全部战术原生类别时，按类别分批请用户提供截图（可几十张），需用户介入则TASK_CLOSED不活跃等待。开发政策V2关于审批/最少验证依旧不变。
 - PR #12的F1–F4先前复审通过，但最新GitHub状态dirty/mergeable=false，用户现在请求**Codex提示词修复与main的合并冲突**，不可自动merge或启动DEV28；保留最新主线的该新规范/DEV28/12类战术知识以及PR原B4/B5/F1–F4。
 
