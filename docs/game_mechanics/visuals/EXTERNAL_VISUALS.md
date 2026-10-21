@@ -214,3 +214,22 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 4. **人物Development/Contract 1–2张**：`Peak`/可见潜力类设置要严格保密，**不要拍摄或上传会向普通GM/媒体泄露真实Potential的页面**。可仅由授权隔离人员做字段名/选项范围检验并遮蔽真实值。
 
 **版权**：本轮无第三方图像复制或上传。文字研究用`SRC-0072..0082`追溯，新增机读目录`PLAYER_FIELD_AND_RIGHTS_MATRIX.json`和`PLAYER_BADGES_R04_A_REFERENCE.json`对应R04-A，PC可读菜单和完整人物Agent权限以后分R04-B/C/D逐项补齐。
+
+## DEV29 R04-B — Player Tendencies、PlayTypes与Initiator画面研究（2026-10-21）
+
+**本轮没有获得可认证的NBA2K22 PC原版无模组离线MyLEAGUE，完整`Edit Player → Tendencies / PlayTypes`的逐项可读菜单画面**；符合条件的**新PC22_UI_CONFIRMED=0**。不要把“找到2K22归档球员数据”错误升级为“已核对PC游戏内存或菜单帧”。本轮也没有可逐帧复核的YouTube时间戳/版权许可，没有复制或上传媒体文件。
+
+| 候选页面/图证 | 实际完成的核对 | 对PC22目标有什么用 | 证据等级 |
+|---|---|---|---|
+| [2kAuction 2021-09 NBA2K22 Anthony Davis历史导出](https://2kauction.com/mynba/2k22/players/anthony-davis?roster=offseason_nba)，SRC-0083 | 搜索索引可读取`Shot`35/`Drive/Pass`43/`Defense`7/`Other tendencies`14，共99具名导出标签；可见`Touches`/TT/ISO与具体动作区分 | 丰富该版球员可选的篮球行为**名录**；不认证99个原生偏移映射 | `2K22_ARCHIVED_PLAYER_HTML_EXPORT_NOT_NATIVE_UI` |
+| [2kAuction Trae Young](https://2kauction.com/mynba/2k22/players/trae-young?roster=offseason_nba)与[Tatum](https://2kauction.com/mynba/players/jayson-tatum?game=2k22&roster=current_nba)，SRC-0086/0087 | 同版归档文本明确各4个类型及`Play Initiator Yes/No`，人物状态可不同 | 确认概念独立；不能从外站标签“Three-point screens”认证本机`3 PT`的native raw | `2K22_ARCHIVED_PLAYER_TEXT_NOT_CURRENT_SAVE` |
+| [OS同年具体UI文字讨论](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/917138-nba-2k22-tendencies-a-better-realism-for-roster-creators)，SRC-0084 | 2021-11玩家明确讲`Edit Player`的`Freelance`组含`Touches`、`Shot`及下面按防守等级分的ISO条目 | 确定菜单操作的定位线索，但没有目标PC截图/完整字段顺序 | `NBA2K22_COMMUNITY_TEXT_MENU_PATH` |
+| [OS ATD同年名单编辑研究](https://www.operationsports.com/nba-2k22-attention-to-detail-roster-from-celticlg-and-crew/)，SRC-0072 | 官方社区编辑作者详述改Shot/Drive/Screen/Post/Iso/三威胁/全队Book/PlayTypes的行为 | 了解篮球动作/3D与Sim可能不同，避免以角色设定覆盖游戏原生能力 | `COMMUNITY_EDIT_REPORT_NOT_PIXEL_EVIDENCE` |
+
+### 未来最少2组可选只读认证
+
+**A：倾向和动作**：原版PC22`Edit Player → Tendencies`页，包含同一个球员的`Shot/Freelance/ISO`，`Driving/Dribbling/Defense/Post`页脚与当前可选值（每个截图应记录原版、球队、日期、操作入口）。尤其可帮忙查51个`UNKNOWN_RAW_BYTE`的合法名称是否对应某条菜单条目，但**即使出现相似名称也不能不做单字段对应认证**。
+
+**B：球员战术角色**：`PlayType 1–4`有序菜单与`Play Initiator`、该队Playbook与具体12类Filter/2D Playboard；菜单截图只证明可见性和当次配置，CPU是否自动跑该战术需要独立比赛观测。
+
+**执行边界**：本轮不是催用户截图或启动原生内存调查。未来仅在独立授权后可增量补VIS，`GM_VISIBLE_POTENTIAL_MASKED`规则继续有效。以后需解决3D vs Sim倾向实际效果，也不能仅看静态截图或已有Editor数值。
