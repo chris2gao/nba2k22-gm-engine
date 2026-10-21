@@ -379,3 +379,16 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 4. **SimCast跳入现场/退出结果**：同一真实GameID的场内比分、完场Box、Calendar记录、Normalize分钟/统计开关；只读记录不进行示例交易或擅自推动正式游戏赛程。
 
 **重要真实技术区分**：仓库`config/state_io_native/settings.json`和`world.json`共86条注册候选；即使登记了原生RVA、偏移和默认值，**并未因此获得本轮现场菜单/内存/持久化验收**。R06-A研究状态`R06_A_RESEARCH_PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS`。R06-B历史纪元/奖项/媒体下一轮，不开发任何人物系统或执行器。
+
+## DEV29 R06-B — 历史/奖项/媒体视觉证据边界（2026-10-21）
+
+**新增满足目标NBA2K22 PC原版离线MyLEAGUE、完整截图/平台/存档身份认证的VIS ID = 0。** 本轮网页文字和跨平台资料足以研究栏目范围，但不能冒充本游戏本局UI画面。第三方素材只登记原来源，不二次分发未授权截图。
+
+| 线索 | 说明 | 视觉认证状态 |
+|---|---|---|
+| [NBA2K22 Draft Class教程](https://diamondlobby.com/nba-2k22/how-to-download-a-draft-class-nba/) SRC-0176 | 图文教程显示建档时选秀加载流程 | `NBA2K22_GUIDE_IMAGES_NOT_TARGET_PC22_SAVE` |
+| [NBA2K22 名人堂菜单玩家讨论](https://www.reddit.com/r/NBA2k/comments/wbudty) SRC-0178 | 玩家文本提及Past MVP/Rule Change/Retired Jerseys | `PC22_MENU_TEXT_ONLY_NO_PIXEL_VERIFIED` |
+| [NBA2K22 MyLeague媒体文字Mod](https://www.2kspecialist.net/2021/12/nba-2k22-myleague-social-media-overhaul.html) SRC-0181 | 社交媒体/实力榜/模拟选秀文本模板的PC mod生态线索 | `MODDED_RESOURCE_NOT_UNMODDED_MENU_SCREENSHOT` |
+| [2K23 官方MyNBA Eras公告](https://newsroom.2k.com/news/rewrite-nba-history-in-nbar-2k23-with-all-new-mynba-features-for-playstation-5-and-xbox-series-xs-consoles) SRC-0174 | 次世代历史时代表现及官宣开局年份 | `OFFICIAL_2K23_NEXTGEN_NOT_PC22` |
+
+最小后续PC22只读取证：历史奖项/纪录菜单标题和切换按钮；原版社交媒体、实力榜、Mock Draft栏目；历史Draft Class当前年份与已选名单；规则变化生效前后历史页。无需立即要求玩家操作正式赛季或修改游戏。
