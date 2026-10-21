@@ -1,5 +1,17 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R06-D — 游戏运行、历史、媒体与存档跨领域整合已发布
+
+**当前最新研究状态：`R06_D_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`；建议下一轮唯一入口 `R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX`（需保留R06-D独立审核前提）。** R06-A/B/C/D均已完成网页研究发布，但PC22当前存档原生功能认证缺口依旧存在；并不自行将R06系列宣布为独立审核已批准结案。
+
+- 交付：[K05/K10/K11跨域整合中文攻略](guides/K05_K10_K11_CROSS_DOMAIN_INTEGRATION_R06D.md)及[26条关联＋20项缺口机读目录](catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)。**26是语义/阶段/数据完整性/互斥和待证关系，不是26个原生引擎公式；20是证据缺口而不是20个获批工程任务。** 关联项的多目录路径与ID已逐条核对存在，源来自K04/K06/R04B/R05D/R06A/B/C，无新增已验证PC22原生数据。
+- 研究继承：R06-A 86 Registry静态候选＋118菜单参数候选；R06-B 31功能/信息研究候选（含10个已修复来源不匹配、现`sources=[]`待证奖项）；R06-C 38阶段/存档研究概念。R05-D 54异质资料项＋63操作研究项各有不同口径，**任何数字均不可相加当作PC22已采原生字段总量**。R06-B Q1/Q2/Q3已定向修复但**独立复核结论尚未收到**。
+- 关键分界：Gameplay/Sim/SimCast／个体Tendency与Coach系统不能混同；真实`GameID→3D完场→日历→Box→季节累计`含Normalize潜在不一致；`game_date`／历史选秀轮回／外部对照历史分别保存；游戏Save、DEV14 save身份、外部SQLite批次和SteamCloud不能混同；奖项记录/媒体预测/模拟选秀不能视为同一个原生已发生事件。
+- 边界：本轮未打开当前游戏进程、未读取或写入PC22当前存档、未测试GameDate/Save重进/自然成长、未自动推进赛季，没有新增SRC或VIS原版证据。仅交知识整合与将来DEV28定向差距输入；不开发独立人格/模型调度，也不启动Codex/DEV28。选秀权V4旧`+3`代码阻断仍归独立玩家授权的Codex维护。
+- 下一轮R07仅在现有K01–K12的范围内整理各独立角色**可观察事实/合法选择候选/实际原生证据/权限来源与反馈**的能力矩阵，不替任何未来Coach/Player/Media决定人格、应接受何种合同或如何行动；待R07研究完成后才考虑单独授权FINAL-CODEX做小范围工程对应审计。
+
+
+
 ## 2026-10-21 R06-C — 赛季阶段、Save/Save as/Autosave与跨季历史留存研究已发布
 
 **最新断点：`R06_C_RESEARCH_PUBLISHED_WITH_PC22_PHASE_SAVE_RETENTION_GAPS`；下一轮唯一入口`R06_D_CROSS_DOMAIN_SYNTHESIS_AND_GAPS`。** R06-A/B/C研究均已发布，仍不代表当前PC22 UI、内存运行时及持久化已验证。R06-B独立审核Q1/Q2/Q3有界修复已提交但**尚未获得后续独立审核结论**；R06-D整合时应保留该事项，不得宣称全部31项有直接来源。
@@ -43,8 +55,8 @@
 - **R05按A/B/C/D分批研究、不需要回头返工R04**：集中研究NBA2K20–23合同/薪资帽/预算/Staff/Scouting/Draft/Free Agency/交易及合法游戏操作，给未来角色提供**原始可观察信息与可用动作**；不开发薪资谈判算法/球员决策树、教练性格、媒体行为或执行器，成果按原R05研究方法写GitHub并关闭当前轮。
 
 
-**当前权威研究状态**：`R06_C_RESEARCH_PUBLISHED_WITH_PC22_PHASE_SAVE_RETENTION_GAPS`（2026-10-21）；R06-A/B为已完成历史批次。R05-A/B/C/D已由用户最终批准研究结案，保持`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；R04保持批准结案，选秀权V4代码同步留独立Codex任务，不阻断R06研究。
-**当前最新：`R06_C_RESEARCH_PUBLISHED_WITH_PC22_PHASE_SAVE_RETENTION_GAPS`；下一轮 `R06_D_CROSS_DOMAIN_SYNTHESIS_AND_GAPS`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
+**当前权威研究状态**：`R06_D_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`（2026-10-21）；R06-A/B/C为已发布历史批次。R05-A/B/C/D已由用户最终批准研究结案，保持`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；R04保持批准结案，选秀权V4代码同步留独立Codex任务，不阻断R06研究。
+**当前最新：`R06_D_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`；建议下一轮 `R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX`（尚未启动，R06-D待独立审查）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
 
