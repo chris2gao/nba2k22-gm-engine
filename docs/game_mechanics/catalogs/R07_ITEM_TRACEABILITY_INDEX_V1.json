@@ -96,5 +96,7 @@
       "utf8_char_count": 166358
     }
   ],
-  "read_verification": "SHARDS_PUBLISHED_PENDING_INDEPENDENT_READBACK"
+  "read_verification": "ALL_SEVEN_SHARDS_READBACK_VERIFIED_AFTER_INITIAL_SPLIT",
+  "source_lineage_update": "Each shard now preserves original raw references as well as SRC-#### and project/other source paths; seven R06C originals with sources=[] remain distinct from project-only references",
+  "quality_note": "Some entry source IDs are syntactically present in SOURCES.md but not re-verified for direct semantic support; do not promote to TARGET_PC22_UI or RUNTIME VERIFIED."
 }
