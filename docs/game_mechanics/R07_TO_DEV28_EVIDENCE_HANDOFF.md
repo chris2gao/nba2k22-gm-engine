@@ -46,3 +46,9 @@
 GM/Coach/Player/Media可见资料按公开/球队/个人/管理员合法视角分类，只是需求与信息安全研究。谁坚持某一战术、球员是否要求加薪、Coach是否请求交易、媒体报道如何影响关系，均属于未来独立模型的行为设计，不在DEV28和R07的实现范围。**不使用2K22原生属性/潜力/徽章字节作为外挂人格记忆存储。**
 
 **交接状态：`R07_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`；R07通过独立审核以后，用户才能另行选择是否发起DEV28/FINAL-CODEX技术任务。**
+
+
+## 2026-10-21 R07审核后机读语义修复（独立复验待完成）
+
+依据[定向修复回执](../development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)，R07索引第1卷两个`manual_research_topics`为人工作成的指南主题别名、并非源机器主键；40组矩阵的F21/F22/F23/F26/F27/F32/F39/F40已将`model_query_api_status`中的执行限制、批准规则和Save/GameDate语义剥离，保留在独立限制字段。**DEV28/FINAL-CODEX后续读矩阵时，查询成熟度只看`model_query_api_status`并与历史有效batch核对，不能从`execution_warning`倒推查询能力；同样不能从SQLite查询范围倒推可写业务。** R07修复待独立复验，不自动授权工程启动。
+
