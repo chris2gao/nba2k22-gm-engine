@@ -1,5 +1,9 @@
 # 新网页 GPT 研究窗口启动提示词（DEV29 V2）
 
+> **当前唯一启动指针（2026-10-21 / R07发布后）**：R01–R06已研究结案且R06正式接受，R07已提交中文指南、40组机读成熟度矩阵、694项7卷索引和DEV28只读交接资料，**等待R07独立内容审核**。首先查看[PROGRESS](PROGRESS.md)首节和[R07指南](guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)。除非用户另外授权，新窗口不可开始FINAL-CODEX、DEV28、Coach/Player/Media人格或游戏写入；下文所有早期“立即启动R01/R02/R06-C/R06-D/R07”均是历史任务文字。
+
+
+
 > **R06-D后唯一研究入口（2026-10-21）**：先读[PROGRESS](PROGRESS.md)；R06-A/B/C/D均为已发布研究，**R06-D待独立审核，下一轮R07统一角色观察/选择候选/证据/机制权限矩阵**。见[R06-D中文报告](guides/K05_K10_K11_CROSS_DOMAIN_INTEGRATION_R06D.md)和[26+20机读目录](catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)。不可误启动下文任何旧R01/R02/R05/R06-C历史口令；不开发人格、媒体代理、调度程序或DEV28执行器、不自动操作游戏。
 
 
