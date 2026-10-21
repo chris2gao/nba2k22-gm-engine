@@ -86,3 +86,23 @@
 当组A/B无法显示某项，也只记录`NOT_VISIBLE_IN_OBSERVED_PAGE`，而不是`FEATURE_ABSENT`。组C的“跨季”只能在**已自然跨季**存档进行只读查询，不为取证擅自模拟或推进正式世界线。所有图片若未来获准归档，需补作者/平台、存档阶段、版本、无模组声明、操作页面路径、字段、权利及`VIS`编号；**本轮没有上传任何第三方媒体文件或生成图像**。
 
 **结案标记**：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。未来R01截图空缺交给独立玩家只读页面取证/以后授权的Antigravity，DEV29网页研究现在直接转R02。详见[PROGRESS](../PROGRESS.md)与[攻略§20–22](../guides/K01_K02_GAME_STATS.md)。
+
+## DEV29 R02-A — 教练与战术视觉证据审查（2026-10-20）
+
+视觉素材不等于每个画面的游戏版本与模式已经认证。**本轮没有新的NBA2K22 PC原版MyLEAGUE Coach/Playbook/ACE全部菜单的逐像素认证图**；资料的一手文字可以支持机制经验，但截图等级必须独立审核。
+
+| VIS ID | 来源、原始页面 | 可定位到什么 | 图证等级与适用限制 | 许可 |
+|---|---|---|---|---|
+| **VIS-0008** | SRC-0033 / [Operation Sports 2021-10-18：Help Defense Saga Part 2](https://www.operationsports.com/the-ongoing-help-defense-saga-in-nba-2k22-part-2/) | 文章页面主图为“NBA 2K22 help defense”，正文中有作者引用的弱侧协防/赛中画面示例说明和视频内容区；真实支持的是**同年文章中的防守AI/补丁评论** | **EXTERNAL_VISUAL_CONTEXT_NOT_MENU_PIXEL_VERIFIED**：本轮未独立检查视频逐帧、不提供时间戳，主图也不是已认证的PC22 Coach Gameplan字段截图；不能证明本局菜单某项已实现 | 图片/视频属原作者或第三方，仓库仅留网页链接 |
+
+### R02-B定向视觉候选清单（暂不把待办算成VIS证据）
+
+| 待办 | 最少画面及为何重要 | 能认证与不能认证 |
+|---|---|---|
+| VIS-TODO-R02-01 | 原版NBA2K22 PC MyLEAGUE Coach Gameplan首页、POE栏目、底部按键提示 | 静态POE页签/菜单；**不**证明3D自动效果 |
+| VIS-TODO-R02-02 | 同一球队Book编辑界面：Regular/Bench/Endgame/Favorite切页及1条完整Play Name/2D战术预览 | 证明UI类别、槽位与当前CRC关联候选；**不**凭名字写入类型id |
+| VIS-TODO-R02-03 | Player Edit/PlayTypes四槽有序分配与12类具体play目录过滤面板 | 证明“球员角色枚举≠play类别”两个界面独立；需同时记录过滤后候选及实际动画 |
+| VIS-TODO-R02-04 | Freelance四槽与Offensive Settings/ACE/Automatic Playcalling是否在比赛暂停/Timeout菜单出现 | 区分本队静态Coach字段和比赛内动态调整；不从PS5视频直接推PC |
+| VIS-TODO-R02-05 | 选定对手具体球员的个人防守页及整体防守页（只读） | 查看18类列及特殊OnBall5/Hedge5/TagOnRoll含义；**日常GM仍不写OVERALL** |
+
+已检索但不当可认证画面：SRC-0034 Xbox One+Series X原帖写了防守选项且作者纠正错误，可给**同代文字**，不自动产出PC22截图；SRC-0039 NG玩家写PlayVision/Auto菜单，不代表其有目标PC UI；SRC-0038按键控制表，不是球队Coach配置图。未来如有玩家自供真实截图且获得允许，可按[视觉材料规范](README.md)在approved/独立保存。**R02-A研究无游戏读写、无第三方图片复制、无虚构视频时间戳。**
