@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-20 PR#12已合并：DEV29 V2网页GPT研究资料库优先
+
+- GitHub实时确认PR #12 `merged=true,state=closed`（Head原`ded900c`）；先前Draft和dirty/merge conflict说明仅为历史状态，**不再阻断DEV29研究**。GM V3/V4正式启用仍按原批准。
+- 玩家决定先让**新的网页版GPT研究窗口**做NBA2K20–23（包括次世代）终极联盟机制和攻略、图文截图证据的多轮研究，保存在[docs/game_mechanics](game_mechanics/README.md)。正式指引：[DEV29 V2](development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)，[新窗口启动提示词](game_mechanics/NEW_GPT_WINDOW_BOOTSTRAP.md)，[PROGRESS](game_mechanics/PROGRESS.md)。
+- 每轮网页研究后GitHub发布真实机制攻略、来源/截图和GM数据/可选项需要；**Codex不主导检索攻略**，研究阶段结束后仅FINAL-CODEX将知识目录与已有Registry/M0/DEV14/SQLite逐项核对，再启动DEV28有界输入/输出透明化开发。保留玩家批准、真实PC原生来源验证、未知项与第三方截图权利界限。
+
 ## 当前交付：PR #12已整合最新main基线，待玩家合并决定
 
 初次同步main c68cb81与PR分支2f659138，共同祖先04b194a；先保存文档冲突解决为merge 1899d1a。玩家补充后再次fetch，最终主线为5c032a0bdb8885cc34d1421952527457251522a9，继续合入原PR分支。实际content冲突仍只涉及AGENTS.md与docs/33；第二次仅AGENTS的规范标题相邻处冲突，保留当前交接与最新社区优先/跨世代参考条款。本文件保留双方历史并将本次当前状态置顶。
