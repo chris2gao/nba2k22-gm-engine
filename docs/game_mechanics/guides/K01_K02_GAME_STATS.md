@@ -217,3 +217,110 @@ raw_attempt_coordinates: NOT_OBSERVED
 **恢复指针**：本批次 `R01-A` 完成 K01/K02 机制综述、标准派生公式、质量门槛与源/图索引；**R01-B** 优先补“PC22原生统计页/表头原始截图或可审查同代演示”和确切Game Log入口、Shot Chart可选窗口、历史存储期（可能需要玩家截图），然后决定 R01 是否真正 `COMPLETE`；R02研究教练Playbook不应抢在R01残缺核验之前自动启动。
 
 **范围与安全**：只做公开资料研究并保存文字证据。无内存、没有真实游戏写入、没有新采集，没启动DEV28或Codex。玩家批准是任何游戏执行必要条件。
+
+
+---
+
+# DEV29 R01-B — 原生菜单交叉考证、跨赛季记录与数据质量（2026-10-20）
+
+> **研究进度**：`R01_B_RESEARCH_PUBLISHED_WITH_OPEN_ITEMS`。这一节是R01-A的补充，不改写原始来源或凭推论提升认证级别。没有连接NBA2K22进程、没有PC22游戏截图，因而仍 **没有达到`PC22_UI_CONFIRMED`或`PC22_NATIVE_READ_VERIFIED`**。本节引用`SRC-0016..0025`。
+
+## 9. K02.STAT_MENU — 统计分类“确实存在”与“在PC22哪个菜单”要分离
+
+### 9.1 从2K16原生MyLEAGUE到2K22次世代的证据链
+
+**NBA 2K16 MyGM/MyLEAGUE** 玩家在2015-10-21的Operation Sports问答里明确提问能否看`Player Efficiency Rating`及`Points per Possession`；另一玩家回答进入Player Stats后，反复按PS Triangle/Xbox Y可轮换“regular / per 36 / advanced metrics” [SRC-0018]。这是**较早MyLEAGUE同系列精确操作证据**，比不分游戏的篮球网站展示更有价值，但不是PC22版本证明。
+
+**NBA 2K22 PS5 次世代 MyNBA**：2021-09-10玩家在Reddit反馈，进入player stats，按Triangle到`per-36`后，`PAPG`和`plus/minus per game`排序异常 [SRC-0017]。此证据同时支持 **(a)** 2K22版本中该统计视图真实存在；**(b)** 即使有分类页，也不能信任它的排序逻辑。帖中明确标注PS5，不得升级为PC22本世代已见。
+
+**NBA 2K23 MyCareer**：2023-01-04玩家详细描述从MyCareer→Stats→League Leaders，按Y切换`totals / per game / per 36 / advanced` [SRC-0019]。这是相邻年份操作连续性的辅助证据，但模式不同，PC22不应据此锁定入口。
+
+| 探索顺序 | 研究中已知机制 | NBA2K22 PC证据等级 | 要确认什么 |
+|---|---|---|---|
+| 1. MyLEAGUE的Stats / League Leaders / Player Stats | 系列提供球员与联赛统计表 [SRC-0018/0017] | `KNOWN_IN_SERIES`; PC22 `UNKNOWN` | 实际菜单名、键位、球员/球队的不同入口 |
+| 2. 切换Totals / Per Game / Per36 | 2K16原生MyLEAGUE、2K22 PS5、2K23 MyCareer有相关证据 [SRC-0018/0017/0019] | PC22 `UNKNOWN` | 当前页提示按键、默认视图、数值精度和排序 |
+| 3. Advanced统计 | 2K16 MyLEAGUE明确有进阶视图；2K23 MyCareer有 [SRC-0018/0019] | PC22 `UNKNOWN` | 全部表头、公式/指标解释是否有内置帮助 |
+| 4. Stats的`Game Log`（逐场明细） | 本轮没有找到2K22 PC独立标签可检证截图；不能把游戏职业模式的`Game Log`文字搬来 | `UNKNOWN` | 是否真正独立入口，还是通过日历→单场Box查看 |
+| 5. 各页`Playoffs / Season / Team / Year`过滤 | 系列/现实NBA显示不同视图，但PC22可选项无证据 | `UNKNOWN` | 每种统计页的可选维度和回溯长度 |
+
+### 9.2 玩家具体怎么用，避免操作造成错误决策
+
+先在同一统计页切换并**抄下视图名称及排序键**；在Per-36中任选两名球员，人工验证某列排序与显示值是否一致。在历史球员或替补对比时，如果排序有错误，以有来源的原始数值为准，在Analytics重新排序，不从游戏榜单位置直接做交易评级。
+
+最重要的篮球边界：`Per36`是时间标准化，不是可靠的“真实打36分钟会产出这么多”；高级统计值域/定义、球员场上`OffRtg`与球队估算OffRtg不可仅因名字相同就合并。赛季统计同样可能被模拟分钟标准化和游戏模式影响，必须记录口径。
+
+## 10. K01.HISTORICAL_BOX_ACCESS — 历史比赛记录是可被淘汰的界面视图，不自动是可靠数据库
+
+### 10.1 分清四种历史长度
+
+1. **同一赛季、当天或刚结束比赛**：此前R01-A的赛程/Box导航线索；不是跨季证明。
+2. **同赛季跨月（包括CPU对CPU）**：需要复核日历是否仍能打开对应`game_id`的完整个人Box与球队Box。
+3. **常规赛结束→本季季后赛**：季后赛Bracket和系列赛Box通常是另一入口；2K20玩家在2K22论坛的回帖描述旧赛次切换操作，但本人明确只确认2K20 [SRC-0006]。
+4. **跨到下一个赛季**：保留了职业生涯统计、往年Standings或冠军纪录，并不意味着单场Box、旧Bracket甚至旧赛程还存在。
+
+**2020-02-23 Operation Sports原生MyLEAGUE问答**：Coach2K回答旧赛季的`playoff bracket`不能回看，但能看 previous years standings [SRC-0021]。这不是单场Box已被删除的直接证据，而是“历史视图保留粒度不同”的证据。
+
+**2025-03～04 MyEras回忆帖**：提问者称仍在同一存档，但旧赛季的球队统计和选秀历史不可完整追溯，回复之间存在不一致 [SRC-0022]。MyEras为后来的次世代产品且发帖时间晚于2K22，故标记`LATER_VERSION_CONFLICTING_COMMUNITY_TESTIMONY`；不能用“最多一季”或“全部清除”当PC22保存常量。
+
+**2K23本世代MyCareer问答**：在`Play Next Game`日程向前滚动能查看以往比赛Box，另有玩家成功照做 [SRC-0023]。只证明某相邻版本/其它模式的赛程入口，**不是跨季留存认证**。
+
+### 10.2 研发不可忽视的结果
+
+- **数据采集时效需求**：若游戏历史滚动窗口受限，逐场Box的保存宜以玩家正常触发的全量采集批次尽早归档，并以“已知覆盖率”标记漏采；**不能将此建议理解为本轮允许自动跑采集或赛季推进**。
+- **赛季转换前后**：保留两次只读观测的实际`save_instance/season/game_id`集合，比较可见历史范围；若仅保留按赛季汇总统计也如实标`BOX_ARCHIVE_UNAVAILABLE`。
+- **对比哪怕同一个比分**：`game_id`、date、home/away、stage、sim_mode、source_menu`必须成组记录，旧年份排名不能替代逐场原始统计。
+- **多存档分离**：即使两档历史选秀重演导致日期、队伍和比分相同，也必须靠存档实例区分。
+
+### 10.3 特殊的“比赛打了但记录没保存”
+
+2022-09-21的**2K22/2K23在线MyNBA/MyLEAGUE**玩家集合帖单独提出，在线联赛有比赛完毕不被记录的BUG，并提到帖子附图统计50多场丢失 [SRC-0024]。**只是一手社区故障报告**，而且模式在线、不同于项目离线PC目标；不可说“PC22普遍丢档”。但设计数据质量检查时，应区别 `GAME_NOT_RECORDED_IN_GAME`（没有原生事实）、`NOT_CAPTURED_BY_PROJECT`（游戏内有而外部没采）与`SOURCE_CONFLICT`（有但数值冲突）。
+
+## 11. K02.POSTGAME_SHOT_CHART — 为什么投篮图可以帮助纠正游戏“禁区得分”
+
+**2021-09-24 Operation Sports — NBA 2K22 Useful Findings**讨论，tcnumba10先报告：2K的`Points In Paint (PIP)`可能将禁区外中距离球计为禁区得分；随后解释具体对比方法：在`end-of-game shot chart`看出手区域，再与`end-of-game stats summary`中的PIP比对 [SRC-0016]。这项说法的重要性不仅是可能的BUG：
+
+- **可操作的玩家攻略**：真实玩/观战结束时，进入赛后统计；若屏幕提供Shot Chart和团队Stats Summary，可先定位一组侧翼中投的场上落点，再核对PIP得分是否符合视觉直觉。保存对应`game/session`及截图后才作为实验的对照组。
+- **已知与未知**：这表明NBA 2K22论坛一手玩家声称 **赛后有Shot Chart**，并给出了对照用途；**帖子不是我们直接看到的游戏截图**，也没有确认平台、截图具体栏目、是否可跨季打开、是否能导出落点。
+- **影响GM的实际解释**：禁区得分异常高可能是球员实战内线攻击，也可能来自统计口径/分区判定，因此不能只凭PIP对教练`Attack the Basket`或内线战术加权；应结合`FGA`分区、3PA、篮板与观战画面核实。
+- **禁止不合规纠错**：不通过虚构坐标或减少PIP数值修复；如果游戏原生PIP和可能的区域计算冲突，保留两个来源和`PIP_ZONE_DISAGREEMENT`标志。
+
+**2K22 Hot Zones图像图文出处**：Gamepur在2021/2022版NBA2K22攻略明确指示**MyCareer**打开暂停菜单，切到MyCareer→Stats→Roster，选球员，按R3进入卡片，RT/R2翻至Hot Zones；其文章还谈MyTeam不同入口与红/蓝/灰区域的含义 [SRC-0020, VIS-0004]。这提供了“卡片可能存在热区页面”的版本近似导航，也进一步证明**不能把MyCareer的个人热区页面自动当MyLEAGUE的单场Shot Chart**。截图只是外部页面材料，不擅自上传。
+
+### 11.1 三种常被混为一谈的投篮证据
+
+| 对象 | 实际证明内容 | 无法证明内容 | 处理原则 |
+|---|---|---|---|
+| `POST_GAME_SHOT_CHART`（2K22玩家报告） | 赛后可依据落点图和统计摘要对照 [SRC-0016] | 保存几年、每次坐标是否可读、所有联赛比赛是否存在 | `KNOWN_IN_SERIES` |
+| `PLAYER_HOT_ZONE_VIEW`（2K22 MyCareer攻略） | 个人卡可找红/蓝/灰热区 [SRC-0020] | PC22 MyLEAGUE菜单、单场投篮点 | `VERIFIED_GUIDE_FOR_DIFFERENT_MODE` |
+| `RAW_ATTEMPT_COORDINATES` | 若有真实坐标可支持区域自定义、地图与投篮热区统计 | 目前没有本机有效源 | `PC22_NATIVE_READ_PENDING` |
+
+### 11.2 提防PC“NBA2K22截图”被模组改版误导
+
+2021年的NBA2K22 Remastered社区项目明确展示**对PC主菜单/界面进行自定义修改**，宣称为PC引入不同的MyNBA样式 [SRC-0025, VIS-0005]。因此，凡是网上写“NBA2K22 PC MyNBA”的图，必须看作者是否使用Remastered、UI mod或自定义前端；若改过版，最多可用于玩法研究，**不能为本项目原生PC22界面作认证**。
+
+## 12. R01-B 补证后的结论：什么可以告诉GM，什么还不能说
+
+| 知识断言 | 当前适用范围 | 证据状态 | 经营/技术影响 |
+|---|---|---|---|
+| 可切换到Per36与高级指标视图 | 2K16 MyLEAGUE / 2K22 PS5 MyNBA / 2K23 MyCareer | `KNOWN_IN_SERIES` | PC22应重点找统计视图切换，不能以没采到宣布不存在 |
+| 2K22 PS5某Per36列排序有BUG报告 | PS5 MyNBA | `COMMUNITY_BUG_REPORTED` | 保留原值、外部再排序，不直接信名次 |
+| 2K22玩家能在赛后看Shot Chart | OS 2K22用户文字说明 | `COMMUNITY_FIRST_HAND` | 把赛后Shot图作为首要定位页；未证历史可重放 |
+| 2K22 PIP可能错算某些禁区外中投 | 2K22 OS用户声称 | `COMMUNITY_QUALITY_RISK` | 打`PIP_ZONE_DISAGREEMENT`，不凭单指标调整系统 |
+| 旧赛季可留Standings但未必留Bracket | 2020 MyLEAGUE | `OLDER_VERSION` | 历史信息不同层级独立管理 |
+| 旧Box跨赛季的完整留存时长 | NBA2K22 PC离线 | **`UNKNOWN`** | DEV28-3必须单独做真实存档只读取证 |
+| 原生每场球员与球队Box全字段/英文列名 | NBA2K22 PC离线 | **`UNKNOWN`** | 不生成确定的内存表/SQL输入位置 |
+| PC22 Game Logs独立页签 | NBA2K22 PC离线 | **`UNKNOWN`** | 先查Player Stats再查Calendar Box，不假造按钮 |
+| PC22 Advanced算法与真实可选全集 | NBA2K22 PC离线 | **`UNKNOWN`** | 若未证，可暂以Box派生指标且显式写公式 |
+| 游戏本身的PBP/坐标/真实OnOff | NBA2K22 PC离线 | **`UNKNOWN`** | 不能使用现实NBA追踪数据替代游戏世界事实 |
+
+## 13. 玩家可按图核查的有界路线（只读、不强制开正式存档）
+
+如以后玩家自然处在已打完比赛的游戏界面，一次只读观察即可补上大量未知；**本轮没有要求用户立即操作，亦不启动游戏**。可以依顺序截取：
+
+1. `MyLEAGUE > Stats / League Leaders / Player Stats` 的实际入口及完整底部按键提示；逐次切换并截`Totals / Per Game / Per 36 / Advanced`真实表头、排序。
+2. 同一赛季已结束的自己球队比赛及另外一场AI对AI比赛：Calendar→Box的球员/球队页和比分，并记录页签。
+3. 一场完整比赛的赛后`Shot Chart`与`Stats Summary`，比较PIP；只看截图不声称有可写源。
+4. 若本身已经跨过赛季，在已有历史UI中查询上一年的旧赛程/Box/Bracket/Standings；不要为研究擅自模拟推进正式赛季。
+5. 游戏当前版本及是否模组、自订UI；模拟/实战节长和Normalize开关（若UI有）分开记录。
+
+**R01-B阶段结论**：新增的是高价值**菜单线索、统计可信度和历史保留风险**，而不是PC22本机最终认证。R01整体保持`INCOMPLETE_WITH_OPEN_ITEMS`，下一恢复项是`R01-C_PC22_UI_AND_RETENTION_EVIDENCE`（可由玩家日后截图或公开的真正PC22无模组界面逐页补齐）。没有授权任何DEV28/DEV24、Codex任务、原生数据采集或球员能力修改。
