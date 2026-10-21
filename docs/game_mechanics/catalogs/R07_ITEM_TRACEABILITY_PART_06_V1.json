@@ -48,7 +48,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0502",
@@ -90,7 +92,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0503",
@@ -132,7 +136,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0504",
@@ -174,7 +180,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0505",
@@ -216,7 +224,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0506",
@@ -258,7 +268,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0507",
@@ -300,7 +312,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0508",
@@ -343,7 +357,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0509",
@@ -386,7 +405,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0510",
@@ -429,7 +453,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0511",
@@ -472,7 +501,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0512",
@@ -515,7 +549,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0513",
@@ -558,7 +597,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0514",
@@ -601,7 +645,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0515",
@@ -644,7 +693,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0516",
@@ -687,7 +741,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0517",
@@ -730,7 +789,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0518",
@@ -773,7 +837,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0519",
@@ -816,7 +885,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0520",
@@ -859,7 +933,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0167",
+        "SRC-0168"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0521",
@@ -902,7 +981,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0522",
@@ -945,7 +1029,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0523",
@@ -988,7 +1077,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0524",
@@ -1031,7 +1125,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0525",
@@ -1074,7 +1173,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0526",
@@ -1117,7 +1221,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0527",
@@ -1160,7 +1269,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0528",
@@ -1203,7 +1317,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0529",
@@ -1246,7 +1365,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0530",
@@ -1289,7 +1413,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0531",
@@ -1332,7 +1461,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0532",
@@ -1375,7 +1509,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0533",
@@ -1418,7 +1557,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0534",
@@ -1461,7 +1605,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0535",
@@ -1504,7 +1653,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0536",
@@ -1547,7 +1701,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0537",
@@ -1590,7 +1749,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0538",
@@ -1633,7 +1797,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0539",
@@ -1676,7 +1845,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0540",
@@ -1719,7 +1893,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0541",
@@ -1762,7 +1941,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0542",
@@ -1805,7 +1989,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0543",
@@ -1848,7 +2037,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0544",
@@ -1891,7 +2085,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0545",
@@ -1934,7 +2133,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0546",
@@ -1977,7 +2181,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0547",
@@ -2020,7 +2229,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0548",
@@ -2063,7 +2277,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0549",
@@ -2106,7 +2325,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0550",
@@ -2149,7 +2373,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0551",
@@ -2192,7 +2421,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0552",
@@ -2235,7 +2469,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0164",
+        "SRC-0165"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0553",
@@ -2278,7 +2517,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0554",
@@ -2321,7 +2565,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0555",
@@ -2364,7 +2613,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0556",
@@ -2407,7 +2661,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0557",
@@ -2450,7 +2709,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0558",
@@ -2493,7 +2757,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0559",
@@ -2536,7 +2805,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0560",
@@ -2579,7 +2853,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0561",
@@ -2622,7 +2901,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0562",
@@ -2665,7 +2949,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0563",
@@ -2708,7 +2997,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0564",
@@ -2751,7 +3045,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0565",
@@ -2794,7 +3093,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0566",
@@ -2837,7 +3141,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0567",
@@ -2880,7 +3189,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0568",
@@ -2923,7 +3237,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0569",
@@ -2966,7 +3285,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0570",
@@ -3009,7 +3333,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0571",
@@ -3052,7 +3381,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0572",
@@ -3095,7 +3429,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0573",
@@ -3138,7 +3477,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0574",
@@ -3181,7 +3525,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0575",
@@ -3224,7 +3573,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0576",
@@ -3267,7 +3621,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0577",
@@ -3310,7 +3669,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0578",
@@ -3353,7 +3717,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0579",
@@ -3396,7 +3765,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0580",
@@ -3439,7 +3813,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0581",
@@ -3482,7 +3861,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0582",
@@ -3525,7 +3909,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0583",
@@ -3568,7 +3957,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0584",
@@ -3611,7 +4005,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0585",
@@ -3654,7 +4053,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0586",
@@ -3697,7 +4101,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0587",
@@ -3740,7 +4149,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0588",
@@ -3783,7 +4197,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0589",
@@ -3826,7 +4245,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0590",
@@ -3869,7 +4293,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0591",
@@ -3912,7 +4341,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0592",
@@ -3955,7 +4389,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0593",
@@ -3998,7 +4437,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0594",
@@ -4041,7 +4485,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0595",
@@ -4084,7 +4533,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0596",
@@ -4127,7 +4581,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0597",
@@ -4170,7 +4629,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0598",
@@ -4213,7 +4677,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0599",
@@ -4256,7 +4725,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0600",
@@ -4299,7 +4773,12 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0163",
+        "SRC-0166"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     }
   ]
 }
