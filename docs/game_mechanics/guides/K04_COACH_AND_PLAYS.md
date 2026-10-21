@@ -167,3 +167,111 @@ NBA2K22同年MyNBA玩家说达拉斯名单缺适合Luka出任SF的行动时，�
 5. 真实进攻/防守对手策略和阵容变化关联的可观测指标，不能编造调用率。
 
 **恢复方式**：先读本K04、[PROGRESS](../PROGRESS.md)和SRC-0030..39，从R02-B继续研究，不重新开始R01或重新定义现有DEV14/Playbook共享池。R02尚未整体COMPLETE；本轮没有修改游戏、项目执行程序或球员能力。
+
+
+---
+
+# DEV29 R02-B — ACE/Series/Freelance动态覆盖、挡拆个人防守语义、PC同代研究与多角色权限（2026-10-21）
+
+> **研究性质**：R02-B实际文献研究已完成；继续维护R02领域的PC22未认证原生UI缺口，不因为旧版本的论坛解释直接写入游戏原生事实。第一手新增来源SRC-0040..0047，相关候选/排除图证登记于EXTERNAL_VISUALS。没有游戏读写或真实比赛实验。凡未获得原版PC22无遮挡可读截图、视频确切帧，`PC22_UI_CONFIRMED`不得升级。
+
+## 11. K04.ACE_PRIORITY — 2022年同版本玩家发现“ACE关掉也不一定保留Custom”
+
+2022-01-02 Operation Sports `Defensive Settings Not Staying On Custom` [SRC-0040] 中，玩家报告比赛中Team Focus/Defensive Settings从Custom恢复Automatic；其他玩家首先建议将ACE设为Off或Offense Only，**报告者反馈试过仍无效**。这条证据严格表述为：`2K22_GAME_USER_REPORTED_DYNAMIC_OVERRIDE`，作者平台和模式未核实为PC MyLEAGUE；部分原帖直接页面访问重定向失败，但搜索索引保留原作者回复；不是对当前PC版本“ACE失效”的结论。
+
+2022-02 OS `Adaptive Coaching Engine` [SRC-0041]，玩家DJ81给出**不同的控制策略**：认为关闭ACE能够让手动叫战术持久，但要在比赛中自行调整tempo、篮板、对位和攻防策略；他还表示“ACE only affects the user”。这一条是**个人体验/主张**，未隔离CPU-vs-CPU，也未提供2K22 PC源代码级控制合同。两文并列，不能选较符合自己预期的一条作为官方真相。
+
+**实际GM/Coach应分开验证的4个层**：
+
+| 层级 | 研究对象 | 最低可观察信号 | 不可直接推断 |
+|---|---|---|---|
+| G0 | 赛前静态Coach Default/POE/四Freelance | 当前原生字段和字典来源、读数时间 | 不代表3D场上已执行 |
+| G1 | 比赛入口Gameplan与本场ACE/Auto/Manual状态 | `screen_scope=pre_game`、选中team/opponent、真实显示值 | 不代表跨暂停和下一场一直保存 |
+| G2 | Timeout/暂停后临场策略 | 本次菜单对比、是否被重置/重算 | 不代表所有比赛模式都被同一ACE机制覆盖 |
+| G3 | 3D实际进攻/防守序列与比赛结果 | 谁发起、什么掩护、是否进入Freelance/Series、Box差异 | 不代表由单一设置造成；不承诺固定胜率提升 |
+
+当前项目`coach.Tempo`源字段存在，但其UI语义尚未证明；**不要用一个名叫Tempo的原生字节证明ACE临场节奏已被GM控制**。未来专门取证`ACE_MODE / OFFENSE_PLAYCALLING_MODE / DEFENSE_PLAYCALLING_MODE / PREGAME_PERSISTENCE / TIMEOUT_OVERRIDE`，每个分别标读取来源与游戏模式，禁止将用户按键或2K MyTeam路径偷换为30队CPU自动比赛接口。
+
+**权利含义（V3）**：教练Agent可以有“比赛中保留自主ACE适应”或“执行GM批准的固定Gameplan”的不同偏好；GM可争论，但教练意志为**外挂角色状态**，不能假装游戏ACE具备真实“同意/拒绝”接口。真实玩家批准仅为发生原生游戏写入的门槛，R02文献研究没有授予任何新写入权限。
+
+## 12. K04.SERIES_VS_FREELANCE — 有设置Series，不等于场上跑出了Series
+
+**两个概念**：`Playbook`保存可选的具体play；`Series`是比赛中以连续动作组织的进攻选项/次级入口；`Freelance`则是自由进攻空间和自发动作体系。社区使用词汇可能重叠，所以必须以观察到的**菜单来源、实际选中名称和场上行为**而非译名判别，不能把本队4槽Freelance当成Series或Book Favorite8。
+
+- 2021-09-16（2K22发布早期），Operation Sports玩家`Smirkin Dirk`表示，在Gameplan选择Series以及比赛Timeout选Series后，都似乎退回Freelance [SRC-0042]。该帖附玩家签名`2022 ... (XBX)`，**不能直接认证其原版PC22**。原帖标题`Are series not working?`，是一例一手故障报告，不是2K22所有Series不生效的定论。
+- 2021-10-07 Reddit `r/MyTeam`玩家给出**Xbox Series X|S/MyTEAM**的双重操作路径：暂停`Offensive Settings`先选Freelance，再场上右方向键`Gameplan→Run Freelance`，之后右方向键`Freelance→指定set` [SRC-0043]。这特别说明**“配置可选择”与“场上活动set被调用”是两步**；但它只适用于作者的MyTEAM次世代，PC22离线MyLEAGUE是否具有同菜单和自动执行，仍`UNKNOWN`。
+- 在旧2K20 Reddit [SRC-0047]，玩家说比赛中`Offensive Settings`有`Freelance1/2/3`和`Series Order / Repeat`；这是**旧版本玩家分步描述**，不证明本项目4个原生Freelance槽可直接等同这一旧界面上的3个可选项。
+
+**研究与GM实务上的诊断顺序**：先确认队伍Book中有对应脚本/Series参考 → 确认教练进攻重点/RunPlays/ACE是否相容 → 区分“被选中”的静态菜单与“已激活”的临场流程 → 在可观察比赛回合查本场跑位。无法看到3D时只保留`CALLABLE_NOT_EXECUTION_CONFIRMED`。不允许以“战术名称在Book”反推CPU必选，更不允许凭玩家按键指南虚构外挂可以实时按键。
+
+## 13. K04.DEFENSE_SCREEN5 — 对Center后缀和TagOnRoll的更精确理解
+
+### 13.1 拆成三人视角而非按中文直觉填数值
+
+在篮球挡拆场景，要明确**对方持球者B、发起掩护的球员S、我方防持球者DB与防掩护者DS**。`ScreenDefenseOnBall`首先是对DB应怎样绕掩护的策略；`ScreenDefenseHedge`是DS怎样延误/上提/回收的策略。这个“分别指谁”的职责框架是篮球战术概念，而非本机引擎动作保证。
+
+2016年OS历史2K系列讨论 [SRC-0044]给出进一步的场景解释：
+- 某回帖认为`On-Ball Screen (Center)`、`Hedge (Center)`针对**中锋作为掩护者的挡拆**单独配置，和普通On-Ball Screen/Hedge可并存；选`Auto`时可能回落普通方案。
+- 另一个回帖强调，中锋掩护通常意味着由**我方防中锋者DS**参与Hedge，讨论的视角不应误判为“该选项写在谁的名字下面，就要哪个人亲自做Hedge”。
+- 本轮另核对2018年OS经验 [SRC-0045]：作者明确从“**我方Center是Hedge defender**”的视角理解两个Center选项。这与“对方Center是screener”在一般位置对位时常重合，但发生换防、错位、非传统五号位等情景，**两个身份不保证相同**。
+
+**最终严格结论**：`KNOWN_IN_SERIES`可以说Center后缀与挡拆中锋参与有关，旧玩家提供了有效的篮筐防守语义示例；然而**NBA2K22 PC精确触发条件、是否按本队中锋身份或对手掩护人的名单位置判定、与普通项override优先级仍是UNKNOWN**。项目中`ScreenDefenseOnBall5/ScreenDefenseHedge5`两个独立原生字段仍需要由PC22可读UI/特定对位事实对应，**本轮没有将名字推断写入原生字典**。
+
+### 13.2 TagOnRoll存在“游戏字段还在，但菜单位置可能变化”的旧系列先例
+
+2018-11 OS `Defensive Settings Discussion` [SRC-0045] 的玩家说，旧版`Tag On Roll`当时似乎**从赛前Gameplan消失，却还出现在SimCast的Defensive Settings页**；作者明确承认没有验证在SimCast改变后的实际效果。这个案例在研究层重要：**“某一菜单没有这个选项”不等于“功能/存档对象/所有模式都不存在”**，也不能把隐藏页当成可稳定控制的CPU策略。
+
+本项目`TagOnRoll`原生枚举字典已登记，但具体UI和引擎行为还需PC22认证；不可直接从2018经验推导为PC22依然在SimCast里、必能影响挡拆顺下。
+
+### 13.3 PreRotate、StayAttached与弱侧救援仍不可混同
+
+2018年同帖玩家以`Pre-Rotate`为例讨论对突破持球者的提前轮转，也提到`Stay Attached`与Hedge/Screen Help的联动；同一主题里另有玩家警告强行帮助可能造成另一侧开放的投篮 [SRC-0045]。**这是老游戏战术经验，不是PC22内核触发公式**。项目中的`PreRotate`只接受packed bool`0/1`；`StayAttached`和`TagOnRoll`各有独立字典/身份，不能互当别名；临场ACE可能介入但覆盖规则未证。
+
+## 14. 本世代PC22“CPU对CPU”研究对象与“用户手控ACE”要分开
+
+2021-11 Operation Sports的 **NBA 2K PC Forum** 中，玩家`cdcool`直接描述`NBA 2K22 CPU vs CPU MyLeague`，控制全部球队并**逐场观看每一场、不使用Sim**，其自定义游戏速度、游戏玩法滑块列表明确是供该玩法使用 [SRC-0046]。这证明同版本PC拥有可靠的玩家研究对象——“观战的CPU vs CPU MyLEAGUE”——其条件明显不同于：
+- 真人打CPU时`ACE affects USER`一类建议；
+- 快速`Sim`不进入全场3D的比赛；
+- MyCareer / MyTEAM的临场按键；
+- PS5 `MyNBA`新世代教练与场景。
+
+这条资料**不是**PC22 Coach UI截图，也不证明特定全联盟战术偏好的效果；其严肃用途是要求未来每个所谓“战术有效”的来源都标：`render_mode=CPU_VS_CPU_3D / PLAYER_VS_CPU / FAST_SIM`、`save_type=MYLEAGUE`、`actor_who_controls_team`。不再把模拟成绩和真人手动防守混成同一个证据样本。
+
+## 15. R02-B真实画面/数据的最低验收与现存结果
+
+| 具体研究题 | 新证据最高等级 | PC22直接截图/真实字段 | 后续原生定向 |
+|---|---|---|---|
+| Coach Gameplan、POE、Offensive/Defensive Settings全部选项 | `PROJECT_NATIVE_FIELDS_VERIFIED` + 同版社区文字 | **未取得完整原版可读页面** | `VIS-TODO-R02-01/04/05`，UI字段逐项与本批字典映射 |
+| ACE关闭、Offense Only和Manual时策略是否持久 | `NBA2K22_COMMUNITY_REPORTED_CONFLICTING` | **未证具体PC22 CPU-vs-CPU覆盖规则** | G0–G3分层、同一队前后值、比赛模式与暂停时点 |
+| Series是否可替代Freelance/被自动调用 | `NBA2K22_COMMUNITY_REPORTED_XBX` | **未证PC场上实际Series启用** | 查入口/候选/选择/3D调用各不同对象 |
+| 34个Freelance四槽、切换机制和场上站位 | `PC22_PROJECT_NATIVE_ENUM` + 次世代MyTEAM操作类比 | **CRC标签已映射，不等于原版菜单或动画已见** | `VIS-TODO-R02-04`，不要虚构等频率 |
+| 12类Play目录、球员四PlayTypes与2D Playboard | `PLAYER_REPORTED_UI` + 共享池已有CRC | **CRC→原生类别id仍UNKNOWN** | `VIS-TODO-R02-02/03`与未来定向映射 |
+| Personal 18项中Center/Tag/PreRotate等语义 | `KNOWN_IN_SERIES` + PC22本机字段存在 | **精确触发/覆盖/中文菜单未确认** | `VIS-TODO-R02-05`，特别核对身份与优先级 |
+
+**新增合格PC22逐像素Coach/Playbook菜单图证：0**。搜到带NBA2K22标题的视频或网页不等于视频已逐帧审查。现有网站图片和YouTube只记录原网页/媒体定位，不复制到GitHub、不假造时间戳；图证待办集中在EXTERNAL_VISUALS。
+
+## 16. DEV29 V3四角色权限、信息与“同意≠写入”矩阵
+
+| 机制/争议 | Coach自主可选什么 | GM能提出什么 | Player能提出/拒绝什么 | Media可知/不可知 | 反馈与持久化分界 |
+|---|---|---|---|---|---|
+| 本队进攻节奏与体系 | 偏爱耐心阵地或转换、在球员不合适时拒绝GM强制策略 | 寻找更合适阵容、商议POE/Book/员工 | 反映职责不适、争取高持球与自主训练 | 可据真实进攻数据质疑；不能看到内部未来潜力或私下谈判 | 比赛PTS/Pace等是原生观察；教练理念争执是外挂`EXTERNAL_SQLITE_CANONICAL` |
+| 巨星要改变战术角色 | 选择战术发起人和场上打法倾向，保留教练审慎判断 | 提供换阵、续约/资产与教练调整方案 | 提出更多单打、减少掩护或拒绝成为纯外线定点 | 可报道公开诉求但应区分传闻与官方公告 | 球员原生PlayTypes可读作事实；内心愿望/承诺另存角色事件 |
+| ACE动态覆盖了Gameplan | 认为场上变化值得自主调整，或坚持预先商定方案 | 质询当前读值/实际比赛表现并请求赛前或赛中策略方案 | 表示对打法/上场机会满意与否 | 只能根据可观察比赛表现推断，不能声称看到隐藏开关 | `G0–G3`证据链；无实机读数时HOLD |
+| 指定防守一名强攻手 | 根据己方防守资源和对方空间建议换防/不包夹 | 请求指定对手的PERSONAL防守，不动OVERALL | 防守者可能不愿长期冒犯规风险或受疲劳影响 | 以对手真实命中率和失误做报道，勿推断精确防守指令 | 实机值需批准；策略偏好/风险承受度可外挂存储 |
+
+**WHO_CAN_OBSERVE**必须按角色可见性投影，GM与媒体不应共享球员完整隐私信念；`WHO_CAN_PROPOSE/WHO_MAY_VETO`描述角色模拟谈判层；`GAME_NATIVE_EFFECT`和`EXTERNAL_ROLE_EFFECT`分开；`LEARNING_SIGNAL`只能由真实比赛、已批准动作及角色事件推动；`ATTRIBUTE_REPURPOSE_CANDIDATE=UNKNOWN`，不得把Tempo、PlayTypes、Tendencies占作人格存储位；**战术理念是参考，不是统一最优模板**。
+
+独立教练Agent可能提出一套不利于球队短期胜率的打法，这在篮球世界里可以存在；GM可以谈判、拒绝或换帅，球员可以接受/拒绝其角色，但**上述只是未来角色可选行动目录，不是本轮开发Agent或真实2K原生对象的审批权**。所有游戏修改仍需真实玩家按现有合法执行合同批准。
+
+## 17. R02-B交付总结与下一研究断点
+
+本轮真正推进了：
+1. ACE/Offensive/Defensive Playcalling**“用户手动调”与“CPU-vs-CPU”两套情形不能混用**；2022年直接互相矛盾的玩家案例，不承诺ACE关掉就一定保留设置；
+2. 2K22 **Series选择可能回退Freelance** 的一手玩家报告及同年Xbox MyTEAM的分步启用方法；界面选择和真实调用独立；
+3. Center掩护防守与`Hedge`人员职责拆解、`TagOnRoll`2018年在SimCast与赛前菜单可见性差异，避免误解原生字段；
+4. 2021 NBA2K22 PC端**CPU-vs-CPU MyLEAGUE逐场观战**的明确作者证据，帮助过滤不具可比性的战术经验；
+5. 依据V3为Coach、GM、Player、Media补全**四角色观察/提议/否决/学习与外部持久化**矩阵。
+
+**未解决**：PC22原版Coach/ACE/Personal/Freelance与2D预览可读图，战术CRC类别精确ID，ACE下本队四Freelance实际使用概率，Series游戏内执行，Center与TagOnRoll动态覆盖规则。全部`UNKNOWN`或`DEV28_NATIVE_DISCOVERY_REQUIRED`，**不能通过搜索更多2K16–19战术帖子无限外推**。
+
+**下一阶段建议：`R02_C_BOUNDED_ORIGINAL_UI_OR_CLOSE`**。如果玩家下一轮继续R02，应限定一次原版PC22教练/攻防菜单视觉取证，有效证据即增量K04；若仍没有可靠原版画面，则按UNKNOWN封存R02公开研究，转R03训练/疲劳/伤病，不因此启动DEV28或Codex。研究结束只按GitHub PROGRESS推进，不自动做任何游戏写入。
