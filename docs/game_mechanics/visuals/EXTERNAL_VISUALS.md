@@ -252,3 +252,25 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 - **B 职业选择动态页**：同一球员在正常已发生的赛季阶段显示其Morale/Status/Extension Thought，以及真实自由市场报价与状态，区分游戏UI上“准备测试FA”与实际已签新队；不为了制造剧情而手动调玩家合同、模拟正式存档或修改人格徽章。
 
 新增VIS编号 **0**。PC原生偏好/真实角色目标区别、21人格徽章的来源分级与角色报价能力详见[K03/K12 §17–23](../guides/K03_K12_PLAYER_PROFILE_AGENCY.md)、[R04-C机读目录](../catalogs/R04C_PLAYER_MOTIVATIONS_PERSONALITY_V1.json)。待独立授权取得目标本机素材后才增量升级；本研究轮未启动DEV28/Antigravity/Codex。
+
+## DEV29 R04-D — 跨模式Player/GM/Coach/Media互动图谱视觉证据与终结（2026-10-21）
+
+**本轮新增经过像素完整核对的PC22无模组离线MyLEAGUE人物互动/Contract Conversation/Trade Request/公开采访原生菜单：0。** R04-D主要整合已有K03/K04/K06、项目Registry、合同/交易真实执行安全合同以及新来源的**文字证据**，不冒充外部角色协议为游戏内有此按钮。
+
+| 来源 | 核实的是哪种研究材料 | 视觉等级与边界 |
+|---|---|---|
+| [2K20原开发博客MyGM关系与行动点](https://www.operationsports.com/nba-2k20-franchise-mode-developer-blog-mygm-2-0-myleague-more/)（SRC-0106） | 开发者描述MyGM 2.0的Chit Chat、Coach Gameplan信任门槛、部门任务，**同稿分开讲MyLEAGUE级别Morale/Personality Badge** | `OFFICIAL_2K20_MYGM_TEXT_NOT_PC22_MYLEAGUE_UI`；不能给本机增加不存在的对话/交易同意页 |
+| [NBA2K22次世代官方MyNBA更新](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles)（SRC-0108） | Conditional Coaching、MySTAFF/Prep Hub作为可借鉴的经理/教练自主行为 | `OFFICIAL_NBA2K22_NEXTGEN_MECHANISM_REFERENCE`；没有本机PC22 Conditional Coaching控件逐像素确认 |
+| [NBA2K21 MyGM与MyLEAGUE实战区别](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/900689-nba-2k21-mygm-vs-myleague)（SRC-0107） | 老PC/PS4同代角色对话/信任 vs 离线沙盒权限的区别 | `OLDER_SAME_GENERATION_COMMUNITY_TEXT`，没有可认证2K22 PC原始菜单 |
+| [NBA2K23次世代MyNBA模式整合说明](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/932739-mynba-can-t-sub-players-in-during-timeouts)（SRC-0109） | 玩家说明新世代把MyGM/MyLEAGUE合并、可开关RPG内容；不同作者代际叫法可能不同 | `2K23_PS5_COMMUNITY_TEXT`，不证明PC22 MyLEAGUE是同样的RPG模式 |
+| [NBA2K22 MyNBA真实伤病播报/Player DNA问答](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/916965-mynba-q-a-and-general-discussion-thread)（SRC-0112） | 同版玩家报告比赛播报员会对某次真实受伤给出更新；另有人询问复制DNA后新秀Years Pro错误 | `NBA2K22_NEXTGEN_PLAYER_TEXT`，提问不是证实，播报不是本机健康记录；没有逐帧验证原图 |
+| [R04-D八类人物互动Atlas](../catalogs/PLAYER_AGENT_INTERACTION_ATLAS.md) | 完整角色可观察事实、提议/拒绝/安全执行与后续世界反馈的**研究叙述** | `EXTERNAL_RESEARCH_NOT_NATIVE_PIXEL_ARTIFACT`：虚拟谈判示例不能登记为PC UI或现实事件 |
+
+### 保留最少PC本机图证请求，不阻断下一轮R05
+
+1. 球员合同/去留状态：真实NBA2K22 PC离线MyLEAGUE某个同一人物的合同年份、Option与FA判断、显示的Morale/role或Trade Request（若存在），必要时连续两时点记录。
+2. 教练与球员真实菜单路径：Coach Gameplan/Role/Training/Player Tendencies不同入口是否原生可见；将游戏里的信息提示、提示性质和实际游戏更新区分，不把MyGM关系界面错误当MyLEAGUE内容。
+3. 比赛真实伤病/公共报道：已自然发生的受伤比赛实时播报与赛后真实伤情，如果存档没有则不强行制造。只认证公开事件/位置及时间，不泄露私有健康推断。
+4. 若未来真要把人格徽章/职业动机导向游戏写入：要由另行授权的原生专项对字段名、来源、原始值、负面副作用进行读前/读后认证，不能仅凭菜单截图判断算法。
+
+**证据总结**：R04-A/B/C/D的原版PC22新增精确像素取证仍为0。本轮没有发布独立的VID/VIS截图编号，也没有复制第三方图片。**`R04_RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS`**是网页研究分工的结案，不意味着本机实时玩家人格/伤病/合同模式已被完整采集或可执行。下一主题R05，未启动。
