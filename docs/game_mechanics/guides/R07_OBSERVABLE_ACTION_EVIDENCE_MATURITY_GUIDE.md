@@ -2,6 +2,8 @@
 
 > 2026-10-21；`R07_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`。研究对象 NBA2K22 **PC本世代离线MyLEAGUE**。这是R01–R06研究完成并经过R06独立验收后的**研究知识整合**，不是DEV28实现、Codex执行、比赛推进、原生菜单测试或人格系统开发。本轮没有访问真实游戏进程、没有任何游戏写入；新实际采集与UI像素认证均为0。
 
+**可读取性说明**：694项逐条索引现在采用[总入口清单](../catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)和**7份JSON分卷**，每卷94–100条；总入口只列分卷路径、计数与边界，不将超过连接器读取上限的巨型单文件当成可用交付。使用时必须依次读取`parts[].path`，不能只查总入口就误认缺少`items`。每卷同时保留`SRC-####`外部引文和`project_refs / original_research_source_refs_raw`项目/内部来源，未逐项核对的原文语义仍保持未认证。
+
 本轮两份机读入口： [40组功能成熟度矩阵](../catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json) / [694条研究项可追溯索引](../catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)。之前已经由独立审核接受的正式R06研究状态为`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`；详见[验收报告](../../development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)。以下的40/694都是**不同抽象级别的研究计数，不是已认证游戏能力数字**。
 
 ## 一、R07的任务边界与业务问题
