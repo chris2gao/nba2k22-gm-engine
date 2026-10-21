@@ -120,6 +120,14 @@ OVR是游戏汇总评估，可能和位置、技能加权、Intangibles等互动
 
 需要同时记录`badge_id, native_label, tier, group, source_snapshot, visibility, persistence, effect_evidence`。如果未来游戏自然成长、导师/退化导致新徽章，靠两期真实数据差分记录；若当前还没有可靠的徽章原生解码则`UNKNOWN`。项目**不允许普通经营直接写原始Badge等级给球员加强能力**，不能将`badge_slot`当外挂人格变量仓库。
 
+### 5.4 R04-A增加全名录：80项Gameplay Badge与20个人格候选
+
+已建立[PLAYER_BADGES_R04_A_REFERENCE.json](../catalogs/PLAYER_BADGES_R04_A_REFERENCE.json)作为**非原生ID的可检索名单**。根据2K22社区独立整理的徽章页[SRC-0082]，列出**Finishing 20、Defense/Rebounding 20、Playmaking 20、Shooting 20，共80个名称**；另外按当年ATD名单作者的真实2K22人物标签与旧NBA2K人格术语整理**20个人格徽章候选**。名单不是把20项人格全部冒充已认证PC22菜单，也不是对其原生编号的猜测。
+
+- 全名录存`badge_label/category/2K22_source/visibility/known_native_id/status`，所有`native_2k22_pc_player_id=null`，没有PC原生内存归属就不会生成Badge执行命令；
+- 同版2K22玩家、名单作者对球员Gameplay徽章和人格徽章具体组合给出了独立样例[SRC-0080]，但某些Community属性与总徽章数、版本混用的风险持续保留；
+- 在R04-C逐个调查人格、契约/自我定位及NPC行为效果；在R04-D补完整原生Badge位置、具体角色权限与自然更新来源；不从`low ego`或`high work ethic`直接定义球员人生剧本。
+
 ## 6. 按字段性质给未来角色“能做什么”，而不是“应该怎么做”
 
 | 资料/变化 | 球员的自主提议 | Coach可能的独立意见 | GM可能的独立意见 | Media可报道边界 |
