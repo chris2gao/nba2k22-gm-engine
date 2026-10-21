@@ -292,6 +292,6 @@ R03已由用户批准结项；独立审核未来由其他模型负责，DEV29研
 2. 机读目录把**项目静态Registry中的86个记录候选**逐条保存：`settings.json`有49项，`world.json`有37项；**可能跨目录共享Native Slot/Offset，不是86个互不重叠UI按钮或当前已读游戏值**。`src/gm_state_io/registry.py`确实会自动纳入WORLD_SETTING，但软件可登记、旧静态RVA代码、可计划写入，不等于当前PC22 UI+原值+写后读回+存盘验收。另`court.json`有较窄4项Gameplay受限项目定义。
 3. 游戏菜单研究**118项候选**：Setup13、Calendar Simulation32、3D Gameplay73，来自明确来源的项目分类研究；都保留`current_value=null`及对应具体版本标签，**不是本游戏全套原版字段已逐帧认证**。尤其`Simulation Shot Three`≠3D`3PT Shot Success`≠Player个人`Take 3PT Tendency`。
 4. 玩家/社区已报的**Normalize伪数据风险**：2022-06 2K22 MyLeague用户场内126:116后日历显示304:287及球员统计变化，有用户认为与Norm开关有关；2021旧MyLeague有Stats变而Minutes未变的报告，不可当目标版普适公式。当前`settings.json`的`simulation.normalize_stats`**不能代表“分钟”与“统计”两个独立开关都已找到**。同一GameID要区分场内比分、赛后Box、日历结果与季节聚合。
-5. **GPU/USER/CPU与模式**：一队被指定User-controlled仅是经营所属，比赛控制器、USER/CPU Gameplay Slider消费、CPU-vs-CPU/SimCast和ACE应分别记状态；2017旧版本论坛观点不认证PC22行为。用户HoF实际观察保留，**不在R06-A建议改变其当前游戏设置**，不关闭ACE，不自动改球员能力/潜力/徽章。
+5. **Gameplay USER/CPU与模式**：一队被指定User-controlled仅是经营所属，比赛控制器、USER/CPU Gameplay Slider消费、CPU-vs-CPU/SimCast和ACE应分别记状态；2017旧版本论坛观点不认证PC22行为。用户HoF实际观察保留，**不在R06-A建议改变其当前游戏设置**，不关闭ACE，不自动改球员能力/潜力/徽章。
 6. **后续顺序**：R06-B研究历史纪元/规则提案/奖项/纪录/媒体的原生可见事实；R06-C研究赛季阶段、保存/重启、真实Game Date和历史单场数据保留；R06-D跨领域整合。所有研究只交原料、不开发媒体人格/运行流程、不调用PC游戏、不修改游戏存档；每次更新GitHub资料并回读。
 
