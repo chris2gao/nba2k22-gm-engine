@@ -172,3 +172,24 @@
 截图可认证**菜单候选/来源身份**，但不能保证训练收益或伤病概率。现有技术目录的`progressive_fatigue_history`尚无本轮实时解码认证，不能以任何截图名词替代。
 
 **R03-A真实图证：VIS-0009..0010为2K22官方次世代**；目标PC22新增UI图证0。后续R03-B继续伤病/恢复/真实负荷来源，不需再次把Prep Hub营销稿当作PC22证据。
+
+## DEV29 R03-B/C — 健康/导师原版视觉取证与审核结案（2026-10-21）
+
+R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、伤病列表、康复剩余天数、导师进度或Trainer精确效果的菜单截图：0**。既有`VIS-0009/0010`是已实际查看像素的**2K22官方次世代MyNBA训练页**，持续作为高价值终极联盟机制参考，不降级其机制价值，也**不冒充PC本世代屏幕或字段读值**。
+
+| 可追溯图证线索 | 本轮实际可用证据 | 图证级别与边界 |
+|---|---|---|
+| [OS 2021 MyLeague Injury Sliders](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/918980-myleague-injury-sliders) / SRC-0060 | 玩家关于手打/Sim伤病差异的**文字实战报告**，也有人自述亲见Luka受伤动画 | `TEXT_ONLY`；未看到可认证PC22的受伤视频具体帧 |
+| [OS 2022 MyLeague Why no injuries](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/921266-myleague-why-are-there-no-injuries) / SRC-0061 | 多位玩家对滑块/Durability调节作出互相冲突的文字描述 | `TEXT_ONLY`；改Durability不是研究授权动作 |
+| [OS 2022/23 MyNBA Injury Duration](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/926689-mynba-injury-duration) / SRC-0063 | 历史伤停时间与实际返场提前的玩家回忆/个案 | `TEXT_ONLY`；无原版PC22恢复日列表像素 |
+| [Reddit 2022 Mentor assignment crash](https://www.reddit.com/r/NBA2k/comments/s88jzz) / SRC-0068 | 玩家对某些导师组合会引起崩溃的文字描述 | `TEXT_ONLY`；未获得重现录像与PC版本证据 |
+| [2K官方新世代MySTAFF医疗分工](https://www.operationsports.com/nba-2k22-mynba-details-revealed-mystaff-staff-carousel-prep-hub-attributes-badges-more/) / SRC-0064 | 各Sports Medicine职位功能的官方文字/图片上下文 | `OFFICIAL_NEXTGEN_MECHANISM`；不证明PC22本世代能聘七个新医疗岗位 |
+
+### 以后最少4组可分批取证（不是现在让用户执行）
+
+1. **真实伤病页**：当前Game Date、球队、具体球员身份、伤病类型/部位/严重度、预计返场天数与真实最后复赛日期。至少同一球员两个自然出现的时间点；未出现伤员时不人为制造。
+2. **实时与历史疲劳**：同一球员的比赛前/后体力、Training History或Progressive Fatigue字段，明确时点、单位、原版或次世代来源；不由过去历史尾数假装当前体力。
+3. **导师页**：一个真实Mentor/Mentee pair、可选Badge、Compatibility和自然推进后的进度，优先仅只读；发生已知崩溃风险则停止，不操作正式游戏。
+4. **PC本世代Trainer与个人训练原型**：训练师原生UI属性、球员Training中的Position+Player Type原型与Intensity、是否显示Recovery等，和现有Registry逐项映射。
+
+研究完结时的图证状态：`R03_RESEARCH_COMPLETE_WITH_NATIVE_DATA_GAPS`、`PC22_HEALTH_UI_FULL_VERIFIED=0`。**不能据此说原版游戏没有健康菜单，只是当前公开材料无法完成源级认证**。R04完整身体部位Durability的研究会独立展开，在用户审核R03后方可启动。
