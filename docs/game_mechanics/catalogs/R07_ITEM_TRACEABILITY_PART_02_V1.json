@@ -23,7 +23,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -51,7 +52,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0102",
@@ -68,7 +74,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -96,7 +103,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0103",
@@ -113,7 +125,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -141,7 +154,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0104",
@@ -158,7 +176,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -186,7 +205,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0105",
@@ -203,7 +227,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -231,7 +256,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0106",
@@ -248,7 +278,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -276,7 +307,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0107",
@@ -293,7 +329,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -321,7 +358,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0108",
@@ -338,7 +380,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -366,7 +409,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0109",
@@ -383,7 +431,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -411,7 +460,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0110",
@@ -428,7 +482,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -456,7 +511,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0111",
@@ -473,7 +533,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -501,7 +562,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0112",
@@ -518,7 +584,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -546,7 +613,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0113",
@@ -563,7 +635,8 @@
         "SRC-0074"
       ],
       "project_refs": [
-        "config/memory_field_profile.json"
+        "config/memory_field_profile.json",
+        "PROJECT_PLAYER_PROFILE"
       ],
       "original_catalog_evidence": "PROJECT_STATIC_PROFILE_REGISTERED_NOT_LIVE_CURRENT_BATCH_VERIFIED",
       "direct_source_support_verified_in_R07": false,
@@ -591,7 +664,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "PROJECT_PLAYER_PROFILE"
+      ],
+      "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     },
     {
       "ref_id": "R07.0114",
@@ -637,7 +715,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0115",
@@ -683,7 +766,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0116",
@@ -729,7 +817,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0117",
@@ -775,7 +868,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0118",
@@ -821,7 +919,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0119",
@@ -867,7 +970,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0120",
@@ -913,7 +1021,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0121",
@@ -959,7 +1072,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0122",
@@ -1005,7 +1123,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0123",
@@ -1051,7 +1174,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0124",
@@ -1097,7 +1225,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0125",
@@ -1143,7 +1276,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0126",
@@ -1189,7 +1327,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0127",
@@ -1235,7 +1378,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0128",
@@ -1281,7 +1429,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0129",
@@ -1327,7 +1480,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0130",
@@ -1373,7 +1531,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0131",
@@ -1419,7 +1582,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0132",
@@ -1465,7 +1633,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0133",
@@ -1511,7 +1684,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0134",
@@ -1557,7 +1735,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0135",
@@ -1604,7 +1787,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0136",
@@ -1651,7 +1840,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0137",
@@ -1697,7 +1892,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0138",
@@ -1743,7 +1943,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0139",
@@ -1790,7 +1995,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0140",
@@ -1837,7 +2048,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0141",
@@ -1884,7 +2101,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0142",
@@ -1931,7 +2154,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0143",
@@ -1978,7 +2207,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0075",
+        "SRC-0077",
+        "SRC-0078"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0144",
@@ -2024,7 +2259,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0145",
@@ -2070,7 +2310,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0146",
@@ -2116,7 +2361,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0147",
@@ -2162,7 +2412,12 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0074",
+        "SRC-0075"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0148",
@@ -2210,7 +2465,14 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096",
+        "SRC-0097"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0149",
@@ -2257,7 +2519,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0150",
@@ -2304,7 +2572,13 @@
       "linked_existing_production_scope": "ROSTER_AND_PLAYER_POOL_SNAPSHOT_SCOPE_FIELD_COVERAGE_NEEDS_CHECK",
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [
+        "SRC-0092",
+        "SRC-0093",
+        "SRC-0096"
+      ],
+      "source_lineage_scope": "EXTERNAL_SRC_REFS_NOT_SEMANTICALLY_REAUDITED"
     },
     {
       "ref_id": "R07.0151",
@@ -2347,7 +2621,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0152",
@@ -2390,7 +2666,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0153",
@@ -2433,7 +2711,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0154",
@@ -2476,7 +2756,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0155",
@@ -2519,7 +2801,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0156",
@@ -2562,7 +2846,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0157",
@@ -2605,7 +2891,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0158",
@@ -2648,7 +2936,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0159",
@@ -2691,7 +2981,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0160",
@@ -2734,7 +3026,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0161",
@@ -2777,7 +3071,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0162",
@@ -2820,7 +3116,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0163",
@@ -2863,7 +3161,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0164",
@@ -2906,7 +3206,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0165",
@@ -2949,7 +3251,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0166",
@@ -2992,7 +3296,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0167",
@@ -3035,7 +3341,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0168",
@@ -3078,7 +3386,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0169",
@@ -3121,7 +3431,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0170",
@@ -3164,7 +3476,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0171",
@@ -3207,7 +3521,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0172",
@@ -3250,7 +3566,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0173",
@@ -3293,7 +3611,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0174",
@@ -3336,7 +3656,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0175",
@@ -3379,7 +3701,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0176",
@@ -3422,7 +3746,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0177",
@@ -3465,7 +3791,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0178",
@@ -3508,7 +3836,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0179",
@@ -3551,7 +3881,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0180",
@@ -3594,7 +3926,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0181",
@@ -3637,7 +3971,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0182",
@@ -3680,7 +4016,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0183",
@@ -3723,7 +4061,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0184",
@@ -3766,7 +4106,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0185",
@@ -3809,7 +4151,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0186",
@@ -3852,7 +4196,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0187",
@@ -3895,7 +4241,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0188",
@@ -3938,7 +4286,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0189",
@@ -3981,7 +4331,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0190",
@@ -4024,7 +4376,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0191",
@@ -4067,7 +4421,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0192",
@@ -4110,7 +4466,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0193",
@@ -4153,7 +4511,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0194",
@@ -4196,7 +4556,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0195",
@@ -4239,7 +4601,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0196",
@@ -4282,7 +4646,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0197",
@@ -4325,7 +4691,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0198",
@@ -4368,7 +4736,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0199",
@@ -4411,7 +4781,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     },
     {
       "ref_id": "R07.0200",
@@ -4454,7 +4826,9 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "original_research_source_refs_raw": [],
+      "source_lineage_scope": "ORIGIN_NO_EXPLICIT_SOURCE_REF"
     }
   ]
 }
