@@ -447,3 +447,118 @@ NBA官方2021-08-02新闻[SRC-0114]：
 6. **业务权限**：研究原料不等于有PC游戏修改许可；玩家单独批准后再由独立执行者落实原生可验证动作。没有创建任何球员/Coach/GM人格、选秀决策程序、员工雇佣AI或模型间工作流。
 
 **状态**：\`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS\`；**R05-D经营资料来源与全部操作目录整合尚未启动**，由用户下次明确触发。R04维持批准结案。本轮不启动游戏、Codex、DEV28、历史新秀真实注入或原生写入。
+
+
+---
+
+# DEV29 R05-D — 游戏经营全域资料整合（2026-10-21）
+
+> **正式研究状态：`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`，R05-A/B/C/D研究已交付，不代表PC22所有UI或执行器完整。** 本节将**K07财务与合同/K08选秀球探和市场/K09员工体系**联成可独立检索的游戏原料。所有选择由未来对应模型自由决定，DEV29**不编写固定最优经营逻辑、谈判评分器、球员人格或执行脚本**。机读入口：[R05-D 54项数据/63项可选概念/12项联动/12项真实缺口](../catalogs/R05D_FRANCHISE_CAPABILITIES_ATLAS_V1.json)。
+
+## 23. 已知游戏数据、静态技术布局、菜单参考与真实操作权限四者不能画等号
+
+| 证据级别 | R05真实实例 | 下一模型可以合理知道什么 | 不能作出的断言 |
+|---|---|---|---|
+| **REGISTERED_NATIVE_LAYOUT** | `PLAYER.contract`17字段、`STAFF`13字段、`TEAM/DRAFT`14原生结构映射 | 存在该结构、位域/Enum和可配对的读取方式（如果有正确存档） | “全队当前值已读”“随时能写”“改值效果已证明” |
+| **HISTORICAL_PROJECT_CAPTURE** | 某批次`team_finance`及`staff.json`；五届300张未来选秀权的读取模型和过往玩家受控测试 | 对特定来源批次可形成观察/核验样例 | 不能默认等于**现在游戏**的球队薪资、Staff空缺、已选新人及最新Draft交易持有人 |
+| **OFFICIAL_SAME_GAME_OTHER_PLATFORM** | 2K22次世代MySTAFF四部门/17人配额、Conditional Coaching的关联 | 这些是游戏机制设计的同版研究参考 | PC22本世代菜单、岗位及选项值已完整相同 |
+| **SAME_GAME_PLAYER_GUIDE** | Contract Flat/Front/Back/Bird、Draft Class入口、Trade Sliders、Scouting可见预计能力/榜单 | 大致可选择哪些菜单、可能有哪些业务效果 | 当前用户存档确有同名开关、相同年月/系数或值域 |
+| **REAL_2021_22_NBA_RULE** | $112.414m真实工资帽、2017 CBA匹配分档、选秀权交易真实七年Stepien背景 | 现实制度在赛季背景下为什么限制某操作 | 把真实NBA七年自动写成2K22 PC七年可交易资产，或忽略当前用户世界政策 |
+| **PROJECT_POLICY** | `PLAYER_RULES_20261021_V4`：已取消三届限制，不使用保护/Swap，审批仍必需 | 哪些外挂资产动作符合玩家的世界规则 | 只因规则允许就宣称执行器第4/5年已解锁 |
+| **VERIFIED_RUNTIME_EXECUTION** | 某些CHI/DET受控人员交易/简单Pick变更曾获用户UI接受；当前签约仍禁用 | 真实获批的**特定动作**经过读回才有效 | 所有球队都能无风险执行任意签换、员工聘解约、选秀注入 |
+
+**统合目录的54条是技术已登记项与候选财务项目的合计，不是54条当前游戏实时读数**：17 Player Contract + 10 Team Finance（含部分候选/代理）+14 Roster/Pick结构+13 Staff Profile。**63类可选/研究操作包含21种合同市场概念+16交易候选+10球探类别+10选秀选项+6员工聘任候选；并非63个原生已验证按钮**。
+
+## 24. 经营领域统一可观察资料索引
+
+| K域 | 可以索要/已存在的字段或文件 | 来源基础 | 更新时点/持久性待证 |
+|---|---|---|---|
+| **K07球员合同** | 6个逐年薪资槽、剩余/原始合同年限、Bird年数、合同Option、延期、No Trade、两向/EuroStash状态 | 静态Native Player 17字段+部分游戏源 | 跨季薪资槽位真实年份、Option行权、Bird资格、QO/FA期读回 |
+| **K07球队财务** | Total Salary、Payroll、Budget、Cash；Staff Budget、Fan Interest、票价与Gate候选 | 项目队伍/财务工作台 | 当前工资帽设置、团队税、真实例外、Money单位/累计范围、签约容量UNKNOWN |
+| **K08交易/名单** | 15常规槽、2双向、13活动槽，球员当前队与合同队、名单及活动人数 | Native Roster/Player身份/真实已验交易记录 | 非简单多方、双向、签换/名单自动填补及跨重启保存一致性 |
+| **K08未来选秀权** | 每枚的Draft Year/Round/Original Owner/Current Owner；五届共300条已知只读布局 | `draft_asset_profile.json`、`src/draft_assets.py` | **当前世界已取消三届交易上限**，但执行代码仍旧三届；第6年以后是否真实可取未知 |
+| **K08球探与新秀** | 可观察新秀姓名/位置、Scouted%、Projected Overall和Potential Grade、多个榜单与Draft Class类型 | 同版2K22攻略、旧版经验、历史新人候选池 | PC22菜单完整枚举、真实球探误差与更新时间、Draft Lottery及正式Draft Result |
+| **K09员工** | 8种原生职位、13项Staff字段、个人薪资、年限、F..A+评分、Preferred/Active系统 | Native STAFF Profile与`staff_details()`读取器 | 聘任/解聘/续约/实际职位上限、部门员工预算、医学球探效果 |
+| **K09本世代vs次世代** | 同版PS5/XSX MySTAFF四部门、17聘任总名额、细分教练、国内国外球探及医学部门 | 官方2K22说明 | PC22是否开放同样岗位不能仅由同版次世代宣传认定 |
+
+**身份交接总原则**：用保存档身份、`game_date`、同源批次、当前球员/球队/员工原生ID匹配；外部现实赛季日期、交易提案、模拟排行榜、隐藏Potential=1不能当作本局实时事实。
+
+## 25. 操作目录：哪些动作是“资料已经提到”，哪些动作实际可以落地？
+
+以下分为**菜单候选**与**本项目受限执行层**，避免将研究误登记为可执行代码。
+
+| 行动领域 | 游戏中的可选操作原料 | 在本项目的真实状态 |
+|---|---|---|
+| 合同 | Flat/Front/Back/Bird报价曲线、年限/选项、球队/球员Option、QO、RFA、Bird续约、Cap Holds/弃权 | Native Contract 17位域已登记；FA真实阶段/签约生效尚未验收，`SIGNING_EXECUTION_ENABLED=False` |
+| 交易 | Propose Trade/Trade Finder/Trade Block、交易难度、工资匹配开关、Stepien、Trade Override、截止日、CPU交易开关 | 对部分**普通Roster人选与简单未来Pick**曾具获批读回的受限操作，**不覆盖全部CBA和所有菜单** |
+| 选秀权 | 选中一项真实年份/轮次/原队/持有人未来资产，讨论保护/Swap系统但本外挂不新建这些条件 | 世界政策`V4`**不再额外限制未来三届**；五届只读已知，**第4/5届现有执行代码仍未同步** |
+| 员工 | 查看Staff Pool、Hire、Fire、续聘、更换角色、预算/位置调整 | 本机STAFF**读取**可用，PC22各操作UI值域及本人资格/聘解约执行尚UNKNOWN |
+| 球探 | 查看报告/完成度/预期能力、Auto vs Manual、指定新人/球探、国内外人员 | 原版/相邻系列资料有菜单线索，但当前精确PC22动作集合、次数和效果无完整已验执行接口 |
+| 历史选秀 | Generated/Historic/User-Created/Edit Draft Class、Import/Export DNA、选秀大会/乐透、Draft Rights | 历史人物池类型码筛选可用；**目标NBA2K22 PC选秀新人槽位写入未实机验收**，Draft Result读取仍不完整 |
+
+**每个游戏设置都需要知道其值域（如果确实存在）和修改副作用**。如员工`STAFF.position`0..7是已登记合法存储Enum，但这**不等于任何时点都能点击Hire选择任意8岗**；工资帽公式是现实NBA参考，不是游戏动态真正签约准入；History Draft Class可载入不意味着已签合同/已属于某球队。
+
+## 26. 12个真实跨域联动及其不确定性
+
+| 关联 | 原生/数据接口 | 观察的机制关系和真实未知 |
+|---|---|---|
+| **C01合同→球队财务** | 6薪资槽 / Total Salary、Payroll | 年度合同支出变化会影响队伍工资；但`salary_cap_minus_payroll_proxy`不是合法可签金额 |
+| **C02合同选项→自由市场** | Bird/Options/Years Left | 资格、行权和Moratorium/QO状态影响报价；真实PC签约阶段与保存未验证 |
+| **C03交易→名单** | Player当前队＋合同队、Team 15/2/13槽 | 部分受限交易可读回；人数/引用不同步会破坏游戏名单 |
+| **C04交易→薪资帽** | 两队出去/进来工资、纳税状态 | 现实历史配平存在多个分支，游戏开关真实值/对应公式未知 |
+| **C05交易→选秀权** | 32字节资产Current Owner | 用户取消三届上限，**执行器仍会按旧三年拒绝第4/5届** |
+| **C06选秀权→选秀名单** | Game Draft Year/Asset versus Historic Class Year | 取得某年份选秀权不意味着自动获得1984届某个球员 |
+| **C07球探→选秀预测** | Scouted%/Scouting Estimate/Mock | 报告有不确定性，完成度不等于真实潜力正确率 |
+| **C08员工→球探** | Head Scout Scouting等级 | 员工能力有原生A+等离散值，但引擎侦察误差/速度确切作用未知 |
+| **C09教练/Trainer→自然成长** | Staff能力、K06 Training | 自然成长由游戏引擎负责，不能因为聘优秀员工直接改球员Skill |
+| **C10球队预算→员工** | Staff Budget与STAFF.salary | 员工预算、球队Cash和球员工资帽不是同一种钱 |
+| **C11游戏时间→所有阶段** | Save/Game Date/Source Batch | 不得用今天日期驱动游戏休赛期；所有源只能被真实游戏节点刷新 |
+| **C12可见数据→不同角色** | 已采当期比赛、合同、Scouting、隐藏Potential | 数据必须按真实可观察性使用；DEV29不决定未来人格模型怎样选择 |
+
+[机读联动目录](../catalogs/R05D_FRANCHISE_CAPABILITIES_ATLAS_V1.json)对每项保留`input`、`unverified`和`action_effect`，**不是对GM/Coach/Player/Media制定行动计划**。
+
+## 27. 十二项PC22原生来源／选项／执行能力缺口：不得填成已知
+
+| 编号 | 现阶段尚不能声称已认证的对象 |
+|---|---|
+| G01 | 游戏真实Cap Holds/Tax/Exceptions和Salary Cap Table完整签约容量 |
+| G02 | 当前Free Agent Pool、Options、Qualifying Offer、休赛期各阶段的正确实时采集 |
+| G03 | 原生签约成功、合约跨年滚动和`approved_signing_v1_unvalidated`执行器验收 |
+| G04 | **新世界选秀权政策与旧三年Trade Executor判断不同步** |
+| G05 | PC22所有交易设置页面合法值域、当前开关与工资/日期限制引擎效果 |
+| G06 | 双向、任意多队交易、签换/释放与复杂名单的安全事务执行 |
+| G07 | PC22员工招聘/解聘/续约、所有职位和员工总数及精确Staff预算 |
+| G08 | 当前PC22 Scouting报告全部字段及球探等级对报告进度/准确度的实际效应 |
+| G09 | Historics/User-Draft-Class真正PC目标槽位布局、可靠来源和载入后的效果 |
+| G10 | Lottery/真实Draft Result/选中新秀与球队合同/人员归属的可读回来源 |
+| G11 | 游戏历史已存在保护或交换条款时的可靠原生识别与安全处理 |
+| G12 | 最新游戏`game_date`、保存重载持久性及赛季推进/来源跨批一致性 |
+
+**未知不等于不存在。** 当前轮不要求用户马上提供全部截图，不强行抓取游戏/修改任何对象，不把游戏源码中的占位/原始页面参考升级为可执行事实。
+
+## 28. 最新选秀权交易世界政策（覆盖旧R05-B前三届说法）
+
+**政策版本`PLAYER_RULES_20261021_V4`：已移除外挂世界的3届选秀权年限限制**，也**不另外设置5年硬上限**。技术事实仍是有据可查的本机Native已读未来5届资产，**更远选秀权是否存在及是否可交易目前未知**。资产身份和当前持有人仍必须被验证，不允许顺位保护与Swap，实际交易必须获玩家对具体批次的授权。
+
+旧资料中`PLAYER_RULES_20261017_V3`、`NEXT_THREE_UNCOMPLETED...`及`DRAFT_PICK_OUTSIDE_THREE_YEAR_WINDOW`可作为历史记录或遗留代码搜索词，**不得再当现行世界业务规则**。[文档26](../../26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)是文字版权威，[config/gameplay_policy.json](../../../config/gameplay_policy.json)是机读版。
+
+**重要工程未同步项（非本轮代码任务）**：
+- `src/draft_assets.py::trade_window()`函数`range(next_draft_year,next_draft_year+3)`；
+- `src/gm_core/calculations.py::draft_pick_window()`仍`next_year+3`并返回`maximum_future_drafts=3`；
+- `src/gm_core/trades.py`输出旧`DRAFT_PICK_OUTSIDE_THREE_YEAR_WINDOW`；
+- `src/approved_trade_executor.py`仍调用旧函数，用户只批准了**世界政策更新**，**没有授权在DEV29运行新的交易**。
+
+未来独立Codex开发若要落实本规则，必须保留原生资产唯一归属、允许年份由当前真实源决定、身份和执行支持判定、游戏保存和审批保障，且不能直接将`+3`机械改`+5`形成另一条人为业务限制。**这是一份已发现的工程差距说明，不是DEV29实施范围。**
+
+同样应尊重现实2021–22 NBA最大可提前交易七年和Stepien，而系列2K19开发者说明MyLEAGUE新增到五年[SRC-0161/0162]；**这些是分别有证据的不同游戏/现实时期来源**，不能据此断言我们的PC22今天可以任意七年交易。
+
+## 29. R05研究封存范围与下一阶段R06
+
+**R05-A**：工资帽/财务/17合同Profile、21项市场概念及FA障碍；
+**R05-B**：16交易菜单和14名单/资产结构、历史CBA多档规则、真实执行安全子集；
+**R05-C**：8种本机员工位置、13 Staff Profile、10类球探和10类Draft候选；
+**R05-D**：54项异质数据/候选、63类游戏操作/概念、12个跨域关系与12个原生缺口统一可查询；同步用户取消三年限制，并保留独立Code同步缺口。
+
+R05系列网页研究**已完成本轮交付**，状态`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`；**尚待其他模型按用户安排独立审核或批准结案**，本研究窗口不做自审式玩法判断、不声称Native UI全部验证。
+
+下一轮**R06（NOT_STARTED）**：K05玩法/模拟器全局设置、K10历史规则纪元/奖项/舆论资料和K11存档覆盖、赛季/季后赛/游戏规则更新机制；只研究NBA2K20–23原生玩法、选项、动态信息、原生/可执行/未知差异，不设计媒体人格、执行游戏或替Coach/Player/GM做决策。
