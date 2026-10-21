@@ -402,3 +402,66 @@ raw_attempt_coordinates: NOT_OBSERVED
 **不能交付并必须透明说明**：没有完成`PC22_UI_CONFIRMED`，没有确认2K22 PC全部Box表头，没有证明独立Game Logs页，没有跨赛季历史Box寿命，没有访问游戏进程或生成`PROJECT_CAPTURED`数据。研究知识充分不代表工程已能提取这些数据。
 
 **下一恢复指针**：`R01_D_TARGET_PC22_VISUAL_EVIDENCE_OR_CLOSE_UNKNOWN`。优先复核**原版PC22无UI Mod**从MyLEAGUE内`Stats`页以及本队/AI队完赛Box、赛后Shot Chart、历史赛程打开旧Box；如果仍无公开可信屏幕材料，则保持`UNKNOWN`并把“需玩家已有只读页面截图”列为一次性证据请求，终止该轮。**不得无限搜索同质文章，也不启动DEV28、采集、模拟比赛或Codex**。
+
+
+---
+
+# DEV29 R01-D — 目标PC22视觉证据最终盘点与R01公开研究结案（2026-10-20）
+
+> **终态：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。** 这是一次有界的公开网络资料取证，不是开发、不是实机菜单认证。本节之后**停止重复搜索R01**；没有看到的字段不填写，不把搜索失败误判成游戏不存在。后续R02研究教练、攻防与Playbook。具体PC22证据作为DEV28/Antigravity未来的**待认证输入**，并不授权现在执行DEV28或任何游戏改动。
+
+## 19. 本轮调查范围、直接证据结果与排除理由
+
+专门尝试按`NBA 2K22 + PC/current gen + MyLEAGUE + statistics / player stats / team stats / game log / box score / advanced / per 36 / shot chart / history`检索：Steam 2K22游戏社区的Screenshots/Discussions、Operation Sports本世代/PC专版论坛、NBA 2K系列指南、公开视频索引，以及页面/图片搜索。审查每个结果是否同时满足**（1）2K22，（2）PC，（3）原版无UI模组，（4）MyLEAGUE，（5）实际可辨的指定统计画面**；只有五项全部成立，才允许`PC22_UI_CONFIRMED`。
+
+结论：**公开可复核材料没有同时满足五项的目标统计页。R01-D新增PC22统计菜单视觉认证为0。** 这一判断不是“经过证明游戏没有此功能”，也不是整个网络必然不存在该图片。
+
+**本轮唯一新增、对PC22确实有所增益的文字资料**：[SRC-0029] Operation Sports `RES2 2K22 All Star Current Gen Sliders` 第3页，2022-01-07玩家`res2`对“是否可用于PC默认阵容”明确答`Yep - PC with default rosters`，并贴出`My League`的Setup/Simulation配置，包括Quarter Length=12min、Simulated Quarter Length=11min、Team Pace、Possessions Per Game、Shot Types、Stat Distribution等。证明**PC玩家在2022年讨论并使用这些MyLEAGUE模拟设置类别**，而非证明Stats页面、Box表头或默认数值。数值是作者自定义，不代表本项目当前设置，不建议改动。[SRC-0029]
+
+**认真排除的近似结果**：
+- [Steam NBA2K22 Screenshots](https://steamcommunity.com/app/1644960/screenshots/) 属于正确PC游戏容器，但可找到的页面或索引没有满足原版MyLEAGUE**统计菜单表头**的具体可审查画面；**Steam页面写着`View Stats`通常是成就统计，不是游戏内Stats菜单**。
+- [GameKeys 2K22 MyLeague Player Lock攻略](https://gameskeys.net/how-to-use-player-lock-position-lock-in-nba-2k22/) 的网页含图片，并描述MyLEAGUE中的选队、Options→Position Settings、Player Lock/Position Lock；**它研究的是操作控制，不含本轮需要的Stats/Game Logs/Box字段，也不能单凭按PS按钮判断PC平台**。因此不提升任何R01结果，也不占用新SRC/VIS序号。
+- [2K22 PC Remastered修改UI](https://www.2kspecialist.net/2021/09/nba-2k22-remastered-blog-new-details.html)已见旧[SRC-0025/VIS-0005]，会把MyNBA样式带到PC；不能将其作为原版PC MyLEAGUE证据。
+- GameFAQs或视频列表出现`NBA2K22 PC`游戏分类、YouTube标题`MyLEAGUE`，**但未获得视频逐帧可辨识目标表头及准确时间戳**；没有将这些弱线索虚构成视频截图。
+- [Game/Series其它版本资料](../SOURCES.md)包括2K16 MyLEAGUE按Triangle/Y换统计模式、2K22 PS5 MyNBA Per36、2K22玩家赛后Shot Chart；继续用于玩法研究，但不再被重复计数为PC22画面。
+
+## 20. 目标版本最终证据表：统一状态与后续行动
+
+状态词语义：
+- `PC22_UI_CONFIRMED`＝原版PC22本世代离线MyLEAGUE的**真实截图/视频可审查**，包含页面身份与可读菜单/列；
+- `CURRENT_GEN_ANALOGUE`＝确认PS4/Xbox One本世代、但PC未认证的相同主题页面；
+- `KNOWN_IN_SERIES`＝明确对应其它版本/模式的系列功能；
+- `UNKNOWN`＝公开资料还不能认证本项目目标；
+- `DEV28_NATIVE_DISCOVERY_REQUIRED`是**未来取证队列**，不是现在执行授权；从UI可见性到原生稳定读取、跨季保存还需独立验证。
+
+| 核查对象 | 最严格主证据状态 | PC22认证字段/操作 | 来源线索 | 后续接手问题 |
+|---|---|---|---|---|
+| ① Stats菜单、Player Stats、Team Stats、League Leaders全部页签和筛选 | `KNOWN_IN_SERIES`，PC目标项为`UNKNOWN` | **无**。无法给PC22具体按键、表头、Team Stats/League Leaders过滤全集 | SRC-0018较老MyLEAGUE、SRC-0017为PS5 MyNBA；当前PC证据不足 | `DEV28_NATIVE_DISCOVERY_REQUIRED`：认证导航、页面选项全集 |
+| ② 独立球员Game Logs，或日历→比赛Box替代路径 | `KNOWN_IN_SERIES`，PC22的独立标签与导航`UNKNOWN` | **无**。未见独立标签，**绝不推断逐场数据不存在** | SRC-0005/0006是旧系列Calendar/2K20季后赛Box | `DEV28_NATIVE_DISCOVERY_REQUIRED`：分别检测Player Stats与Calendar→Completed Game入口 |
+| ③ 完赛双方Player Box及Team Box全部字段、首发/DNP/分钟 | `KNOWN_IN_SERIES`；PC22全部字段`UNKNOWN` | **无**。不得将L1/L2候选字段列表视作实际Box表头 | SRC-0026为PS5/Xbox Series MyNBA压缩表格官方文字，无PC Box图 | `DEV28_NATIVE_DISCOVERY_REQUIRED`：同一场双队Box逐列和稳定身份 |
+| ④ Per Game / Per36 / Advanced真实分类与栏目、切换方法 | `KNOWN_IN_SERIES`；PC22分类和字段`UNKNOWN` | **无**。不得照搬2K22 PS5的Triangle或老版高级指标表头 | SRC-0017（PS5 2K22）、SRC-0018（2K16）、SRC-0019（2K23 MyCareer） | `DEV28_NATIVE_DISCOVERY_REQUIRED`：每个原生分类表头、排序与派生公式口径 |
+| ⑤ 赛后Shot Chart、旧完赛比赛重开、球员/球队范围 | `KNOWN_IN_SERIES`，PC22历史回看`UNKNOWN` | **无**。本轮未见PC原版图，也未取得`attempt_xy` | SRC-0016为2K22玩家赛后文字报告；MyCareer Hot Zone不同 | `DEV28_NATIVE_DISCOVERY_REQUIRED`：赛后/日历详情分别试读、比较Chart与Hot Zone |
+| ⑥ 历史赛程、季后赛、跨赛季单场Box留存 | `UNKNOWN`（只有其它版本历史差异） | **无**。没有任何年份保留期限可写成PC22常量 | SRC-0021旧版Standings/Bracket不同、SRC-0022后代MyEras意见不同 | `DEV28_NATIVE_DISCOVERY_REQUIRED`：同一save历史GameID/Box在跨月、季后赛、跨季的可用窗口 |
+| 旁证：模拟器统计生成设置 | **`PC22_COMMUNITY_REPORTED_TEXT`**，非`PC22_UI_CONFIRMED` | 有PC玩家列设置类别，**没有目标Stats/Box画面** | SRC-0029为PC玩家文字；SRC-0015为PS4同版本 | 日后复核配置实值只为解释比赛统计，不是R01新增采集 |
+
+**状态决策**：六个目标中 `PC22_UI_CONFIRMED = 0/6`；不是`0/6`游戏功能存在，而是`0/6`达到目前严格的截图认证门槛。没有新`CURRENT_GEN_ANALOGUE` **统计表头图证**；PS4模拟器设置**不能冒充Stats菜单**。从R01-A到D的研究使得数据口径、统计派生、质量风险、证据级别和工程观察目标清晰，剩余是**目标平台直接观察**而非继续推演篮球理论。
+
+## 21. 最少有效截图请求：先两组，后按结果补一组
+
+**优先组A（最小，一次只读查看）**：现有PC22原版离线MyLEAGUE → Stats/Player Stats/League Leaders。给出 **1张“统计模块完整栏目与底部按钮提示”** + **1张“选一名球员后的统计页签/逐场或高级分页”**。若从同一页已能切Per36/Advanced，不必为每个模式重复拍整套；仍未展示的表头保留UNKNOWN。目标是解决①②④的主要分叉。
+
+**优先组B**：在**已经打完**的一场比赛上从Calendar或Daily View尝试打开Box。**1张完整赛程/比赛操作菜单** + **1张Box可辨表头、主客队和对应球员数据**；若同页可切球队合计或另一队，只补切页1张。目标是解决②③和历史回看入口。若菜单没有Box入口，也只记录`NOT_FOUND_AT_THIS_PATH`，不能宣布整个游戏不存在Box。
+
+**只有在A/B仍不能回答时再补组C**：已有赛后 Shot Chart **1张**；如玩家存档已自然跨赛季，旧季同一比赛可否进入Box的页面 **1张**。不为此启动正式赛季推进、模拟或修改。这样通常能用约4–6张高价值截图逐步判别，不要求一次覆盖游戏所有页面。
+
+图片必须带`version=NBA2K22`、`platform=PC`、`mode=offline_MyLEAGUE`、`original_ui/not_modded`、当前赛季与入口上下文；对无法完整判断的属性保留UNKNOWN，不假造视频时间戳。**这是未来可选的人工证据，不是本轮玩家必须立刻提供的材料**。截图授权登记见[VIS清单](../visuals/EXTERNAL_VISUALS.md)。
+
+## 22. 研究结案与R02交接
+
+**R01-A/B/C/D文献研究完整封存**：不再为了搜到一张可能的截图而无限扩充老版本论坛与统计公式。核心结论：逐场数据与赛季累计不是一回事；Game Logs是否独立不能代表Box是否存在；Per36与Advanced的可派生部分可由真实原始Box谨慎计算；Shot Chart/Hot Zone/出手坐标是不同数据层；跨赛季留存和统计生成口径必须单独证实。它们对GM经营具有实际用途，已在§§0–18详解。
+
+**未来DEV28/Antigravity交接（仅积压，不启动）**：使用上面的六行需求、图证TODO及候选数据层L0–L5，首先只读确定PC22界面/历史对象，再定向找game identity、Box、shot zone和advanced的真实原生来源；`PROJECT_CAPTURED`与`GM_QUERYABLE`必须由未来独立正式验收，不得因R01完成自动提升。对于不同历史选秀世界线，不从现实NBA.com导入与游戏赛季不同的场次/结果。
+
+**下一研究轮直接R02**：Coach Gameplan、POE、ACE、Playbook、12类战术、Freelance、PlayTypes/Play Discipline、个人与团队防守；优先K04教练攻防的“玩家实际有哪些菜单和值域、如何联动”的中文攻略，先读当前开发文档/已认证源码范围，按DEV29规则核实社区/官方图文并发布`guides/K04_COACH_AND_PLAYS.md`；**不启动DEV28，不要求R01先拿到完美截图**。
+
+> 结案标识：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`；`R01_D_TASK_CLOSED`。仍可在未来获取真实PC22画面时只增量更新具体UNKNOWN项，不能因此重启整个R01网络研究。
