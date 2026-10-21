@@ -1,5 +1,8 @@
 # NBA2K20–23 终极联盟游戏机制知识库
 
+> **最新断点（2026-10-21）**：R06-A已发布；**[R06-B历史纪元、奖项、纪录、社交媒体与规则变更研究](guides/K10_HISTORY_AWARDS_MEDIA_R06B.md)**及其[31类目录](catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)已发布，来源SRC-0174..0186，原版PC22完整新图证0。下一轮 `R06_C_SEASON_PHASE_ADVANCEMENT_SAVE_PERSISTENCE_RESEARCH`。以[PROGRESS](PROGRESS.md)为准，不重开R01–R05、不重新做R06-A，也不开发人格系统或DEV28执行器。
+
+
 > [**项目级意图：R知识库只交游戏原料**](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：DEV29提供NBA2K20–23真实游戏机制/菜单、动态数据、全部可选参数与相互作用；DEV28建设I/O。人格算法、角色谈判/行为规则、媒体与调度不是本知识库任务。R04八个交互案例仅供发现素材接点，当前R05研究游戏财务/合同/选秀/球探原料。
 
 ## 2026-10-21 研究职责纠正：游戏原料不是人格算法
