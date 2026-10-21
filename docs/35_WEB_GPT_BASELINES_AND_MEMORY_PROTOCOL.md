@@ -82,3 +82,10 @@ DEV-10 V2/M0增加玩家授权的本地命令行只读入口，见 [SQLite手册
 ## 7. 仅文档更新的特别说明
 
 创建或调整网页版基线、索引与分析文档，不等于触发游戏采集、GM 正式决策或执行。此协议记录职责和交接，**不新增自动化守护进程、跨模型实时共享内存或后台任务**。
+
+
+## 2026-10-20 开发新前置：DEV29全系列游戏机制与能力目录
+
+- 三份网页版基线加Codex、Antigravity共同引用：[DEV29 NBA2K20–23终极联盟机制完整研究](development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V1.md)。用户要求**先弄清20–23系列游戏到底能看到哪些逐场和高阶数据、能设置哪些教练/训练/战术/经营动作，以及人类玩家怎样玩**；DEV29 R0-A/B/C是DEV28 D28-0～D28-5工程的正式前置知识门槛，不能以仅有现有SQLite字段目录代替。
+- 研究输出：可人读`FRANCHISE_MECHANICS_ATLAS`、可机读`FEATURE_DATA_CONTROL_MATRIX`、GM反推的`GM_DECISION_TO_EVIDENCE_MATRIX`。每项标明版本/模式/资料证据/真实PC22 UI与内存/采集/GM查询/写回状态，并允许UNKNOWN；不仅给攻略知识，更直接驱动Codex和Antigravity下一步发现/开发任务。
+- 网页GM负责哪些判断需要哪些数据；网页Analytics负责Game Logs/Box/Advanced基础与派生差别；网页开发负责验证技能/机制→工程需求；Codex做实际源、查询、受控执行能力矩阵；Antigravity找缺失内存。游戏修改仍需玩家具体批准，正式GM与分析不能把累计当逐场证据。
