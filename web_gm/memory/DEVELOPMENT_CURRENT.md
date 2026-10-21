@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 R06-D跨领域整合已发布：下一研究候选R07
+
+- DEV29最新研究报告：[R06-D K05/K10/K11跨域中文指南](../../docs/game_mechanics/guides/K05_K10_K11_CROSS_DOMAIN_INTEGRATION_R06D.md)和[26机制关系＋20 PC22资料缺口目录](../../docs/game_mechanics/catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)均已发布。关系ID关联K04/K06/R04B/R05D/R06A/B/C源目录ID并在提交前作存在性检查；**不是26条实机验证因果公式**。20缺口是资料与DEV28未来可参考需求，不是自动授权Codex。
+- 本轮未新增SRC/VIS、PC22运行时读回、Save重进、游戏推进、存档/原生球员写入，R06-D为`R06_D_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`。R06-B 10项奖项来源已清空降级、旧Era布尔排他断言已修正，但**审核独立复核尚待结果**。后续`R07_CROSS_RESEARCH_ROLE_OBSERVABLE_ACTION_EVIDENCE_MATRIX`仅整理各角色所需可观察事实/合法选项候选/数据来源、真实技术认证与历史反馈，不能开发人格/角色决策。R07后再单独考虑FINAL-CODEX。
+- 所有游戏与操作仍以当前玩家批准为准；V4选秀权世界不再限制3届，但旧+3执行代码维护另立Codex任务。唯一权威研究断点[PROGRESS](../../docs/game_mechanics/PROGRESS.md)。
+
+
 ## 2026-10-21 R06-B独立质量审核定向修复与R06-C研究交付
 
 - 已接受[审核报告](../../docs/development_reviews/DEV29_R06B_CROSS_WINDOW_RESEARCH_QUALITY_REVIEW_20261021.md)发现：SRC-0178只证明Past MVPs/Rule Changes/Retired Jerseys和HOF线索，不支持另10项奖项；已修复R06-B JSON 10项`sources=[]`+RESEARCH_CANDIDATE_UNSOURCED，MVP明确仅指历届MVP菜单。31项明确为机制/信息概念，非内存字段；2K23 Eras不能排他证明PC22没有任何Era对象。Bootstrap/README/PROGRESS更正旧启动指针。**修复已提交、自查，仍待独立质量复核结果**。
