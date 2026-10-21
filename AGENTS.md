@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## 2026-10-20 PR #12受批准四项修复与后续DEV28规划
+
+- 玩家已批准PR #12当前Code Review的F1–F4四项局部修复。Codex在原codex/bpti-package-c分支做蓝图/演化修订一致、同存档分支前态身份、B4市场不被native-action HOLD误禁、portfolio只允许VIABLE_CANDIDATE内部动作；最少直接相关合成测试，报告后TASK_CLOSED，不自动合并或V4启用。查看PR #12 2026-10-20 Web Development评论。
+- **后续独立开发权威入口**：[`DEV28 GM原生输入输出透明化、动态事实完备与战术手册全生命周期`](docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。本次只批准规划发布，没有批准在PR #12夹带DEV28开发；先PR #12局部收尾/人工合并决定，再分包授权D28-0～D28-5。
+- DEV27仅解决`team_book()`名字末尾Playbook后缀匹配，**并未证明当前30队全部Book/Play目录、Coach→Book绑定、换帅后技术归位、68槽更新和游戏持久化已打通**。D28-1独立做实际地址/静态名称/类型/战术受益人分级映射，双步骤受控绑定后重新采集才能写槽，所有具体游戏写入仍需玩家批准。
+- DEV24的比赛/伤病等动态来源需求纳入D28-3；Antigravity发现实际原生数据，Codex统一Registry/M0/DEV14，GM从已认证可选值域与本局GM_SANITIZED读取。不要重复编码已支持的Coach、PlayTypes、倾向、训练、个人防守、交易和合同；没有认证的PlayType/CRC/体能/逐场日志仍UNKNOWN。Codex遇到必须玩家帮助点应交付已完成物与问题，结束TASK_CLOSED，**不保持PAUSED/WAITING**。
+
 ## BPTI package B knowledge delivery (2026-10-20)
 
 - Player explicitly authorized DEV27 integration and continuation. Reviewed commits 867fe85/80459b4 were fast-forwarded into remote and local main at 80459b4; the old direct-commit/unmerged notes below are historical. Package B uses independent codex/bpti-package-b and a Draft PR; do not auto-merge it or start package C.
