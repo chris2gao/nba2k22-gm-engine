@@ -2,6 +2,10 @@
 
 ## 2026-10-21 DEV29 R07研究总目录已发布，等待独立质量审核
 
+[R07静态自检与独立审核检查清单](../development_reviews/DEV29_R07_RELEASE_SELF_CHECK_20261021.md)已发布。**该文档只是本研究窗口的自检，不是独立接受决定。**
+
+
+
 **最新研究状态：`R07_RESEARCH_PUBLISHED_PENDING_INDEPENDENT_REVIEW`。研究提交已完成，但此处不自行宣布R07独立审核通过。下一步是对R07机读索引、40功能族、工程成熟度和源证链进行独立审核；任何`FINAL-CODEX`、DEV28实施或游戏操作必须玩家此后另行触发。** R06独立研究验收正式状态仍为`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`，不重开R01–R06。
 
 交付：
