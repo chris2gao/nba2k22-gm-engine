@@ -1,5 +1,14 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 当前交付：PR #12已整合最新main基线，待玩家合并决定
+
+本轮从远端重新读取main c68cb81f884cd9873d8f7b677d6e0ec1b608f423与PR分支2f6591383ff1db8a51168eb84c40f2e357c57e6b，共同祖先04b194a；以保留双方历史的merge方式整合。实际content冲突仅AGENTS.md与docs/33开头新增记录，逐段保留两侧；本文件自动合并成功，并将当前状态置顶，下面授权/交付阶段记录保留历史语境。
+
+主线[机制研究先行规范](GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)、[DEV28完整规划](development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)、[十二类战术与双类型研究](development_research/NBA2K22_PLAYBOOK_12_CATEGORY_AND_NATIVE_TYPE_MAPPING_V1.md)、[共享池命名规则](GM_SHARED_PLAY_POOL_V1.md)和[DEV24来源要求](development_tasks/DEV_20261020_24_BPTI_ANTIGRAVITY_GAME_DATA_SOURCE_REQUIREMENTS_V1.md)完整保留；本轮仅Git/文档整理，不展开机制研究或后续开发。F1–F4、M3/BPTI接口及演化隔离代码与已审查2f659138一致；原36执行基线、M3/BPTI手册和历史验收仍保留。
+
+直接验证只核对冲突标记、源码/双方文件保留、入口链接和Git历史/远端合并状态，具体命令结果见[包C验收及交接](development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md)。没有新增或重跑合成测试/全项目回归、生产采集、现金调查、游戏实验或写入；V3有效/V4未启用、真实30队UNASSESSED。PR #12保持Draft，不自动合并main。状态BPTI_PACKAGE_C_MERGE_CONFLICT_RESOLVED_TASK_CLOSED；DEV28由玩家下一独立任务触发。
+
+
 ## PR #12 最终局部修复 F1–F4（玩家2026-10-20批准）
 
 当前演化版本/来源与蓝图不一致会BLOCK_FINAL，final/strategy均核对；从旧策略基底继承的BPTI当前字段先清除，历史表不改。前态要求同队/career且save_id/save_instance_id/generation_id齐全相同，已记载history_branch_context连续；批次/赛季可变化，缺失或不同实例/代次/分支HOLD，无新增跨实例认证机制。
@@ -24,6 +33,13 @@
 
 本包无新游戏来源、source_catalog项、原生registry字段或执行能力；第8节原执行能力表继续适用。OVERALL/Potential/Ability/Badge/unknown51及自由PlaybookID不开放；同批身份、本队书/全目录CRC、DEV14批准元组与CAS不变。Tempo含义/CRC类型/AI效果UNKNOWN，不能补造趋势或胜率。V3有效、GM_V4_NOT_ENABLED、真实30队UNASSESSED；DEV24、正式GM、采集/事实发布、新存档和游戏操作未启动。状态BPTI_PACKAGE_C_COMPLETE_TASK_CLOSED，源码Draft供玩家独立审阅/合并，不自动跟进。
 
+
+## 2026-10-20 PR #12审查批准及DEV28下一阶段总规划
+
+- 用户批准PR #12/BPTI C代码审查的F1–F4：蓝图更新下演化stale、跨save/generation历史串线、无native动作不该封锁合法市场、选定BLOCKED/RESEARCH内部动作等局部问题。Codex只在原Draft PR范围内修复和直接测试；PR #12仍由玩家审查合并，V3有效/V4不自动启用。
+- **下一阶段唯一主计划**：[DEV28 GM全部原生设置候选可查、游戏动态事实完善、战术手册全生命周期和输出执行闭环](development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。开发包D28-0（现状盘点）→D28-1（Book/Play/Slot/Coach真实绑定与换帅归位）→D28-2（静态可选项目录）+D28-3（DEV24比赛与人物动态）→D28-4（统一GM提案/执行/反馈）→D28-5（可用性和开档索引）。**所有后续包独立授权，不应夹到当前PR。**
+- DEV27名字后缀修复已完成但是未完成30队全部本队Book目录、真实Coach PlaybookID绑定、Book指针/槽读回以及跨保存持久化；不能将`team_book()`一次成功当完整执行。DEV23三本书共204槽，148非空，111命名、37未知；类型、真实受益人、3D调用仍未认证。现有DEV14/GM权限及全部批准约束保持原样。
+- Antigravity找可读/写原生来源+名字/游戏描述/战术类型，Codex复用M0/Registry/DEV14实现统一可查询合法选项和真实落地；逐场比赛/球员及高级统计以DEV24标准为准，缺失仍NOT_OBSERVED。Codex需要人类说明时**提交现有工作并TASK_CLOSED**而非活跃WAITING。
 
 ## 2026-10-20 工作包B：B2/B3/四类历史机制已完成，独立Draft交付
 

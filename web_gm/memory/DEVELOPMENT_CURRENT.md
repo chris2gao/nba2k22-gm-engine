@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-20 PR #12玩家批准审查修复与DEV28全透明开发路线
+
+- 玩家明确授权PR #12/F1–F4**局部修复**，需Codex在原Draft分支完成：蓝图与B5演化修订相符、同存档代次/分支历史引用、B4可执行native动作限制不可误封正常外部MARKET、portfolio只选择VIABLE_CANDIDATE内部动作；直接关联小范围测试后结束任务，合并及V4启用独立授权。
+- 新的后续开发主计划：[DEV28 GM Native I/O透明、动态事实完整性、战术手册真实绑定与执行闭环](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。分D28-0～D28-5：能力缺口盘点、全部Book/Play目录及Coach→Book/slot生命周期修复、世界/教练/个人防守/倾向/训练合法候选枚举与游戏文义、DEV24逐场/球员/球队/身体状态、GM查询/提案/DEV14执行/读回、跨模块可用性报告。用户想让GM知道全部**当前游戏实有的**选择项和真实动态事实，而不是返回生裸值。
+- `team_book()`在DEV27的867fe85只修了末尾独立Playbook后缀的严格名称匹配；用户认为未彻底修复。DEV23实机三队204槽/148非零/111可命名/37未知；原生PlayType、实际发起/受益人和3D使用尚缺。D28-1查全部30队本队已加载Book名单、原生真实引用/Coach当前BookID、CRC及意义，用批准的**两次动作**技术归位→重新来源采集→本队槽写入/读回；不做自由跨队改BookID，正常GM仍改本队书槽。
+- Antigravity继续找原生地址/游戏选项/静态战术名称类型及DEV24动态观测源，Codex唯一接现有M0/Registry/DEV14。外部GM虚拟交易/签约/选秀业务不变，历史新秀Pot遮蔽及玩家批准保留；不存在的原生比赛/疲劳值显示NOT_OBSERVED。**DEV28计划写入并不批准实际游戏修改，也不应污染PR #12范围。**
+
 ## 2026-10-20 M4系统自我进化交付索引
 
 Codex窗口②已从合并M3后的main实现DEV20/M4，状态M4_ENGINEERING_MAIN_MERGED / GM_V4_NOT_ENABLED，PR #7经审核小修正后按玩家批准合入main（`c51fa36080ed39c8305635f1cb4363128475fdf0`）；正式本地main已同步。本次仅定向test_02通过，未扩大测试或处理Issue #6。玩家下次主动触发开发规划时，先读[工程问题CURRENT](../../web_gm/development_feedback/CURRENT.md)、[准备状态](../../web_gm/development_feedback/readiness.json)及必要的每项详情/原证据，再提出最小研究/实现范围、成本和任务书草案，等待玩家批准；不把候选当作已立项任务。长期Codex实态查[docs34](../../docs/34_BASELINE_CURRENT_STATE.md)、[M4验收](../../docs/development_reviews/M4_SYSTEM_EVOLUTION_IMPLEMENTATION_AND_ACCEPTANCE.md)。Issue #6、BPTI、季后赛采集与双引擎校准均仍DEFERRED；M4只管理工程需求，不评价GM篮球经营效果或实现校准器。真实30队UNASSESSED、Web/已脱敏生产消费待证、V3生效。本条仅开发交接指针，不启动后续任务或游戏。
@@ -334,3 +341,32 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - **玩家明确声明新档每支球队有自己队名的独立原生战术手册容器**；默认不存在此前虚构的多队共享书风险，取消为此研究物理克隆/全联盟手册身份验证的立项或主线门禁。换帅导致新教练BookID短暂指向B球队书时，以获批受控动作将**A球队的新教练BookID恢复到A球队同名书**，然后按新教练体系和A队阵容编辑A书，不操作B书。简单保持现有Native ID/原值/CAS/读回；只有真实单一对象异常才Fail Closed，不据此预先研究共享冲突。
 - 换帅每队每赛季仅休赛期一次，完整员工合同/竞价/自由市场系统留后续；GM日常不写OVERALL_DEFENSE，针对球员PERSONAL_DEFENSE；DEV14当前已知教练/68槽/48具名倾向/训练与GAMEPLAY/WORLD统一机制继续复用。AG战术CRC/51未知倾向/位置模板/疲劳为后续扩展，不先阻塞主线。
 - 上述是本轮Github文档改动，两个PR仍独立未合并，未修改游戏或生产事实。
+
+
+## 2026-10-20 战术命名、PlayType及2D演示三级语义补录
+
+- 玩家补充NBA2K22战术有**2D动态棋盘预览**，很多同类战术仅有跑位变体；命名常带行动位置、动作/投篮和时代线索。玩家举例`9015shot`的“90年代/1&5号位/投篮”含义是**特定假说**，还没有实机逐条验证，也不能把名称中的“发起人”当作固定实际调用者或得分人。
+- 当前共享战术池为**84本原生手册、1392个不同CRC、1345有静态名字、47名字未知，原生CRC→PlayType精确认证仍为0**，比DEV23最初三队204槽/89具名CRC样本范围大。不得因共享池已经有文字解释就提升到已证 native membership。
+- 新[DEV28 §3.1A](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)确立先找真实CRC→原生类型，再做名字语义低置信解析，最后有来源时复原**游戏2D预览战术动作**。区分CALLER/动作发起位置/第一机会/第二解法/实战终结者；游戏2D预览存在不意味着脚本能从内存提取，也不能证明3D比赛实行动作。适量研究关键BPTI战术，不强制全部1392条人工演示；若无法截图，可以文字记录关键路线。**PR #12仅修已批F1–F4，不借此扩范围，不执行游戏写入。**
+
+## 2026-10-20 玩家确认真实战术 '95 FIST 15 SIDE 命名文法及战术纪律联动
+
+- 仓库`web_gm/knowledge/plays/play_pool_v1.json`确实包含`'95 FIST 15 SIDE`，`play_id=2K22_PLAY_79215b33`、CRC 0x79215B33，静态标签已和CRC匹配；玩家确认游戏中**类别为挡拆**。名称按领域规则解释：`'95`为1995年历史版本、`FIST`为挡拆动作、`15`为1号位持球动作发起/5号位掩护、`SIDE`表示侧翼执行版。85/05年同源名称可随篮球时代区分战术空间；具体1995历史球队不能仅由名字确认。
+- 这是有定义的命名语法，**纠正此前一律将数字解释为无含义/位置角色全是猜测的过保守表述**。不过动作计划、谁被AI分配调用、首选与二次终结、2D预览轨迹及真实3D执行仍分层取证；当前原生`types.memberships=[]`，玩家“挡拆”是PLAYER_REPORTED_UI而非逐CRC原生enum认证，不能擅自指定type_id=4/5/6/7。
+- **Play Discipline原生字段已经找到**：`config/state_io_native/player.json`的`PLAY_DISCIPLINE_TENDENCY`偏移1185/0x4A1；Coach也有`RunPlayTendency`。二者结合球员4有序PlayTypes、Playbook、Shot/Touches影响战术执行/提前机会的逻辑，OS 2K22玩家研究亦有相符经验，但不能编造精确调用概率。个人原生Tendency仍遵守玩家逐项批准与Codex受控执行；不可改能力潜力徽章。
+- 权威更新：[DEV28 §3.1B](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)、[共享战术池](../../docs/GM_SHARED_PLAY_POOL_V1.md)、[DEV23附录](../../docs/development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)。后续Codex应在**知识源种子/生成器**而非只在生成JSON中维护命名规则，PR #12 F1–F4修复不加此范围，DEV28另立包。
+
+
+## 2026-10-20 玩家12类战术分类、社区先行研究与PR12修复复审
+
+- 玩家质疑之前不主动从社区获取战术知识，正确。新研究[12类战术目录与球员PlayType映射](../../docs/development_research/NBA2K22_PLAYBOOK_12_CATEGORY_AND_NATIVE_TYPE_MAPPING_V1.md)已对照Coach2K以及2021本世代社区分类与真实Fist/Quick/Give/Iso/Punch/Cut战术名称；以后默认先社区检索游戏知识，再让Antigravity验证运行时原生类型，不把尚未有本机enum理解为篮球语义未知。
+- 用户列出的**12项而非11项**：单打、挡拆、挡拆外弹中投、挡拆外弹三分、挡拆选项、低位背身、高位背身、后卫背身、中投、三分、手递手、切入。**战术动作类别与球员4槽PlayType的0–15原生枚举是两个概念**；禁止将类型候选4/5/6/7冒充战术原生分类。以CRC→分类关联对象/过滤列表/原生type字段作取证目标，不预设固定块内存结构。
+- Antigravity首先从内存找类型。如果找不到**可以向玩家请求截图**，哪怕需要按类别分批几十张；不必要求一次全部提交，任务到用户介入点要彻底TASK_CLOSED，禁止WAITING消耗额度。玩家此前无法提供某个任务的截图不等于以后永远禁止按需截图。
+- PR #12最新修复`2f659138`静态复审发现F1–F4代码均已落地且有四项合成通过证据；**GitHub当前mergeable=false / mergeable_state=dirty**，分支落后main并与main冲突，不能宣称当前可直接合并。PR依旧Draft，V3有效/V4尚未启用。先让Codex有界解决合并冲突、保留main DEV28新文档并针对受影响文件作检查，随后玩家另外授权merge；不扩大PR到DEV28开发。
+
+## 2026-10-20 用户批准“官方手册+玩家社区”研究先行开发规范
+
+- 已发布长期[GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1](../../docs/GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)，并载入AGENTS、开发边界V2及开发规划基线。未来Codex凡涉及NBA2K22 PC本世代MyLEAGUE游戏机制、字段意义、战术、教练、训练/倾向、数据采集与可操作性，应**先查原仓库材料、2K官方手册/开发者说明、Operation Sports/Reddit/Coach2K社区及攻略**，再按真实PC内存证据区分已证/推论；不能让用户逐条解释网络已有知识。新旧版本/PS5-次世代MyNBA不混淆。纯Git/机械Bug不需要无关网页检索。
+- 玩家允许Antigravity在无法确认全部战术原生类别时，按类别分批请用户提供截图（可几十张），需用户介入则TASK_CLOSED不活跃等待。开发政策V2关于审批/最少验证依旧不变。
+- PR #12的F1–F4先前复审通过，但最新GitHub状态dirty/mergeable=false，用户现在请求**Codex提示词修复与main的合并冲突**，不可自动merge或启动DEV28；保留最新主线的该新规范/DEV28/12类战术知识以及PR原B4/B5/F1–F4。
+

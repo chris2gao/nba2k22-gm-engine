@@ -63,3 +63,19 @@ Draft PR：[PR #12](https://github.com/chris2gao/nba2k22-gm-engine/pull/12)，ba
 本轮只验证合成派生工作台，不证明实际生产GM、比赛、交易/签约执行、存盘或真实数据完整。当前没有可认证的跨实例历史桥接；实例/代次不符或证据不足时保持HOLD，不能凭career同名连接。无新数据库/审批/执行器、无游戏数据改动；V3有效/V4未启用、真实30队UNASSESSED。
 
 后续权威规划为[DEV28主计划](https://github.com/chris2gao/nba2k22-gm-engine/blob/main/docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)：全量控制目录/合法值、实际Coach/Book/换帅归位/68槽、DEV24动态事实和完整执行读回均需下一独立玩家任务；本轮不实施，也不自动合并PR #12。
+
+## PR #12 与最新main的最终冲突整理（2026-10-20）
+
+本轮玩家仅授权主线同步、真实冲突修复、直接必要验证和原PR交付，不重新实现F1–F4。开始重新fetch远端main与codex/bpti-package-c：main为c68cb81f884cd9873d8f7b677d6e0ec1b608f423，PR为2f6591383ff1db8a51168eb84c40f2e357c57e6b，共同祖先04b194ab8b4644161242391e964051d3d9f9520a。初始GitHub状态CONFLICTING/DIRTY，仍Draft。
+
+先从该main版本读取AGENTS、开发边界V2、游戏机制研究先行V1、状态34及DEV28主计划。遵守新永久规范；本任务属于纯Git冲突，不额外搜索游戏机制。
+
+采用git merge --no-ff --no-commit origin/main；实际content冲突只有AGENTS.md与docs/33_DEVELOPMENT_BASELINE_PROMPT.md顶部新增说明。两个hunk均逐段合并：主线研究先行/DEV28授权与资料在前，PR的包C/F1–F4实现和历史记录继续保留，再加清楚的当前交付说明。没有对大型文档整文件选择ours/theirs。docs/34自动合并了双方内容，另加当前状态与资料入口。
+
+main新规范、DEV28、十二类战术研究、共享池命名规则、DEV24来源要求与相关研究文件照原主线保留；PR的36执行基线、M3/BPTI手册、源码及两份合成测试照已审查版本保留。已有验收记录只追加本节，不改写历史结果。当前状态优先于下方旧“待修/未开始”的阶段说明。
+
+本轮只做文档合并，因此不新增或重跑已通过的合成测试，也不做全项目回归。直接检查覆盖：无未解决冲突/残留标记；src/scripts/tests与2f659138无差异；main非重叠文件和PR非重叠文件内容保留；关键文档入口指向现存资料；原main及PR提交都是新merge的祖先。具体验证回执在本节后补。没有游戏进程/活动库访问、数据采集/发布、现金调查、存档或写入，没有DEV24/DEV28实现或V4启用。
+
+终结状态BPTI_PACKAGE_C_MERGE_CONFLICT_RESOLVED_TASK_CLOSED。保留原PR #12、Draft，不自动合入main；下一阶段由玩家另行决定。
+
+初次c68cb81快照的直接检查：python -B <临时目录>/check_merge.py为PASS；未解决index/冲突标记均0，src/scripts/tests对2f659138无差异，main独有9份文件及PR独有11份文件的Git内容保持一致，新增27个仓库文档链接均存在。本轮手动整理文件的git diff --cached --check通过；全量check显示的3个末尾空行均与main既有差异完全相同（DEV23研究、DEV28计划、DEVELOPMENT_CURRENT），保持主线原样，不扩展清理。玩家随后补充规范更新，最终仍将继续fetch并整合执行时最新main，以下此快照不代表最终main SHA。

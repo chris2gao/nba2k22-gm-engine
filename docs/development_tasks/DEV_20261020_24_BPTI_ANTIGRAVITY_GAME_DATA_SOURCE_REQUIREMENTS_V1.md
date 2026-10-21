@@ -1,5 +1,7 @@
 # DEV24 — 给Antigravity的逐场与高级统计源扩展建议（BPTI/M3联用）V1
 
+> **DEV28后续接入指针（2026-10-20）**：玩家在BPTI包C之后提出GM输入输出全透明及动态比赛/球员数据完备性的下一阶段目标。本文件的源/身份/质量/查询要求由[DEV28 D28-3](DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)复用，**并不是现在自动启动游戏数据采集的授权**。Antigravity负责实际原生观测，Codex复用`full_verified_v1`/M0/SQLite，不重写第二套比赛事实规格。
+
 2026-10-20 | owner: Web GPT Development | 状态：SOURCE_REQUIREMENTS_PREPARED / ANTIGRAVITY_SEPARATE_USER_TRIGGER | 不自动授权开发、游戏访问、采集或数据发布。
 
 > **2026-10-20玩家最新调度：DEV24暂缓到BPTI B0–B6全部完成后再由玩家触发。** 本文为需求清单而非正在运行的工作命令。BPTI先使用现有赛季累计/原生配置可信数据建立认知、静态映射和决策合同；未观察逐场数据时不可宣称已实现逐场趋势推理。任何真实新档的生产数据可信度门槛不因后置而取消。

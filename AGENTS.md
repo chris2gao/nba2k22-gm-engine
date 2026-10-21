@@ -1,5 +1,25 @@
 # NBA2K22 GM project instructions
 
+## PR #12 current integration handoff (2026-10-20)
+
+- Latest origin/main c68cb81f884cd9873d8f7b677d6e0ec1b608f423 is integrated into the original codex/bpti-package-c with a history-preserving merge. Actual conflicts were only the introductory additions in AGENTS.md and docs/33; retain both sides, including the main research-first policy/DEV28 and the implemented package C/F1-F4 records below.
+- F1-F4 implementation remains exactly the reviewed 2f6591383ff1db8a51168eb84c40f2e357c57e6b. This round only reconciles documentation and checks preservation/links; no code changes or repeated synthetic/runtime tests. PR #12 remains Draft and unmerged; V3 active, V4 not enabled, real teams UNASSESSED. DEV24/DEV28 need a separate player task. Older pending/unstarted notes below are historical, not current delivery status.
+- Authority: [research-first policy](docs/GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md), [DEV28 next-phase plan](docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md), [package C acceptance and conflict handoff](docs/development_reviews/BPTI_PACKAGE_C_IMPLEMENTATION_AND_ACCEPTANCE.md).
+
+
+## NBA2K22 游戏机制研究先行（2026-10-20）
+
+- **永久开发规范**：[游戏机制研究先行 V1](docs/GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)。用户要求开发涉及NBA2K22 PC MyLEAGUE篮球/经营机制时，Codex在决定字段意义、枚举、比赛影响、原生操作或数据采集设计之前，主动查已有项目证据、**官方游戏手册/开发者说明、玩家社区及玩法攻略**，对照PC本世代区别次世代，确认正确的业务逻辑后再编码；不要让玩家重复解释社区已公开的基础知识。
+- 示例：NBA2K22战术目录12种类别与球员4槽0–15 PlayType枚举是不同维度；`'95 FIST 15 SIDE`已在共享池对应CRC 0x79215B33，名字携带年份/动作/位置/区域；Play Discipline、Run Plays、Touches等关系先参考Operation Sports，精确内存映射仍由Antigravity验证。研发需要截图时可按类别请玩家分批提供；需人类介入则提交现有成果并TASK_CLOSED，不保持WAITING。
+- **不对纯Git冲突、拼写、路径、直接可由源码确定的机械Bug强制网页搜索**；这次PR #12只解决与main的代码/文档冲突和对应必要检查，保留新的DEV28与本规范，不借研究要求扩展PR范围。开发边界、玩家批准与适量验证继续沿原[开发政策](docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)。
+
+## 2026-10-20 PR #12受批准四项修复与后续DEV28规划
+
+- 玩家已批准PR #12当前Code Review的F1–F4四项局部修复。Codex在原codex/bpti-package-c分支做蓝图/演化修订一致、同存档分支前态身份、B4市场不被native-action HOLD误禁、portfolio只允许VIABLE_CANDIDATE内部动作；最少直接相关合成测试，报告后TASK_CLOSED，不自动合并或V4启用。查看PR #12 2026-10-20 Web Development评论。
+- **后续独立开发权威入口**：[`DEV28 GM原生输入输出透明化、动态事实完备与战术手册全生命周期`](docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。本次只批准规划发布，没有批准在PR #12夹带DEV28开发；先PR #12局部收尾/人工合并决定，再分包授权D28-0～D28-5。
+- DEV27仅解决`team_book()`名字末尾Playbook后缀匹配，**并未证明当前30队全部Book/Play目录、Coach→Book绑定、换帅后技术归位、68槽更新和游戏持久化已打通**。D28-1独立做实际地址/静态名称/类型/战术受益人分级映射，双步骤受控绑定后重新采集才能写槽，所有具体游戏写入仍需玩家批准。
+- DEV24的比赛/伤病等动态来源需求纳入D28-3；Antigravity发现实际原生数据，Codex统一Registry/M0/DEV14，GM从已认证可选值域与本局GM_SANITIZED读取。不要重复编码已支持的Coach、PlayTypes、倾向、训练、个人防守、交易和合同；没有认证的PlayType/CRC/体能/逐场日志仍UNKNOWN。Codex遇到必须玩家帮助点应交付已完成物与问题，结束TASK_CLOSED，**不保持PAUSED/WAITING**。
+
 ## PR #12 scoped final fixes F1-F4 (2026-10-20)
 
 - Player approved only the two latest Web Development reviews on PR #12 (head 9071cae): F1 current evolution/blueprint consistency, F2 real save-instance/history continuity, F3 separate native action HOLD from M3 market judgment, F4 select only VIABLE_CANDIDATE INTERNAL actions. Implemented on the original codex/bpti-package-c branch; keep PR unmerged.
@@ -13,7 +33,6 @@
 - Player approved PR #11 merge: main base 04b194ab8b4644161242391e964051d3d9f9520a. Separately triggered package C implements B4 → B5 → B6 on codex/bpti-package-c with a Draft PR, not automatic merge. Read docs/BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md and its package C acceptance report; older package B/unstarted-C notes below are historical.
 - Opt-in submit-blueprint/record-evolution reuse sealed GM_SANITIZED M3 packets, Knowledge.bpti, decision_artifacts, CAS and existing native_intent/DEV14 planner. Current blueprint revision binds D1–D6 and HOLD/INTERNAL/MARKET comparison; unavailable source/knowledge/native direction stays HOLD. No name-to-peak logic or claimed boxscore/gameplay effect. Evolution retains referenced prior system/culture and current visible skill evidence; cultural reidentification needs long-term and management context. No new game source, registry capability, database, executor or approval path.
 - Only five authorized checks C-C1..C-C5 and direct failed-item repair/reruns; no old suite or broader testing. V3 active, V4 not enabled, actual 30 teams UNASSESSED. No formal GM, DEV24, save creation, production capture/game-data publication or game access/write follows. Complete source Draft delivery and close the task.
-
 
 ## BPTI package B knowledge delivery (2026-10-20)
 

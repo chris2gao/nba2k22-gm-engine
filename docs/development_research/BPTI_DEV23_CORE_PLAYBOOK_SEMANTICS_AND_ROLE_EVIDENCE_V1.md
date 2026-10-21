@@ -148,3 +148,21 @@ Q4多类型、Q5四槽优先级与选择变化、Q6手动/CPU调用已经由E10�
 | 不写、不采、不比赛、不扩展测试 | 只读研究/确定性提取；没有运行自动测试、旧测试、正式采集、UI、保存/重启或数据发布 |
 
 **本次研究提取和证据审阅不是测试通过声明。** 独立Draft PR只交付研究文件及基线索引，不自动合并。所有未完成的逐战术类型/分配和比赛行为均保留未知；该部分交付状态不冒充完整语义认证。
+
+
+## 附录：2026-10-20 玩家补充战术名称与2D动画（追加事实，不改原研究统计）
+
+- **PLAYER_REPORTED_UI**：玩家在NBA2K22游戏战术界面可以观看2D棋盘式战术演示：五名球员按预设动作移动，战术差异有时只是部分跑位/动作的变化。项目尚无该演示的原生动画字节、脚本坐标/步骤，亦未证实3D赛场ACE必然按演示调用。
+- 玩家提出**战术名字可能透露年代/位置/动作**，举例`9015shot`：“90→90年代；15→1号位与5号位；shot→投篮”。本例属于**待逐战术核验的名称语义说明**，非DEV23实机认证的某条原生战术，也非统一命名文法；数字组合还可能有其他命名含义，不把时代、站位、受益人无条件写死。
+- 今后应从**原生CRC→native PlayType**先建立可靠类型，再对名称进行`name_tokens/role_candidates/era_candidate`假设分析；获取游戏2D预览实际可见步骤后再增加`opening_alignment/action_sequence/role_interactions/first_option/second_answer`。2D演示证明“预览设计”，不自动证明实际3D AI调用。
+- 玩家说的“发起人”常指名称中的关键行动位置角色：**CALLER（谁被游戏指定调用）/ACTION_INITIATOR（谁组织第一个动作）/FIRST_OPTION（第一个终结机会）/ACTUAL_FINISHER（实战完成者）**必须区分；同一种战术可由不同球员担任位置角色，因此当前E09“无需固定位置前置”的规则继续有效。
+- 详细DTO和阶段划分见[DEV28 §3.1A](../development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。不要求截图/录屏或启动新游戏写入，玩家文字描述为可选低成本来源；当前DEV23的111/37/56、89 CRC、原生类型UNKNOWN状态不被追认更改。
+
+## 附录续：实际战术 `'95 FIST 15 SIDE` 对先前“仅猜测”表述的更正
+
+用户再次确认这是NBA2K22实际存在的一条**挡拆**战术，战术名称遵循有意义的命名规则，并非只能把数值/英文当无依据词根。现有共享池 `play_pool_v1.json` **已核实**其`play_id=2K22_PLAY_79215b33`、CRC `0x79215B33`、静态名称`'95 FIST 15 SIDE`：`'95`是1995年版本，`FIST`指挡拆动作，`15`代表1号位持球发起与5号位掩护，`SIDE`代表侧翼战术版本。球员角色而非固定实名，不从SIDE词义擅自指定左/右；尚未考证具体1995年真实球队。
+
+**更正证据等级**：实际CRC→原生名称=STATIC_LABEL_CRC_JOIN；特定名称含义和“挡拆”家族=PLAYER_REPORTED_UI；池中`types.memberships`仍为空，没有取得此条在原生枚举4/5/6/7中的准确成员关系；2D预览步骤和3D调用仍UNKNOWN。不要用先前附录的“9015shot仅作假设”否定此条已经识别的命名规则。`SHOT`与其它动作下的第二位置可能标记预设投篮者，不是总表示掩护人；比赛过程可提前出现投篮/分球机会。
+
+**已知输入接口**：`config/state_io_native/player.json`中`PLAY_DISCIPLINE_TENDENCY`偏移**1185（0x4A1）**，另有Coach `RunPlayTendency`。这是两个不同主体的设置，不应混成单一“执行战术率”，真实数值/临场决策仍须后续观察。玩家说明与[OS 2K22 Useful Findings](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917203-nba-2k22-useful-findings)中的战术纪律性、Run Plays、球员Touches/PlayTypes关联研究一致；严格保留社区经验与引擎认证的区别。正式GM如调整个体倾向，仍沿用户已批准的**具体提案→逐项审批→Codex受控执行**规则，不得自动修改能力/潜力/徽章。详见[DEV28 §3.1B](../development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)。
+
