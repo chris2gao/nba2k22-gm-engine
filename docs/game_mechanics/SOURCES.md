@@ -79,7 +79,7 @@
 
 | ID | 页面 / 准确定位 | 版本、平台、模式 | 可采信的具体事实 | 证据级别与不可外推范围 |
 |---|---|---|---|---|
-| **SRC-0029** | [Operation Sports — RES2 2K22 All Star Current Gen Sliders，第3页，2022-01-07 #40/#41](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917713-res2-2k22-all-star-current-gen-sliders/page3) | NBA2K22 **PC本世代MyLEAGUE，玩家`res2`文字答复** | 问者询问能否用PC默认阵容；res2答“Yep - PC with default rosters”，转贴自己的MyLeague Setup/Simulation设置：Quarter Length=12、Simulated Quarter Length=11，以及Team Pace/ Possessions Per Game/Shot Types/Shot Percentages/Stat Distribution等项目 | `PC22_COMMUNITY_REPORTED_TEXT`；**不是菜单截图或Stats/Box字段认证**。数值是玩家自选，不是游戏默认/用户当前设置，也不构成编辑授权 |
+| **SRC-0029** | [Operation Sports — RES2 2K22 All Star Current Gen Sliders，第3页，2022-01-07 #40/#41](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/917713-res2-2k22-all-star-current-gen-sliders/page3) | NBA2K22 **PC本世代玩家**的MyLEAGUE设置文字模板；作者首页注明主要玩`Season Mode`，MyLeague配置参考IrishSalsa | 问者询问能否用PC默认阵容；res2答“Yep - PC with default rosters”，转贴自己的MyLeague Setup/Simulation设置：Quarter Length=12、Simulated Quarter Length=11，以及Team Pace/ Possessions Per Game/Shot Types/Shot Percentages/Stat Distribution等项目 | `PC22_COMMUNITY_REPORTED_TEXT`；**不是菜单截图或Stats/Box字段认证**。数值是玩家自选，不是游戏默认/用户当前设置，也不构成编辑授权 |
 
 ### R01-D公开检索范围与未采用材料（审查痕迹，不计SRC/VIS）
 
