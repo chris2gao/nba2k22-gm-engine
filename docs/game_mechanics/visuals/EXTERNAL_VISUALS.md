@@ -47,18 +47,18 @@
 
 | VIS ID | 关联 | 图文位置、实际可见信息 | 为什么不能当PC22 Box证据 | 权利/状态 |
 |---|---|---|---|---|
-| VIS-0007 | SRC-0026 | [2K22 MyNBA开发团队说明](https://hoopsgamers.com/nba-2k22-mynba-full-details-mystaff-training-pre-built-teams-more) 的\`COMPACT SPREADSHEETS\`小节；旁边配图为\`MySTAFF Roster\`，[该配图原地址](https://assets.2k.com/1a6ngf98576c/7jr3c008x0rKag3ykS3nGs/adaf38d3e3c8870bb2337758d53eb751/Roster.jpg)。对应**官方文字**提到了Box Score，但图片名称为Roster.jpg，不是已证的Box Score截图。 | 官方原文明确本节属于2K22 **次世代MyNBA**，不能证明PC本世代MyLEAGUE布局，也没有提供完整球员/球队Box表头。图片原地址本轮未逐像素解析，不升级为已检视像素的Box证据。 | 2K官方图片受版权保护；仓库只索引，不转载。状态：\`OFFICIAL_NEXTGEN_ADJACENT_VISUAL_NOT_PC22_BOX\` |
+| VIS-0007 | SRC-0026 | [2K22 MyNBA开发团队说明](https://hoopsgamers.com/nba-2k22-mynba-full-details-mystaff-training-pre-built-teams-more) 的`COMPACT SPREADSHEETS`小节；旁边配图为`MySTAFF Roster`，[该配图原地址](https://assets.2k.com/1a6ngf98576c/7jr3c008x0rKag3ykS3nGs/adaf38d3e3c8870bb2337758d53eb751/Roster.jpg)。对应**官方文字**提到了Box Score，但图片名称为Roster.jpg，不是已证的Box Score截图。 | 官方原文明确本节属于2K22 **次世代MyNBA**，不能证明PC本世代MyLEAGUE布局，也没有提供完整球员/球队Box表头。图片原地址本轮未逐像素解析，不升级为已检视像素的Box证据。 | 2K官方图片受版权保护；仓库只索引，不转载。状态：`OFFICIAL_NEXTGEN_ADJACENT_VISUAL_NOT_PC22_BOX` |
 
 ### R01-C图源质量审计
 
-公开检索出现若干题为“NBA2K22 PC MyNBA”的图片，已登记\`VIS-0005\`说明存在**将次世代界面移植到PC的Remastered模组**，无法在缺少原版/模组元数据时拿来确证PC原生菜单。其它命中包括NBA.com 2021–22真实比赛的Box、NBA 2K22 MyCareer热区图、2K21/2K23教学视频、非NBA2K统计模拟器；**不得计入PC22 MyLEAGUE原生菜单截图覆盖率**。
+公开检索出现若干题为“NBA2K22 PC MyNBA”的图片，已登记`VIS-0005`说明存在**将次世代界面移植到PC的Remastered模组**，无法在缺少原版/模组元数据时拿来确证PC原生菜单。其它命中包括NBA.com 2021–22真实比赛的Box、NBA 2K22 MyCareer热区图、2K21/2K23教学视频、非NBA2K统计模拟器；**不得计入PC22 MyLEAGUE原生菜单截图覆盖率**。
 
-**保留未完成原生取证任务**：\`VIS-TODO-PC22-01..06\`全部待PC22原版画面。R01-C为其补充以下**单张/少量截图即可回答的判定标准**：
+**保留未完成原生取证任务**：`VIS-TODO-PC22-01..06`全部待PC22原版画面。R01-C为其补充以下**单张/少量截图即可回答的判定标准**：
 
-- \`STATS_HEADER\`：截图包含游戏版本/页面位置、筛选器、列名以及底部按钮映射；每种Totals/PerGame/Per36/Advanced类型各至少一张，不能单凭2K22 PS5写PC按键。
-- \`GAME_BOX_TWO_TEAMS\`：在同一场已完赛比赛显示主客身份及两个队伍的球员行、团队总计；每页可以多截，记录是否能横向切列。
-- \`GAME_LOG_OR_CALENDAR\`：若找不到独立Game Logs标签，也要拍可检索到的所有相关Stats页签并记录实际路径，才能区分\`FEATURE_NOT_FOUND_IN_UI\`与\`GAME_LOG_ABSENT\`。
-- \`POSTGAME_SHOT\`：同场赛后Shot Chart与赛程旧Box页面分别截图，核查是否能在离开比赛后重新打开；热区图不能替代Shot Chart。
-- \`OLD_SEASON_BOX\`：只在已经自然经历跨季的**只读页面**检查旧季；不推进、修改正式存档，也不能以旧赛季Standings推断旧Box有无。
+- `STATS_HEADER`：截图包含游戏版本/页面位置、筛选器、列名以及底部按钮映射；每种Totals/PerGame/Per36/Advanced类型各至少一张，不能单凭2K22 PS5写PC按键。
+- `GAME_BOX_TWO_TEAMS`：在同一场已完赛比赛显示主客身份及两个队伍的球员行、团队总计；每页可以多截，记录是否能横向切列。
+- `GAME_LOG_OR_CALENDAR`：若找不到独立Game Logs标签，也要拍可检索到的所有相关Stats页签并记录实际路径，才能区分`FEATURE_NOT_FOUND_IN_UI`与`GAME_LOG_ABSENT`。
+- `POSTGAME_SHOT`：同场赛后Shot Chart与赛程旧Box页面分别截图，核查是否能在离开比赛后重新打开；热区图不能替代Shot Chart。
+- `OLD_SEASON_BOX`：只在已经自然经历跨季的**只读页面**检查旧季；不推进、修改正式存档，也不能以旧赛季Standings推断旧Box有无。
 
-原网页/视频的**准确时间戳若无法读取视频帧，保持\`UNKNOWN\`**，不得虚构“第几分第几秒看到表头”。图证索引暂不上传任何图片二进制。
+原网页/视频的**准确时间戳若无法读取视频帧，保持`UNKNOWN`**，不得虚构“第几分第几秒看到表头”。图证索引暂不上传任何图片二进制。
