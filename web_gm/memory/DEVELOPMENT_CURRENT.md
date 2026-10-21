@@ -1,5 +1,14 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 R07独立审核后两项机读目录定向修正
+
+- 玩家独立审核结论：[R07独立审核](../../docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)主体通过，正式结案须先修A/B。现已提交[修复回执](../../docs/development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)并自检，状态`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`，**等待独立简短复验，不能自行宣布DEV29结案或启动FINAL-CODEX**。
+- A：索引PART_01的`R07.0007`与`R07.0010`人工别名已经标出R01指南原§4/§3章节标题与术语，12项manual topic都不是原生机器主键。B：矩阵F21/F22/F23/F26/F27/F32/F39/F40的`model_query_api_status`只表达查询，原执行限制/数据真实性/批次前置条件/世界线规则都分别存储；没有升级任何当前存档原生读取、已发布字段覆盖、受控写入或Save持久认证。
+- 已重新读回7卷694条，ID与来源身份唯一，历史10项未证奖项与7项空来源保留；40组86处锚点、R06D 20缺口应继续独立复验；R07文档不开发人格，不授权DEV28或代码执行。项目V4仍取消人为3年Pick规则，旧执行代码+3拒绝是独立授权Codex问题，勿误写为“第4/5届Pick不可查询”。
+- 后续窗口从[PROGRESS](../../docs/game_mechanics/PROGRESS.md)第一节恢复；不要重新启动R01–R07研究，也不要把修复提交视为独立审核结论。
+
+
+
 ## 2026-10-21 R07独立审核：694索引/86锚点合格，2项定向修正待办
 
 [正式独立审核](../../docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)已检查7份R07分卷694条、682源JSON原记录逐条匹配、40功能族及86/86原目录锚点、20继承缺口与77种SRC编号（均有登记）；R06B十项奖项缺源继续正确UNKNOWN，未在R07新验证PC22当前数据或执行。研究主体通过但机读目录状态暂为`R07_REVIEW_TARGETED_CATALOG_REPAIR_REQUIRED`：PART_01的R07.0007与R07.0010为无法用完全原文ID匹配的R01指南人工主题ID，应标别名及章节定位；成熟度矩阵F21/F22/F23/F26/F27/F32/F39/F40在`model_query_api_status`混入执行/政策状态，应独立分类并保持原风险说明。修复后二次有界复核即可正式结案并等待用户授权FINAL-CODEX工程对账；不用重做R系列，不启动DEV28、Codex或Coach/Player人格。
