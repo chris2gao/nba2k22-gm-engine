@@ -51,7 +51,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0002",
@@ -96,7 +99,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0003",
@@ -140,7 +146,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0004",
@@ -186,7 +195,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0005",
@@ -231,7 +243,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0006",
@@ -273,7 +288,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0007",
@@ -290,7 +308,7 @@
       "project_refs": [],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "MANUAL_TOPIC_NO_DIRECT_SOURCE_AT_ITEM_LEVEL",
+      "source_audit": "MANUAL_ALIAS_ANCHORED_IN_EXISTING_GUIDE_SECTION_NOT_LITERAL_MACHINE_ID; NO_PC22_UI_CERTIFICATION",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -315,7 +333,15 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "GENERATED_GUIDE_TOPIC_ALIAS",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false,
+      "origin_guide_heading": "## 4. K02.SHOT_CHART / SHOT_ZONES — 投篮落点、热区和命中率不是一回事",
+      "origin_guide_section_number": "4",
+      "origin_verbatim_topic_term": "Shot Zones Aggregates",
+      "origin_exact_machine_id_in_guide": false,
+      "alias_evidence_note": "K02.SHOT_ZONES是R07归纳的检索别名；原R01攻略§4标题中的文字为SHOT_ZONES，正文为Shot Zones Aggregates；文内没有字面机器主键K02.SHOT_ZONES。"
     },
     {
       "ref_id": "R07.0008",
@@ -357,7 +383,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0009",
@@ -399,7 +428,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0010",
@@ -416,7 +448,7 @@
       "project_refs": [],
       "original_catalog_evidence": null,
       "direct_source_support_verified_in_R07": false,
-      "source_audit": "MANUAL_TOPIC_NO_DIRECT_SOURCE_AT_ITEM_LEVEL",
+      "source_audit": "MANUAL_ALIAS_ANCHORED_IN_EXISTING_GUIDE_SECTION_NOT_LITERAL_MACHINE_ID; NO_PC22_UI_CERTIFICATION",
       "native_field_key_candidate": null,
       "status": {
         "mechanism_knowledge": "PRIOR_RESEARCH_DOCUMENTED_WITH_LIMITATIONS",
@@ -441,7 +473,15 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "GENERATED_GUIDE_TOPIC_ALIAS",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false,
+      "origin_guide_heading": "## 3. K02.PER_GAME_PER36_ADVANCED — 三种统计不要混淆",
+      "origin_guide_section_number": "3",
+      "origin_verbatim_topic_term": "Per 36 Minutes",
+      "origin_exact_machine_id_in_guide": false,
+      "alias_evidence_note": "K02.PER36是R07归纳的检索别名；原R01攻略§3标题中有PER36且统计表格有Per 36 Minutes，但原文没有字面机器主键K02.PER36。"
     },
     {
       "ref_id": "R07.0011",
@@ -483,7 +523,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0012",
@@ -525,7 +568,10 @@
       "linked_existing_production_scope": null,
       "sensitive_hidden_truth_disclosure": "DO_NOT_LEAK_HIDDEN_VALUES_TO_MEDIA_OR_OTHER_AGENTS_WITHOUT_AUTHORIZED_PUBLIC_SOURCE",
       "native_write_permission": "NO_APPROVAL_IMPLIED",
-      "candidate_not_a_unique_native_slot": true
+      "candidate_not_a_unique_native_slot": true,
+      "origin_identity_kind": "MANUAL_GUIDE_TOPIC_LITERAL_MENTION_NOT_JSON_PRIMARY_KEY",
+      "origin_guide_format": "MARKDOWN_GUIDE_NOT_MACHINE_RECORD",
+      "origin_machine_record_id_exists": false
     },
     {
       "ref_id": "R07.0013",
@@ -4977,5 +5023,17 @@
       ],
       "source_lineage_scope": "EXTERNAL_AND_PROJECT_REFERENCES"
     }
-  ]
+  ],
+  "manual_topic_identity_audit": {
+    "review_reference": "docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md",
+    "reviewed_at": "2026-10-21",
+    "manual_topics_total": 12,
+    "manual_topic_literal_guide_mentions": 10,
+    "manual_topic_generated_aliases": 2,
+    "generated_alias_ref_ids": [
+      "R07.0007",
+      "R07.0010"
+    ],
+    "note": "All 12 are curated Markdown guide themes, not native game addresses or source JSON machine primary keys."
+  }
 }
