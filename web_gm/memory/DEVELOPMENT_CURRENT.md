@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-20 DEV29 V3：玩家转向自主多智能体篮球世界，R04球员全领域研究
+
+- 玩家明确目标不是优化器式GM，而是**让GM、教练、球员、媒体形成有独立目标/记忆/偏好与谈判拒绝权的模型角色**，在NBA2K22真实比赛/职业合同/世界事件中主动试错、根据反馈涌现。不同Agent有不同信息，BPTI与历史篮球哲学是可参考建议而非必执行条款。
+- 已在main新增[DEV29 V3](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)与[R04 Player Full Profile/Agency研究任务书](../../docs/development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。完整球员个人档案/属性/倾向/徽章/人格徽章/身体部位耐久/伤病与疲劳/Play for Win/Financial Security/Loyalty/合同角色/长程职业动机都必须研究。**R01-A/B/C/D已经结案，R02依然NEXT**；R03研究训练健康通用机制，新增R04研究全量球员信息与自主行为，原经营、世界、整合顺延R05–R07，网页GPT各轮发文到game_mechanics，FINAL-CODEX仍最后。
+- 未来DEV28需面向多角色提供可读事实/合法选项/谁能提出谁能拒绝/已认证原生执行与反馈。**模拟球员同意≠用户真实游戏写入授权**；职业长程记忆/关系/目标优先外部SQLite。玩家提出可能以废弃的原生参数作为外挂人格持久化空间：未认证与未单项批准前**不允许重用**，免得破坏原生球员AI、比赛、合同、存档。Ability/Potential/Badge普通运营禁直改仍有效。
+- 社区依据：2K22 OS Attention to Detail球员研究明确列Play for Win/Financial Security/Loyalty和个体部位耐久、人格徽章，开发次世代官方说明亦涵盖自主训练/员工健康；是跨平台机制线索而非PC22原生全字段认证。研究任务本身不开发人格Agent/不进行游戏修改。
+
 ## 2026-10-20 DEV29 V2组织改为网页GPT多轮攻略研究，PR #12已合并
 
 - GH核对PR #12已`CLOSED/MERGED`、原head`ded900c`，原“冲突处理中/等待合并”已过期。**DEV29 V2**取代V1具体前期执行组织：[规划](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)，[游戏机制资料库](../../docs/game_mechanics/README.md)，[研究进度](../../docs/game_mechanics/PROGRESS.md)，[新研究窗口启动提示词](../../docs/game_mechanics/NEW_GPT_WINDOW_BOOTSTRAP.md)。
