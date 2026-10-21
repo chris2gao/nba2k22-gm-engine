@@ -406,3 +406,10 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 | [OS PS4 2K22玩家赛程设置](https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/916690-the-orlando-magic-dynasty) SRC-0199 | 同版PS4但非目标PC本局像素认证 |
 
 以后如定向核验，应在**获玩家允许的测试档**采样季后赛结束、Lottery、Draft、FA Moratorium及下赛季开始的页标题与日期，分阶段保存并重进对比GameDate/合同/联盟历史及GameID。**仅为证据需求，不授权现在推进游戏。**
+
+
+## DEV29 R06-D — 跨领域关系索引与视觉认证边界（2026-10-21）
+
+**本轮新增原版NBA2K22 PC完整UI逐像素验收VIS = 0；新增外部SRC = 0。** R06-D为既有研究卡交叉索引，不把旧3D滑块帖/PS4/PS5截图/模组演示升级为当前存档UI、原生读数或游戏引擎因果证据。历史、纪录、合同、选秀及Save等仍按R01–R06-C视觉索引保留各自的PC22取证缺口。
+
+详细机读逐项回链见[26关联与20项缺口](../catalogs/R06D_CROSS_DOMAIN_MECHANISMS_AND_GAPS_V1.json)；不重复抓取第三方图片，也不要求玩家当前立即进入游戏测试。
