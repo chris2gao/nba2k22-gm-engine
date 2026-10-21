@@ -156,3 +156,122 @@ NBA2K14/15时期Visual Concepts AI工程师Leftos公开解释[ SRC-0052 ]：旧�
 - **研究人格涌现的价值优先**：让未来教练、球员和GM知道可以围绕负荷/发展做怎样的选择、各方利益为何冲突、失败会产生何种事实反馈；新旧平台差异仅决定游戏原生执行和字段验证程度，不限制角色学习通用篮球机制。
 
 证据栏采用双轴而非排他判断：`MECHANISM_TRANSFERABILITY=HIGH_BY_PLAYER_EXPERIENCE`，`PC22_NATIVE_UI_OR_IMPLEMENTATION=NEEDS_INDEPENDENT_VERIFICATION`。后续R03-B/R04–R07按此执行；若找到某项确实只在次世代存在，将它标记为**具体例外**而不是整代资料不可复用。
+
+---
+
+# R03-B — 身体风险、伤病事件、康复和导师的动态机制（2026-10-21）
+
+> **本轮研究范围**：完整补足“谁感知身体状况、哪些训练/医疗决定可选、什么真实事件会改变职业生涯”的知识，而非开工编码。证据详见SOURCES中SRC-0060..0069。用户明确指出次世代终极联盟机制高度可复用，因此本章承认其训练/医疗**机制层价值**；只对具体PC22字段、UI路径与可执行对象保持独立认证。
+
+## 9. 伤病不是一个按钮：发生、严重程度、部位、持续时间与比赛模式是不同事件
+
+一个球员至少可以经历**健康可用 → 训练/比赛暴露 → 伤病事件 → 诊断/预计缺席 → 康复过程 → 恢复比赛资格 → 再受伤/长期状态变化**。游戏可能在其中给出伤病类型、预计天数、可否带伤比赛、身体耐久，以及玩家/团队的不同来源记录；哪些字段可见、当前实现是否已采、实际写入权必须各自标记。**R03只研究病程和角色选择共性，R04再调查全部球员身体部位耐久字段、逐项特性和值域。**
+
+### 9.1 同版一手资料暴露了“比赛参与方式”的混杂
+
+- 2021-11 Operation Sports“**MyLeague Injury Sliders**”[SRC-0060]：作者称其模拟比赛中有伤病，但手打100+场未见伤员；回复的次世代MyNBA玩家说调高sliders后快速模拟出现较多伤病、手打很少，另有玩家报告**某场手打Luka真实受伤动画**。这并不证明手打“永不受伤”，恰恰证明“手打/看CPU三维/快Sim”的`game_execution_mode`必须单独标记。
+- 2022-03 OS“**MyLeague Why are there no injuries**”[SRC-0061]提供同版相反个案：有人长期无现场伤病，也有人遇到鼻骨受伤；有人说降低Durability后立即出现受伤，另一玩家降低Durability并把伤病滑块开满却仍未出现。**这些都是未控制样本的玩家报告**，不能把“Durability=20必受伤”写作规则或操作建议。
+- 2022-09 OS 2K23 MyNBA讨论[ SRC-0063 ]中有玩家**回顾2K22**也出现“预计4–6周，但提前恢复”的状况；讨论触及是否在MyNBA开档时设置Duration、不同赛季长度，以及同一伤病时长字段的不同含义。回忆+另一版本问答不等于PC22具体康复算法，但足以提醒：**事件初始预估、剩余天数、正式恢复日期和复赛日期不是一个字段**。
+
+**最小完整伤病事件模型**（未来研究建议的标记，不是新原生DB schema）：`native_player_id / team_id / game_id_or_practice_event / source_time / game_execution_mode / body_part_if_native / diagnosis_if_native / severity_if_native / initial_estimated_absence / observed_remaining_days / expected_return / actual_return / reliability`。没有明确游戏来源的字段必须`NULL/UNKNOWN`，不准媒体创造“膝盖已经重伤”或假恢复时间。
+
+### 9.2 三层伤病设置与两个不允许的错误推断
+
+| 层 | 研究对象 | 可选空间与反馈 | 不可做的推断 |
+|---|---|---|---|
+| 球队训练/个人训练 | 已认证11个可注册字段里的Intensity、Recovery、B2B休息与球员Override | Coach与Player可以争论训练负担；批准后观察真实恢复/缺赛 | “injury_recovery=1一定缩短7天” |
+| 世界/比赛模拟环境 | Injuries On/Off，2K22系列教程列出的User/CPU Injury Frequency、Injury Severity等候选，以及模拟Fatigue/Recovery等滑块[SRC-0062] | 世界设定与玩法差别影响联盟遭遇风险；此为**世界权力**，不是30队GM可私自改全局 | “把所有设置调100就能使3D现场伤病正常” |
+| 球员个体/医疗/运动医疗员工 | 身体部位Durability（R04详查），自然负荷、球队Trainer；2K22次世代独立Sports Scientist/Physio/Sleep Doctor等职责[SRC-0064] | 俱乐部围绕风险与康复资源讨价还价；球员可以追求更快复出或保守职业寿命 | “PC22已经有7个可聘Sports Medicine岗位/能读到该岗位数值” |
+
+对当前项目，`training.json`中有`injury_recovery`标记和`progressive_fatigue_history`布局；**并没有经本轮证实的真实当前伤病明细/预计复赛事件表**。已知`config/source_catalog.json`中的`injuries_availability_rotations`来源此前为`NOT_OBSERVED`；历史SQLite伤病字段可能为占位NULL，不能因表有列推定事实已入库。未来实际采集覆盖状况每个batch另审，不用旧状态永久宣告不可获取。
+
+### 9.3 “恢复/缺席时间”为什么不能直接写成统一规则
+
+合理的因果分离是：`初始伤情严重度 → （原生医疗/康复/比赛时钟的未知规则）→ 当前伤停估计 → 真实复赛`。官方2K22次世代MySTAFF将**Sports Scientist**关联伤病预防/身体部位Durability，**Physio**关联伤后康复，**Sleep Doctor**关联累积疲劳管理[SRC-0064]，是很有用的医学职能知识。但是本世代当前已确认主要招聘Trainer，不能用一个Trainer评分代替次世代全部岗位，也不能伪造“Staff A缩短康复15%”。球员身体损伤是否会造成永久潜力/属性变化、伤后状态是否重新影响比赛，当前缺PC22实验，属于`EFFECT_UNKNOWN`而不是“没有损伤”。
+
+## 10. 疲劳：瞬时场上体力、跨日负荷和历史进展不能混成同一个数
+
+| 项 | 球员/教练能否据此做判断 | 当前取证和含义 |
+|---|---|---|
+| **3D比赛内体力Stamina** | 若当场界面显示，教练可决定让某人休息或冒险继续打 | 游戏比赛机制概念；外挂当前控制没有实时单场体力采集合同 |
+| **跨日累积疲劳Progressive Fatigue** | 若当前真实值可查询，球员可比较负荷与健康目标 | `player_training.progressive_fatigue_history @0x2F5`及点数位域已登记**静态结构**；不知道采样间隔/取值单位/哪个历史点是当前点 |
+| **训练强度历史Intensity History** | 对了解过去团队计划可能有用 | team/player均有历史数组布局；未证明现实已保存或被R03本轮读取成随时间变化的列表 |
+| **伤病剩余时长** | 有真实观察时决定复出意愿/训练例外 | 需要独立伤病来源；不能从疲劳历史反推出病因和具体剩余时间 |
+| **比赛曝光负荷** | 即使没有生理指标，实际分钟与赛程可以给角色提供**有限可见事实** | 依赖R01的GameID、真实比赛模式及可查询分钟；累计赛季MIN不能替代最近7天实际负担 |
+| **游戏内Load Management/Game Fitness** | 2K22次世代MyNBA官方明确展示并赋予选择与代价 | 机制可高价值复用；PC22原生同名菜单/数值采集未认证 |
+
+**取证分级不可压缩**：
+`NATIVE_LAYOUT_KNOWN` ≠ `HISTORY_DECODED` ≠ `CURRENT_FATIGUE_VERIFIED` ≠ `GM_QUERYABLE_FOR_BATCH`。若状态没到当前可查询，Coach/Player可以提出`REQUEST_DATA`或依据真实公开出勤作主观判断，**不能以虚构精确疲劳百分比强化人物设定**。
+
+真实NBA医学文章[SRC-0069]支持篮球负荷与伤病的复杂关系，但真实科学研究**不是**2K引擎的参数表，更不提供PC22必然阈值。不同角色可以持有不同关于风险的信念，这与游戏未证数学式同时成立。
+
+## 11. Mentorship是“提出师徒关系”，不是“允许直接赋予徽章”
+
+| 环节 | 可用机制信息 | 当前项目对应证据 | 角色可采取的自由选择 |
+|---|---|---|---|
+| 选择导师与学员 | 2021年离线MyLEAGUE玩家说明`Training→Mentor`页面可查看徽章进度[SRC-0065]，2K21本世代玩家报告过导师成功传授徽章[SRC-0066] | `mentorship_manager`有`mentee_id/mentor_id/duration_days/compatibility/num_badges/badges_array`结构；仍DISCOVERED、**不具备通用执行** | 教练可推荐导师；老将可以拒绝承担指导职责；新人可以要求特定对象 |
+| 指定想学习的徽章 | 2021-12**2K22时期**玩家针对恩比德→斯图尔特Post Lockdown作出是否消耗导师徽章的询问，回复认为不会[SRC-0067] | `badge_slot`有`type_id/level/is_active/progression/date_last_checked`布局，但目前未认证自然转移数学条件 | 学员可在外部愿望中表达徽章偏好；不代表当前有`badge.transfer`安全写入 |
+| 按季度/赛季查看结果 | 2K21玩家说导师页会看到徽章的渐进变化，也可以比较赛季前后player card[SRC-0065] | 需要真实Badge前/后快照，不能把`progression` raw值当作已经授予徽章 | Coach/Player可满意、失望、重选或坚持 |
+| 出现BUG/不确定 | 2022-01至04**2K22 MyLEAGUE**有人报告设定某些导师会崩溃[SRC-0068]；其它系列版本有人说导师效果微弱甚至看不到 | **没有当前PC官方bug ID或复现条件**，不声明本机一定崩溃 | 角色可请求技术核验；真实外挂不得以修改徽章来掩盖异常 |
+
+**尤其重要**：2K22在线MyLEAGUE 2021–22讨论[SRC-0067A]中，一位用户先认为在线联盟没有Mentorship，2022-02另一位称在Overview里滚动可找到“Change Mentor”。这说明**同一功能是否存在和藏在何处**都可能受模式/入口影响，不能把线上菜单经验直接搬到离线PC，并由此断定导师“不存在”。
+
+**GM玩法承载约束**：即便未来玩家/教练双方同意某导师关系，现行DEV14仍标`mentor.relationship=DISCOVERED, writable=false`；R03不授权直接操纵导师结构或Badge等级。未来只有专门取得本机身份、合法字段与可靠readback、真实玩家批准才可执行师徒操作。球员正常徽章自然变化仍由2K游戏负责。
+
+## 12. 训练师（Trainer）与自然成长/衰退：职业资源不是决定论
+
+- **员工职能**：PC用户确认本世代可聘Training/Trainer岗位；项目源里的STAFF8类技术位与可任命6岗位不同，不应把Trainer和Assistant Coach或次世代Sports Medicine七岗同一化。
+- **同年官方2K22 MyNBA**明确区分Stamina Trainer、Strength Trainer、Sports Psych、Sports Scientist、Physio、Sleep Doctor及Team Doctor、各自影响健康、体能或球队心理[SRC-0064]，可为**角色谈判与医疗风险知情**提供机制原料，不表示PC本世代有全部职位和原生控制。
+- **2K旧版玩家经验**对Trainer影响伤病避免、恢复、体力及休赛期Training Camps名额看法不一致（R03-A SRC-0058）；不能根据Hire Trainer A级给出“自然能力每月+2”公式。
+- **进步与退步**：2020年玩家[ SRC-0066A ]报告以Very High全季训练却发生OVR下降；环境包括球队阵容、Trainer评分、潜力/年龄和自然进程，**单一训练强度的实际增长函数不可辨识**。身体状态、能力变化、导师徽章也不应合成“训练收益总分”强迫所有角色接受同一计划。
+- **外部角色可以有错判**：GM坚持“年轻人应高负荷”，教练更重视争冠，球员担心短期伤痛与长期寿命，训练师提供专业意见，媒体根据公开受伤情况评论；**模型各自可以拒绝**，但真实医学职能与游戏原生信息须有不同可见权限。
+
+### 12.1 按角色组织健康事件的“可观察世界”
+
+1. 球员收到可见的个人训练计划与有来源的伤病结果，自己可能珍惜合同窗口、渴望上场、承担伤愈后再次受伤风险。
+2. 教练看到球队训练政策、可用阵容、已公开的健康/可用性数据；可能要求老将上场或允许自主恢复，并需要对比赛结果负责。
+3. GM看合同、可用名单、训练师资源与球员要求；可商议续约/交易/轮换或拒绝额外医疗资源，不因少一项数据就强迫“保险最优”。
+4. 媒体只能依据游戏公开的球队公告、真实名单状态和可发表声明报道；不得把私人伤病报告、隐藏疲劳数值或球员私有信念直接当公开新闻。
+
+状态语义用`GAME_NATIVE_FACT / GAME_NATIVE_CONTROL / SERIES_MECHANISM_REFERENCE / EXTERNAL_ROLE_GOAL / EXTERNAL_ROLE_CONSENT / PLAYER_REAL_APPROVAL / UNVERIFIED`分别记录。只在事实真的被观察后更新历史事件，不通过自行修改伤病/能力模拟“成长故事”。
+
+# R03-C — 机制范围覆盖、停止规则与正式审核（2026-10-21）
+
+## 13. 全机制家族和证据达标矩阵
+
+| 家族 | 可解释机制和可选行为 | 目标PC原生观察/控制覆盖 | 当前研究结论 |
+|---|---|---|---|
+| Team Training：6项 | 主客场强度、自动化、背靠背前后休息、康复方向 | 静态Registry与通用状态I/O已存在；当前batch值未在本轮查询 | **RESEARCH_DONE / RUNTIME_NOT_TESTED** |
+| Player Training：5项 | 位置与通用培养原型、个人强度/恢复/Override | 原生枚举0..8；各位置菜单与训练效率映射未知 | **RESEARCH_DONE / EXACT_TEMPLATE_MAPPING_UNKNOWN** |
+| 训练日程和Load Management | 日程强度、Game Fitness、练习风险/自主放低强度 | 官方次世代可解释；PC22完整UI和当前体力值未证 | **CROSS_GEN_MECHANISM / PC_EXECUTION_UNKNOWN** |
+| 疲劳/历史 | 比赛暴露、累计Fatigue历史、3D当场体力 | 历史布局存在；无可信当前值/单位/衰减公式 | **NATIVE_LAYOUT_KNOWN / CURRENT_DATA_GAP** |
+| 伤病与康复 | 类型/部位/严重度/预计康复/实际复出 | 同年不同比赛模式玩家相反案例；当前伤病数据来源未认证 | **COMMUNITY_ENGINE_BEHAVIOR / LIVE_DATA_GAP** |
+| 耐久/年龄与自然变化 | 身体风险决定、自然Ability/Badge成长/退化 | 不以一次OVR变化计算效应；R04调查完整body part字段 | **RESEARCH_DONE / FULL_FIELD_LIST_DEFER_R04** |
+| 员工Trainer与次世代医疗 | PC本世代Trainer、次世代七类医疗分工 | STAFF槽非可任命岗位；每个职能效果PC待证 | **CROSS_GEN_REFERENCE / PC_EXACT_EFFECT_UNKNOWN** |
+| 导师/徽章进度 | 选择导师、学员与目标徽章、长期有条件反馈 | native关系结构DISCOVERED，不支持通用更改；社区有成功/崩溃分歧 | **RESEARCH_DONE / CAPTURE_EXECUTION_GAP** |
+| 比赛模式与世界滑块 | 手打/3D CPU/快Sim伤病不一致；频率/严重度环境 | 相同参数不同模式未受控，世界设定不属于30队GM自行权限 | **RESEARCH_DONE / ENGINE_FORMULA_UNKNOWN** |
+| 四角色的健康人格选择 | 同意、争论、拒绝、风险/合同/公众形象 | 外部角色隐私与原生客观事实分层；不开发Agent | **RESEARCH_DONE / FUTURE_AGENCY_IMPLEMENTATION** |
+
+## 14. 有界结案：哪些UNKNOWN不应该拖住R04
+
+**R03公开文献研究达成“可列出机制、明确自由选择、知道必须观察哪些动态事实、允许事后反馈”的目标；但没有实现PC22健康数据实时闭环**。下列内容**不能称已实现**：
+
+- `progressive_fatigue_history`动态解析的单位/采样顺序，当前可供GM查询的精确累积疲劳和比赛体力；
+- 当前伤病、部位/预计剩余天数、旧伤/可出场资格的稳定本地查询与历史事件账本；
+- TRAINER员工属性对防伤、康复和职业发展准确加成公式；
+- Mentorship的具体原生UI/徽章传递条件/关系写入readback；
+- 全部位置特定个人训练模板的PC22原生精确映射；
+- 快速模拟 vs 手动玩 vs CPU观战的伤病概率差异的可重复量化；
+- 官方次世代新增MySTAFF/Prep Hub界面的PC本世代同名存在与完整控制。
+
+这些是**后续可以定向原生取证的已知缺口**，而不是可任意填默认值的“暂无数据”。K06不延伸为R04的全部身体Durability和人格徽章字段字典，不覆盖R04专项。为避免无限反复搜索PC画面，保留最小可核对清单并封存当前文献研究；日后经批准收到本机资料时**增量修订**，不推翻既有证据。
+
+## 15. 交给审核人员的诚实判断标准
+
+- **知识覆盖**：训练、负荷、健康、伤病、耐久、康复、导师、Trainer/医疗、自然成长、现实伤病模式差别、世界规则与四角色自主选择都被研究或明确保留给R04。
+- **操作透明**：明确哪些是真实项目6+5已注册字段，哪些是跨代机制来源，哪些只是原生历史结构，哪些是目前没有实时观测的健康状态。
+- **非干预**：不通过设置全联盟统一“高强度最优训练”、改Ability/Potential/Badge/伤病天数来替角色塑造故事；不把原生自动Load Management当已实现的外部自主Agent。
+- **出路明确**：玩家可在R04之后要求DEV28针对以上缺口只读调查，或使用真实游戏截图补证；R03的文献研究已经有明确停止条件。
+- **质量闸门**：如果要求的是“让未来角色今天就根据实时健康数据自主运营”，R03仍**不能通过执行就绪验收**；如果要求的是“为未来角色提供机制选择、可获取信息目录、约束和反馈”，则**文献研究可通过、原生读取与执行欠账列入阻断项**。
+
+**建议审核结论**：`R03_RESEARCH_COMPLETE_WITH_NATIVE_DATA_GAPS`，与`AGENT_OPERATIONAL_READINESS=NOT_READY`并存。是否接受此边界并推进R04，由玩家决定。本轮不启动R04、不生成角色Agent、不修改游戏。
