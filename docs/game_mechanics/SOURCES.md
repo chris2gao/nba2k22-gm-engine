@@ -115,3 +115,22 @@
 - 已分别打开2K官方新闻、OS原帖、OS编辑文章、HoopsGamers控制说明和Reddit的MyNBA用户回帖；Coach2K关于Isolation/P&R/Fade/Post/Cutter的旧版术语索引已被本项目12类文档引用，**当前直接URL抓取返回404**，本轮不新增编号，也不把搜索引擎摘要说成完整网页正文。
 - [SRC-0034] 的作者初稿存在“Pressure=Go Over”错误，后续回帖当面改正：这是为什么按字段登记enum，比复制网红一键设置更重要。
 - 原版PC22 Coach/ACE/Freelance的完整操作截图仍未取得；当前项目既有原生字典与用户游戏经验单列“项目事实”，不靠主机截图倒证。外部图像未获再分发许可，不复制到GitHub。
+
+## DEV29 R02-B — ACE/Series/Freelance冲突、Center防守语义、PC CPU-vs-CPU及角色视角（2026-10-21）
+
+本轮优先一手有情境的玩家操作报告；**不以同年代=同平台、或文章里有Image就等于已逐像素核对菜单**。只登记具体推进已知问题的来源，不重复R02-A范围。
+
+| ID | 原始网页 / 作者定位 | 版本、模式、证据事实 | 不可外推的界限 |
+|---|---|---|---|
+| **SRC-0040** | [Operation Sports：Defensive Settings Not Staying On Custom](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/920049-defensive-settings-not-staying-on-custom)，2022-01-02/03 #1–4（smuhead/vetmin/jeebs9） | **2K22时期**：用户报告Team Focus/Defensive Settings比赛中Custom反复变Automatic，即使ACE=Off仍无法保留；其他用户首先建议ACE Off或Offense Only | `COMMUNITY_USER_REPORT_SEARCH_INDEXED_FULL_PAGE_REDIRECT_FAILED`，原网页直接打开因重定向循环失败，引用只按带原帖内容的搜索索引；没有平台/模式认证，不能说所有PC22 ACE失效 |
+| **SRC-0041** | [Operation Sports：Adaptive Coaching Engine](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/921133-adaptive-coaching-engine)，2022-02-24—03-05 #1–3（DJ81） | 同版玩家提出ACE Off可能让手控设置保留，却需人工比赛中改Tempo/篮板；并主张“ACE only affects the user” | `COMMUNITY_FIRST_HAND`：对真人user情境的主张，不是NBA2K22 PC CPU-vs-CPU源代码事实，与SRC-0040分歧并列 |
+| **SRC-0042** | [Operation Sports：Are series not working?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/917118-are-series-not-working)，2021-09-16 #1（Smirkin Dirk） | 2K22发售早期，玩家称无论Gameplan选Series还是比赛暂停再选，场上似乎都回退Freelance | `COMMUNITY_2K22_XBX_SELF_REPORTED`，作者签名指XBX，实际模式/PC未证；只报告现象，不代表所有Series失效 |
+| **SRC-0043** | [Reddit r/MyTeam：Freelance sets EASY FIX in MyTeam](https://www.reddit.com/r/MyTeam/comments/q36nsh)，2021-10-07，原作者wiiiiigs | **NBA2K22 Xbox Series X/S MyTEAM**：先暂停Offensive Settings选set，再场上方向键Gameplan→Run Freelance，然后Freelance→具体set；由此区分“选中配置”和“主动触发” | `COMMUNITY_CURRENT_2K22_NEXTGEN_MYTEAM`，不等于PC本世代MyLEAGUE的菜单或自动CPU调用 |
+| **SRC-0044** | [OS：On ball screen (center), Hedge (center) 第2页 #18–23](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/806956-on-ball-screen-center-hedge-center/page2)，2016-08（harryl/Nevertheles109等） | **2K16旧系列**：普通On-Ball Screen控制盯持球人的防守者，Hedge是掩护者防守人；Center后缀可能表示有中锋参与的掩护，讨论关于“被设置的对手持球者”和“己方协防中锋”身份的区别 | `KNOWN_IN_SERIES_PLAYER_EXPLANATION`，不是NBA2K22 PC Center字段实际触发、enum、对位特殊情况和覆盖关系认证 |
+| **SRC-0045** | [OS：Defensive Settings discussion 第2页，2018-11 #22–27](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/865843-defensive-settings-discussion/page2) | **NBA2K19时期经验**：球员报告Tag On Roll在Gameplan消失但SimCast Defensive Settings仍见，明说未测是否有效；另外讨论Hedge(Center)/Pre-Rotate与具体掩护/帮助 | `OLDER_SERIES_CONFLICTING_MENU_VISIBILITY`，不能说NBA2K22 PC同样隐藏或一定生效 |
+| **SRC-0046** | [OS NBA 2K PC Forum：cdcool NBA 2K22 CPU vs CPU MyLeague Sliders](https://forums.operationsports.com/forums/forum/basketball/nba-2k-pc-forum/918715-cdcool-nba-2k22-cpu-vs-cpu-myleague-sliders)，2021-11-03 #1（2022-01更新） | 明确为**NBA2K22 PC MyLEAGUE，全联盟控制、每场看3D CPU-vs-CPU且不快模拟**；玩家公开自定义12分钟、Game Speed及打法滑块 | `PC22_COMMUNITY_DIRECT_MODE_TEXT`，可以确认有该研究条件，**不能认证Coach UI/ACE效果**；作者滑块数值非项目默认/非推荐 |
+| **SRC-0047** | [OS：Next-Gen Freelance / Series / Offensive and Defensive Gameplanning Questions](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/907707-next-gen-freelance-series-offensive-and-defensive-gameplanning-questions)，2021-03-17 #1–2（skeenz/El_Tercero） | **NBA2K21次世代MyNBA**：玩家将Freelance、Series、暂停策略和Gameplan分成不同控制入口，抱怨赛前选Freelance不持久及改用Timeout的经验 | `OLDER_NEXTGEN_PLATFORM_UI_REPORT`，不证明本项目PC22本世代有同一菜单/BUG，不算目标版视频像素认证 |
+
+**外部视觉审核结果**：寻找PC22 MyLEAGUE无模组Coach/ACE/Defense/Book、2D战术板与视频精确帧，未找到足以同时辨认平台、原版、模式与完整菜单/字段的材料；**本轮新增`PC22_UI_CONFIRMED=0`，不等于功能不存在**。有标题的YouTube视频、OS文章“Image”、Xbox MyTEAM文字教程均不冒充PC22像素认证。未复制/公开再分发第三方截图。
+
+**R02-B主要新研究值**：把ACE是否重置、Series是否被调用、Center个人防守的“谁掩护/谁防”角色视角、SimCast旧版字段可见性和本世代PC CPU-vs-CPU玩法分别登记，构建可证伪的对象/时点/角色观测合同，而非“建议统一设置某个数值”。
