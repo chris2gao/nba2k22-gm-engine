@@ -1,4 +1,7 @@
 # NBA2K20–23 终极联盟游戏机制知识库
+> **R07最新交付（2026-10-21，待独立审核）**：[R07七层证据成熟度指南](guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40组能力矩阵](catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694项分卷索引总入口](catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)及[DEV28研究交接](R07_TO_DEV28_EVIDENCE_HANDOFF.md)已提交。索引采用**7卷可读JSON**，勿当694个原生字段；40组有86处原目录锚点，另单列10组历史生产证据。新游戏读回与执行0。**当前应做R07独立审核，而不是自动启动FINAL-CODEX或DEV28。** R06已经按[正式验收报告](../development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)结案。旧章节中的“R06待审核/下轮R07”仅为历史状态，以[PROGRESS](PROGRESS.md)最新顶部为准。
+
+
 > **R06独立审核结案（2026-10-21）**：[完整验收报告](../development_reviews/DEV29_R06_INDEPENDENT_ACCEPTANCE_20261021.md)确认R06-A/B/C/D研究交付通过，保留全部PC22本机读写/存盘缺口；R06-D的26关系、20缺口、79源目录锚点核对通过；R06-B定向文档修复通过但十类奖项仍缺直接来源。**当前唯一下一轮：R07研究跨领域可观察事实/可选动作与证据矩阵**，不得开始人格/DEV28写入。下方历史段落里的R06-D“待独立审核”仅是当时发布状态。
 
 
