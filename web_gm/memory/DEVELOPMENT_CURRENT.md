@@ -348,3 +348,10 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 玩家补充NBA2K22战术有**2D动态棋盘预览**，很多同类战术仅有跑位变体；命名常带行动位置、动作/投篮和时代线索。玩家举例`9015shot`的“90年代/1&5号位/投篮”含义是**特定假说**，还没有实机逐条验证，也不能把名称中的“发起人”当作固定实际调用者或得分人。
 - 当前共享战术池为**84本原生手册、1392个不同CRC、1345有静态名字、47名字未知，原生CRC→PlayType精确认证仍为0**，比DEV23最初三队204槽/89具名CRC样本范围大。不得因共享池已经有文字解释就提升到已证 native membership。
 - 新[DEV28 §3.1A](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)确立先找真实CRC→原生类型，再做名字语义低置信解析，最后有来源时复原**游戏2D预览战术动作**。区分CALLER/动作发起位置/第一机会/第二解法/实战终结者；游戏2D预览存在不意味着脚本能从内存提取，也不能证明3D比赛实行动作。适量研究关键BPTI战术，不强制全部1392条人工演示；若无法截图，可以文字记录关键路线。**PR #12仅修已批F1–F4，不借此扩范围，不执行游戏写入。**
+
+## 2026-10-20 玩家确认真实战术 '95 FIST 15 SIDE 命名文法及战术纪律联动
+
+- 仓库`web_gm/knowledge/plays/play_pool_v1.json`确实包含`'95 FIST 15 SIDE`，`play_id=2K22_PLAY_79215b33`、CRC 0x79215B33，静态标签已和CRC匹配；玩家确认游戏中**类别为挡拆**。名称按领域规则解释：`'95`为1995年历史版本、`FIST`为挡拆动作、`15`为1号位持球动作发起/5号位掩护、`SIDE`表示侧翼执行版。85/05年同源名称可随篮球时代区分战术空间；具体1995历史球队不能仅由名字确认。
+- 这是有定义的命名语法，**纠正此前一律将数字解释为无含义/位置角色全是猜测的过保守表述**。不过动作计划、谁被AI分配调用、首选与二次终结、2D预览轨迹及真实3D执行仍分层取证；当前原生`types.memberships=[]`，玩家“挡拆”是PLAYER_REPORTED_UI而非逐CRC原生enum认证，不能擅自指定type_id=4/5/6/7。
+- **Play Discipline原生字段已经找到**：`config/state_io_native/player.json`的`PLAY_DISCIPLINE_TENDENCY`偏移1185/0x4A1；Coach也有`RunPlayTendency`。二者结合球员4有序PlayTypes、Playbook、Shot/Touches影响战术执行/提前机会的逻辑，OS 2K22玩家研究亦有相符经验，但不能编造精确调用概率。个人原生Tendency仍遵守玩家逐项批准与Codex受控执行；不可改能力潜力徽章。
+- 权威更新：[DEV28 §3.1B](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)、[共享战术池](../../docs/GM_SHARED_PLAY_POOL_V1.md)、[DEV23附录](../../docs/development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)。后续Codex应在**知识源种子/生成器**而非只在生成JSON中维护命名规则，PR #12 F1–F4修复不加此范围，DEV28另立包。
