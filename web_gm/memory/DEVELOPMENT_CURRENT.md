@@ -355,3 +355,11 @@ DEV07 Codex 已在 PR#1 分支继续实施 V2，不再处于代码未开始状�
 - 这是有定义的命名语法，**纠正此前一律将数字解释为无含义/位置角色全是猜测的过保守表述**。不过动作计划、谁被AI分配调用、首选与二次终结、2D预览轨迹及真实3D执行仍分层取证；当前原生`types.memberships=[]`，玩家“挡拆”是PLAYER_REPORTED_UI而非逐CRC原生enum认证，不能擅自指定type_id=4/5/6/7。
 - **Play Discipline原生字段已经找到**：`config/state_io_native/player.json`的`PLAY_DISCIPLINE_TENDENCY`偏移1185/0x4A1；Coach也有`RunPlayTendency`。二者结合球员4有序PlayTypes、Playbook、Shot/Touches影响战术执行/提前机会的逻辑，OS 2K22玩家研究亦有相符经验，但不能编造精确调用概率。个人原生Tendency仍遵守玩家逐项批准与Codex受控执行；不可改能力潜力徽章。
 - 权威更新：[DEV28 §3.1B](../../docs/development_tasks/DEV_20261020_28_GM_NATIVE_IO_TRANSPARENCY_AND_EXECUTION_COMPLETENESS_MASTER_PLAN_V1.md)、[共享战术池](../../docs/GM_SHARED_PLAY_POOL_V1.md)、[DEV23附录](../../docs/development_research/BPTI_DEV23_CORE_PLAYBOOK_SEMANTICS_AND_ROLE_EVIDENCE_V1.md)。后续Codex应在**知识源种子/生成器**而非只在生成JSON中维护命名规则，PR #12 F1–F4修复不加此范围，DEV28另立包。
+
+
+## 2026-10-20 玩家12类战术分类、社区先行研究与PR12修复复审
+
+- 玩家质疑之前不主动从社区获取战术知识，正确。新研究[12类战术目录与球员PlayType映射](../../docs/development_research/NBA2K22_PLAYBOOK_12_CATEGORY_AND_NATIVE_TYPE_MAPPING_V1.md)已对照Coach2K以及2021本世代社区分类与真实Fist/Quick/Give/Iso/Punch/Cut战术名称；以后默认先社区检索游戏知识，再让Antigravity验证运行时原生类型，不把尚未有本机enum理解为篮球语义未知。
+- 用户列出的**12项而非11项**：单打、挡拆、挡拆外弹中投、挡拆外弹三分、挡拆选项、低位背身、高位背身、后卫背身、中投、三分、手递手、切入。**战术动作类别与球员4槽PlayType的0–15原生枚举是两个概念**；禁止将类型候选4/5/6/7冒充战术原生分类。以CRC→分类关联对象/过滤列表/原生type字段作取证目标，不预设固定块内存结构。
+- Antigravity首先从内存找类型。如果找不到**可以向玩家请求截图**，哪怕需要按类别分批几十张；不必要求一次全部提交，任务到用户介入点要彻底TASK_CLOSED，禁止WAITING消耗额度。玩家此前无法提供某个任务的截图不等于以后永远禁止按需截图。
+- PR #12最新修复`2f659138`静态复审发现F1–F4代码均已落地且有四项合成通过证据；**GitHub当前mergeable=false / mergeable_state=dirty**，分支落后main并与main冲突，不能宣称当前可直接合并。PR依旧Draft，V3有效/V4尚未启用。先让Codex有界解决合并冲突、保留main DEV28新文档并针对受影响文件作检查，随后玩家另外授权merge；不扩大PR到DEV28开发。
