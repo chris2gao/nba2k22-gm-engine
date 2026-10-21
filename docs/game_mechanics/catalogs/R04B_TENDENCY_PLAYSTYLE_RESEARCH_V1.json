@@ -5898,5 +5898,196 @@
     "run_play_frequency_and_current_book",
     "player_agent_consent_vs_gm_disposition",
     "initiator_0x16A_bit2_actual_ai_behavior"
+  ],
+  "playtype_native_registered": {
+    "native_struct": "PLAYER",
+    "slots": [
+      {
+        "key": "playtype.slot1",
+        "offset_hex": "0x168",
+        "start_bit": 0,
+        "width": 4
+      },
+      {
+        "key": "playtype.slot2",
+        "offset_hex": "0x168",
+        "start_bit": 4,
+        "width": 4
+      },
+      {
+        "key": "playtype.slot3",
+        "offset_hex": "0x169",
+        "start_bit": 0,
+        "width": 4
+      },
+      {
+        "key": "playtype.slot4",
+        "offset_hex": "0x169",
+        "start_bit": 4,
+        "width": 4
+      }
+    ],
+    "initiator": {
+      "key": "playtype.initiator",
+      "offset_hex": "0x16A",
+      "start_bit": 2,
+      "width": 1,
+      "semantic": "candidate offense initiator flag; external archived 2K22 player exports show Yes/No independently of slots; engine priority unknown"
+    },
+    "enum": [
+      {
+        "raw": 0,
+        "label": "None",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 1,
+        "label": "Isolation",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 2,
+        "label": "Isolation Point",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 3,
+        "label": "Isolation Wing",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 4,
+        "label": "P&R Ball Handler",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 5,
+        "label": "P&R Point",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 6,
+        "label": "P&R Wing",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 7,
+        "label": "P&R Roll Man",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 8,
+        "label": "Post Up Low",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 9,
+        "label": "Post Up High",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 10,
+        "label": "Guard Post Up",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 11,
+        "label": "Cutter",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 12,
+        "label": "Handoff Receiver",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 13,
+        "label": "Handoff Passer",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 14,
+        "label": "Mid Range",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      },
+      {
+        "raw": 15,
+        "label": "3 PT",
+        "model_role": "TEAM_PLAYBOOK_COMPATIBILITY_CANDIDATE_NOT_ONE_CRC",
+        "effect": "CPU_TARGET_SELECTION_UNKNOWN"
+      }
+    ],
+    "permissions": {
+      "source": "PROJECT_REGISTRY",
+      "technical_writable": true,
+      "agent_player_refusal_is_future_external": "YES",
+      "human_game_write_gate": "REQUIRED",
+      "cannot_equal_team_book_crc": true,
+      "cannot_equal_12_play_categories": true
+    },
+    "proof_refs": [
+      "config/state_io_native/player.json",
+      "src/gm_state_io/registry.py",
+      "SRC-0086",
+      "SRC-0087"
+    ]
+  },
+  "mode_conflicting_observations": [
+    {
+      "claim": "Touches primarily affects freelance when no set is called; coach Run Plays/POE/Book/PlayTypes influence target",
+      "source_ids": [
+        "SRC-0031",
+        "SRC-0085"
+      ],
+      "evidence": "2021_USER_OPINION_NOT_ENGINE"
+    },
+    {
+      "claim": "Reducing overall Shot distributes CPU 3D scoring",
+      "source_ids": [
+        "SRC-0085"
+      ],
+      "evidence": "2021_COMMUNITY_SOME_GAMES_NO_CONTROL"
+    },
+    {
+      "claim": "Freelance Shot primarily sim stat rather than direct 3D action",
+      "source_ids": [
+        "SRC-0084"
+      ],
+      "evidence": "COMMUNITY_EXPLANATION_NOT_ZERO_EFFECT_VERIFIED"
+    },
+    {
+      "claim": "Shot 0 still led to same two players targeted",
+      "source_ids": [
+        "SRC-0032",
+        "SRC-0085"
+      ],
+      "evidence": "COMMUNITY_COUNTER_EXAMPLE"
+    }
+  ],
+  "gameplay_layers": [
+    "FAST_SIM",
+    "CPU_VS_CPU_RENDERED",
+    "USER_VS_CPU_RENDERED",
+    "COACH_MENU_ONLY"
+  ],
+  "cross_references": [
+    "docs/game_mechanics/guides/K04_COACH_AND_PLAYS.md",
+    "docs/game_mechanics/catalogs/K04_ROLE_CAPABILITY_RESEARCH_V1.json",
+    "docs/game_mechanics/guides/K03_K12_PLAYER_PROFILE_AGENCY.md"
   ]
 }
