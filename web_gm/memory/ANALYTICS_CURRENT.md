@@ -1,5 +1,11 @@
 # Web GPT · 数据整理分析基线当前记忆
 
+## 2026-10-20 DEV29前置：逐场比赛与高级指标来源反向审计
+
+- 玩家确认之前全量采集以已知内存字段为出发点，遗漏逐场比赛、每场球员/球队Box Score、Game Logs、部分高阶指标。现有M02赛季合计/跨批差值不能还原具体对手、球员上场、场次和战术决策，分析模型必须说明`INSUFFICIENT_EVIDENCE`，不可把平均或累计伪装为真实逐场数据。
+- 权威前置研究：[DEV29 NBA2K20–23终极联盟全域机制审计](../../docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V1.md)。Analytics负责`GM_DECISION_TO_EVIDENCE_MATRIX`的最低/推荐/可选数据，Game Logs/Box/Per36/Advanced/Shot Zones和数据保留窗口按不同2K版本及PC22实际可观测区分。高级指标按`NATIVE_UI_OBSERVED`/`EXACT_DERIVED`/`ESTIMATED`/`UNKNOWN`标识，不能挪用NBA.com现实联盟tracking冒充本局游戏数据。
+- 顺序为PR#12收尾→DEV29研究A/B/C→DEV28数据补齐，不在本次文档新增中重新跑分析、访问游戏或发布SQLite。最新生产实态每次重新查latest，旧数据门槛仍有效。
+
 - role: WEB_GPT_ANALYTICS
 - baseline_id: `WEB_GPT_ANALYTICS_V2`
 - method_version: `ANALYTICS_DECISION_READY_V2`
