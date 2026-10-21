@@ -1,5 +1,8 @@
 # 网页 GPT 三基线分工、Python 分析与持久记忆协议
 
+
+> [**所有网页GPT角色首先了解项目意图及范围**](PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：目前研究与基础建设任务是**为独立模型提供游戏原料和工具，不是开发它们的人格**。未来六阶段依次采集、数据分析、Coach、Player、GM、执行；Coach/Player人格尚未开发，现有主要是GM。DEV29 R知识研究只查玩法/数据/控制/联动，DEV28才做I/O接口，Agent人格/谈判/记忆机制由未来独立开发任务解决。下文DEV29 V3里关于“自主权、拒绝和人格”的描写只作目标与素材背景，**不能转成R系列必交的软件行为协议**。
+
 ## 2026-10-20 DEV29 V3：多角色自主涌现和R04全量球员原生数据研究
 
 玩家确定最终系统是**30队GM、教练、球员、媒体等独立模型参与真实NBA2K22虚拟联盟**，依照各自身份、目标、记忆、风险偏好，自行选择/拒绝/谈判并根据比赛反馈不断改变；不是单一GM模型的最优策略执行机。旧BPTI篮球哲学/角色规则作为参考资料，不可剥夺独立角色的决策权。[DEV29 V3权威计划](development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)；[R04完整球员系统研究任务书](development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。
