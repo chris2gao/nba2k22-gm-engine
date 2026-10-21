@@ -1,5 +1,12 @@
 # NBA2K22 GM project instructions
 
+## 2026-10-20 DEV29 V3多智能体涌现目标与球员R04专项
+
+- **玩家最新目标为让GM、教练、球员、媒体等模型自由参与NBA2K22，经过角色自身目标/偏好、独立谈判/拒绝、真实比赛反馈和历史记忆产生涌现**，不再只建设替联盟选择“最优决策”的GM。GM战术文化/BPTI是可借鉴知识而非智能体必须服从的路线。参考[DEV29 V3](docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)。
+- **DEV29重排**：R01公开研究已结束，R02仍NEXT；R03是球队/个人训练、疲劳与伤病/成长一般机制；**新增R04整套球员资料与Player Agent行为原料**：[R04专题](docs/development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，包括个人档案、所有属性、潜力、倾向、4 PlayTypes、徽章/人格徽章、身体耐久及伤病、Play for Win/Financial Security/Loyalty、士气/角色/合同偏好；原R04经营→R05，R05世界→R06，R06整合→R07，FINAL-CODEX后移。新研究继续由网页GPT主导，Codex只在全部研究结束做索引及工程差距收尾。
+- **所有DEV28数据与控制接口面向多角色**（GM、Player、Coach、Media），不仅GM。每项机制记录谁能看/提出/拒绝、游戏原生作用、外挂角色记忆/自主决定与真实游戏执行能力；**外部人格与长期记忆首选外部SQLite**。球员Tendency/训练方案可由模拟球员同意或拒绝，外部角色同意**不替代真实玩家对游戏写入的逐项批准**。普通球员Ability/Potential/Badge依旧不允许直接编辑，历史线只有特定批准例外。
+- 玩家提出可以将某些原生字段改作外挂存储：**此为研发候选，尚不授权重用**；必须先验证游戏本身是否依赖该字段、是否影响比赛/伤病/合同/存档，后续另批安全性和玩家授权。不能未经证明占用忠诚/赢球/金钱/倾向等实际原生功能字段以致原生引擎与外挂角色双重计算。研究变更不自动启动Agent系统开发或DEV28。
+
 ## DEV29 V2研究窗口与知识资料库：网页GPT主导（2026-10-20）
 
 - PR #12/BPTI C已合入`main`。下一阶段为**[DEV29 V2 NBA2K20–23终极联盟游戏万事通知识研究](docs/development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)**，必须先于DEV28的全透明原生I/O开发。新资料库：[docs/game_mechanics/README.md](docs/game_mechanics/README.md)，断点恢复：[PROGRESS](docs/game_mechanics/PROGRESS.md)。
