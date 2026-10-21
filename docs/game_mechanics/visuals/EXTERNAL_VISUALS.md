@@ -342,3 +342,18 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 5. **Business/Staff Budget**：查看Budget/Cash/Staff Salary及解雇/续约的输入栏和值域；含清晰的人员身份与季节。截图本身只能确证可见，不代表工资影响已完成动态因果验证。
 
 不请求用户此刻手动截屏，不开展游戏存档写入或员工聘任测试。**当前原生未认证的不是“功能缺失”，而是缺目标PC22版本、读写接口、真实场上/选秀推进后的反馈。** 研究阶段\`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS\`，下一轮R05-D只做经营知识整合。
+
+## DEV29 R05-D — 经营全域证据复核与旧三届世界规则撤销（2026-10-21）
+
+**本轮没有取得新的、经过完整像素及平台认证的PC22原版MyLEAGUE经营菜单截图，新增合格VIS仍为0。** R05-D主要整合R05-A/B/C三轮游戏功能与项目Native源码，**不为了凑图而把PS5 MyNBA、2015 MyGM、2K19开发图或NBA真实交易网页充作本机画面**。
+
+| 证据线索 | 可用信息 | 不能升级为 |
+|---|---|---|
+| [2K19官方开发博客](https://www.operationsports.com/nba-2k19-myleague-and-mygm-developer-blog/) SRC-0161 | **2K19**游戏从未来4年可交易选秀权扩到5年，是系列历史机制参考 | PC22全部未来选秀权菜单、原生7年交易能力 |
+| [2022现实NBA Stepien文章](https://www.cbssports.com/nba/news/nba-trade-deadline-2022-how-complex-stepien-rule-decides-which-teams-can-and-cant-deal-first-round-picks/) SRC-0162 | 现实2021–22 CBA最长未来7年与连续首轮限制 | NBA2K22 PC原生具有7年选秀权、或用户游戏世界必须受7年上限 |
+| [项目选秀权Native Profile](../../../config/draft_asset_profile.json) | 本机每32字节资产、5届共300枚的真实记录布局（精确技术内容来自仓库） | 5年必须是用户新规则的世界上限；本项目现有执行器已支持第4/5届 |
+| [项目选秀权业务规则](../../../config/gameplay_policy.json) | **2026-10-21删除了外挂三届硬上限**，保留简单签、无保护/Swap、真人批准 | 已在游戏页面成功做4/5届交易，原生选项及合法日期当前UNKNOWN |
+
+**高价值待证的原版游戏界面/动态来源（不要求本轮立刻验证）**：PC22 Salary Cap/Table+Exceptions、FA合同真实报价/签约后读回、完整交易设置及Year 4/5列表、Staff Pool/聘解约、Scouting/新秀榜单、Draft Class选择/正式选中、跨赛季财务和Draft资产变更。
+
+**证据/工程分界**：政策`PLAYER_RULES_20261021_V4`已在GitHub直接更新，游戏Native执行器仍有三届代码路径待另行授权的Codex同步；有政策≠可执行。R05-D研究关闭于`R05_RESEARCH_CLOSED_WITH_PC22_NATIVE_CAPABILITY_GAPS`，下一轮R06尚未启动。
