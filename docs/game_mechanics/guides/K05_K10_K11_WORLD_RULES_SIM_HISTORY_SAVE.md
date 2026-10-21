@@ -75,7 +75,7 @@
 | src/slider_manager.py | 旧读取函数和一键“拟真滑块锁定”设置函数，带静态基址与默认候选 | 旧一键设置函数会**实际修改游戏**，本轮既不调用也不据此认全部原生值已认证 |
 | src/gm_state_io/registry.py | 把world/settings导入世界设置Registry，供以后观察/计划的技术路径 | 软件Registry显示writable不等于本游戏同版本已验效果、当前存档真实值或用户批准写入 |
 
-**一个明确技术差距**：settings.json目前只有simulation.normalize_stats及simulation.sim_quarter_length，而玩家资料清楚区分Normalize Played to Sim **Minutes和Stats两个按钮**。注册表的单字段不证明另一个已经覆盖；其名字和旧slider_manager中的中文解释也存在口径混淆。**不得以normalize_stats=1断定“两个都开”，也不该从一个模糊地址写两处数据**。
+**一个明确技术差距**：settings.json目前只有simulation.normalize_stats及simulation.sim_quarter_length，而玩家资料清楚区分Normalize Played to Sim **Minutes和Stats两个开关**。注册表的单字段不证明另一个已经覆盖；其名字和旧slider_manager中的中文解释也存在口径混淆。**不得以normalize_stats=1断定“两个都开”，也不该从一个模糊地址写两处数据**。
 
 R06-A没有使用PC进程、运行任何CPU游戏、试验写入/重启，也没有取得原版PC MyLEAGUE全套滑块的可核实逐像素截图。绝大多数字段的实际值域、更新机制、原生内存效应/长期存档状态仍需要以后独立取证，不能依赖历史文档标题写“权威/科学最优”就自动升级为游戏事实。
 
