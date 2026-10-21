@@ -448,3 +448,25 @@
 - [R06-A中文攻略](guides/K05_K10_K11_WORLD_RULES_SIM_HISTORY_SAVE.md)和[机读研究目录](catalogs/R06A_WORLD_GAMEPLAY_SIMULATION_SETTINGS_V1.json)登记来源和字段级覆盖，但**没有在当前PC22正式存档上进行新内存读写、真正CPU比赛或重启持久化验证**。
 
 **研究状态`R06_A_RESEARCH_PUBLISHED_WITH_PC22_RUNTIME_VERIFICATION_GAPS`。下一轮R06-B历史纪元/奖项/媒体尚未启动，R05用户批准结案状态不变。**
+
+## DEV29 R06-B — 历史纪元、奖项、联盟纪录、媒体与规则历史（2026-10-21）
+
+研究只收集游戏可见事实、参数及机制；**不设计媒体/教练/球员人格**，不写游戏。历史参考与本游戏实际赛季分离，PC22原生能力状态严格审计。
+
+| 来源编号 | 游戏版本/原始资料 | 支持的研究事实及限制 |
+|---|---|---|
+| **SRC-0174** | [2K23 Eras官方公告 2022-08-18](https://newsroom.2k.com/news/rewrite-nba-history-in-nbar-2k23-with-all-new-mynba-features-for-playstation-5-and-xbox-series-xs-consoles) | 2K23 PS5/XSX ONLY；1983/1991/2002/Modern原生Era，**不是PC22原生功能** |
+| **SRC-0175** | [2K22 MyNBA官方次世代新功能 2021-09-08](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles) | 2K22 PS5/XSX MySTAFF/Prep Hub等；不能推断PC当前世代原生菜单 |
+| **SRC-0176** | [DiamondLobby NBA2K22下载Draft Class指南 2022-04](https://diamondlobby.com/nba-2k22/how-to-download-a-draft-class-nba/) | NBA2K22 MyLEAGUE开档三选与Scouting→Prospect Scouting，文章附截图但不是本存档实机读回 |
+| **SRC-0177** | [OS NBA2K22历史球员Draft Class讨论 2021-12](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/919626-nba-2k22-best-draft-classes-2022-2026) | 玩家历史球员自建Draft Class报告，非当前player_pool库存或全部1984–2020认证 |
+| **SRC-0178** | [Reddit NBA2K22 MyLeague HOF历史菜单问答 2022-07](https://www.reddit.com/r/NBA2k/comments/wbudty) | 同版玩家实际看到Past MVPs/Past Rule Changes/Past Retired Jerseys，HOF最终称找到但无导航截图 |
+| **SRC-0179** | [Reddit NBA Records菜单导航回复 2022-10](https://www.reddit.com/r/NBA2k/comments/ybauno) | 标题/语境可跨2K22/23，回复称League News>League History>NBA Records，不能当原版PC22精确菜单认证 |
+| **SRC-0180** | [Reddit MyLeague历年NBA Records分类 2023-06](https://www.reddit.com/r/NBA2k/comments/14iox5m) | 2K21/23玩家纪录维度与按钮类别讨论；跨版本，不能推断PC22完整历史读写 |
+| **SRC-0181** | [2KSpecialist NBA2K22 PC MyLeague 社交媒体文字资源Mod 2021-12](https://www.2kspecialist.net/2021/12/nba-2k22-myleague-social-media-overhaul.html) | PC22 Social Media / Power Rankings / Mock Draft已有文本资源和模板线索；修改版与无Mod UI/独立媒体AI不可混同 |
+| **SRC-0182** | [NBA2K Wiki MyLEAGUE通用页面](https://nba2k.fandom.com/wiki/MyLEAGUE) | 系列旧作对休赛期Rule Changes、投票、关闭或否决的概述；非原版PC22同一菜单逐项认证 |
+| **SRC-0183** | [OS 2020 MyLEAGUE Rule Change History操作问答](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/887262-reverse-rule-changes) | 旧版可通过League News、Rule Change History、Active Rules检查/关闭；不保证PC22同效 |
+| **SRC-0184** | [OS 2K23 MyNBA Draft Class不生效与Scouting重载社区讨论 2022-09](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/926111-2k23-mynba/page9) | 2K23版本玩家导入问题，PC22仅作为待排查线索 |
+| **SRC-0185** | [2KSpecialist 2K22 历史Draft Class 1950–2017资源 2021-10](https://www.2kspecialist.net/2021/10/nba-2k22-draft-class-1950-79-1980-84.html) | PC22历史人选自建资源/年份形式参考，不代表当前存档选秀完整或类型码已验 |
+| **SRC-0186** | [OS NBA2K19 MyLeague Finals MVP Awards History缺失 2019-11](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/885237-gripe-finals-mvp-s-aren-t-listed-under-players-award-history-in-myleague) | 旧版单玩家获奖菜单遗漏问题，不能当PC22肯定仍有同Bug |
+
+详见 [R06-B K10中文攻略](guides/K10_HISTORY_AWARDS_MEDIA_R06B.md) 与 [31类机读目录](catalogs/R06B_HISTORY_ERA_AWARDS_MEDIA_RESEARCH_V1.json)。**R06-B仅公开研究结案**，新的已确认原版PC22完整菜单像素截图、当前存档运行时历史奖项/纪录读回、跨季持久化和全部菜单合法枚举均为0；这些是待独立验证缺口，绝不可报为已实现。
