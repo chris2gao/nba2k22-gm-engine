@@ -100,3 +100,12 @@ python -B scripts/build_gm_play_pool.py
 用途/适配是现有M2通用篮球知识与战术字面线索的定性解释，非逐条视频认证；无法识别就UNKNOWN。补充查阅的[2K22原作者手册制作说明](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/916550-nba-x%E2%80%99s-o%E2%80%99s/page11)也区分动作、人员适配及CPU/人类使用差异，但该文含2021-11后实际赛季观察，本轮**没有将其球队/战术清单或后续赛季事实导入普通GM**，也没有据此认证本机类型。官方操作入口与较早攻略参见[DEV23补录](development_research/BPTI_DEV23_MANUAL_AND_PLAYER_CALLING_RULES_ADDENDUM_V1.md)。
 
 本轮已执行：从既有归档提取无地址种子、静态名称CRC联接、离线构建、构建期间DTO/引用一致性检查及生成覆盖统计。没有新增或运行测试脚本、旧测试集合、真实GM、比赛或游戏读写。执行器、source_catalog及受控写入能力不变；已记录的team_book后缀匹配问题未修，不将池入口存在当作它已解决。
+
+
+## 2026-10-20 玩家12类战术分类与球员PlayType必须分别记录
+
+玩家补充12类可见战术：单打、挡拆、挡拆外弹中投、挡拆外弹三分、挡拆选项、低位背身、高位背身、后卫背身、中投、三分、手递手、切入。**这些是战术目录的动作类型**；仓库`play_type_names=0..15`（含None）则是球员4槽适用的角色/分配类型。不要把二者当作同一枚举，也不要把`type_candidates=[4,5,6,7]`从名字推断升级为已证本机native membership。真实`play_crc→战术类别`及战术类别→球员PlayType兼容须独立认证。
+
+玩家明确表示：若运行时内存/已加载战术数据不能可靠识别分类，可在Antigravity调查中**向玩家索取必要截图**，可能需要几十张；先查看游戏里所有类型的候选列表，必要时逐类截图/标记覆盖率，而非要求每条1,392 CRC均视频演示。社区先行检索，实机类型枚举随后认证。
+
+具体表格、英文对应、取证和GM字段要求详见[12类战术/内存映射研究](development_research/NBA2K22_PLAYBOOK_12_CATEGORY_AND_NATIVE_TYPE_MAPPING_V1.md)。本次只更新文档，战术池JSON、生成器、native枚举尚无新可认证填充。
