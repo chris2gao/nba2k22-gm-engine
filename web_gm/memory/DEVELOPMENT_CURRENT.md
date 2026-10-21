@@ -1,5 +1,10 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 R07独立审核：694索引/86锚点合格，2项定向修正待办
+
+[正式独立审核](../../docs/development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)已检查7份R07分卷694条、682源JSON原记录逐条匹配、40功能族及86/86原目录锚点、20继承缺口与77种SRC编号（均有登记）；R06B十项奖项缺源继续正确UNKNOWN，未在R07新验证PC22当前数据或执行。研究主体通过但机读目录状态暂为`R07_REVIEW_TARGETED_CATALOG_REPAIR_REQUIRED`：PART_01的R07.0007与R07.0010为无法用完全原文ID匹配的R01指南人工主题ID，应标别名及章节定位；成熟度矩阵F21/F22/F23/F26/F27/F32/F39/F40在`model_query_api_status`混入执行/政策状态，应独立分类并保持原风险说明。修复后二次有界复核即可正式结案并等待用户授权FINAL-CODEX工程对账；不用重做R系列，不启动DEV28、Codex或Coach/Player人格。
+
+
 ## 2026-10-21 DEV29 R07总目录已发布，等待独立验收
 
 - R06正式独立验收已通过：`R06_RESEARCH_CLOSED_WITH_PC22_NATIVE_RUNTIME_AND_PERSISTENCE_GAPS`；R06-B 10奖项来源修复正式接受，仍是真实外部证据缺口。R07本轮完成[七层证据与40组成熟度指南](../../docs/game_mechanics/guides/R07_OBSERVABLE_ACTION_EVIDENCE_MATURITY_GUIDE.md)、[40组能力矩阵与10组既有生产证据](../../docs/game_mechanics/catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)、[694条7卷机读索引总清单](../../docs/game_mechanics/catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)、[R07→DEV28后续证据交接](../../docs/game_mechanics/R07_TO_DEV28_EVIDENCE_HANDOFF.md)。
