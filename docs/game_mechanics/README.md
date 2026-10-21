@@ -5,7 +5,7 @@
 - **[最新正式研究路线（DEV29 V3，多角色自主涌现）](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（[V2网页GPT多轮交付规范](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)继续适用）
 - [研究进度与恢复指针](PROGRESS.md)
 - **[R04-A 球员个人资料、能力、耐久、徽章和自然成长中文指南](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)**：39项当前已命名非耐久属性、16项身体部位耐久，以及职业档案和成长机制；[72项原生+37项候选字段与权限矩阵](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)、[80技能徽章+20人格候选参考目录](catalogs/PLAYER_BADGES_R04_A_REFERENCE.json)。
-- **[R04-B 球员倾向、PlayTypes、AI打法与快模拟机制研究](guides/K03_K12_PLAYER_PROFILE_AGENCY.md#dev29-r04-b--球员行为倾向playtypes发起权与实际3dsim选择机制2026-10-21)**：精确记录48已命名+51未命名原生Byte、99项独立的2K22归档导出名称，及[原生与外站双目录](catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)；三维/快Sim/T​​ouches/Shot作用保留同年玩家争议，不强制统一球员倾向。
+- **[R04-B 球员倾向、PlayTypes、AI打法与快模拟机制研究](guides/K03_K12_PLAYER_PROFILE_AGENCY.md)**：精确记录48已命名+51未命名原生Byte、99项独立的2K22归档导出名称，及[原生与外站双目录](catalogs/R04B_TENDENCY_PLAYSTYLE_RESEARCH_V1.json)；三维/快Sim/Touches/Shot作用保留同年玩家争议，不强制统一球员倾向。
 - [R03-A/B/C历史研究结项](R03_COMPLETION_REVIEW_CHECKPOINT.md)：用户已批准研究结项，原生健康数据欠账继续保留；当前进度以已成功更新的[PROGRESS](PROGRESS.md)为准。
 - [R03-A历史断点](R03_A_PROGRESS_CHECKPOINT.md)：保留首次训练研究与用户跨代复用的原始记载
 - [可追溯的资料来源登记](SOURCES.md)
