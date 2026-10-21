@@ -1,6 +1,6 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
-> [**R05及所有后续轮次的范围前提**](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：本项目六阶段模型流程和DEV29边界以项目级文档为准。本知识库只提供原生游戏事实、玩法、参数和作用，不开发未来Coach/Player人格或固定决策程序。R04研究已结案，R05-A工资帽/合同和R05-B交易机制研究均已发布，R05-C员工/球探/选秀尚未启动。
+> [**R05及所有后续轮次的范围前提**](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：本项目六阶段模型流程和DEV29边界以项目级文档为准。本知识库只提供原生游戏事实、玩法、参数和作用，不开发未来Coach/Player人格或固定决策程序。R04研究已结案，R05-A工资帽/合同和R05-B交易机制研究均已发布，R05-C员工/球探/选秀已出版；下一轮R05-D经营领域整合尚未启动。
 
 ## 2026-10-21 R04独立审核与R05研究范围纠正
 
@@ -9,8 +9,8 @@
 - **R05按A/B/C/D分批研究、不需要回头返工R04**：集中研究NBA2K20–23合同/薪资帽/预算/Staff/Scouting/Draft/Free Agency/交易及合法游戏操作，给未来角色提供**原始可观察信息与可用动作**；不开发薪资谈判算法/球员决策树、教练性格、媒体行为或执行器，成果按原R05研究方法写GitHub并关闭当前轮。
 
 
-**当前权威研究状态**：`R05_B_RESEARCH_PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS`（2026-10-21）；R05-A/B已发布，R04-A/B/C/D保留用户结案、R01/R02已结案、R03已获用户结案。
-**当前最新：`R05_B_RESEARCH_PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS`；下一轮 `R05_C_STAFF_SCOUT_DRAFT_FRANCHISE_RESEARCH`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
+**当前权威研究状态**：`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS`（2026-10-21）；R05-A/B/C已发布，R04-A/B/C/D保留用户结案、R01/R02已结案、R03已获用户结案。
+**当前最新：`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS`；下一轮 `R05_D_FRANCHISE_MECHANICS_INTEGRATION_RESEARCH`（尚未启动）。** R01-A/B/C/D的公开资料研究全部结束；R01已形成带版本边界、GM数据需求、公式和质量检查的中文攻略，**不是说PC22 UI/内存/逐场采集已经实现**。R01遗留UI未知列入以后单独取证待办，**不再重复R01论坛检索**。研究计划：**[DEV29 V3 多智能体世界研究路线](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)**（原[V2](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V2.md)网页GPT多轮交付方法继续有效）。
 
 ## 当前批次地图
 
@@ -32,8 +32,8 @@
 | **R04 整体** | **K03/K12 完整球员职业生命周期、倾向、徽章、人格、合同偏好和选择权** | **RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS / R04-A/B/C/D ALL_PUBLISHED** | [R04独立研究任务书](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)，后续分R04-A/B/C/D |
 | **R05-A** | **工资帽、税线/apron、真实球队经营财务、17项合同Native字段、4种报价曲线、Bird/RFA/QO/Cap Holds/FA分期** | **PUBLISHED_WITH_FINANCE_EXECUTION_GAPS / TASK_CLOSED** | [K07/K08/K09 §§0–7](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、[R05-A机读目录](catalogs/R05A_FINANCE_CONTRACT_MARKET_RESEARCH_V1.json)、SRC-0114..0128 |
 | **R05-B** | **16项交易菜单/市场候选、2021–22 CBA工资匹配分档、原生5年300条未来签与本世界3年允许交易、15常规＋2双向＋13活动名额和有界交易器** | **PUBLISHED_WITH_TRADE_UI_AND_CBA_GAPS / TASK_CLOSED** | [K07/K08/K09 §§8–15](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、[R05-B机读目录](catalogs/R05B_TRADE_PICK_ROSTER_MECHANICS_V1.json)、SRC-0129..0144、VIS有界审计 |
-| **R05-C NEXT** | **员工岗位/合同/职位、Scouting/Prospects/Draft及1984–2020历史选秀、球队Business资源** | **NEXT / NOT_STARTED** | 下一次用户触发后继续R05，不开发Agent |
-| **R05-D PLANNED** | 经营信息/动作/证据索引交叉整合及未知原生项清单 | **PLANNED** | 不开发Agent、不做独立审核 |
+| **R05-C** | **员工8岗13字段、次世代四部门17人名额、球探报告/估计/榜单/侦察进度、Draft Class菜单与1984–2020历史班真实源** | **PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS / TASK_CLOSED** | [K07/K08/K09 §§16–22](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、[R05-C机读目录](catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)、SRC-0145..0160 |
+| **R05-D NEXT** | **K07/K08/K09全部经营信息、原生可选菜单、机制作用与PC22证据缺口的交叉目录** | **NEXT / NOT_STARTED** | 仅知识整合，不开发Agent、不做独立审核；等待用户下次触发 |
 | R06（原R05） | 3D比赛设置、世界线、历史、媒体与存档 | NOT_STARTED | 后续 |
 | R07（原R06） | 多角色知识矩阵、GM/球员/教练/媒体决策证据及可执行能力查漏 | NOT_STARTED | 后续 |
 | FINAL-CODEX | 源/图索引、已有Registry/M0/DEV14/SQLite与DEV28能力差距收尾 | NOT_STARTED | **只在主要网页研究R01–R07结束后** |
@@ -242,3 +242,19 @@ R03已由用户批准结项；独立审核未来由其他模型负责，DEV29研
 6. **旧文档非权威**：`docs/14_TRADE_VALUATION_AND_ASSET_POOLS.md`提到固定10000点资产值/绝对非卖巨星/一刀切125%/更长未来签与保护交换，属于历史方案；现行权威为用户`PLAYER_RULES_20261017_V3`及DEV29原料职责。R05-B没有改旧方案、实现规则/评分，也不为未来GM强制执行任何价值函数。
 
 **R05-C唯一下一入口**：K09员工、球探、选秀与球队经营可操作参数。先GitHub读本PROGRESS和K07–09已发§§0–15、`config/memory_field_profile.json` STAFF字段、游戏Staff Pool/Coach配置、原生历史新秀池/选秀库和已有球探来源，再重点查NBA2K22 PC同代Staff Roles、Scouting/Prospect Grades/Draft Board/Mock Draft、1984–2020 Draft Class与原生Draft Rights、球队Budget和Staff Salary等**真实信息+合法设置选项+效果+平台来源分级**，按相同方式发布中文机制指南、研究目录、SRC/VIS/PROGRESS/README。**不做模型人格/真实GM选人和策略开发、不启动DEV28/Codex或修改游戏。**
+
+
+## R05-C（2026-10-21）— Staff、Scouting、Draft Class与历史新秀研究发布
+
+**正式状态**：`R05_C_RESEARCH_PUBLISHED_WITH_STAFF_SCOUT_DRAFT_UI_GAPS / TASK_CLOSED`。R05-A/B/C均完成当前研究发表，**R05-D经营知识整合尚未启动**。R04原状态继续保持用户批准结案`R04_RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS`。本研究只提供游戏事实/参数/可用选项/效果证据，不进行人格或GM决策规则开发，独立审核由其他模型负责。
+
+**本轮文件**：[K07/K08/K09 §§16–22中文攻略](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)；[R05-C STAFF/Scouting/Draft机读目录](catalogs/R05C_STAFF_SCOUT_DRAFT_MECHANICS_V1.json)；[SOURCES](SOURCES.md)新增**SRC-0145..0160**共16项原始来源登记；[EXTERNAL_VISUALS](visuals/EXTERNAL_VISUALS.md)新增跨世代界面视觉来源审计，**PC22原版员工/球探/选秀完整像素认证仍0张**；[README](README.md)同步入口。
+
+1. 本机**真实Staff静态数据**：`config/memory_field_profile.json`注册13项STAFF字段：position 0..7八类（Head Coach/Assistant Coach/Head Scout/Trainer/GM/Governor/CFO/Assistant GM）、years_left、salary及8种F..A+能力级别（Offense/Defense/Potential/Contracts/Trading/Scouting/Training/Business）和两组0..7体系。项目`src/source_extensions.py::staff_details()`有`STAFF +0x18`职位所属球队反向关系确认，失败标`UNMAPPED_NOT_ASSUMED_FREE_AGENT`，**本地具STAFF读取而非通用人事合同执行器**。当前仓库含staff.json正式批次，不能据此虚构真实当期员工自由池。
+2. NBA2K22官方**PS5/XSX MyNBA**新MySTAFF四部门/Coach细分专岗/Head Scout与4 Domestic＋2 Foreign Scouts/7医疗岗位，受**17名员工资格位置与Staff Budget**约束。其版本不是PC22本世代MyLEAGUE。2021-09同版玩家报告空缺与预算问题、招不同医疗/教练后主观反馈，不形成可量化因果。
+3. 同版NBA2K22选秀攻略的`Scouting→Prospect Scouting`以及Generated/Historic/User-Created/Create-Edit Draft Class、Projected OVR、`D.E. Rank/2K/NBA.com`榜单是**可研究的原生信息类别**；`Scouted 40/100%`、Auto/Manual主要社区经验，真实侦察周期、Current PC22精准效果和每队可见范围尚UNKNOWN。**报道潜力等级≠游戏真Potential，公开GM Potential=1是脱敏，不是零潜力**。
+4. 1984→2020→1984历史选秀轮回仅随**用户确认选秀已经完成**推进；游戏2022年持有签≠“1984年签”。全局Pool旧文有3320条原始槽，`raw_struct[0x70]&0xE0==0xE0`真实类型标志、身份去重/部分届次人员缺额；**历史新人目标60个临时槽位内存没有完成正式可靠注入校准**，差额游戏生成新人，不擅编能力潜力。
+5. 两条严禁混用的旧资料：`docs/05_STAFF_AND_PLAYER_GROWTH.md`曾提“教练直接给球员加Ability”的已废止方案；`src/extract_live_draft_class.py`的旧固定指针区间内存聚类是**未经验证的试验工具**，不是当前已经可用的实时Draft Class源。已公开脱敏的GM球员池**不能被当成原始真实新秀注入源**，否则Potential=1会污染游戏。
+6. 员工薪资/预算不等于球员工资帽可签额度；真实`staff_budget`口径、解聘/签约员工的PC22菜单和值域、球探误差系数、Draft Lottery与Draft Result原生读取，以及新人合同/海外Stash的实际逻辑仍**未认证**。**不存在因研究完成就获准运行游戏聘任/引入新秀的许可**。
+
+**R05-D下一入口**：先从GitHub读本PROGRESS、DEV29 V3、[K07/K08/K09 §§0–22](guides/K07_K08_K09_FRANCHISE_OPERATIONS.md)、R05-A/B/C三份机读目录、SRC-0114..0160和VIS，整理**所有经营领域的原生观察/合法游戏动作/可能效应/证据/缺口交叉表与完整经营知识索引**；纠正重复或来源不明的菜单字段，保持R04/Potential边界。**R05-D只研究整合，不设计球队哲学人格、自由市场算法、选秀评分或启动DEV28/Codex/Agent/游戏写入，也不代替外部模型执行独立审核**。
