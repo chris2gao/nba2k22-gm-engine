@@ -203,3 +203,31 @@
 - 依别的2K游戏/MyCAREER/移动版徽章成长说明将导师`badge_slot.progression`写成MyLEAGUE的已确认执行接口，不采用。
 
 **R03-C结论**：中文K06增补§§9–15，研究范围覆盖；PC当前身体状态/医学事件实时数据仍有缺口。独立审核见`reviews/R03_COMPLETENESS_AUDIT_V1.md`，R04需等玩家完成审核。
+
+## DEV29 R04-A — 人物身份、完整已注册属性、耐久、徽章与自然成长（2026-10-21）
+
+下列**SRC-0072..0082**用于描述NBA2K22个人卡/Vitals、属性分组、Durability、Peak与Badge。**第三方球员站的2021年导出数值不代表本项目当前2021–22存档真实值**；2K22多平台社区编辑数据也不能替换原版，徽章解锁攻略可能特指MyPLAYER。
+
+| ID | 精确来源 / 作者 / 日期 | 本轮用于什么真实研究事实 | 平台、版本及局限 |
+|---|---|---|---|
+| **SRC-0072** | [Operation Sports编辑报道：NBA 2K22 Attention to Detail Roster From CelticLG and Crew](https://www.operationsports.com/nba-2k22-attention-to-detail-roster-from-celticlg-and-crew/)，Chase Becotte，**2021-12-16** | 2K22球员编辑维度包括Tendencies、Attributes、Badges、Durability、Personality、Play Types、Peak Start/End、Potential、Play For Win/Financial Security/Loyalty、合同、号码、身高与容貌等 | EDITORIAL_REPORT_OF_CUSTOM_ROSTER；当时报道明确PC版本still work in progress，**不能把ATD编辑值当原版PC默认** |
+| **SRC-0073** | [OS官方ATD 2K22原始讨论，第11页#151等](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/916767-nba-2k22-attention-to-detail-roster-ps4-ps5-xb1-xbsx-pc-switch/page11)，CelticLG及后续回复，2021-11-27至29 | 作者同年代说明其项目覆盖属性/倾向/Gameplay及Personality Badges/各部位Durability，社区回复声称约60属性、120倾向、80Gameplay和20Personality、25Durability。源码/菜单单项清单并未在帖子完整逐名提供 | PRIMARY_2K22_ROSTER_CREATOR_CLAIM；**这些数量是制作者自述，不是当前项目本机Field Registry的总数证明**，不得以25去猜其余身体字段 |
+| **SRC-0074** | [2kAuction同版球员资料：Marques Johnson](https://2kauction.com/mynba/2k22/players/marques-johnson)，其页面称2K22安装快照/2021年数据 | 对一个真实样例逐栏提供Attributes/Badges/Tendencies/Animations/Bio/Development/Contract/Injuries标签，Bio含生日、身高、臂展、体重、位置/号码、选秀/年资，Development含Peak、最低/最高Potential、Boom/Average/Bust与曲线，显示16个具名Durability | THIRD_PARTY_GAME_SNAPSHOT_INDEX；**不是用户当前PC save的官方直接内存/菜单逐像素认证**，图片或站方抽取字段尚需独立核对 |
+| **SRC-0075** | [2kAuction NBA2K22人物：Joel Embiid（Offseason NBA）](https://2kauction.com/mynba/2k22/players/joel-embiid?roster=offseason_nba)，2021-09基线 | 再次证实导出站分离Bio、Draft、Development、Motivations(Loyalty/Playing for a winner/Financial security)、4 PlayTypes及合同、2个伤病slot等候选结构，人物出生与归属可独立存在 | THIRD_PARTY_2K22_EXPORT；`Motivations`当前项目原生raw偏移未认证，R04-C后续调查原生效果；伤病duration不可与当前剩余天数混淆 |
+| **SRC-0076** | [2kAuction NBA2K22人物：Michael Porter Jr.（Offseason）](https://2kauction.com/mynba/2k22/players/michael-porter-jr?roster=offseason_nba)，2021版数据 | 相同球员不同身体部位耐久值可以不同，Back/Misc/Hip与其它部位独立字段，构成“部位耐久≠实时伤停”示例 | THIRD_PARTY_2K22_EXPORT；任何展示的单人数字都不是当前用户存档数据 |
+| **SRC-0077** | [OS：What causes Player Progression in MyLeague?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/908145-what-causes-player-progression-in-myleague)，2021-03-30至04-01，jk31/El_Tercero/marshdaddy等 | 玩家描述Edit Player→Vitals里Peak Start/End的观察位置，讨论Peak之前成长/之后退化及Potential/Progression Slider对成长的作用，**互有不同解释**；其中用户怀疑Boom/Bust属于Next Gen | NBA2K21时期MyLEAGUE系列级玩家一手经验，不能推成PC22精确年龄衰退函数或Boom/Bust有本世代原生raw |
+| **SRC-0078** | [OS：JB's 2K22 (PS5) Fictional Draft Classes，第6页#78–80](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-rosters/916715-jb-s-2k22-ps5-fictional-draft-classes/page6)，2022-01-29/31 | 2K22 **PS5 MyNBA**玩家明确举例Vitals中Boom/Bust机会、最低/最高潜力，以及Peak Start/End的角色；个人预测未经独立多档概率试验 | SAME_GAME_NEXT_GEN_FRANCHISE_MECHANISM；PC22本世代是否同菜单/编码，尚需认证 |
+| **SRC-0079** | [NBA2KW：NBA 2K22 All-in-One Complete Badges Guide](https://nba2kw.com/nba-2k22-all-in-one-complete-badges-guide-breakdown-analysis)，2021-08-31 | 2K22游戏徽章分Finishing、Shooting、Playmaking、Defense/Rebounding四大类，常见Bronze/Silver/Gold/HOF等级，游戏技术技能辅助玩法 | COMMUNITY_SAME_GAME_MYPLAYER_GUIDE；**徽章点数获取/身高解锁条件不等于MyLEAGUE历史球员自然增长与导师规则** |
+| **SRC-0080** | [OS：NBA 2K22 All Player Ratings 第2页](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/916765-nba-2k22-all-player-ratings/page2)，2021-09-11作者Real2KInsider及2022年内容 | 玩家同版公开列Jordan Clarkson等球员Offense/Defense/Athleticism/Mental评分与Finishing/Shooting/Playmaking/Defense徽章；后续样例将Alpha Dog、Finance Savvy、Media Ringmaster、Expressive、Extremely Confident等列为Personality | ORIGINAL_2021_2K22_PLAYER_EDIT_DISCUSSION；其中任何建议的新评分是**个人自制R2K编辑值**，不属于默认真实数据；原生徽章功能未一一测试 |
+| **SRC-0081** | [NBA2K Wiki：Personality（跨版本术语）](https://nba2k.fandom.com/wiki/Personality)，当前检索可见旧系列人格徽章解释 | Alpha Dog、Low Ego、Friendly、Legendary/High Work Ethic、Unpredictable、Pat My Back、Keep It Real、Hardened、Championship DNA等可作为跨代名录候选 | WIKI_KNOWN_IN_SERIES; **网页直接展开可能受防爬限制，且历史列表不是NBA2K22 PC逐个徽章原生列表**；不把旧MyCareer阈值搬进MyLEAGUE |
+| **SRC-0082** | [2K Film Room：NBA 2K22 Badge Cheat Sheet](https://2kfilmroom.com/cheat-sheets/2k22)，2KFR社区独立表 | 页面可读取完整 **80项Gameplay Badges名称**，Finishing20、Defense&Rebounding20、Playmaking20、Shooting20，可作为检索标签池；已登记于[PLAYER_BADGES_R04_A_REFERENCE.json](catalogs/PLAYER_BADGES_R04_A_REFERENCE.json) | FANSITE_2K22_MYPLAYER_BADGE_REQUIREMENTS；**列出的属性阈值及身高门槛属构建玩法，未证明本机MyLEAGUE当前各球员Badge真实native ID、自然升级公式或执行接口** |
+
+### 本轮仓库内可证据定位（非网页SRC项）
+
+- `config/memory_field_profile.json` 的 `fields.PLAYER` 共**72项已经命名字段：55项attributes（39个非耐久评分 +16个具体Durability），17个合同字段**，只是本项目原生已注册子集。不要误写成2K22游戏完整属性总数；具体源偏移放进矩阵，但游戏里对人的自然变化仍由原生决定。
+- `src/source_extensions.py` 的 `player_details()` 返回 `birth_date`、按game_date推算`age`、`current_team_id`、`contract_team_id`、`attributes/contract`，且明确`overall_rating=None`/`overall_source=NOT_OBSERVED`；不是已经采到全部Vitals或人物Career荣誉。
+- `config/state_io_native/player.json`目前含4 PlayTypes的0..15编码与48个命名Tendency offsets；Registry定义0x458..0x4BA共99字节，**51未知raw**不得给模型解释成确定倾向。此处详细内容留R04-B。
+- **严格保护**：DEV15批准的公开数据库Potential=1是`MASKED_BY_GM_WORLD_RULE`，不是观察到的真实潜力；不得公开真实Potential/泄给GM或媒体；特殊`Intangibles 0x440`仅被批准用于特定经人工审批的轮换偏置，不能衍生“任意评分修改”。
+- 同版2K22球员导出站显示16个具名Durability，ATD编辑作者自述25个**计数口径未证**；不构造9个不存在的名字/偏移，不把`injury_status`和`durability`合并。
+
+**R04-A范围**：K03/K12§§0–8和两份研究矩阵均属于原料交付，R04-B接全部行为倾向及教练/Book联动，R04-C接合同偏好与人格徽章，R04-D完成角色权利与互动图谱。没有创建任何Agent、启动DEV28/Codex、打开游戏或改存档。
