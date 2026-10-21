@@ -1,5 +1,7 @@
 # 批准方案执行基线提示词
 
+> [**执行阶段职责**](PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)：最终执行模型只汇总并在玩家本人批准后落实已确定方案，做身份校验、游戏原生读回；不替Coach/Player/GM建立性格、谈判决策或意愿，模拟角色同意也不是实际写入批准。
+
 BPTI工作包C只为既有M3候选增加体系理由和演化历史，见[B4/B5手册](BPTI_B4_B5_M3_REASONING_AND_EVOLUTION.md)。新增CLI入口不是游戏执行入口；选中动作仍经原DEV14纯规划产生未批准intent/tuple，具体玩家批准、同批来源、身份、CAS、stage/preflight/apply门槛不变。没有新增执行能力或V4启用。
 
 DEV14-H/DEV15已随PR#5合入main（570419a）：按玩家2026-10-20简化决定，信任操作者引用真实聊天批准，以完整tuple及显式写入开关运行apply/rollback；review可选，不强迫玩家输入终端，不建设防伪/权限隔离。MANUAL_OPERATOR_TRUST_ONLY不是真人签发证明，JSON本身不批准。Intangibles仅25–99、0x440；Potential只脱敏数据库；普通GM整体防守/任意切BookID被阻止，新档/换帅恢复本队同名书须独立具体批准。详见[DEV15](DEV15_ROTATION_AND_POTENTIAL_RUNBOOK.md)、[交接](development_reviews/DEV14_TO_M3_HANDOFF.md)。M3-T已随PR#4合入main（504a4c0），提供稀疏intent/approval tuple离线交接，不运行stage/preflight/apply；文件不构成批准，绑定后槽位必须用新来源另提案。工程集成不表示正式游戏执行或存盘验证。
