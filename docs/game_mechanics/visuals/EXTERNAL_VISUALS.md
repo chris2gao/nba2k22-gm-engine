@@ -62,3 +62,27 @@
 - `OLD_SEASON_BOX`：只在已经自然经历跨季的**只读页面**检查旧季；不推进、修改正式存档，也不能以旧赛季Standings推断旧Box有无。
 
 原网页/视频的**准确时间戳若无法读取视频帧，保持`UNKNOWN`**，不得虚构“第几分第几秒看到表头”。图证索引暂不上传任何图片二进制。
+
+
+## DEV29 R01-D — 最终截图来源审计与最小取证请求（2026-10-20）
+
+**本轮合格新增`VIS-####`为0。** 既有`VIS-0001..0007`全部保留原先版本、来源和许可级别；没有任何一条升级为目标`PC22_UI_CONFIRMED`。**严格禁止为了凑图源数把游戏封面、Steam外层成就统计、NBA.com或2K22 PC Remastered当作原版MyLEAGUE统计图。**
+
+### 排除项（不是新增VIS）
+
+- [Steam NBA 2K22社区Screenshots](https://steamcommunity.com/app/1644960/screenshots/)：PC游戏平台身份成立，但当前检索未找到可同时识别原版MyLEAGUE及真实Box/Stats表头的可审查图片；外层“View Stats”是成就页，不等于游戏内`Player Stats`。
+- [GamesKeys 2K22 MyLeague Player Lock文章](https://gameskeys.net/how-to-use-player-lock-position-lock-in-nba-2k22/)：带MyLEAGUE操作截图但主题是`Player Lock/Position Lock`，不显示本次需要的Box/Advanced/Game Logs表头；按键提示采用PS手柄术语，平台不能强行标PC。
+- [2K22 PC Remastered](https://www.2kspecialist.net/2021/09/nba-2k22-remastered-blog-new-details.html)已有`VIS-0005`：非原版，禁止提升UI认证。
+- 其它视频/图片检索：无法读取实际相关帧或得不到准确时间戳时只能记录为`VIDEO_FRAME_NOT_REVIEWED`，**不能声称看见任何具体字段**。
+
+### 从六类TODO缩成三组最少截图（用户将来可按需提供）
+
+| 优先级 | 保留原TODO | 最少提供 | 从画面要记录的原始事实 | 一组图可关闭的疑问 |
+|---|---|---|---|---|
+| **A，先做** | `VIS-TODO-PC22-03`+`04` | **约2张**：①Stats入口/菜单栏/按钮提示；②进入Player Stats或League Leaders后页签、切换提示、真实表头 | `NBA2K22 PC original offline MyLEAGUE`、选中球员或球队、栏目名/英文原文、筛选、按钮映射 | ①Stats、②独立Game Logs是否可由页签看出、④Per36/Advanced候选 |
+| **B，接着做** | `VIS-TODO-PC22-01`+`02` | **约2张**：①已完赛日期的Calendar/选中比赛操作菜单；②同一场Box含主客/列名；另一队或Team Totals不在同屏时补一张 | game date/season/phase、主客、Box球员/球队栏目、能否横向切字段 | ②Calendar→Box实际路线、③Player/Team Box和本季比赛可回看 |
+| **C，按需要** | `VIS-TODO-PC22-05`+`06`及跨季 | **按已有页面补1–2张**：赛后Shot Chart或已经自然完成的旧赛季Box入口；若模拟口径仍不明再拍Setup | 图中区域/图例/时段、是否从旧比赛重开、跨季可见窗口、实际`Normalize`名称 | ⑤Shot Chart与Hot Zones关系、⑥历史留存；节长标准化作为质量上下文 |
+
+当组A/B无法显示某项，也只记录`NOT_VISIBLE_IN_OBSERVED_PAGE`，而不是`FEATURE_ABSENT`。组C的“跨季”只能在**已自然跨季**存档进行只读查询，不为取证擅自模拟或推进正式世界线。所有图片若未来获准归档，需补作者/平台、存档阶段、版本、无模组声明、操作页面路径、字段、权利及`VIS`编号；**本轮没有上传任何第三方媒体文件或生成图像**。
+
+**结案标记**：`R01_RESEARCH_CLOSED_WITH_PC22_UI_GAPS`。未来R01截图空缺交给独立玩家只读页面取证/以后授权的Antigravity，DEV29网页研究现在直接转R02。详见[PROGRESS](../PROGRESS.md)与[攻略§20–22](../guides/K01_K02_GAME_STATS.md)。
