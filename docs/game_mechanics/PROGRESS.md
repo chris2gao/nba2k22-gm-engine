@@ -1,5 +1,16 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R07独立审核A/B定向修复完成，提交独立简短复验
+
+**最新修复交接状态：`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`，不是DEV29结案。** [独立审核报告](../development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)提出的两项问题已局部修正，详细逐项对照及自检见[修复回执](../development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)。
+
+- A：[R07索引PART_01](catalogs/R07_ITEM_TRACEABILITY_PART_01_V1.json)中`R07.0007/K02.SHOT_ZONES`与`R07.0010/K02.PER36`保留原主题名称但明确为`GENERATED_GUIDE_TOPIC_ALIAS`；原文锚点分别是R01指南§4`K02.SHOT_CHART / SHOT_ZONES`和§3`K02.PER_GAME_PER36_ADVANCED`，原文并无这两个完整机器ID。12个手工Markdown指南主题均明确不是原始JSON主键；[694项总清单](catalogs/R07_ITEM_TRACEABILITY_INDEX_V1.json)加别名阅读约定。
+- B：[R07 40组能力矩阵](catalogs/R07_GAME_CAPABILITY_MATURITY_MATRIX_V1.json)仅将F21/F22/F23/F26/F27/F32/F39/F40的`model_query_api_status`改为真实查询证据口径；原签约/交易/选秀权+3/Staff写入与用户审批规则、日期真实来源/批次前提，保留在`execution_warning`、`data_integrity_warning`、`query_prerequisites`、`world_rule_warning`和原已有字段。**所有以前读/写/保存成熟度未因修复而升级。**
+- 已再次完整读取7卷694条，检查694唯一ID和唯一来源身份；原R06-B十项未证奖项、R06-C七项空来源不变，矩阵40组、86锚点和20项（P0=8/P1=10/P2=2）缺口保留。尚需独立审核者复验和正式R07/DEV29结案决定。
+- **不启动FINAL-CODEX**、DEV28、人格系统、Codex或游戏采集/写入；后续工程覆盖对账须玩家另外批准。
+
+
+
 ## 2026-10-21 R07独立审核：主体通过，机读目录两项定向修正后结案
 
 [独立审核报告](../development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)已发布：694记录的7卷全部真实回读/ID唯一；682个源JSON记录准确匹配，R01指南12个人工主题中10个直接字面匹配、**2个需要标明人工主题别名**；40功能族ID唯一，**86/86原目录锚点存在**；20/20 R06D缺口保持，十个R06B待证奖项仍无来源。研究职责和七维数据/真实执行边界符合项目规范；**没有PC22新运行读写或存盘验证**。
