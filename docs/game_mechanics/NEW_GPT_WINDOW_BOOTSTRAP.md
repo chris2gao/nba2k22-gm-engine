@@ -31,6 +31,10 @@ GitHub：`chris2gao/nba2k22-gm-engine`，实际GM目标：NBA2K22 PC本世代MyL
 如R01文献过多，可按R01-A/R01-B拆分：**先完成能完成的若干独立机制卡并提交，再更新PROGRESS恢复指针，停止当前轮**。不需要让用户重述公开攻略，不做后台任务承诺。
 
 ## 后续研究轮次
-R02 Coach/Playbook/战术与联动；R03球员、训练/疲劳/伤病；R04财务/合同/员工/球探/休赛期；R05实时3D/世界与历史、存档自动化；R06交叉关系、资料查漏、GM数据与动作需求矩阵；最终才是小型FINAL-CODEX。每次由玩家打开本窗口继续，先读GitHub最新PROGRESS，自动从未完成项接续。
+**最新DEV29 V3顺序**：R01研究已结束（以GitHub PROGRESS为准）；R02教练/Playbook/战术与联动；R03训练/伤病/疲劳/自然成长的一般机制；**新增独立R04全量球员资料/属性/倾向/徽章/合同偏好与Player Agent自主权**；R05财务/合同/员工/球探/休赛期；R06实时3D/世界线/媒体与历史、存档自动化；R07交叉关系、GM/教练/球员/媒体的决策证据和能力矩阵；最终才是小型FINAL-CODEX。每次由玩家打开本窗口继续，先读GitHub最新PROGRESS，自动从未完成项接续。
 
 所有研究都应落到**仓库文档**，不要只在聊天中生成百页攻略而没有GitHub引用。任何不确定/争议都留证据和待PC22认证项，不能用猜测补齐源字段。
+
+## 2026-10-20 DEV29 V3变更（覆盖上文过期R01启动口令）
+
+本文件最初为**首轮R01**编写，以上“本轮立即执行R01”已过期；恢复必须以最新[PROGRESS](PROGRESS.md)为准，**R01-A/B/C/D已研究结案，下一轮应立即开展R02**，不要因旧文档重复搜Game Logs。最新计划：[DEV29 V3](../development_tasks/DEV_20261020_29_NBA2K20_23_FRANCHISE_MECHANICS_INTELLIGENCE_PREREQUISITE_V3.md)；[R04球员全量信息专项](../development_tasks/DEV29_R04_PLAYER_FULL_PROFILE_AND_AGENCY_RESEARCH_SPEC_V1.md)。研究未来不止服务GM，还服务独立Player/Coach/Media Agents：每种机制都要问哪些角色有权观察、提出、接受、拒绝、谈判，以及如何获得真实游戏反馈。角色自主权不授权直接修改游戏或球员能力。
