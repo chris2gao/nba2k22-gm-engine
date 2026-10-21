@@ -284,3 +284,25 @@
 - 现有`config/memory_field_profile.json`确有17项已注册合同字段，但是没有本轮可核对的三项Motivation原生具名偏移；**字段存在于网页归档不代表现行存档已捕获值，也不代表能直接写**。
 
 **R04-C状态**：`R04_C_RESEARCH_PUBLISHED_WITH_NATIVE_MOTIVATION_GAPS`，下一轮`R04_D_PLAYER_AGENT_DUAL_SEMANTICS_AND_INTERACTION_ATLAS`；独立审核由其它模型负责，本研究窗口不主动审核、不开发Agent，不启动DEV28/Codex或修改游戏。
+
+## DEV29 R04-D — Player/GM/Coach/Media交互原料、模式分界与真实合同和权限（2026-10-21）
+
+以下SRC-0106..0113为**新查阅角度及跨平台取证补充**；旧来源如SRC-0091、0093仍适用并交叉引用。特别注意`2K20 MyGM 2.0≠PC22 Offline MyLEAGUE`，`Real NBA CBA≠2K22 simulation executor`，`2K22次世代MyNBA≠本机菜单截图`。
+
+| Source | 原文链接与时间 | 能提供给角色的研究事实 | 不得迁移的结论 |
+|---|---|---|---|
+| **SRC-0106** | [Operation Sports：NBA2K20 Franchise Mode Developer Blog](https://www.operationsports.com/nba-2k20-franchise-mode-developer-blog-mygm-2-0-myleague-more/)，2019-07-29，原开发团队主稿的**MyGM 2.0 – Action Points / Revamped Relationships / Goals and Tasks** | 开发团队明确谈到MyGM的行动点、日常`chit chat`、玩家/员工/对手GM信任、球员/教练提目标、完成任务会改变关系；教练Gameplan菜单访问可被信任限制。适合作为**多角色关系、请求/拒绝与时间资源**的系列参考 | **2K20_MYGM_ONLY_RELATIONSHIP_AND_AP**，不能说NBA2K22 **PC离线MyLEAGUE已经自带**这些对话、角色Agent和菜单解锁API。同稿“Additional MyLEAGUE-Level Features”里的Morale/Chemistry和FA Badge属于另一范围，见SRC-0091 |
+| **SRC-0107** | [OS：NBA2K21 MyGM vs MyLeague](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/900689-nba-2k21-mygm-vs-myleague)，2020-09-24—10-01；K_rob11/jk31/CujoMatty等 | 同年代玩家明确区分**PC/PS4本世代MyGM的关系/Coach信任**和**MyLEAGUE沙盒**；一个PC玩家通过MyGM谈话获得Coach轮换/叫战术权限，另有玩家只玩MyLEAGUE以保全联盟编辑自由 | 仅跨代对模式边界的用户证据，**不是PC22 MyLEAGUE信任API已证**；作者在PC MyGM提到使用第三方工具，不是原生本游戏接口 |
+| **SRC-0108** | [2K Newsroom NBA2K22 Adds New Features to MyNBA](https://newsroom.2k.com/news/nbar-2k22-adds-new-features-to-mynba-for-playstation-5-and-xbox-series-xs-consoles)，2021-09-08 | 同版官方明确**PS5/Xbox Series MyNBA**有Conditional Coaching（在模拟时符合条件自动替换用人）、MySTAFF、Prep Hub和训练反馈，提供教练自主选择/疲劳管理的经营机制类原料 | OFFICIAL_NBA2K22_NEXT_GEN_ONLY；本项目PC旧世代**没有认证完整Conditional Coaching native原生菜单和动作合同**，不得用新代新闻给原生字段/读值作证 |
+| **SRC-0109** | [OS：MyNBA Can't sub players in during timeouts?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/932739-mynba-can-t-sub-players-in-during-timeouts)，2022-10-27—11-04，jyod21与jk31 #9–12 | 2K23 PS5同代MyNBA玩家明确说新世代MyNBA把MyLEAGUE/MyGM合并，RPG内容可切换，而本世代仍有分离的MyGM与MyLEAGUE；信任可能影响轮换页面 | **2K23_NEXTGEN_COMMUNITY_EXPLANATION**，并非直接2K22 PC菜单取证；作者的“current/last gen”术语必须转成平台和年份 |
+| **SRC-0110** | [NBA.com 2021 Free Agency: Options and Qualifying Offers](https://www.nba.com/news/2021-free-agency-options-and-qualifying-offers)，John Schuhmann，2021-08-02 | 2021现实联盟球员Option行权/拒绝、QO与受限自由球员的实例和时序，帮助区分**可讨论的真实职业选项**与报价接受 | **REAL_NBA_2021_CBA_CONTEXT**，不是2K22游戏CPU合同接受概率、原生写入API或每个本游戏历史选秀球员的有效合同 |
+| **SRC-0111** | [Reddit r/NBA2k：2k21 MyLeague Player Morale "Usage?"](https://www.reddit.com/r/NBA2k/comments/m2yrn7)，2021-03-11 | PS4等平台未明确的同代MyLEAGUE玩家描述Tony Allen已获29分钟但仍抱怨“usage in recent games”，回复认为渴望更多出手；说明**分钟与球权是不同协商概念** | NBA2K21系列玩家个案，**不证明2K22 PC个体士气有确定“多投5次便满意”公式** |
+| **SRC-0112** | [OS：NBA2K22 MyNBA Q&A & General Discussion](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/916965-mynba-q-a-and-general-discussion-thread)，2021-09-13起 | 2K22次世代玩家问复制Player DNA到新秀后Years Pro/年龄身份可能错位，一位玩家称赛中伤情有新动画、播报员晚些提供消息；另外人问Morale是否真影响续约 | SAME_GAME_NEXT_GEN_COMMUNITY_DIRECT_OBSERVATION与问题分开：**发问并不证明Morale续约因果，播报内容不是本机PC真实伤病数据**。可为R04-D公共新闻/私有健康/新秀身份消歧提供案例 |
+| **SRC-0113** | [OS：MyLeague Online Discussion，第11页开发者Leftos历史回复转引](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/774019-myleague-online-discussion-great-dev-post-kickoff/page11)，约2015，本轮搜索索引引用原Leftos回答 | 旧版**ONLINE** MyLEAGUE的CPU交易可提交仲裁、管理员配置是否需要最后批准，体现**联盟管理员审批**可与AI交易接受分开 | OLDER_GAME_ONLINE_ADMIN_SERVER_MECHANISM，**不是**本项目本世代Offline MyLEAGUE内置server arbitration；当前项目玩家批准是外挂安全业务规则，不能当游戏自带在线Admin Approval。原页面本轮直接打开时缓存失败，因此严格只凭搜索返回的历史引用，不作进一步原文断言 |
+
+### 新研究产物的来源与权限入口
+
+- **[Player⇄GM⇄Coach⇄Media八例交互图谱](catalogs/PLAYER_AGENT_INTERACTION_ATLAS.md)**：八种谈判/拒绝/失败场景的事实级别、可选行动、隐私/公开边界及原生交易/签约/训练/战术衔接；**不是执行Agent或真实球员已说过的话**。
+- **[109行球员字段双语义侧表](catalogs/PLAYER_FIELD_DUAL_SEMANTIC_R04D_V1.json)**：基于已发布的[109个字段/候选主目录](catalogs/PLAYER_FIELD_AND_RIGHTS_MATRIX.json)按字段保存`native_semantic, mechanism_grade, current_value_status, identity_requirements, role_rights, external_role_semantic, overwrite_risk`；所列数值不是实际新读取的游戏数据。
+- **本项目工程来源**：[批准交易](../37_APPROVED_TRADE_EXECUTOR.md)有身份/资产/计划/审批/读回边界；[批准签约源码](../38_APPROVED_SIGNING_EXECUTION.md)明确`approved_signing_v1_unvalidated`且默认禁止真实写入；[早期FA竞价计划](../development_tasks/DEV_20261017_04_OFFSEASON_FREE_AGENCY_V1.md)使用固定权重选择的旧工程思路，不自动符合V3人物自由拒绝目标；[世界线原则](../26_GAMEPLAY_ROLES_AND_WORLDLINE_RULES.md)允许历史重力特例但**每次须用户额外批准**，普通改Ability/Potential/Badge禁止。
+- **终态研究结论**：R04-A/B/C/D研究完成`R04_RESEARCH_CLOSED_WITH_NATIVE_MAPPING_GAPS`，合法行动与角色自主原料已经分层；本项目游戏实时Morale/三Motivations Native Offset/51 UNKNOWN字节、完整人格Badge ID、单次签约真实回读等仍未证。不因缺像素就无限重复网络取证，也不伪称系统已完成部署。**下一轮R05市场财务（NOT_STARTED）由用户再次触发**；DEV29不做独立审核、不启动DEV28/Codex/Agent、不修改存档。
