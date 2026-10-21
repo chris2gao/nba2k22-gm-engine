@@ -1,5 +1,11 @@
 # NBA2K22 GM project instructions
 
+## NBA2K22 游戏机制研究先行（2026-10-20）
+
+- **永久开发规范**：[游戏机制研究先行 V1](docs/GAME_MECHANICS_RESEARCH_FIRST_DEVELOPMENT_POLICY_V1.md)。用户要求开发涉及NBA2K22 PC MyLEAGUE篮球/经营机制时，Codex在决定字段意义、枚举、比赛影响、原生操作或数据采集设计之前，主动查已有项目证据、**官方游戏手册/开发者说明、玩家社区及玩法攻略**，对照PC本世代区别次世代，确认正确的业务逻辑后再编码；不要让玩家重复解释社区已公开的基础知识。
+- 示例：NBA2K22战术目录12种类别与球员4槽0–15 PlayType枚举是不同维度；`'95 FIST 15 SIDE`已在共享池对应CRC 0x79215B33，名字携带年份/动作/位置/区域；Play Discipline、Run Plays、Touches等关系先参考Operation Sports，精确内存映射仍由Antigravity验证。研发需要截图时可按类别请玩家分批提供；需人类介入则提交现有成果并TASK_CLOSED，不保持WAITING。
+- **不对纯Git冲突、拼写、路径、直接可由源码确定的机械Bug强制网页搜索**；这次PR #12只解决与main的代码/文档冲突和对应必要检查，保留新的DEV28与本规范，不借研究要求扩展PR范围。开发边界、玩家批准与适量验证继续沿原[开发政策](docs/DEVELOPMENT_BOUNDARIES_AND_VALIDATION_POLICY.md)。
+
 ## 2026-10-20 PR #12受批准四项修复与后续DEV28规划
 
 - 玩家已批准PR #12当前Code Review的F1–F4四项局部修复。Codex在原codex/bpti-package-c分支做蓝图/演化修订一致、同存档分支前态身份、B4市场不被native-action HOLD误禁、portfolio只允许VIABLE_CANDIDATE内部动作；最少直接相关合成测试，报告后TASK_CLOSED，不自动合并或V4启用。查看PR #12 2026-10-20 Web Development评论。
