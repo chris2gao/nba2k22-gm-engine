@@ -392,3 +392,17 @@ R03-B和R03-C新增合格`NBA2K22 PC VANILLA OFFLINE_MYLEAGUE` **健康状态、
 | [2K23 官方MyNBA Eras公告](https://newsroom.2k.com/news/rewrite-nba-history-in-nbar-2k23-with-all-new-mynba-features-for-playstation-5-and-xbox-series-xs-consoles) SRC-0174 | 次世代历史时代表现及官宣开局年份 | `OFFICIAL_2K23_NEXTGEN_NOT_PC22` |
 
 最小后续PC22只读取证：历史奖项/纪录菜单标题和切换按钮；原版社交媒体、实力榜、Mock Draft栏目；历史Draft Class当前年份与已选名单；规则变化生效前后历史页。无需立即要求玩家操作正式赛季或修改游戏。
+
+
+## DEV29 R06-C — 赛季阶段与存档视觉资料审计（2026-10-21）
+
+**新增经PC22当前本局原版完整页面与存档身份认证的VIS=0**。正文来源多为玩家文字证词、其它平台截图或后代Steam说明，未上传第三方图片。
+
+| 资料 | 视觉认证限制 |
+|---|---|
+| [OS 2K22历史休赛期Save建议](https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/923062-thunder-up-rebuild-in-okc-nba-2k22/page10?postcount=314) SRC-0188 | 同版话题中玩家文字建议，未看到可认证PC22全部休赛期UI菜单和存档画面 |
+| [DiamondLobby 2K22启动配置](https://diamondlobby.com/nba-2k22/set-up-fantasy-draft-nba-2k22-myleague/) SRC-0189 | 同版Setup图文，未认证本游戏当前存档状态 |
+| [Reddit PC Steam存盘故障](https://www.reddit.com/r/NBA2k/comments/w6rgfl) SRC-0191 | PC同版玩家文字报告，不含原版逐帧存盘数据和重载差异证据 |
+| [OS PS4 2K22玩家赛程设置](https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/916690-the-orlando-magic-dynasty) SRC-0199 | 同版PS4但非目标PC本局像素认证 |
+
+以后如定向核验，应在**获玩家允许的测试档**采样季后赛结束、Lottery、Draft、FA Moratorium及下赛季开始的页标题与日期，分阶段保存并重进对比GameDate/合同/联盟历史及GameID。**仅为证据需求，不授权现在推进游戏。**
