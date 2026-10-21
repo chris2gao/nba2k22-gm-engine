@@ -176,3 +176,30 @@
 **重要项目内证据链**：`config/state_io_native/training.json`登记6个团队训练布局、5个个人flags、9种通用player_type、可见强度0–5以及fatigue/history/mentor结构候选；`src/gm_state_io/registry.py`精确注册`training.team.{home_intensity,away_intensity,automate_intensity,rest_before_b2b,rest_after_b2b,injury_recovery}`和`training.player.{position,player_type,intensity,injury_recovery,is_intensity_overriden}`。`docs/development_reviews/DEV14_TO_M3_HANDOFF.md`交付说明该11项已进通用Native state I/O，但同批当前疲劳/伤病/导师进度不等于已经可靠采到；无玩家新批准本轮**没有采集、运行或修改**。更旧`docs/research/NBA2K22_MYLEAGUE_GM_CAPABILITY_GAP_AND_MONTHLY_TRAINING_V1.md`“尚无训练接口”的描述属于当时报告，不应取代更新后Registry事实。
 
 **阴性来源审计**：搜索中大量“Madden 22 progressive fatigue”的结果属于NFL游戏，不是NBA2K22；MC/The W使用徽章点数的玩法也**不等于MyLEAGUE自然徽章发展**。2K22次世代官方图片只登记为`NEXT_GEN_VISUAL_ONLY`，未经许可不上传第三方媒体原图。R03-A交付中文K06§0–6和未认证范围，下一轮**R03-B伤病/实时疲劳/恢复/导师与角色选择**。
+
+## DEV29 R03-B/C — 健康事件、疲劳、导师与训练师专项证据（2026-10-21）
+
+**来源编号 SRC-0060..0071**；下列研究优先基于2K22同年玩家及官方开发文本，次世代机制允许复用作“角色选择和风险”资料，具体PC22可读/可写字段仍单独定级。每条明确内容，不把讨论者的slider偏好当科学公式。
+
+| 来源编号 | 可复核原始链接、年份与作者 | 真实支持的论点 | 适用范围和不能推出的结论 |
+|---|---|---|---|
+| SRC-0060 | [Operation Sports: MyLeague Injury Sliders](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/nba-2k-basketball-sliders/918980-myleague-injury-sliders), 2021-11-14 起，swanklax/Cesco/titanswin53 | 同版玩家称手打100+场无伤而Sim有伤；另玩家表示MyNBA首场Luka有真实受伤动画，反驳“3D永不伤”；讨论伤病sliders调高与不同游戏模式的反应 | NBA2K22 MYLEAGUE/MYNBA_COMMUNITY_CONFLICTING；部分PS5次世代，非PC22实机伤病概率公式 |
+| SRC-0061 | [OS: MyLeague Why are there no injuries](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/921266-myleague-why-are-there-no-injuries), 2022-03-06 至04-12，Hockeytown954/vetmin/MattyIce 等 | 49场无受伤、模拟伤病多；有人见鼻骨伤，有人尝试降低Durability得到伤病，反例即使滑块开满仍未受伤 | NBA2K22同年未经控制的**冲突个案**。不能建议改球员Durability或强行生成随机伤病来补“真实性” |
+| SRC-0062 | [RealSport101: NBA 2K22 Sliders](https://realsport101.com/article/nba-2k22-sliders-realistic-settings-gameplay-options-optimized-experience-offense-defense-movement-attributes), 2021/后更新 | 2K22攻略在MyLEAGUE/MyNBA环境里列出Fatigue Rate、Player Recovery Rate、CPU Injury Frequency、模式设置等候选世界层参数 | THIRD_PARTY_SERIES_SLIDER_GUIDE。编辑推荐数值是主观；平台、菜单分组和GM可调整权限须独立PC22验证，不按说明直接写World |
+| SRC-0063 | [OS: MyNBA Injury Duration](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/926689-mynba-injury-duration), 2022-09-16，ripken823/dwayne12345/coachmac75 等 | 2K23 MyNBA玩家说实际康复快于最初伤期；dwayne12345明确声称2K22也有同类问题；讨论伤期/世界Duration与场次长度的混杂 | 2K23直接经验+2K22**回忆**，不可认PC22恢复天数计算或断言bug必现 |
+| SRC-0064 | [2K官方MyNBA开发博客转载（OS）](https://www.operationsports.com/nba-2k22-mynba-details-revealed-mystaff-staff-carousel-prep-hub-attributes-badges-more/), 2021-09-08, Sports Medicine章 | 官方明确2K22**次世代**Team Doctor、Strength Trainer、Stamina Trainer、Sports Psych、Sports Scientist、Physio、Sleep Doctor的各自医学/体能职责 | OFFICIAL_NEXTGEN_MY_NBA，**机制与角色分工可复用**；不是PC22能聘七岗或Trainer加成公式 |
+| SRC-0065 | [OS: Can MyLeague Players Earn New Badges?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/908209-can-myleague-players-earn-new-badges), 2021-04-01..05，canes21 #3/#5/#7 | 玩家称离线MyLeague训练页有Mentor，Mentor页可见目标徽章进度，并可比较前后卡片与赛季自然变化 | NBA2K21时代OFFLINE_MYLEAGUE 一手社区，不能假装PC22当前mentor进度已采 |
+| SRC-0066 | [OS: Mentor System](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/904106-mentor-system), 2020-12-05..2022-01 | 2K21 current gen有人报告老将导师确实向年轻人传过徽章，另有人质疑此类机制过去版本失效 | SAME_SERIES_CURRENT_GEN_PLAYER_EXPERIENCE，不证明NBA2K22每个师徒都有效 |
+| SRC-0067 | [Reddit r/NBA2k: MyLeague Player Mentorship](https://www.reddit.com/r/NBA2k/comments/rm6rr9), 2021-12-22 | 同2K22发售期玩家询问把恩比德Post Lockdown传给斯图尔特是否会扣掉导师徽章，回帖认为不会 | COMMUNITY_2K22_ERA_ANSWER；平台与真实通过结果未证，不是“必定不会消耗导师等级”的官方定律 |
+| SRC-0068 | [Reddit: MyLeague Player Mentorship Broken](https://www.reddit.com/r/NBA2k/comments/s88jzz), 2022-01-20..04-08 | NBA2K22 MyLeague玩家报告为特定学员指定某导师时反复崩溃；其他人表示复现，有人说在更改前单独保存 | COMMUNITY_2K22_FIRST_HAND_FAILURE；非当前PC22定向Crash确认，亦不意味着整个系统失效 |
+| SRC-0069 | [学术研究：Game Load, Fatigue, and Injury Risk in NBA](https://pmc.ncbi.nlm.nih.gov/articles/PMC6107769/), 2018 | 真实NBA观察研究发现球员个体之间负荷/疲劳与伤病风险关系存在差异，给出科学的“不同球员风险可能不同”背景 | REAL_NBA_RESEARCH_ONLY：不是游戏内部伤病概率，也不产生替游戏设置健康阈值的合法权力 |
+| SRC-0070 | [Reddit: 2k22 MyLeague Online](https://www.reddit.com/r/NBA2k/comments/pmg3z0), 2021-09-11..2022-02-24 | 在线MyLeague用户先认为没有Mentoring，后来有人指出可在Overview里滚动并看到“Change Mentor” | NBA2K22 ONLINE_LEAGUE_MENU_DISCUSSION，不能从线上入口推断离线PC具体按钮 |
+| SRC-0071 | [OS: Has Anyone Figured Out How Training/Progression Work?](https://forums.operationsports.com/forums/forum/basketball/nba-2k-basketball/899504-has-anyone-figured-out-how-training-progression-work), 2020-09-03 | 玩家称模拟多个赛季、很高训练强度、A级Trainer与冠军球队，却见部分球员OVR下降；交易到其它队后个别球员又恢复 | NBA2K20/21附近一手社区报告；混杂年限、年龄、世界滑块、潜力、位置与状态，不说明PC22强度→属性数学式 |
+
+**研究中明确否决的不可靠迁移**：
+- 有人把“Trainer A”同次世代Sports Scientist、Physio、Sleep Doctor几项效果相加，缺PC本世代原生依据，不采用。
+- 只看历史`progressive_fatigue_history`已存在指针就宣称可以获取球员当前体力和伤病，缺实机解码、时序与来源批次，不采用。
+- 依据同年手动比赛与Sim伤病争论就修改球员Durability、手动添加伤情以制造事故，**不在DEV29研究授权内**。
+- 依别的2K游戏/MyCAREER/移动版徽章成长说明将导师`badge_slot.progression`写成MyLEAGUE的已确认执行接口，不采用。
+
+**R03-C结论**：中文K06增补§§9–15，研究范围覆盖；PC当前身体状态/医学事件实时数据仍有缺口。独立审核见`reviews/R03_COMPLETENESS_AUDIT_V1.md`，R04需等玩家完成审核。
