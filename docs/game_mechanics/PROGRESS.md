@@ -1,5 +1,11 @@
 # DEV29 游戏机制知识库：研究进度与断点恢复
 
+## 2026-10-21 R07 A/B独立复验通过：DEV29研究阶段正式结案
+
+**当前权威状态：`DEV29_RESEARCH_CLOSED_WITH_PC22_NATIVE_IO_GAPS` / `R07_RESEARCH_CLOSED_AFTER_INDEPENDENT_RECHECK`。** [新窗口独立复验和结案报告](../development_reviews/DEV29_R07_TARGETED_INDEPENDENT_RECHECK_AND_DEV29_CLOSURE_20261021.md)已直接核对7卷694/694唯一ID、682/682原始JSON记录、12个人工R01主题（10字面+2已明示章节别名）、40个功能族和86/86锚点、20/20继承R06缺口（P0=8/P1=10/P2=2），以及R06-B十项/R06-C七项仍无直证。与修复前版本比对，八个查询状态已和写入/政策/时间权限分离，其余32族及实时读回、发布、执行和Save成熟度未升级。**以下“待独立复验”段落保留为结案前历史记录，不再作为最新状态。**
+
+研究结案 **不等于** NBA2K22 PC本机全I/O验收。FINAL-CODEX只读工程覆盖对账、DEV28 D28-0～D28-5、选秀权V4旧+3维护、人格/媒体、任何游戏写入或存档推进，均保持**玩家另行明确批准才能启动**。
+
 ## 2026-10-21 R07独立审核A/B定向修复完成，提交独立简短复验
 
 **最新修复交接状态：`R07_TARGETED_CATALOG_REPAIR_SUBMITTED_FOR_INDEPENDENT_RECHECK`，不是DEV29结案。** [独立审核报告](../development_reviews/DEV29_R07_INDEPENDENT_REVIEW_20261021.md)提出的两项问题已局部修正，详细逐项对照及自检见[修复回执](../development_reviews/DEV29_R07_TARGETED_CATALOG_REPAIR_20261021.md)。
