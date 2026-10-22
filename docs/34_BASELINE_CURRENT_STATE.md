@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 跨模型任务所有权规范及FINAL-CODEX中断恢复（最新协作规则）
+
+**项目正式规范**：[跨模型任务所有权、交付/核验与Antigravity子代理约束](development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)。一个工程主任务由一个owner负责；额度/上下文中断仍由原owner在原工作现场恢复。其它模型只能接独立、边界清楚且可由消费者用SHA、schema、少量测试/实机只读对照验证的辅助工作；辅助`TASK_CLOSED`不等于主任务/生产验收。Gemini Flash子代理型号与主模型具体版本无法保证时默认禁用，不得用可能更弱的未识别subagent承担证据判断。
+
+**FINAL-CODEX玩家已正式授权只读工程覆盖审计，因Codex的5小时额度耗尽中断，尚未正式交付或结案。** 据玩家提供的本地Codex和Antigravity执行回执，Codex工作区`codex/final-code-audit-20261021`已经生成40族JSON矩阵和中间证据；AG-01完成只读现场清点，AG-01B执行SHA备份与三份`DRAFT_PENDING_CODEX_REVIEW`初稿，**仅是辅助交付**，不能代替Codex最终审核。工作区与`_exports`不可清理。原主任务恢复由Codex负责；AG-02/AG-03尚未因这两次辅助交付自动启动。DEV28及真实游戏修改仍待另外批准。以下早期“FINAL-CODEX仍未授权启动”是历史段落，已被本节覆盖。
+
 ## 2026-10-21 DEV29研究阶段正式结案（新窗口独立复验）
 
 **权威最新结论**：[R07两项定向修复独立复验与DEV29研究结案](development_reviews/DEV29_R07_TARGETED_INDEPENDENT_RECHECK_AND_DEV29_CLOSURE_20261021.md)已通过：`R07_RESEARCH_CLOSED_AFTER_INDEPENDENT_RECHECK` / `DEV29_RESEARCH_CLOSED_WITH_PC22_NATIVE_IO_GAPS`。694/694索引、682/682原JSON匹配、40族/86锚点、R06 20缺口均核对；人工主题别名和八项模型查询状态已修复，无任何实机运行/写入/Save成熟度升级。**下方“待独立复验”记录为历史交接状态，现已被本段覆盖。**
