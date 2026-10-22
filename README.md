@@ -22,6 +22,8 @@
 
 ---
 
+> **2026-10-22 平行篮球世界架构共识**：NBA2K22保留比赛、规则状态与球员自然成长的权威地位；外挂通过**原生对象读取 → 现有双SQLite事实镜像及长期历史账本 → 独立AI角色与扩展规则 → 玩家审批后的有限执行/游戏读回**构建平行世界。五层技术架构不改变玩家确定的采集→分析→教练→球员→GM→执行六阶段。新的AG研究Decoder/fixture只是候选来源，不代表已集成生产。数据模型可与Codex验收并行设计，但正式迁移/采集发布需要独立通过验证和批准。详细见[项目级共识](docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)、[平行世界数据架构及食材成熟度](docs/development/PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V1.md)、[Native I/O蓝图V2](docs/development/NATIVE_GAME_DATA_SYSTEM_RECONSTRUCTION_AND_IO_BLUEPRINT_V2.md)及[当前状态](docs/34_BASELINE_CURRENT_STATE.md)。
+
 ## 一、当前运行数据闭环
 
 数据初始化/更新、GM 决策和游戏执行由玩家分别触发。数据窗口先校准当前游戏进程地址，再由只读 Python 脚本抓取、清理、入库、审计、计算及按要求发布，交付后停止。玩家另行让 GM 读取该批次并开始决策；具体方案经玩家批准并带到执行窗口后才处理游戏执行。所有数值计算使用 Python/SQLite，阶段之间不自动衔接。
