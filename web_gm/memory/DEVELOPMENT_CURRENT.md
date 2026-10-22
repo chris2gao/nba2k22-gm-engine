@@ -1,5 +1,11 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 玩家确立跨模型分工与FINAL-CODEX续作原则（最新）
+
+正式规范：[单一Owner／可复查辅助模块／验收与Flash subagent模型边界](../../docs/development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)。**不因另一个模型有额度，就移交主模型未完成的工作**；Codex暂停的FINAL-CODEX由Codex恢复。辅助模型只做可独立验收的底层准备（SHA备份、只读采证、最小故障复现/隔离测试），接收者通过hash、schema、受限复现/抽样进行质量核验；需要全面重做说明分工不合格。Antigravity Gemini Flash子代理默认禁用，只有能可靠确认使用与主模型同一具体级别且获明确许可才用，未知则不倚赖subagent结论。
+
+玩家报告：Codex额度中断前产生6份审计辅助脚本、4份中间JSON与`FINAL_CODEX_CAPABILITY_MATRIX_20261021_V1.json`（40族矩阵），尚未交付正式MD。AG-01已关闭（保全清点），AG-01B已关闭（11项SHA一致备份；三份`DRAFT_PENDING_CODEX_REVIEW`初稿）。这些是**用户转述的本地执行结果，并非本窗口已读取/认可完整内容**；不更改正式原生/SQLite/执行成熟度。此前建议Flash代写Codex主报告的分工过宽，**不再继续扩大**。应待Codex额度恢复自行完成FINAL-CODEX，AG-02原生只读取证、AG-03离线复现若由玩家另外触发属于独立辅助任务；DEV28仍待另批。
+
 ## 2026-10-21 新开发规划窗口接替与DEV29正式研究结案（最高优先级）
 
 - **已重新读取交接快照、项目六模型宗旨、PROGRESS、共享状态和本CURRENT；旧R07“修复待独立复验”指针正式被下列结论覆盖。** [独立R07复验与DEV29研究结案报告](../../docs/development_reviews/DEV29_R07_TARGETED_INDEPENDENT_RECHECK_AND_DEV29_CLOSURE_20261021.md) PASS。
