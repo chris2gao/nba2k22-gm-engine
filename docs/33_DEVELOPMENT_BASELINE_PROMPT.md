@@ -88,6 +88,8 @@ DEV14 V1.1工程增量：统一字段/控制库/采集/受控执行入口与多�
 | 层 | 主要文件 | 开发约束 |
 | --- | --- | --- |
 | Windows 访问 | `src/memory.py`、`scripts/run_admin_data_capture.ps1` | 只读采集；HANDLE/指针 64 位；按实际采集子进程权限判断错误 5 |
+
+**命令行权限提示（玩家要求，2026-10-22）：** 遇到 `Permission denied`、`Access denied` 或 Windows 错误 5 时，先确认拒绝来自操作系统权限；需要时以管理员权限运行对应终端/入口，尤其是访问以管理员权限运行的 NBA2K22 游戏进程。提升权限只解决系统访问级别，不扩展当前任务范围；只读审计没有游戏访问授权时仍不得连接游戏，写入、保存和采集发布继续依照各自明确授权。
 | 地址校准 | `src/address_calibrator.py` | 当前 PID/模块/签名检查；失效重扫；同一目录派生来源，不能选中不同名单副本 |
 | 字段解码 | `src/source_extensions.py`、`src/draft_assets.py`、`config/*field_profile.json`、`config/draft_asset_profile.json`、`src/config.py` | 明确原点、偏移、类型、位域、版本和证据，未知不猜 |
 | 全局模型 | `src/dump_player_pool.py`、`src/historical_rookies.py` | 实时目录数量；暂存后原子切换；历史新秀掩码分类与排重 |
