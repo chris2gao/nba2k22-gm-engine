@@ -2,6 +2,8 @@
 
 **2026-10-21；状态：RESEARCH_DERIVED_ENGINEERING_BLUEPRINT / 待玩家分别授权实施。** 本文件是对[已撤回V1](NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)的技术方法纠错。**不是当前游戏完整页面已经认证的清单，不批准游戏写入、推进赛季、正式数据库迁移、自动合并或启动DEV28实施。**
 
+> **架构修订说明（2026-10-22，优先于下文旧“复用双库物理Schema”限定）：** 可整体重构旧`league_state.sqlite`/`player_pool.sqlite`及其采集、Schema、查询与发布容器，不要求未来GAME/PLAYER/SEASON对象强行装进旧的月度表。优先定义世界线/存档/赛季/比赛/人物实例身份、事件与状态/累计的时间模型、原生证据、派生视图和安全契约，再通过容量/事务验证选定SQLite物理拆分。已有DEV14批准/故障恢复/脱敏/来源校验的**能力与不变量**必须保留，但具体实现允许迁移或重构。新权威文档：[平行世界完整数据架构V2](PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V2.md)。下文V2旧补充作为研发历史阅读，不作为不得重构原库的禁令。
+
 ## 2026-10-22 架构共识与数据建模/验收顺序（V2补充）
 
 **固定架构**：原生NBA2K22引擎（比赛与自然成长权威）→ Native Object Reader（带原生Getter/字节/字段证据）→ 现有双SQLite事实镜像+长期历史账本（同档同批时间身份）→ 独立GM/Coach/Player等角色扩展 → 玩家批准的合法执行器及游戏回读。详细合同见[平行篮球世界数据架构V1](PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V1.md)。该架构不修改既定六阶段独立模型执行顺序。
