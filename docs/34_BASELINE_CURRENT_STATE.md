@@ -1,5 +1,9 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 R01–R07研究反推：以PC22游戏页面/完整对象为界的Native I/O V2蓝图
+
+[正式规划V2](development/NATIVE_GAME_DATA_SYSTEM_RECONSTRUCTION_AND_IO_BLUEPRINT_V2.md)已综合R系列40族/694异质项、R04全球员信息、R05经营、R06世界、DEV24/28及已证`roster_directory`原生数组，确立：真实游戏UI完整页/Tab/表格及合法控件→原生对象/数据产生与查询机制→全量可证镜像/页面等价Query→经批准执行/回读。不能把游戏表格当SQL数据库已证；必须独立验证原生Getter、内存数组、文件存储与是否存在游戏内部数据库。局部PLAYER 55能力+17合同与倾向99byte/Badge研究≠完整PLAYER对象API，早期文档0xDF0与现采0x4F0冲突需保留证据版本。**这份V2只作后续工程的研发蓝图/任务边界，不扩大当前未结案FINAL-CODEX；AG/DEV28实机及任何写入仍需按包授权。**此前按角色筛选字段V1已撤回。
+
 ## 2026-10-21 玩家撤回上一版按用途列字段的原生能力开发规划（最新方法纠错）
 
 此前[原生能力扩展路线V1](development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)已标记`RETRACTED_AS_DEVELOPMENT_PLAN`，**不得用于派发字段补丁式采集任务**。玩家要求以NBA2K22真实游戏UI所有页面/子页/统计表的**完整数据对象与表关系**为发现合同，研究引擎数据生成、原生结构/持久化、索引关联、渲染/汇总、查询能力和全部读写选项。尤其完整PLAYER对象必须包括资料、能力、倾向、徽章、合同、统计、伤病、发展和全部实际可见/关联项目，不能抽取几项偏好代表全体。目前玩家池原生1264字节`raw_struct`与其它独立统计数组已采，但`memory_field_profile`对PLAYER仅55能力+17合同，`player_details()`只是局部投影，不能宣称已有完整玩家对象API。**原生表状记录不等于已发现SQL数据库**：需技术确认底层为可访问DB/内部查询函数/内存数组/关联对象/渲染聚合中的哪种，不能凭UI形态假设支持SQL。FINAL-CODEX现有owner仍为Codex；不自动扩大审计，不从纠错直接启动新研究或真实游戏操作。
