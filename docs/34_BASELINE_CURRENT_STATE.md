@@ -1,5 +1,9 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 玩家撤回上一版按用途列字段的原生能力开发规划（最新方法纠错）
+
+此前[原生能力扩展路线V1](development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)已标记`RETRACTED_AS_DEVELOPMENT_PLAN`，**不得用于派发字段补丁式采集任务**。玩家要求以NBA2K22真实游戏UI所有页面/子页/统计表的**完整数据对象与表关系**为发现合同，研究引擎数据生成、原生结构/持久化、索引关联、渲染/汇总、查询能力和全部读写选项。尤其完整PLAYER对象必须包括资料、能力、倾向、徽章、合同、统计、伤病、发展和全部实际可见/关联项目，不能抽取几项偏好代表全体。目前玩家池原生1264字节`raw_struct`与其它独立统计数组已采，但`memory_field_profile`对PLAYER仅55能力+17合同，`player_details()`只是局部投影，不能宣称已有完整玩家对象API。**原生表状记录不等于已发现SQL数据库**：需技术确认底层为可访问DB/内部查询函数/内存数组/关联对象/渲染聚合中的哪种，不能凭UI形态假设支持SQL。FINAL-CODEX现有owner仍为Codex；不自动扩大审计，不从纠错直接启动新研究或真实游戏操作。
+
 ## 2026-10-21 玩家明确后续战略：原生I/O能力扩展优先于角色人格开发
 
 **已登记规划（不等于DEV28实施授权）**：[原生游戏信息/控制能力最大化与未来角色建模底座V1](development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)。先由原Codex完成已有FINAL-CODEX覆盖对账；以后基于已知资料让Antigravity Gemini Flash按独立有界任务深挖游戏PC22内存、完整球员画像、比赛记录、Playbook/Coach、财务世界信息、原生合法修改表面并提交带真实样本/fixture/测试的独立模块；Codex以低成本复核并承担统一Registry/SQLite查询/执行安全/生产整合。最大化真实可用素材后，才**独立立项**GM/Coach/Player人格模拟。胜利/金钱/忠诚倾向与非竞技徽章既可提供角色原生信息，又可能影响游戏AI/合同/士气，不能未经验证当空闲储存位或自动授权修改；真实写入仍待逐案批准。遵循[跨模型所有权规范](development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)，不以换模型接管未完主任务。
