@@ -1,5 +1,9 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 玩家明确后续战略：原生I/O能力扩展优先于角色人格开发
+
+**已登记规划（不等于DEV28实施授权）**：[原生游戏信息/控制能力最大化与未来角色建模底座V1](development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)。先由原Codex完成已有FINAL-CODEX覆盖对账；以后基于已知资料让Antigravity Gemini Flash按独立有界任务深挖游戏PC22内存、完整球员画像、比赛记录、Playbook/Coach、财务世界信息、原生合法修改表面并提交带真实样本/fixture/测试的独立模块；Codex以低成本复核并承担统一Registry/SQLite查询/执行安全/生产整合。最大化真实可用素材后，才**独立立项**GM/Coach/Player人格模拟。胜利/金钱/忠诚倾向与非竞技徽章既可提供角色原生信息，又可能影响游戏AI/合同/士气，不能未经验证当空闲储存位或自动授权修改；真实写入仍待逐案批准。遵循[跨模型所有权规范](development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)，不以换模型接管未完主任务。
+
 ## 2026-10-21 跨模型任务所有权规范及FINAL-CODEX中断恢复（最新协作规则）
 
 **项目正式规范**：[跨模型任务所有权、交付/核验与Antigravity子代理约束](development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)。一个工程主任务由一个owner负责；额度/上下文中断仍由原owner在原工作现场恢复。其它模型只能接独立、边界清楚且可由消费者用SHA、schema、少量测试/实机只读对照验证的辅助工作；辅助`TASK_CLOSED`不等于主任务/生产验收。Gemini Flash子代理型号与主模型具体版本无法保证时默认禁用，不得用可能更弱的未识别subagent承担证据判断。
