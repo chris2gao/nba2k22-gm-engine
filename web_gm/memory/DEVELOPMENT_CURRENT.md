@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 玩家下一阶段核心意图：原生游戏能力最大化→独立人格建模
+
+[正式规划文档](../../docs/development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)：**先铺设最强可用PC22原生I/O底座，后开发GM/Coach/Player等独立人格系统**。不仅服务当前GM字段，也尽可能发现有意义的比赛动态、完整球员职业/非竞技偏好、人格徽章、Coach/战术、财务/合同、世界及存档信息，以及合法参数/原生效果/AI覆盖/持久性。原生胜利/金钱/忠诚倾向、媒体发言人类徽章等作为未来外部自主角色的**可用事实或经批准行动效果接口**研究，不把字段擅自当无害闲置字节或把外部记忆写到原生能力/徽章。Codex完成当前FINAL-CODEX后再按缺口扩展DEV28；Antigravity Gemini Flash是有能力做独立原生勘探和受限小模块代码开发的工程模型，不限于写报告，Codex复核并集成。当前额度等待期可独立开展边界清楚的只读原生证据小项目，但不改Codex主工作区、不卡主审计。子代理型号未知默认禁用；真实游戏修改和Save仍单独逐项批准。
+
 ## 2026-10-21 玩家确立跨模型分工与FINAL-CODEX续作原则（最新）
 
 正式规范：[单一Owner／可复查辅助模块／验收与Flash subagent模型边界](../../docs/development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)。**不因另一个模型有额度，就移交主模型未完成的工作**；Codex暂停的FINAL-CODEX由Codex恢复。辅助模型只做可独立验收的底层准备（SHA备份、只读采证、最小故障复现/隔离测试），接收者通过hash、schema、受限复现/抽样进行质量核验；需要全面重做说明分工不合格。Antigravity Gemini Flash子代理默认禁用，只有能可靠确认使用与主模型同一具体级别且获明确许可才用，未知则不倚赖subagent结论。
