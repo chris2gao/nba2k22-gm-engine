@@ -1,5 +1,12 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 新开发规划窗口接替与DEV29正式研究结案（最高优先级）
+
+- **已重新读取交接快照、项目六模型宗旨、PROGRESS、共享状态和本CURRENT；旧R07“修复待独立复验”指针正式被下列结论覆盖。** [独立R07复验与DEV29研究结案报告](../../docs/development_reviews/DEV29_R07_TARGETED_INDEPENDENT_RECHECK_AND_DEV29_CLOSURE_20261021.md) PASS。
+- 研究状态：`R07_RESEARCH_CLOSED_AFTER_INDEPENDENT_RECHECK` / `DEV29_RESEARCH_CLOSED_WITH_PC22_NATIVE_IO_GAPS`。独立重验694/694唯一、682/682原JSON匹配、10个R01字面主题+2个明确原文章节别名、40组/86锚点、20原R06缺口、R06-B十项无直证奖项、R06-C七项无来源；修复八组查询成熟度未提升当前真实执行/Save证据。**以下旧时间段状态只作历史记录。**
+- **下一计划门禁**：仅当玩家明确批准，才准备/派发`FINAL-CODEX`有界、只读、静态工程覆盖对账：R07→真实Native Registry/Profile/DEV14→SQLite/manifest/latest→模型安全查询→既有批准执行范围。其后DEV28 D28-0～D28-5须再分别授权；不得自行开发人格、行为权重、谈判、媒体、角色记忆、场上修改或直接动游戏。
+- 另有选秀权V4取消人为三年上限但执行器旧+3未清的**独立授权维护缺口**。六阶段为采集→分析→独立教练（未实现）→独立球员（未实现）→GM→玩家批准后执行；研究知识和工程I/O不等于角色人格。
+
 > [**2026-10-21 长窗口开发规划完整交接**](../../docs/development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：原开发规划聊天将达长度上限。新窗口先读快照及PROGRESS首节，最新R07状态为研究主体通过、两项定向目录修复已提交待独立复验；不得自动宣布DEV29结案或启动FINAL-CODEX/DEV28。六阶段/世界线/选秀权V4旧+3技术差距/人格独立任务均在快照中。
 
 ## 2026-10-21 R07独立审核后两项机读目录定向修正
