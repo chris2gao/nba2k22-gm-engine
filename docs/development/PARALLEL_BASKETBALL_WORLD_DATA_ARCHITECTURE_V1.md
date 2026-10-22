@@ -1,3 +1,5 @@
+> **SUPERSEDED_FOR_STORAGE_ARCHITECTURE（2026-10-22）**：玩家随后明确允许和要求按平行世界目标重新设计全部原生采集容器、SQLite结构、查询接口、库文件和历史模型。此V1中“必须复用原双库物理Schema/不另建第二套生产事实库”的强制说法已撤回；保留的是游戏权威、来源可信、存档代际、潜力脱敏、玩家审批和崩溃安全等不变量。现行权威架构：[平行篮球世界完整数据架构V2](PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V2.md)。
+
 # NBA2K22 平行篮球世界：权威引擎、原生数据镜像与长期历史账本 V1
 
 **2026-10-22；项目级技术共识。** 本文承接[项目开发意图](../PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)与[Native I/O蓝图V2](NATIVE_GAME_DATA_SYSTEM_RECONSTRUCTION_AND_IO_BLUEPRINT_V2.md)，明确架构方向、数据接收顺序及当前食材成熟度。它**不是**生产Schema迁移批准、任何游戏写入批准，也不宣布AG研究模块已通过Codex验收。
