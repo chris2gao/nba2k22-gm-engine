@@ -22,6 +22,8 @@
 
 ---
 
+> **最新架构修订（2026-10-22）**：旧双SQLite、月度表、采集脚本和容器都是可重构的第一代工程，不是平行篮球世界的设计上限。新的[完整数据架构V2](docs/development/PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V2.md)要求先确定世界线、人物/球队/比赛身份与事件/状态/历史/来源模型，再定SQLite实体、文件数、自动化管线及原库迁移；保留已验证事实、用户审批和数据安全的不变量。该修订优先于下方V1链接和旧架构说明。
+
 > **2026-10-22 平行篮球世界架构共识**：NBA2K22保留比赛、规则状态与球员自然成长的权威地位；外挂通过**原生对象读取 → 现有双SQLite事实镜像及长期历史账本 → 独立AI角色与扩展规则 → 玩家审批后的有限执行/游戏读回**构建平行世界。五层技术架构不改变玩家确定的采集→分析→教练→球员→GM→执行六阶段。新的AG研究Decoder/fixture只是候选来源，不代表已集成生产。数据模型可与Codex验收并行设计，但正式迁移/采集发布需要独立通过验证和批准。详细见[项目级共识](docs/PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)、[平行世界数据架构及食材成熟度](docs/development/PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V1.md)、[Native I/O蓝图V2](docs/development/NATIVE_GAME_DATA_SYSTEM_RECONSTRUCTION_AND_IO_BLUEPRINT_V2.md)及[当前状态](docs/34_BASELINE_CURRENT_STATE.md)。
 
 ## 一、当前运行数据闭环
