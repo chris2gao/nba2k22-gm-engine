@@ -1,5 +1,7 @@
 # NBA2K22 GM project instructions
 
+> **跨模型工程协作硬规则（2026-10-21）**：[单一Owner、可复查辅助工作、消费端低成本验收、Flash subagent同型号证明或禁用](docs/development/MULTI_MODEL_TASK_OWNERSHIP_AND_VERIFICATION_V1.md)。Codex未完成的主任务由Codex断点续作，Flash不得接管主审计或以草稿代替正式交付；辅助模型的TASK_CLOSED≠消费端通过验收。未能核实Antigravity子代理使用明确指定的同等级具体模型时，默认不使用子代理。此规则适用于后续所有派单；不授予额外游戏写入或DEV28开发权限。
+
 > [**新网页GPT开发规划/审核窗口长程快照（2026-10-21）**](docs/development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：所有接替模型先读项目宗旨和该快照，再读PROGRESS最新首节及共享状态。六阶段采集→数据分析→Coach（未开发）→Player（未开发）→GM→汇总执行。DEV29仅知识原料；DEV28仅I/O；真人写游戏须批准，未来人格另立项。R07两项源/成熟度修复已提交待独立复验，不自动授权FINAL-CODEX或DEV28。
 
 
