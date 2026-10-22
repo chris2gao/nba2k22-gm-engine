@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 玩家重大方法纠错：原生数据探索必须以游戏页面/数据实体整体为单位
+
+上一版[按用途分组的Native I/O路线V1](../../docs/development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)已撤回为`RETRACTED_AS_DEVELOPMENT_PLAN`，旧§2/§6不可派单。用户认为其忽视游戏真实页面表格、数据如何生产/索引/存储/计算/展示以及每个球员的完整信息，不能仅凭将来人格所需偏好零散抓数值。后续开发规划前必须逐页理解NBA2K22 PC本世代MyLEAGUE中全部原生UI/子页/可见表/列/查询过滤与游戏数据关联，以完整PLAYER、GAME/BOX、TEAM等对象图形成原生来源链，再定义数据库视图、Schema与接口，列出未证字段/界面、不得擅称游戏内部SQL引擎已存在。仓库当前`PLAYER raw_struct`1264字节，Profile只登记55能力+17合同并由`player_details`局部投影；倾向Registry和赛季统计在其它布局/数组，不等于完整可消费球员对象。必须完整调查能力/倾向/徽章/资料/统计/合同等。保留真人授权写入与自然成长政策，未授权不扩展真实游戏写入。Codex FINAL-CODEX保持唯一owner，不让Flash半途接管。
+
 ## 2026-10-21 玩家下一阶段核心意图：原生游戏能力最大化→独立人格建模
 
 [正式规划文档](../../docs/development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)：**先铺设最强可用PC22原生I/O底座，后开发GM/Coach/Player等独立人格系统**。不仅服务当前GM字段，也尽可能发现有意义的比赛动态、完整球员职业/非竞技偏好、人格徽章、Coach/战术、财务/合同、世界及存档信息，以及合法参数/原生效果/AI覆盖/持久性。原生胜利/金钱/忠诚倾向、媒体发言人类徽章等作为未来外部自主角色的**可用事实或经批准行动效果接口**研究，不把字段擅自当无害闲置字节或把外部记忆写到原生能力/徽章。Codex完成当前FINAL-CODEX后再按缺口扩展DEV28；Antigravity Gemini Flash是有能力做独立原生勘探和受限小模块代码开发的工程模型，不限于写报告，Codex复核并集成。当前额度等待期可独立开展边界清楚的只读原生证据小项目，但不改Codex主工作区、不卡主审计。子代理型号未知默认禁用；真实游戏修改和Save仍单独逐项批准。
