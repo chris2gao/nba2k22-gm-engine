@@ -1,5 +1,11 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-21 DEV29研究阶段正式结案（新窗口独立复验）
+
+**权威最新结论**：[R07两项定向修复独立复验与DEV29研究结案](development_reviews/DEV29_R07_TARGETED_INDEPENDENT_RECHECK_AND_DEV29_CLOSURE_20261021.md)已通过：`R07_RESEARCH_CLOSED_AFTER_INDEPENDENT_RECHECK` / `DEV29_RESEARCH_CLOSED_WITH_PC22_NATIVE_IO_GAPS`。694/694索引、682/682原JSON匹配、40族/86锚点、R06 20缺口均核对；人工主题别名和八项模型查询状态已修复，无任何实机运行/写入/Save成熟度升级。**下方“待独立复验”记录为历史交接状态，现已被本段覆盖。**
+
+**仍未授权启动** FINAL-CODEX（有界静态只读I/O对账）、DEV28代码实施、选秀权V4旧+3改造、Coach/Player/Media人格开发及游戏写入。工程状态不因研究结案自动升级。
+
 > [**2026-10-21 长窗口交接及后续开发规划快照**](development_snapshots/DEV_PLANNING_WINDOW_HANDOFF_20261021_V1.md)：网页GPT开发规划窗口上下文上限前已创建完整快照。研究最新可复核状态是R07两项机读修复已提交**待独立复验**，而不是DEV29正式结案；后续FINAL-CODEX仅待用户另批只读覆盖对账，DEV28实施也待另批；V4 Pick取消固定3届上限但旧代码+3仍待维护。
 
 ## 2026-10-21 R07独立审核后A/B机读修正已提交待复验
