@@ -1,5 +1,9 @@
 # Web GPT · 开发规划基线当前记忆
 
+## 2026-10-21 完整Native I/O重建蓝图V2（由R系列与现工程推导）
+
+[完整蓝图V2](../../docs/development/NATIVE_GAME_DATA_SYSTEM_RECONSTRUCTION_AND_IO_BLUEPRINT_V2.md)：从R01–R07/DEV系列现有成果推导研发合同，不再从未来角色需求倒推局部字段。以目标NBA2K22 PC实际**所有页面/子页/表格全部列与操作**为覆盖面，回溯完整PLAYER/TEAM/GAME/SEASON/Staff/Stats/Coach/Finance等对象和原生数据生产、索引、Getter、存档/缓存/可能存在的内部数据访问机制，再镜像真实原生结构为统一SQLite实体/关系/时序/页面查询视图，增加经批准游戏动作及效果验证。一个UI表≠一个SQLite物理表，内部SQL数据库未证；不误把外部M0 SQLite当游戏原生SQL。现有PLAYER原始1264字节及55能力+17合同解码、99原生Tendency byte与独立Stats数组/Badge未解，需要完整对象映射。早期`docs/02`的0xDF0与当前0x4F0冲突以原生实测证据判定，不用历史文档覆盖。Codex原FINAL仍由Codex恢复；Flash以后独立完成可复查原生页面/对象家族模块，Codex统一接入，任何实机读写/Schema变更按包授权。此前V1已撤回。
+
 ## 2026-10-21 玩家重大方法纠错：原生数据探索必须以游戏页面/数据实体整体为单位
 
 上一版[按用途分组的Native I/O路线V1](../../docs/development/NATIVE_IO_CAPABILITY_EXPANSION_AND_FUTURE_ROLE_FOUNDATION_V1.md)已撤回为`RETRACTED_AS_DEVELOPMENT_PLAN`，旧§2/§6不可派单。用户认为其忽视游戏真实页面表格、数据如何生产/索引/存储/计算/展示以及每个球员的完整信息，不能仅凭将来人格所需偏好零散抓数值。后续开发规划前必须逐页理解NBA2K22 PC本世代MyLEAGUE中全部原生UI/子页/可见表/列/查询过滤与游戏数据关联，以完整PLAYER、GAME/BOX、TEAM等对象图形成原生来源链，再定义数据库视图、Schema与接口，列出未证字段/界面、不得擅称游戏内部SQL引擎已存在。仓库当前`PLAYER raw_struct`1264字节，Profile只登记55能力+17合同并由`player_details`局部投影；倾向Registry和赛季统计在其它布局/数组，不等于完整可消费球员对象。必须完整调查能力/倾向/徽章/资料/统计/合同等。保留真人授权写入与自然成长政策，未授权不扩展真实游戏写入。Codex FINAL-CODEX保持唯一owner，不让Flash半途接管。
