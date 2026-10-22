@@ -1,5 +1,9 @@
 # Codex 数据采集/开发/执行基线共用的当前状态与交接索引
 
+## 2026-10-22 最新架构纠错：允许从根本上重构数据平台
+
+玩家明确：旧双库、月度统计表、采集容器及相关API可以且应该根据长期平行篮球世界目标**整体重构**，不是不可更改的默认架构。旧工程是迁移的真实事实和安全机制来源，不能变成新模型的物理约束。新权威文档：[平行篮球世界数据架构V2](development/PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V2.md)。该设计区分world/save/generation/season/game/player incarnation/draft template身份，原生字节/解码事实/事件/状态快照/赛季累计/派生统计/AI决策与受控执行；允许改变SQLite库数量与Schema。候选逻辑与物理设计可以马上进行，正式DDL与数据迁移需Codex验收并单独批准；不直接变更当前生产库和游戏。下一段旧“复用双库”字样应理解为保留**已认证能力与事实**，并非禁止架构重构。
+
 ## 2026-10-22 最新项目级共识：NBA2K22权威引擎与SQLite平行世界
 
 **优先阅读**：[项目宗旨](PROJECT_INTENT_AND_MODEL_DEVELOPMENT_BOUNDARIES.md)、[平行篮球世界数据架构V1](development/PARALLEL_BASKETBALL_WORLD_DATA_ARCHITECTURE_V1.md)与[原生Native I/O蓝图V2](development/NATIVE_GAME_DATA_SYSTEM_RECONSTRUCTION_AND_IO_BLUEPRINT_V2.md)。游戏是比赛与自然成长的权威；外挂基于已认证Native对象建立双SQLite可追溯事实镜像、真实跨赛季历史账本、多角色AI与经玩家批准的有限执行反馈。保留六阶段采集→分析→教练→球员→GM→执行的目标顺序，不把基础设施当角色人格。
